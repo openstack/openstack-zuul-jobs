@@ -1,0 +1,5 @@
+- project:
+    name: openstack-infra/openstack-zuul-jobs
+    check:
+      jobs:
+        - noop
