@@ -41,6 +41,11 @@
     run: tox/py27
 
 - job:
+    name: tox-py35
+    parent: tox
+    run: tox/py35
+
+- job:
     name: tox-tarball
     parent: tox
     run: tox/tarball
