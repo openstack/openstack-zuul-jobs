@@ -29,6 +29,7 @@
     name: tox-docs
     parent: tox
     run: tox/docs
+    post-run: tox/docs-post
 
 - job:
     name: tox-linters
@@ -55,4 +56,5 @@
     name: openstack-infra/openstack-zuul-jobs
     check:
       jobs:
+        - tox-docs
         - tox-linters
