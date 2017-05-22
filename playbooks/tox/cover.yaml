@@ -2,4 +2,5 @@
   roles:
     - extra-test-setup
     - revoke-sudo
-    - run-cover
+    - role: run-cover
+      envlist: cover

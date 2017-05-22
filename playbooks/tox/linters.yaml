@@ -1,6 +1,5 @@
 - hosts: all
-  vars:
-    run_tox_envlist: pep8
   roles:
     - revoke-sudo
-    - run-tox
+    - role: run-tox
+      envlist: pep8
