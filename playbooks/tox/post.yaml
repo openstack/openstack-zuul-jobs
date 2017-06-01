@@ -15,3 +15,14 @@
         mode: pull
         src: "{{ item.path }}/log/"
       with_items: "{{ result.files }}"
+
+    - name: Collect test-results.
+      synchronize:
+        dest: "{{ zuul.executor.log_root }}"
+        mode: pull
+        rsync_opts:
+          - "--ignore-missing-args"
+        src: "{{ zuul_workspace_root }}/src/{{ zuul.project.canonical_name }}/{{ item }}"
+      with_items:
+        - "*testr_results.html.gz"
+        - "*testrepository.subunit.gz"
