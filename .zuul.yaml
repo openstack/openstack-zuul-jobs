@@ -11,7 +11,7 @@
       zuul_workspace_root: /home/zuul
     nodes:
       - name: ubuntu-xenial
-        image: ubuntu-xenial
+        label: ubuntu-xenial
 
 - job:
     name: tox
