@@ -1,5 +1,6 @@
 - hosts: all
   gather_facts: true
-  gather_subset: "!all"
+  gather_subset:
+    - "!all"
   roles:
     - run-bindep
