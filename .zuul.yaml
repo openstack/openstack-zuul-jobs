@@ -1,41 +1,41 @@
 - job:
     name: tox
     parent: base
-    pre-run: tox/pre
-    post-run: tox/post
+    pre-run: playbooks/tox/pre
+    post-run: playbooks/tox/post
 
 - job:
     name: tox-cover
     parent: tox
-    run: tox/cover
+    run: playbooks/tox/cover
     voting: false
 
 - job:
     name: tox-docs
     parent: tox
-    run: tox/docs
-    post-run: tox/docs-post
+    run: playbooks/tox/docs
+    post-run: playbooks/tox/docs-post
 
 - job:
     name: tox-linters
     parent: tox
-    run: tox/linters
+    run: playbooks/tox/linters
 
 - job:
     name: tox-py27
     parent: tox
-    run: tox/py27
+    run: playbooks/tox/py27
 
 - job:
     name: tox-py35
     parent: tox
-    run: tox/py35
+    run: playbooks/tox/py35
 
 - job:
     name: tox-tarball
     parent: tox
-    run: tox/tarball
-    post-run: tox/tarball-post
+    run: playbooks/tox/tarball
+    post-run: playbooks/tox/tarball-post
 
 - project:
     name: openstack-infra/openstack-zuul-jobs
