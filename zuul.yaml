@@ -1,6 +1,6 @@
 - job:
     name: openstack-doc-build
-    parent: zuul-tox-docs
+    parent: tox-docs
     run: playbooks/tox/docs
 
 - project:
@@ -8,4 +8,4 @@
     check:
       jobs:
         - openstack-doc-build
-        - zuul-tox-linters
+        - tox-linters
