@@ -1,6 +1,0 @@
-- hosts: all
-  roles:
-    - extra-test-setup
-    - revoke-sudo
-    - role: run-tox
-      envlist: py35

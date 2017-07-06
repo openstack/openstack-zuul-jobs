@@ -1,7 +1,0 @@
-- hosts: all
-  roles:
-    - revoke-sudo
-    - role: run-tarball
-      envlist: venv
-    - role: run-wheel
-      envlist: venv
