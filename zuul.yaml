@@ -2,6 +2,8 @@
     name: openstack-doc-build
     parent: tox-docs
     run: playbooks/tox/docs
+    roles:
+      - zuul: openstack-infra/openstack-zuul-jobs
 
 - project:
     name: openstack-infra/openstack-zuul-jobs

@@ -1,5 +1,4 @@
 - hosts: all
   roles:
-    - revoke-sudo
-    - role: run-docs
+    - role: zuul-run-docs
       envlist: venv
