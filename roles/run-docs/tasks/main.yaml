@@ -1,4 +1,4 @@
 - name: Execute run-docs.sh.
-  shell: "/usr/local/jenkins/slave_scripts/run-docs.sh {{ tox_envlist }}"
+  command: "/usr/local/jenkins/slave_scripts/run-docs.sh {{ tox_envlist }}"
   args:
     chdir: "{{ zuul_work_dir }}"
