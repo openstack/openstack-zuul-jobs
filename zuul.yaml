@@ -16,6 +16,17 @@
       - name: openstack-infra/zuul
         override-branch: feature/zuulv3
 
+- job:
+    name: tox-py35-constraints
+    parent: tox-py35
+    description: |
+      Run zuul's tox 'py35' job but with OpenStack requirements constraints
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_environment:
+        UPPER_CONSTRAINTS_FILE: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+
 - project:
     name: openstack-infra/openstack-zuul-jobs
     check:
