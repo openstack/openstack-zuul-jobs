@@ -49,3 +49,7 @@
       jobs:
         - openstack-doc-build
         - tox-linters
+    gate:
+      jobs:
+        - openstack-doc-build
+        - tox-linters
