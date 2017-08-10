@@ -29,7 +29,7 @@
 
 - job:
     name: publish-openstack-python-tarball
-    parent: publish-openstack-tarball
+    parent: publish-openstack-artifacts
     description: |
       Publish the results of the tox-tarball job to tarballs.openstack.org.
     pre-run: playbooks/python-tarball/pre
