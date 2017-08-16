@@ -17,6 +17,6 @@
       with_items: "{{ result.files }}"
 
     - name: Rename tarball to branch specific name.
-      shell: "mv *.tar.gz {{ zuul.project.short_name }}-{{ zuul.branch }}.tar.gz"
+      shell: "mv *.tar.gz {{ zuul.project.short_name }}-{{ zuul.branch | replace('/', '-') }}.tar.gz"
       args:
         chdir: "src/{{ zuul.project.canonical_name }}/dist"
