@@ -36,13 +36,6 @@
     run: playbooks/python-tarball/run
     post-run: playbooks/python-tarball/post
 
-- job:
-    name: publish-openstack-python-branch-tarball
-    parent: publish-openstack-python-tarball
-    description: |
-      Publish the results of the tox-tarball job to tarballs.openstack.org.
-    post-run: playbooks/python-branch-tarball/post
-
 - project:
     name: openstack-infra/openstack-zuul-jobs
     check:
