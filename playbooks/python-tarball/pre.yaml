@@ -7,3 +7,4 @@
       bindep_command: /usr/bindep-env/bin/bindep
       bindep_fallback: /usr/local/jenkins/common_data/bindep-fallback.txt
     - revoke-sudo
+    - ensure-tox

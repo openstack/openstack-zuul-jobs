@@ -36,6 +36,14 @@
     run: playbooks/python-tarball/run
     post-run: playbooks/python-tarball/post
 
+- job:
+    name: build-openstack-python-tarball
+    parent: python-sdist
+    description: |
+      Build a tarball using tox but do not upload it anywhere.
+    pre-run: playbooks/python-tarball/pre
+    run: playbooks/python-tarball/run
+
 - project:
     name: openstack-infra/openstack-zuul-jobs
     check:
