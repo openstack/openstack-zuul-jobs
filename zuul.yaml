@@ -44,6 +44,36 @@
     pre-run: playbooks/python-tarball/pre
     run: playbooks/python-tarball/run
 
+- job:
+    name: announce-release
+    description:
+      Send a release announcement after publishing a project
+    pre-run: playbooks/release/pre
+    run: playbooks/release/announce
+    required-projects:
+      - openstack-infra/release-tools
+
+- project-template:
+    name: publish-to-pypi
+    pre-release:
+      jobs:
+        - publish-openstack-python-tarball
+        - announce-release:
+            dependencies:
+              - publish-openstack-python-tarball
+        - propose-update-constraints:
+            dependencies:
+              - publish-openstack-python-tarball
+    release:
+      jobs:
+        - publish-openstack-python-tarball
+        - announce-release:
+            dependencies:
+              - publish-openstack-python-tarball
+        - propose-update-constraints:
+            dependencies:
+              - publish-openstack-python-tarball
+
 - project:
     name: openstack-infra/openstack-zuul-jobs
     check:
