@@ -58,6 +58,9 @@
 
 - project-template:
     name: publish-to-pypi
+    description: |
+      Publish a Python package to PyPI, then send release announcement
+      emails and propose updates to upper-constraints as needed.
     pre-release:
       jobs:
         - publish-openstack-python-tarball
@@ -76,6 +79,18 @@
         - propose-update-constraints:
             dependencies:
               - publish-openstack-python-tarball
+
+- project-template:
+    name: publish-to-pypi-quietly
+    description: |
+      Publish a Python package to PyPI but do not send announce emails or
+      propose upper-constraints updates.
+    pre-release:
+      jobs:
+        - publish-openstack-python-tarball
+    release:
+      jobs:
+        - publish-openstack-python-tarball
 
 - project-template:
     name: openstack-python-jobs
