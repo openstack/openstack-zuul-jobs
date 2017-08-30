@@ -102,6 +102,18 @@
       jobs:
         - tox-py35
 
+- project-template:
+     name: docs-on-readthedocs
+     post:
+       jobs:
+         - trigger-readthedocs
+     pre-release:
+       jobs:
+         - trigger-readthedocs
+     release:
+       jobs:
+         - trigger-readthedocs
+
 - project:
     name: openstack-infra/openstack-zuul-jobs
     check:
