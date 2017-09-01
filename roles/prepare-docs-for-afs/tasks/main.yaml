@@ -1,47 +1,10 @@
-- name: Require tox_envlist variable - {{ tox_envlist }}
-  fail:
-    msg: "tox_envlist is required for this role"
-  when: tox_envlist is not defined
-
-- name: Create my_tox_environment variable
-  set_fact:
-    my_tox_environment: "{{ tox_environment_defaults | combine(tox_environment) }}"
-
-# NOTE(pabelanger): This needs to be refactored to use our tox role in
-# zuul-jobs. But right now, this is very openstack specific.
-- name: Execute run-docs.sh.
+- name: Process built docs to prepare for AFS publication
   args:
-    chdir: "{{ zuul_work_dir | default(omit) }}"
+    chdir: "{{ zuul_work_dir }}"
     executable: /bin/bash
-  environment: "{{ my_tox_environment }}"
   shell: |
     set -ex
-    # If a bundle file is present, call tox with the jenkins version of
-    # the test environment so it is used.  Otherwise, use the normal
-    # (non-bundle) test environment.  Also, run pbr freeze on the
-    # resulting environment at the end so that we have a record of exactly
-    # what packages we ended up testing.
-    #
-
-    venv={{ tox_envlist }}
     tags_handling=${2:both}
-
-    mkdir -p doc/build
-    export HUDSON_PUBLISH_DOCS=1
-    # The "python setup.py build_sphinx" is intentionally executed instead of
-    # "tox -edocs", because it's the standard python project build interface
-    # specified in OpenStack Project Testing Interface:
-    # http://governance.openstack.org/reference/project-testing-interface.html
-    tox -e$venv -- python setup.py build_sphinx
-    result=$?
-
-    [ -e .tox/$venv/bin/pbr ] && freezecmd=pbr || freezecmd=pip
-
-    echo "Begin pbr freeze output from test virtualenv:"
-    echo "======================================================================"
-    .tox/${venv}/bin/${freezecmd} freeze
-    echo "======================================================================"
-
     MARKER_TEXT="Project: $ZUUL_PROJECT Ref: $ZUUL_REFNAME Build: $ZUUL_UUID Revision: $ZUUL_NEWREV"
     echo $MARKER_TEXT > doc/build/html/.root-marker
 
@@ -78,7 +41,7 @@
     elif echo $ZUUL_REFNAME | grep stable/ >/dev/null ; then
         # Put stable release changes in dir named after stable release under the
         # build dir. When Jenkins copies these files they will be accessible under
-        # the developer docs root using the stable release's name.
+        # the developer docs root using the stable release name.
         BRANCH=$(echo $ZUUL_REFNAME | sed 's/stable.//')
         if [ ! -z $BRANCH ] ; then
             # Move the docs into a subdir if this is a stable branch build
@@ -97,4 +60,3 @@
         mkdir -p doc/build/html/$TOP
         mv doc/build/tmp doc/build/html/$BRANCH
     fi
-    exit $result
