@@ -20,15 +20,76 @@
         override-branch: feature/zuulv3
 
 - job:
-    name: tox-py35-constraints
-    parent: tox-py35
+    name: openstack-tox
+    parent: tox
     description: |
-      Run zuul's tox 'py35' job but with OpenStack requirements constraints
+      Base job to run tox jobs with OpenStack project specific updates.
+
+      Processing upper-constraints files from openstack/requirements.
     required-projects:
       - name: openstack/requirements
     vars:
-      tox_environment:
-        UPPER_CONSTRAINTS_FILE: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+      tox_upper_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+
+- job:
+    name: openstack-tox-py27
+    parent: openstack-tox
+    description: |
+      Run unit tests for an OpenStack Python project under cPython version 2.7.
+
+      Uses tox with the ``py27`` environment.
+    vars:
+      tox_envlist: py27
+
+- job:
+    name: openstack-tox-py34
+    parent: openstack-tox
+    description: |
+      Run unit tests for an OpenStack project under cPython version 3.4.
+
+      Uses tox with the ``py34`` environment.
+    vars:
+      tox_envlist: py34
+
+- job:
+    name: openstack-tox-py35
+    parent: openstack-tox
+    description: |
+      Run unit tests for an OpenStack project under cPython version 3.5.
+
+      Uses tox with the ``py35`` environment.
+    vars:
+      tox_envlist: py35
+
+- job:
+    name: openstack-tox-linters
+    parent: openstack-tox
+    description: |
+      Runs code linting tests.
+
+      Uses tox with the ``linters`` environment.
+    vars:
+      tox_envlist: linters
+
+- job:
+    name: openstack-tox-pep8
+    parent: openstack-tox
+    description: |
+      Runs code pep8 tests.
+
+      Uses tox with the ``pep8`` environment.
+    vars:
+      tox_envlist: pep8
+
+- job:
+    name: openstack-tox-cover
+    parent: openstack-tox
+    description: |
+      Run code coverage tests.
+
+      Uses tox with the ``cover`` environment.
+    vars:
+      tox_envlist: cover
 
 - job:
     name: publish-openstack-python-tarball
@@ -92,18 +153,19 @@
       jobs:
         - publish-openstack-python-tarball
 
+
 - project-template:
     name: openstack-python-jobs
     check:
       jobs:
         - openstack-doc-build
-        - tox-pep8
-        - tox-py27
+        - openstack-tox-pep8
+        - openstack-tox-py27
     gate:
       jobs:
         - openstack-doc-build
-        - tox-pep8
-        - tox-py27
+        - openstack-tox-pep8
+        - openstack-tox-py27
     post:
       jobs:
         - publish-openstack-python-branch-tarball
@@ -112,10 +174,10 @@
     name: openstack-python35-jobs
     check:
       jobs:
-        - tox-py35
+        - openstack-tox-py35
     gate:
       jobs:
-        - tox-py35
+        - openstack-tox-py35
 
 - project-template:
      name: docs-on-readthedocs
