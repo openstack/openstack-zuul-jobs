@@ -1,12 +1,14 @@
-- name: Process other branch changes
-  args:
-    chdir: "{{ zuul_work_dir }}"
-  # Put other branch changes in dir named after branch under the
-  # build dir. When Zuul copies these files they will be
-  # accessible under the developer docs root using the branch name.
-  # EG: feature/foo or milestone-proposed
-  shell: |
-    mv doc/build/html doc/build/tmp
-    mkdir -p doc/build/html/{{ zuul.branch | dirname }}
-    mv doc/build/tmp doc/build/html/{{ zuul.branch | basename }}
-  tags: skip_ansible_lint
+# Put other branch changes in dir named after branch under the
+# build dir. When Zuul copies these files they will be
+# accessible under the developer docs root using the branch name.
+# EG: feature/foo or milestone-proposed
+- name: Move built html to the side
+  command: "mv {{ doc_build_dir }}/html {{ doc_build_dir }}/tmp"
+
+- name: Ensure destination path exists
+  file:
+    path: "{{ doc_build_dir }}/html/{{ zuul.branch | dirname }}"
+    state: directory
+
+- name: Move html to branch location
+  command: "mv {{ doc_build_dir }}/tmp {{ doc_build_dir }}/html/{{ zuul.branch }}"

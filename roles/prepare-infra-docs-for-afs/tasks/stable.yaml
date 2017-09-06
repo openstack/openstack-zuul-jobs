@@ -1,12 +1,15 @@
-- name: Process stable branch changes
-  args:
-    chdir: "{{ zuul_work_dir }}"
-  # Put stable release changes in dir named after stable release under the
-  # build dir. When Zuul copies these files they will be accessible under
-  # the developer docs root using the stable release name.
-  shell: |
-    # Move the docs into a subdir if this is a stable branch build
-    mv doc/build/html doc/build/tmp
-    mkdir doc/build/html
-    mv doc/build/tmp doc/build/html/{{ zuul.branch | replace('stable/', '') }}
-  tags: skip_ansible_lint
+# Put stable release changes in dir named after stable release under the
+# build dir. When Zuul copies these files they will be accessible under
+# the developer docs root using the stable release name.
+- name: Move built html to the side
+  command: "mv {{ doc_build_dir }}/html {{ doc_build_dir }}/tmp"
+
+- name: Ensure destination path exists
+  file:
+    path: "{{ doc_build_dir }}/html"
+    state: directory
+
+- name: Move html to branch location without stable prefix
+  command: >-
+    mv {{ doc_build_dir }}/tmp
+      {{ doc_build_dir }}/html/{{ zuul.branch | replace('stable/', '') }}
