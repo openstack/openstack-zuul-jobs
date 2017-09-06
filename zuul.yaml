@@ -6,12 +6,16 @@
 - job:
     name: openstack-doc-build
     parent: tox-docs
-    run: playbooks/tox/docs
+    post-run: playbooks/openstack-doc-build/post
     required-projects:
       - name: openstack/requirements
+    roles:
+      - zuul: openstack-infra/zuul-jobs
     vars:
       tox_environment:
         UPPER_CONSTRAINTS_FILE: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+      tox_envlist: venv
+      tox_extra_args: -vv python setup.py build_sphinx
 
 - job:
     name: tox-py35-on-zuul
