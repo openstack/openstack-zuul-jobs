@@ -1,0 +1,11 @@
+- name: Test the configure-mirrors role
+  hosts: all
+  roles:
+    - role: configure-mirrors
+      mirror_fqdn: "{{ zuul_site_mirror_fqdn }}"
+  post_tasks:
+    - name: Install a package to sanity check the mirror configuration
+      package:
+        name: "emacs"
+        state: "present"
+      become: yes

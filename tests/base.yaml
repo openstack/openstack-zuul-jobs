@@ -1,0 +1,3 @@
+# Roles that are part of the 'base' job
+
+- include: configure-mirrors.yaml

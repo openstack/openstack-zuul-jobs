@@ -4,6 +4,58 @@
 #    https://git.openstack.org/cgit/openstack-infra/zuul-jobs
 
 - job:
+    name: base-integration
+    description: |
+      Runs roles that are included by default in the 'base' job in order to
+      prevent regressions.
+    parent: base-minimal
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    run: tests/base
+
+- job:
+    name: base-integration-centos-7
+    parent: base-integration
+    nodes:
+      - name: centos-7
+        label: centos-7
+
+- job:
+    name: base-integration-debian-jessie
+    parent: base-integration
+    nodes:
+      - name: debian-jessie
+        label: debian-jessie
+
+- job:
+    name: base-integration-fedora-26
+    parent: base-integration
+    nodes:
+      - name: fedora-26
+        label: fedora-26
+
+- job:
+    name: base-integration-opensuse423
+    parent: base-integration
+    nodes:
+      - name: opensuse-423
+        label: opensuse-423
+
+- job:
+    name: base-integration-ubuntu-trusty
+    parent: base-integration
+    nodes:
+      - name: ubuntu-trusty
+        label: ubuntu-trusty
+
+- job:
+    name: base-integration-ubuntu-xenial
+    parent: base-integration
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial
+
+- job:
     name: openstack-doc-build
     parent: tox-docs
     post-run: playbooks/openstack-doc-build/post
