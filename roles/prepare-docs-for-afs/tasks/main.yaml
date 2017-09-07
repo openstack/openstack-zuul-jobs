@@ -1,0 +1,68 @@
+- name: Write marker text
+  copy:
+    dest: "{{ zuul_work_dir }}/doc/build/html/.root-marker"
+    content: "Project: {{ zuul.project.name }} Branch: {{ zuul.branch }} Build: {{ zuul.build }} Revision: {{ zuul.ref }}"
+
+- name: Process tagged build
+  include: tagged.yaml
+  when: "zuul.branch != 'master' and zuul.tag is defined"
+
+- name: Process stable branch build
+  include: stable.yaml
+  when: "'stable' in zuul.branch and zuul.tag is not defined"
+
+- name: Process branch build
+  include: branch.yaml
+  when: "zuul.branch != 'master' and 'stable' not in zuul.branch and zuul.tag is not defined"
+
+- name: Rearrange publish directories
+  args:
+    executable: /bin/bash
+  shell: |
+    set -xe
+    if [[ {{ zuul.ref }} =~ ^refs/tags/ ]]; then
+        # This job should not be configured to run for
+        # pre-releases, so if we have a tag we want to use it as
+        # the publishing location.
+        tag=$(echo {{ zuul.ref }} | cut -d/ -f3-)
+        branch_name=""
+    else
+        # If the ref wasn't a tag, assume it is a branch.
+        branch_name={{ zuul.branch }}
+        tag=""
+    fi
+    # Rearrange the build output to reflect the end publishing
+    # location, so we can use doc/publish as the source for the
+    # publisher step.
+    mkdir -p doc/publish
+    if [[ ! -z "$tag" ]]; then
+        # We will have already moved the content inside
+        # a directory named for the tag, so we move that
+        # directory to the publish location.
+        mv doc/build/html/$tag doc/publish/
+        mv doc/build/.root-marker doc/publish/$tag/
+    elif [[ $branch_name = master ]]; then
+        # The above tasks does not rename the output directory, but
+        # we want it to be called "latest".
+        mv doc/build/html doc/publish/latest
+        mv doc/build/.root-marker doc/publish/latest/
+    elif [[ $branch_name =~ stable/ ]]; then
+        # We will have already moved the content inside
+        # a directory named for the branch, so move that to the
+        # publish location.
+        mv doc/build/html/$(basename $branch_name) doc/publish/
+        mv doc/build/.root-marker doc/publish/$(basename $branch_name)
+    elif [[ $branch_name =~ feature/ ]]; then
+        echo "Docs should not be published for feature branches"
+        exit 1
+    elif [[ $branch_name =~ driverfixes/ ]]; then
+        echo "Docs should not be published for feature branches"
+        exit 1
+    else
+        # What is this even?
+        echo "Could not determine publishing location for branch_name $branch_name"
+        exit 1
+    fi
+    # Move back into doc/build/html for artifact publisher.
+    rm -rf doc/build/html
+    mv doc/publish doc/build/html
