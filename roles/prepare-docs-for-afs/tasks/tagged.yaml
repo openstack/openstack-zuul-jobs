@@ -1,0 +1,18 @@
+# Put tagged releases in proper location. All tagged builds get copied to
+# BUILD_DIR/tagname. If this is the latest tagged release the copy of files
+# at BUILD_DIR remains. When Zuul copies this file the root developer
+# docs are always the latest release with older tags available under the
+# root in the tagname dir.
+- name: Copy content to the temporary location
+  copy:
+    remote_src: true
+    src: "{{ doc_build_dir }}/html"
+    dest: "{{ doc_build_dir }}/tmp"
+
+- name: Make destination path
+  file:
+    path: "{{ doc_build_dir }}/html/{{ zuul.tag | dirname }}"
+    state: directory
+
+- name: Move html to branch location
+  command: "mv {{ doc_build_dir }}/tmp {{ doc_build_dir }}/html/{{ zuul.tag }}"
