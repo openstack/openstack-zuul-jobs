@@ -41,18 +41,17 @@
         # a directory named for the tag, so we move that
         # directory to the publish location.
         mv doc/build/html/$tag doc/publish/
-        mv doc/build/.root-marker doc/publish/$tag/
+        mv doc/build/html/.root-marker doc/publish/$tag/
     elif [[ $branch_name = master ]]; then
         # The above tasks does not rename the output directory, but
         # we want it to be called "latest".
         mv doc/build/html doc/publish/latest
-        mv doc/build/.root-marker doc/publish/latest/
     elif [[ $branch_name =~ stable/ ]]; then
         # We will have already moved the content inside
         # a directory named for the branch, so move that to the
         # publish location.
         mv doc/build/html/$(basename $branch_name) doc/publish/
-        mv doc/build/.root-marker doc/publish/$(basename $branch_name)
+        mv doc/build/html/.root-marker doc/publish/$(basename $branch_name)
     elif [[ $branch_name =~ feature/ ]]; then
         echo "Docs should not be published for feature branches"
         exit 1
