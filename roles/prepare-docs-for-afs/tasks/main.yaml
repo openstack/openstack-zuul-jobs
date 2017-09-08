@@ -17,6 +17,7 @@
 
 - name: Rearrange publish directories
   args:
+    chdir: "{{ zuul_work_dir }}"
     executable: /bin/bash
   shell: |
     set -xe
