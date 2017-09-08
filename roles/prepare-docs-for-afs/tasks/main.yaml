@@ -27,7 +27,7 @@
         tag=$(echo {{ zuul.ref }} | cut -d/ -f3-)
         branch_name=""
     else
-        # If the ref wasn't a tag, assume it is a branch.
+        # If the ref was not a tag, assume it is a branch.
         branch_name={{ zuul.branch }}
         tag=""
     fi
