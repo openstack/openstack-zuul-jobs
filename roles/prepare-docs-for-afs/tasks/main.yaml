@@ -1,6 +1,10 @@
+- name: Set build dir fact
+  set_fact:
+    doc_build_dir: "{{ zuul_work_dir }}/doc/build"
+
 - name: Write marker text
   copy:
-    dest: "{{ zuul_work_dir }}/doc/build/html/.root-marker"
+    dest: "{{ doc_build_dir }}/html/.root-marker"
     content: "Project: {{ zuul.project.name }} Branch: {{ zuul.branch }} Build: {{ zuul.build }} Revision: {{ zuul.ref }}"
 
 - name: Process tagged build
