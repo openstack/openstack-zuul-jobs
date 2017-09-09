@@ -283,28 +283,36 @@
         - publish-openstack-python-docs
 
 - project-template:
+    name: publish-openstack-python-docs-infra
+    check:
+      jobs:
+        - openstack-doc-build
+    gate:
+      jobs:
+        - openstack-doc-build
+    post:
+      jobs:
+        - publish-openstack-python-docs-infra
+
+- project-template:
     name: publish-to-pypi
     description: |
       Publish a Python package to PyPI, then send release announcement
       emails and propose updates to upper-constraints as needed.
     pre-release:
       jobs:
-        - publish-openstack-python-tarball
+        - release-openstack-python
         - announce-release:
             dependencies:
-              - publish-openstack-python-tarball
-        - propose-update-constraints:
-            dependencies:
-              - publish-openstack-python-tarball
+              - release-openstack-python
+        - propose-update-constraints
     release:
       jobs:
-        - publish-openstack-python-tarball
+        - release-openstack-python
         - announce-release:
             dependencies:
-              - publish-openstack-python-tarball
-        - propose-update-constraints:
-            dependencies:
-              - publish-openstack-python-tarball
+              - release-openstack-python
+        - propose-update-constraints
 
 - project-template:
     name: publish-to-pypi-quietly
@@ -313,11 +321,27 @@
       propose upper-constraints updates.
     pre-release:
       jobs:
+        - release-openstack-python
+    release:
+      jobs:
+        - release-openstack-python
+
+- project-template:
+    name: release-openstack-server
+    description: |
+      Release OpenStack server projects.
+    pre-release:
+      jobs:
         - publish-openstack-python-tarball
+        - announce-release:
+            dependencies:
+              - publish-openstack-python-tarball
     release:
       jobs:
         - publish-openstack-python-tarball
-
+        - announce-release:
+            dependencies:
+              - publish-openstack-python-tarball
 
 - project-template:
     name: openstack-python-jobs
@@ -336,6 +360,15 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python34-jobs
+    check:
+      jobs:
+        - openstack-tox-py34
+    gate:
+      jobs:
+        - openstack-tox-py34
+
+- project-template:
     name: openstack-python35-jobs
     check:
       jobs:
@@ -343,6 +376,32 @@
     gate:
       jobs:
         - openstack-tox-py35
+
+- project-template:
+    name: openstack-python35-jobs-nonvoting
+    check:
+      jobs:
+        - openstack-tox-py35:
+            voting: false
+
+- project-template:
+    name: openstack-python-jobs-trusty
+    check:
+      jobs:
+        - openstack-doc-build:
+            nodes: ubuntu-trusty
+        - openstack-tox-pep8:
+            nodes: ubuntu-trusty
+        - openstack-tox-py27:
+            nodes: ubuntu-trusty
+    gate:
+      jobs:
+        - openstack-doc-build:
+            nodes: ubuntu-trusty
+        - openstack-tox-pep8:
+            nodes: ubuntu-trusty
+        - openstack-tox-py27:
+            nodes: ubuntu-trusty
 
 - project-template:
      name: docs-on-readthedocs
