@@ -58,6 +58,7 @@
 - job:
     name: openstack-doc-build
     parent: tox-docs
+    run: playbooks/openstack-doc-build/run
     post-run: playbooks/openstack-doc-build/post
     required-projects:
       - name: openstack/requirements
