@@ -6,8 +6,7 @@ hacking>=0.12.0,<0.13 # Apache-2.0
 
 ansible-lint
 bashate>=0.2
-sphinx>=1.5.1,<1.6.0 # BSD
-oslosphinx>=4.7.0 # Apache-2.0
+zuul-sphinx>=0.1.1
 
 # zuul-jobs is required to supply the ansible roles for ansible-lint
 -e git://git.openstack.org/openstack-infra/zuul-jobs#egg=zuul-jobs

@@ -15,7 +15,6 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../..'))
 # -- General configuration ----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -23,7 +22,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 extensions = [
     'sphinx.ext.autodoc',
     #'sphinx.ext.intersphinx',
-    'oslosphinx'
+    'zuul_sphinx',
 ]
 
 # autodoc generation is a bit aggressive and a nuisance when doing heavy
@@ -38,7 +37,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'openstack-zuul-jobs'
-copyright = u'2016, OpenStack Foundation'
+copyright = u'2017, Zuul contributors'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
