@@ -143,6 +143,16 @@
       tox_envlist: cover
 
 - job:
+    name: openstack-tox-bashate
+    parent: openstack-tox
+    description: |
+      Run bashate tests.
+
+      Uses tox with the ``bashate`` environment.
+    vars:
+      tox_envlist: bashate
+
+- job:
     name: publish-openstack-python-tarball
     parent: publish-openstack-artifacts
     description: |
