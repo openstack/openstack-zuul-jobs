@@ -153,6 +153,16 @@
       tox_envlist: bashate
 
 - job:
+    name: openstack-tox-compare-cover
+    parent: openstack-tox
+    description: |
+      Run coverage comparison tests.
+
+      Uses tox with the ``compare-cover`` environment.
+    vars:
+      tox_envlist: compare-cover
+
+- job:
     name: publish-openstack-python-tarball
     parent: publish-openstack-artifacts
     description: |
