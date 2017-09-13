@@ -89,6 +89,10 @@
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
       Uses tox with the ``py27`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
     vars:
       tox_envlist: py27
 
@@ -99,6 +103,10 @@
       Run unit tests for an OpenStack project under cPython version 3.4.
 
       Uses tox with the ``py34`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
     vars:
       tox_envlist: py34
 
@@ -109,6 +117,10 @@
       Run unit tests for an OpenStack project under cPython version 3.5.
 
       Uses tox with the ``py35`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
     vars:
       tox_envlist: py35
 
@@ -139,6 +151,10 @@
       Run code coverage tests.
 
       Uses tox with the ``cover`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
     vars:
       tox_envlist: cover
 
