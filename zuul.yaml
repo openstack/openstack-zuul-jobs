@@ -204,6 +204,12 @@
     required-projects:
       - openstack-infra/release-tools
 
+- job:
+    name: xstatic-check-version
+    description:
+      Check version used by xstatic packages
+    run: playbooks/xstatic/check-version
+
 - nodeset:
     name: centos-7
     nodes:
@@ -343,14 +349,48 @@
         - announce-release:
             dependencies:
               - release-openstack-python
-        - propose-update-constraints
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
     release:
       jobs:
         - release-openstack-python
         - announce-release:
             dependencies:
               - release-openstack-python
-        - propose-update-constraints
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
+
+- project-template:
+    name: publish-xstatic-to-pypi
+    description: |
+      Publish an XStatic Python package to PyPI, then send release announcement
+      emails and propose updates to upper-constraints as needed.
+    pre-release:
+      jobs:
+        - xstatic-check-version
+        - release-openstack-python:
+            dependencies:
+              - xstatic-check-version
+        - announce-release:
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
+    release:
+      jobs:
+        - xstatic-check-version
+        - release-openstack-python:
+            dependencies:
+              - xstatic-check-version
+        - announce-release:
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
 
 - project-template:
     name: publish-to-pypi-quietly

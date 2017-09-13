@@ -1,0 +1,26 @@
+- hosts: all
+  tasks:
+    - name: Copy version check script
+      copy:
+        src: xstatic_check_version.py
+        dest: xstatic_check_version.py
+
+    - name: Make virtualenv
+      command: virtualenv .venv
+
+    - name: Print pip version
+      command: .venv/bin/pip --version
+
+    - name: Install setuptools_scm
+      command: .venv/bin/pip install setuptools_scm
+
+    - name: Check version match
+      command: .venv/bin/python xstatic_check_version.py
+
+    - name: Clean up after ourselves
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - xstatic_check_version.py
+        - .venv
