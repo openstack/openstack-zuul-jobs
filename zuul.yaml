@@ -125,6 +125,20 @@
       tox_envlist: py35
 
 - job:
+    name: openstack-tox-pypy
+    parent: openstack-tox
+    description: |
+      Run unit tests for an OpenStack Python project under PyPy.
+
+      Uses tox with the ``pypy`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: py27
+
+- job:
     name: openstack-tox-linters
     parent: openstack-tox
     description: |
@@ -460,6 +474,22 @@
     check:
       jobs:
         - openstack-tox-py35:
+            voting: false
+
+- project-template:
+    name: openstack-pypy-jobs
+    check:
+      jobs:
+        - openstack-tox-pypy
+    gate:
+      jobs:
+        - openstack-tox-pypy
+
+- project-template:
+    name: openstack-pypy-jobs-nonvoting
+    check:
+      jobs:
+        - openstack-tox-pypy:
             voting: false
 
 - project-template:
