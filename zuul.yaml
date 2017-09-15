@@ -44,7 +44,7 @@
     nodes: ubuntu-xenial
 
 - job:
-    name: openstack-doc-build
+    name: openstack-doc-build-to-move
     parent: tox-docs
     run: playbooks/openstack-doc-build/run
     post-run: playbooks/openstack-doc-build/post
@@ -324,10 +324,10 @@
     name: publish-openstack-python-docs-infra
     check:
       jobs:
-        - openstack-doc-build
+        - openstack-doc-build-to-move
     gate:
       jobs:
-        - openstack-doc-build
+        - openstack-doc-build-to-move
     post:
       jobs:
         - publish-openstack-python-docs-infra
@@ -385,12 +385,12 @@
     name: openstack-python-jobs
     check:
       jobs:
-        - openstack-doc-build
+        - openstack-doc-build-to-move
         - openstack-tox-pep8
         - openstack-tox-py27
     gate:
       jobs:
-        - openstack-doc-build
+        - openstack-doc-build-to-move
         - openstack-tox-pep8
         - openstack-tox-py27
     post:
@@ -426,7 +426,7 @@
     name: openstack-python-jobs-trusty
     check:
       jobs:
-        - openstack-doc-build:
+        - openstack-doc-build-to-move:
             nodes: ubuntu-trusty
         - openstack-tox-pep8:
             nodes: ubuntu-trusty
@@ -434,7 +434,7 @@
             nodes: ubuntu-trusty
     gate:
       jobs:
-        - openstack-doc-build:
+        - openstack-doc-build-to-move:
             nodes: ubuntu-trusty
         - openstack-tox-pep8:
             nodes: ubuntu-trusty
@@ -464,7 +464,7 @@
         - base-integration-ubuntu-trusty
         - base-integration-ubuntu-xenial
         - base-integration-opensuse423
-        - openstack-doc-build
+        - openstack-doc-build-to-move
         - tox-linters
     gate:
       jobs:
@@ -473,5 +473,5 @@
         - base-integration-ubuntu-trusty
         - base-integration-ubuntu-xenial
         - base-integration-opensuse423
-        - openstack-doc-build
+        - openstack-doc-build-to-move
         - tox-linters
