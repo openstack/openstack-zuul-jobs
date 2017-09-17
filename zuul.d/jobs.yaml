@@ -63,6 +63,7 @@
       - ^roles/configure-unbound/.*
       - ^roles/fetch-zuul-cloner/.*
       - ^roles/mirror-info/.*
+      - ^roles/multi-node-bridge/.*
       - ^roles/multi-node-firewall/.*
       - ^roles/multi-node-hosts-file/.*
       - ^roles/multi-node-known-hosts/.*
