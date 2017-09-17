@@ -1,0 +1,5 @@
+# 'base' is implicit and runs before multi-node roles
+- include: base.yaml
+
+# Roles that are part of the 'multinode' job
+- include: multi-node-known-hosts.yaml

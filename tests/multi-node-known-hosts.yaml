@@ -1,0 +1,27 @@
+- name: Test the multi-node-known-hosts role
+  hosts: all
+  roles:
+    - multi-node-known-hosts
+  post_tasks:
+    - name: lookup known_hosts file
+      command: cat ~/.ssh/known_hosts
+      register: known_hosts
+
+    - name: Set up host addresses
+      set_fact:
+        host_addresses: >
+          {% set hosts = [] -%}
+          {% for host, vars in hostvars.items() -%}
+          {% set _ = hosts.append(vars['nodepool']['private_ipv4']) -%}
+          {% set _ = hosts.append(vars['nodepool']['public_ipv4']) -%}
+          {% if vars['nodepool']['public_ipv6'] != '' -%}
+            {% set _ = hosts.append(vars['nodepool']['public_ipv6']) -%}
+          {% endif -%}
+          {% endfor -%}
+          {{- hosts | sort | unique -}}
+
+    - name: assert that hosts are in known_hosts
+      assert:
+        that:
+          - "item in known_hosts.stdout"
+      with_items: "{{ host_addresses }}"

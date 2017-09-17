@@ -10,6 +10,12 @@
         - base-integration-ubuntu-trusty
         - base-integration-ubuntu-xenial
         - base-integration-opensuse423
+        - multinode-integration-centos-7
+        - multinode-integration-debian-jessie
+        - multinode-integration-fedora-26
+        - multinode-integration-ubuntu-trusty
+        - multinode-integration-ubuntu-xenial
+        - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
         - tox-linters
     gate:
@@ -19,5 +25,11 @@
         - base-integration-ubuntu-trusty
         - base-integration-ubuntu-xenial
         - base-integration-opensuse423
+        - multinode-integration-centos-7
+        - multinode-integration-debian-jessie
+        - multinode-integration-fedora-26
+        - multinode-integration-ubuntu-trusty
+        - multinode-integration-ubuntu-xenial
+        - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
         - tox-linters

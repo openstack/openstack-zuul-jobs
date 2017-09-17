@@ -44,6 +44,119 @@
     nodeset: ubuntu-xenial
 
 - job:
+    name: multinode-integration
+    description: |
+      Runs roles that are included by default in the 'multinode' job in order
+      to prevent regressions.
+    parent: base-minimal
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    run: tests/multinode
+
+- job:
+    name: multinode-integration-centos-7
+    parent: multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: centos-7
+        - name: secondary
+          label: centos-7
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: multinode-integration-debian-jessie
+    parent: multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: debian-jessie
+        - name: secondary
+          label: debian-jessie
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: multinode-integration-fedora-26
+    parent: multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: fedora-26
+        - name: secondary
+          label: fedora-26
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: multinode-integration-opensuse423
+    parent: multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: opensuse-423
+        - name: secondary
+          label: opensuse-423
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: multinode-integration-ubuntu-trusty
+    parent: multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: ubuntu-trusty
+        - name: secondary
+          label: ubuntu-trusty
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: multinode-integration-ubuntu-xenial
+    parent: multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: ubuntu-xenial
+        - name: secondary
+          label: ubuntu-xenial
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+
+- job:
     name: build-openstack-sphinx-docs
     parent: tox-docs
     description: |
