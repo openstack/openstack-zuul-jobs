@@ -44,17 +44,24 @@
     nodes: ubuntu-xenial
 
 - job:
-    name: openstack-doc-build-to-move
+    name: build-openstack-sphinx-docs
     parent: tox-docs
-    run: playbooks/openstack-doc-build/run
-    post-run: playbooks/openstack-doc-build/post
+    description: |
+      Builds docuemtation using Sphinx per the OpenStack PTI and then
+      collects the results into the log directory so that they can be
+      examined in their published form after a successful build.
+      It runs the prepare-docs-for-afs role so that AFS stamp files
+      can be examined if desired, and also validates htaccess files
+      using the whereto tool.
+    run: playbooks/sphinx-docs/run
+    post-run: playbooks/sphinx-docs/post
+    success-url: html/
     required-projects:
       - name: openstack/requirements
     roles:
       - zuul: openstack-infra/zuul-jobs
     vars:
       tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
-      tox_upper_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
       tox_envlist: venv
       tox_extra_args: -vv python setup.py build_sphinx
 
@@ -344,10 +351,10 @@
     name: publish-openstack-python-docs-infra
     check:
       jobs:
-        - openstack-doc-build-to-move
+        - build-openstack-sphinx-docs
     gate:
       jobs:
-        - openstack-doc-build-to-move
+        - build-openstack-sphinx-docs
     post:
       jobs:
         - publish-openstack-python-docs-infra
@@ -439,12 +446,12 @@
     name: openstack-python-jobs
     check:
       jobs:
-        - openstack-doc-build-to-move
+        - build-openstack-sphinx-docs
         - openstack-tox-pep8
         - openstack-tox-py27
     gate:
       jobs:
-        - openstack-doc-build-to-move
+        - build-openstack-sphinx-docs
         - openstack-tox-pep8
         - openstack-tox-py27
     post:
@@ -496,7 +503,7 @@
     name: openstack-python-jobs-trusty
     check:
       jobs:
-        - openstack-doc-build-to-move:
+        - build-openstack-sphinx-docs:
             nodes: ubuntu-trusty
         - openstack-tox-pep8:
             nodes: ubuntu-trusty
@@ -504,7 +511,7 @@
             nodes: ubuntu-trusty
     gate:
       jobs:
-        - openstack-doc-build-to-move:
+        - build-openstack-sphinx-docs:
             nodes: ubuntu-trusty
         - openstack-tox-pep8:
             nodes: ubuntu-trusty
@@ -534,7 +541,7 @@
         - base-integration-ubuntu-trusty
         - base-integration-ubuntu-xenial
         - base-integration-opensuse423
-        - openstack-doc-build-to-move
+        - build-openstack-sphinx-docs
         - tox-linters
     gate:
       jobs:
@@ -543,5 +550,5 @@
         - base-integration-ubuntu-trusty
         - base-integration-ubuntu-xenial
         - base-integration-opensuse423
-        - openstack-doc-build-to-move
+        - build-openstack-sphinx-docs
         - tox-linters
