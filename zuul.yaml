@@ -16,32 +16,32 @@
 - job:
     name: base-integration-centos-7
     parent: base-integration
-    nodes: centos-7
+    nodeset: centos-7
 
 - job:
     name: base-integration-debian-jessie
     parent: base-integration
-    nodes: debian-jessie
+    nodeset: debian-jessie
 
 - job:
     name: base-integration-fedora-26
     parent: base-integration
-    nodes: fedora-26
+    nodeset: fedora-26
 
 - job:
     name: base-integration-opensuse423
     parent: base-integration
-    nodes: opensuse-423
+    nodeset: opensuse-423
 
 - job:
     name: base-integration-ubuntu-trusty
     parent: base-integration
-    nodes: ubuntu-trusty
+    nodeset: ubuntu-trusty
 
 - job:
     name: base-integration-ubuntu-xenial
     parent: base-integration
-    nodes: ubuntu-xenial
+    nodeset: ubuntu-xenial
 
 - job:
     name: build-openstack-sphinx-docs
