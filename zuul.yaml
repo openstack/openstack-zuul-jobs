@@ -231,6 +231,55 @@
       Check version used by xstatic packages
     run: playbooks/xstatic/check-version
 
+- job:
+    name: legacy-dsvm-base
+    description: |
+      Base job for autoconverted legacy devstack-gate jobs
+
+      This job runs devstack-gate with as few changes as possible and
+      may be used by jobs which have been automatically converted as
+      part of the migration to Zuul v3.
+    nodeset: devstack-single-node
+    required-projects:
+      - openstack-dev/devstack
+      - openstack-infra/devstack-gate
+      - openstack-infra/tripleo-ci
+      - openstack/ceilometer
+      - openstack/ceilometermiddleware
+      - openstack/cinder
+      - openstack/django_openstack_auth
+      - openstack/glance
+      - openstack/glance_store
+      - openstack/heat
+      - openstack/heat-cfntools
+      - openstack/heat-templates
+      - openstack/horizon
+      - openstack/keystone
+      - openstack/keystoneauth
+      - openstack/keystonemiddleware
+      - openstack/manila
+      - openstack/manila-ui
+      - openstack/neutron
+      - openstack/neutron-fwaas
+      - openstack/neutron-lbaas
+      - openstack/neutron-vpnaas
+      - openstack/nova
+      - openstack/octavia
+      - openstack/os-apply-config
+      - openstack/os-brick
+      - openstack/os-client-config
+      - openstack/os-collect-config
+      - openstack/os-net-config
+      - openstack/os-refresh-config
+      - openstack/osc-lib
+      - openstack/requirements
+      - openstack/swift
+      - openstack/tempest
+      - openstack/tempest-lib
+      - openstack/tripleo-heat-templates
+      - openstack/tripleo-image-elements
+      - openstack/tripleo-incubator
+
 - nodeset:
     name: centos-7
     nodes:
