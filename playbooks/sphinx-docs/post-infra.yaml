@@ -1,0 +1,3 @@
+- hosts: all
+  roles:
+    - prepare-infra-docs-for-afs

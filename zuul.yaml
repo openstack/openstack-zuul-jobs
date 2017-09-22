@@ -66,6 +66,23 @@
       tox_extra_args: -vv python setup.py build_sphinx
 
 - job:
+    name: build-openstack-infra-sphinx-docs
+    parent: tox-docs
+    description: |
+      Builds docuemtation using Sphinx per the OpenStack PTI but with
+      the Infra-specific publication prep applied. It then
+      collects the results into the log directory so that they can be
+      examined in their published form after a successful build.
+    run: playbooks/sphinx-docs/run
+    post-run: playbooks/sphinx-docs/post-infra
+    success-url: html/
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    vars:
+      tox_envlist: venv
+      tox_extra_args: -vv python setup.py build_sphinx
+
+- job:
     name: tox-py35-on-zuul
     parent: tox-py35
     description: |
