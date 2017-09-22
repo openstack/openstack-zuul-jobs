@@ -231,6 +231,12 @@
     run: playbooks/xstatic/check-version
 
 - job:
+    name: legacy-base
+    description: |
+      Base job for autoconverted legacy jobs
+    pre-run: playbooks/legacy/pre
+
+- job:
     name: legacy-dsvm-base
     description: |
       Base job for autoconverted legacy devstack-gate jobs
@@ -239,6 +245,7 @@
       may be used by jobs which have been automatically converted as
       part of the migration to Zuul v3.
     nodeset: devstack-single-node
+    pre-run: playbooks/legacy/pre
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
