@@ -55,7 +55,7 @@
       using the whereto tool.
     run: playbooks/sphinx-docs/run
     post-run: playbooks/sphinx-docs/post
-    success-url: html/
+    success-url: html/latest/
     required-projects:
       - name: openstack/requirements
     roles:
@@ -64,6 +64,26 @@
       tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
       tox_envlist: venv
       tox_extra_args: -vv python setup.py build_sphinx
+
+- job:
+    name: build-openstack-sphinx-docs
+    branches: stable/queens
+    success-url: html/queens/
+
+- job:
+    name: build-openstack-sphinx-docs
+    branches: stable/pike
+    success-url: html/pike/
+
+- job:
+    name: build-openstack-sphinx-docs
+    branches: stable/ocata
+    success-url: html/ocata/
+
+- job:
+    name: build-openstack-sphinx-docs
+    branches: stable/newton
+    success-url: html/newton/
 
 - job:
     name: build-openstack-infra-sphinx-docs
