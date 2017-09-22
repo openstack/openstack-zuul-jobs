@@ -87,7 +87,6 @@
       - name: openstack/requirements
     vars:
       tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
-      tox_upper_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
 
 - job:
     name: openstack-tox-py27
