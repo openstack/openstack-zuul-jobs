@@ -302,6 +302,7 @@
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
       - openstack/tripleo-incubator
+      - openstack/zaqar
 
 - job:
     name: legacy-puppet-openstack-integration
