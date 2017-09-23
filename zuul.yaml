@@ -331,7 +331,7 @@
 
       This job runs provides the base required projects for
       puppet-openstack-integration jobs.
-    nodes: devstack-single-node
+    nodeset: devstack-single-node
     pre-run: playbooks/legacy/pre
     required-projects:
       - openstack/puppet-aodh
@@ -646,19 +646,19 @@
     check:
       jobs:
         - build-openstack-sphinx-docs:
-            nodes: ubuntu-trusty
+            nodeset: ubuntu-trusty
         - openstack-tox-pep8:
-            nodes: ubuntu-trusty
+            nodeset: ubuntu-trusty
         - openstack-tox-py27:
-            nodes: ubuntu-trusty
+            nodeset: ubuntu-trusty
     gate:
       jobs:
         - build-openstack-sphinx-docs:
-            nodes: ubuntu-trusty
+            nodeset: ubuntu-trusty
         - openstack-tox-pep8:
-            nodes: ubuntu-trusty
+            nodeset: ubuntu-trusty
         - openstack-tox-py27:
-            nodes: ubuntu-trusty
+            nodeset: ubuntu-trusty
 
 - project-template:
      name: docs-on-readthedocs
