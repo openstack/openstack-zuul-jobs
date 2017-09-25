@@ -1,0 +1,110 @@
+# Shared nodesets specific to the OpenStack Project
+- nodeset:
+    name: centos-7
+    nodes:
+      - name: centos-7
+        label: centos-7
+
+- nodeset:
+    name: debian-jessie
+    nodes:
+      - name: debian-jessie
+        label: debian-jessie
+
+- nodeset:
+    name: fedora-26
+    nodes:
+      - name: fedora-26
+        label: fedora-26
+
+- nodeset:
+    name: opensuse-423
+    nodes:
+      - name: opensuse-423
+        label: opensuse-423
+
+- nodeset:
+    name: tripleo-centos-7
+    nodes:
+      - name: tripleo-centos-7
+        label: tripleo-centos-7
+
+- nodeset:
+    name: ubuntu-trusty
+    nodes:
+      - name: ubuntu-trusty
+        label: ubuntu-trusty
+
+- nodeset:
+    name: ubuntu-xenial
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial
+
+- nodeset:
+    name: centos-7-2-node
+    nodes:
+      - name: primary
+        label: centos-7
+      - name: secondary
+        label: centos-7
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary
+
+- nodeset:
+    name: centos-7-3-node
+    nodes:
+      - name: primary
+        label: centos-7
+      - name: secondary-1
+        label: centos-7
+      - name: secondary-2
+        label: centos-7
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary-1
+          - secondary-2
+
+- nodeset:
+    name: centos-7-4-node
+    nodes:
+      - name: primary
+        label: centos-7
+      - name: secondary-1
+        label: centos-7
+      - name: secondary-2
+        label: centos-7
+      - name: secondary-3
+        label: centos-7
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary-1
+          - secondary-2
+          - secondary-3
+
+- nodeset:
+    name: ubuntu-xenial-2-node
+    nodes:
+      - name: primary
+        label: ubuntu-xenial
+      - name: subnodes
+        label: ubuntu-xenial
+
+- nodeset:
+    name: ubuntu-xenial-3-node
+    nodes:
+      - name: primary
+        label: ubuntu-xenial
+      - name: secondary-1
+        label: ubuntu-xenial
+      - name: secondary-2
+        label: ubuntu-xenial
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary-1
+          - secondary-2
