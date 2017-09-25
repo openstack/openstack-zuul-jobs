@@ -1,0 +1,56 @@
+- hosts: all
+  name: Autoconverted job legacy-networking-l2gw-dsvm-tempest-api-dummy-driver from
+    old job gate-networking-l2gw-dsvm-tempest-api-dummy-driver-nv
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat << 'EOF' >>"/tmp/dg-local.conf"
+          [[local|localrc]]
+          # L2 Gateway
+          enable_plugin networking-l2gw git://git.openstack.org/openstack/networking-l2gw
+          enable_service l2gw-plugin
+          NETWORKING_L2GW_SERVICE_DRIVER=L2GW:l2gw:networking_l2gw.services.l2gateway.service_drivers.L2gwDriver:default
+          TEMPEST_PLUGINS='/opt/stack/new/networking-l2gw /opt/stack/new/neutron'
+
+          EOF
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export PYTHONUNBUFFERED=true
+          export DEVSTACK_GATE_NEUTRON=1
+          export DEVSTACK_GATE_TEMPEST=1
+          export DEVSTACK_GATE_TEMPEST_REGEX="networking_l2gw"
+          if [ "$BRANCH_OVERRIDE" != "default" ] ; then
+              export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
+          fi
+          # Because we are testing a non standard project, add
+          # our project repository. This makes zuul do the right
+          # reference magic for testing changes.
+          export PROJECTS="openstack/networking-l2gw $PROJECTS"
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

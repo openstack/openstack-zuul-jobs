@@ -1,0 +1,1892 @@
+- project-template:
+    name: ansible-lint-jobs
+    check:
+      jobs:
+        - legacy-ansible-lint
+    gate:
+      jobs:
+        - legacy-ansible-lint
+
+- project-template:
+    name: ansible-role-functional-dsvm-jobs-centos7
+    check:
+      jobs:
+        - legacy-dsvm-ansible-func-centos-7
+    gate:
+      jobs:
+        - legacy-dsvm-ansible-func-centos-7
+
+- project-template:
+    name: ansible-role-functional-dsvm-jobs-trusty
+    check:
+      jobs:
+        - legacy-dsvm-ansible-func-ubuntu-trusty:
+            branches: master
+    gate:
+      jobs:
+        - legacy-dsvm-ansible-func-ubuntu-trusty:
+            branches: master
+
+- project-template:
+    name: ansible-role-functional-jobs-centos7
+    check:
+      jobs:
+        - legacy-ansible-func-centos-7
+    gate:
+      jobs:
+        - legacy-ansible-func-centos-7
+
+- project-template:
+    name: ansible-role-functional-jobs-centos7-nv
+    check:
+      jobs:
+        - legacy-ansible-func-centos-7:
+            voting: false
+
+- project-template:
+    name: ansible-role-functional-jobs-fedora-26
+    check:
+      jobs:
+        - legacy-ansible-func-fedora-26
+    gate:
+      jobs:
+        - legacy-ansible-func-fedora-26
+
+- project-template:
+    name: ansible-role-functional-jobs-opensuse-423
+    check:
+      jobs:
+        - legacy-ansible-func-opensuse-423
+    gate:
+      jobs:
+        - legacy-ansible-func-opensuse-423
+
+- project-template:
+    name: ansible-role-functional-jobs-trusty
+    check:
+      jobs:
+        - legacy-ansible-func-ubuntu-trusty:
+            branches: master
+    gate:
+      jobs:
+        - legacy-ansible-func-ubuntu-trusty:
+            branches: master
+
+- project-template:
+    name: ansible-role-functional-jobs-xenial
+    check:
+      jobs:
+        - legacy-ansible-func
+    gate:
+      jobs:
+        - legacy-ansible-func
+
+- project-template:
+    name: ansible-role-functional-jobs-xenial-nv
+    check:
+      jobs:
+        - legacy-ansible-func:
+            voting: false
+
+- project-template:
+    name: ansible-role-jobs
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+        - openstack-tox-linters
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+        - openstack-tox-linters
+
+- project-template:
+    name: api-guide-jobs
+    check:
+      jobs:
+        - legacy-api-guide:
+            branches: master
+            files:
+              - ^tox.ini$
+              - ^api-guide/.*
+    gate:
+      jobs:
+        - legacy-api-guide:
+            branches: master
+            files:
+              - ^tox.ini$
+              - ^api-guide/.*
+    post:
+      jobs:
+        - legacy-api-guide:
+            branches: master
+
+- project-template:
+    name: api-ref-jobs
+    check:
+      jobs:
+        - legacy-api-ref:
+            branches: master
+            files:
+              - ^tox.ini$
+              - ^api-ref/.*
+              - ^doc/api_samples/.*
+    gate:
+      jobs:
+        - legacy-api-ref:
+            branches: master
+            files:
+              - ^tox.ini$
+              - ^api-ref/.*
+              - ^doc/api_samples/.*
+    post:
+      jobs:
+        - legacy-api-ref:
+            branches: master
+
+- project-template:
+    name: bindep-fallback
+    check:
+      jobs:
+        - legacy-bindep-fallback-centos-7
+        - legacy-bindep-fallback-fedora-26
+        - legacy-bindep-fallback-debian-jessie
+        - legacy-bindep-fallback-opensuse-423
+        - legacy-bindep-fallback-ubuntu-trusty
+        - legacy-bindep-fallback
+    gate:
+      jobs:
+        - legacy-bindep-fallback-centos-7
+        - legacy-bindep-fallback-fedora-26
+        - legacy-bindep-fallback-debian-jessie
+        - legacy-bindep-fallback-opensuse-423
+        - legacy-bindep-fallback-ubuntu-trusty
+        - legacy-bindep-fallback
+
+- project-template:
+    name: build-only-specs-jobs
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+
+- project-template:
+    name: check-requirements
+    check:
+      jobs:
+        - legacy-requirements:
+            files:
+              - ^tools/.*-requires$
+              - ^.*requirements.txt$
+              - ^.*requirements-py[2,3].txt$
+    gate:
+      jobs:
+        - legacy-requirements:
+            files:
+              - ^tools/.*-requires$
+              - ^.*requirements.txt$
+              - ^.*requirements-py[2,3].txt$
+
+- project-template:
+    name: check-tripleo-jobs
+    check-tripleo:
+      jobs:
+        - legacy-tripleo-ci-centos-7-ovb-ha-oooq
+        - legacy-tripleo-ci-centos-7-ovb-containers-oooq:
+            branches: ^(?!stable/(newton|ocata)).*$
+        - legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-nonha-multinode-oooq
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq:
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq:
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq:
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq:
+            branches: ^(?!stable/newton).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^(docker|puppet)/services/manila.*$
+              - ^manifests/profile/base/manila.*$
+              - ^manifests/profile/pacemaker/manila.*$
+              - ci/environments/scenario004.*$
+              - ci/pingtests/scenario004.*$
+              - config/general_config/featureset008.yml
+              - config/general_config/featureset015.yml
+              - config/general_config/featureset019.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^(docker|puppet)/services/manila.*$
+              - ^manifests/profile/base/manila.*$
+              - ^manifests/profile/pacemaker/manila.*$
+              - ci/environments/scenario004.*$
+              - ci/pingtests/scenario004.*$
+              - config/general_config/featureset008.yml
+              - config/general_config/featureset015.yml
+              - config/general_config/featureset019.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario007-multinode-oooq:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ci/environments/scenario007-multinode.yaml
+              - ci/pingtests/scenario007-multinode.yaml
+              - ^puppet/services/.*ovn.*$
+              - ^manifests/profile/base/neutron/plugins/ml2/ovn.*$
+              - ^manifests/profile/base/neutron/agents/ovn.*$
+              - ^manifests/profile/base/neutron/ovn.*$
+              - config/general_config/featureset028.yml
+        - legacy-tripleo-ci-centos-7-containers-multinode:
+            branches: ^(?!stable/(newton|ocata)).*$
+        - legacy-tripleo-ci-centos-7-undercloud-containers:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-nonha-multinode-oooq
+        - legacy-tripleo-ci-centos-7-containers-multinode:
+            branches: ^(?!stable/(newton|ocata)).*$
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq:
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq:
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq:
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq:
+            branches: ^(?!stable/newton).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^(docker|puppet)/services/manila.*$
+              - ^manifests/profile/base/manila.*$
+              - ^manifests/profile/pacemaker/manila.*$
+              - ci/environments/scenario004.*$
+              - ci/pingtests/scenario004.*$
+              - config/general_config/featureset008.yml
+              - config/general_config/featureset015.yml
+              - config/general_config/featureset019.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^(docker|puppet)/services/manila.*$
+              - ^manifests/profile/base/manila.*$
+              - ^manifests/profile/pacemaker/manila.*$
+              - ci/environments/scenario004.*$
+              - ci/pingtests/scenario004.*$
+              - config/general_config/featureset008.yml
+              - config/general_config/featureset015.yml
+              - config/general_config/featureset019.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario007-multinode-oooq:
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ci/environments/scenario007-multinode.yaml
+              - ci/pingtests/scenario007-multinode.yaml
+              - ^puppet/services/.*ovn.*$
+              - ^manifests/profile/base/neutron/plugins/ml2/ovn.*$
+              - ^manifests/profile/base/neutron/agents/ovn.*$
+              - ^manifests/profile/base/neutron/ovn.*$
+              - config/general_config/featureset028.yml
+    experimental:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario005-multinode-oooq:
+            voting: false
+            branches: ^(?!stable/newton).*$
+            files:
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/pacemaker.*$
+              - ^manifests/pacemaker/.*$
+              - ^manifests/profile/pacemaker.*$
+              - manifests/profile/base/pacemaker.pp
+              - ci/environments/scenario005-multinode.yaml
+              - ci/pingtests/scenario005-multinode.yaml
+              - config/general_config/featureset009.yml
+        - legacy-tripleo-ci-centos-7-scenario006-multinode-oooq:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^coe/kubernetes.*$
+              - ^environments/kubernetes.*$
+              - ci/environments/scenario006-multinode.yaml
+              - ci/pingtests/scenario006-multinode.yaml
+              - config/general_config/featureset026.yml
+        - legacy-tripleo-ci-centos-7-scenario008-multinode-oooq:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^environments/.*opendaylight.*$
+              - ^puppet/services/.*opendaylight.*$
+              - manifests/profile/base/neutron/opendaylight.pp
+              - manifests/profile/base/neutron/plugins/ml2/opendaylight.pp
+              - manifests/profile/base/neutron/plugins/ovs/opendaylight.pp
+              - ^manifests/profile/base/neutron/opendaylight/.*$
+              - ci/environments/scenario008-multinode.yaml
+              - ci/pingtests/scenario008-multinode.yaml
+              - config/general_config/featureset031.yml
+        - legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-container:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ci/environments/scenario007-multinode-containers.yaml
+              - ci/pingtests/scenario007-multinode.yaml
+              - ^(docker|puppet)/services/.*ovn.*$
+              - ^manifests/profile/pacemaker/ovn.*$
+              - ^manifests/profile/base/neutron/plugins/ml2/ovn.*$
+              - ^manifests/profile/base/neutron/agents/ovn.*$
+              - ^manifests/profile/base/neutron/ovn.*$
+              - config/general_config/featureset030.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario009-multinode-oooq:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^coe/openshift.*$
+              - ^environments/openshift.*$
+              - ci/environments/scenario009-multinode.yaml
+              - ci/pingtests/scenario009-multinode.yaml
+              - config/general_config/featureset033.yml
+
+- project-template:
+    name: check-tripleo-undercloud-jobs
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-undercloud-oooq
+        - legacy-tripleo-ci-centos-7-undercloud-upgrades:
+            voting: false
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-undercloud-oooq
+
+- project-template:
+    name: chef-rake-jobs
+    check:
+      jobs:
+        - legacy-chef-rake
+        - legacy-chef-rake-integration:
+            voting: false
+    gate:
+      jobs:
+        - legacy-chef-rake
+    experimental:
+      jobs:
+        - legacy-chef-rake-integration-centos-7:
+            voting: false
+        - legacy-chef-rake-integration-multinode:
+            voting: false
+
+- project-template:
+    name: deploy-guide-jobs
+    check:
+      jobs:
+        - legacy-deploy-guide:
+            files:
+              - ^tox.ini$
+              - ^deploy-guide/.*
+              - bindep.txt
+              - other-requirements.txt
+    gate:
+      jobs:
+        - legacy-deploy-guide:
+            files:
+              - ^tox.ini$
+              - ^deploy-guide/.*
+              - bindep.txt
+              - other-requirements.txt
+    post:
+      jobs:
+        - legacy-deploy-guide
+
+- project-template:
+    name: designate-dsvm-jobs
+    check:
+      jobs:
+        - legacy-tempest-dsvm-designate-pdns4
+        - legacy-tempest-dsvm-designate-bind9
+        - legacy-tempest-dsvm-designate-pdns4-postgres:
+            branches: ^(?!stable/newton).*$
+        - legacy-tempest-dsvm-designate-pdns4-worker-model
+        - legacy-rally-dsvm-designate-designate-pdns4:
+            voting: false
+        - legacy-grenade-dsvm-designate-pdns4:
+            branches: ^(?!stable/newton).*$
+        - legacy-tempest-dsvm-designate-pdns4-identity-v3-only
+        - legacy-tempest-dsvm-designate-pdns4-py35:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+    gate:
+      jobs:
+        - legacy-tempest-dsvm-designate-pdns4
+        - legacy-tempest-dsvm-designate-bind9
+        - legacy-grenade-dsvm-designate-pdns4:
+            branches: ^(?!stable/newton).*$
+        - legacy-tempest-dsvm-designate-pdns4-postgres:
+            branches: ^(?!stable/newton).*$
+        - legacy-tempest-dsvm-designate-pdns4-worker-model
+        - legacy-tempest-dsvm-designate-pdns4-identity-v3-only
+    experimental:
+      jobs:
+        - legacy-tempest-dsvm-designate-agent-knot2
+        - legacy-tempest-dsvm-designate-agent-djbdns
+        - legacy-tempest-dsvm-designate-agent-gdnsd
+
+- project-template:
+    name: experimental-tripleo-jobs
+    experimental-tripleo:
+      jobs:
+        - legacy-tripleo-ci-centos-7-ovb-fakeha-caserver
+        - legacy-tripleo-ci-centos-7-ovb-ha-tempest-oooq
+
+- project-template:
+    name: fuel-ccp-component
+    check:
+      jobs:
+        - openstack-tox-linters
+        - legacy-fuel-ccp-validate
+    gate:
+      jobs:
+        - openstack-tox-linters
+        - legacy-fuel-ccp-validate
+
+- project-template:
+    name: fuel-ccp-cross-repo-gate
+    check:
+      jobs:
+        - legacy-fuel-ccp-validate
+    gate:
+      jobs:
+        - legacy-fuel-ccp-validate
+
+- project-template:
+    name: golang-jobs
+    check:
+      jobs:
+        - legacy-golang-fmt
+        - legacy-golang-unit
+    gate:
+      jobs:
+        - legacy-golang-fmt
+        - legacy-golang-unit
+
+- project-template:
+    name: infra-logstash-filter-jobs
+    check:
+      jobs:
+        - legacy-logstash-filters-ubuntu-trusty:
+            branches: master
+        - legacy-logstash-filters:
+            voting: false
+    gate:
+      jobs:
+        - legacy-logstash-filters-ubuntu-trusty:
+            branches: master
+
+- project-template:
+    name: infra-puppet-apply-jobs
+    check:
+      jobs:
+        - legacy-infra-puppet-apply-3-centos-7
+        - legacy-infra-puppet-apply-3-ubuntu-trusty:
+            branches: master
+        - legacy-infra-puppet-apply-3
+        - legacy-openstackci-beaker-centos-7
+        - legacy-openstackci-beaker-ubuntu-trusty
+        - legacy-openstackci-beaker:
+            voting: false
+    gate:
+      jobs:
+        - legacy-infra-puppet-apply-3-centos-7
+        - legacy-infra-puppet-apply-3-ubuntu-trusty:
+            branches: master
+        - legacy-infra-puppet-apply-3
+        - legacy-openstackci-beaker-centos-7
+        - legacy-openstackci-beaker-ubuntu-trusty
+    experimental:
+      jobs:
+        - legacy-infra-puppet-apply-4-centos-7
+
+- project-template:
+    name: infra-puppet-check-jobs
+    check:
+      jobs:
+        - legacy-puppet-lint
+        - legacy-puppet-syntax-3
+    gate:
+      jobs:
+        - legacy-puppet-lint
+        - legacy-puppet-syntax-3
+    experimental:
+      jobs:
+        - legacy-puppet-syntax-4-centos-7
+
+- project-template:
+    name: install-guide-jobs
+    check:
+      jobs:
+        - legacy-install-guide:
+            branches: ^stable/(newton|ocata).*$
+            files:
+              - ^tox.ini$
+              - ^install-guide/.*
+              - bindep.txt
+              - other-requirements.txt
+    gate:
+      jobs:
+        - legacy-install-guide:
+            branches: ^stable/(newton|ocata).*$
+            files:
+              - ^tox.ini$
+              - ^install-guide/.*
+              - bindep.txt
+              - other-requirements.txt
+    post:
+      jobs:
+        - legacy-install-guide:
+            branches: ^stable/(newton|ocata).*$
+
+- project-template:
+    name: integrated-gate
+    check:
+      jobs:
+        - legacy-tempest-dsvm-neutron-full:
+            branches: ^(?!driverfixes/).*$
+        - legacy-grenade-dsvm-neutron:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-tempest-dsvm-neutron-full:
+            branches: ^(?!driverfixes/).*$
+        - legacy-grenade-dsvm-neutron:
+            branches: ^(?!stable/newton).*$
+    experimental:
+      jobs:
+        - legacy-tempest-dsvm-neutron-pg-full:
+            voting: false
+        - legacy-tempest-dsvm-neutron-full-opensuse-423:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+
+- project-template:
+    name: integrated-gate-nova-net
+    check:
+      jobs:
+        - legacy-tempest-dsvm-nnet:
+            branches: stable/newton
+    gate:
+      jobs:
+        - legacy-tempest-dsvm-nnet:
+            branches: stable/newton
+
+- project-template:
+    name: integrated-gate-py35
+    check:
+      jobs:
+        - legacy-tempest-dsvm-py35:
+            branches: ^(?!(stable|driverfixes))
+    gate:
+      jobs:
+        - legacy-tempest-dsvm-py35:
+            branches: ^(?!(stable|driverfixes))
+
+- project-template:
+    name: lib-forward-testing
+    check:
+      jobs:
+        - legacy-tempest-dsvm-neutron-src
+    gate:
+      jobs:
+        - legacy-tempest-dsvm-neutron-src
+
+- project-template:
+    name: lib-forward-testing-plugin
+    check:
+      jobs:
+        - legacy-tempest-dsvm-neutron-src-plugin
+    gate:
+      jobs:
+        - legacy-tempest-dsvm-neutron-src-plugin
+
+- project-template:
+    name: loci-jobs
+    check:
+      jobs:
+        - legacy-loci
+    gate:
+      jobs:
+        - legacy-loci
+
+- project-template:
+    name: merge-check
+    merge-check:
+      jobs:
+        - noop
+
+- project-template:
+    name: nodejs4-docs
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+
+- project-template:
+    name: nodejs4-jobs
+    check:
+      jobs:
+        - legacy-nodejs4-npm-run-lint
+        - legacy-nodejs4-npm-run-test
+    gate:
+      jobs:
+        - legacy-nodejs4-npm-run-lint
+        - legacy-nodejs4-npm-run-test
+
+- project-template:
+    name: nodejs4-publish-to-npm
+    release:
+      jobs:
+        - publish-openstack-python-tarball:
+            dependencies:
+              - publish-openstack-python-tarball
+        - legacy-announce-release:
+            dependencies:
+              - legacy-npm-upload
+        - legacy-npm-upload:
+            dependencies:
+              - publish-openstack-python-tarball
+        - publish-openstack-python-tarball
+
+- project-template:
+    name: nodejs6-docs
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+
+- project-template:
+    name: nodejs6-jobs
+    check:
+      jobs:
+        - legacy-nodejs6-npm-run-lint
+        - legacy-nodejs6-npm-run-test
+
+- project-template:
+    name: nodejs6-publish-to-npm
+    release:
+      jobs:
+        - publish-openstack-python-tarball:
+            dependencies:
+              - publish-openstack-python-tarball
+        - legacy-announce-release:
+            dependencies:
+              - legacy-npm-upload
+        - legacy-npm-upload:
+            dependencies:
+              - publish-openstack-python-tarball
+        - publish-openstack-python-tarball
+
+- project-template:
+    name: noop-jobs
+    check:
+      jobs:
+        - noop
+    gate:
+      jobs:
+        - noop
+
+- project-template:
+    name: openstack-doc-rst-gate
+    check:
+      jobs:
+        - legacy-tox-checkniceness
+        - legacy-tox-doc-publish-checkbuild
+    gate:
+      jobs:
+        - legacy-tox-checkniceness
+        - legacy-tox-doc-publish-checkbuild
+
+- project-template:
+    name: openstack-doc-translation
+    check:
+      jobs:
+        - legacy-tox-doc-publish-checklang:
+            files:
+              - ^.*\.po$
+              - ^.*\.pot$
+    gate:
+      jobs:
+        - legacy-tox-doc-publish-checklang:
+            files:
+              - ^.*\.po$
+              - ^.*\.pot$
+    post:
+      jobs:
+        - legacy-upstream-translation-update
+        - legacy-tox-doc-publishlang
+    periodic:
+      jobs:
+        - legacy-propose-translation-update
+
+- project-template:
+    name: openstack-specs-jobs
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+    post:
+      jobs:
+        - publish-openstack-specs
+
+- project-template:
+    name: osc-plugin-jobs
+    check:
+      jobs:
+        - legacy-check-osc-plugins:
+            voting: false
+
+- project-template:
+    name: packstack-integration-jobs
+    check:
+      jobs:
+        - legacy-packstack-integration-scenario001-tempest-centos-7
+        - legacy-packstack-integration-scenario002-tempest-centos-7
+        - legacy-packstack-integration-scenario003-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-packstack-integration-scenario001-tempest-centos-7
+        - legacy-packstack-integration-scenario002-tempest-centos-7
+        - legacy-packstack-integration-scenario003-tempest-centos-7
+
+- project-template:
+    name: periodic-jobs-with-neutron-lib-master
+    periodic:
+      jobs:
+        - legacy-periodic-py35-with-neutron-lib-master
+
+- project-template:
+    name: periodic-jobs-with-oslo-master
+    periodic:
+      jobs:
+        - legacy-periodic-py27-with-oslo-master
+        - legacy-periodic-py35-with-oslo-master
+
+- project-template:
+    name: periodic-jobs-with-ovsdbapp-master
+    periodic:
+      jobs:
+        - legacy-periodic-py35-with-ovsdbapp-master
+
+- project-template:
+    name: periodic-newton
+    periodic-stable:
+      jobs:
+        - legacy-periodic-docs-newton
+        - legacy-periodic-python27-newton
+
+- project-template:
+    name: periodic-ocata
+    periodic-stable:
+      jobs:
+        - legacy-periodic-docs-ocata
+        - legacy-periodic-python27-ocata
+
+- project-template:
+    name: periodic-pike
+    periodic-stable:
+      jobs:
+        - legacy-periodic-docs-pike
+        - legacy-periodic-python27-pike
+
+- project-template:
+    name: puppet-beaker-jobs
+    check:
+      jobs:
+        - legacy-puppet-beaker-rspec-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-beaker-rspec-centos-7
+
+- project-template:
+    name: puppet-beaker-jobs-trusty-nv
+    check:
+      jobs:
+        - legacy-puppet-beaker-rspec-ubuntu-trusty:
+            voting: false
+
+- project-template:
+    name: puppet-beaker-jobs-xenial
+    check:
+      jobs:
+        - legacy-puppet-beaker-rspec
+    gate:
+      jobs:
+        - legacy-puppet-beaker-rspec
+
+- project-template:
+    name: puppet-beaker-jobs-xenial-nv
+    check:
+      jobs:
+        - legacy-puppet-beaker-rspec:
+            voting: false
+
+- project-template:
+    name: puppet-check-jobs
+    check:
+      jobs:
+        - legacy-puppet-lint
+        - legacy-puppet-syntax-3-legacy-centos-7
+        - legacy-puppet-syntax-4-centos-7
+        - legacy-puppet-module-build
+    gate:
+      jobs:
+        - legacy-puppet-lint
+        - legacy-puppet-syntax-3-legacy-centos-7
+        - legacy-puppet-syntax-4-centos-7
+        - legacy-puppet-module-build
+
+- project-template:
+    name: puppet-module-unit-jobs
+    check:
+      jobs:
+        - legacy-puppet-unit-3.6-legacy-centos-7
+        - legacy-puppet-unit-3.8-legacy-centos-7
+        - legacy-puppet-unit-4.8-centos-7
+        - legacy-puppet-unit-latest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-unit-3.6-legacy-centos-7
+        - legacy-puppet-unit-3.8-legacy-centos-7
+        - legacy-puppet-unit-4.8-centos-7
+
+- project-template:
+    name: puppet-openstack-integration-jobs-all
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+    experimental:
+      jobs:
+        - legacy-puppet-openstack-integration-5-scenario001-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario002-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario003-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario004-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario001-tempest
+        - legacy-puppet-openstack-integration-5-scenario002-tempest
+        - legacy-puppet-openstack-integration-5-scenario003-tempest
+        - legacy-puppet-openstack-integration-5-scenario004-tempest
+
+- project-template:
+    name: puppet-openstack-integration-jobs-scenario001
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+
+- project-template:
+    name: puppet-openstack-integration-jobs-scenario002
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+
+- project-template:
+    name: puppet-openstack-integration-jobs-scenario003
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+
+- project-template:
+    name: puppet-openstack-integration-jobs-scenario004
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+
+- project-template:
+    name: puppet-openstack-libraries-jobs
+    check:
+      jobs:
+        - legacy-puppet-openstack-libraries-puppet-lint-centos-7
+        - legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7:
+            branches: ^(stable/(newton|ocata)).*$
+        - legacy-puppet-openstack-libraries-puppet-syntax-4-centos-7
+        - legacy-puppet-openstack-libraries-puppet-unit-centos-7
+        - legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-libraries-puppet-lint-centos-7
+        - legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7:
+            branches: ^(stable/(newton|ocata)).*$
+        - legacy-puppet-openstack-libraries-puppet-syntax-4-centos-7
+        - legacy-puppet-openstack-libraries-puppet-unit-centos-7
+        - legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
+
+- project-template:
+    name: puppet-release-jobs
+    pre-release:
+      jobs:
+        - publish-openstack-python-tarball:
+            dependencies:
+              - publish-openstack-python-tarball
+        - legacy-announce-release:
+            dependencies:
+              - publish-openstack-python-tarball
+        - publish-openstack-python-tarball
+    release:
+      jobs:
+        - publish-openstack-python-tarball:
+            dependencies:
+              - publish-openstack-python-tarball
+        - legacy-announce-release:
+            dependencies:
+              - publish-openstack-python-tarball
+        - publish-openstack-python-tarball
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: puppet-syntax
+    check:
+      jobs:
+        - legacy-puppet-syntax-3-centos-7
+        - legacy-puppet-syntax-4-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-syntax-3-centos-7
+        - legacy-puppet-syntax-4-centos-7
+
+- project-template:
+    name: python-charm-interface-jobs
+    check:
+      jobs:
+        - openstack-tox-pep8
+    gate:
+      jobs:
+        - openstack-tox-pep8
+
+- project-template:
+    name: python-charm-jobs
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: python-charm-layer-jobs
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - legacy-tox-build
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - legacy-tox-build
+
+- project-template:
+    name: release-notes-jobs
+    check:
+      jobs:
+        - legacy-releasenotes:
+            files:
+              - ^releasenotes/.*
+              - ^tox.ini
+              - ^.*requirements.txt$
+    gate:
+      jobs:
+        - legacy-releasenotes:
+            files:
+              - ^releasenotes/.*
+              - ^tox.ini
+              - ^.*requirements.txt$
+    post:
+      jobs:
+        - legacy-releasenotes
+    tag:
+      jobs:
+        - legacy-releasenotes
+
+- project-template:
+    name: snap-jobs
+    check:
+      jobs:
+        - legacy-tox-with-sudo-snap
+    gate:
+      jobs:
+        - legacy-tox-with-sudo-snap
+
+- project-template:
+    name: translation-jobs
+    post:
+      jobs:
+        - legacy-upstream-translation-update
+    periodic:
+      jobs:
+        - legacy-propose-translation-update
+
+- project-template:
+    name: translation-jobs-ocata
+    periodic:
+      jobs:
+        - legacy-propose-translation-update-ocata
+
+- project-template:
+    name: translation-jobs-pike
+    periodic:
+      jobs:
+        - legacy-propose-translation-update-pike
+
+- project-template:
+    name: tripleo-puppet-jobs
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-nonha-multinode-oooq
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-nonha-multinode-oooq
+
+- project-template:
+    name: tripleo-scenario-jobs-scenario001
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
+
+- project-template:
+    name: tripleo-scenario-jobs-scenario002
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-puppet:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-puppet:
+            branches: ^(?!stable/newton).*$
+
+- project-template:
+    name: tripleo-scenario-jobs-scenario003
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-puppet:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-puppet:
+            branches: ^(?!stable/newton).*$
+
+- project-template:
+    name: tripleo-scenario-jobs-scenario004
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-puppet:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-puppet:
+            branches: ^(?!stable/newton).*$
+
+- project-template:
+    name: tripleo-scenario-jobs-scenario007
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-puppet:
+            branches: ^(?!stable/(newton|ocata)).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-puppet:
+            branches: ^(?!stable/(newton|ocata)).*$
+
+- project-template:
+    name: tripleo-scenario-jobs-scenario007-nv
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-puppet:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+
+- project-template:
+    name: tripleo-upgrade-jobs
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-multinode-upgrades:
+            branches: ^stable/ocata$
+        - legacy-tripleo-ci-centos-7-containers-multinode-upgrades:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-multinode-upgrades:
+            branches: ^stable/ocata$
+
+- project-template:
+    name: tripleo-upgrade-jobs-scenario001
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades:
+            branches: ^stable/ocata$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades:
+            branches: ^stable/ocata$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^manifests/profile/base/monitoring.*$
+              - ^(docker|puppet)/services/monitoring.*$
+              - ^manifests/profile/base/metrics.*$
+              - ^(docker|puppet)/services/metrics.*$
+              - ^manifests/profile/base/logging.*$
+              - ^(docker|puppet)/services/logging.*$
+              - ^(docker|puppet)/services/tacker.*$
+              - ^manifests/profile/base/tacker.*$
+              - ^(docker|puppet)/services/congress.*$
+              - ^manifests/profile/base/congress.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ci/environments/scenario001.*$
+              - ci/pingtests/scenario001.*$
+              - config/general_config/featureset005.yml
+              - config/general_config/featureset012.yml
+              - config/general_config/featureset016.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+
+- project-template:
+    name: tripleo-upgrade-jobs-scenario002
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades:
+            branches: ^stable/ocata$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades:
+            branches: ^stable/ocata$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/barbican.*$
+              - ^manifests/profile/base/barbican.*$
+              - ^(docker|puppet)/services/cinder.*$
+              - ^manifests/profile/base/cinder.*$
+              - ^(docker|puppet)/services/ec2-api.*$
+              - ^manifests/profile/base/nova/ec2.*$
+              - ^(docker|puppet)/services/swift.*$
+              - ^manifests/profile/base/swift.*$
+              - ^(docker|puppet)/services/zaqar.*$
+              - ^manifests/profile/base/zaqar.*$
+              - ^(docker|puppet)/services/aodh.*$
+              - ^manifests/profile/base/aodh.*$
+              - ^(docker|puppet)/services/ceilometer.*$
+              - ^manifests/profile/base/ceilometer.*$
+              - ^(docker|puppet)/services/gnocchi.*$
+              - ^manifests/profile/base/gnocchi.*$
+              - ^(docker|puppet)/services/panko.*$
+              - ^manifests/profile/base/panko.*$
+              - ci/environments/scenario002.*$
+              - ci/pingtests/scenario002.*$
+              - config/general_config/featureset006.yml
+              - config/general_config/featureset013.yml
+              - config/general_config/featureset017.yml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+
+- project-template:
+    name: tripleo-upgrade-jobs-scenario003
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-upgrades:
+            branches: ^stable/ocata$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+    gate:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario003-multinode-upgrades:
+            branches: ^stable/ocata$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/sahara.*$
+              - ^manifests/profile/base/sahara.*$
+              - ^(docker|puppet)/services/mistral.*$
+              - ^manifests/profile/base/mistral.*$
+              - ci/environments/scenario003.*$
+              - ci/pingtests/scenario003.*$
+              - config/general_config/featureset007.yml
+              - config/general_config/featureset014.yml
+              - config/general_config/featureset018.yml
+              - roles\/(.+\/)
+              - toci-quickstart\/(config|playbooks)\/(.+)
+              - toci_.+
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+
+- project-template:
+    name: tripleo-upgrade-jobs-scenario004
+    check:
+      jobs:
+        - legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades:
+            voting: false
+            branches: ^(?!stable/(newton|ocata)).*$
+            files:
+              - ^(docker|puppet)/services/glance.*$
+              - ^manifests/profile/base/glance.*$
+              - ^manifests/haproxy.*$
+              - ^(docker|puppet)/services/ceph.*$
+              - ^manifests/profile/base/ceph.*$
+              - ^(docker|puppet)/services/manila.*$
+              - ^manifests/profile/base/manila.*$
+              - ^manifests/profile/pacemaker/manila.*$
+              - ci/environments/scenario004.*$
+              - ci/pingtests/scenario004.*$
+              - config/general_config/featureset008.yml
+              - config/general_config/featureset015.yml
+              - config/general_config/featureset019.yml
+              - workbooks/ceph-ansible.yaml
+              - ^container-images/.*$
+              - ^environments\/.*.yaml
+
+- project-template:
+    name: windmill-buildimages-xenial
+    check:
+      jobs:
+        - legacy-windmill-buildimages
+    gate:
+      jobs:
+        - legacy-windmill-buildimages
+
+- project-template:
+    name: windmill-jobs-centos7-nv
+    check:
+      jobs:
+        - legacy-windmill-deploy-centos-7:
+            voting: false
+
+- project-template:
+    name: windmill-jobs-fedora-26
+    check:
+      jobs:
+        - legacy-windmill-deploy-fedora-26
+    gate:
+      jobs:
+        - legacy-windmill-deploy-fedora-26
+
+- project-template:
+    name: windmill-jobs-fedora-26-nv
+    check:
+      jobs:
+        - legacy-windmill-deploy-fedora-26:
+            voting: false
+
+- project-template:
+    name: windmill-jobs-xenial
+    check:
+      jobs:
+        - legacy-windmill-deploy
+    gate:
+      jobs:
+        - legacy-windmill-deploy
+
+- project-template:
+    name: windmill-jobs-xenial-nv
+    check:
+      jobs:
+        - legacy-windmill-deploy:
+            voting: false

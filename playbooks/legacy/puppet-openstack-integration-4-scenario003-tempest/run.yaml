@@ -1,0 +1,76 @@
+- hosts: all
+  name: Autoconverted job legacy-puppet-openstack-integration-4-scenario003-tempest
+    from old job gate-puppet-openstack-integration-4-scenario003-tempest-ubuntu-xenial
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          ZUUL_BRANCH_REAL=${ZUUL_BRANCH:-master}
+          # Workaround for puppet-ceph, where we need to checkout
+          # puppet-openstack-integration from stable/pike when working on
+          # stable/jewel.
+          # Ceph Jewel works with Newton to Pike
+          if [[ "$ZUUL_BRANCH" == "stable/jewel" ]]; then
+              ZUUL_BRANCH_REAL='stable/pike'
+          fi
+          export ZUUL_REF=${ZUUL_REF:-None}
+          CLONEMAP=`mktemp`
+          function cleanup {
+              rm -f $CLONEMAP
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: openstack/puppet-openstack-integration
+              dest: puppet-openstack-integration
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP \
+              --cache-dir /opt/git \
+              --zuul-branch $ZUUL_BRANCH_REAL \
+              git://git.openstack.org openstack/puppet-openstack-integration
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cd puppet-openstack-integration
+          /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          if [ -f /usr/bin/yum ]; then
+              sudo yum -y remove rdo-release "centos-release-openstack-*" "centos-release-ceph-*"
+              sudo yum -y install libxml2-devel libxslt-devel ruby-devel zlib-devel
+              sudo yum -y groupinstall "Development Tools"
+              # Uninstall python-requests from pip, since we install it in
+              # system-config/install_puppet.sh
+              sudo pip uninstall requests -y || true
+          elif [ -f /usr/bin/apt-get ]; then
+              sudo apt-get update
+              sudo apt-get install -y libxml2-dev libxslt-dev ruby-dev zlib1g-dev
+          fi
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cd puppet-openstack-integration
+          trap "./copy_logs.sh" EXIT
+          export PUPPET_MAJ_VERSION=4
+          export SCENARIO=scenario003
+          mkdir .bundled_gems
+          export GEM_HOME=`pwd`/.bundled_gems
+          gem install bundler --no-rdoc --no-ri --verbose
+          ./run_tests.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

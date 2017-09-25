@@ -1,0 +1,54 @@
+- hosts: all
+  name: Autoconverted job legacy-puppet-storyboard-forge-upload from old job puppet-storyboard-forge-upload
+  tasks:
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/jenkins-sudo
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          CLONEMAP=`mktemp`
+          function cleanup {
+              # In cases where zuul-cloner is aborted during a git
+              # clone operation, git will remove the git work tree in
+              # its cleanup. The work tree in these jobs is the
+              # workspace directory, which means that subsequent
+              # jenkins post-build actions can not run because the
+              # workspace has been removed.
+              # To reduce the likelihood of this having an impact,
+              # recreate the workspace directory if needed
+              mkdir -p $WORKSPACE
+              rm -f $CLONEMAP
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: $ZUUL_PROJECT
+              dest: .
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+              git://git.openstack.org $ZUUL_PROJECT
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          cat > Rakefile << EOF
+          require 'puppet_blacksmith/rake_tasks'
+          EOF
+          TAG=${ZUUL_REF:10}
+          sed -i -e 's/  "version":.*/  "version": "'$TAG'",/' metadata.json
+          mkdir .bundled_gems
+          export GEM_HOME=`pwd`/.bundled_gems
+          gem install --no-ri --no-rdoc  puppetlabs_spec_helper puppet-blacksmith
+          rake module:push
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

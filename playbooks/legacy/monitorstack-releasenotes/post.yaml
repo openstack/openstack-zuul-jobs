@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+
+    - name: Copy files from releasenotes/build/html/ on node
+      synchronize:
+        src: releasenotes/build/html/
+        dest: '{{ zuul.executor.log_root }}/html/'
+        mode: pull
+        copy_links: true
+        verify_host: true

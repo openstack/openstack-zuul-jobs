@@ -1,0 +1,90 @@
+- hosts: all
+  name: Autoconverted job legacy-openstack-ansible-os_keystone-ansible-uw_apache-ubuntu-trusty
+    from old job gate-openstack-ansible-os_keystone-ansible-uw_apache-ubuntu-trusty
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          CLONEMAP=`mktemp`
+          REQS_DIR=`mktemp -d`
+          function cleanup {
+              mkdir -p $WORKSPACE
+              rm -rf $CLONEMAP $REQS_DIR
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: 'openstack/$ZUUL_SHORT_PROJECT_NAME'
+              dest: .
+          EOF
+          # zuul cloner works poorly if there are 2 names that are the
+          # same in here.
+          if [[ "openstack/$ZUUL_SHORT_PROJECT_NAME" != "openstack/requirements" ]]; then
+          cat >> $CLONEMAP << EOF
+            - name: openstack/requirements
+              dest: $REQS_DIR
+          EOF
+          fi
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+              git://git.openstack.org openstack/$ZUUL_SHORT_PROJECT_NAME openstack/requirements
+          # REQS_DIR is not set for openstack/requirements and there is also
+          # no need to copy in this case.
+          if [[ "openstack/$ZUUL_SHORT_PROJECT_NAME" != "openstack/requirements" ]]; then
+              cp $REQS_DIR/upper-constraints.txt ./
+          fi
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          # NOTE(mhayden): The CentOS CI image has many repositories enabled by
+          # default that can cause package conflicts. We must disable all of
+          # them here and only enable base, updates, and epel.
+          # We also do not want to run this on Fedora.
+          if [[ -x /usr/bin/yum-config-manager ]] && [[ -e /etc/centos-release ]]; then
+            sudo yum-config-manager --disable \* >/dev/null
+            sudo yum-config-manager --enable base >/dev/null
+            sudo yum-config-manager --enable epel >/dev/null
+            sudo yum-config-manager --enable updates >/dev/null
+          fi
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          # NOTE(mhayden): EPEL is no longer required after installing distro
+          # packages with bindep. Individual roles may re-enable EPEL if they
+          # need it for their package installation tasks.
+          # We also do not want to run this on Fedora.
+          if [[ -x /usr/bin/yum-config-manager ]] && [[ -e /etc/centos-release ]]; then
+            sudo yum-config-manager --disable epel >/dev/null
+          fi
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          # Allow Jenkins user to ssh into localhost
+          ssh-keygen -f ~/.ssh/id_rsa -N ""
+          cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+          ssh-keyscan localhost >> ~/.ssh/known_hosts
+          ssh-keyscan 127.0.0.1 >> ~/.ssh/known_hosts
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          # Many of the Ansible roles have a tox environment
+          # called 'functional', so we implement a mapping
+          # of the scenario 'func' to 'functional' so reduce
+          # the need for code churn in those repositories
+          # immediately.
+          if [ "uw_apache" == "func" ]; then
+            /usr/local/jenkins/slave_scripts/run-tox.sh functional
+          else
+            /usr/local/jenkins/slave_scripts/run-tox.sh uw_apache
+          fi
+      environment: '{{ zuul | zuul_legacy_vars }}'

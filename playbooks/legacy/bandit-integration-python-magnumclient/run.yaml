@@ -1,0 +1,27 @@
+- hosts: all
+  name: Autoconverted job legacy-bandit-integration-python-magnumclient from old job
+    gate-bandit-integration-python-magnumclient
+  tasks:
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -u
+          set -e
+          set -x
+          cd $WORKSPACE
+
+          /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
+            git://git.openstack.org \
+            openstack/bandit \
+            openstack/python-magnumclient
+
+          cd $WORKSPACE/openstack/bandit
+
+          tox -e integration openstack python-magnumclient \
+            $WORKSPACE/openstack/python-magnumclient
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

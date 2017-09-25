@@ -1,0 +1,52 @@
+- hosts: all
+  name: Autoconverted job legacy-neutron-dsvm-api-pecan from old job gate-neutron-dsvm-api-pecan-ubuntu-xenial
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export PYTHONUNBUFFERED=true
+          export DEVSTACK_GATE_TEMPEST=1
+          export DEVSTACK_GATE_NEUTRON=1
+          export DEVSTACK_GATE_EXERCISES=0
+          export BRANCH_OVERRIDE=default
+          if [ "$BRANCH_OVERRIDE" != "default" ] ; then
+              export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
+          fi
+          # NOTE(armax): this condition should be revised every time each of the
+          # branches below are dropped. Prior to Newton, the API Tempest tests are
+          # invoked explicitly and thus we need the following variables set. From
+          # Newton onward, everything is taken care of by the Tempest plugin framework
+          export DEVSTACK_GATE_TEMPEST_ALL_PLUGINS=1
+          export DEVSTACK_GATE_TEMPEST_REGEX="^neutron.tests.tempest.api\."
+
+          function gate_hook {
+              bash -xe $BASE/new/neutron/neutron/tests/contrib/gate_hook.sh api-pecan
+          }
+          export -f gate_hook
+
+          function post_test_hook {
+              bash -xe $BASE/new/neutron/neutron/tests/contrib/post_test_hook.sh api-pecan
+          }
+          export -f post_test_hook
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

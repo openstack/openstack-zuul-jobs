@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+
+    - name: Copy files from install-guide/build/html/ on node
+      synchronize:
+        src: install-guide/build/html/
+        dest: '{{ zuul.executor.log_root }}/html/'
+        mode: pull
+        copy_links: true
+        verify_host: true

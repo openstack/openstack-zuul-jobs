@@ -1,0 +1,48 @@
+- hosts: all
+  name: Autoconverted job legacy-periodic-openstack-ansible-deploy-ceph-ocata-centos-7
+    from old job periodic-openstack-ansible-deploy-ceph-ocata-centos-7
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export BRANCH=stable/ocata
+          CLONEMAP=`mktemp`
+          REQS_DIR=`mktemp -d`
+          function cleanup {
+              mkdir -p $WORKSPACE
+              rm -rf $CLONEMAP $REQS_DIR
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: $ZUUL_PROJECT
+              dest: .
+          EOF
+          # zuul cloner works poorly if there are 2 names that are the
+          # same in here.
+          if [[ "$ZUUL_PROJECT" != "openstack/requirements" ]]; then
+          cat >> $CLONEMAP << EOF
+            - name: openstack/requirements
+              dest: $REQS_DIR
+          EOF
+          fi
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+              --branch=$BRANCH \
+              git://git.openstack.org $ZUUL_PROJECT openstack/requirements
+          # REQS_DIR is not set for openstack/requirements and there is also
+          # no need to copy in this case.
+          if [[ "$ZUUL_PROJECT" != "openstack/requirements" ]]; then
+              cp $REQS_DIR/upper-constraints.txt ./
+          fi
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          sudo scripts/gate-check-commit.sh "ceph" "deploy"
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

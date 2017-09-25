@@ -1,0 +1,41 @@
+- hosts: all
+  tasks:
+
+    - name: Copy files from {{ ansible_user_dir }}/ on node
+      synchronize:
+        src: '{{ ansible_user_dir }}/'
+        dest: '{{ zuul.executor.log_root }}'
+        mode: pull
+        copy_links: true
+        verify_host: true
+        rsync_opts:
+          - --include=/logs/**
+          - --include=*/
+          - --exclude=*
+          - --prune-empty-dirs
+
+    - name: Copy files from {{ ansible_user_dir }}/ on node
+      synchronize:
+        src: '{{ ansible_user_dir }}/'
+        dest: '{{ zuul.executor.log_root }}'
+        mode: pull
+        copy_links: true
+        verify_host: true
+        rsync_opts:
+          - --include=/rally-verify/**
+          - --include=*/
+          - --exclude=*
+          - --prune-empty-dirs
+
+    - name: Copy files from {{ ansible_user_dir }}/ on node
+      synchronize:
+        src: '{{ ansible_user_dir }}/'
+        dest: '{{ zuul.executor.log_root }}'
+        mode: pull
+        copy_links: true
+        verify_host: true
+        rsync_opts:
+          - --include=/rally-verify/extra/index.html
+          - --include=*/
+          - --exclude=*
+          - --prune-empty-dirs

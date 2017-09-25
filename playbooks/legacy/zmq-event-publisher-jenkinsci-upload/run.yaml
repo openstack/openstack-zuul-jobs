@@ -1,0 +1,31 @@
+- hosts: all
+  name: Autoconverted job legacy-zmq-event-publisher-jenkinsci-upload from old job
+    zmq-event-publisher-jenkinsci-upload
+  tasks:
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/jenkins-sudo
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          TAG=`echo $ZUUL_REF | sed 's/^refs.tags.//'`
+          FILENAME_HPI="$ZUUL_SHORT_PROJECT_NAME-$TAG.hpi"
+
+          # copy plugin artifacts from tarballs to local workspace
+          rm -rf *.hpi
+          curl -o $FILENAME_HPI http://tarballs.openstack.org/ci/$ZUUL_SHORT_PROJECT_NAME/$FILENAME_HPI
+
+          # deploy to maven repository
+          FILENAME_POM="$ZUUL_SHORT_PROJECT_NAME-$TAG.pom"
+          /usr/local/jenkins/slave_scripts/jenkinsci-upload.sh $ZUUL_SHORT_PROJECT_NAME $TAG \
+              $FILENAME_POM $FILENAME_HPI
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

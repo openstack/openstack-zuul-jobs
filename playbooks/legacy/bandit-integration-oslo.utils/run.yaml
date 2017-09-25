@@ -1,0 +1,26 @@
+- hosts: all
+  name: Autoconverted job legacy-bandit-integration-oslo.utils from old job gate-bandit-integration-oslo.utils
+  tasks:
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -u
+          set -e
+          set -x
+          cd $WORKSPACE
+
+          /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
+            git://git.openstack.org \
+            openstack/bandit \
+            openstack/oslo.utils
+
+          cd $WORKSPACE/openstack/bandit
+
+          tox -e integration openstack oslo.utils \
+            $WORKSPACE/openstack/oslo.utils
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

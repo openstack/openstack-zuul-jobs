@@ -1,0 +1,76 @@
+- hosts: all
+  name: Autoconverted job legacy-shade-ansible-dev from old job gate-shade-ansible-dev-nv
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat << 'EOF' >>"/tmp/dg-local.conf"
+          [[local|localrc]]
+          ENABLE_IDENTITY_V2=False
+          Q_SERVICE_PLUGIN_CLASSES="qos"
+          Q_ML2_PLUGIN_EXT_DRIVERS="qos,port_security"
+          enable_plugin heat https://git.openstack.org/openstack/heat
+          disable_service ceilometer-acentral
+          disable_service ceilometer-acompute
+          disable_service ceilometer-alarm-evaluator
+          disable_service ceilometer-alarm-notifier
+          disable_service ceilometer-anotification
+          disable_service ceilometer-api
+          disable_service ceilometer-collector
+          disable_service horizon
+          [[post-config|$CINDER_CONF]]
+          [DEFAULT]
+          osapi_max_limit=6
+
+          EOF
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export DEVSTACK_GATE_HEAT=1
+          export DEVSTACK_GATE_NEUTRON=1
+          export PYTHONUNBUFFERED=true
+          export SHADE_HAS_DESIGNATE=0
+          export SHADE_HAS_HEAT=1
+          export SHADE_HAS_MAGNUM=0
+          export SHADE_HAS_NEUTRON=1
+          export SHADE_HAS_SWIFT=1
+          if [ "-dev" == "-dev" ]; then
+              export SHADE_ANSBILE_DEV=1
+          fi
+
+          export PROJECTS="openstack-infra/shade $PROJECTS"
+
+          export BRANCH_OVERRIDE=default
+          if [ "$BRANCH_OVERRIDE" != "default" ] ; then
+              export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
+          fi
+
+          function post_test_hook {
+              $BASE/new/shade/shade/tests/ansible/hooks/post_test_hook.sh
+          }
+          export -f post_test_hook
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
