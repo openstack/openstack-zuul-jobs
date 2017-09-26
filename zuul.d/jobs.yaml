@@ -372,3 +372,103 @@
       - openstack/puppet-vitrage
       - openstack/puppet-watcher
       - openstack/puppet-zaqar
+
+- job:
+    name: project-config-gerrit
+    parent: tox
+    vars:
+      tox_envlist: gerrit
+    files:
+      - ^gerrit/acls/.*$
+      - bindep.txt
+      - check_valid_gerrit_projects.py
+      - gerrit/projects.yaml
+      - other-requirements.txt
+      - tools/check_projects_yaml_alphabetized.sh
+      - tools/check_valid_gerrit_config.sh
+      - tox.ini
+
+- job:
+    name: project-config-grafyaml
+    parent: tox
+    vars:
+      tox_envlist: grafyaml
+    files:
+      - ^grafana/.*$
+      - bindep.txt
+      - other-requirements.txt
+      - tools/grafyaml-validate.sh
+      - tox.ini
+
+- job:
+    name: project-config-irc-access
+    parent: tox
+    vars:
+      tox_envlist: irc
+    files:
+      - bindep.txt
+      - accessbot/channels.yaml
+      - gerritbot/channels.yaml
+      - other-requirements.txt
+      - tools/check_irc_access.py
+      - tools/check_channels_yaml.sh
+      - tools/irc_tests.py
+      - tools/normalize_channels_yaml.py
+      - tools/projectconfig_yamllib.py
+      - tox.ini
+
+- job:
+    name: project-config-nodepool
+    parent: tox
+    vars:
+      tox_envlist: nodepool
+    files:
+      - ^nodepool/nodepool.yaml
+      - bindep.txt
+      - other-requirements.txt
+      - tox.ini
+
+- job:
+    name: build-openstack-specs-site
+    parent: tox
+    vars:
+      tox_envlist: specs
+    files:
+      - bindep.txt
+      - specs/.*
+      - other-requirements.txt
+      - tox.ini
+
+- job:
+    name: project-config-dib
+    parent: tox
+    vars:
+      tox_envlist: dib
+    files:
+      - ^nodepool/elements/.*$
+      - bindep.txt
+      - other-requirements.txt
+      - tox.ini
+
+- job:
+    name: project-config-infra-docs-index
+    parent: tox
+    vars:
+      tox_envlist: infra-docs
+    files:
+      - 'bindep.txt'
+      - 'docs-site/.*'
+      - 'other-requirements.txt'
+      - 'tox.ini'
+
+- job:
+    name: project-config-build-openafs-centos
+    description: |
+      There are no official builds for AFS on Centos 7, hence
+      we build our own and publish them to tarballs.openstack.org
+      for our centos hosts that need access to the mirror to
+      consume.
+    parent: publish-openstack-artifacts
+    run: playbooks/package-afs-centos/run
+    post-run: playbooks/package-afs-centos/post
+    nodeset: centos-7
