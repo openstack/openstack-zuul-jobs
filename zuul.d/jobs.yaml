@@ -376,6 +376,9 @@
 - job:
     name: project-config-gerrit
     parent: tox
+    description: |
+      Runs checks on gerrit-related configuration.  Uses ``gerrit``
+      tox env.
     vars:
       tox_envlist: gerrit
     files:
@@ -391,6 +394,9 @@
 - job:
     name: project-config-grafyaml
     parent: tox
+    description: |
+      Runs checks on grafyaml configuration with the ``grafyaml`` tox
+      env.
     vars:
       tox_envlist: grafyaml
     files:
@@ -403,6 +409,9 @@
 - job:
     name: project-config-irc-access
     parent: tox
+    description: |
+      Runs checks on IRC configuration with the ``irc`` tox
+      env.
     vars:
       tox_envlist: irc
     files:
@@ -420,6 +429,9 @@
 - job:
     name: project-config-nodepool
     parent: tox
+    description: |
+      Runs checks on nodepool configuration with the ``nodepool`` tox
+      env.
     vars:
       tox_envlist: nodepool
     files:
@@ -431,6 +443,8 @@
 - job:
     name: build-openstack-specs-site
     parent: tox
+    description: |
+      Generates the index page of http://specs.openstack.org/.
     vars:
       tox_envlist: specs
     files:
@@ -442,6 +456,9 @@
 - job:
     name: project-config-dib
     parent: tox
+    description: |
+      Runs diskimage-builder on all elements in project-config.  Uses
+      the ``dib`` tox env.
     vars:
       tox_envlist: dib
     files:
@@ -453,6 +470,8 @@
 - job:
     name: project-config-infra-docs-index
     parent: tox
+    description: |
+      Generates the index page for https://docs.openstack.org/infra/.
     vars:
       tox_envlist: infra-docs
     files:
