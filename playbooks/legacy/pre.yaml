@@ -18,6 +18,7 @@
       copy:
         dest: /etc/nodepool/primary_node_private
         content: "{{ hostvars['primary']['nodepool']['private_ipv4'] }}"
+      when: hostvars['primary'] is defined
     - name: Copy ssh keys to nodepool directory
       command: "cp .ssh/{{ item }} /etc/nodepool/{{ item }}"
       with_items:
