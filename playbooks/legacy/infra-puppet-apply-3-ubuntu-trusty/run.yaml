@@ -1,0 +1,26 @@
+- hosts: all
+  name: Autoconverted job legacy-infra-puppet-apply-3-ubuntu-trusty from old job gate-infra-puppet-apply-3-ubuntu-trusty
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
+            git://git.openstack.org openstack-infra/system-config
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cd openstack-infra/system-config
+          /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+          if [ "3" == "4" ]; then
+              # TODO:
+              echo "TODO: add logic to deploy puppet4"
+          fi
+          ./tools/apply-test.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

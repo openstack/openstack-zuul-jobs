@@ -1,0 +1,91 @@
+- hosts: all
+  name: Autoconverted job legacy-rally-dsvm-verify-light-create-resources from old
+    job gate-rally-dsvm-verify-light-create-resources-nv
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          #/bin/bash -xe
+
+          if [ $ZUUL_PROJECT == "openstack/rally" ] && [ $ZUUL_BRANCH != "master" ]; then
+              export DEVSTACK_GATE_FEATURE_MATRIX="/opt/stack/new/rally/devstack/features.yaml"
+          fi
+
+          export PROJECTS="openstack/rally $PROJECTS"
+
+          export DEVSTACK_GATE_HORIZON=1
+          export DEVSTACK_GATE_CEILOMETER=1
+          export DEVSTACK_GATE_HEAT=1
+          export DEVSTACK_GATE_SAHARA=1
+          export DEVSTACK_GATE_EXERCISES=0
+
+          export RALLY_VERIFY_JOB_MODE=light
+          export RALLY_VERIFY_CTX_MODE=create-resources
+          export RALLY_DO_COMPARE=1
+
+          export IDENTITY_API_VERSION=3
+
+          DEVSTACK_LOCAL_CONFIG=$"enable_plugin rally git://git.openstack.org/openstack/rally"
+          DEVSTACK_LOCAL_CONFIG+=$'\n'"CINDER_ENABLE_V1_API=True"
+
+          ENABLED_SERVICES=key,horizon,
+          ENABLED_SERVICES+=cinder,c-api,c-vol,c-sch,c-bak,
+          ENABLED_SERVICES+=g-api,g-reg,
+          ENABLED_SERVICES+=n-api,n-crt,n-cpu,n-sch,n-cond,
+          ENABLED_SERVICES+=s-proxy,s-account,s-container,s-object,
+
+          export PROJECTS="openstack/neutron $PROJECTS"
+          export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin neutron git://git.openstack.org/openstack/neutron"
+
+          if [ $DEVSTACK_GATE_CEILOMETER -ne 0 ]; then
+              export CEILOMETER_NOTIFICATION_TOPICS=notifications,profiler
+
+              export PROJECTS="openstack/ceilometer $PROJECTS"
+              export PROJECTS="openstack/aodh $PROJECTS"
+
+              DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin ceilometer git://git.openstack.org/openstack/ceilometer"
+              DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin aodh git://git.openstack.org/openstack/aodh"
+
+              ENABLED_SERVICES+=ceilometer-acompute,ceilometer-acentral,ceilometer-api,
+              ENABLED_SERVICES+=ceilometer-anotification,ceilometer-collector,
+              ENABLED_SERVICES+=aodh-api,aodh-evaluator,aodh-notifier,
+          fi
+          if [ $DEVSTACK_GATE_HEAT -ne 0 ]; then
+              ENABLED_SERVICES+=heat,h-api,h-api-cfn,h-api-cw,h-eng,
+          fi
+          if [ $DEVSTACK_GATE_SAHARA -ne 0 ]; then
+              DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin sahara git://git.openstack.org/openstack/sahara"
+          fi
+          export ENABLED_SERVICES
+          export DEVSTACK_LOCAL_CONFIG
+
+          function post_test_hook {
+              local cmd="$BASE/new/rally/tests/ci/rally_verify.py --mode $RALLY_VERIFY_JOB_MODE"
+              if [ $RALLY_VERIFY_CTX_MODE = "create-resources" ]; then
+                  cmd+=" --ctx-create-resources"
+              fi
+              if [ $RALLY_DO_COMPARE -ne 0 ]; then
+                  cmd+=" --compare"
+              fi
+              $cmd
+          }
+          export -f post_test_hook
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'

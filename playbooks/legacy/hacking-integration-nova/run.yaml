@@ -1,0 +1,33 @@
+- hosts: all
+  name: Autoconverted job legacy-hacking-integration-nova from old job gate-hacking-integration-nova
+  tasks:
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/jenkins-sudo
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -u
+          set -e
+          set -x
+          cd $WORKSPACE
+
+          /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
+            git://git.openstack.org \
+            openstack-dev/hacking \
+            openstack/nova
+          cd openstack-dev/hacking
+          tox -e integration openstack nova \
+            $WORKSPACE/openstack/nova
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

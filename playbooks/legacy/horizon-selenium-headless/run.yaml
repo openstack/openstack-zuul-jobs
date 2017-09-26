@@ -1,0 +1,58 @@
+- hosts: all
+  name: Autoconverted job legacy-horizon-selenium-headless from old job gate-horizon-selenium-headless-ubuntu-xenial
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          CLONEMAP=`mktemp`
+          REQS_DIR=`mktemp -d`
+          function cleanup {
+              mkdir -p $WORKSPACE
+              rm -rf $CLONEMAP $REQS_DIR
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: $ZUUL_PROJECT
+              dest: .
+          EOF
+          # zuul cloner works poorly if there are 2 names that are the
+          # same in here.
+          if [[ "$ZUUL_PROJECT" != "openstack/requirements" ]]; then
+          cat >> $CLONEMAP << EOF
+            - name: openstack/requirements
+              dest: $REQS_DIR
+          EOF
+          fi
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+              git://git.openstack.org $ZUUL_PROJECT openstack/requirements
+          # REQS_DIR is not set for openstack/requirements and there is also
+          # no need to copy in this case.
+          if [[ "$ZUUL_PROJECT" != "openstack/requirements" ]]; then
+              cp $REQS_DIR/upper-constraints.txt ./
+          fi
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/jenkins-sudo
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          NOSE_WITH_XUNIT=1 tox -e selenium-headless
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

@@ -1,0 +1,97 @@
+- hosts: all
+  name: Autoconverted job legacy-openstack-ansible-os_aodh-announce-release from old
+    job openstack-ansible-os_aodh-announce-release
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          CLONEMAP=`mktemp`
+          function cleanup {
+              # In cases where zuul-cloner is aborted during a git
+              # clone operation, git will remove the git work tree in
+              # its cleanup. The work tree in these jobs is the
+              # workspace directory, which means that subsequent
+              # jenkins post-build actions can not run because the
+              # workspace has been removed.
+              # To reduce the likelihood of this having an impact,
+              # recreate the workspace directory if needed
+              mkdir -p $WORKSPACE
+              rm -f $CLONEMAP
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: $ZUUL_PROJECT
+              dest: .
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+              git://git.openstack.org $ZUUL_PROJECT
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -x
+
+          TOOLS_TMP=$HOME/release-tools
+          mkdir -p $TOOLS_TMP
+
+          # Report on the ZUUL settings.
+          env | grep '^ZUUL_'
+
+          # Check out the release-tools, ignoring any other ZUUL
+          # variables that might confuse the cloner and cause it to
+          # try to check out anything like the commit that was just
+          # tagged or to look for a branch (we always want the master
+          # version of the tools).
+          for v in $(env | grep '^ZUUL_' | cut -f1 -d=); do
+              unset $v
+          done
+
+          /usr/zuul-env/bin/zuul-cloner \
+              --cache-dir /opt/git \
+              --workspace $TOOLS_TMP \
+              git://git.openstack.org \
+              openstack-infra/release-tools
+          TOOLS_DIR=$TOOLS_TMP/openstack-infra/release-tools
+
+          # Install the distro packages needed by the release
+          # tools. These will not necessarily be included in the set
+          # installed by the builder step above, so we have to do it
+          # explicitly by changing to the tools directory and then
+          # running the same script.
+          (cd $TOOLS_DIR &&
+           /usr/local/jenkins/slave_scripts/install-distro-packages.sh)
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/jenkins-sudo
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -x
+
+          TOOLS_TMP=$HOME/release-tools
+          TOOLS_DIR=$TOOLS_TMP/openstack-infra/release-tools
+
+          # Save the version that was just tagged by parsing
+          # ref/tags/VALUE to get VALUE.
+          VERSION=$(echo $ZUUL_REF | cut -f3 -d/)
+
+          # Run the announce script.
+          $TOOLS_DIR/announce.sh $WORKSPACE $VERSION
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

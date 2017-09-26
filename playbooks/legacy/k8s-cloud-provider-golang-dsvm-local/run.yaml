@@ -1,0 +1,88 @@
+- hosts: all
+  name: Autoconverted job legacy-k8s-cloud-provider-golang-dsvm-local from old job
+    gate-k8s-cloud-provider-golang-dsvm-local-ubuntu-xenial
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat << 'EOF' >>"/tmp/dg-local.conf"
+          [[local|localrc]]
+          enable_plugin $ZUUL_SHORT_PROJECT_NAME git://git.openstack.org/openstack/$ZUUL_SHORT_PROJECT_NAME
+          # Run a minimum set of services
+          disable_service horizon
+          disable_service s-account
+          disable_service s-container
+          disable_service s-object
+          disable_service s-proxy
+          disable_service ceilometer-acentral
+          disable_service ceilometer-acompute
+          disable_service ceilometer-alarm-evaluator
+          disable_service ceilometer-alarm-notifier
+          disable_service ceilometer-anotification
+          disable_service ceilometer-api
+          disable_service ceilometer-collector
+
+          EOF
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export PYTHONUNBUFFERED=true
+
+          # Disable tempest and exercises
+          export DEVSTACK_GATE_TEMPEST=0
+          export DEVSTACK_GATE_TEMPEST_NOTESTS=1
+          export DEVSTACK_GATE_EXERCISES=0
+
+          export PROJECTS="openstack/$ZUUL_SHORT_PROJECT_NAME $PROJECTS"
+
+          # Keep localrc to be able to set some vars in post_test_hook
+          export KEEP_LOCALRC=1
+
+          function pre_test_hook {
+              if [[ -f "$BASE/new/$ZUUL_SHORT_PROJECT_NAME/contrib/pre_test_hook.sh" ]]; then
+                  source $BASE/new/$ZUUL_SHORT_PROJECT_NAME/contrib/pre_test_hook.sh local
+              fi
+          }
+          export -f pre_test_hook
+
+          function gate_hook {
+              if [[ -f "$BASE/new/$ZUUL_SHORT_PROJECT_NAME/contrib/gate_hook.sh" ]]; then
+                  source $BASE/new/$ZUUL_SHORT_PROJECT_NAME/contrib/gate_hook.sh local
+              else
+                  $BASE/new/devstack-gate/devstack-vm-gate.sh
+              fi
+          }
+          export -f gate_hook
+
+          function post_test_hook {
+              if [[ -f "$BASE/new/$ZUUL_SHORT_PROJECT_NAME/contrib/post_test_hook.sh" ]]; then
+                  source $BASE/new/$ZUUL_SHORT_PROJECT_NAME/contrib/post_test_hook.sh local
+              fi
+          }
+          export -f post_test_hook
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

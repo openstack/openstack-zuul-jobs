@@ -1,0 +1,54 @@
+- hosts: all
+  name: Autoconverted job legacy-tempest-dsvm-full-drbd-devstack from old job gate-tempest-dsvm-full-drbd-devstack-ubuntu-xenial-nv
+  tasks:
+
+    - shell:
+        cmd: |
+          echo "For problems with this job, contact Philipp Marek <philipp.marek@linbit.com> freenode: flip214"
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat << 'EOF' >>"/tmp/dg-local.conf"
+          [[local|localrc]]
+          enable_plugin drbd-devstack git://git.openstack.org/drbd-devstack
+          CINDER_ENABLED_BACKENDS=drbd:drbdmanage
+
+          EOF
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export PYTHONUNBUFFERED=true
+          export DEVSTACK_GATE_TEMPEST=1
+          export DEVSTACK_GATE_TEMPEST_ALL_PLUGINS=1
+          # As we are setting DEVSTACK_GATE_TEMPEST_ALL_PLUGINS, we need to add
+          # the regex to limit the tests to the same as a tempest -efull would
+          # run.
+          export DEVSTACK_GATE_TEMPEST_REGEX='(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario)|(^cinder\.tests.tempest))'
+          export PROJECTS="openstack/drbd-devstack $PROJECTS"
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

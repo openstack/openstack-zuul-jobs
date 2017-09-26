@@ -1,0 +1,37 @@
+- hosts: all
+  name: Autoconverted job legacy-fuel-ccp-validate from old job gate-fuel-ccp-validate
+  tasks:
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/jenkins-sudo
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cd "$WORKSPACE"
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack/fuel-ccp
+              dest: fuel-ccp
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack/fuel-ccp
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cd "$WORKSPACE/fuel-ccp/tools/gate"
+          ./run.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

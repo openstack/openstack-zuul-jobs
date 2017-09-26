@@ -1,0 +1,57 @@
+- hosts: all
+  name: Autoconverted job legacy-glare-dsvm from old job gate-glare-dsvm-ubuntu-xenial
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat << 'EOF' >>"/tmp/dg-local.conf"
+          [[local|localrc]]
+          enable_plugin glare git://git.openstack.org/openstack/glare
+
+          EOF
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export PYTHONUNBUFFERED=true
+          export PROJECTS="openstack/python-glareclient $PROJECTS"
+          export PROJECTS="openstack/glare $PROJECTS"
+          export ENABLED_SERVICES=tempest
+          export GLARE_CUSTOM_MODULES=glare.tests.sample_artifact
+          export GLARE_ENABLED_TYPES=heat_templates,heat_environments,murano_packages,tosca_templates,images,sample_artifact
+          function pre_test_hook {
+              source $BASE/new/glare/glare_tempest_plugin/contrib/pre_test_hook.sh
+          }
+          export -f pre_test_hook
+          function gate_hook {
+              source $BASE/new/glare/glare_tempest_plugin/contrib/gate_hook.sh
+          }
+          export -f gate_hook
+          function post_test_hook {
+              source $BASE/new/glare/glare_tempest_plugin/contrib/post_test_hook.sh
+          }
+          export -f post_test_hook
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'

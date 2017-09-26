@@ -1,0 +1,48 @@
+- hosts: all
+  name: Autoconverted job legacy-glance_store-dsvm-functional-filesystem from old
+    job gate-glance_store-dsvm-functional-filesystem-ubuntu-xenial-nv
+  tasks:
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          cat > clonemap.yaml << EOF
+          clonemap:
+            - name: openstack-infra/devstack-gate
+              dest: devstack-gate
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
+              git://git.openstack.org \
+              openstack-infra/devstack-gate
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          export PYTHONUNBUFFERED=true
+          export ENABLED_SERVICES=g-api,n-api
+          export BRANCH_OVERRIDE=default
+          export DEVSTACK_PROJECT_FROM_GIT=glance_store
+          if [ "$BRANCH_OVERRIDE" != "default" ] ; then
+              export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
+          fi
+
+          function gate_hook {
+              cd $BASE/new/glance_store/glance_store/tests/functional/hooks
+              ./gate_hook.sh filesystem
+          }
+          export -f gate_hook
+
+          function post_test_hook {
+              cd $BASE/new/glance_store/glance_store/tests/functional/hooks
+              ./post_test_hook.sh filesystem
+          }
+          export -f post_test_hook
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
