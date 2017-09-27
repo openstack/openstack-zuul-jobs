@@ -15,6 +15,7 @@
     timeout: 5400
     vars:
       BUILD_TIMEOUT: '5400000'
+    voting: false
 
 - job:
     name: legacy-ansible-func-centos-7
@@ -45,6 +46,7 @@
     vars:
       BUILD_TIMEOUT: '5400000'
     nodeset: opensuse-423
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-ansible-func-ubuntu-trusty
@@ -55,6 +57,7 @@
     vars:
       BUILD_TIMEOUT: '5400000'
     nodeset: ubuntu-trusty
+    branches: ^stable/newton$
 
 - job:
     name: legacy-ansible-hardening-announce-release
@@ -218,6 +221,10 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    branches: master
+    files:
+      - ^tox.ini$
+      - ^api-guide/.*
 
 - job:
     name: legacy-api-ref
@@ -228,6 +235,11 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    branches: master
+    files:
+      - ^tox.ini$
+      - ^api-ref/.*
+      - ^doc/api_samples/.*
 
 - job:
     name: legacy-api-site-propose-translation-update
@@ -1210,6 +1222,7 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    voting: false
 
 - job:
     name: legacy-chef-rake
@@ -1227,6 +1240,7 @@
     timeout: 3600
     vars:
       BUILD_TIMEOUT: '3600000'
+    voting: false
 
 - job:
     name: legacy-chef-rake-integration-centos-7
@@ -1237,6 +1251,7 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    voting: false
 
 - job:
     name: legacy-chef-rake-integration-multinode
@@ -1246,6 +1261,7 @@
     timeout: 3600
     vars:
       BUILD_TIMEOUT: '3600000'
+    voting: false
 
 - job:
     name: legacy-cinder-pylint
@@ -1719,6 +1735,11 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    files:
+      - ^tox.ini$
+      - ^deploy-guide/.*
+      - bindep.txt
+      - other-requirements.txt
 
 - job:
     name: legacy-designate-dashboard-nodejs4-npm-run-lint
@@ -2072,6 +2093,7 @@
     nodeset: ubuntu-trusty
     required-projects:
       - openstack-infra/devstack-gate
+    branches: master
 
 - job:
     name: legacy-dsvm-collectd-ceilometer-plugin-bin
@@ -3955,6 +3977,7 @@
     vars:
       BUILD_TIMEOUT: '1800000'
     nodeset: ubuntu-trusty
+    branches: master
 
 - job:
     name: legacy-infra-puppet-apply-4-centos-7
@@ -4054,6 +4077,12 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    branches: ^stable/(newton|ocata).*$
+    files:
+      - ^tox.ini$
+      - ^install-guide/.*
+      - bindep.txt
+      - other-requirements.txt
 
 - job:
     name: legacy-interop-tox-doc8
@@ -5086,6 +5115,7 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    voting: false
 
 - job:
     name: legacy-logstash-filters-ubuntu-trusty
@@ -5096,6 +5126,7 @@
     vars:
       BUILD_TIMEOUT: '1800000'
     nodeset: ubuntu-trusty
+    branches: master
 
 - job:
     name: legacy-magnum-tox-migration
@@ -6570,6 +6601,7 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    branches: ^(?!stable/newton).*$
 
 - job:
     name: legacy-nodejs6-npm-run-lint
@@ -6684,6 +6716,8 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    dependencies:
+      - publish-openstack-python-tarball
 
 - job:
     name: legacy-oaktree-dsvm-functional
@@ -8252,6 +8286,7 @@
     timeout: 3600
     vars:
       BUILD_TIMEOUT: '3600000'
+    voting: false
 
 - job:
     name: legacy-openstackci-beaker-centos-7
@@ -8778,6 +8813,9 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    irrelevant-files:
+      - ^docs/.*$
+      - ^releasenotes/.*$
 
 - job:
     name: legacy-packstack-integration-scenario002-tempest-centos-7
@@ -8788,6 +8826,9 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    irrelevant-files:
+      - ^docs/.*$
+      - ^releasenotes/.*$
 
 - job:
     name: legacy-packstack-integration-scenario003-tempest-centos-7
@@ -8798,6 +8839,9 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    irrelevant-files:
+      - ^docs/.*$
+      - ^releasenotes/.*$
 
 - job:
     name: legacy-packstack-releasenotes
@@ -10639,6 +10683,7 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    branches: ^(?!driverfixes/).*$
 
 - job:
     name: legacy-propose-translation-update-ocata
@@ -10648,6 +10693,7 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    branches: ^(?!driverfixes/).*$
 
 - job:
     name: legacy-propose-translation-update-pike
@@ -10666,6 +10712,8 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    dependencies:
+      - legacy-pypi-both-upload
 
 - job:
     name: legacy-publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
@@ -10715,6 +10763,7 @@
       BUILD_TIMEOUT: '3600000'
     required-projects:
       - openstack/puppet-openstack-integration
+    voting: false
 
 - job:
     name: legacy-puppet-beaker-rspec-centos-7
@@ -10739,6 +10788,7 @@
     nodeset: ubuntu-trusty
     required-projects:
       - openstack/puppet-openstack-integration
+    voting: false
 
 - job:
     name: legacy-puppet-httpd-forge-upload
@@ -10799,6 +10849,7 @@
     timeout: 3600
     vars:
       BUILD_TIMEOUT: '3600000'
+    files: ^metadata.json$
 
 - job:
     name: legacy-puppet-murano-puppet-beaker-rspec
@@ -10851,6 +10902,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
@@ -10865,6 +10922,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario002-tempest
@@ -10878,6 +10941,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
@@ -10892,6 +10961,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario003-tempest
@@ -10905,6 +10980,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
@@ -10919,6 +11000,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario004-tempest
@@ -10932,6 +11019,13 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    branches: ^(?!stable/newton).*$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7
@@ -10946,6 +11040,13 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    branches: ^(?!stable/newton).*$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario001-tempest
@@ -10959,6 +11060,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario001-tempest-centos-7
@@ -10973,6 +11080,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario002-tempest
@@ -10986,6 +11099,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario002-tempest-centos-7
@@ -11000,6 +11119,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario003-tempest
@@ -11013,6 +11138,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario003-tempest-centos-7
@@ -11027,6 +11158,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario004-tempest
@@ -11040,6 +11177,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-integration-5-scenario004-tempest-centos-7
@@ -11054,6 +11197,12 @@
       - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.md$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^spec/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
@@ -11067,6 +11216,14 @@
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-lint-centos-7
@@ -11085,6 +11242,15 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    branches: ^(stable/(newton|ocata)).*$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-syntax-4-centos-7
@@ -11094,6 +11260,14 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-unit-centos-7
@@ -11103,6 +11277,14 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-openstackci-puppet-beaker-rspec
@@ -11178,6 +11360,7 @@
     vars:
       BUILD_TIMEOUT: '1800000'
     nodeset: centos-7
+    branches: ^(stable/(newton|ocata)).*$
 
 - job:
     name: legacy-puppet-syntax-4-centos-7
@@ -11214,6 +11397,7 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    branches: ^(stable/(newton|ocata)).*$
 
 - job:
     name: legacy-puppet-unit-3.8-legacy-centos-7
@@ -11223,6 +11407,7 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    branches: ^(stable/(newton|ocata)).*$
 
 - job:
     name: legacy-puppet-unit-4.8-centos-7
@@ -11241,6 +11426,8 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     nodeset: centos-7
+    branches: ^master
+    voting: false
 
 - job:
     name: legacy-pyeclib-python35
@@ -11268,6 +11455,8 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    dependencies:
+      - publish-openstack-python-tarball
 
 - job:
     name: legacy-python-barbicanclient-devstack
@@ -16253,6 +16442,9 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    irrelevant-files:
+      - ^(test-|)requirements.txt$
+      - ^setup.cfg$
 
 - job:
     name: legacy-tempest-dsvm-neutron-src-python-saharaclient
@@ -16897,6 +17089,9 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    files:
+      - ^.*\.po$
+      - ^.*\.pot$
 
 - job:
     name: legacy-tox-doc-publishlang
@@ -17195,6 +17390,16 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    voting: false
+    branches: ^(?!stable/(newton|ocata)).*$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-multinode-upgrades
@@ -17247,6 +17452,15 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    branches: ^stable/ocata$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-nonha-multinode-oooq
@@ -17299,6 +17513,14 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
@@ -17663,6 +17885,14 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq
@@ -17715,6 +17945,14 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-newton
@@ -17924,6 +18162,14 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq
@@ -18080,6 +18326,50 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    voting: false
+    branches: ^(?!stable/(newton|ocata)).*$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/aodh.*$
+      - ^manifests/profile/base/aodh.*$
+      - ^(docker|puppet)/services/ceilometer.*$
+      - ^manifests/profile/base/ceilometer.*$
+      - ^(docker|puppet)/services/gnocchi.*$
+      - ^manifests/profile/base/gnocchi.*$
+      - ^(docker|puppet)/services/panko.*$
+      - ^manifests/profile/base/panko.*$
+      - ^(docker|puppet)/services/ceph.*$
+      - ^manifests/profile/base/ceph.*$
+      - ^manifests/profile/base/monitoring.*$
+      - ^(docker|puppet)/services/monitoring.*$
+      - ^manifests/profile/base/metrics.*$
+      - ^(docker|puppet)/services/metrics.*$
+      - ^manifests/profile/base/logging.*$
+      - ^(docker|puppet)/services/logging.*$
+      - ^(docker|puppet)/services/tacker.*$
+      - ^manifests/profile/base/tacker.*$
+      - ^(docker|puppet)/services/congress.*$
+      - ^manifests/profile/base/congress.*$
+      - ^(docker|puppet)/services/cinder.*$
+      - ^manifests/profile/base/cinder.*$
+      - ci/environments/scenario001.*$
+      - ci/pingtests/scenario001.*$
+      - config/general_config/featureset005.yml
+      - config/general_config/featureset012.yml
+      - config/general_config/featureset016.yml
+      - workbooks/ceph-ansible.yaml
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
@@ -18184,6 +18474,49 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    branches: ^stable/ocata$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/aodh.*$
+      - ^manifests/profile/base/aodh.*$
+      - ^(docker|puppet)/services/ceilometer.*$
+      - ^manifests/profile/base/ceilometer.*$
+      - ^(docker|puppet)/services/gnocchi.*$
+      - ^manifests/profile/base/gnocchi.*$
+      - ^(docker|puppet)/services/panko.*$
+      - ^manifests/profile/base/panko.*$
+      - ^(docker|puppet)/services/ceph.*$
+      - ^manifests/profile/base/ceph.*$
+      - ^manifests/profile/base/monitoring.*$
+      - ^(docker|puppet)/services/monitoring.*$
+      - ^manifests/profile/base/metrics.*$
+      - ^(docker|puppet)/services/metrics.*$
+      - ^manifests/profile/base/logging.*$
+      - ^(docker|puppet)/services/logging.*$
+      - ^(docker|puppet)/services/tacker.*$
+      - ^manifests/profile/base/tacker.*$
+      - ^(docker|puppet)/services/congress.*$
+      - ^manifests/profile/base/congress.*$
+      - ^(docker|puppet)/services/cinder.*$
+      - ^manifests/profile/base/cinder.*$
+      - ci/environments/scenario001.*$
+      - ci/pingtests/scenario001.*$
+      - config/general_config/featureset005.yml
+      - config/general_config/featureset012.yml
+      - config/general_config/featureset016.yml
+      - workbooks/ceph-ansible.yaml
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq
@@ -18340,6 +18673,45 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    voting: false
+    branches: ^(?!stable/(newton|ocata)).*$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/barbican.*$
+      - ^manifests/profile/base/barbican.*$
+      - ^(docker|puppet)/services/cinder.*$
+      - ^manifests/profile/base/cinder.*$
+      - ^(docker|puppet)/services/ec2-api.*$
+      - ^manifests/profile/base/nova/ec2.*$
+      - ^(docker|puppet)/services/swift.*$
+      - ^manifests/profile/base/swift.*$
+      - ^(docker|puppet)/services/zaqar.*$
+      - ^manifests/profile/base/zaqar.*$
+      - ^(docker|puppet)/services/aodh.*$
+      - ^manifests/profile/base/aodh.*$
+      - ^(docker|puppet)/services/ceilometer.*$
+      - ^manifests/profile/base/ceilometer.*$
+      - ^(docker|puppet)/services/gnocchi.*$
+      - ^manifests/profile/base/gnocchi.*$
+      - ^(docker|puppet)/services/panko.*$
+      - ^manifests/profile/base/panko.*$
+      - ci/environments/scenario002.*$
+      - ci/pingtests/scenario002.*$
+      - config/general_config/featureset006.yml
+      - config/general_config/featureset013.yml
+      - config/general_config/featureset017.yml
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-puppet
@@ -18444,6 +18816,44 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    branches: ^stable/ocata$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/barbican.*$
+      - ^manifests/profile/base/barbican.*$
+      - ^(docker|puppet)/services/cinder.*$
+      - ^manifests/profile/base/cinder.*$
+      - ^(docker|puppet)/services/ec2-api.*$
+      - ^manifests/profile/base/nova/ec2.*$
+      - ^(docker|puppet)/services/swift.*$
+      - ^manifests/profile/base/swift.*$
+      - ^(docker|puppet)/services/zaqar.*$
+      - ^manifests/profile/base/zaqar.*$
+      - ^(docker|puppet)/services/aodh.*$
+      - ^manifests/profile/base/aodh.*$
+      - ^(docker|puppet)/services/ceilometer.*$
+      - ^manifests/profile/base/ceilometer.*$
+      - ^(docker|puppet)/services/gnocchi.*$
+      - ^manifests/profile/base/gnocchi.*$
+      - ^(docker|puppet)/services/panko.*$
+      - ^manifests/profile/base/panko.*$
+      - ci/environments/scenario002.*$
+      - ci/pingtests/scenario002.*$
+      - config/general_config/featureset006.yml
+      - config/general_config/featureset013.yml
+      - config/general_config/featureset017.yml
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq
@@ -18600,6 +19010,34 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    voting: false
+    branches: ^(?!stable/(newton|ocata)).*$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/sahara.*$
+      - ^manifests/profile/base/sahara.*$
+      - ^(docker|puppet)/services/mistral.*$
+      - ^manifests/profile/base/mistral.*$
+      - ci/environments/scenario003.*$
+      - ci/pingtests/scenario003.*$
+      - config/general_config/featureset007.yml
+      - config/general_config/featureset014.yml
+      - config/general_config/featureset018.yml
+      - roles\/(.+\/)
+      - toci-quickstart\/(config|playbooks)\/(.+)
+      - toci_.+
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-puppet
@@ -18704,6 +19142,33 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    branches: ^stable/ocata$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/sahara.*$
+      - ^manifests/profile/base/sahara.*$
+      - ^(docker|puppet)/services/mistral.*$
+      - ^manifests/profile/base/mistral.*$
+      - ci/environments/scenario003.*$
+      - ci/pingtests/scenario003.*$
+      - config/general_config/featureset007.yml
+      - config/general_config/featureset014.yml
+      - config/general_config/featureset018.yml
+      - roles\/(.+\/)
+      - toci-quickstart\/(config|playbooks)\/(.+)
+      - toci_.+
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq
@@ -18860,6 +19325,33 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    voting: false
+    branches: ^(?!stable/(newton|ocata)).*$
+    files:
+      - ^(docker|puppet)/services/glance.*$
+      - ^manifests/profile/base/glance.*$
+      - ^manifests/haproxy.*$
+      - ^(docker|puppet)/services/ceph.*$
+      - ^manifests/profile/base/ceph.*$
+      - ^(docker|puppet)/services/manila.*$
+      - ^manifests/profile/base/manila.*$
+      - ^manifests/profile/pacemaker/manila.*$
+      - ci/environments/scenario004.*$
+      - ci/pingtests/scenario004.*$
+      - config/general_config/featureset008.yml
+      - config/general_config/featureset015.yml
+      - config/general_config/featureset019.yml
+      - workbooks/ceph-ansible.yaml
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-puppet
@@ -19380,6 +19872,14 @@
       - openstack/tripleo-quickstart
       - openstack/tripleo-quickstart-extras
       - openstack/tripleo-ui
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-upgrades
@@ -19909,6 +20409,7 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    branches: ^(?!driverfixes/).*$
 
 - job:
     name: legacy-vinz-webclient-js-draft
@@ -20048,6 +20549,7 @@
       BUILD_TIMEOUT: '3600000'
     required-projects:
       - openstack/windmill
+    voting: false
 
 - job:
     name: legacy-windmill-deploy-centos-7
@@ -20059,6 +20561,7 @@
     nodeset: centos-7
     required-projects:
       - openstack/windmill
+    voting: false
 
 - job:
     name: legacy-windmill-deploy-fedora-26
@@ -20070,6 +20573,7 @@
     nodeset: fedora-26
     required-projects:
       - openstack/windmill
+    voting: false
 
 - job:
     name: legacy-zaqar-tox-integration
