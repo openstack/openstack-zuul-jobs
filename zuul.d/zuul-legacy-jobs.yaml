@@ -262,7 +262,7 @@
 
 - job:
     name: legacy-api-site-upstream-translation-update
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/api-site-upstream-translation-update/run
     post-run: playbooks/legacy/api-site-upstream-translation-update/post
     timeout: 1800
@@ -401,7 +401,7 @@
 
 - job:
     name: legacy-astara-appliance-buildimage
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/astara-appliance-buildimage/run
     post-run: playbooks/legacy/astara-appliance-buildimage/post
     timeout: 1800
@@ -2922,7 +2922,7 @@
 
 - job:
     name: legacy-gearman-plugin-hpi-artifact
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/gearman-plugin-hpi-artifact/run
     post-run: playbooks/legacy/gearman-plugin-hpi-artifact/post
     timeout: 1800
@@ -2948,7 +2948,7 @@
 
 - job:
     name: legacy-gerrit-buck
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/gerrit-buck/run
     post-run: playbooks/legacy/gerrit-buck/post
     timeout: 2400
@@ -2959,7 +2959,7 @@
 
 - job:
     name: legacy-gerrit-package-buck
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/gerrit-package-buck/run
     post-run: playbooks/legacy/gerrit-package-buck/post
     timeout: 2400
@@ -4168,7 +4168,7 @@
 
 - job:
     name: legacy-ironic-python-agent-buildimage-coreos
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/ironic-python-agent-buildimage-coreos/run
     post-run: playbooks/legacy/ironic-python-agent-buildimage-coreos/post
     timeout: 1800
@@ -4177,7 +4177,7 @@
 
 - job:
     name: legacy-ironic-python-agent-buildimage-tinyipa
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/ironic-python-agent-buildimage-tinyipa/run
     post-run: playbooks/legacy/ironic-python-agent-buildimage-tinyipa/post
     timeout: 1800
@@ -4221,7 +4221,7 @@
 
 - job:
     name: legacy-its-storyboard-gerrit-plugin-stable-2.13
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run
     post-run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/post
     timeout: 1800
@@ -4230,7 +4230,7 @@
 
 - job:
     name: legacy-javamelody-gerrit-plugin-stable-2.13
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/javamelody-gerrit-plugin-stable-2.13/run
     post-run: playbooks/legacy/javamelody-gerrit-plugin-stable-2.13/post
     timeout: 1800
@@ -5155,7 +5155,7 @@
 
 - job:
     name: legacy-manila-publishimage-generic
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/manila-publishimage-generic/run
     post-run: playbooks/legacy/manila-publishimage-generic/post
     timeout: 1800
@@ -5590,7 +5590,7 @@
 
 - job:
     name: legacy-mistral-docker-buildimage
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/mistral-docker-buildimage/run
     post-run: playbooks/legacy/mistral-docker-buildimage/post
     timeout: 1800
@@ -5664,7 +5664,7 @@
 
 - job:
     name: legacy-monasca-api-localrepo-upload
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-api-localrepo-upload/run
     post-run: playbooks/legacy/monasca-api-localrepo-upload/post
     timeout: 1800
@@ -5681,7 +5681,7 @@
 
 - job:
     name: legacy-monasca-common-localrepo-upload
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-common-localrepo-upload/run
     post-run: playbooks/legacy/monasca-common-localrepo-upload/post
     timeout: 1800
@@ -5698,7 +5698,7 @@
 
 - job:
     name: legacy-monasca-persister-localrepo-upload
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-persister-localrepo-upload/run
     post-run: playbooks/legacy/monasca-persister-localrepo-upload/post
     timeout: 1800
@@ -5715,7 +5715,7 @@
 
 - job:
     name: legacy-monasca-thresh-localrepo-upload
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-thresh-localrepo-upload/run
     post-run: playbooks/legacy/monasca-thresh-localrepo-upload/post
     timeout: 1800
@@ -9141,7 +9141,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-2-ceph
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-ceph/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-ceph/post
     timeout: 3600
@@ -9150,7 +9150,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-2-iscsi
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-iscsi/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-iscsi/post
     timeout: 3600
@@ -9159,7 +9159,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-3-ceph
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-ceph/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-ceph/post
     timeout: 3600
@@ -9168,7 +9168,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-3-iscsi
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-iscsi/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-iscsi/post
     timeout: 3600
@@ -9177,7 +9177,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-4-ceph
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-ceph/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-ceph/post
     timeout: 3600
@@ -9186,7 +9186,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-4-iscsi
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-iscsi/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-iscsi/post
     timeout: 3600
@@ -9195,7 +9195,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-2-ceph
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-ceph/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-ceph/post
     timeout: 3600
@@ -9204,7 +9204,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/post
     timeout: 3600
@@ -9213,7 +9213,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-3-ceph
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-ceph/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-ceph/post
     timeout: 3600
@@ -9222,7 +9222,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-3-iscsi
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-iscsi/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-iscsi/post
     timeout: 3600
@@ -9231,7 +9231,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-4-ceph
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-ceph/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-ceph/post
     timeout: 3600
@@ -9240,7 +9240,7 @@
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-4-iscsi
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-iscsi/run
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-iscsi/post
     timeout: 3600
@@ -9249,7 +9249,7 @@
 
 - job:
     name: legacy-periodic-magnum-dib-buildimage-centos-dcos
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-magnum-dib-buildimage-centos-dcos/run
     post-run: playbooks/legacy/periodic-magnum-dib-buildimage-centos-dcos/post
     timeout: 3600
@@ -9262,7 +9262,7 @@
 
 - job:
     name: legacy-periodic-magnum-dib-buildimage-fedora-atomic-25
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-magnum-dib-buildimage-fedora-atomic-25/run
     post-run: playbooks/legacy/periodic-magnum-dib-buildimage-fedora-atomic-25/post
     timeout: 3600
@@ -9275,7 +9275,7 @@
 
 - job:
     name: legacy-periodic-magnum-dib-buildimage-ubuntu-mesos
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-magnum-dib-buildimage-ubuntu-mesos/run
     post-run: playbooks/legacy/periodic-magnum-dib-buildimage-ubuntu-mesos/post
     timeout: 3600
@@ -9542,7 +9542,7 @@
 
 - job:
     name: legacy-periodic-package-stackviz-element
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-package-stackviz-element/run
     post-run: playbooks/legacy/periodic-package-stackviz-element/post
     timeout: 1800
@@ -9885,7 +9885,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
@@ -9937,7 +9937,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-fakeha-caserver
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
@@ -9989,7 +9989,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/post
     timeout: 10800
@@ -10041,7 +10041,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/post
     timeout: 10800
@@ -10093,7 +10093,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
@@ -10145,7 +10145,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/post
     timeout: 10800
@@ -10197,7 +10197,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-containers
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/post
     timeout: 10800
@@ -10249,7 +10249,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/post
     timeout: 10800
@@ -10302,7 +10302,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/post
     timeout: 10800
@@ -10355,7 +10355,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/post
     timeout: 10800
@@ -10408,7 +10408,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario001-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
@@ -10460,7 +10460,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario002-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
@@ -10512,7 +10512,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario003-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
@@ -10564,7 +10564,7 @@
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario004-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
@@ -10625,7 +10625,7 @@
 
 - job:
     name: legacy-post-sahara-extra-artifacts
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/post-sahara-extra-artifacts/run
     post-run: playbooks/legacy/post-sahara-extra-artifacts/post
     timeout: 3900
@@ -17132,7 +17132,7 @@
 
 - job:
     name: legacy-training-labs-scripts
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/training-labs-scripts/run
     post-run: playbooks/legacy/training-labs-scripts/post
     timeout: 1800
@@ -17237,7 +17237,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-3nodes-multinode
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/post
     timeout: 10800
@@ -17289,7 +17289,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-containers-multinode
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/post
     timeout: 10800
@@ -17341,7 +17341,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-containers-multinode-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/post
     timeout: 10800
@@ -17403,7 +17403,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-multinode-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/post
     timeout: 10800
@@ -17464,7 +17464,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-nonha-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/post
     timeout: 10800
@@ -17524,7 +17524,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
@@ -17576,7 +17576,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/post
     timeout: 10800
@@ -17628,7 +17628,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/post
     timeout: 10800
@@ -17680,7 +17680,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/post
     timeout: 10800
@@ -17732,7 +17732,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-containers-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/post
     timeout: 10800
@@ -17784,7 +17784,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-convergence-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/post
     timeout: 10800
@@ -17836,7 +17836,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-fakeha-caserver
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
@@ -17896,7 +17896,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
@@ -17956,7 +17956,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-newton
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/post
     timeout: 10800
@@ -18008,7 +18008,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-ocata
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/post
     timeout: 10800
@@ -18060,7 +18060,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-pike
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/post
     timeout: 10800
@@ -18112,7 +18112,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-tempest-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/post
     timeout: 10800
@@ -18173,7 +18173,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
@@ -18225,7 +18225,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/post
     timeout: 10800
@@ -18277,7 +18277,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/post
     timeout: 10800
@@ -18373,7 +18373,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/post
     timeout: 10800
@@ -18425,7 +18425,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/post
     timeout: 10800
@@ -18520,7 +18520,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
@@ -18572,7 +18572,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/post
     timeout: 10800
@@ -18624,7 +18624,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/post
     timeout: 10800
@@ -18715,7 +18715,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-puppet
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/post
     timeout: 10800
@@ -18767,7 +18767,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/post
     timeout: 10800
@@ -18857,7 +18857,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
@@ -18909,7 +18909,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/post
     timeout: 10800
@@ -18961,7 +18961,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/post
     timeout: 10800
@@ -19041,7 +19041,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-puppet
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/post
     timeout: 10800
@@ -19093,7 +19093,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/post
     timeout: 10800
@@ -19172,7 +19172,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
@@ -19224,7 +19224,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/post
     timeout: 10800
@@ -19276,7 +19276,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/post
     timeout: 10800
@@ -19355,7 +19355,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-puppet
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/post
     timeout: 10800
@@ -19407,7 +19407,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario005-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/post
     timeout: 10800
@@ -19459,7 +19459,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario006-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/post
     timeout: 10800
@@ -19511,7 +19511,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/post
     timeout: 10800
@@ -19563,7 +19563,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-container
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/post
     timeout: 10800
@@ -19615,7 +19615,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-puppet
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/post
     timeout: 10800
@@ -19667,7 +19667,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario008-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/post
     timeout: 10800
@@ -19719,7 +19719,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario009-multinode-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/post
     timeout: 10800
@@ -19771,7 +19771,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-containers
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-containers/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-containers/post
     timeout: 10800
@@ -19823,7 +19823,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-oooq
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-oooq/post
     timeout: 10800
@@ -19883,7 +19883,7 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-upgrades
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-upgrades/post
     timeout: 10800
@@ -20403,7 +20403,7 @@
 
 - job:
     name: legacy-upstream-translation-update
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/upstream-translation-update/run
     post-run: playbooks/legacy/upstream-translation-update/post
     timeout: 1800
@@ -20619,7 +20619,7 @@
 
 - job:
     name: legacy-zmq-event-publisher-hpi-artifact
-    parent: publish-openstack-artifacts
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/zmq-event-publisher-hpi-artifact/run
     post-run: playbooks/legacy/zmq-event-publisher-hpi-artifact/post
     timeout: 1800
