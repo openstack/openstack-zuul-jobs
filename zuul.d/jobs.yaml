@@ -374,6 +374,14 @@
       - openstack/puppet-zaqar
 
 - job:
+    name: legacy-publish-openstack-artifacts
+    parent: publish-openstack-artifacts
+    description: |
+      Base job for autoconverted legacy jobs that publish artifacts
+    nodeset: devstack-single-node
+    pre-run: playbooks/legacy/pre
+
+- job:
     name: project-config-gerrit
     parent: tox
     description: |
