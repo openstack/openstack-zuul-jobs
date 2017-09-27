@@ -1,0 +1,1 @@
+root_marker_dir: "src/{{ zuul.project.canonical_name }}/doc/build/html"
