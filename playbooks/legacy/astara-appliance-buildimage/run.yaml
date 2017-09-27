@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-astara-appliance-buildimage from old job astara-appliance-buildimage-ubuntu-xenial
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -28,10 +33,12 @@
           /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
               git://git.openstack.org $ZUUL_PROJECT
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -40,6 +47,7 @@
           sudo apt-get install -y qemu kpartx debootstrap
           sudo -H pip install dib-utils
           sudo -H pip install diskimage-builder
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -55,4 +63,5 @@
           fi
           mv build/astara_appliance*.qcow2 $WORKSPACE/astara_appliance$branch_tag.qcow2
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

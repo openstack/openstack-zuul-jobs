@@ -7,9 +7,9 @@
         state: directory
       delegate_to: localhost
 
-    - name: Copy files from {{ ansible_user_dir }}/ on node
+    - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
       synchronize:
-        src: '{{ ansible_user_dir }}/'
+        src: '{{ ansible_user_dir }}/workspace/'
         dest: '{{ zuul.executor.work_root }}/artifacts/coreos/files/'
         mode: pull
         copy_links: true
@@ -20,9 +20,9 @@
           - --exclude=*
           - --prune-empty-dirs
 
-    - name: Copy files from {{ ansible_user_dir }}/ on node
+    - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
       synchronize:
-        src: '{{ ansible_user_dir }}/'
+        src: '{{ ansible_user_dir }}/workspace/'
         dest: '{{ zuul.executor.work_root }}/artifacts/coreos/'
         mode: pull
         copy_links: true
@@ -33,9 +33,9 @@
           - --exclude=*
           - --prune-empty-dirs
 
-    - name: Copy files from {{ ansible_user_dir }}/ on node
+    - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
       synchronize:
-        src: '{{ ansible_user_dir }}/'
+        src: '{{ ansible_user_dir }}/workspace/'
         dest: '{{ zuul.executor.log_root }}'
         mode: pull
         copy_links: true

@@ -2,8 +2,14 @@
   name: Autoconverted job legacy-bandit-integration-glance_store from old job gate-bandit-integration-glance_store
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -23,4 +29,5 @@
           tox -e integration openstack glance_store \
             $WORKSPACE/openstack/glance_store
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

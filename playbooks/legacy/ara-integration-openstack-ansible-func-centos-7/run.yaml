@@ -3,6 +3,11 @@
     old job gate-ara-integration-openstack-ansible-func-centos-7-nv
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -27,6 +32,7 @@
               openstack/requirements
           cp $REQS_DIR/upper-constraints.txt ./
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -40,10 +46,12 @@
             sudo yum-config-manager --enable epel
             sudo yum-config-manager --enable updates
           fi
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -54,6 +62,7 @@
           if [[ -e /usr/bin/yum ]] && [[ -x /usr/bin/yum-config-manager ]]; then
             sudo yum-config-manager --disable epel
           fi
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -63,9 +72,11 @@
           cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
           ssh-keyscan localhost >> ~/.ssh/known_hosts
           ssh-keyscan 127.0.0.1 >> ~/.ssh/known_hosts
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: |
           /usr/local/jenkins/slave_scripts/run-tox.sh functional
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

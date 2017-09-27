@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-tox-with-sudo-snap from old job gate-{name}-tox-with-sudo-snap
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -34,14 +39,17 @@
               cp $REQS_DIR/upper-constraints.txt ./
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/run-tox.sh snap
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -56,4 +64,5 @@
               exit 0  # TODO: change to 1 to fail tests.
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

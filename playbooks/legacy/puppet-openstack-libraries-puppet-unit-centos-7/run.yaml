@@ -3,15 +3,22 @@
     old job gate-puppet-openstack-libraries-puppet-unit-centos-7
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
               git://git.openstack.org $ZUUL_PROJECT
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -30,6 +37,7 @@
               sudo apt-get install -y libxml2-dev libxslt-dev ruby-dev zlib1g-dev
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -39,4 +47,5 @@
           cd $ZUUL_PROJECT
           ./run_unit_tests.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

@@ -3,6 +3,11 @@
     api-site-propose-translation-update
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           cd /
@@ -10,6 +15,7 @@
           mkdir $WORKSPACE
           cd $WORKSPACE
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -19,6 +25,7 @@
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -55,6 +62,7 @@
               cp $REQS_DIR/upper-constraints.txt ./
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -63,4 +71,5 @@
           set -x
           /usr/local/jenkins/slave_scripts/propose_translation_update.sh $ZUUL_SHORT_PROJECT_NAME master {name}-propose-translation-update{suffix}
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

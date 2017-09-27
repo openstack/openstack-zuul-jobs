@@ -2,8 +2,14 @@
   name: Autoconverted job legacy-openstackci-beaker-ubuntu-trusty from old job gate-openstackci-beaker-ubuntu-trusty
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: sudo pip install "pip<8" "virtualenv<14"
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -11,6 +17,7 @@
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
               git://git.openstack.org openstack-infra/puppet-openstackci
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -20,6 +27,7 @@
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
             git://git.openstack.org openstack-infra/puppet-openstack_infra_spec_helper
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -38,6 +46,7 @@
               sudo apt-get install -y libxml2-dev libxslt-dev ruby-dev zlib1g-dev
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -58,11 +67,13 @@
               sudo service ssh restart
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: |
           sudo gem install bundler --no-rdoc --no-ri --verbose
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -72,6 +83,7 @@
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -84,4 +96,5 @@
           export BEAKER_debug=yes
           export BEAKER_color=no
           bundle exec rspec spec/acceptance
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

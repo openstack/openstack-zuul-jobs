@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-horizon-selenium-headless-legacy from old job gate-horizon-selenium-headless-legacy-ubuntu-xenial
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -34,10 +39,12 @@
               cp $REQS_DIR/upper-constraints.txt ./
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -47,6 +54,7 @@
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -55,4 +63,5 @@
           set -x
           NOSE_WITH_XUNIT=1 tox -evenv -- /bin/bash run_tests.sh -N --only-selenium --selenium-headless
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

@@ -3,6 +3,11 @@
     gate-fuel-astute-puppet-unit-3.8-centos-7
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -29,10 +34,12 @@
           /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
               git://git.openstack.org $ZUUL_PROJECT
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -51,6 +58,7 @@
               sudo apt-get install -y libxml2-dev libxslt-dev ruby-dev zlib1g-dev
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -60,6 +68,7 @@
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -72,4 +81,5 @@
           gem install bundler --no-rdoc --no-ri --verbose
           $GEM_HOME/bin/bundle install --retry 3
           $GEM_HOME/bin/bundle exec rake spec SPEC_OPTS='--format documentation'
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-bifrost-integration-dhcp-centos-7 from old job gate-bifrost-integration-dhcp-centos-7-nv
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -34,10 +39,12 @@
               cp $REQS_DIR/upper-constraints.txt ./
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -62,4 +69,5 @@
           cd openstack/bifrost
           scripts/test-bifrost-inventory-dhcp.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

@@ -3,6 +3,11 @@
     job gate-dib-dsvm-functests-python2-ubuntu-trusty
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -u
@@ -15,6 +20,7 @@
             openstack/diskimage-builder \
             openstack/requirements
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -24,6 +30,7 @@
           cd ~/openstack/diskimage-builder
           /usr/local/jenkins/slave_scripts/install-distro-packages.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -42,4 +49,5 @@
           source ./env/bin/activate\nset -u\n./openstack/diskimage-builder/tests/run_functests.sh\
           \ \nset +u\ndeactivate\nset -u\n"
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

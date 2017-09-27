@@ -3,6 +3,11 @@
     from old job gate-tripleo-buildimage-overcloud-hardened-full-centos-7-nv
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -30,6 +35,7 @@
             openstack/tripleo-puppet-elements \
             openstack/requirements
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -39,6 +45,7 @@
           cd python-tripleoclient
           /usr/local/jenkins/slave_scripts/install-distro-packages.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -99,4 +106,5 @@
           mkdir -p $WORKSPACE/logs
           mv *.log $WORKSPACE/logs
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

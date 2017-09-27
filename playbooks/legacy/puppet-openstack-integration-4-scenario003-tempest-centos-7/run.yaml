@@ -3,6 +3,11 @@
     from old job gate-puppet-openstack-integration-4-scenario003-tempest-centos-7
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -31,6 +36,7 @@
               --zuul-branch $ZUUL_BRANCH_REAL \
               git://git.openstack.org openstack/puppet-openstack-integration
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -40,6 +46,7 @@
           cd puppet-openstack-integration
           /usr/local/jenkins/slave_scripts/install-distro-packages.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -58,6 +65,7 @@
               sudo apt-get install -y libxml2-dev libxslt-dev ruby-dev zlib1g-dev
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -73,4 +81,5 @@
           gem install bundler --no-rdoc --no-ri --verbose
           ./run_tests.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

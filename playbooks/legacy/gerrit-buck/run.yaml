@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-gerrit-buck from old job gate-gerrit-buck
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -12,10 +17,12 @@
           sudo bash -c "echo 'asciidoc' >> /usr/local/jenkins/common_data/bindep-fallback.txt"
           sudo bash -c "echo 'nodejs' >> /usr/local/jenkins/common_data/bindep-fallback.txt"
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
         cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -25,6 +32,7 @@
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -38,6 +46,7 @@
             ant
           fi
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -62,6 +71,7 @@
           git submodule init
           git submodule update
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -77,4 +87,5 @@
           buck build release
           cp buck-out/gen/release/release.war buck-out/gen/gerrit-$PROJECT_VER.war
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

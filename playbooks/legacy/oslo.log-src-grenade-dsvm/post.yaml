@@ -1,9 +1,9 @@
 - hosts: all
   tasks:
 
-    - name: Copy files from {{ ansible_user_dir }}/ on node
+    - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
       synchronize:
-        src: '{{ ansible_user_dir }}/'
+        src: '{{ ansible_user_dir }}/workspace/'
         dest: '{{ zuul.executor.log_root }}'
         mode: pull
         copy_links: true

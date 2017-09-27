@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-infra-puppet-apply-3-ubuntu-trusty from old job gate-infra-puppet-apply-3-ubuntu-trusty
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -9,6 +14,7 @@
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
             git://git.openstack.org openstack-infra/system-config
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -23,4 +29,5 @@
           fi
           ./tools/apply-test.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

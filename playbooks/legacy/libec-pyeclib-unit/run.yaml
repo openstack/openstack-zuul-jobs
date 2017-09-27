@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-libec-pyeclib-unit from old job gate-libec-pyeclib-unit-ubuntu-xenial
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -e
@@ -24,4 +29,5 @@
           cd $WORKSPACE/openstack/pyeclib
           tox -e py27
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

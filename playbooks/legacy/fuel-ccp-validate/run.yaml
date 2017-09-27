@@ -2,6 +2,11 @@
   name: Autoconverted job legacy-fuel-ccp-validate from old job gate-fuel-ccp-validate
   tasks:
 
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
     - shell:
         cmd: |
           set -x
@@ -9,6 +14,7 @@
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -25,6 +31,7 @@
               git://git.openstack.org \
               openstack/fuel-ccp
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -34,4 +41,5 @@
           cd "$WORKSPACE/fuel-ccp/tools/gate"
           ./run.sh
         executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
