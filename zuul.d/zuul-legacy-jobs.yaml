@@ -8438,7 +8438,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8488,7 +8488,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8538,7 +8538,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8588,7 +8588,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8638,7 +8638,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8688,7 +8688,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8738,7 +8738,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8788,7 +8788,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8839,7 +8839,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8890,7 +8890,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15176,7 +15176,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15293,7 +15293,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15343,7 +15343,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15393,7 +15393,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15443,7 +15443,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15493,7 +15493,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15543,7 +15543,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15593,7 +15593,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15651,7 +15651,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15709,7 +15709,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15759,7 +15759,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15809,7 +15809,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
