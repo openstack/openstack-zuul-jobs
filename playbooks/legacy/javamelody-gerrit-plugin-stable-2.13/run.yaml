@@ -29,7 +29,7 @@
     - shell:
         cmd: |
           set -x
-          sudo rm -f /etc/sudoers.d/zuul-sudo
+          sudo rm -f /etc/sudoers.d/zuul
           # Prove that general sudo access is actually revoked
           ! sudo -n true
         executable: /bin/bash
