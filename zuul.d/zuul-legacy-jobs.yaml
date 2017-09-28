@@ -2670,6 +2670,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volbak
@@ -2681,6 +2682,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volschbak
@@ -2692,6 +2694,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-designate-pdns4
