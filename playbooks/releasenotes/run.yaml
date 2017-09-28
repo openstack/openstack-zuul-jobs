@@ -127,3 +127,4 @@
           # Revert any changes to the index file.
           git checkout -- ${DIRECTORY}/source/index.rst
         chdir: 'src/{{ zuul.project.canonical_name }}'
+        executable: /bin/bash
