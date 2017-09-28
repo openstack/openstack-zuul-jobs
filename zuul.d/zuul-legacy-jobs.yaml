@@ -259,6 +259,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-api-site-upstream-translation-update
@@ -1168,6 +1170,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ceilometer-tox-py27-mysql
@@ -1177,6 +1181,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ceilometer-tox-py27-postgresql
@@ -1186,6 +1192,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ceilometerclient-dsvm-functional
@@ -1280,6 +1288,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cinder-tox-compliance
@@ -1289,6 +1299,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cinder-tox-functional
@@ -1298,6 +1310,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cinderclient-dsvm-functional
@@ -1341,6 +1355,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cliff-tox-openstackclient-tip
@@ -1350,6 +1366,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cloudkitty-dsvm-install
@@ -1490,6 +1508,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-craton-dashboard-tox-py27dj19
@@ -1499,6 +1519,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-craton-tox-functional
@@ -1508,6 +1530,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cross-cinder-python27
@@ -1804,6 +1828,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-devstack-gate-tox-run-tests
@@ -1813,6 +1839,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-devstack-plugin-container-dsvm
@@ -1983,6 +2011,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-diskimage-builder-pylint
@@ -2001,6 +2031,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-django_openstack_auth-tox-py27dj18
@@ -2010,6 +2042,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-django_openstack_auth-tox-py27dj19
@@ -2019,6 +2053,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-dox-buildimages
@@ -2417,6 +2453,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-freezer-api-pylint
@@ -3093,6 +3131,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-grenade-dsvm-barbican
@@ -3844,6 +3884,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-heatclient-dsvm-functional
@@ -3896,6 +3938,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-horizon-tox-py27dj18
@@ -3905,6 +3949,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-horizon-tox-py27dj19
@@ -3914,6 +3960,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-i18n-tox-doc-docs
@@ -3923,6 +3971,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-infra-ansible
@@ -4092,6 +4142,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-interop-tox-jsonlint
@@ -4101,6 +4153,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-interop-tox-jsonschema
@@ -4110,6 +4164,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-irc-meetings-tox-ical
@@ -4119,6 +4175,8 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ironic-dsvm-functional
@@ -4156,6 +4214,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ironic-inspector-tox-func3
@@ -4165,6 +4225,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ironic-python-agent-buildimage-coreos
@@ -4192,6 +4254,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ironic-staging-drivers-dsvm
@@ -4388,6 +4452,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-keystoneclient-dsvm-functional
@@ -5136,6 +5202,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-manila-buildimage-docker
@@ -5475,6 +5543,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-manila-ui-dsvm
@@ -5498,6 +5568,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-manila-ui-tox-py27dj19
@@ -5507,6 +5579,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-manilaclient-dsvm-neutron-functional
@@ -5613,6 +5687,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-mistral-tox-unit-postgresql
@@ -5622,6 +5698,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-mixmatch-dsvm-functional
@@ -5661,6 +5739,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-monasca-api-localrepo-upload
@@ -5875,6 +5955,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-networking-cisco-tox-newton
@@ -5884,6 +5966,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-networking-cisco-tox-ocata
@@ -5893,6 +5977,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-networking-cisco-tox-pike
@@ -5902,6 +5988,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-networking-generic-switch-dsvm-tempest
@@ -6641,6 +6729,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-nova-dpm-tox-functional-py35
@@ -6650,6 +6740,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-nova-tox-functional
@@ -6659,6 +6751,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-nova-tox-functional-py35
@@ -6668,6 +6762,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-novaclient-dsvm-functional
@@ -6767,6 +6863,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-octavia-tox-functional-py35
@@ -6776,6 +6874,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-octavia-v1-dsvm-py3x-scenario
@@ -6910,6 +7010,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-openstack-ansible-announce-release
@@ -8270,6 +8372,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-openstack-planet-unittest
@@ -8325,6 +8429,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-os-brick-pylint
@@ -8487,6 +8593,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.db-tox-mysql-python
@@ -8496,6 +8604,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.log-src-grenade-dsvm
@@ -8688,6 +8798,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-kafka
@@ -8697,6 +8809,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-pika
@@ -8706,6 +8820,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-rabbit
@@ -8715,6 +8831,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-zmq
@@ -8724,6 +8842,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-zmq-proxy
@@ -8733,6 +8853,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-zmq-pubsub
@@ -8742,6 +8864,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py35-func-amqp1
@@ -8751,6 +8875,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py35-func-rabbit
@@ -8760,6 +8886,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.messaging-tox-py35-func-zmq
@@ -8769,6 +8897,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-oslo.versionedobjects-src-grenade-dsvm-multinode
@@ -8803,6 +8933,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-packstack-integration-scenario001-tempest-centos-7
@@ -8861,6 +8993,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-panko-tox-py27-mysql
@@ -8870,6 +9004,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-panko-tox-py27-postgresql
@@ -8879,6 +9015,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-panko-tox-py35-mongodb
@@ -8888,6 +9026,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-panko-tox-py35-mysql
@@ -8897,6 +9037,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-panko-tox-py35-postgresql
@@ -8906,6 +9048,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-pbr-installation-dsvm
@@ -10658,6 +10802,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-project-team-guide-publish
@@ -11447,6 +11593,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-pypi-both-upload
@@ -11513,6 +11661,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-python-mistralclient-devstack-dsvm
@@ -12764,6 +12914,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-refstack-tox-py27-func-mysql
@@ -12773,6 +12925,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-refstack-tox-py35-func-mysql
@@ -12782,6 +12936,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-releasenotes
@@ -12810,6 +12966,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-releases-tox-validate
@@ -12819,6 +12977,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requests-mock-tox-keystoneclient-tip
@@ -12828,6 +12988,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requests-mock-tox-novaclient-tip
@@ -12837,6 +12999,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requirements
@@ -13065,6 +13229,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requirements-tox-py27-check-uc
@@ -13074,6 +13240,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requirements-tox-py35-check-uc
@@ -13083,6 +13251,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requirements-tox-validate
@@ -13092,6 +13262,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-requirements-tox-validate-projects
@@ -13101,6 +13273,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-rpm-packaging-tox-lint
@@ -13110,6 +13284,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-sahara-buildimages-ambari-centos-7
@@ -13166,6 +13342,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-sahara-dashboard-tox-py27dj19
@@ -13175,6 +13353,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-sahara-dsvm-scenario-mod-wsgi
@@ -13400,6 +13580,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-senlin-dashboard-nodejs4-npm-run-lint
@@ -13802,6 +13984,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-static-election-publish
@@ -13990,6 +14174,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-centos-7
@@ -14000,6 +14186,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-ec
@@ -14009,6 +14197,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-ec-centos-7
@@ -14019,6 +14209,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-encryption
@@ -14028,6 +14220,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-encryption-centos-7
@@ -14038,6 +14232,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-fast-post
@@ -14047,6 +14243,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-fast-post-centos-7
@@ -14057,6 +14255,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-post-as-copy
@@ -14066,6 +14266,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-func-post-as-copy-centos-7
@@ -14076,6 +14278,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-py27
@@ -14085,6 +14289,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-py27-centos-7
@@ -14095,6 +14301,8 @@
     vars:
       BUILD_TIMEOUT: '2400000'
     nodeset: centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift-tox-xfs-tmp-py35
@@ -14104,6 +14312,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift3-pylint
@@ -14122,6 +14332,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift3-tox-s3acl
@@ -14131,6 +14343,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift3-tox-s3tests_keystone
@@ -14140,6 +14354,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift3-tox-s3tests_tempauth
@@ -14149,6 +14365,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift3-tox-tempauth
@@ -14158,6 +14376,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swiftclient-dsvm-functional
@@ -16871,6 +17091,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-consul
@@ -16880,6 +17102,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-etcd
@@ -16889,6 +17113,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-etcd3
@@ -16898,6 +17124,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-etcd3gw
@@ -16907,6 +17135,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-memcached
@@ -16916,6 +17146,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-mysql
@@ -16925,6 +17157,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-postgresql
@@ -16934,6 +17168,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-redis
@@ -16943,6 +17179,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-sentinel
@@ -16952,6 +17190,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py27-zookeeper
@@ -16961,6 +17201,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-consul
@@ -16970,6 +17212,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-etcd
@@ -16979,6 +17223,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-etcd3
@@ -16988,6 +17234,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-etcd3gw
@@ -16997,6 +17245,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-memcached
@@ -17006,6 +17256,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-mysql
@@ -17015,6 +17267,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-postgresql
@@ -17024,6 +17278,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-redis
@@ -17033,6 +17289,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-sentinel
@@ -17042,6 +17300,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tooz-tox-py35-zookeeper
@@ -17051,6 +17311,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tox-build
@@ -17060,6 +17322,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tox-checkniceness
@@ -17069,6 +17333,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tox-doc-publish-checkbuild
@@ -17079,6 +17345,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tox-doc-publish-checklang
@@ -17092,6 +17360,8 @@
     files:
       - ^.*\.po$
       - ^.*\.pot$
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tox-doc-publishlang
@@ -17101,6 +17371,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-tox-with-sudo-snap
@@ -17110,6 +17382,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-training-guides-tox-doc-publish-checkbuild
@@ -17120,6 +17394,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-training-guides-tox-doc-publishdocs
@@ -17129,6 +17405,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-training-labs-scripts
@@ -20391,6 +20669,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-trove-tox-fakemodetests
@@ -20400,6 +20680,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-upstream-translation-update
@@ -20583,6 +20865,8 @@
     timeout: 2400
     vars:
       BUILD_TIMEOUT: '2400000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-zaqar-ui-nodejs4-npm-run-lint
