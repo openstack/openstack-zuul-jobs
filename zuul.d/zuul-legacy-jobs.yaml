@@ -12948,6 +12948,8 @@
     timeout: 1800
     vars:
       BUILD_TIMEOUT: '1800000'
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-releases-python35
