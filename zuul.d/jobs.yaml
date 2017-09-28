@@ -379,6 +379,7 @@
       - openstack/puppet-vitrage
       - openstack/puppet-watcher
       - openstack/puppet-zaqar
+      - openstack/tempest-horizon
 
 - job:
     name: legacy-publish-openstack-artifacts
