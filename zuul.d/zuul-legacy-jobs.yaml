@@ -1270,6 +1270,7 @@
     vars:
       BUILD_TIMEOUT: '3600000'
     voting: false
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-cinder-pylint
@@ -2732,6 +2733,7 @@
       - openstack/python-ironicclient
       - openstack/python-magnumclient
       - openstack/virtualbmc
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-functional-dsvm-magnum-mesos
@@ -2832,6 +2834,7 @@
       - openstack/python-ironicclient
       - openstack/python-magnumclient
       - openstack/virtualbmc
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-functional-neutron-dsvm-ec2api
@@ -3026,6 +3029,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/glance
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-glance_store-dsvm-functional-cinder
@@ -3242,6 +3246,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/heat
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-ironic
@@ -3299,6 +3304,7 @@
       - openstack/pyghmi
       - openstack/python-ironicclient
       - openstack/virtualbmc
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-manila
@@ -3406,6 +3412,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-forward
@@ -3433,6 +3440,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/neutron-fwaas
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-libs
@@ -3468,6 +3476,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode
@@ -3481,6 +3490,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-live-migration
@@ -3494,6 +3504,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
@@ -3507,6 +3518,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-nova-next
@@ -4104,6 +4116,7 @@
       - openstack/devstack-plugin-container
       - openstack/kuryr
       - openstack/kuryr-libnetwork
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-install-dsvm-networking-ovn-kuryr
@@ -4430,6 +4443,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/keystone
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-keystone-dsvm-py35-functional-v3-only
@@ -6300,6 +6314,7 @@
       - openstack/neutron
       - openstack/neutron-fwaas
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-neutron-fwaas-v2-dsvm-tempest
@@ -6328,6 +6343,7 @@
       - openstack/neutron
       - openstack/neutron-fwaas
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-neutron-lbaas-dashboard-nodejs4-npm-run-lint
@@ -6912,6 +6928,7 @@
       - openstack/python-barbicanclient
       - openstack/python-octaviaclient
       - openstack/tripleo-image-elements
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-octavia-v1-dsvm-scenario
@@ -6987,6 +7004,7 @@
       - openstack/python-barbicanclient
       - openstack/python-octaviaclient
       - openstack/tripleo-image-elements
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-omni-tests
@@ -8725,6 +8743,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/oslo.messaging
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-oslo.messaging-telemetry-dsvm-integration-amqp1
@@ -8912,6 +8931,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/oslo.versionedobjects
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-ospurge-dsvm-functional
@@ -13391,6 +13411,7 @@
       - openstack/sahara-extra
       - openstack/sahara-image-elements
       - openstack/sahara-tests
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-sahara-dsvm-scenario-neutron
@@ -15234,6 +15255,7 @@
       - openstack/python-ironicclient
       - openstack/tempest
       - openstack/virtualbmc
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-ironic-ipa-wholedisk-bios-agent_ipmitool-coreos-src
@@ -15594,6 +15616,7 @@
       - openstack/kuryr-kubernetes
       - openstack/kuryr-tempest-plugin
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-lbaasv2-kuryr-kubernetes
@@ -15907,6 +15930,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-multinode-live-migration
@@ -15919,6 +15943,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-murano-api
@@ -16124,6 +16149,7 @@
       - openstack/neutron-dynamic-routing
       - openstack/tap-as-a-service
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-boron-snapshot-v2driver
@@ -16163,6 +16189,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-odl
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-multinode-nitrogen-snapshot
@@ -16176,6 +16203,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-odl
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-nitrogen-snapshot-vpnservice-v2driver
@@ -16215,6 +16243,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-ovn
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-ovn-neutron-api-ovs-release
@@ -16321,6 +16350,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-sfc
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr
@@ -16347,6 +16377,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    nodeset: ubuntu-xenial-3-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-full
@@ -16360,6 +16391,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-scenario
@@ -16373,6 +16405,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-full
@@ -16532,6 +16565,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-nova-next-full
@@ -16611,6 +16645,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-serviceipv6
@@ -16846,6 +16881,7 @@
       - openstack-infra/devstack-gate
       - openstack/patrole
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-patrole-multinode-member
@@ -16859,6 +16895,7 @@
       - openstack-infra/devstack-gate
       - openstack/patrole
       - openstack/tempest
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-patrole-py35-member
@@ -17024,6 +17061,7 @@
       - openstack/python-zunclient
       - openstack/tempest
       - openstack/zun
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-neutron-dsvm-src-oslo.messaging-amqp1-hybrid
@@ -20800,6 +20838,7 @@
       - openstack/python-watcherclient
       - openstack/watcher
       - openstack/watcher-tempest-plugin
+    nodeset: ubuntu-xenial-2-node
 
 - job:
     name: legacy-watcherclient-dsvm-functional
