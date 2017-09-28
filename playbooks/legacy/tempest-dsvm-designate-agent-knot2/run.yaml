@@ -9,12 +9,6 @@
 
     - shell:
         cmd: |
-          [ -f /etc/nodepool/uuid ] && echo "Node UUID: $(cat /etc/nodepool/uuid)"
-        chdir: '{{ ansible_user_dir }}/workspace'
-      environment: '{{ zuul | zuul_legacy_vars }}'
-
-    - shell:
-        cmd: |
           set -e
           set -x
           cat > clonemap.yaml << EOF
