@@ -8938,7 +8938,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8988,7 +8988,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -9038,7 +9038,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -9088,7 +9088,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15013,7 +15013,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-3-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15063,7 +15063,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15113,7 +15113,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15232,7 +15232,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15915,7 +15915,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15965,7 +15965,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16015,7 +16015,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16109,7 +16109,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16159,7 +16159,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16252,7 +16252,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16302,7 +16302,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16352,7 +16352,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16441,7 +16441,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16491,7 +16491,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16579,7 +16579,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16629,7 +16629,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16679,7 +16679,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16757,7 +16757,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16807,7 +16807,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16884,7 +16884,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16934,7 +16934,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16984,7 +16984,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17061,7 +17061,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17111,7 +17111,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-4-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17161,7 +17161,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17211,7 +17211,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17261,7 +17261,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17311,7 +17311,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17361,7 +17361,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17411,7 +17411,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
