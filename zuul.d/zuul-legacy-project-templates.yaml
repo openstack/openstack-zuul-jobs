@@ -1309,6 +1309,91 @@
             branches: ^(?!stable/newton).*$
 
 - project-template:
+    name: legacy-puppet-openstack-integration-jobs-all
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+    experimental:
+      jobs:
+        - legacy-puppet-openstack-integration-5-scenario001-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario002-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario003-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario004-tempest-centos-7
+        - legacy-puppet-openstack-integration-5-scenario001-tempest
+        - legacy-puppet-openstack-integration-5-scenario002-tempest
+        - legacy-puppet-openstack-integration-5-scenario003-tempest
+        - legacy-puppet-openstack-integration-5-scenario004-tempest
+
+- project-template:
+    name: legacy-puppet-openstack-integration-jobs-scenario001
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario001-tempest
+        - legacy-puppet-openstack-integration-4-scenario001-tempest-centos-7
+
+- project-template:
+    name: legacy-puppet-openstack-integration-jobs-scenario002
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario002-tempest
+        - legacy-puppet-openstack-integration-4-scenario002-tempest-centos-7
+
+- project-template:
+    name: legacy-puppet-openstack-integration-jobs-scenario003
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario003-tempest
+        - legacy-puppet-openstack-integration-4-scenario003-tempest-centos-7
+
+- project-template:
+    name: legacy-puppet-openstack-integration-jobs-scenario004
+    check:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+    gate:
+      jobs:
+        - legacy-puppet-openstack-integration-4-scenario004-tempest:
+            branches: ^(?!stable/newton).*$
+        - legacy-puppet-openstack-integration-4-scenario004-tempest-centos-7:
+            branches: ^(?!stable/newton).*$
+
+- project-template:
     name: puppet-openstack-libraries-jobs
     check:
       jobs:
