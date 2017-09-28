@@ -24,3 +24,25 @@
       with_items:
         - id_rsa
         - id_rsa.pub
+
+    - name: Add sudoers role for zuul-sudo-grep.sh
+      copy:
+        dest: /etc/sudoers.d/zuul-sudo-grep
+        content: "zuul ALL = NOPASSWD:/usr/local/jenkins/slave_scripts/zuul-sudo-grep.sh"
+        mode: 0440
+        validate: "/usr/sbin/visudo -cf %s"
+      become: true
+
+    - name: Copy zuul-sudo-grep.sh to
+      copy:
+        dest: /usr/local/jenkins/slave_scripts/zuul-sudo-grep.sh
+        src: zuul-sudo-grep.sh
+        mode: 0755
+      become: true
+
+    - name: Modify run-tox.sh to use zuul-sudo-grep.sh
+      lineinfile:
+        path: /usr/local/jenkins/slave_scripts/run-tox.sh
+        regexp: '^    sudo .script_path/jenkins-sudo-grep.sh post'
+        line: '    sudo $script_path/zuul-sudo-grep.sh post'
+      become: true
