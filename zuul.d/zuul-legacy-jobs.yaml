@@ -885,6 +885,8 @@
     run: playbooks/legacy/blazar-pylint/run
     post-run: playbooks/legacy/blazar-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-blazar-releasenotes
@@ -1078,6 +1080,8 @@
     run: playbooks/legacy/cinder-pylint/run
     post-run: playbooks/legacy/cinder-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-cinder-tox-bandit-baseline
@@ -1697,6 +1701,8 @@
     run: playbooks/legacy/diskimage-builder-pylint/run
     post-run: playbooks/legacy/diskimage-builder-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-django_openstack_auth-tox-py27dj110
@@ -2071,6 +2077,8 @@
     run: playbooks/legacy/freezer-api-pylint/run
     post-run: playbooks/legacy/freezer-api-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-freezer-dr-pylint
@@ -2078,6 +2086,8 @@
     run: playbooks/legacy/freezer-dr-pylint/run
     post-run: playbooks/legacy/freezer-dr-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-freezer-pylint
@@ -2085,6 +2095,8 @@
     run: playbooks/legacy/freezer-pylint/run
     post-run: playbooks/legacy/freezer-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-freezer-web-ui-pylint
@@ -2092,6 +2104,8 @@
     run: playbooks/legacy/freezer-web-ui-pylint/run
     post-run: playbooks/legacy/freezer-web-ui-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-fuel-astute-puppet-unit-3.8-centos-7
@@ -2114,6 +2128,8 @@
     run: playbooks/legacy/fuel-devops-pylint/run
     post-run: playbooks/legacy/fuel-devops-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-fuel-devops-pylint-ubuntu-trusty
@@ -2122,6 +2138,8 @@
     post-run: playbooks/legacy/fuel-devops-pylint-ubuntu-trusty/post
     timeout: 1800
     nodeset: ubuntu-trusty
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-fuel-library-puppet-lint
@@ -2162,6 +2180,8 @@
     run: playbooks/legacy/fuel-qa-pylint/run
     post-run: playbooks/legacy/fuel-qa-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-fuel-qa-pylint-ubuntu-trusty
@@ -2170,6 +2190,8 @@
     post-run: playbooks/legacy/fuel-qa-pylint-ubuntu-trusty/post
     timeout: 1800
     nodeset: ubuntu-trusty
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-fuel-ui-nodejs4-npm-run-lint
@@ -4393,6 +4415,8 @@
     run: playbooks/legacy/manila-pylint/run
     post-run: playbooks/legacy/manila-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-manila-tempest-dsvm-container-scenario-custom-image
@@ -7087,6 +7111,8 @@
     run: playbooks/legacy/os-brick-pylint/run
     post-run: playbooks/legacy/os-brick-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-osbackup-freezer-api-dsvm
@@ -9880,6 +9906,8 @@
     run: playbooks/legacy/python-cinderclient-pylint/run
     post-run: playbooks/legacy/python-cinderclient-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-python-freezerclient-pylint
@@ -9887,6 +9915,8 @@
     run: playbooks/legacy/python-freezerclient-pylint/run
     post-run: playbooks/legacy/python-freezerclient-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-python-ironic-inspector-client-tox-func
@@ -11549,6 +11579,8 @@
     run: playbooks/legacy/sahara-pylint/run
     post-run: playbooks/legacy/sahara-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-sahara-tests-pylint
@@ -11556,6 +11588,8 @@
     run: playbooks/legacy/sahara-tests-pylint/run
     post-run: playbooks/legacy/sahara-tests-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-sandbox-tag
@@ -12241,6 +12275,8 @@
     run: playbooks/legacy/swift3-pylint/run
     post-run: playbooks/legacy/swift3-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-swift3-tox-keystone
@@ -17755,6 +17791,8 @@
     run: playbooks/legacy/trove-pylint/run
     post-run: playbooks/legacy/trove-pylint/post
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-trove-scenario-dsvm-cassandra-multi
