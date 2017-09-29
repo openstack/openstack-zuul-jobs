@@ -279,6 +279,7 @@
     description: |
       Base job for autoconverted legacy jobs
     pre-run: playbooks/legacy/pre
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-dsvm-base

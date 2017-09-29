@@ -19,7 +19,7 @@
     run: playbooks/legacy/ansible-func-centos-7/run
     post-run: playbooks/legacy/ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-ansible-func-fedora-26
@@ -27,7 +27,7 @@
     run: playbooks/legacy/ansible-func-fedora-26/run
     post-run: playbooks/legacy/ansible-func-fedora-26/post
     timeout: 5400
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-ansible-func-opensuse-423
@@ -35,7 +35,7 @@
     run: playbooks/legacy/ansible-func-opensuse-423/run
     post-run: playbooks/legacy/ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
@@ -44,7 +44,7 @@
     run: playbooks/legacy/ansible-func-ubuntu-trusty/run
     post-run: playbooks/legacy/ansible-func-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     branches: ^stable/newton$
 
 - job:
@@ -60,7 +60,7 @@
     run: playbooks/legacy/ansible-hardening-ansible-func-debian-jessie/run
     post-run: playbooks/legacy/ansible-hardening-ansible-func-debian-jessie/post
     timeout: 5400
-    nodeset: debian-jessie
+    nodeset: legacy-debian-jessie
     required-projects:
       - openstack/ansible-hardening
 
@@ -70,7 +70,7 @@
     run: playbooks/legacy/ansible-hardening-ansible-func-fedora-26/run
     post-run: playbooks/legacy/ansible-hardening-ansible-func-fedora-26/post
     timeout: 5400
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack/ansible-hardening
 
@@ -80,7 +80,7 @@
     run: playbooks/legacy/ansible-hardening-ansible-func_rhel6-ubuntu-trusty/run
     post-run: playbooks/legacy/ansible-hardening-ansible-func_rhel6-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/ansible-hardening
 
@@ -267,7 +267,7 @@
     run: playbooks/legacy/ara-integration-openstack-ansible-func-centos-7/run
     post-run: playbooks/legacy/ara-integration-openstack-ansible-func-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/ara
       - openstack/openstack
@@ -281,7 +281,7 @@
     run: playbooks/legacy/ara-integration-py27-2.2.3.0-centos-7/run
     post-run: playbooks/legacy/ara-integration-py27-2.2.3.0-centos-7/post
     timeout: 1200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-ara-integration-py27-devel-centos-7
@@ -289,7 +289,7 @@
     run: playbooks/legacy/ara-integration-py27-devel-centos-7/run
     post-run: playbooks/legacy/ara-integration-py27-devel-centos-7/post
     timeout: 1200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-ara-integration-py27-latest-centos-7
@@ -297,7 +297,7 @@
     run: playbooks/legacy/ara-integration-py27-latest-centos-7/run
     post-run: playbooks/legacy/ara-integration-py27-latest-centos-7/post
     timeout: 1200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-ara-integration-py35-devel
@@ -312,7 +312,7 @@
     run: playbooks/legacy/ara-integration-py35-devel-fedora-26/run
     post-run: playbooks/legacy/ara-integration-py35-devel-fedora-26/post
     timeout: 1200
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-ara-integration-py35-latest
@@ -327,7 +327,7 @@
     run: playbooks/legacy/ara-integration-py35-latest-fedora-26/run
     post-run: playbooks/legacy/ara-integration-py35-latest-fedora-26/post
     timeout: 1200
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-astara-appliance-buildimage
@@ -473,7 +473,7 @@
     run: playbooks/legacy/barbican-dogtag-devstack-fedora-26/run
     post-run: playbooks/legacy/barbican-dogtag-devstack-fedora-26/post
     timeout: 4200
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
@@ -487,7 +487,7 @@
     run: playbooks/legacy/barbican-dogtag-dsvm-functional-fedora-26/run
     post-run: playbooks/legacy/barbican-dogtag-dsvm-functional-fedora-26/post
     timeout: 4200
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/barbican
@@ -672,7 +672,7 @@
     run: playbooks/legacy/bashate-python36-fedora-26/run
     post-run: playbooks/legacy/bashate-python36-fedora-26/post
     timeout: 2400
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-beaker-localhost-rake
@@ -708,7 +708,7 @@
     run: playbooks/legacy/bifrost-integration-dhcp-centos-7/run
     post-run: playbooks/legacy/bifrost-integration-dhcp-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/bifrost
       - openstack/diskimage-builder
@@ -723,7 +723,7 @@
     run: playbooks/legacy/bifrost-integration-dhcp-opensuse-423/run
     post-run: playbooks/legacy/bifrost-integration-dhcp-opensuse-423/post
     timeout: 7200
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/bifrost
       - openstack/diskimage-builder
@@ -752,7 +752,7 @@
     run: playbooks/legacy/bifrost-integration-dibipa-debian-centos-7/run
     post-run: playbooks/legacy/bifrost-integration-dibipa-debian-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/bifrost
       - openstack/diskimage-builder
@@ -767,7 +767,7 @@
     run: playbooks/legacy/bifrost-integration-dibipa-debian-opensuse-423/run
     post-run: playbooks/legacy/bifrost-integration-dibipa-debian-opensuse-423/post
     timeout: 7200
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/bifrost
       - openstack/diskimage-builder
@@ -795,7 +795,7 @@
     run: playbooks/legacy/bifrost-integration-tinyipa-centos-7/run
     post-run: playbooks/legacy/bifrost-integration-tinyipa-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/bifrost
       - openstack/ironic
@@ -809,7 +809,7 @@
     run: playbooks/legacy/bifrost-integration-tinyipa-opensuse-423/run
     post-run: playbooks/legacy/bifrost-integration-tinyipa-opensuse-423/post
     timeout: 3600
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/bifrost
       - openstack/ironic
@@ -828,35 +828,35 @@
     parent: legacy-base
     run: playbooks/legacy/bindep-fallback-centos-7/run
     post-run: playbooks/legacy/bindep-fallback-centos-7/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-bindep-fallback-debian-jessie
     parent: legacy-base
     run: playbooks/legacy/bindep-fallback-debian-jessie/run
     post-run: playbooks/legacy/bindep-fallback-debian-jessie/post
-    nodeset: debian-jessie
+    nodeset: legacy-debian-jessie
 
 - job:
     name: legacy-bindep-fallback-fedora-26
     parent: legacy-base
     run: playbooks/legacy/bindep-fallback-fedora-26/run
     post-run: playbooks/legacy/bindep-fallback-fedora-26/post
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-bindep-fallback-opensuse-423
     parent: legacy-base
     run: playbooks/legacy/bindep-fallback-opensuse-423/run
     post-run: playbooks/legacy/bindep-fallback-opensuse-423/post
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
 
 - job:
     name: legacy-bindep-fallback-ubuntu-trusty
     parent: legacy-base
     run: playbooks/legacy/bindep-fallback-ubuntu-trusty/run
     post-run: playbooks/legacy/bindep-fallback-ubuntu-trusty/post
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-blazar-dashboard-releasenotes
@@ -1062,7 +1062,7 @@
     run: playbooks/legacy/chef-rake-integration-centos-7/run
     post-run: playbooks/legacy/chef-rake-integration-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     voting: false
 
 - job:
@@ -1072,7 +1072,7 @@
     post-run: playbooks/legacy/chef-rake-integration-multinode/post
     timeout: 3600
     voting: false
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-cinder-pylint
@@ -1520,7 +1520,7 @@
     run: playbooks/legacy/devstack-dsvm-py36-updown-fedora-26/run
     post-run: playbooks/legacy/devstack-dsvm-py36-updown-fedora-26/post
     timeout: 4200
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
@@ -1585,7 +1585,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-centos-7/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/diskimage-builder
 
@@ -1595,7 +1595,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-centos-7-extras/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-centos-7-extras/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/diskimage-builder
 
@@ -1605,7 +1605,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-centos-7-image/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-centos-7-image/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/diskimage-builder
 
@@ -1615,7 +1615,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-opensuse-423/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-opensuse-423/post
     timeout: 3600
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/diskimage-builder
 
@@ -1625,7 +1625,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-ubuntu-trusty/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-ubuntu-trusty/post
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/diskimage-builder
 
@@ -1635,7 +1635,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-ubuntu-trusty-extras/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-ubuntu-trusty-extras/post
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/diskimage-builder
 
@@ -1645,7 +1645,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python2-ubuntu-trusty-image/run
     post-run: playbooks/legacy/dib-dsvm-functests-python2-ubuntu-trusty-image/post
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/diskimage-builder
 
@@ -1682,7 +1682,7 @@
     run: playbooks/legacy/dib-dsvm-functests-python3-opensuse-423/run
     post-run: playbooks/legacy/dib-dsvm-functests-python3-opensuse-423/post
     timeout: 3600
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/diskimage-builder
 
@@ -1779,7 +1779,7 @@
     run: playbooks/legacy/dsvm-ansible-func-centos-7/run
     post-run: playbooks/legacy/dsvm-ansible-func-centos-7/post
     timeout: 6000
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
 
@@ -1789,7 +1789,7 @@
     run: playbooks/legacy/dsvm-ansible-func-ubuntu-trusty/run
     post-run: playbooks/legacy/dsvm-ansible-func-ubuntu-trusty/post
     timeout: 6000
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-infra/devstack-gate
     branches: master
@@ -1812,7 +1812,7 @@
     run: playbooks/legacy/dsvm-collectd-ceilometer-plugin-bin-centos-7/run
     post-run: playbooks/legacy/dsvm-collectd-ceilometer-plugin-bin-centos-7/post
     timeout: 7800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/aodh
@@ -1837,7 +1837,7 @@
     run: playbooks/legacy/dsvm-collectd-ceilometer-plugin-src-centos-7/run
     post-run: playbooks/legacy/dsvm-collectd-ceilometer-plugin-src-centos-7/post
     timeout: 7800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/aodh
@@ -2112,7 +2112,7 @@
     parent: legacy-base
     run: playbooks/legacy/fuel-astute-puppet-unit-3.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-fuel-ccp-validate
@@ -2137,6 +2137,7 @@
     run: playbooks/legacy/fuel-devops-pylint-ubuntu-trusty/run
     post-run: playbooks/legacy/fuel-devops-pylint-ubuntu-trusty/post
     timeout: 1800
+    nodeset: legacy-ubuntu-trusty
     nodeset: ubuntu-trusty
     required-projects:
       - openstack/requirements
@@ -2152,21 +2153,21 @@
     parent: legacy-base
     run: playbooks/legacy/fuel-library-puppet-unit-3.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-fuel-library-puppet-unit-4.5-centos-7
     parent: legacy-base
     run: playbooks/legacy/fuel-library-puppet-unit-4.5-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-fuel-nailgun-agent-puppet-unit-3.8-centos-7
     parent: legacy-base
     run: playbooks/legacy/fuel-nailgun-agent-puppet-unit-3.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-fuel-octane-puppet-lint
@@ -2189,6 +2190,7 @@
     run: playbooks/legacy/fuel-qa-pylint-ubuntu-trusty/run
     post-run: playbooks/legacy/fuel-qa-pylint-ubuntu-trusty/post
     timeout: 1800
+    nodeset: legacy-ubuntu-trusty
     nodeset: ubuntu-trusty
     required-projects:
       - openstack/requirements
@@ -2317,7 +2319,7 @@
       - openstack/python-ironicclient
       - openstack/python-magnumclient
       - openstack/virtualbmc
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-functional-dsvm-magnum-mesos
@@ -2408,7 +2410,7 @@
       - openstack/python-ironicclient
       - openstack/python-magnumclient
       - openstack/virtualbmc
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-functional-neutron-dsvm-ec2api
@@ -2482,7 +2484,7 @@
     run: playbooks/legacy/gate-kolla-dsvm-build-centos-source-centos-7/run
     post-run: playbooks/legacy/gate-kolla-dsvm-build-centos-source-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-gate-kolla-dsvm-build-oraclelinux-source-centos-7
@@ -2490,7 +2492,7 @@
     run: playbooks/legacy/gate-kolla-dsvm-build-oraclelinux-source-centos-7/run
     post-run: playbooks/legacy/gate-kolla-dsvm-build-oraclelinux-source-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-gate-kolla-dsvm-build-ubuntu-source
@@ -2531,7 +2533,7 @@
     parent: legacy-base
     run: playbooks/legacy/gearman-plugin-maven-build-ubuntu-trusty/run
     timeout: 1800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-gerrit-buck
@@ -2567,7 +2569,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/glance
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-glance_store-dsvm-functional-cinder
@@ -2692,7 +2694,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volbak
@@ -2704,7 +2706,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volschbak
@@ -2716,7 +2718,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-designate-pdns4
@@ -2753,7 +2755,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/heat
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-ironic
@@ -2805,7 +2807,7 @@
       - openstack/pyghmi
       - openstack/python-ironicclient
       - openstack/virtualbmc
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-manila
@@ -2897,7 +2899,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-forward
@@ -2921,7 +2923,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/neutron-fwaas
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-libs
@@ -2953,7 +2955,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode
@@ -2965,7 +2967,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-live-migration
@@ -2977,7 +2979,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
@@ -2989,7 +2991,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-nova-next
@@ -3079,7 +3081,7 @@
     run: playbooks/legacy/group-based-policy-dsvm-functional-ubuntu-trusty/run
     post-run: playbooks/legacy/group-based-policy-dsvm-functional-ubuntu-trusty/post
     timeout: 7800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/group-based-policy
@@ -3106,7 +3108,7 @@
     run: playbooks/legacy/group-based-policy-dsvm-nfp-ubuntu-trusty/run
     post-run: playbooks/legacy/group-based-policy-dsvm-nfp-ubuntu-trusty/post
     timeout: 7800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/group-based-policy
@@ -3134,7 +3136,7 @@
     run: playbooks/legacy/group-based-policy-dsvm-rally-ubuntu-trusty/run
     post-run: playbooks/legacy/group-based-policy-dsvm-rally-ubuntu-trusty/post
     timeout: 7800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/group-based-policy
@@ -3425,7 +3427,7 @@
     run: playbooks/legacy/infra-puppet-apply-3-centos-7/run
     post-run: playbooks/legacy/infra-puppet-apply-3-centos-7/post
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-infra-puppet-apply-3-ubuntu-trusty
@@ -3433,7 +3435,7 @@
     run: playbooks/legacy/infra-puppet-apply-3-ubuntu-trusty/run
     post-run: playbooks/legacy/infra-puppet-apply-3-ubuntu-trusty/post
     timeout: 1800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     branches: master
 
 - job:
@@ -3442,7 +3444,7 @@
     run: playbooks/legacy/infra-puppet-apply-4-centos-7/run
     post-run: playbooks/legacy/infra-puppet-apply-4-centos-7/post
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-instack-undercloud-puppet-lint
@@ -3499,7 +3501,7 @@
       - openstack/devstack-plugin-container
       - openstack/kuryr
       - openstack/kuryr-libnetwork
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-install-dsvm-networking-ovn-kuryr
@@ -3770,7 +3772,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/keystone
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-keystone-dsvm-py35-functional-v3-only
@@ -3819,7 +3821,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-centos-binary-centos-7/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-centos-binary-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-centos-source-centos-7
@@ -3827,7 +3829,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-centos-source-centos-7/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-centos-source-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-centos-binary-centos-7-2-node
@@ -3835,7 +3837,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-binary-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-centos-source-centos-7-2-node
@@ -3843,7 +3845,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-source-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-oraclelinux-binary-centos-7-2-node
@@ -3851,7 +3853,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-binary-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-oraclelinux-source-centos-7-2-node
@@ -3859,7 +3861,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-source-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-ubuntu-binary-ubuntu-xenial-2-node
@@ -3867,7 +3869,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-binary-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-binary-ubuntu-xenial-2-node/post
     timeout: 5400
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-ubuntu-source-ubuntu-xenial-2-node
@@ -3875,7 +3877,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 5400
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-centos-binary-centos-7-2-node
@@ -3883,7 +3885,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-binary-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node
@@ -3891,7 +3893,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-oraclelinux-binary-centos-7-2-node
@@ -3899,7 +3901,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-binary-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-oraclelinux-source-centos-7-2-node
@@ -3907,7 +3909,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-source-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-ubuntu-binary-ubuntu-xenial-2-node
@@ -3915,7 +3917,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-binary-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-binary-ubuntu-xenial-2-node/post
     timeout: 5400
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
@@ -3923,7 +3925,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 5400
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-oraclelinux-binary-centos-7
@@ -3931,7 +3933,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-oraclelinux-binary-centos-7/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-oraclelinux-binary-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-oraclelinux-source-centos-7
@@ -3939,7 +3941,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-oraclelinux-source-centos-7/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-oraclelinux-source-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ubuntu-binary
@@ -3961,7 +3963,7 @@
     run: playbooks/legacy/kolla-ansible-dsvm-upgrade-multinode-centos-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-upgrade-multinode-centos-source-centos-7-2-node/post
     timeout: 5400
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
 
 - job:
     name: legacy-kolla-dsvm-build-centos-binary-centos-7
@@ -3969,7 +3971,7 @@
     run: playbooks/legacy/kolla-dsvm-build-centos-binary-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-build-centos-binary-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-build-centos-source-centos-7
@@ -3977,7 +3979,7 @@
     run: playbooks/legacy/kolla-dsvm-build-centos-source-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-build-centos-source-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-build-oraclelinux-binary-centos-7
@@ -3985,7 +3987,7 @@
     run: playbooks/legacy/kolla-dsvm-build-oraclelinux-binary-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-build-oraclelinux-binary-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-build-oraclelinux-source-centos-7
@@ -3993,7 +3995,7 @@
     run: playbooks/legacy/kolla-dsvm-build-oraclelinux-source-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-build-oraclelinux-source-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-build-ubuntu-binary
@@ -4015,7 +4017,7 @@
     run: playbooks/legacy/kolla-dsvm-deploy-centos-binary-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-deploy-centos-binary-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-deploy-centos-source-centos-7
@@ -4023,7 +4025,7 @@
     run: playbooks/legacy/kolla-dsvm-deploy-centos-source-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-deploy-centos-source-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-deploy-oraclelinux-binary-centos-7
@@ -4031,7 +4033,7 @@
     run: playbooks/legacy/kolla-dsvm-deploy-oraclelinux-binary-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-deploy-oraclelinux-binary-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-deploy-oraclelinux-source-centos-7
@@ -4039,7 +4041,7 @@
     run: playbooks/legacy/kolla-dsvm-deploy-oraclelinux-source-centos-7/run
     post-run: playbooks/legacy/kolla-dsvm-deploy-oraclelinux-source-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-kolla-dsvm-deploy-ubuntu-binary
@@ -4339,7 +4341,7 @@
     parent: legacy-base
     run: playbooks/legacy/libec-pyeclib-unit-centos-7/run
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/liberasurecode
       - openstack/pyeclib
@@ -4355,7 +4357,7 @@
     parent: legacy-base
     run: playbooks/legacy/liberasurecode-unit-centos-7/run
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-loci
@@ -4378,7 +4380,7 @@
     run: playbooks/legacy/logstash-filters-ubuntu-trusty/run
     post-run: playbooks/legacy/logstash-filters-ubuntu-trusty/post
     timeout: 1800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     branches: master
 
 - job:
@@ -4593,7 +4595,7 @@
     run: playbooks/legacy/manila-tempest-minimal-dsvm-cephfs-native-centos-7/run
     post-run: playbooks/legacy/manila-tempest-minimal-dsvm-cephfs-native-centos-7/post
     timeout: 4800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-ceph
@@ -4607,7 +4609,7 @@
     run: playbooks/legacy/manila-tempest-minimal-dsvm-cephfs-nfs-centos-7/run
     post-run: playbooks/legacy/manila-tempest-minimal-dsvm-cephfs-nfs-centos-7/post
     timeout: 4800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-ceph
@@ -4633,7 +4635,7 @@
     run: playbooks/legacy/manila-tempest-minimal-dsvm-lvm-centos-7/run
     post-run: playbooks/legacy/manila-tempest-minimal-dsvm-lvm-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/manila
@@ -4646,7 +4648,7 @@
     run: playbooks/legacy/manila-tempest-minimal-py35-dsvm-cephfs-native-centos-7/run
     post-run: playbooks/legacy/manila-tempest-minimal-py35-dsvm-cephfs-native-centos-7/post
     timeout: 4800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-ceph
@@ -4660,7 +4662,7 @@
     run: playbooks/legacy/manila-tempest-minimal-py35-dsvm-cephfs-nfs-centos-7/run
     post-run: playbooks/legacy/manila-tempest-minimal-py35-dsvm-cephfs-nfs-centos-7/post
     timeout: 4800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-ceph
@@ -5313,7 +5315,7 @@
       - openstack/neutron
       - openstack/neutron-fwaas
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-neutron-fwaas-v2-dsvm-tempest
@@ -5338,7 +5340,7 @@
       - openstack/neutron
       - openstack/neutron-fwaas
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-neutron-lbaas-dashboard-nodejs4-npm-run-lint
@@ -5837,7 +5839,7 @@
       - openstack/python-barbicanclient
       - openstack/python-octaviaclient
       - openstack/tripleo-image-elements
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-octavia-v1-dsvm-scenario
@@ -5905,7 +5907,7 @@
       - openstack/python-barbicanclient
       - openstack/python-octaviaclient
       - openstack/tripleo-image-elements
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-omni-tests
@@ -5959,7 +5961,7 @@
     run: playbooks/legacy/openstack-ansible-galera_server-ansible-ssl-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-galera_server-ansible-ssl-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -5982,7 +5984,7 @@
     run: playbooks/legacy/openstack-ansible-galera_server-ansible-upgrade-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-galera_server-ansible-upgrade-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6015,7 +6017,7 @@
     run: playbooks/legacy/openstack-ansible-openstack-ansible-aio-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-openstack-ansible-aio-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-openstack-ansible-openstack-ansible-aio-opensuse-423
@@ -6023,7 +6025,7 @@
     run: playbooks/legacy/openstack-ansible-openstack-ansible-aio-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-openstack-ansible-aio-opensuse-423/post
     timeout: 7200
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
 
 - job:
     name: legacy-openstack-ansible-openstack-ansible-aio-ubuntu-trusty
@@ -6031,7 +6033,7 @@
     run: playbooks/legacy/openstack-ansible-openstack-ansible-aio-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-openstack-ansible-aio-ubuntu-trusty/post
     timeout: 7200
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-openstack-ansible-openstack-ansible-ceph
@@ -6046,7 +6048,7 @@
     run: playbooks/legacy/openstack-ansible-openstack-ansible-ceph-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-openstack-ansible-ceph-centos-7/post
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-openstack-ansible-openstack-ansible-ceph-opensuse-423
@@ -6054,7 +6056,7 @@
     run: playbooks/legacy/openstack-ansible-openstack-ansible-ceph-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-openstack-ansible-ceph-opensuse-423/post
     timeout: 7200
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
 
 - job:
     name: legacy-openstack-ansible-openstack-ansible-octavia
@@ -6090,7 +6092,7 @@
     run: playbooks/legacy/openstack-ansible-os_barbican-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_barbican-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/barbican
       - openstack/openstack
@@ -6103,7 +6105,7 @@
     run: playbooks/legacy/openstack-ansible-os_barbican-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_barbican-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/barbican
       - openstack/openstack
@@ -6135,7 +6137,7 @@
     run: playbooks/legacy/openstack-ansible-os_ceilometer-ansible-gnocchi-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_ceilometer-ansible-gnocchi-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/ceilometer
       - openstack/openstack
@@ -6148,7 +6150,7 @@
     run: playbooks/legacy/openstack-ansible-os_ceilometer-ansible-gnocchi-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_ceilometer-ansible-gnocchi-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/ceilometer
       - openstack/openstack
@@ -6187,7 +6189,7 @@
     run: playbooks/legacy/openstack-ansible-os_cloudkitty-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_cloudkitty-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/cloudkitty
       - openstack/openstack
@@ -6200,7 +6202,7 @@
     run: playbooks/legacy/openstack-ansible-os_cloudkitty-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_cloudkitty-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/cloudkitty
       - openstack/openstack
@@ -6246,7 +6248,7 @@
     run: playbooks/legacy/openstack-ansible-os_glance-ansible-upgrade-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_glance-ansible-upgrade-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/glance
       - openstack/openstack
@@ -6287,7 +6289,7 @@
     run: playbooks/legacy/openstack-ansible-os_ironic-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_ironic-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/ironic
       - openstack/openstack
@@ -6300,7 +6302,7 @@
     run: playbooks/legacy/openstack-ansible-os_ironic-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_ironic-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/ironic
       - openstack/openstack
@@ -6332,7 +6334,7 @@
     run: playbooks/legacy/openstack-ansible-os_keystone-ansible-upgrade-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_keystone-ansible-upgrade-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/keystone
       - openstack/openstack
@@ -6357,7 +6359,7 @@
     run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_apache-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_apache-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/keystone
       - openstack/openstack
@@ -6370,7 +6372,7 @@
     run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_apache-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_apache-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/keystone
       - openstack/openstack
@@ -6395,7 +6397,7 @@
     run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_nginx-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_nginx-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/keystone
       - openstack/openstack
@@ -6408,7 +6410,7 @@
     run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_nginx-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_keystone-ansible-uw_nginx-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/keystone
       - openstack/openstack
@@ -6428,7 +6430,7 @@
     run: playbooks/legacy/openstack-ansible-os_magnum-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_magnum-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/magnum
       - openstack/openstack
@@ -6441,7 +6443,7 @@
     run: playbooks/legacy/openstack-ansible-os_magnum-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_magnum-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/magnum
       - openstack/openstack
@@ -6461,7 +6463,7 @@
     run: playbooks/legacy/openstack-ansible-os_monasca-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_monasca-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6473,7 +6475,7 @@
     run: playbooks/legacy/openstack-ansible-os_monasca-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_monasca-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6529,7 +6531,7 @@
     run: playbooks/legacy/openstack-ansible-os_neutron-ansible-func_ovs-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_neutron-ansible-func_ovs-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/neutron
       - openstack/openstack
@@ -6573,7 +6575,7 @@
     run: playbooks/legacy/openstack-ansible-os_nova-ansible-func_lxd-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_nova-ansible-func_lxd-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/nova
       - openstack/openstack
@@ -6605,7 +6607,7 @@
     run: playbooks/legacy/openstack-ansible-os_rally-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_rally-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6618,7 +6620,7 @@
     run: playbooks/legacy/openstack-ansible-os_rally-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_rally-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6638,7 +6640,7 @@
     run: playbooks/legacy/openstack-ansible-os_sahara-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_sahara-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/ara
       - openstack/openstack
@@ -6652,7 +6654,7 @@
     run: playbooks/legacy/openstack-ansible-os_sahara-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_sahara-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/ara
       - openstack/openstack
@@ -6685,7 +6687,7 @@
     run: playbooks/legacy/openstack-ansible-os_swift-ansible-func_pypy-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_swift-ansible-func_pypy-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6710,7 +6712,7 @@
     run: playbooks/legacy/openstack-ansible-os_swift-ansible-multi_reg-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_swift-ansible-multi_reg-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6723,7 +6725,7 @@
     run: playbooks/legacy/openstack-ansible-os_swift-ansible-multi_reg-ubuntu-trusty/run
     post-run: playbooks/legacy/openstack-ansible-os_swift-ansible-multi_reg-ubuntu-trusty/post
     timeout: 5400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6748,7 +6750,7 @@
     run: playbooks/legacy/openstack-ansible-os_swift-ansible-upgrade-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_swift-ansible-upgrade-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6768,7 +6770,7 @@
     run: playbooks/legacy/openstack-ansible-os_trove-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_trove-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6781,7 +6783,7 @@
     run: playbooks/legacy/openstack-ansible-os_trove-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_trove-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6801,7 +6803,7 @@
     run: playbooks/legacy/openstack-ansible-os_watcher-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_watcher-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6814,7 +6816,7 @@
     run: playbooks/legacy/openstack-ansible-os_watcher-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_watcher-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6834,7 +6836,7 @@
     run: playbooks/legacy/openstack-ansible-os_zaqar-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-os_zaqar-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6847,7 +6849,7 @@
     run: playbooks/legacy/openstack-ansible-os_zaqar-ansible-func-opensuse-423/run
     post-run: playbooks/legacy/openstack-ansible-os_zaqar-ansible-func-opensuse-423/post
     timeout: 5400
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6860,7 +6862,7 @@
     run: playbooks/legacy/openstack-ansible-pip_lock_down-ansible-func-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-pip_lock_down-ansible-func-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6890,7 +6892,7 @@
     run: playbooks/legacy/openstack-ansible-plugins-ansible-func_py3-centos-7/run
     post-run: playbooks/legacy/openstack-ansible-plugins-ansible-func_py3-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/openstack-ansible
@@ -6930,7 +6932,7 @@
     run: playbooks/legacy/openstack-helm-addons-multi-basic-ovs-rbd-ubuntu-xenial-3-node/run
     post-run: playbooks/legacy/openstack-helm-addons-multi-basic-ovs-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
-    nodeset: ubuntu-xenial-3-node
+    nodeset: legacy-ubuntu-xenial-3-node
 
 - job:
     name: legacy-openstack-helm-addons-nocluster-linter-ovs-rbd
@@ -6981,7 +6983,7 @@
     run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd-centos-7/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd-centos-7/post
     timeout: 6000
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack-helm-infra
 
@@ -6991,7 +6993,7 @@
     run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd-fedora-26/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd-fedora-26/post
     timeout: 6000
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack/openstack-helm-infra
 
@@ -7017,7 +7019,7 @@
     run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-centos-7/run
     post-run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-centos-7/post
     timeout: 6000
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-openstack-helm-infra-aio-basic-ovs-rbd-fedora-26
@@ -7025,7 +7027,7 @@
     run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-fedora-26/run
     post-run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-fedora-26/post
     timeout: 6000
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-openstack-helm-infra-nocluster-linter-ovs-rbd
@@ -7040,7 +7042,7 @@
     run: playbooks/legacy/openstack-helm-multi-armada-ovs-rbd-ubuntu-xenial-3-node/run
     post-run: playbooks/legacy/openstack-helm-multi-armada-ovs-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
-    nodeset: ubuntu-xenial-3-node
+    nodeset: legacy-ubuntu-xenial-3-node
     required-projects:
       - openstack/openstack-helm-infra
 
@@ -7050,6 +7052,7 @@
     run: playbooks/legacy/openstack-helm-multi-basic-linuxbridge-rbd-ubuntu-xenial-3-node/run
     post-run: playbooks/legacy/openstack-helm-multi-basic-linuxbridge-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
+    nodeset: legacy-ubuntu-xenial-3-node
     nodeset: ubuntu-xenial-3-node
     required-projects:
       - openstack/openstack-helm-infra
@@ -7060,7 +7063,7 @@
     run: playbooks/legacy/openstack-helm-multi-basic-ovs-rbd-ubuntu-xenial-3-node/run
     post-run: playbooks/legacy/openstack-helm-multi-basic-ovs-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
-    nodeset: ubuntu-xenial-3-node
+    nodeset: legacy-ubuntu-xenial-3-node
     required-projects:
       - openstack/openstack-helm-infra
 
@@ -7100,14 +7103,14 @@
     parent: legacy-base
     run: playbooks/legacy/openstackci-beaker-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-openstackci-beaker-ubuntu-trusty
     parent: legacy-base
     run: playbooks/legacy/openstackci-beaker-ubuntu-trusty/run
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-openstackdocstheme-api-ref
@@ -7155,7 +7158,7 @@
     run: playbooks/legacy/osbackup-freezer-api-dsvm-centos-7/run
     post-run: playbooks/legacy/osbackup-freezer-api-dsvm-centos-7/post
     timeout: 4200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/freezer
@@ -7182,7 +7185,7 @@
     run: playbooks/legacy/osbackup-freezer-dsvm-centos-7/run
     post-run: playbooks/legacy/osbackup-freezer-dsvm-centos-7/post
     timeout: 4200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/freezer
@@ -7196,7 +7199,7 @@
     run: playbooks/legacy/osbackup-freezer-dsvm-opensuse-423/run
     post-run: playbooks/legacy/osbackup-freezer-dsvm-opensuse-423/post
     timeout: 4200
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/freezer
@@ -7295,7 +7298,7 @@
     run: playbooks/legacy/oslo.messaging-src-dsvm-full-amqp1-dual-centos-7/run
     post-run: playbooks/legacy/oslo.messaging-src-dsvm-full-amqp1-dual-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-amqp1
@@ -7329,7 +7332,7 @@
     run: playbooks/legacy/oslo.messaging-src-dsvm-full-kafka-default-centos-7/run
     post-run: playbooks/legacy/oslo.messaging-src-dsvm-full-kafka-default-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-kafka
@@ -7378,7 +7381,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/oslo.messaging
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-oslo.messaging-telemetry-dsvm-integration-amqp1
@@ -7536,7 +7539,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/oslo.versionedobjects
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-ospurge-dsvm-functional
@@ -7563,7 +7566,7 @@
     run: playbooks/legacy/packstack-integration-scenario001-tempest-centos-7/run
     post-run: playbooks/legacy/packstack-integration-scenario001-tempest-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     irrelevant-files:
       - ^docs/.*$
       - ^releasenotes/.*$
@@ -7574,7 +7577,7 @@
     run: playbooks/legacy/packstack-integration-scenario002-tempest-centos-7/run
     post-run: playbooks/legacy/packstack-integration-scenario002-tempest-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     irrelevant-files:
       - ^docs/.*$
       - ^releasenotes/.*$
@@ -7585,7 +7588,7 @@
     run: playbooks/legacy/packstack-integration-scenario003-tempest-centos-7/run
     post-run: playbooks/legacy/packstack-integration-scenario003-tempest-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     irrelevant-files:
       - ^docs/.*$
       - ^releasenotes/.*$
@@ -8024,7 +8027,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-aio-master-opensuse-423
@@ -8032,7 +8035,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-opensuse-423/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-opensuse-423/post
     timeout: 10800
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-aio-ocata
@@ -8047,7 +8050,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-ocata-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-ocata-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-aio-pike
@@ -8062,7 +8065,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-aio-pike-opensuse-423
@@ -8070,7 +8073,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-opensuse-423/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-opensuse-423/post
     timeout: 10800
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-ceph-master
@@ -8085,7 +8088,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-master-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-ceph-ocata
@@ -8100,7 +8103,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-ocata-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-ocata-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-ceph-pike
@@ -8115,7 +8118,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-pike-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-deploy-translations-master
@@ -8137,7 +8140,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-master-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-upgrade-aio-ocata
@@ -8159,7 +8162,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-pike-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-upgrade-ceph-master
@@ -8174,7 +8177,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-master-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-openstack-ansible-upgrade-ceph-pike
@@ -8189,7 +8192,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-pike-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-periodic-package-stackviz-element
@@ -8486,7 +8489,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8536,7 +8539,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8586,7 +8589,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8636,7 +8639,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8686,7 +8689,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8736,7 +8739,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8786,7 +8789,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8836,7 +8839,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8887,7 +8890,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8938,7 +8941,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -8989,7 +8992,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -9039,7 +9042,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -9089,7 +9092,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -9139,7 +9142,7 @@
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -9270,7 +9273,7 @@
     run: playbooks/legacy/publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 7200
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-publish-kolla-dsvm-build-ubuntu-source
@@ -9285,7 +9288,7 @@
     run: playbooks/legacy/publish-kolla-dsvm-kubernetes-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/publish-kolla-dsvm-kubernetes-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 7200
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-publish-kolla-dsvm-save-ubuntu-source
@@ -9310,7 +9313,7 @@
     run: playbooks/legacy/puppet-beaker-rspec-centos-7/run
     post-run: playbooks/legacy/puppet-beaker-rspec-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/puppet-openstack-integration
 
@@ -9320,7 +9323,7 @@
     run: playbooks/legacy/puppet-beaker-rspec-ubuntu-trusty/run
     post-run: playbooks/legacy/puppet-beaker-rspec-ubuntu-trusty/post
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/puppet-openstack-integration
     voting: false
@@ -9342,28 +9345,28 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-midonet-puppet-unit-3.6-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-midonet-puppet-unit-3.8-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-midonet-puppet-unit-3.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-midonet-puppet-unit-4.5-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-midonet-puppet-unit-4.5-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-midonet-puppet-unit-latest-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-midonet-puppet-unit-latest-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-module-build
@@ -9394,14 +9397,14 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-openstack-infra-spec-helper-unit-ubuntu-trusty
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit-ubuntu-trusty/run
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-puppet-openstack-integration-4-scenario001-tempest
@@ -9426,7 +9429,7 @@
     run: playbooks/legacy/puppet-openstack-integration-4-scenario001-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-4-scenario001-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9461,7 +9464,7 @@
     run: playbooks/legacy/puppet-openstack-integration-4-scenario002-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-4-scenario002-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9496,7 +9499,7 @@
     run: playbooks/legacy/puppet-openstack-integration-4-scenario003-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-4-scenario003-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9532,7 +9535,7 @@
     run: playbooks/legacy/puppet-openstack-integration-4-scenario004-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-4-scenario004-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9568,7 +9571,7 @@
     run: playbooks/legacy/puppet-openstack-integration-5-scenario001-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-5-scenario001-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9603,7 +9606,7 @@
     run: playbooks/legacy/puppet-openstack-integration-5-scenario002-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-5-scenario002-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9638,7 +9641,7 @@
     run: playbooks/legacy/puppet-openstack-integration-5-scenario003-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-5-scenario003-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9673,7 +9676,7 @@
     run: playbooks/legacy/puppet-openstack-integration-5-scenario004-tempest-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-integration-5-scenario004-tempest-centos-7/post
     timeout: 5400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9691,7 +9694,7 @@
     run: playbooks/legacy/puppet-openstack-libraries-puppet-beaker-rspec-centos-7/run
     post-run: playbooks/legacy/puppet-openstack-libraries-puppet-beaker-rspec-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/openstack
       - openstack/puppet-openstack-integration
@@ -9709,14 +9712,14 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-libraries-puppet-lint-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-libraries-puppet-syntax-3-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     branches: ^(stable/(newton|ocata)).*$
     irrelevant-files:
       - ^.*\.md$
@@ -9732,7 +9735,7 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-libraries-puppet-syntax-4-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -9747,7 +9750,7 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-libraries-puppet-unit-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -9774,7 +9777,7 @@
     run: playbooks/legacy/puppet-openstackci-puppet-beaker-rspec-centos-7/run
     post-run: playbooks/legacy/puppet-openstackci-puppet-beaker-rspec-centos-7/post
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/puppet-openstackci
       - openstack/openstack
@@ -9786,7 +9789,7 @@
     run: playbooks/legacy/puppet-openstackci-puppet-beaker-rspec-ubuntu-trusty/run
     post-run: playbooks/legacy/puppet-openstackci-puppet-beaker-rspec-ubuntu-trusty/post
     timeout: 3600
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-infra/puppet-openstackci
       - openstack/openstack
@@ -9809,14 +9812,14 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-syntax-3-centos-7/run
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-syntax-3-legacy-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-syntax-3-centos-7/run
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     branches: ^(stable/(newton|ocata)).*$
 
 - job:
@@ -9824,28 +9827,28 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-syntax-4-centos-7/run
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-tripleo-puppet-unit-4.8-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-tripleo-puppet-unit-4.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-tripleo-puppet-unit-latest-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-tripleo-puppet-unit-latest-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-unit-3.6-legacy-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-unit-3.6-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     branches: ^(stable/(newton|ocata)).*$
 
 - job:
@@ -9853,7 +9856,7 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-unit-3.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     branches: ^(stable/(newton|ocata)).*$
 
 - job:
@@ -9861,14 +9864,14 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-unit-4.8-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-unit-latest-centos-7
     parent: legacy-base
     run: playbooks/legacy/puppet-unit-latest-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     branches: ^master
     voting: false
 
@@ -9885,7 +9888,7 @@
     run: playbooks/legacy/pyeclib-tox-py27-centos-7/run
     post-run: playbooks/legacy/pyeclib-tox-py27-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -9976,7 +9979,7 @@
     run: playbooks/legacy/python-swiftclient-python36-fedora-26/run
     post-run: playbooks/legacy/python-swiftclient-python36-fedora-26/post
     timeout: 2400
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
 
 - job:
     name: legacy-python34
@@ -11081,7 +11084,7 @@
     parent: legacy-base
     run: playbooks/legacy/rally-install-centos-7/run
     timeout: 1800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-rally-tox-self
@@ -11274,7 +11277,7 @@
     run: playbooks/legacy/requirements-integration-dsvm-ubuntu-trusty/run
     post-run: playbooks/legacy/requirements-integration-dsvm-ubuntu-trusty/post
     timeout: 7800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-dev/devstack
       - openstack-dev/grenade
@@ -11433,14 +11436,14 @@
     parent: legacy-base
     run: playbooks/legacy/sahara-buildimages-ambari-centos-7/run
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-sahara-buildimages-cloudera-centos-7
     parent: legacy-base
     run: playbooks/legacy/sahara-buildimages-cloudera-centos-7/run
     timeout: 7200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
 
 - job:
     name: legacy-sahara-cli
@@ -11514,7 +11517,7 @@
       - openstack/sahara-extra
       - openstack/sahara-image-elements
       - openstack/sahara-tests
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-sahara-dsvm-scenario-neutron
@@ -11957,7 +11960,7 @@
     run: playbooks/legacy/solum-devstack-dsvm-centos-7/run
     post-run: playbooks/legacy/solum-devstack-dsvm-centos-7/post
     timeout: 4200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
@@ -12096,7 +12099,7 @@
     run: playbooks/legacy/storyboard-js-integration-ubuntu-trusty/run
     post-run: playbooks/legacy/storyboard-js-integration-ubuntu-trusty/post
     timeout: 2400
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-storyboard-webclient-js-draft
@@ -12183,7 +12186,7 @@
     run: playbooks/legacy/swift-tox-xfs-tmp-func-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-func-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -12202,7 +12205,7 @@
     run: playbooks/legacy/swift-tox-xfs-tmp-func-ec-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-func-ec-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -12221,7 +12224,7 @@
     run: playbooks/legacy/swift-tox-xfs-tmp-func-encryption-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-func-encryption-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -12240,7 +12243,7 @@
     run: playbooks/legacy/swift-tox-xfs-tmp-func-fast-post-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-func-fast-post-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -12259,7 +12262,7 @@
     run: playbooks/legacy/swift-tox-xfs-tmp-func-post-as-copy-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-func-post-as-copy-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -12278,7 +12281,7 @@
     run: playbooks/legacy/swift-tox-xfs-tmp-py27-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-py27-centos-7/post
     timeout: 2400
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
 
@@ -13088,7 +13091,7 @@
       - openstack/python-ironicclient
       - openstack/tempest
       - openstack/virtualbmc
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-ironic-ipa-wholedisk-bios-agent_ipmitool-coreos-src
@@ -13409,7 +13412,7 @@
       - openstack/kuryr-kubernetes
       - openstack/kuryr-tempest-plugin
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-lbaasv2-kuryr-kubernetes
@@ -13685,7 +13688,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-multinode-live-migration
@@ -13696,7 +13699,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-murano-api
@@ -13783,7 +13786,7 @@
     run: playbooks/legacy/tempest-dsvm-networking-midonet-aio-ml2-centos-7/run
     post-run: playbooks/legacy/tempest-dsvm-networking-midonet-aio-ml2-centos-7/post
     timeout: 7800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/networking-l2gw
@@ -13812,7 +13815,7 @@
     run: playbooks/legacy/tempest-dsvm-networking-midonet-aio-ml2-full-centos-7/run
     post-run: playbooks/legacy/tempest-dsvm-networking-midonet-aio-ml2-full-centos-7/post
     timeout: 7800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/networking-l2gw
@@ -13876,7 +13879,7 @@
       - openstack/neutron-dynamic-routing
       - openstack/tap-as-a-service
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-boron-snapshot-v2driver
@@ -13910,7 +13913,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-odl
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-multinode-nitrogen-snapshot
@@ -13922,7 +13925,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-odl
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-nitrogen-snapshot-vpnservice-v2driver
@@ -13956,7 +13959,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-ovn
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-networking-ovn-neutron-api-ovs-release
@@ -14047,7 +14050,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-sfc
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr
@@ -14070,7 +14073,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: ubuntu-xenial-3-node
+    nodeset: legacy-ubuntu-xenial-3-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-full
@@ -14082,7 +14085,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-scenario
@@ -14094,7 +14097,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-full
@@ -14113,7 +14116,7 @@
     run: playbooks/legacy/tempest-dsvm-neutron-full-centos-7/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-full-centos-7/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -14125,7 +14128,7 @@
     run: playbooks/legacy/tempest-dsvm-neutron-full-fedora-26/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-full-fedora-26/post
     timeout: 10800
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -14170,7 +14173,7 @@
     run: playbooks/legacy/tempest-dsvm-neutron-full-opensuse-423/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-full-opensuse-423/post
     timeout: 10800
-    nodeset: opensuse-423
+    nodeset: legacy-opensuse-423
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -14230,7 +14233,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-nova-next-full
@@ -14298,7 +14301,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-serviceipv6
@@ -14500,7 +14503,7 @@
       - openstack-infra/devstack-gate
       - openstack/patrole
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-patrole-multinode-member
@@ -14512,7 +14515,7 @@
       - openstack-infra/devstack-gate
       - openstack/patrole
       - openstack/tempest
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-patrole-py35-member
@@ -14656,7 +14659,7 @@
       - openstack/python-zunclient
       - openstack/tempest
       - openstack/zun
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-neutron-dsvm-src-oslo.messaging-amqp1-hybrid
@@ -15021,7 +15024,7 @@
     run: playbooks/legacy/tripleo-buildimage-ironic-python-agent-centos-7/run
     post-run: playbooks/legacy/tripleo-buildimage-ironic-python-agent-centos-7/post
     timeout: 4200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/diskimage-builder
       - openstack/heat-agents
@@ -15040,7 +15043,7 @@
     run: playbooks/legacy/tripleo-buildimage-overcloud-full-centos-7/run
     post-run: playbooks/legacy/tripleo-buildimage-overcloud-full-centos-7/post
     timeout: 4200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/diskimage-builder
       - openstack/heat-agents
@@ -15057,7 +15060,7 @@
     run: playbooks/legacy/tripleo-buildimage-overcloud-hardened-full-centos-7/run
     post-run: playbooks/legacy/tripleo-buildimage-overcloud-hardened-full-centos-7/post
     timeout: 4200
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/diskimage-builder
       - openstack/heat-agents
@@ -15074,7 +15077,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/post
     timeout: 10800
-    nodeset: centos-7-3-node
+    nodeset: legacy-centos-7-3-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15124,7 +15127,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15174,7 +15177,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15234,7 +15237,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15293,7 +15296,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15351,7 +15354,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15401,7 +15404,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15451,7 +15454,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15501,7 +15504,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15551,7 +15554,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15601,7 +15604,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15651,7 +15654,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15709,7 +15712,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15767,7 +15770,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15817,7 +15820,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15867,7 +15870,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/post
     timeout: 10800
-    nodeset: tripleo-centos-7
+    nodeset: legacy-tripleo-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15917,7 +15920,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -15976,7 +15979,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16026,7 +16029,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16076,7 +16079,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16170,7 +16173,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16220,7 +16223,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16313,7 +16316,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16363,7 +16366,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16413,7 +16416,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16502,7 +16505,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16552,7 +16555,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16640,7 +16643,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16690,7 +16693,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16740,7 +16743,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16818,7 +16821,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16868,7 +16871,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16945,7 +16948,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -16995,7 +16998,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17045,7 +17048,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17122,7 +17125,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17172,7 +17175,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-4-node
+    nodeset: legacy-centos-7-4-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17222,7 +17225,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17272,7 +17275,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17322,7 +17325,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17372,7 +17375,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17422,7 +17425,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17472,7 +17475,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/post
     timeout: 10800
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17522,7 +17525,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-containers/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-containers/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17572,7 +17575,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-oooq/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -17630,7 +17633,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-upgrades/post
     timeout: 10800
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack-infra/devstack-gate
       - openstack-infra/tripleo-ci
@@ -18183,7 +18186,7 @@
       - openstack/python-watcherclient
       - openstack/watcher
       - openstack/watcher-tempest-plugin
-    nodeset: ubuntu-xenial-2-node
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-watcherclient-dsvm-functional
@@ -18218,7 +18221,7 @@
     parent: legacy-base
     run: playbooks/legacy/windmill-deploy-centos-7/run
     timeout: 3600
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     required-projects:
       - openstack/windmill
     voting: false
@@ -18228,7 +18231,7 @@
     parent: legacy-base
     run: playbooks/legacy/windmill-deploy-fedora-26/run
     timeout: 3600
-    nodeset: fedora-26
+    nodeset: legacy-fedora-26
     required-projects:
       - openstack/windmill
     voting: false
@@ -18287,7 +18290,7 @@
     parent: legacy-base
     run: playbooks/legacy/zmq-event-publisher-maven-build-ubuntu-trusty/run
     timeout: 1800
-    nodeset: ubuntu-trusty
+    nodeset: legacy-ubuntu-trusty
 
 - job:
     name: legacy-zun-devstack-dsvm-docker-etcd
