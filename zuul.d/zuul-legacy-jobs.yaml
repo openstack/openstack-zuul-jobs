@@ -4360,13 +4360,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-loci
-    parent: legacy-base
-    run: playbooks/legacy/loci/run
-    post-run: playbooks/legacy/loci/post
-    timeout: 3600
-
-- job:
     name: legacy-logstash-filters
     parent: legacy-base
     run: playbooks/legacy/logstash-filters/run
