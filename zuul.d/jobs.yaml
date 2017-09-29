@@ -415,6 +415,8 @@
       env.
     vars:
       tox_envlist: grafyaml
+    required-projects:
+      - openstack-infra/grafyaml
     files:
       - ^grafana/.*$
       - bindep.txt
