@@ -10917,15 +10917,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-rpm-packaging-tox-lint
-    parent: legacy-base
-    run: playbooks/legacy/rpm-packaging-tox-lint/run
-    post-run: playbooks/legacy/rpm-packaging-tox-lint/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-sahara-buildimages-ambari-centos-7
     parent: legacy-base
     run: playbooks/legacy/sahara-buildimages-ambari-centos-7/run
