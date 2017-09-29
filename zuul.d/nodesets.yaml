@@ -91,8 +91,12 @@
     nodes:
       - name: primary
         label: ubuntu-xenial
-      - name: subnodes
+      - name: secondary
         label: ubuntu-xenial
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary
 
 - nodeset:
     name: ubuntu-xenial-3-node
@@ -201,8 +205,12 @@
     nodes:
       - name: primary
         label: ubuntu-xenial
-      - name: subnodes
+      - name: secondary
         label: ubuntu-xenial
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary
 
 - nodeset:
     name: legacy-ubuntu-xenial-3-node
