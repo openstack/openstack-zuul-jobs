@@ -8436,26 +8436,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-nnet-ocata
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-nnet-ocata/run
-    post-run: playbooks/legacy/periodic-tempest-dsvm-nnet-ocata/post
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-nnet-pike
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-nnet-pike/run
-    post-run: playbooks/legacy/periodic-tempest-dsvm-nnet-pike/post
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-oslo-latest-full-master
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-oslo-latest-full-master/run
@@ -13886,16 +13866,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-nnet-newton/run
     post-run: playbooks/legacy/tempest-dsvm-nnet-newton/post
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-nnet-ocata
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-nnet-ocata/run
-    post-run: playbooks/legacy/tempest-dsvm-nnet-ocata/post
     timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
