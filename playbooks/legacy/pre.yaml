@@ -25,7 +25,7 @@
         - id_rsa
         - id_rsa.pub
 
-    - name: Copy zuul-sudo-grep.sh to
+    - name: Copy zuul-sudo-grep.sh to the script dir on the node
       copy:
         dest: /usr/local/jenkins/slave_scripts/zuul-sudo-grep.sh
         src: zuul-sudo-grep.sh
