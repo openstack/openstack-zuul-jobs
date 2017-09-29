@@ -38,8 +38,10 @@
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
+        executable: /bin/bash
         cmd: |
-          #/bin/bash -xe
+          set -e
+          set -x
 
           if [ $ZUUL_PROJECT == "openstack/rally" ] && [ $ZUUL_BRANCH != "master" ]; then
               export DEVSTACK_GATE_FEATURE_MATRIX="/opt/stack/new/rally/devstack/features.yaml"
