@@ -1210,6 +1210,21 @@
         - legacy-puppet-module-build
 
 - project-template:
+    name: legacy-puppet-check-jobs
+    check:
+      jobs:
+        - legacy-puppet-lint
+        - legacy-puppet-syntax-3-legacy-centos-7
+        - legacy-puppet-syntax-4-centos-7
+        - legacy-puppet-module-build
+    gate:
+      jobs:
+        - legacy-puppet-lint
+        - legacy-puppet-syntax-3-legacy-centos-7
+        - legacy-puppet-syntax-4-centos-7
+        - legacy-puppet-module-build
+
+- project-template:
     name: puppet-module-unit-jobs
     check:
       jobs:
