@@ -43,7 +43,7 @@
           # use the larger mounted space.
           cd ~
           sudo mkdir /opt/dib_cache
-          sudo chown jenkins:jenkins /opt/dib_cache
+          sudo chown zuul:zuul /opt/dib_cache
           export DIB_NO_TMPFS=1
           export TMPDIR=/opt/dib_cache
 
@@ -69,7 +69,14 @@
           set +u
           source ./env/bin/activate
           set -u
-          ./openstack/diskimage-builder/tests/run_functests.sh centos7/build-succeeds opensuse/build-succeeds opensuse/opensuse423-build-succeeds fedora/build-succeeds ubuntu/trusty-build-succeeds ubuntu/xenial-build-succeeds
+
+          ./openstack/diskimage-builder/tests/run_functests.sh \
+            centos7/build-succeeds \
+            opensuse/build-succeeds \
+            opensuse/opensuse423-build-succeeds \
+            fedora/build-succeeds \
+            ubuntu/trusty-build-succeeds \
+            ubuntu/xenial-build-succeeds
 
           set +u
           deactivate
