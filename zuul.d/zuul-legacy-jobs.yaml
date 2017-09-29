@@ -10865,13 +10865,6 @@
       - openstack/zaqar
 
 - job:
-    name: legacy-requirements-python34
-    parent: legacy-base
-    run: playbooks/legacy/requirements-python34/run
-    post-run: playbooks/legacy/requirements-python34/post
-    timeout: 2400
-
-- job:
     name: legacy-requirements-tox-babel
     parent: legacy-base
     run: playbooks/legacy/requirements-tox-babel/run
