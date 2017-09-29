@@ -64,8 +64,6 @@
           VENV="install-guide"
           GUIDEDIR="install-guide"
 
-          #!/bin/bash -xe
-
           # This script is used to publish project-specific deploy-guide and
           # install-guide documents to the proper place. Master will be
           # published to a draft directory, stable/X will be published to the X
