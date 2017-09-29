@@ -6921,6 +6921,8 @@
     run: playbooks/legacy/openstack-helm-aio-basic-linuxbridge-rbd/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-linuxbridge-rbd/post
     timeout: 6000
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-aio-basic-ovs-pvc
@@ -6928,6 +6930,8 @@
     run: playbooks/legacy/openstack-helm-aio-basic-ovs-pvc/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-pvc/post
     timeout: 6000
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-aio-basic-ovs-radosgw
@@ -6935,6 +6939,8 @@
     run: playbooks/legacy/openstack-helm-aio-basic-ovs-radosgw/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-radosgw/post
     timeout: 6000
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-aio-basic-ovs-rbd
@@ -6942,6 +6948,8 @@
     run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd/post
     timeout: 6000
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-aio-basic-ovs-rbd-centos-7
@@ -6950,6 +6958,8 @@
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd-centos-7/post
     timeout: 6000
     nodeset: centos-7
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-aio-basic-ovs-rbd-fedora-26
@@ -6958,6 +6968,8 @@
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-rbd-fedora-26/post
     timeout: 6000
     nodeset: fedora-26
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-aio-basic-ovs-swift
@@ -6965,6 +6977,8 @@
     run: playbooks/legacy/openstack-helm-aio-basic-ovs-swift/run
     post-run: playbooks/legacy/openstack-helm-aio-basic-ovs-swift/post
     timeout: 6000
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-infra-aio-basic-ovs-rbd
@@ -7003,6 +7017,8 @@
     post-run: playbooks/legacy/openstack-helm-multi-armada-ovs-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
     nodeset: ubuntu-xenial-3-node
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-multi-basic-linuxbridge-rbd-ubuntu-xenial-3-node
@@ -7011,6 +7027,8 @@
     post-run: playbooks/legacy/openstack-helm-multi-basic-linuxbridge-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
     nodeset: ubuntu-xenial-3-node
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-multi-basic-ovs-rbd-ubuntu-xenial-3-node
@@ -7019,6 +7037,8 @@
     post-run: playbooks/legacy/openstack-helm-multi-basic-ovs-rbd-ubuntu-xenial-3-node/post
     timeout: 6000
     nodeset: ubuntu-xenial-3-node
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-helm-nocluster-linter-ovs-rbd
@@ -7026,6 +7046,8 @@
     run: playbooks/legacy/openstack-helm-nocluster-linter-ovs-rbd/run
     post-run: playbooks/legacy/openstack-helm-nocluster-linter-ovs-rbd/post
     timeout: 6000
+    required-projects:
+      - openstack/openstack-helm-infra
 
 - job:
     name: legacy-openstack-manuals-tox-doc-publishdocs

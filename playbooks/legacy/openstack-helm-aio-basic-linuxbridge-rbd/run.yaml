@@ -48,23 +48,11 @@
           set -x
           export INTEGRATION=aio
           export INTEGRATION_TYPE=basic
-          export SUB=
           export SDN_PLUGIN=linuxbridge
           export GLANCE=rbd
           export GATE_ENVIRONMENT=zuul
 
-          TOOLKIT_TMP=$HOME/infra
-          mkdir -p $TOOLKIT_TMP
-
-          if [ "$SUB" != "-infra" ] ; then
-            /usr/zuul-env/bin/zuul-cloner \
-              --cache-dir /opt/git \
-              --workspace $TOOLKIT_TMP \
-              git://git.openstack.org \
-              openstack/openstack-helm-infra
-          fi
-
-          tools/gate/setup_gate.sh ubuntu-xenial
+          tools/gate/setup_gate.sh
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
