@@ -701,6 +701,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-dhcp-centos-7
@@ -716,6 +717,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-dhcp-opensuse-423
@@ -731,6 +733,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-dibipa-debian
@@ -745,6 +748,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-dibipa-debian-centos-7
@@ -760,6 +764,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-dibipa-debian-opensuse-423
@@ -775,6 +780,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-tinyipa
@@ -788,6 +794,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-tinyipa-centos-7
@@ -802,6 +809,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bifrost-integration-tinyipa-opensuse-423
@@ -816,6 +824,7 @@
       - openstack/ironic-inspector
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
+      - openstack/requirements
 
 - job:
     name: legacy-bindep-fallback
