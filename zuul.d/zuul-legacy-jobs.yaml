@@ -5780,6 +5780,8 @@
     run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-lint/run
     post-run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-lint/post
     timeout: 2400
+    required-projects:
+      - openstack/horizon
 
 - job:
     name: legacy-octavia-dashboard-nodejs4-npm-run-test
@@ -5787,6 +5789,8 @@
     run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-test/run
     post-run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-test/post
     timeout: 2400
+    required-projects:
+      - openstack/horizon
 
 - job:
     name: legacy-octavia-tox-functional
