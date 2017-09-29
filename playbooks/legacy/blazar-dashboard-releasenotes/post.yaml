@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   tasks:
 
     - name: Copy files from releasenotes/build/html/ on node
