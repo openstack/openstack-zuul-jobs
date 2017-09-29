@@ -8484,707 +8484,201 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
+    name: legacy-tripleo-ci-dsvm
+    description: |
+      Base job template for TripleO jobs that leverage devstack-gate/dsvm
     parent: legacy-publish-openstack-artifacts
+    required-projects:
+      - openstack/aodh
+      - openstack/barbican
+      - openstack/ceilometer
+      - openstack/ceilometermiddleware
+      - openstack/cinder
+      - openstack-dev/devstack
+      - openstack/dib-utils
+      - openstack/diskimage-builder
+      - openstack/django_openstack_auth
+      - openstack/glance
+      - openstack/glance_store
+      - openstack/heat
+      - openstack/heat-cfntools
+      - openstack/heat-templates
+      - openstack/horizon
+      - openstack-infra/devstack-gate
+      - openstack-infra/tripleo-ci
+      - openstack/instack
+      - openstack/instack-undercloud
+      - openstack/keystone
+      - openstack/keystoneauth
+      - openstack/keystonemiddleware
+      - openstack/manila
+      - openstack/manila-ui
+      - openstack/mistral
+      - openstack/neutron
+      - openstack/neutron-fwaas
+      - openstack/neutron-lbaas
+      - openstack/neutron-vpnaas
+      - openstack/nova
+      - openstack/octavia
+      - openstack/os-apply-config
+      - openstack/os-brick
+      - openstack/osc-lib
+      - openstack/os-client-config
+      - openstack/os-collect-config
+      - openstack/os-net-config
+      - openstack/os-refresh-config
+      - openstack/panko
+      - openstack/puppet-aodh
+      - openstack/puppet-barbican
+      - openstack/puppet-ceilometer
+      - openstack/puppet-ceph
+      - openstack/puppet-cinder
+      - openstack/puppet-ganesha
+      - openstack/puppet-glance
+      - openstack/puppet-gnocchi
+      - openstack/puppet-heat
+      - openstack/puppet-horizon
+      - openstack/puppet-ironic
+      - openstack/puppet-keystone
+      - openstack/puppet-mistral
+      - openstack/puppet-neutron
+      - openstack/puppet-nova
+      - openstack/puppet-openstack_extras
+      - openstack/puppet-openstacklib
+      - openstack/puppet-oslo
+      - openstack/puppet-pacemaker
+      - openstack/puppet-sahara
+      - openstack/puppet-swift
+      - openstack/puppet-tripleo
+      - openstack/puppet-vswitch
+      - openstack/puppet-zaqar
+      - openstack/python-ironic-inspector-client
+      - openstack/python-tripleoclient
+      - openstack/requirements
+      - openstack/swift
+      - openstack/tempest
+      - openstack/tempest-lib
+      - openstack/tripleo-common
+      - openstack/tripleo-heat-templates
+      - openstack/tripleo-image-elements
+      - openstack/tripleo-incubator
+      - openstack/tripleo-puppet-elements
+      - openstack/tripleo-quickstart
+      - openstack/tripleo-quickstart-extras
+      - openstack/tripleo-ui
+      - openstack/zaqar
+
+- job:
+    name: legacy-periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-fakeha-caserver
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-containers
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tempest
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tempest
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tempest
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario001-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario002-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario003-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-scenario004-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-placement-api-ref
@@ -15073,153 +14567,27 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-3nodes-multinode
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-3nodes-multinode/post
     timeout: 10800
     nodeset: legacy-centos-7-3-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-containers-multinode
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-containers-multinode-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-containers-multinode-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     voting: false
     branches: ^(?!stable/(newton|ocata)).*$
     irrelevant-files:
@@ -15233,53 +14601,11 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-multinode-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-multinode-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     branches: ^stable/ocata$
     irrelevant-files:
       - ^.*\.md$
@@ -15292,53 +14618,11 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-nonha-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-nonha-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -15350,353 +14634,59 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-containers-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-convergence-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-convergence-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-fakeha-caserver
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-fakeha-caserver/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -15708,53 +14698,11 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -15766,204 +14714,35 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-newton
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-newton/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-ocata
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-ocata/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-oooq-pike
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-oooq-pike/post
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-ovb-ha-tempest-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tempest
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -15975,153 +14754,27 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-container-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     voting: false
     branches: ^(?!stable/(newton|ocata)).*$
     files:
@@ -16169,103 +14822,19 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     branches: ^stable/ocata$
     files:
       - ^(docker|puppet)/services/glance.*$
@@ -16312,153 +14881,27 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-container-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     voting: false
     branches: ^(?!stable/(newton|ocata)).*$
     files:
@@ -16501,103 +14944,19 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-puppet
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq-puppet/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     branches: ^stable/ocata$
     files:
       - ^(docker|puppet)/services/glance.*$
@@ -16639,153 +14998,27 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     voting: false
     branches: ^(?!stable/(newton|ocata)).*$
     files:
@@ -16817,103 +15050,19 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-puppet
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq-puppet/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     branches: ^stable/ocata$
     files:
       - ^(docker|puppet)/services/glance.*$
@@ -16944,153 +15093,27 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-container-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     voting: false
     branches: ^(?!stable/(newton|ocata)).*$
     files:
@@ -17121,503 +15144,83 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-puppet
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq-puppet/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario005-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario005-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-4-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario006-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario006-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-container
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-puppet
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-puppet/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario008-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario008-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario009-multinode-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario009-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-containers
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-containers/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-containers/post
     timeout: 10800
     nodeset: legacy-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-oooq
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-oooq/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -17629,53 +15232,11 @@
 
 - job:
     name: legacy-tripleo-ci-centos-7-undercloud-upgrades
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-undercloud-upgrades/run
     post-run: playbooks/legacy/tripleo-ci-centos-7-undercloud-upgrades/post
     timeout: 10800
     nodeset: legacy-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/instack
-      - openstack/instack-undercloud
-      - openstack/mistral
-      - openstack/panko
-      - openstack/puppet-aodh
-      - openstack/puppet-barbican
-      - openstack/puppet-ceilometer
-      - openstack/puppet-ceph
-      - openstack/puppet-cinder
-      - openstack/puppet-ganesha
-      - openstack/puppet-glance
-      - openstack/puppet-gnocchi
-      - openstack/puppet-heat
-      - openstack/puppet-horizon
-      - openstack/puppet-ironic
-      - openstack/puppet-keystone
-      - openstack/puppet-mistral
-      - openstack/puppet-neutron
-      - openstack/puppet-nova
-      - openstack/puppet-openstack_extras
-      - openstack/puppet-openstacklib
-      - openstack/puppet-oslo
-      - openstack/puppet-pacemaker
-      - openstack/puppet-sahara
-      - openstack/puppet-swift
-      - openstack/puppet-tripleo
-      - openstack/puppet-vswitch
-      - openstack/puppet-zaqar
-      - openstack/python-ironic-inspector-client
-      - openstack/python-tripleoclient
-      - openstack/tripleo-common
-      - openstack/tripleo-puppet-elements
-      - openstack/tripleo-quickstart
-      - openstack/tripleo-quickstart-extras
-      - openstack/tripleo-ui
 
 - job:
     name: legacy-tripleo-ui-nodejs6-npm-run-lint
