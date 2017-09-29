@@ -34,20 +34,48 @@
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
-        cmd: "set -u\nset -e\nset -x\n#\n# We do things that might exceed the default\
-          \ 2GiB tmpfs, and\n# use the larger mounted space.\ncd ~\nsudo mkdir /opt/dib_cache\n\
-          sudo chown jenkins:jenkins /opt/dib_cache\nexport DIB_NO_TMPFS=1\nexport\
-          \ TMPDIR=/opt/dib_cache\n\nvirtualenv -p python2 env\n\nexport UPPER_CONSTRAINTS_FILE=$(pwd)/openstack/requirements/upper-constraints.txt\n\
-          sed -i '/^diskimage-builder/d' $UPPER_CONSTRAINTS_FILE\n./env/bin/pip install\
-          \ $(pwd)/openstack/diskimage-builder -c $UPPER_CONSTRAINTS_FILE\n\n# TODO(pabelanger):\
-          \ Remove once we migrated to bindep\n./openstack/diskimage-builder/tests/install_test_deps.sh\n\
-          \n# This sets up some repo files pointing to the infra mirrors\n# which\
-          \ are used during test runs\n./openstack/diskimage-builder/contrib/setup-gate-mirrors.sh\n\
-          \n# UPPER_CONSTRAINTS_FILE is causing side effects when doing image\n# build,\
-          \ unset it\nunset UPPER_CONSTRAINTS_FILE\n\n# activate the virtualenv so\
-          \ that any tools run by dib run\n# using the python inside it\nset +u\n\
-          source ./env/bin/activate\nset -u\n./openstack/diskimage-builder/tests/run_functests.sh\
-          \ \nset +u\ndeactivate\nset -u\n"
+        cmd: |
+          set -u
+          set -e
+          set -x
+          #
+          # We do things that might exceed the default 2GiB tmpfs, and
+          # use the larger mounted space.
+          cd ~
+          sudo mkdir /opt/dib_cache
+          sudo chown zuul:zuul /opt/dib_cache
+          export DIB_NO_TMPFS=1
+          export TMPDIR=/opt/dib_cache
+
+          virtualenv -p python2 env
+
+          export UPPER_CONSTRAINTS_FILE=$(pwd)/openstack/requirements/upper-constraints.txt
+          sed -i '/^diskimage-builder/d' $UPPER_CONSTRAINTS_FILE
+          ./env/bin/pip install $(pwd)/openstack/diskimage-builder -c $UPPER_CONSTRAINTS_FILE
+
+          # TODO(pabelanger): Remove once we migrated to bindep
+          ./openstack/diskimage-builder/tests/install_test_deps.sh
+
+          # This sets up some repo files pointing to the infra mirrors
+          # which are used during test runs
+          ./openstack/diskimage-builder/contrib/setup-gate-mirrors.sh
+
+          # UPPER_CONSTRAINTS_FILE is causing side effects when doing image
+          # build, unset it
+          unset UPPER_CONSTRAINTS_FILE
+
+          # activate the virtualenv so that any tools run by dib run
+          # using the python inside it
+          set +u
+          source ./env/bin/activate
+          set -u
+
+          ./openstack/diskimage-builder/tests/run_functests.sh
+
+          set +u
+          deactivate
+          set -u
+
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

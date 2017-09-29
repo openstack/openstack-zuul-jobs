@@ -43,7 +43,7 @@
           # use the larger mounted space.
           cd ~
           sudo mkdir /opt/dib_cache
-          sudo chown jenkins:jenkins /opt/dib_cache
+          sudo chown zuul:zuul /opt/dib_cache
           export DIB_NO_TMPFS=1
           export TMPDIR=/opt/dib_cache
 
@@ -69,7 +69,10 @@
           set +u
           source ./env/bin/activate
           set -u
-          ./openstack/diskimage-builder/tests/run_functests.sh gentoo/build-succeeds debian-minimal/stable-vm
+
+          ./openstack/diskimage-builder/tests/run_functests.sh \
+            gentoo/build-succeeds \
+            debian-minimal/stable-vm
 
           set +u
           deactivate
