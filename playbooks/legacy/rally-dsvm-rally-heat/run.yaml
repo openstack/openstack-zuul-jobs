@@ -31,8 +31,8 @@
               export DEVSTACK_GATE_FEATURE_MATRIX="/opt/stack/new/rally/devstack/features.yaml"
           fi
 
+          export PROJECTS="openstack/dib-utils $PROJECTS"
           export PROJECTS="openstack/rally $PROJECTS"
-
           export DEVSTACK_GATE_NEUTRON=1
           export DEVSTACK_GATE_HORIZON=1
           export DEVSTACK_GATE_NEUTRON_EXTENSIONS=0
