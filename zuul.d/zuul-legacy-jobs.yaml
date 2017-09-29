@@ -4059,175 +4059,175 @@
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-ceph
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-ceph-multi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-multi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-ceph-reboot
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-reboot/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-reboot/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-external-ovs
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-external-ovs/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-external-ovs/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-helm-compute-kit
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-compute-kit/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-compute-kit/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-helm-entrypoint
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-entrypoint/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-entrypoint/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-helm-operator
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-operator/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-operator/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-2-iscsi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-iscsi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-3-ceph-multi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-3-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-3-ceph-multi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-4-ceph-multi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-ceph-multi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-4-helm-compute-kit
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-compute-kit/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-compute-kit/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-4-helm-entrypoint
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-entrypoint/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-entrypoint/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-binary-t-ceph-multi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-t-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-t-ceph-multi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-source-4-helm-compute-kit
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-compute-kit/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-compute-kit/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-source-4-helm-entrypoint
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-entrypoint/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-entrypoint/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-source-4-ironic
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-ironic/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-ironic/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-source-4-microchart-ansible
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-microchart-ansible/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-microchart-ansible/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-centos-source-t-iscsi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-t-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-t-iscsi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-ubuntu-binary-2-ceph
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-ceph/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-ubuntu-source-4-ironic
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-ironic/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-ironic/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-ubuntu-source-4-microchart-ansible
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-microchart-ansible/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-microchart-ansible/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-deploy-ubuntu-source-t-iscsi
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-t-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-t-iscsi/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-upgrade-centos-binary-2-ceph
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-2-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-2-ceph/post
     timeout: 3600
 
 - job:
     name: legacy-kolla-kubernetes-upgrade-centos-binary-3-ceph
-    parent: legacy-base
+    parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-3-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-3-ceph/post
     timeout: 3600

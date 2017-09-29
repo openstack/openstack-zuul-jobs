@@ -510,3 +510,12 @@
     run: playbooks/package-afs-centos/run
     post-run: playbooks/package-afs-centos/post
     nodeset: centos-7
+
+- job:
+    name: legacy-kolla-kubernetes-base
+    description: |
+      This job runs provides the base required projects for
+      legacy-kolla-kubernetes jobs.
+    parent: legacy-base
+    required-projects:
+      - openstack/requirements
