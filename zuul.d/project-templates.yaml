@@ -19,6 +19,24 @@
         - publish-openstack-python-docs-infra
 
 - project-template:
+    name: publish-openstack-sphinx-docs
+    post:
+      jobs:
+        - publish-openstack-sphinx-docs
+
+- project-template:
+    name: publish-openstack-sphinx-docs-infra
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+    post:
+      jobs:
+        - publish-openstack-sphinx-docs-infra
+
+- project-template:
     name: publish-to-pypi
     description: |
       Publish a Python package to PyPI, then send release announcement
