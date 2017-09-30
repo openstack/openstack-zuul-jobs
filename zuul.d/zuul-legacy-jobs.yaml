@@ -194,6 +194,8 @@
     post-run: playbooks/legacy/api-ref/post
     timeout: 1800
     branches: master
+    required-projects:
+      - openstack/requirements
     files:
       - ^tox.ini$
       - ^api-ref/.*
