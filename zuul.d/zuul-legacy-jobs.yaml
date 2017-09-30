@@ -702,6 +702,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-dhcp-centos-7
@@ -718,6 +719,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-dhcp-opensuse-423
@@ -734,6 +736,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-dibipa-debian
@@ -749,6 +752,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-dibipa-debian-centos-7
@@ -765,6 +769,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-dibipa-debian-opensuse-423
@@ -781,6 +786,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-tinyipa
@@ -795,6 +801,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-tinyipa-centos-7
@@ -810,6 +817,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bifrost-integration-tinyipa-opensuse-423
@@ -825,6 +833,7 @@
       - openstack/python-ironic-inspector-client
       - openstack/python-ironicclient
       - openstack/requirements
+      - openstack-infra/shade
 
 - job:
     name: legacy-bindep-fallback
