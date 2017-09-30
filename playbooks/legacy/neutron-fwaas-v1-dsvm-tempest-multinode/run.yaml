@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-neutron-fwaas-v1-dsvm-tempest-multinode from old
     job gate-neutron-fwaas-v1-dsvm-tempest-multinode-nv
   tasks:

@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-oslo.versionedobjects-src-grenade-dsvm-multinode
     from old job gate-oslo.versionedobjects-src-grenade-dsvm-multinode-ubuntu-xenial-nv
   tasks:

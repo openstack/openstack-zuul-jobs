@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-keystone-dsvm-grenade-multinode from old job gate-keystone-dsvm-grenade-multinode-ubuntu-xenial-nv
   tasks:
 

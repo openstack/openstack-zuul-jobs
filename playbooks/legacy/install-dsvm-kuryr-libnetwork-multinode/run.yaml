@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-install-dsvm-kuryr-libnetwork-multinode from old
     job gate-install-dsvm-kuryr-libnetwork-multinode-ubuntu-xenial-nv
   tasks:

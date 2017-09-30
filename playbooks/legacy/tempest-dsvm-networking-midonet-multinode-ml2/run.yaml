@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tempest-dsvm-networking-midonet-multinode-ml2 from
     old job gate-tempest-dsvm-networking-midonet-multinode-ml2-ubuntu-xenial-nv
   tasks:

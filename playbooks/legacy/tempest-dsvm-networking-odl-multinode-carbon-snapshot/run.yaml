@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tempest-dsvm-networking-odl-multinode-carbon-snapshot
     from old job gate-tempest-dsvm-networking-odl-multinode-carbon-snapshot-nv
   tasks:

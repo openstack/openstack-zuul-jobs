@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tempest-dsvm-neutron-dvr-multinode-scenario from
     old job gate-tempest-dsvm-neutron-dvr-multinode-scenario-ubuntu-xenial-nv
   tasks:

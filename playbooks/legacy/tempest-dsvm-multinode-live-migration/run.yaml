@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tempest-dsvm-multinode-live-migration from old job
     gate-tempest-dsvm-multinode-live-migration-ubuntu-xenial
   tasks:

@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-sahara-dsvm-scenario-multinode-spark from old job
     gate-sahara-dsvm-scenario-multinode-spark-ubuntu-xenial-nv
   tasks:
