@@ -1,24 +1,6 @@
 # Shared project-templates specific to the OpenStack Project
 
 - project-template:
-    name: publish-openstack-python-docs
-    post:
-      jobs:
-        - publish-openstack-python-docs
-
-- project-template:
-    name: publish-openstack-python-docs-infra
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-    post:
-      jobs:
-        - publish-openstack-python-docs-infra
-
-- project-template:
     name: publish-openstack-sphinx-docs
     post:
       jobs:
