@@ -3,7 +3,7 @@
 
     - name: Copy files from releasenotes/build/html/ on node
       synchronize:
-        src: releasenotes/build/html/
+        src: '{{ ansible_user_dir }}/workspace/releasenotes/build/html/'
         dest: '{{ zuul.executor.log_root }}/html/'
         mode: pull
         copy_links: true

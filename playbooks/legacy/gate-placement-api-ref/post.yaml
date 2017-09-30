@@ -3,7 +3,7 @@
 
     - name: Copy files from placement-api-ref/build/html/ on node
       synchronize:
-        src: placement-api-ref/build/html/
+        src: '{{ ansible_user_dir }}/workspace/placement-api-ref/build/html/'
         dest: '{{ zuul.executor.log_root }}/html/'
         mode: pull
         copy_links: true
