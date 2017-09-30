@@ -3,7 +3,7 @@
 
     - name: Copy files from publish-docs/ on node
       synchronize:
-        src: publish-docs/
+        src: '{{ ansible_user_dir }}/workspace/publish-docs/'
         dest: '{{ zuul.executor.log_root }}/html/'
         mode: pull
         copy_links: true
