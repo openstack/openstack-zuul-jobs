@@ -35,10 +35,6 @@
           if [ "$BRANCH_OVERRIDE" != "default" ] ; then
               export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
           fi
-          # NOTE(armax): this condition should be revised every time each of the
-          # branches below are dropped. Prior to Newton, the API Tempest tests are
-          # invoked explicitly and thus we need the following variables set. From
-          # Newton onward, everything is taken care of by the Tempest plugin framework
           export DEVSTACK_GATE_TEMPEST_ALL_PLUGINS=1
           export DEVSTACK_GATE_TEMPEST_REGEX="^neutron.tests.tempest.api\."
 
