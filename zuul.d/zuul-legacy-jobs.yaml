@@ -4196,7 +4196,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4204,7 +4204,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-multi/post
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     timeout: 3600
 
 - job:
@@ -4212,7 +4212,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-reboot/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-ceph-reboot/post
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     timeout: 3600
 
 - job:
@@ -4220,7 +4220,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-external-ovs/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-external-ovs/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4228,7 +4228,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-compute-kit/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-compute-kit/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4236,7 +4236,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-entrypoint/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-entrypoint/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4244,7 +4244,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-operator/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-helm-operator/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4252,7 +4252,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-2-iscsi/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4260,7 +4260,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-3-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-3-ceph-multi/post
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     timeout: 3600
 
 - job:
@@ -4268,7 +4268,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-ceph-multi/post
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     timeout: 3600
 
 - job:
@@ -4276,7 +4276,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-compute-kit/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-compute-kit/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4284,7 +4284,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-entrypoint/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-4-helm-entrypoint/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4292,7 +4292,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-t-ceph-multi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-binary-t-ceph-multi/post
-    nodeset: centos-7-2-node
+    nodeset: legacy-centos-7-2-node
     timeout: 3600
 
 - job:
@@ -4300,7 +4300,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-compute-kit/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-compute-kit/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4308,7 +4308,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-entrypoint/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-helm-entrypoint/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4316,7 +4316,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-ironic/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-ironic/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4324,7 +4324,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-microchart-ansible/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-4-microchart-ansible/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4332,7 +4332,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-t-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-centos-source-t-iscsi/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4340,7 +4340,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-ceph/post
-    nodeset: ubuntu-xenial
+    nodeset: legacy-ubuntu-xenial
     timeout: 3600
 
 - job:
@@ -4348,7 +4348,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/post
-    nodeset: ubuntu-xenial
+    nodeset: legacy-ubuntu-xenial
     timeout: 3600
 
 - job:
@@ -4356,7 +4356,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-ironic/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-ironic/post
-    nodeset: ubuntu-xenial
+    nodeset: legacy-ubuntu-xenial
     timeout: 3600
 
 - job:
@@ -4364,7 +4364,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-microchart-ansible/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-4-microchart-ansible/post
-    nodeset: ubuntu-xenial
+    nodeset: legacy-ubuntu-xenial
     timeout: 3600
 
 - job:
@@ -4372,7 +4372,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-t-iscsi/run
     post-run: playbooks/legacy/kolla-kubernetes-deploy-ubuntu-source-t-iscsi/post
-    nodeset: ubuntu-xenial
+    nodeset: legacy-ubuntu-xenial
     timeout: 3600
 
 - job:
@@ -4380,7 +4380,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-2-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-2-ceph/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
@@ -4388,7 +4388,7 @@
     parent: legacy-kolla-kubernetes-base
     run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-3-ceph/run
     post-run: playbooks/legacy/kolla-kubernetes-upgrade-centos-binary-3-ceph/post
-    nodeset: centos-7
+    nodeset: legacy-centos-7
     timeout: 3600
 
 - job:
