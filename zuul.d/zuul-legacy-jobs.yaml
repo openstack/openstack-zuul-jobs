@@ -7400,6 +7400,10 @@
       - openstack/devstack-plugin-amqp1
       - openstack/oslo.messaging
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-oslo.messaging-telemetry-dsvm-integration-kafka
@@ -7414,6 +7418,10 @@
       - openstack/devstack-plugin-kafka
       - openstack/oslo.messaging
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-oslo.messaging-telemetry-dsvm-integration-pika
@@ -7428,6 +7436,10 @@
       - openstack/devstack-plugin-pika
       - openstack/oslo.messaging
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-oslo.messaging-telemetry-dsvm-integration-zmq
@@ -7442,6 +7454,10 @@
       - openstack/devstack-plugin-zmq
       - openstack/oslo.messaging
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-oslo.messaging-tox-py27-func-amqp1
@@ -11886,6 +11902,10 @@
       - openstack/aodh
       - openstack/ceilometer
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-telemetry-dsvm-integration-ceilometer
@@ -11898,6 +11918,10 @@
       - openstack/aodh
       - openstack/ceilometer
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-telemetry-dsvm-integration-oslo.messaging
@@ -11911,6 +11935,10 @@
       - openstack/ceilometer
       - openstack/oslo.messaging
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-telemetry-dsvm-integration-panko
@@ -11923,6 +11951,10 @@
       - openstack/aodh
       - openstack/ceilometer
       - openstack/panko
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-telemetry-dsvm-integration-python-ceilometerclient
@@ -11936,6 +11968,10 @@
       - openstack/ceilometer
       - openstack/panko
       - openstack/python-ceilometerclient
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
 
 - job:
     name: legacy-tempest-almanach-dsvm
