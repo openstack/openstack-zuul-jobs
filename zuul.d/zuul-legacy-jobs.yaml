@@ -1522,6 +1522,13 @@
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
+      # Required by DEVSTACK_GATE_SAHARA
+      - openstack/sahara
+      - openstack/sahara-dashboard
 
 - job:
     name: legacy-devstack-dsvm-py36-updown-fedora-26
@@ -1533,6 +1540,14 @@
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
+      # Required by DEVSTACK_GATE_SAHARA
+      - openstack/sahara
+      - openstack/sahara-dashboard
+
 
 - job:
     name: legacy-devstack-dsvm-updown
@@ -1543,6 +1558,13 @@
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
+      # following are required when DEVSTACK_GATE_HEAT, which this
+      # job turns on
+      - openstack/dib-utils
+      - openstack/diskimage-builder
+      # Required by DEVSTACK_GATE_SAHARA
+      - openstack/sahara
+      - openstack/sahara-dashboard
 
 - job:
     name: legacy-devstack-gate-tox-py3-run-tests
