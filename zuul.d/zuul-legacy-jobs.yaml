@@ -879,14 +879,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-blazar-dashboard-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/blazar-dashboard-releasenotes/run
-    post-run: playbooks/legacy/blazar-dashboard-releasenotes/post
-    timeout: 1800
-
-- job:
     name: legacy-blazar-devstack-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/blazar-devstack-dsvm/run
@@ -907,14 +899,6 @@
     timeout: 1800
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-blazar-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/blazar-releasenotes/run
-    post-run: playbooks/legacy/blazar-releasenotes/post
-    timeout: 1800
 
 - job:
     name: legacy-brick-cinderclient-ext-dsvm-functional
@@ -3854,14 +3838,6 @@
       - openstack/k8s-cloud-provider
 
 - job:
-    name: legacy-k8s-docker-suite-app-murano-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/k8s-docker-suite-app-murano-releasenotes/run
-    post-run: playbooks/legacy/k8s-docker-suite-app-murano-releasenotes/post
-    timeout: 1800
-
-- job:
     name: legacy-karbor-dsvm-fullstack
     parent: legacy-dsvm-base
     run: playbooks/legacy/karbor-dsvm-fullstack/run
@@ -5061,14 +5037,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-monitorstack-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/monitorstack-releasenotes/run
-    post-run: playbooks/legacy/monitorstack-releasenotes/post
-    timeout: 1800
-
-- job:
     name: legacy-murano-congress-devstack-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/murano-congress-devstack-dsvm/run
@@ -5740,14 +5708,6 @@
       - openstack/tripleo-image-elements
 
 - job:
-    name: legacy-neutron-vpnaas-dashboard-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/neutron-vpnaas-dashboard-releasenotes/run
-    post-run: playbooks/legacy/neutron-vpnaas-dashboard-releasenotes/post
-    timeout: 1800
-
-- job:
     name: legacy-neutron-vpnaas-dsvm-functional-sswan
     parent: legacy-dsvm-base
     run: playbooks/legacy/neutron-vpnaas-dsvm-functional-sswan/run
@@ -5769,14 +5729,6 @@
       - openstack/neutron
       - openstack/neutron-vpnaas
       - openstack/rally
-
-- job:
-    name: legacy-neutron-vpnaas-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/neutron-vpnaas-releasenotes/run
-    post-run: playbooks/legacy/neutron-vpnaas-releasenotes/post
-    timeout: 1800
 
 - job:
     name: legacy-neutronclient-test-dsvm-functional
@@ -7780,14 +7732,6 @@
     irrelevant-files:
       - ^docs/.*$
       - ^releasenotes/.*$
-
-- job:
-    name: legacy-packstack-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/packstack-releasenotes/run
-    post-run: playbooks/legacy/packstack-releasenotes/post
-    timeout: 1800
 
 - job:
     name: legacy-panko-tox-py27-mongodb
