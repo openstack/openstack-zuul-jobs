@@ -29,7 +29,7 @@
 
     - name: Copy files from dist/ on node
       synchronize:
-        src: dist/
+        src: '{{ ansible_user_dir }}/workspace/dist/'
         dest: '{{ zuul.executor.log_root }}/html/'
         mode: pull
         copy_links: true

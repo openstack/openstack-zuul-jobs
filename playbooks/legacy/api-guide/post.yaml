@@ -3,7 +3,7 @@
 
     - name: Copy files from api-guide/build/html/ on node
       synchronize:
-        src: api-guide/build/html/
+        src: '{{ ansible_user_dir }}/workspace/api-guide/build/html/'
         dest: '{{ zuul.executor.log_root }}/html/'
         mode: pull
         copy_links: true
