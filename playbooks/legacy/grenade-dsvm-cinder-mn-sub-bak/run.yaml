@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-grenade-dsvm-cinder-mn-sub-bak from old job gate-grenade-dsvm-cinder-mn-sub-bak-ubuntu-xenial-nv
   tasks:
 
