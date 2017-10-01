@@ -9372,14 +9372,14 @@
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-lint-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-openstack-libraries-puppet-lint-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-openstack-libraries-puppet-syntax-3-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
@@ -9395,7 +9395,7 @@
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-syntax-4-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-openstack-libraries-puppet-syntax-4-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
@@ -9410,7 +9410,7 @@
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-unit-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-openstack-libraries-puppet-unit-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
