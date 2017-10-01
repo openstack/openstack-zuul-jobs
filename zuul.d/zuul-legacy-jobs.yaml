@@ -8656,6 +8656,7 @@
     description: |
       Base job template for TripleO jobs that leverage devstack-gate/dsvm
     parent: legacy-publish-openstack-artifacts
+    pre-run: playbooks/legacy/nodepool-provider/pre
     required-projects:
       - openstack/aodh
       - openstack/barbican
