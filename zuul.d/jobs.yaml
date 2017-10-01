@@ -272,6 +272,7 @@
     parent: openstack-tox
     success-url: html/
     run: playbooks/releasenotes/run
+    post-run: playbooks/releasenotes/post
     timeout: 1800
 
 - job:
