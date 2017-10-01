@@ -333,6 +333,18 @@
       - openstack/zaqar
 
 - job:
+    name: legacy-dsvm-base-multinode
+    parent: legacy-dsvm-base
+    description: |
+      Base job for multinode devstack jobs.
+
+      Will setup firewall rules on all the nodes allowing them to talk to
+      each other.
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    pre-run: playbooks/legacy/multinode-networking/pre
+
+- job:
     name: legacy-puppet-openstack-integration
     description: |
       Base job for autoconverted legacy puppet-openstack-integration

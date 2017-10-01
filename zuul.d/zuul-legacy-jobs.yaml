@@ -2346,7 +2346,7 @@
 
 - job:
     name: legacy-functional-dsvm-magnum-k8s-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/functional-dsvm-magnum-k8s-multinode/run
     post-run: playbooks/legacy/functional-dsvm-magnum-k8s-multinode/post
     timeout: 7800
@@ -2437,7 +2437,7 @@
 
 - job:
     name: legacy-functional-dsvm-magnum-swarm-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/functional-dsvm-magnum-swarm-multinode/run
     post-run: playbooks/legacy/functional-dsvm-magnum-swarm-multinode/post
     timeout: 7800
@@ -2603,7 +2603,7 @@
 
 - job:
     name: legacy-glance-dsvm-grenade-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/glance-dsvm-grenade-multinode/run
     post-run: playbooks/legacy/glance-dsvm-grenade-multinode/post
     timeout: 10800
@@ -2789,7 +2789,7 @@
 
 - job:
     name: legacy-grenade-dsvm-heat-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-heat-multinode/run
     post-run: playbooks/legacy/grenade-dsvm-heat-multinode/post
     timeout: 7800
@@ -2835,7 +2835,7 @@
 
 - job:
     name: legacy-grenade-dsvm-ironic-multinode-multitenant
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-ironic-multinode-multitenant/run
     post-run: playbooks/legacy/grenade-dsvm-ironic-multinode-multitenant/post
     timeout: 10800
@@ -2933,7 +2933,7 @@
 
 - job:
     name: legacy-grenade-dsvm-neutron-dvr-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-dvr-multinode/run
     post-run: playbooks/legacy/grenade-dsvm-neutron-dvr-multinode/post
     timeout: 7500
@@ -2956,7 +2956,7 @@
 
 - job:
     name: legacy-grenade-dsvm-neutron-fwaas-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-fwaas-multinode/run
     post-run: playbooks/legacy/grenade-dsvm-neutron-fwaas-multinode/post
     timeout: 7500
@@ -2989,7 +2989,7 @@
 
 - job:
     name: legacy-grenade-dsvm-neutron-linuxbridge-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-linuxbridge-multinode/run
     post-run: playbooks/legacy/grenade-dsvm-neutron-linuxbridge-multinode/post
     timeout: 7500
@@ -3001,7 +3001,7 @@
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-multinode/run
     post-run: playbooks/legacy/grenade-dsvm-neutron-multinode/post
     timeout: 10800
@@ -3013,7 +3013,7 @@
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-live-migration
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-multinode-live-migration/run
     post-run: playbooks/legacy/grenade-dsvm-neutron-multinode-live-migration/post
     timeout: 10800
@@ -3025,7 +3025,7 @@
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/run
     post-run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/post
     timeout: 10800
@@ -3626,7 +3626,7 @@
 
 - job:
     name: legacy-install-dsvm-kuryr-libnetwork-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/install-dsvm-kuryr-libnetwork-multinode/run
     post-run: playbooks/legacy/install-dsvm-kuryr-libnetwork-multinode/post
     timeout: 7800
@@ -3898,7 +3898,7 @@
 
 - job:
     name: legacy-keystone-dsvm-grenade-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/keystone-dsvm-grenade-multinode/run
     post-run: playbooks/legacy/keystone-dsvm-grenade-multinode/post
     timeout: 10800
@@ -4015,7 +4015,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-centos-binary-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-binary-centos-7-2-node/post
     timeout: 5400
@@ -4023,7 +4023,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node/post
     timeout: 5400
@@ -4031,7 +4031,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-oraclelinux-binary-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-binary-centos-7-2-node/post
     timeout: 5400
@@ -4039,7 +4039,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-oraclelinux-source-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-oraclelinux-source-centos-7-2-node/post
     timeout: 5400
@@ -4047,7 +4047,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-ubuntu-binary-ubuntu-xenial-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-binary-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-binary-ubuntu-xenial-2-node/post
     timeout: 5400
@@ -4055,7 +4055,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 5400
@@ -4093,7 +4093,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-upgrade-multinode-centos-source-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-upgrade-multinode-centos-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-upgrade-multinode-centos-source-centos-7-2-node/post
     timeout: 5400
@@ -5465,7 +5465,7 @@
 
 - job:
     name: legacy-neutron-fwaas-v1-dsvm-tempest-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/neutron-fwaas-v1-dsvm-tempest-multinode/run
     post-run: playbooks/legacy/neutron-fwaas-v1-dsvm-tempest-multinode/post
     timeout: 7500
@@ -5490,7 +5490,7 @@
 
 - job:
     name: legacy-neutron-fwaas-v2-dsvm-tempest-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/neutron-fwaas-v2-dsvm-tempest-multinode/run
     post-run: playbooks/legacy/neutron-fwaas-v2-dsvm-tempest-multinode/post
     timeout: 7500
@@ -5989,7 +5989,7 @@
 
 - job:
     name: legacy-octavia-v1-dsvm-py3x-scenario-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/octavia-v1-dsvm-py3x-scenario-multinode/run
     post-run: playbooks/legacy/octavia-v1-dsvm-py3x-scenario-multinode/post
     timeout: 7800
@@ -6057,7 +6057,7 @@
 
 - job:
     name: legacy-octavia-v1-dsvm-scenario-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/octavia-v1-dsvm-scenario-multinode/run
     post-run: playbooks/legacy/octavia-v1-dsvm-scenario-multinode/post
     timeout: 7800
@@ -7545,7 +7545,7 @@
 
 - job:
     name: legacy-oslo.messaging-src-grenade-dsvm-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/oslo.messaging-src-grenade-dsvm-multinode/run
     post-run: playbooks/legacy/oslo.messaging-src-grenade-dsvm-multinode/post
     timeout: 10800
@@ -7719,7 +7719,7 @@
 
 - job:
     name: legacy-oslo.versionedobjects-src-grenade-dsvm-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/oslo.versionedobjects-src-grenade-dsvm-multinode/run
     post-run: playbooks/legacy/oslo.versionedobjects-src-grenade-dsvm-multinode/post
     timeout: 10800
@@ -8931,7 +8931,7 @@
 
 - job:
     name: legacy-publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 7200
@@ -8946,7 +8946,7 @@
 
 - job:
     name: legacy-publish-kolla-dsvm-kubernetes-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/publish-kolla-dsvm-kubernetes-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/publish-kolla-dsvm-kubernetes-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 7200
@@ -11167,7 +11167,7 @@
 
 - job:
     name: legacy-sahara-dsvm-scenario-multinode-spark
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/sahara-dsvm-scenario-multinode-spark/run
     post-run: playbooks/legacy/sahara-dsvm-scenario-multinode-spark/post
     timeout: 7800
@@ -12759,7 +12759,7 @@
 
 - job:
     name: legacy-tempest-dsvm-ironic-ipa-wholedisk-agent_ipmitool-tinyipa-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-agent_ipmitool-tinyipa-multinode/run
     post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-agent_ipmitool-tinyipa-multinode/post
     timeout: 10800
@@ -13083,7 +13083,7 @@
 
 - job:
     name: legacy-tempest-dsvm-kuryr-kubernetes-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-kuryr-kubernetes-multinode/run
     post-run: playbooks/legacy/tempest-dsvm-kuryr-kubernetes-multinode/post
     timeout: 7500
@@ -13363,7 +13363,7 @@
 
 - job:
     name: legacy-tempest-dsvm-multinode-full
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-multinode-full/run
     post-run: playbooks/legacy/tempest-dsvm-multinode-full/post
     timeout: 10800
@@ -13374,7 +13374,7 @@
 
 - job:
     name: legacy-tempest-dsvm-multinode-live-migration
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-multinode-live-migration/run
     post-run: playbooks/legacy/tempest-dsvm-multinode-live-migration/post
     timeout: 10800
@@ -13550,7 +13550,7 @@
 
 - job:
     name: legacy-tempest-dsvm-networking-midonet-multinode-ml2
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-networking-midonet-multinode-ml2/run
     post-run: playbooks/legacy/tempest-dsvm-networking-midonet-multinode-ml2/post
     timeout: 7800
@@ -13587,7 +13587,7 @@
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-multinode-carbon-snapshot
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-carbon-snapshot/run
     post-run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-carbon-snapshot/post
     timeout: 10800
@@ -13599,7 +13599,7 @@
 
 - job:
     name: legacy-tempest-dsvm-networking-odl-multinode-nitrogen-snapshot
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-nitrogen-snapshot/run
     post-run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-nitrogen-snapshot/post
     timeout: 10800
@@ -13633,7 +13633,7 @@
 
 - job:
     name: legacy-tempest-dsvm-networking-ovn-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-networking-ovn-multinode/run
     post-run: playbooks/legacy/tempest-dsvm-networking-ovn-multinode/post
     timeout: 7800
@@ -13724,7 +13724,7 @@
 
 - job:
     name: legacy-tempest-dsvm-networking-sfc-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-networking-sfc-multinode/run
     post-run: playbooks/legacy/tempest-dsvm-networking-sfc-multinode/post
     timeout: 10800
@@ -13747,7 +13747,7 @@
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-ha-multinode-full
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-dvr-ha-multinode-full/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-ha-multinode-full/post
     timeout: 10800
@@ -13759,7 +13759,7 @@
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-full
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/post
     timeout: 10800
@@ -13771,7 +13771,7 @@
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-scenario
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-scenario/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-scenario/post
     timeout: 10800
@@ -13907,7 +13907,7 @@
 
 - job:
     name: legacy-tempest-dsvm-neutron-multinode-full
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-multinode-full/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-multinode-full/post
     timeout: 10800
@@ -13975,7 +13975,7 @@
 
 - job:
     name: legacy-tempest-dsvm-neutron-scenario-multinode-lvm-multibackend
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-scenario-multinode-lvm-multibackend/run
     post-run: playbooks/legacy/tempest-dsvm-neutron-scenario-multinode-lvm-multibackend/post
     timeout: 10800
@@ -14167,7 +14167,7 @@
 
 - job:
     name: legacy-tempest-dsvm-patrole-multinode-admin
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-patrole-multinode-admin/run
     post-run: playbooks/legacy/tempest-dsvm-patrole-multinode-admin/post
     timeout: 7800
@@ -14179,7 +14179,7 @@
 
 - job:
     name: legacy-tempest-dsvm-patrole-multinode-member
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-patrole-multinode-member/run
     post-run: playbooks/legacy/tempest-dsvm-patrole-multinode-member/post
     timeout: 7800
@@ -14320,7 +14320,7 @@
 
 - job:
     name: legacy-tempest-dsvm-zun-multinode-docker-sql
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-zun-multinode-docker-sql/run
     post-run: playbooks/legacy/tempest-dsvm-zun-multinode-docker-sql/post
     timeout: 7800
@@ -15916,7 +15916,7 @@
 
 - job:
     name: legacy-watcher-dsvm-multinode
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/watcher-dsvm-multinode/run
     post-run: playbooks/legacy/watcher-dsvm-multinode/post
     timeout: 4200
