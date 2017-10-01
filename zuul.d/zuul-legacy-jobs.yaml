@@ -3967,7 +3967,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-centos-binary-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-binary-centos-7-2-node/post
     timeout: 5400
@@ -3975,7 +3975,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-centos-source-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-centos-source-centos-7-2-node/post
     timeout: 5400
@@ -3983,7 +3983,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-oraclelinux-binary-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-binary-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-binary-centos-7-2-node/post
     timeout: 5400
@@ -3991,7 +3991,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-oraclelinux-source-centos-7-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-source-centos-7-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-oraclelinux-source-centos-7-2-node/post
     timeout: 5400
@@ -3999,7 +3999,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-ubuntu-binary-ubuntu-xenial-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-binary-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-binary-ubuntu-xenial-2-node/post
     timeout: 5400
@@ -4007,7 +4007,7 @@
 
 - job:
     name: legacy-kolla-ansible-dsvm-deploy-ceph-ubuntu-source-ubuntu-xenial-2-node
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-source-ubuntu-xenial-2-node/run
     post-run: playbooks/legacy/kolla-ansible-dsvm-deploy-ceph-ubuntu-source-ubuntu-xenial-2-node/post
     timeout: 5400
