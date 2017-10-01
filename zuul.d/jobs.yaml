@@ -274,6 +274,10 @@
     run: playbooks/releasenotes/run
     post-run: playbooks/releasenotes/post
     timeout: 1800
+    files:
+      - ^releasenotes/.*
+      - ^tox.ini
+      - ^.*requirements.txt$
 
 - job:
     name: legacy-base
