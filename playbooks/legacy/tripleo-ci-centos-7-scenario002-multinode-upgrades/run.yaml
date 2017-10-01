@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades
     from old job gate-tripleo-ci-centos-7-scenario002-multinode-upgrades
   tasks:
