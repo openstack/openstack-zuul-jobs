@@ -3394,6 +3394,8 @@
     parent: legacy-base
     run: playbooks/legacy/horizon-selenium-headless/run
     timeout: 1800
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-horizon-selenium-headless-legacy
