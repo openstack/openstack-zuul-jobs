@@ -268,7 +268,7 @@
     run: playbooks/xstatic/check-version
 
 - job:
-    name: releasenotes
+    name: build-openstack-releasenotes
     parent: openstack-tox
     success-url: html/
     run: playbooks/releasenotes/run
