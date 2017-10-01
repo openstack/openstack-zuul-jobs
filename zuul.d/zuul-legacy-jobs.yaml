@@ -2728,7 +2728,7 @@
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-bak
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/run
     post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/post
     timeout: 10800
@@ -2740,7 +2740,7 @@
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volbak
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/run
     post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/post
     timeout: 10800
@@ -2752,7 +2752,7 @@
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volschbak
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volschbak/run
     post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volschbak/post
     timeout: 10800
