@@ -1412,29 +1412,6 @@
         - legacy-tox-build
 
 - project-template:
-    name: release-notes-jobs
-    check:
-      jobs:
-        - legacy-releasenotes:
-            files:
-              - ^releasenotes/.*
-              - ^tox.ini
-              - ^.*requirements.txt$
-    gate:
-      jobs:
-        - legacy-releasenotes:
-            files:
-              - ^releasenotes/.*
-              - ^tox.ini
-              - ^.*requirements.txt$
-    post:
-      jobs:
-        - legacy-releasenotes
-    tag:
-      jobs:
-        - legacy-releasenotes
-
-- project-template:
     name: snap-jobs
     check:
       jobs:
