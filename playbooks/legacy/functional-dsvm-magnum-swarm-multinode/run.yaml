@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-functional-dsvm-magnum-swarm-multinode from old job
     gate-functional-dsvm-magnum-swarm-multinode-ubuntu-xenial-nv
   tasks:

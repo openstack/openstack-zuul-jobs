@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-grenade-dsvm-neutron-linuxbridge-multinode from old
     job gate-grenade-dsvm-neutron-linuxbridge-multinode-ubuntu-xenial-nv
   tasks:

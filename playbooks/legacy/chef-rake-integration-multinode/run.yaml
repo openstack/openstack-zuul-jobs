@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-chef-rake-integration-multinode from old job gate-{name}-chef-rake-integration-multinode-ubuntu-xenial-nv
   tasks:
 

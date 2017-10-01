@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-grenade-dsvm-ironic-multinode-multitenant from old
     job gate-grenade-dsvm-ironic-multinode-multitenant-ubuntu-xenial
   tasks:

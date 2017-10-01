@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node
     from old job gate-kolla-ansible-dsvm-deploy-multinode-centos-source-centos-7-2-node-nv
   tasks:

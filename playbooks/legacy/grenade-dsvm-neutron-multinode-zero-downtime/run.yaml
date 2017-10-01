@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-grenade-dsvm-neutron-multinode-zero-downtime from
     old job gate-grenade-dsvm-neutron-multinode-zero-downtime-ubuntu-xenial
   tasks:

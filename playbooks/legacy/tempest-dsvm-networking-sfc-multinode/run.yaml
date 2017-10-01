@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tempest-dsvm-networking-sfc-multinode from old job
     gate-tempest-dsvm-networking-sfc-multinode-ubuntu-xenial-nv
   tasks:

@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
     from old job publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
   tasks:
