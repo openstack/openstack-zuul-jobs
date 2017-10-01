@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-periodic-tripleo-ci-centos-7-scenario001-multinode-oooq
     from old job periodic-tripleo-ci-centos-7-scenario001-multinode-oooq
   tasks:
