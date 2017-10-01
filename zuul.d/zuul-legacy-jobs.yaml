@@ -10395,16 +10395,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-releasenotes
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/releasenotes/run
-    post-run: playbooks/legacy/releasenotes/post
-    timeout: 1800
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-requests-mock-tox-keystoneclient-tip
     parent: legacy-base
     run: playbooks/legacy/requests-mock-tox-keystoneclient-tip/run
