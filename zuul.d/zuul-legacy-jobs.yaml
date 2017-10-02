@@ -7212,6 +7212,7 @@
     timeout: 3600
     voting: false
     required-projects:
+      - openstack-infra/project-config
       - openstack-infra/puppet-openstackci
       - openstack-infra/puppet-openstack_infra_spec_helper
 
