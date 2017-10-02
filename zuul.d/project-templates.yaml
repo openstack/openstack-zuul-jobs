@@ -133,6 +133,40 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python-jobs-neutron
+    description: |
+      The standard openstack-python-jobs but with neutron added as a
+      required-projects. The neutron stadium projects currently need this
+      due to how the tox_install.sh zuul-cloner's neutron for them.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/neutron
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
     name: openstack-python34-jobs
     check:
       jobs:
@@ -149,6 +183,23 @@
     gate:
       jobs:
         - openstack-tox-py35
+
+- project-template:
+    name: openstack-python35-jobs-neutron
+    description: |
+      The standard openstack-python35-jobs but with neutron added as a
+      required-projects. The neutron stadium projects currently need this
+      due to how the tox_install.sh zuul-cloner's neutron for them.
+    check:
+      jobs:
+        - openstack-tox-py35:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-py35:
+            required-projects:
+              - openstack/neutron
 
 - project-template:
     name: openstack-python35-jobs-nonvoting
