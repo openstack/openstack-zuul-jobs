@@ -10413,15 +10413,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-requirements
-    parent: legacy-base
-    run: playbooks/legacy/requirements/run
-    post-run: playbooks/legacy/requirements/post
-    timeout: 1800
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-requirements-integration-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/requirements-integration-dsvm/run
