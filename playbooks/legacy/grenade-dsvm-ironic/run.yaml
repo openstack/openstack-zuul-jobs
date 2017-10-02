@@ -2,6 +2,14 @@
   name: Autoconverted job legacy-grenade-dsvm-ironic from old job gate-grenade-dsvm-ironic-ubuntu-xenial-nv
   tasks:
 
+    - name: Show the environment
+      shell:
+        cmd: |
+          env
+        executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
     - name: Ensure legacy workspace directory
       file:
         path: '{{ ansible_user_dir }}/workspace'
