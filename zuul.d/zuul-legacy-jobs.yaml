@@ -13668,6 +13668,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+      - openstack/neutron-lib
 
 - job:
     name: legacy-tempest-dsvm-neutron-src-oslo.versionedobjects
