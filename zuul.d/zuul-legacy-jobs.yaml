@@ -9404,6 +9404,7 @@
       - openstack-infra/devstack-gate
       - openstack/keystone
       - openstack/rally
+      - openstack/dib-utils
 
 - job:
     name: legacy-rally-dsvm-cinder
@@ -9957,6 +9958,7 @@
     post-run: playbooks/legacy/rally-dsvm-neutron-telemetry/post
     timeout: 7800
     required-projects:
+      - openstack/dib-utils
       - openstack-infra/devstack-gate
       - openstack/aodh
       - openstack/ceilometer
@@ -10294,6 +10296,7 @@
     timeout: 7500
     required-projects:
       - openstack-infra/devstack-gate
+      - openstack/dib-utils
       - openstack/aodh
       - openstack/ceilometer
       - openstack/neutron
@@ -10307,6 +10310,7 @@
     timeout: 7500
     required-projects:
       - openstack-infra/devstack-gate
+      - openstack/dib-utils
       - openstack/aodh
       - openstack/ceilometer
       - openstack/neutron
@@ -10320,6 +10324,7 @@
     timeout: 7500
     required-projects:
       - openstack-infra/devstack-gate
+      - openstack/dib-utils
       - openstack/aodh
       - openstack/ceilometer
       - openstack/neutron
