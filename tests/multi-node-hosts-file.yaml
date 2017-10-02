@@ -1,0 +1,25 @@
+- name: Test the multi-node-hosts-file role
+  hosts: all
+  roles:
+    - multi-node-hosts-file
+  post_tasks:
+    - name: lookup hosts file
+      command: cat /etc/hosts
+      register: hosts_file
+
+    - name: Set up the list of hosts and addresses
+      set_fact:
+        host_addresses: >
+          {% set hosts = [] -%}
+          {% for host, vars in hostvars.items() -%}
+          {% set _ = hosts.append({'host': host, 'address': vars['nodepool']['private_ipv4']}) -%}
+          {% endfor -%}
+          {{- hosts -}}
+
+    - name: assert that hosts are in the hosts file
+      vars:
+        line: "{{ item.address }} {{ item.host }}"
+      assert:
+        that:
+          - "line in hosts_file.stdout"
+      with_list: "{{ host_addresses }}"
