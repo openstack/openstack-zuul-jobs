@@ -4499,6 +4499,8 @@
 - job:
     name: legacy-logstash-filters
     parent: legacy-base
+    required-projects:
+      - openstack-infra/system-config
     run: playbooks/legacy/logstash-filters/run
     post-run: playbooks/legacy/logstash-filters/post
     timeout: 1800
@@ -4507,6 +4509,8 @@
 - job:
     name: legacy-logstash-filters-ubuntu-trusty
     parent: legacy-base
+    required-projects:
+      - openstack-infra/system-config
     run: playbooks/legacy/logstash-filters-ubuntu-trusty/run
     post-run: playbooks/legacy/logstash-filters-ubuntu-trusty/post
     timeout: 1800
@@ -7218,6 +7222,7 @@
     timeout: 3600
     nodeset: legacy-centos-7
     required-projects:
+      - openstack-infra/project-config
       - openstack-infra/puppet-openstackci
       - openstack-infra/puppet-openstack_infra_spec_helper
 
@@ -7228,6 +7233,7 @@
     timeout: 3600
     nodeset: legacy-ubuntu-trusty
     required-projects:
+      - openstack-infra/project-config
       - openstack-infra/puppet-openstackci
       - openstack-infra/puppet-openstack_infra_spec_helper
 
