@@ -968,15 +968,6 @@
         - legacy-tempest-dsvm-neutron-src-plugin
 
 - project-template:
-    name: loci-jobs
-    check:
-      jobs:
-        - legacy-loci
-    gate:
-      jobs:
-        - legacy-loci
-
-- project-template:
     name: merge-check
     merge-check:
       jobs:
