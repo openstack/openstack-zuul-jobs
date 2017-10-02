@@ -14344,7 +14344,7 @@
 
 - job:
     name: legacy-tricircle-dsvm-multiregion
-    parent: legacy-dsvm-base
+    parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tricircle-dsvm-multiregion/run
     post-run: playbooks/legacy/tricircle-dsvm-multiregion/post
     timeout: 7800
@@ -14352,6 +14352,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-sfc
       - openstack/tricircle
+    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-trio2o-dsvm-functional

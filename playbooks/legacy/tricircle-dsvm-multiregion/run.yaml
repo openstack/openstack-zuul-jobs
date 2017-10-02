@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-tricircle-dsvm-multiregion from old job gate-tricircle-dsvm-multiregion-ubuntu-xenial
   tasks:
 
