@@ -102,6 +102,21 @@
               - publish-openstack-python-tarball
 
 - project-template:
+    name: release-notes-jobs
+    check:
+      jobs:
+        - build-openstack-releasenotes
+    gate:
+      jobs:
+        - build-openstack-releasenotes
+    post:
+      jobs:
+        - publish-openstack-releasenotes
+    tag:
+      jobs:
+        - publish-openstack-releasenotes
+
+- project-template:
     name: openstack-python-jobs
     check:
       jobs:
