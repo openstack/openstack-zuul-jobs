@@ -3051,6 +3051,7 @@
     post-run: playbooks/legacy/grenade-dsvm-sahara/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/ara
@@ -10782,6 +10783,7 @@
     post-run: playbooks/legacy/sahara-cli/post
     timeout: 4200
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/python-saharaclient
@@ -10795,6 +10797,7 @@
     post-run: playbooks/legacy/sahara-dashboard-dsvm-integration/post
     timeout: 6000
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/sahara
@@ -10825,6 +10828,7 @@
     post-run: playbooks/legacy/sahara-dsvm-scenario-mod-wsgi/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/python-saharaclient
@@ -10840,6 +10844,7 @@
     post-run: playbooks/legacy/sahara-dsvm-scenario-multinode-spark/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/python-saharaclient
@@ -10856,6 +10861,7 @@
     post-run: playbooks/legacy/sahara-dsvm-scenario-neutron/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/neutron
@@ -10872,6 +10878,7 @@
     post-run: playbooks/legacy/sahara-dsvm-scenario-py3/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/python-saharaclient
@@ -13709,6 +13716,7 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-src-python-saharaclient/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/neutron
@@ -13945,6 +13953,7 @@
     post-run: playbooks/legacy/tempest-dsvm-sahara/post
     timeout: 7800
     required-projects:
+      - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/ara
       - openstack/sahara
