@@ -1150,6 +1150,7 @@
     timeout: 2400
     required-projects:
       - openstack/requirements
+      - openstack/python-neutronclient
 
 - job:
     name: legacy-cliff-tox-openstackclient-tip
@@ -1159,6 +1160,7 @@
     timeout: 2400
     required-projects:
       - openstack/requirements
+      - openstack/python-openstackclient
 
 - job:
     name: legacy-cloudkitty-dsvm-install
