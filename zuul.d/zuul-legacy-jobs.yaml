@@ -9182,7 +9182,7 @@
 
 - job:
     name: legacy-puppet-unit-3.6-legacy-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-unit-3.6-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
@@ -9190,7 +9190,7 @@
 
 - job:
     name: legacy-puppet-unit-3.8-legacy-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-unit-3.8-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
@@ -9198,14 +9198,14 @@
 
 - job:
     name: legacy-puppet-unit-4.8-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-unit-4.8-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-unit-latest-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-unit-latest-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
