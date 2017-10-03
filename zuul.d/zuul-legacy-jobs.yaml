@@ -1773,6 +1773,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/dragonflow
+      - openstack/neutron
       - openstack/networking-sfc
       - openstack/neutron-dynamic-routing
 
@@ -1785,6 +1786,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/dragonflow
+      - openstack/neutron
       - openstack/networking-sfc
       - openstack/neutron-dynamic-routing
 
@@ -11983,6 +11985,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/dragonflow
+      - openstack/neutron
       - openstack/networking-sfc
       - openstack/neutron-dynamic-routing
       - openstack/tempest
