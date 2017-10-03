@@ -339,6 +339,16 @@
       tox_envlist: bashate
 
 - job:
+    name: openstack-tox-validate
+    parent: openstack-tox
+    description: |
+      Run validate tests.
+
+      Uses tox with the ``validate`` environment.
+    vars:
+      tox_envlist: validate
+
+- job:
     name: openstack-tox-compare-cover
     parent: openstack-tox
     description: |
