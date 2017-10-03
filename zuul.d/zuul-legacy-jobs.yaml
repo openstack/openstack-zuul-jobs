@@ -10466,15 +10466,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-releases-python35
-    parent: legacy-base
-    run: playbooks/legacy/releases-python35/run
-    post-run: playbooks/legacy/releases-python35/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-releases-tox-list-changes
     parent: legacy-base
     run: playbooks/legacy/releases-tox-list-changes/run
