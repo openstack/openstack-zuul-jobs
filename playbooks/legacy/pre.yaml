@@ -56,3 +56,10 @@
         regexp: '^    sudo .script_path/jenkins-sudo-grep.sh post'
         line: '    sudo $script_path/zuul-sudo-grep.sh post'
       become: true
+
+    - name: Show the environment passed in to job shell scripts
+      shell:
+        cmd: |
+          env
+        executable: /bin/bash
+      environment: '{{ zuul | zuul_legacy_vars }}'
