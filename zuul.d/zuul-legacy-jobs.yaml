@@ -9140,26 +9140,26 @@
 
 - job:
     name: legacy-puppet-storyboard-forge-upload
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-storyboard-forge-upload/run
     timeout: 1800
 
 - job:
     name: legacy-puppet-syntax-3
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-3/run
     timeout: 1800
 
 - job:
     name: legacy-puppet-syntax-3-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-3-centos-7/run
     timeout: 1800
     nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-syntax-3-legacy-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-3-centos-7/run
     timeout: 1800
     nodeset: legacy-centos-7
@@ -9167,21 +9167,21 @@
 
 - job:
     name: legacy-puppet-syntax-4-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-4-centos-7/run
     timeout: 1800
     nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-tripleo-puppet-unit-4.8-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-tripleo-puppet-unit-4.8-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-tripleo-puppet-unit-latest-centos-7
-    parent: legacy-base
+    parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-tripleo-puppet-unit-latest-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
