@@ -160,7 +160,7 @@
     name: build-openstack-sphinx-docs
     parent: tox-docs
     description: |
-      Builds docuemtation using Sphinx per the OpenStack PTI and then
+      Builds documentation using Sphinx per the OpenStack PTI and then
       collects the results into the log directory so that they can be
       examined in their published form after a successful build.
       It runs the prepare-docs-for-afs role so that AFS stamp files
