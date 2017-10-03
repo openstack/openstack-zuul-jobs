@@ -117,6 +117,33 @@
         - publish-openstack-releasenotes
 
 - project-template:
+    name: release-notes-jobs-neutron
+    description: |
+      The standard release-notes-jobs but with neutron added as a
+      required-projects. The neutron stadium projects currently need this
+      due to how the tox_install.sh zuul-cloner's neutron for them.
+    check:
+      jobs:
+        - build-openstack-releasenotes:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - build-openstack-releasenotes:
+            required-projects:
+              - openstack/neutron
+    post:
+      jobs:
+        - publish-openstack-releasenotes:
+            required-projects:
+              - openstack/neutron
+    tag:
+      jobs:
+        - publish-openstack-releasenotes:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
     name: openstack-python-jobs
     check:
       jobs:
