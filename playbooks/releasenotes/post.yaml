@@ -1,7 +1,6 @@
 - hosts: all
   roles:
     - role: fetch-tox-output
-      tox_envlist: releasenotes
     - role: fetch-sphinx-output
       sphinx_output_src: "{{ zuul.project.src_dir }}/doc/build/html/"
       zuul_executor_dest: "{{ zuul.executor.log_root }}"

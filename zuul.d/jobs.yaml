@@ -391,6 +391,8 @@
       - ^releasenotes/.*
       - ^tox.ini
       - ^.*requirements.txt$
+    vars:
+      tox_envlist: releasenotes
 
 - job:
     name: legacy-base
