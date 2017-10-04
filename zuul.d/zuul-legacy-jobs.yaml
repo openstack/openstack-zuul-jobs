@@ -2682,15 +2682,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-governance-tox-validate
-    parent: legacy-base
-    run: playbooks/legacy/governance-tox-validate/run
-    post-run: playbooks/legacy/governance-tox-validate/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-grenade-dsvm-barbican
     parent: legacy-dsvm-base
     run: playbooks/legacy/grenade-dsvm-barbican/run
@@ -8840,15 +8831,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-project-navigator-data-tox-validate
-    parent: legacy-base
-    run: playbooks/legacy/project-navigator-data-tox-validate/run
-    post-run: playbooks/legacy/project-navigator-data-tox-validate/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-project-team-guide-publish
     parent: legacy-base
     run: playbooks/legacy/project-team-guide-publish/run
@@ -10718,15 +10700,6 @@
     parent: legacy-base
     run: playbooks/legacy/requirements-tox-py35-check-uc/run
     post-run: playbooks/legacy/requirements-tox-py35-check-uc/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-requirements-tox-validate
-    parent: legacy-base
-    run: playbooks/legacy/requirements-tox-validate/run
-    post-run: playbooks/legacy/requirements-tox-validate/post
     timeout: 2400
     required-projects:
       - openstack/requirements
