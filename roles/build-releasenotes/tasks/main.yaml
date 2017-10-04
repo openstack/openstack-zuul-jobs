@@ -1,4 +1,3 @@
-# TODO(mordred) This needs to be reworked to use the tox role
 # TODO(mordred) Put the translations logic into a sphinx plugin?
 - name: Build releasenotes contents
   shell:
@@ -10,8 +9,6 @@
 
       DOCNAME=releasenotes
       DIRECTORY=releasenotes
-
-      script_path=/usr/local/jenkins/slave_scripts
 
       # Mapping of language codes to language names
       declare -A LANG_NAME=(
@@ -29,12 +26,6 @@
           ["tr_TR"]="Turkish (Turkey)"
           ["zh_CN"]="Chinese (China)"
       )
-
-      # This file always exists in OpenStack CI jobs, check for it so that
-      # it can be used manually as well.
-      if [ -e "$HOME/src/git.openstack.org/openstack/requirements/upper-constraints.txt" ]; then
-          export UPPER_CONSTRAINTS_FILE=$HOME/src/git.openstack.org/openstack/requirements/upper-constraints.txt
-      fi
 
       if [ -e ${DIRECTORY}/source/locale/ ]; then
           # Check that locale_dirs is really set, otherwise translations
@@ -119,8 +110,14 @@
           rm -f ${DIRECTORY}/source/locale/*.pot
       fi
 
-      # Now build releasenotes with reference to translations
-      $script_path/run-tox.sh releasenotes
+- name: Build release notes
+  include_role:
+    name: tox
+  vars:
+    tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+    tox_envlist: releasenotes
 
-      # Move the built output into doc/build so that other roles can work well
-      mv ${DIRECTORY}/build doc
+- name: Move build output to correct path for publishers
+  command: mv releasenotes/build doc
+  args:
+    chdir: "{{ zuul_work_dir }}"
