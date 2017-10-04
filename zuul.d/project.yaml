@@ -1,7 +1,7 @@
 # Project pipeline definition for openstack-zuul-jobs
 - project:
     name: openstack-infra/openstack-zuul-jobs
-    check:
+    infra-check:
       jobs:
         - base-integration-centos-7
         - base-integration-debian-jessie
@@ -18,7 +18,7 @@
         - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
         - tox-linters
-    gate:
+    infra-gate:
       jobs:
         - base-integration-centos-7
         - base-integration-debian-jessie
