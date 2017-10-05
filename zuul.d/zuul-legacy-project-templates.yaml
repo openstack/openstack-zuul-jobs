@@ -172,23 +172,6 @@
         - build-openstack-sphinx-docs
 
 - project-template:
-    name: check-requirements
-    check:
-      jobs:
-        - legacy-requirements:
-            files:
-              - ^tools/.*-requires$
-              - ^.*requirements.txt$
-              - ^.*requirements-py[2,3].txt$
-    gate:
-      jobs:
-        - legacy-requirements:
-            files:
-              - ^tools/.*-requires$
-              - ^.*requirements.txt$
-              - ^.*requirements-py[2,3].txt$
-
-- project-template:
     name: check-tripleo-jobs
     check-tripleo:
       jobs:
