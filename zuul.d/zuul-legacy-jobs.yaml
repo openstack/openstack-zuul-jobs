@@ -7218,6 +7218,7 @@
     voting: false
     required-projects:
       - openstack-infra/project-config
+      - openstack-infra/puppet-bugdaystats
       - openstack-infra/puppet-openstackci
       - openstack-infra/puppet-openstack_infra_spec_helper
 
@@ -7240,6 +7241,7 @@
     nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack-infra/project-config
+      - openstack-infra/puppet-bugdaystats
       - openstack-infra/puppet-openstackci
       - openstack-infra/puppet-openstack_infra_spec_helper
 
