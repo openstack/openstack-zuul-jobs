@@ -10,10 +10,10 @@
     name: publish-openstack-sphinx-docs-infra
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - build-openstack-infra-sphinx-docs
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - build-openstack-infra-sphinx-docs
     post:
       jobs:
         - publish-openstack-sphinx-docs-infra
