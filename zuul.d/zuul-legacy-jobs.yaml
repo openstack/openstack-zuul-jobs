@@ -10423,24 +10423,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-releases-tox-list-changes
-    parent: legacy-base
-    run: playbooks/legacy/releases-tox-list-changes/run
-    post-run: playbooks/legacy/releases-tox-list-changes/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-releases-tox-validate
-    parent: legacy-base
-    run: playbooks/legacy/releases-tox-validate/run
-    post-run: playbooks/legacy/releases-tox-validate/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-requests-mock-tox-keystoneclient-tip
     parent: legacy-base
     run: playbooks/legacy/requests-mock-tox-keystoneclient-tip/run
@@ -11184,55 +11166,6 @@
     timeout: 2400
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-static-election-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-election-publish/run
-    post-run: playbooks/legacy/static-election-publish/post
-    timeout: 1800
-
-- job:
-    name: legacy-static-governance-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-governance-publish/run
-    post-run: playbooks/legacy/static-governance-publish/post
-    timeout: 1800
-
-- job:
-    name: legacy-static-governance-uc-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-governance-uc-publish/run
-    post-run: playbooks/legacy/static-governance-uc-publish/post
-    timeout: 1800
-
-- job:
-    name: legacy-static-governance-website-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-governance-website-publish/run
-    post-run: playbooks/legacy/static-governance-website-publish/post
-    timeout: 1800
-
-- job:
-    name: legacy-static-ossa-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-ossa-publish/run
-    post-run: playbooks/legacy/static-ossa-publish/post
-    timeout: 1800
-
-- job:
-    name: legacy-static-releases-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-releases-publish/run
-    post-run: playbooks/legacy/static-releases-publish/post
-    timeout: 1800
-
-- job:
-    name: legacy-static-transparency-policy-publish
-    parent: legacy-base
-    run: playbooks/legacy/static-transparency-policy-publish/run
-    post-run: playbooks/legacy/static-transparency-policy-publish/post
-    timeout: 1800
 
 - job:
     name: legacy-storlets-functional
