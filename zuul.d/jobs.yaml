@@ -506,6 +506,7 @@
       - openstack/puppet-neutron
       - openstack/puppet-nova
       - openstack/puppet-octavia
+      - openstack/puppet-openstack-cookiecutter
       - openstack/puppet-openstack-integration
       - openstack/puppet-openstack_extras
       - openstack/puppet-openstacklib
