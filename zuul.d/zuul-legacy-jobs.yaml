@@ -6044,7 +6044,7 @@
       - openstack/cinder
       - openstack/neutron
       - openstack/nova
-      - openstack/omni
+      - openstack/glance_store
 
 - job:
     name: legacy-ooi-tox-functional
