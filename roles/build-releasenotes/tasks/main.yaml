@@ -120,8 +120,3 @@
   vars:
     tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
     tox_envlist: releasenotes
-
-- name: Move build output to correct path for publishers
-  command: mv releasenotes/build doc
-  args:
-    chdir: "{{ zuul_work_dir }}"
