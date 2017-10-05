@@ -1,3 +1,0 @@
-- hosts: all
-  roles:
-    - prepare-docs-for-afs
