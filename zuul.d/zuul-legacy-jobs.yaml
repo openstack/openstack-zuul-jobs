@@ -7716,39 +7716,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-packstack-integration-scenario001-tempest-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/packstack-integration-scenario001-tempest-centos-7/run
-    post-run: playbooks/legacy/packstack-integration-scenario001-tempest-centos-7/post
-    timeout: 3600
-    nodeset: legacy-centos-7
-    irrelevant-files:
-      - ^docs/.*$
-      - ^releasenotes/.*$
-
-- job:
-    name: legacy-packstack-integration-scenario002-tempest-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/packstack-integration-scenario002-tempest-centos-7/run
-    post-run: playbooks/legacy/packstack-integration-scenario002-tempest-centos-7/post
-    timeout: 3600
-    nodeset: legacy-centos-7
-    irrelevant-files:
-      - ^docs/.*$
-      - ^releasenotes/.*$
-
-- job:
-    name: legacy-packstack-integration-scenario003-tempest-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/packstack-integration-scenario003-tempest-centos-7/run
-    post-run: playbooks/legacy/packstack-integration-scenario003-tempest-centos-7/post
-    timeout: 3600
-    nodeset: legacy-centos-7
-    irrelevant-files:
-      - ^docs/.*$
-      - ^releasenotes/.*$
-
-- job:
     name: legacy-panko-tox-py27-mongodb
     parent: legacy-base
     run: playbooks/legacy/panko-tox-py27-mongodb/run

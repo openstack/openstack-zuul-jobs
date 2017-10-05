@@ -1098,19 +1098,6 @@
             voting: false
 
 - project-template:
-    name: packstack-integration-jobs
-    check:
-      jobs:
-        - legacy-packstack-integration-scenario001-tempest-centos-7
-        - legacy-packstack-integration-scenario002-tempest-centos-7
-        - legacy-packstack-integration-scenario003-tempest-centos-7
-    gate:
-      jobs:
-        - legacy-packstack-integration-scenario001-tempest-centos-7
-        - legacy-packstack-integration-scenario002-tempest-centos-7
-        - legacy-packstack-integration-scenario003-tempest-centos-7
-
-- project-template:
     name: periodic-jobs-with-neutron-lib-master
     periodic:
       jobs:
