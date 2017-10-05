@@ -10261,6 +10261,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/dib-utils
+      - openstack/diskimage-builder
       - openstack/aodh
       - openstack/ceilometer
       - openstack/neutron
@@ -10275,6 +10276,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/dib-utils
+      - openstack/diskimage-builder
       - openstack/aodh
       - openstack/ceilometer
       - openstack/neutron
@@ -10289,6 +10291,7 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/dib-utils
+      - openstack/diskimage-builder
       - openstack/aodh
       - openstack/ceilometer
       - openstack/neutron
