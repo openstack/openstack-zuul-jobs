@@ -6054,6 +6054,7 @@
       - openstack/neutron
       - openstack/nova
       - openstack/glance_store
+      - openstack/requirements
 
 - job:
     name: legacy-ooi-tox-functional
