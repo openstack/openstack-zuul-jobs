@@ -13717,21 +13717,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-zun-multinode-docker-sql
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-zun-multinode-docker-sql/run
-    post-run: playbooks/legacy/tempest-dsvm-zun-multinode-docker-sql/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr-libnetwork
-      - openstack/python-zunclient
-      - openstack/tempest
-      - openstack/zun
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-tempest-neutron-dsvm-src-oslo.messaging-amqp1-hybrid
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-neutron-dsvm-src-oslo.messaging-amqp1-hybrid/run
@@ -15429,63 +15414,6 @@
     run: playbooks/legacy/zmq-event-publisher-maven-build-ubuntu-trusty/run
     timeout: 1800
     nodeset: legacy-ubuntu-trusty
-
-- job:
-    name: legacy-zun-devstack-dsvm-docker-etcd
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/zun-devstack-dsvm-docker-etcd/run
-    post-run: playbooks/legacy/zun-devstack-dsvm-docker-etcd/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr-libnetwork
-      - openstack/python-zunclient
-      - openstack/zun
-
-- job:
-    name: legacy-zun-devstack-dsvm-docker-split-plugin-sql
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/zun-devstack-dsvm-docker-split-plugin-sql/run
-    post-run: playbooks/legacy/zun-devstack-dsvm-docker-split-plugin-sql/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr-libnetwork
-      - openstack/python-zunclient
-      - openstack/zun
-      - openstack/zun-tempest-plugin
-
-- job:
-    name: legacy-zun-devstack-dsvm-docker-sql
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/zun-devstack-dsvm-docker-sql/run
-    post-run: playbooks/legacy/zun-devstack-dsvm-docker-sql/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr-libnetwork
-      - openstack/python-zunclient
-      - openstack/zun
-
-- job:
-    name: legacy-zun-devstack-dsvm-py35-docker-sql
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/zun-devstack-dsvm-py35-docker-sql/run
-    post-run: playbooks/legacy/zun-devstack-dsvm-py35-docker-sql/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr-libnetwork
-      - openstack/python-zunclient
-      - openstack/zun
 
 - job:
     name: legacy-zun-ui-nodejs4-npm-run-lint
