@@ -63,6 +63,21 @@
         - publish-openstack-sphinx-docs-infra
 
 - project-template:
+    name: release-openstack-sphinx-docs-infra
+    description: |
+      Runs normal OpenStack PTI build jobs and publishes to the Infra
+      docs location only on tagged releases.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+    release:
+      jobs:
+        - publish-openstack-sphinx-docs-infra
+
+- project-template:
     name: publish-to-pypi
     description: |
       Publish a Python package to PyPI, then send release announcement
