@@ -8,7 +8,13 @@
       copy:
         dest: /etc/nodepool/sub_nodes_private
         content: ""
-    - name: Populate nodepool subnodes file
+    - name: Populate nodepool sub_nodes file
+      lineinfile:
+        path: /etc/nodepool/sub_nodes
+        line: "{{ hostvars[item]['nodepool']['public_ipv4'] }}"
+      with_items: "{{ groups['subnodes'] }}"
+      when: groups['subnodes'] is defined
+    - name: Populate nodepool sub_nodes_private file
       lineinfile:
         path: /etc/nodepool/sub_nodes_private
         line: "{{ hostvars[item]['nodepool']['private_ipv4'] }}"
@@ -19,6 +25,10 @@
         dest: /etc/nodepool/primary_node_private
         content: "{{ hostvars['primary']['nodepool']['private_ipv4'] }}"
       when: hostvars['primary'] is defined
+    - name: Create nodepool node_private for this node
+      copy:
+        dest: /etc/nodepool/node_private
+        content: "{{ nodepool.private_ipv4 }}"
     - name: Copy ssh keys to nodepool directory
       command: "cp .ssh/{{ item }} /etc/nodepool/{{ item }}"
       with_items:
