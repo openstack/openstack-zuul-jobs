@@ -399,3 +399,33 @@
     release:
       jobs:
         - trigger-readthedocs
+
+- project-template:
+    name: nodejs4-publish-to-npm
+    release:
+      jobs:
+        - publish-openstack-javascript-tarball:
+            vars:
+              node_version: 4
+        - release-openstack-javascript:
+            vars:
+              node_version: 4
+        - announce-release:
+            dependencies:
+              - release-openstack-javascript
+              - publish-openstack-javascript-tarball
+
+- project-template:
+    name: nodejs6-publish-to-npm
+    release:
+      jobs:
+        - publish-openstack-javascript-tarball:
+            vars:
+              node_version: 6
+        - release-openstack-javascript:
+            vars:
+              node_version: 6
+        - announce-release:
+            dependencies:
+              - release-openstack-javascript
+              - publish-openstack-javascript-tarball

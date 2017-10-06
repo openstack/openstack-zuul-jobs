@@ -352,6 +352,29 @@
     run: playbooks/python-tarball/run
 
 - job:
+    name: publish-openstack-javascript-tarball
+    parent: publish-openstack-artifacts
+    description: |
+      Build and publish source tarball for a Javascript project.
+
+      Responds to these variables:
+
+      .. zuul:jobvar:: node_version
+         :default: 6
+
+        The version of Node to use.
+
+      .. zuul:jobvar: zuul_work_dir
+         :default: {{ zuul.project.src_dir }}
+
+        Path to operate in.
+    pre-run: playbooks/javascript/pre
+    run: playbooks/javascript/tarball
+    post-run:
+      - playbooks/javascript/post
+      - playbooks/javascript/post-tarball
+
+- job:
     name: announce-release
     description:
       Send a release announcement after publishing a project

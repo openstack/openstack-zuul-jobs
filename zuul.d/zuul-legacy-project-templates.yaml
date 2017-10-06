@@ -977,21 +977,6 @@
         - legacy-nodejs4-npm-run-test
 
 - project-template:
-    name: nodejs4-publish-to-npm
-    release:
-      jobs:
-        - publish-openstack-python-tarball:
-            dependencies:
-              - publish-openstack-python-tarball
-        - announce-release:
-            dependencies:
-              - legacy-npm-upload
-        - legacy-npm-upload:
-            dependencies:
-              - publish-openstack-python-tarball
-        - publish-openstack-python-tarball
-
-- project-template:
     name: nodejs6-docs
     check:
       jobs:
@@ -1006,21 +991,6 @@
       jobs:
         - legacy-nodejs6-npm-run-lint
         - legacy-nodejs6-npm-run-test
-
-- project-template:
-    name: nodejs6-publish-to-npm
-    release:
-      jobs:
-        - publish-openstack-python-tarball:
-            dependencies:
-              - publish-openstack-python-tarball
-        - announce-release:
-            dependencies:
-              - legacy-npm-upload
-        - legacy-npm-upload:
-            dependencies:
-              - publish-openstack-python-tarball
-        - publish-openstack-python-tarball
 
 - project-template:
     name: noop-jobs
