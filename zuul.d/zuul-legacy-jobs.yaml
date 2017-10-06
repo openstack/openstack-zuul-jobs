@@ -346,6 +346,7 @@
     required-projects:
       - openstack/bandit
       - openstack/barbican
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-glance
@@ -355,6 +356,7 @@
     required-projects:
       - openstack/bandit
       - openstack/glance
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-glance_store
@@ -365,6 +367,7 @@
       - openstack/bandit
       - openstack/glance
       - openstack/glance_store
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-keystone
@@ -374,6 +377,7 @@
     required-projects:
       - openstack/bandit
       - openstack/keystone
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-keystonemiddleware
@@ -384,6 +388,7 @@
       - openstack/bandit
       - openstack/keystone
       - openstack/keystonemiddleware
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-magnum
@@ -393,6 +398,7 @@
     required-projects:
       - openstack/bandit
       - openstack/magnum
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-oslo.config
@@ -402,6 +408,7 @@
     required-projects:
       - openstack/bandit
       - openstack/oslo.config
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-oslo.log
@@ -411,6 +418,7 @@
     required-projects:
       - openstack/bandit
       - openstack/oslo.log
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-oslo.service
@@ -420,6 +428,7 @@
     required-projects:
       - openstack/bandit
       - openstack/oslo.service
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-oslo.utils
@@ -429,6 +438,7 @@
     required-projects:
       - openstack/bandit
       - openstack/oslo.utils
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-oslo.vmware
@@ -438,6 +448,7 @@
     required-projects:
       - openstack/bandit
       - openstack/oslo.vmware
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-python-keystoneclient
@@ -448,6 +459,7 @@
       - openstack/bandit
       - openstack/keystone
       - openstack/python-keystoneclient
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-python-magnumclient
@@ -458,6 +470,7 @@
       - openstack/bandit
       - openstack/magnum
       - openstack/python-magnumclient
+      - openstack/requirements
 
 - job:
     name: legacy-bandit-integration-sahara
@@ -467,6 +480,7 @@
     required-projects:
       - openstack/ara
       - openstack/bandit
+      - openstack/requirements
       - openstack/sahara
 
 - job:
