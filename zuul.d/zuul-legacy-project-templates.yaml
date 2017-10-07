@@ -818,9 +818,12 @@
       jobs:
         - legacy-logstash-filters-ubuntu-trusty:
             branches: master
-            voting: false
         - legacy-logstash-filters:
             voting: false
+    gate:
+      jobs:
+        - legacy-logstash-filters-ubuntu-trusty:
+            branches: master
 
 - project-template:
     name: infra-puppet-apply-jobs
@@ -831,8 +834,7 @@
             branches: master
         - legacy-infra-puppet-apply-3
         - legacy-openstackci-beaker-centos-7
-        - legacy-openstackci-beaker-ubuntu-trusty:
-            voting: false
+        - legacy-openstackci-beaker-ubuntu-trusty
         - legacy-openstackci-beaker:
             voting: false
     gate:
@@ -842,6 +844,7 @@
             branches: master
         - legacy-infra-puppet-apply-3
         - legacy-openstackci-beaker-centos-7
+        - legacy-openstackci-beaker-ubuntu-trusty
     experimental:
       jobs:
         - legacy-infra-puppet-apply-4-centos-7
