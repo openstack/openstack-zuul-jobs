@@ -102,6 +102,35 @@
               - release-openstack-python
 
 - project-template:
+    name: publish-to-pypi-neutron
+    description: |
+      Publish a Python package to PyPI with neutron added to required-projects
+      for the various networking projects that need that, then send release
+      announcement emails and propose updates to upper-constraints as needed.
+    pre-release:
+      jobs:
+        - release-openstack-python:
+            required-projects:
+              - openstack/neutron
+        - announce-release:
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
+    release:
+      jobs:
+        - release-openstack-python:
+            required-projects:
+              - openstack/neutron
+        - announce-release:
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
+
+- project-template:
     name: publish-xstatic-to-pypi
     description: |
       Publish an XStatic Python package to PyPI, then send release announcement
