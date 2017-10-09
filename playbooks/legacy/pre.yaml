@@ -4,7 +4,11 @@
       file:
         path: /etc/nodepool
         state: directory
-    - name: Create nodepool subnodes file
+    - name: Create nodepool sub_nodes file
+      copy:
+        dest: /etc/nodepool/sub_nodes
+        content: ""
+    - name: Create nodepool sub_nodes_private file
       copy:
         dest: /etc/nodepool/sub_nodes_private
         content: ""
