@@ -15899,20 +15899,6 @@
     timeout: 2400
 
 - job:
-    name: legacy-zunclient-devstack-dsvm-docker-sql
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/zunclient-devstack-dsvm-docker-sql/run
-    post-run: playbooks/legacy/zunclient-devstack-dsvm-docker-sql/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr-libnetwork
-      - openstack/python-zunclient
-      - openstack/zun
-
-- job:
     name: legacy-zuul-nodepool
     parent: legacy-base
     run: playbooks/legacy/zuul-nodepool/run
