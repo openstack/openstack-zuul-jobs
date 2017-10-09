@@ -355,16 +355,18 @@
 - job:
     name: build-openstack-releasenotes
     parent: openstack-tox
+    description: |
+      Build releasenotes, with optional translation support, using reno.
     success-url: html/
     run: playbooks/releasenotes/run
     post-run: playbooks/releasenotes/post
+    # Release notes always build on master.
+    override-branch: master
     timeout: 1800
     files:
       - ^releasenotes/.*
       - ^tox.ini
       - ^.*requirements.txt$
-    vars:
-      tox_envlist: releasenotes
 
 - job:
     name: legacy-base
