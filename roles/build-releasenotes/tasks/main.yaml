@@ -1,9 +1,3 @@
-# reno always runs on master, even if there was a commit from another branch
-- name: Switch to master branch
-  command: git checkout master
-  args:
-    chdir: '{{ zuul_work_dir }}'
-
 # TODO(mordred) Put the translations logic into a sphinx plugin?
 - name: Check if translations exist for release notes
   stat:
