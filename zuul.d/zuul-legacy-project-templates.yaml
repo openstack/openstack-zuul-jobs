@@ -1058,11 +1058,11 @@
               - ^.*\.pot$
     post:
       jobs:
-        - legacy-upstream-translation-update
+        - upstream-translation-update
         - legacy-tox-doc-publishlang
     periodic:
       jobs:
-        - legacy-propose-translation-update
+        - propose-translation-update
 
 - project-template:
     name: openstack-specs-jobs
