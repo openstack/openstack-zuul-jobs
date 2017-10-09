@@ -1,11 +1,4 @@
 - job:
-    name: legacy-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/announce-release/run
-    post-run: playbooks/legacy/announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-ansible-func
     parent: legacy-base
     run: playbooks/legacy/ansible-func/run
@@ -6109,20 +6102,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-openstack-ansible-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-galera_server-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-galera_server-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-galera_server-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-galera_server-ansible-ssl
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-galera_server-ansible-ssl/run
@@ -6167,20 +6146,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-galera_server
-
-- job:
-    name: legacy-openstack-ansible-haproxy_server-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-haproxy_server-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-haproxy_server-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-memcached_server-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-memcached_server-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-memcached_server-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-openstack-ansible-aio
@@ -6244,27 +6209,6 @@
     timeout: 7200
 
 - job:
-    name: legacy-openstack-ansible-os_almanach-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_almanach-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_almanach-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_aodh-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_aodh-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_aodh-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_barbican-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_barbican-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_barbican-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_barbican-ansible-func-centos-7
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_barbican-ansible-func-centos-7/run
@@ -6289,13 +6233,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_barbican
-
-- job:
-    name: legacy-openstack-ansible-os_ceilometer-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_ceilometer-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_ceilometer-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_ceilometer-ansible-gnocchi
@@ -6336,13 +6273,6 @@
       - openstack/openstack-ansible-os_ceilometer
 
 - job:
-    name: legacy-openstack-ansible-os_cinder-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_cinder-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_cinder-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_cinder-ansible-upgrade
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_cinder-ansible-upgrade/run
@@ -6353,13 +6283,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_cinder
-
-- job:
-    name: legacy-openstack-ansible-os_cloudkitty-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_cloudkitty-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_cloudkitty-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_cloudkitty-ansible-func-centos-7
@@ -6388,27 +6311,6 @@
       - openstack/openstack-ansible-os_cloudkitty
 
 - job:
-    name: legacy-openstack-ansible-os_designate-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_designate-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_designate-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_freezer-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_freezer-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_freezer-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_glance-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_glance-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_glance-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_glance-ansible-upgrade
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_glance-ansible-upgrade/run
@@ -6432,34 +6334,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_glance
-
-- job:
-    name: legacy-openstack-ansible-os_gnocchi-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_gnocchi-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_gnocchi-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_heat-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_heat-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_heat-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_horizon-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_horizon-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_horizon-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-os_ironic-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_ironic-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_ironic-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_ironic-ansible-func-centos-7
@@ -6486,13 +6360,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_ironic
-
-- job:
-    name: legacy-openstack-ansible-os_keystone-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_keystone-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_keystone-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_keystone-ansible-upgrade
@@ -6596,13 +6463,6 @@
       - openstack/openstack-ansible-os_keystone
 
 - job:
-    name: legacy-openstack-ansible-os_magnum-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_magnum-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_magnum-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_magnum-ansible-func-centos-7
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_magnum-ansible-func-centos-7/run
@@ -6629,13 +6489,6 @@
       - openstack/openstack-ansible-os_magnum
 
 - job:
-    name: legacy-openstack-ansible-os_monasca-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_monasca-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_monasca-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_monasca-ansible-func-centos-7
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_monasca-ansible-func-centos-7/run
@@ -6658,13 +6511,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_monasca
-
-- job:
-    name: legacy-openstack-ansible-os_neutron-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_neutron-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_neutron-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_neutron-ansible-calico
@@ -6729,13 +6575,6 @@
       - openstack/openstack-ansible-os_neutron
 
 - job:
-    name: legacy-openstack-ansible-os_nova-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_nova-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_nova-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_nova-ansible-func_lxd
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_nova-ansible-func_lxd/run
@@ -6773,13 +6612,6 @@
       - openstack/openstack-ansible-os_nova
 
 - job:
-    name: legacy-openstack-ansible-os_rally-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_rally-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_rally-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_rally-ansible-func-centos-7
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_rally-ansible-func-centos-7/run
@@ -6804,13 +6636,6 @@
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_rally
       - openstack/rally
-
-- job:
-    name: legacy-openstack-ansible-os_sahara-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_sahara-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_sahara-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_sahara-ansible-func-centos-7
@@ -6839,13 +6664,6 @@
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_sahara
       - openstack/sahara
-
-- job:
-    name: legacy-openstack-ansible-os_swift-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_swift-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_swift-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_swift-ansible-func_pypy
@@ -6936,13 +6754,6 @@
       - openstack/swift
 
 - job:
-    name: legacy-openstack-ansible-os_trove-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_trove-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_trove-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_trove-ansible-func-centos-7
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_trove-ansible-func-centos-7/run
@@ -6969,13 +6780,6 @@
       - openstack/trove
 
 - job:
-    name: legacy-openstack-ansible-os_watcher-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_watcher-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_watcher-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-os_watcher-ansible-func-centos-7
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-os_watcher-ansible-func-centos-7/run
@@ -7000,13 +6804,6 @@
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_watcher
       - openstack/watcher
-
-- job:
-    name: legacy-openstack-ansible-os_zaqar-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-os_zaqar-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-os_zaqar-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-ansible-os_zaqar-ansible-func-centos-7
@@ -7047,13 +6844,6 @@
       - openstack/openstack-ansible-pip_lock_down
 
 - job:
-    name: legacy-openstack-ansible-plugins-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-plugins-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-plugins-announce-release/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-ansible-plugins-ansible-func_py3
     parent: legacy-base
     run: playbooks/legacy/openstack-ansible-plugins-ansible-func_py3/run
@@ -7075,20 +6865,6 @@
       - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-plugins
-
-- job:
-    name: legacy-openstack-ansible-rabbitmq_server-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-rabbitmq_server-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-rabbitmq_server-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-ansible-rsyslog_server-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/openstack-ansible-rsyslog_server-announce-release/run
-    post-run: playbooks/legacy/openstack-ansible-rsyslog_server-announce-release/post
-    timeout: 1800
 
 - job:
     name: legacy-openstack-api-ref
