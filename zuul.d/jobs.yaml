@@ -311,6 +311,20 @@
       tox_envlist: validate
 
 - job:
+    name: openstack-tox-pylint
+    parent: openstack-tox
+    description: |
+      Runs pylint tests.
+
+      Uses tox with the ``pylint`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: pylint
+
+- job:
     name: openstack-tox-compare-cover
     parent: openstack-tox
     description: |
