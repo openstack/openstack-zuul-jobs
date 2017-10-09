@@ -1407,6 +1407,7 @@
       jobs:
         - legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades:
             branches: ^stable/ocata$
+            voting: false
             files:
               - ^(docker|puppet)/services/glance.*$
               - ^manifests/profile/base/glance.*$
@@ -1478,44 +1479,6 @@
               - workbooks/ceph-ansible.yaml
               - ^container-images/.*$
               - ^environments\/.*.yaml
-    gate:
-      jobs:
-        - legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades:
-            branches: ^stable/ocata$
-            files:
-              - ^(docker|puppet)/services/glance.*$
-              - ^manifests/profile/base/glance.*$
-              - ^manifests/haproxy.*$
-              - ^(docker|puppet)/services/aodh.*$
-              - ^manifests/profile/base/aodh.*$
-              - ^(docker|puppet)/services/ceilometer.*$
-              - ^manifests/profile/base/ceilometer.*$
-              - ^(docker|puppet)/services/gnocchi.*$
-              - ^manifests/profile/base/gnocchi.*$
-              - ^(docker|puppet)/services/panko.*$
-              - ^manifests/profile/base/panko.*$
-              - ^(docker|puppet)/services/ceph.*$
-              - ^manifests/profile/base/ceph.*$
-              - ^manifests/profile/base/monitoring.*$
-              - ^(docker|puppet)/services/monitoring.*$
-              - ^manifests/profile/base/metrics.*$
-              - ^(docker|puppet)/services/metrics.*$
-              - ^manifests/profile/base/logging.*$
-              - ^(docker|puppet)/services/logging.*$
-              - ^(docker|puppet)/services/tacker.*$
-              - ^manifests/profile/base/tacker.*$
-              - ^(docker|puppet)/services/congress.*$
-              - ^manifests/profile/base/congress.*$
-              - ^(docker|puppet)/services/cinder.*$
-              - ^manifests/profile/base/cinder.*$
-              - ci/environments/scenario001.*$
-              - ci/pingtests/scenario001.*$
-              - config/general_config/featureset005.yml
-              - config/general_config/featureset012.yml
-              - config/general_config/featureset016.yml
-              - workbooks/ceph-ansible.yaml
-              - ^container-images/.*$
-              - ^environments\/.*.yaml
 
 - project-template:
     name: tripleo-upgrade-jobs-scenario002
@@ -1523,6 +1486,7 @@
       jobs:
         - legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades:
             branches: ^stable/ocata$
+            voting: false
             files:
               - ^(docker|puppet)/services/glance.*$
               - ^manifests/profile/base/glance.*$
@@ -1584,39 +1548,6 @@
               - config/general_config/featureset017.yml
               - ^container-images/.*$
               - ^environments\/.*.yaml
-    gate:
-      jobs:
-        - legacy-tripleo-ci-centos-7-scenario002-multinode-upgrades:
-            branches: ^stable/ocata$
-            files:
-              - ^(docker|puppet)/services/glance.*$
-              - ^manifests/profile/base/glance.*$
-              - ^manifests/haproxy.*$
-              - ^(docker|puppet)/services/barbican.*$
-              - ^manifests/profile/base/barbican.*$
-              - ^(docker|puppet)/services/cinder.*$
-              - ^manifests/profile/base/cinder.*$
-              - ^(docker|puppet)/services/ec2-api.*$
-              - ^manifests/profile/base/nova/ec2.*$
-              - ^(docker|puppet)/services/swift.*$
-              - ^manifests/profile/base/swift.*$
-              - ^(docker|puppet)/services/zaqar.*$
-              - ^manifests/profile/base/zaqar.*$
-              - ^(docker|puppet)/services/aodh.*$
-              - ^manifests/profile/base/aodh.*$
-              - ^(docker|puppet)/services/ceilometer.*$
-              - ^manifests/profile/base/ceilometer.*$
-              - ^(docker|puppet)/services/gnocchi.*$
-              - ^manifests/profile/base/gnocchi.*$
-              - ^(docker|puppet)/services/panko.*$
-              - ^manifests/profile/base/panko.*$
-              - ci/environments/scenario002.*$
-              - ci/pingtests/scenario002.*$
-              - config/general_config/featureset006.yml
-              - config/general_config/featureset013.yml
-              - config/general_config/featureset017.yml
-              - ^container-images/.*$
-              - ^environments\/.*.yaml
 
 - project-template:
     name: tripleo-upgrade-jobs-scenario003
@@ -1645,28 +1576,6 @@
         - legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container-upgrades:
             voting: false
             branches: ^(?!stable/(newton|ocata)).*$
-            files:
-              - ^(docker|puppet)/services/glance.*$
-              - ^manifests/profile/base/glance.*$
-              - ^manifests/haproxy.*$
-              - ^(docker|puppet)/services/sahara.*$
-              - ^manifests/profile/base/sahara.*$
-              - ^(docker|puppet)/services/mistral.*$
-              - ^manifests/profile/base/mistral.*$
-              - ci/environments/scenario003.*$
-              - ci/pingtests/scenario003.*$
-              - config/general_config/featureset007.yml
-              - config/general_config/featureset014.yml
-              - config/general_config/featureset018.yml
-              - roles\/(.+\/)
-              - toci-quickstart\/(config|playbooks)\/(.+)
-              - toci_.+
-              - ^container-images/.*$
-              - ^environments\/.*.yaml
-    gate:
-      jobs:
-        - legacy-tripleo-ci-centos-7-scenario003-multinode-upgrades:
-            branches: ^stable/ocata$
             files:
               - ^(docker|puppet)/services/glance.*$
               - ^manifests/profile/base/glance.*$
