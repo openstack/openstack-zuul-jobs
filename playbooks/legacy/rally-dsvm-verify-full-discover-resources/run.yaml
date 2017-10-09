@@ -39,7 +39,7 @@
           export DEVSTACK_GATE_HORIZON=1
           export DEVSTACK_GATE_CEILOMETER=1
           export DEVSTACK_GATE_HEAT=1
-          export DEVSTACK_GATE_SAHARA=1
+          export DEVSTACK_GATE_SAHARA=0
           export DEVSTACK_GATE_EXERCISES=0
 
           export RALLY_VERIFY_JOB_MODE=full
