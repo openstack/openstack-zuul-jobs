@@ -9904,6 +9904,7 @@
       - openstack-infra/devstack-gate
       - openstack/aodh
       - openstack/ceilometer
+      - openstack/dib-utils
       - openstack/diskimage-builder
       - openstack/ironic
       - openstack/magnum
@@ -10387,6 +10388,7 @@
       - openstack-infra/devstack-gate
       - openstack/aodh
       - openstack/ceilometer
+      - openstack/dib-utils
       - openstack/diskimage-builder
       - openstack/heat
       - openstack/ironic
