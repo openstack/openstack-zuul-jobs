@@ -8356,18 +8356,24 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-newton/run
     timeout: 2400
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-docs-ocata
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-ocata/run
     timeout: 2400
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-docs-pike
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-pike/run
     timeout: 2400
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-gitdm
@@ -8707,6 +8713,8 @@
     run: playbooks/legacy/periodic-py27-with-oslo-master/run
     post-run: playbooks/legacy/periodic-py27-with-oslo-master/post
     timeout: 3000
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-py35-with-neutron-lib-master
@@ -8714,6 +8722,8 @@
     run: playbooks/legacy/periodic-py35-with-neutron-lib-master/run
     post-run: playbooks/legacy/periodic-py35-with-neutron-lib-master/post
     timeout: 3000
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-py35-with-oslo-master
@@ -8721,6 +8731,8 @@
     run: playbooks/legacy/periodic-py35-with-oslo-master/run
     post-run: playbooks/legacy/periodic-py35-with-oslo-master/post
     timeout: 3000
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-py35-with-ovsdbapp-master
@@ -8728,6 +8740,8 @@
     run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/run
     post-run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/post
     timeout: 3000
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-python27-newton
@@ -8735,6 +8749,8 @@
     run: playbooks/legacy/periodic-python27-newton/run
     post-run: playbooks/legacy/periodic-python27-newton/post
     timeout: 2400
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-python27-ocata
@@ -8742,6 +8758,8 @@
     run: playbooks/legacy/periodic-python27-ocata/run
     post-run: playbooks/legacy/periodic-python27-ocata/post
     timeout: 2400
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-python27-pike
@@ -8749,6 +8767,8 @@
     run: playbooks/legacy/periodic-python27-pike/run
     post-run: playbooks/legacy/periodic-python27-pike/post
     timeout: 2400
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-tempest-dsvm-all-master
