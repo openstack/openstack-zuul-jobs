@@ -48,43 +48,6 @@
     branches: ^stable/newton$
 
 - job:
-    name: legacy-ansible-hardening-announce-release
-    parent: legacy-base
-    run: playbooks/legacy/ansible-hardening-announce-release/run
-    post-run: playbooks/legacy/ansible-hardening-announce-release/post
-    timeout: 1800
-
-- job:
-    name: legacy-ansible-hardening-ansible-func-debian-jessie
-    parent: legacy-base
-    run: playbooks/legacy/ansible-hardening-ansible-func-debian-jessie/run
-    post-run: playbooks/legacy/ansible-hardening-ansible-func-debian-jessie/post
-    timeout: 5400
-    nodeset: legacy-debian-jessie
-    required-projects:
-      - openstack/ansible-hardening
-
-- job:
-    name: legacy-ansible-hardening-ansible-func-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/ansible-hardening-ansible-func-fedora-26/run
-    post-run: playbooks/legacy/ansible-hardening-ansible-func-fedora-26/post
-    timeout: 5400
-    nodeset: legacy-fedora-26
-    required-projects:
-      - openstack/ansible-hardening
-
-- job:
-    name: legacy-ansible-hardening-ansible-func_rhel6-ubuntu-trusty
-    parent: legacy-base
-    run: playbooks/legacy/ansible-hardening-ansible-func_rhel6-ubuntu-trusty/run
-    post-run: playbooks/legacy/ansible-hardening-ansible-func_rhel6-ubuntu-trusty/post
-    timeout: 5400
-    nodeset: legacy-ubuntu-trusty
-    required-projects:
-      - openstack/ansible-hardening
-
-- job:
     name: legacy-ansible-lint
     parent: legacy-base
     run: playbooks/legacy/ansible-lint/run
