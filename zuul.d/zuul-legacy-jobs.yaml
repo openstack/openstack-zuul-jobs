@@ -5046,79 +5046,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-mistral-devstack-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/mistral-devstack-dsvm/run
-    post-run: playbooks/legacy/mistral-devstack-dsvm/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/python-mistralclient
-
-- job:
-    name: legacy-mistral-devstack-dsvm-kombu
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/mistral-devstack-dsvm-kombu/run
-    post-run: playbooks/legacy/mistral-devstack-dsvm-kombu/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/python-mistralclient
-
-- job:
-    name: legacy-mistral-devstack-dsvm-non-apache
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/mistral-devstack-dsvm-non-apache/run
-    post-run: playbooks/legacy/mistral-devstack-dsvm-non-apache/post
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/python-mistralclient
-
-- job:
-    name: legacy-mistral-docker-buildimage
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/mistral-docker-buildimage/run
-    post-run: playbooks/legacy/mistral-docker-buildimage/post
-    timeout: 1800
-
-- job:
-    name: legacy-mistral-ha
-    parent: legacy-base
-    run: playbooks/legacy/mistral-ha/run
-    timeout: 4200
-
-- job:
-    name: legacy-mistral-tox-unit-mysql
-    parent: legacy-base
-    run: playbooks/legacy/mistral-tox-unit-mysql/run
-    post-run: playbooks/legacy/mistral-tox-unit-mysql/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-mistral-tox-unit-postgresql
-    parent: legacy-base
-    run: playbooks/legacy/mistral-tox-unit-postgresql/run
-    post-run: playbooks/legacy/mistral-tox-unit-postgresql/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-mixmatch-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/mixmatch-dsvm-functional/run
@@ -10026,19 +9953,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/rally-dsvm-mistral-rally/run
     post-run: playbooks/legacy/rally-dsvm-mistral-rally/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/python-mistralclient
-      - openstack/rally
-
-- job:
-    name: legacy-rally-dsvm-mistral-task
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-mistral-task/run
-    post-run: playbooks/legacy/rally-dsvm-mistral-task/post
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
