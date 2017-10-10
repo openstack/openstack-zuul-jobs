@@ -15612,30 +15612,6 @@
       - openstack/vitrage-dashboard
 
 - job:
-    name: legacy-watcher-dsvm-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/watcher-dsvm-multinode/run
-    post-run: playbooks/legacy/watcher-dsvm-multinode/post
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-watcherclient
-      - openstack/watcher
-      - openstack/watcher-tempest-plugin
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-watcherclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/watcherclient-dsvm-functional/run
-    post-run: playbooks/legacy/watcherclient-dsvm-functional/post
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-watcherclient
-      - openstack/watcher
-
-- job:
     name: legacy-windmill-buildimages
     parent: legacy-base
     run: playbooks/legacy/windmill-buildimages/run
