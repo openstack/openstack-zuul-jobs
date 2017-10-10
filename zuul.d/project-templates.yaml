@@ -429,3 +429,31 @@
             dependencies:
               - release-openstack-javascript
               - publish-openstack-javascript-tarball
+
+- project-template:
+    name: translation-jobs
+    description: |
+      Sync translations to translation server and back again.
+
+      This is intented for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update
+    periodic:
+      jobs:
+        - propose-translation-update
+
+- project-template:
+    name: openstack-specs-jobs
+    description: |
+      Runs jobs to build and publish documents for a specs repository.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+    post:
+      jobs:
+        - publish-openstack-specs
