@@ -3545,19 +3545,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-install-dsvm-default-kuryr-kubernetes
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/install-dsvm-default-kuryr-kubernetes/run
-    post-run: playbooks/legacy/install-dsvm-default-kuryr-kubernetes/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/dragonflow
-      - openstack/kuryr
-      - openstack/kuryr-kubernetes
-
-- job:
     name: legacy-install-dsvm-dragonflow-kuryr-kubernetes
     parent: legacy-dsvm-base
     run: playbooks/legacy/install-dsvm-dragonflow-kuryr-kubernetes/run
@@ -12468,35 +12455,6 @@
       - openstack/virtualbmc
 
 - job:
-    name: legacy-tempest-dsvm-kuryr-kubernetes-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-kuryr-kubernetes-multinode/run
-    post-run: playbooks/legacy/tempest-dsvm-kuryr-kubernetes-multinode/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr
-      - openstack/kuryr-kubernetes
-      - openstack/kuryr-tempest-plugin
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-lbaasv2-kuryr-kubernetes
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-lbaasv2-kuryr-kubernetes/run
-    post-run: playbooks/legacy/tempest-dsvm-lbaasv2-kuryr-kubernetes/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr
-      - openstack/kuryr-kubernetes
-      - openstack/kuryr-tempest-plugin
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-ldap-domain-specific-driver
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-ldap-domain-specific-driver/run
@@ -13511,24 +13469,6 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/nova
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-octavia-kuryr-kubernetes
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-octavia-kuryr-kubernetes/run
-    post-run: playbooks/legacy/tempest-dsvm-octavia-kuryr-kubernetes/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/barbican
-      - openstack/devstack-plugin-container
-      - openstack/kuryr
-      - openstack/kuryr-kubernetes
-      - openstack/kuryr-tempest-plugin
-      - openstack/octavia
-      - openstack/python-barbicanclient
-      - openstack/python-octaviaclient
       - openstack/tempest
 
 - job:
