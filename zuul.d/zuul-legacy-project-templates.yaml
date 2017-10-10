@@ -983,7 +983,7 @@
         - publish-openstack-python-tarball:
             dependencies:
               - publish-openstack-python-tarball
-        - legacy-announce-release:
+        - announce-release:
             dependencies:
               - legacy-npm-upload
         - legacy-npm-upload:
@@ -1014,7 +1014,7 @@
         - publish-openstack-python-tarball:
             dependencies:
               - publish-openstack-python-tarball
-        - legacy-announce-release:
+        - announce-release:
             dependencies:
               - legacy-npm-upload
         - legacy-npm-upload:
@@ -1225,7 +1225,7 @@
         - publish-openstack-python-tarball:
             dependencies:
               - publish-openstack-python-tarball
-        - legacy-announce-release:
+        - announce-release:
             dependencies:
               - publish-openstack-python-tarball
         - publish-openstack-python-tarball
@@ -1234,7 +1234,7 @@
         - publish-openstack-python-tarball:
             dependencies:
               - publish-openstack-python-tarball
-        - legacy-announce-release:
+        - announce-release:
             dependencies:
               - publish-openstack-python-tarball
         - publish-openstack-python-tarball
