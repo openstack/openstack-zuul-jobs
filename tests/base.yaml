@@ -1,4 +1,4 @@
 # Roles that are part of the 'base' job
-
+- include: configure-unbound.yaml
 - include: mirror-info.yaml
 - include: configure-mirrors.yaml

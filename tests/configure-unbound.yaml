@@ -1,0 +1,13 @@
+- name: Test the configure-unbound role
+  hosts: all
+  roles:
+    - role: configure-unbound
+  post_tasks:
+    - name: Check for /etc/unbound/forwarding.conf
+      stat: path=/etc/unbound/forwarding.conf
+      register: f
+    - name: Check forwarding file
+      assert:
+        that:
+          - f.stat.exists
+          - f.stat.isreg
