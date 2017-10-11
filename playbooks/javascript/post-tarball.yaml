@@ -1,0 +1,4 @@
+- hosts: all
+  roles:
+    - version-from-git
+    - fetch-javascript-tarball
