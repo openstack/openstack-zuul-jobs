@@ -1506,22 +1506,6 @@
     nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
-    name: legacy-grenade-dsvm-ironic
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-ironic/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-ironic/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/virtualbmc
-
-- job:
     name: legacy-grenade-dsvm-mongodb-zaqar
     parent: legacy-dsvm-base
     run: playbooks/legacy/grenade-dsvm-mongodb-zaqar/run.yaml
@@ -2252,17 +2236,6 @@
     timeout: 1800
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-ironic-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ironic-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/ironic-dsvm-functional/post.yaml
-    timeout: 4800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-python-agent
 
 - job:
     name: legacy-ironic-staging-drivers-dsvm
@@ -7517,54 +7490,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-ironic-ipa-partition-bios-agent_ipmitool-tinyipa
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-bios-agent_ipmitool-tinyipa/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-bios-agent_ipmitool-tinyipa/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
-    name: legacy-tempest-dsvm-ironic-ipa-partition-bios-pxe_ipmitool-tinyipa
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-bios-pxe_ipmitool-tinyipa/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-bios-pxe_ipmitool-tinyipa/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
-    name: legacy-tempest-dsvm-ironic-ipa-partition-pxe_ipmitool-tinyipa-python3
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-pxe_ipmitool-tinyipa-python3/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-pxe_ipmitool-tinyipa-python3/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
     name: legacy-tempest-dsvm-ironic-ipa-partition-redfish-sushy-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-ironic-ipa-partition-redfish-sushy-src/run.yaml
@@ -7578,54 +7503,6 @@
       - openstack/pyghmi
       - openstack/python-ironicclient
       - openstack/sushy
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
-    name: legacy-tempest-dsvm-ironic-ipa-wholedisk-bios-agent_ipmitool-tinyipa
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-bios-agent_ipmitool-tinyipa/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-bios-agent_ipmitool-tinyipa/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
-    name: legacy-tempest-dsvm-ironic-ipa-wholedisk-bios-pxe_ipmitool-tinyipa
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-bios-pxe_ipmitool-tinyipa/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-bios-pxe_ipmitool-tinyipa/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
-    name: legacy-tempest-dsvm-ironic-ipa-wholedisk-bios-pxe_snmp-tinyipa
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-bios-pxe_snmp-tinyipa/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-ipa-wholedisk-bios-pxe_snmp-tinyipa/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
       - openstack/tempest
       - openstack/virtualbmc
 
