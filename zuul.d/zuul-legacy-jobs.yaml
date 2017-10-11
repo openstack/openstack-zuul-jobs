@@ -2511,6 +2511,8 @@
     name: legacy-gate-placement-api-ref
     parent: legacy-base
     success-url: html/
+    required-projects:
+      - openstack/requirements
     run: playbooks/legacy/gate-placement-api-ref/run
     post-run: playbooks/legacy/gate-placement-api-ref/post
     timeout: 1800
