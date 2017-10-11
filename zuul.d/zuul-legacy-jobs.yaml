@@ -982,6 +982,8 @@
     run: playbooks/legacy/check-osc-plugins/run
     timeout: 1800
     voting: false
+    required-projects:
+      - openstack/python-openstackclient
 
 - job:
     name: legacy-chef-rake
