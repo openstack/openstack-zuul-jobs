@@ -10666,7 +10666,7 @@
 
 - job:
     name: legacy-sahara-cli
-    parent: legacy-base
+    parent: legacy-dsvm-base
     run: playbooks/legacy/sahara-cli/run
     post-run: playbooks/legacy/sahara-cli/post
     timeout: 4200
