@@ -1131,19 +1131,6 @@
     branches: ^(?!stable/ocata).*$
 
 - job:
-    name: legacy-grenade-dsvm-mongodb-zaqar
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-mongodb-zaqar/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-mongodb-zaqar/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/python-zaqarclient
-      - openstack/zaqar
-      - openstack/zaqar-tempest-plugin
-
-- job:
     name: legacy-grenade-dsvm-networking-midonet-ml2
     parent: legacy-dsvm-base
     run: playbooks/legacy/grenade-dsvm-networking-midonet-ml2/run.yaml
@@ -1288,19 +1275,6 @@
       - openstack/neutron
     nodeset: legacy-ubuntu-xenial-2-node
     branches: ^(?!stable/(newton|ocata)).*$
-
-- job:
-    name: legacy-grenade-dsvm-redis-zaqar
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-redis-zaqar/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-redis-zaqar/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/python-zaqarclient
-      - openstack/zaqar
-      - openstack/zaqar-tempest-plugin
 
 - job:
     name: legacy-grenade-dsvm-sahara
@@ -6435,19 +6409,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-mongodb-zaqar
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-mongodb-zaqar/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-mongodb-zaqar/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-zaqarclient
-      - openstack/tempest
-      - openstack/zaqar
-      - openstack/zaqar-tempest-plugin
-
-- job:
     name: legacy-tempest-dsvm-multibackend-matrix
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-multibackend-matrix/run.yaml
@@ -7173,19 +7134,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-redis-zaqar
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-redis-zaqar/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-redis-zaqar/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-zaqarclient
-      - openstack/tempest
-      - openstack/zaqar
-      - openstack/zaqar-tempest-plugin
-
-- job:
     name: legacy-tempest-dsvm-sahara
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-sahara/run.yaml
@@ -7198,20 +7146,6 @@
       - openstack/sahara
       - openstack/sahara-tests
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-swift-zaqar
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-swift-zaqar/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-swift-zaqar/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-zaqarclient
-      - openstack/swift
-      - openstack/tempest
-      - openstack/zaqar
-      - openstack/zaqar-tempest-plugin
 
 - job:
     name: legacy-tempest-dsvm-tap-as-a-service
@@ -8327,15 +8261,6 @@
     run: playbooks/legacy/vinz-webclient-js-release-master/run.yaml
     post-run: playbooks/legacy/vinz-webclient-js-release-master/post.yaml
     timeout: 1800
-
-- job:
-    name: legacy-zaqar-tox-integration
-    parent: legacy-base
-    run: playbooks/legacy/zaqar-tox-integration/run.yaml
-    post-run: playbooks/legacy/zaqar-tox-integration/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-zaqar-ui-nodejs4-npm-run-lint
