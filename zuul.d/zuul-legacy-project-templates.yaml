@@ -1002,51 +1002,6 @@
         - noop
 
 - project-template:
-    name: openstack-doc-rst-gate
-    check:
-      jobs:
-        - legacy-tox-checkniceness
-        - legacy-tox-doc-publish-checkbuild
-    gate:
-      jobs:
-        - legacy-tox-checkniceness
-        - legacy-tox-doc-publish-checkbuild
-
-- project-template:
-    name: openstack-doc-translation
-    check:
-      jobs:
-        - legacy-tox-doc-publish-checklang:
-            files:
-              - ^.*\.po$
-              - ^.*\.pot$
-    gate:
-      jobs:
-        - legacy-tox-doc-publish-checklang:
-            files:
-              - ^.*\.po$
-              - ^.*\.pot$
-    post:
-      jobs:
-        - upstream-translation-update
-        - legacy-tox-doc-publishlang
-    periodic:
-      jobs:
-        - propose-translation-update
-
-- project-template:
-    name: openstack-specs-jobs
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-    post:
-      jobs:
-        - publish-openstack-specs
-
-- project-template:
     name: osc-plugin-jobs
     check:
       jobs:
@@ -1265,15 +1220,6 @@
     gate:
       jobs:
         - legacy-tox-with-sudo-snap
-
-- project-template:
-    name: translation-jobs
-    post:
-      jobs:
-        - legacy-upstream-translation-update
-    periodic:
-      jobs:
-        - legacy-propose-translation-update
 
 - project-template:
     name: translation-jobs-ocata

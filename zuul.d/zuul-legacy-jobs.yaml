@@ -158,30 +158,6 @@
       - ^doc/api_samples/.*
 
 - job:
-    name: legacy-api-site-propose-translation-update
-    parent: legacy-base
-    run: playbooks/legacy/api-site-propose-translation-update/run
-    post-run: playbooks/legacy/api-site-propose-translation-update/post
-    timeout: 1800
-
-- job:
-    name: legacy-api-site-tox-doc-publish-checklang
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/api-site-tox-doc-publish-checklang/run
-    post-run: playbooks/legacy/api-site-tox-doc-publish-checklang/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-api-site-upstream-translation-update
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/api-site-upstream-translation-update/run
-    post-run: playbooks/legacy/api-site-upstream-translation-update/post
-    timeout: 1800
-
-- job:
     name: legacy-app-catalog-nodejs4-npm-run-lint
     parent: legacy-base
     run: playbooks/legacy/app-catalog-nodejs4-npm-run-lint/run
@@ -6959,15 +6935,6 @@
       - openstack/openstack-helm-infra
 
 - job:
-    name: legacy-openstack-manuals-tox-doc-publishdocs
-    parent: legacy-base
-    run: playbooks/legacy/openstack-manuals-tox-doc-publishdocs/run
-    post-run: playbooks/legacy/openstack-manuals-tox-doc-publishdocs/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-openstack-planet-unittest
     parent: legacy-base
     run: playbooks/legacy/openstack-planet-unittest/run
@@ -8618,14 +8585,6 @@
     parent: legacy-base
     run: playbooks/legacy/propose-requirements-constraints-master/run
     timeout: 1800
-
-- job:
-    name: legacy-propose-translation-update
-    parent: legacy-base
-    run: playbooks/legacy/propose-translation-update/run
-    post-run: playbooks/legacy/propose-translation-update/post
-    timeout: 1800
-    branches: ^(?!driverfixes/).*$
 
 - job:
     name: legacy-propose-translation-update-ocata
@@ -10675,15 +10634,6 @@
     run: playbooks/legacy/searchlight-ui-nodejs4-npm-run-test/run
     post-run: playbooks/legacy/searchlight-ui-nodejs4-npm-run-test/post
     timeout: 2400
-
-- job:
-    name: legacy-security-doc-tox-doc-publishdocs
-    parent: legacy-base
-    run: playbooks/legacy/security-doc-tox-doc-publishdocs/run
-    post-run: playbooks/legacy/security-doc-tox-doc-publishdocs/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-senlin-dashboard-nodejs4-npm-run-lint
@@ -13624,47 +13574,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-tox-checkniceness
-    parent: legacy-base
-    run: playbooks/legacy/tox-checkniceness/run
-    post-run: playbooks/legacy/tox-checkniceness/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-tox-doc-publish-checkbuild
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/tox-doc-publish-checkbuild/run
-    post-run: playbooks/legacy/tox-doc-publish-checkbuild/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-tox-doc-publish-checklang
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/tox-doc-publish-checklang/run
-    post-run: playbooks/legacy/tox-doc-publish-checklang/post
-    timeout: 2400
-    files:
-      - ^.*\.po$
-      - ^.*\.pot$
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-tox-doc-publishlang
-    parent: legacy-base
-    run: playbooks/legacy/tox-doc-publishlang/run
-    post-run: playbooks/legacy/tox-doc-publishlang/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-tox-with-sudo-snap
     parent: legacy-base
     run: playbooks/legacy/tox-with-sudo-snap/run
@@ -14868,14 +14777,6 @@
     timeout: 2400
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-upstream-translation-update
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/upstream-translation-update/run
-    post-run: playbooks/legacy/upstream-translation-update/post
-    timeout: 1800
-    branches: ^(?!driverfixes/).*$
 
 - job:
     name: legacy-vinz-webclient-js-draft
