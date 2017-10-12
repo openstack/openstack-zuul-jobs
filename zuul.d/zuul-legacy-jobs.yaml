@@ -363,20 +363,6 @@
     branches: master
 
 - job:
-    name: legacy-dsvm-murano-apps-refstackclient-unittest
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-murano-apps-refstackclient-unittest/run.yaml
-    post-run: playbooks/legacy/dsvm-murano-apps-refstackclient-unittest/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/murano
-      - openstack/murano-apps
-      - openstack/murano-dashboard
-      - openstack/python-muranoclient
-      - openstack/refstack
-
-- job:
     name: legacy-dsvm-nodepool-debian-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/dsvm-nodepool-debian-src/run.yaml
@@ -1932,20 +1918,6 @@
     parent: legacy-base
     run: playbooks/legacy/monasca-thresh-maven-build/run.yaml
     timeout: 1800
-
-- job:
-    name: legacy-murano-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/murano-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/murano-dsvm-functional/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-heatclient
-      - openstack/python-muranoclient
 
 - job:
     name: legacy-muranoclient-dsvm-functional-mysql-backend
