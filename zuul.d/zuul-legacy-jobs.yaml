@@ -8468,21 +8468,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-propose-translation-update-ocata
-    parent: legacy-base
-    run: playbooks/legacy/propose-translation-update-ocata/run
-    post-run: playbooks/legacy/propose-translation-update-ocata/post
-    timeout: 1800
-    branches: ^(?!driverfixes/).*$
-
-- job:
-    name: legacy-propose-translation-update-pike
-    parent: legacy-base
-    run: playbooks/legacy/propose-translation-update-pike/run
-    post-run: playbooks/legacy/propose-translation-update-pike/post
-    timeout: 1800
-
-- job:
     name: legacy-propose-update-constraints
     parent: legacy-base
     run: playbooks/legacy/propose-update-constraints/run
