@@ -445,6 +445,22 @@
       - ^api-guide/.*
 
 - job:
+    name: build-openstack-deploy-guide
+    parent: openstack-tox
+    description: |
+      Build deploy-guide document.
+    success-url: html/
+    post-run: playbooks/build-deploy-guide/post
+    timeout: 1800
+    vars:
+      tox_envlist: deploy-guide
+    files:
+      - ^tox.ini$
+      - ^deploy-guide/.*
+      - bindep.txt
+      - other-requirements.txt
+
+- job:
     name: legacy-base
     description: |
       Base job for autoconverted legacy jobs
