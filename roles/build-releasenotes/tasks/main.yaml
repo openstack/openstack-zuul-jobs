@@ -118,5 +118,4 @@
   include_role:
     name: tox
   vars:
-    tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
     tox_envlist: releasenotes
