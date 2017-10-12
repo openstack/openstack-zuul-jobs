@@ -117,5 +117,3 @@
 - name: Build release notes
   include_role:
     name: tox
-  vars:
-    tox_envlist: releasenotes
