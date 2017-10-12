@@ -3435,31 +3435,6 @@
       - openstack/kuryr-kubernetes
 
 - job:
-    name: legacy-install-dsvm-kuryr-libnetwork
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/install-dsvm-kuryr-libnetwork/run
-    post-run: playbooks/legacy/install-dsvm-kuryr-libnetwork/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr
-      - openstack/kuryr-libnetwork
-
-- job:
-    name: legacy-install-dsvm-kuryr-libnetwork-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/install-dsvm-kuryr-libnetwork-multinode/run
-    post-run: playbooks/legacy/install-dsvm-kuryr-libnetwork-multinode/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/kuryr
-      - openstack/kuryr-libnetwork
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-install-dsvm-networking-ovn-kuryr
     parent: legacy-dsvm-base
     run: playbooks/legacy/install-dsvm-networking-ovn-kuryr/run
