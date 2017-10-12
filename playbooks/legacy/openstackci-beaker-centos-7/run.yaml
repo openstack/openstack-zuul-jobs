@@ -8,11 +8,6 @@
         state: directory
 
     - shell:
-        cmd: sudo pip install "pip<8" "virtualenv<14"
-        chdir: '{{ ansible_user_dir }}/workspace'
-      environment: '{{ zuul | zuul_legacy_vars }}'
-
-    - shell:
         cmd: |
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
               git://git.openstack.org openstack-infra/puppet-openstackci
