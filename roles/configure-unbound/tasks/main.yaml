@@ -7,21 +7,32 @@
     group: root
     mode: 0755
 
-# Use *only* ipv6 resolvers if ipv6 is present and routable
-# (ansible_default_ipv6 should only be defined for a global, routable
-# address). This avoids traversing potential NAT when using ipv4 which
-# can be unreliable.
+# ansible_default_ipv6 can either be undefined (no ipv6) or blank (no
+# routable address).  We only want to use ipv6 if it's available &
+# routable; combine these checks into this fact.
+- name: Check for IPv6
+  when:
+    - ansible_default_ipv6 is defined
+    - ansible_default_ipv6.address is defined
+  set_fact:
+    unbound_use_ipv6: True
+
+# Use *only* ipv6 resolvers if ipv6 is present and routable.  This
+# avoids traversing potential NAT when using ipv4 which can be
+# unreliable.
 - name: Set IPv6 nameservers
-  when: ansible_default_ipv6.address is defined
+  when:
+    - unbound_use_ipv6 is defined
   set_fact:
     primary_nameserver: '{{ primary_nameserver_v6 }}'
     secondary_nameserver: '{{ secondary_nameserver_v6 }}'
+
 
 # Fallback to default ipv4 if there is no ipv6 available as this
 # causes timeouts and failovers that are unnecesary.
 - name: Set IPv4 nameservers
   when:
-    - ansible_default_ipv6.address is not defined
+    - unbound_use_ipv6 is not defined
   set_fact:
     primary_nameserver: '{{ primary_nameserver_v4 }}'
     secondary_nameserver: '{{ secondary_nameserver_v4 }}'
