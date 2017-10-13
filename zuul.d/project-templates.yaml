@@ -1,6 +1,14 @@
 # Shared project-templates specific to the OpenStack Project
 
 - project-template:
+    name: system-required
+    description: |
+      Jobs that *every* project in OpenStack CI should have by default.
+    merge-check:
+      jobs:
+        - noop
+
+- project-template:
     name: build-openstack-sphinx-docs
     description: |
       Runs normal OpenStack PTI doc build without publication jobs.
