@@ -7573,6 +7573,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-newton/run
     timeout: 2400
+    branches: stable/newton
     required-projects:
       - openstack/requirements
 
@@ -7581,6 +7582,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-ocata/run
     timeout: 2400
+    branches: stable/ocata
     required-projects:
       - openstack/requirements
 
@@ -7589,6 +7591,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-pike/run
     timeout: 2400
+    branches: stable/pike
     required-projects:
       - openstack/requirements
 
@@ -7731,6 +7734,7 @@
     run: playbooks/legacy/periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4/run
     post-run: playbooks/legacy/periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4/post
     timeout: 7800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -7742,6 +7746,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master/post
+    branches: master
     timeout: 10800
 
 - job:
@@ -7750,6 +7755,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-centos-7/post
     timeout: 10800
+    branches: master
     nodeset: legacy-centos-7
 
 - job:
@@ -7758,6 +7764,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-opensuse-423/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-master-opensuse-423/post
     timeout: 10800
+    branches: master
     nodeset: legacy-opensuse-423
 
 - job:
@@ -7765,6 +7772,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-ocata/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-ocata/post
+    branches: stable/ocata
     timeout: 10800
 
 - job:
@@ -7772,6 +7780,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-ocata-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-ocata-centos-7/post
+    branches: stable/ocata
     timeout: 10800
     nodeset: legacy-centos-7
 
@@ -7780,6 +7789,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike/post
+    branches: stable/pike
     timeout: 10800
 
 - job:
@@ -7788,6 +7798,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-centos-7/post
     timeout: 10800
+    branches: stable/pike
     nodeset: legacy-centos-7
 
 - job:
@@ -7796,6 +7807,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-opensuse-423/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-aio-pike-opensuse-423/post
     timeout: 10800
+    branches: stable/pike
     nodeset: legacy-opensuse-423
 
 - job:
@@ -7803,6 +7815,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-master/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-master/post
+    branches: master
     timeout: 10800
 
 - job:
@@ -7811,6 +7824,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-master-centos-7/post
     timeout: 10800
+    branches: master
     nodeset: legacy-centos-7
 
 - job:
@@ -7818,6 +7832,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-ocata/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-ocata/post
+    branches: stable/ocata
     timeout: 10800
 
 - job:
@@ -7825,6 +7840,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-ocata-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-ocata-centos-7/post
+    branches: stable/ocata
     timeout: 10800
     nodeset: legacy-centos-7
 
@@ -7833,6 +7849,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-pike/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-pike/post
+    branches: stable/pike
     timeout: 10800
 
 - job:
@@ -7841,6 +7858,7 @@
     run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-ceph-pike-centos-7/post
     timeout: 10800
+    branches: stable/pike
     nodeset: legacy-centos-7
 
 - job:
@@ -7848,6 +7866,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-deploy-translations-master/run
     post-run: playbooks/legacy/periodic-openstack-ansible-deploy-translations-master/post
+    branches: master
     timeout: 10800
 
 - job:
@@ -7855,6 +7874,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-master/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-master/post
+    branches: master
     timeout: 10800
 
 - job:
@@ -7862,6 +7882,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-master-centos-7/post
+    branches: master
     timeout: 10800
     nodeset: legacy-centos-7
 
@@ -7870,6 +7891,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-ocata/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-ocata/post
+    branches: stable/ocata
     timeout: 10800
 
 - job:
@@ -7877,6 +7899,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-pike/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-pike/post
+    branches: stable/pike
     timeout: 10800
 
 - job:
@@ -7884,6 +7907,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-aio-pike-centos-7/post
+    branches: stable/pike
     timeout: 10800
     nodeset: legacy-centos-7
 
@@ -7892,6 +7916,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-master/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-master/post
+    branches: master
     timeout: 10800
 
 - job:
@@ -7899,6 +7924,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-master-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-master-centos-7/post
+    branches: master
     timeout: 10800
     nodeset: legacy-centos-7
 
@@ -7907,6 +7933,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-pike/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-pike/post
+    branches: stable/pike
     timeout: 10800
 
 - job:
@@ -7914,6 +7941,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-pike-centos-7/run
     post-run: playbooks/legacy/periodic-openstack-ansible-upgrade-ceph-pike-centos-7/post
+    branches: stable/pike
     timeout: 10800
     nodeset: legacy-centos-7
 
@@ -7922,6 +7950,7 @@
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/periodic-package-stackviz-element/run
     post-run: playbooks/legacy/periodic-package-stackviz-element/post
+    branches: master
     timeout: 1800
 
 - job:
@@ -7929,6 +7958,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-py27-with-oslo-master/run
     post-run: playbooks/legacy/periodic-py27-with-oslo-master/post
+    branches: master
     timeout: 3000
     required-projects:
       - openstack/requirements
@@ -7938,6 +7968,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-py35-with-neutron-lib-master/run
     post-run: playbooks/legacy/periodic-py35-with-neutron-lib-master/post
+    branches: master
     timeout: 3000
     required-projects:
       - openstack/requirements
@@ -7947,6 +7978,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-py35-with-oslo-master/run
     post-run: playbooks/legacy/periodic-py35-with-oslo-master/post
+    branches: master
     timeout: 3000
     required-projects:
       - openstack/requirements
@@ -7956,6 +7988,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/run
     post-run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/post
+    branches: master
     timeout: 3000
     required-projects:
       - openstack/requirements
@@ -7965,6 +7998,7 @@
     parent: legacy-base
     run: playbooks/legacy/periodic-python27-newton/run
     post-run: playbooks/legacy/periodic-python27-newton/post
+    branches: stable/newton
     timeout: 2400
     required-projects:
       - openstack/requirements
@@ -7975,6 +8009,7 @@
     run: playbooks/legacy/periodic-python27-ocata/run
     post-run: playbooks/legacy/periodic-python27-ocata/post
     timeout: 2400
+    branches: stable/ocata
     required-projects:
       - openstack/requirements
 
@@ -7984,6 +8019,7 @@
     run: playbooks/legacy/periodic-python27-pike/run
     post-run: playbooks/legacy/periodic-python27-pike/post
     timeout: 2400
+    branches: stable/pike
     required-projects:
       - openstack/requirements
 
@@ -7993,6 +8029,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-all-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-all-master/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
@@ -8003,6 +8040,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-full-test-accounts-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-full-test-accounts-master/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
@@ -8013,6 +8051,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-networking-calico-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-calico-master/post
     timeout: 7800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/networking-calico
@@ -8024,6 +8063,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/post
     timeout: 7800
+    branches: stable/ocata
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/networking-l2gw
@@ -8037,6 +8077,7 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-newton/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-newton/post
+    branches: stable/newton
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
@@ -8051,6 +8092,7 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata/post
+    branches: stable/ocata
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
@@ -8065,6 +8107,7 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-newton/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-newton/post
+    branches: stable/newton
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
@@ -8080,6 +8123,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-networking-sfc/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-sfc/post
     timeout: 7800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/networking-sfc
@@ -8091,6 +8135,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-newton/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-newton/post
     timeout: 10800
+    branches: stable/newton
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -8102,6 +8147,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-non-admin-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-non-admin-master/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -8112,6 +8158,7 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-ocata/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-ocata/post
+    branches: stable/ocata
     timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
@@ -8124,6 +8171,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-pike/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-pike/post
     timeout: 10800
+    branches: stable/pike
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -8135,6 +8183,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -8146,6 +8195,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-pg-full/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-pg-full/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -8157,6 +8207,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-with-ryu-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-with-ryu-master/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -8167,6 +8218,7 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-nnet-newton/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-nnet-newton/post
+    branches: stable/newton
     timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
@@ -8178,6 +8230,7 @@
     run: playbooks/legacy/periodic-tempest-dsvm-oslo-latest-full-master/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-oslo-latest-full-master/post
     timeout: 10800
+    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/oslo.cache
@@ -8302,6 +8355,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024/post
+    branches: master
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8310,6 +8364,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-fakeha-caserver/post
+    branches: master
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8318,6 +8373,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-newton-oooq/post
+    branches: stable/newton
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8326,6 +8382,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-ocata-oooq/post
+    branches: stable/ocata
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8334,6 +8391,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-oooq/post
+    branches: master
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8342,6 +8400,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-ha-pike-oooq/post
+    branches: stable/pike
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8350,6 +8409,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-containers/post
+    branches: master
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8358,6 +8418,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-master/post
+    branches: master
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8366,6 +8427,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-ocata/post
+    branches: stable/ocata
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8374,6 +8436,7 @@
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-ovb-nonha-tempest-oooq-pike/post
+    branches: stable/pike
     timeout: 10800
     nodeset: legacy-tripleo-centos-7
 
@@ -8382,6 +8445,7 @@
     parent: legacy-tripleo-ci-dsvm-multinode
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario001-multinode-oooq/post
+    branches: master
     timeout: 10800
     nodeset: legacy-centos-7-2-node
 
@@ -8390,6 +8454,7 @@
     parent: legacy-tripleo-ci-dsvm-multinode
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario002-multinode-oooq/post
+    branches: master
     timeout: 10800
     nodeset: legacy-centos-7-2-node
 
@@ -8398,6 +8463,7 @@
     parent: legacy-tripleo-ci-dsvm-multinode
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario003-multinode-oooq/post
+    branches: master
     timeout: 10800
     nodeset: legacy-centos-7-2-node
 
@@ -8406,6 +8472,7 @@
     parent: legacy-tripleo-ci-dsvm-multinode
     run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/run
     post-run: playbooks/legacy/periodic-tripleo-ci-centos-7-scenario004-multinode-oooq/post
+    branches: master
     timeout: 10800
     nodeset: legacy-centos-7-2-node
 
@@ -8446,6 +8513,7 @@
 - job:
     name: legacy-propose-requirements-constraints-master
     parent: legacy-base
+    branches: master
     run: playbooks/legacy/propose-requirements-constraints-master/run
     timeout: 1800
 
