@@ -408,6 +408,43 @@
       tox_envlist: releasenotes
 
 - job:
+    name: build-openstack-api-ref
+    parent: openstack-tox
+    description: |
+      Build api-ref document. This is only run on master branch of a
+      project.
+    success-url: html/
+    post-run: playbooks/build-api-ref/post
+    timeout: 1800
+    vars:
+      tox_envlist: api-ref
+    # We only publish the master branch, so no need to run
+    # for changes on other branches.
+    branches: master
+    files:
+      - ^tox.ini$
+      - ^api-ref/.*
+      - ^doc/api_samples/.*
+
+- job:
+    name: build-openstack-api-guide
+    parent: openstack-tox
+    description: |
+      Build api-guide document. This is only run for changes on master
+      branch of a project.
+    success-url: html/
+    post-run: playbooks/build-api-guide/post
+    timeout: 1800
+    vars:
+      tox_envlist: api-guide
+    # We only publish the master branch, so no need to run
+    # for changes on other branches.
+    branches: master
+    files:
+      - ^tox.ini$
+      - ^api-guide/.*
+
+- job:
     name: legacy-base
     description: |
       Base job for autoconverted legacy jobs

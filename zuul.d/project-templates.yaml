@@ -457,3 +457,27 @@
     post:
       jobs:
         - publish-openstack-specs
+
+- project-template:
+    name: api-guide-jobs
+    check:
+      jobs:
+        - build-openstack-api-guide
+    gate:
+      jobs:
+        - build-openstack-api-guide
+    post:
+      jobs:
+        - publish-api-guide
+
+- project-template:
+    name: api-ref-jobs
+    check:
+      jobs:
+        - build-openstack-api-ref
+    gate:
+      jobs:
+        - build-openstack-api-ref
+    post:
+      jobs:
+        - publish-api-ref
