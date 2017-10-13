@@ -442,7 +442,26 @@
         - upstream-translation-update
     periodic:
       jobs:
-        - propose-translation-update
+        - propose-translation-update:
+            branches: master
+
+- project-template:
+    name: translation-jobs-ocata
+    description: |
+      Sync translations from translation server for ocata branch.
+    periodic:
+      jobs:
+        - propose-translation-update:
+            branches: stable/ocata
+
+- project-template:
+    name: translation-jobs-pike
+    description: |
+      Sync translations from translation server for pike branch.
+    periodic:
+      jobs:
+        - propose-translation-update:
+            branches: stable/pike
 
 - project-template:
     name: openstack-specs-jobs

@@ -1178,18 +1178,6 @@
         - legacy-tox-with-sudo-snap
 
 - project-template:
-    name: translation-jobs-ocata
-    periodic:
-      jobs:
-        - legacy-propose-translation-update-ocata
-
-- project-template:
-    name: translation-jobs-pike
-    periodic:
-      jobs:
-        - legacy-propose-translation-update-pike
-
-- project-template:
     name: tripleo-puppet-jobs
     check:
       jobs:
