@@ -4661,17 +4661,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-oslo.log-src-grenade-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/oslo.log-src-grenade-dsvm/run
-    post-run: playbooks/legacy/oslo.log-src-grenade-dsvm/post
-    timeout: 10800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/oslo.log
-
-- job:
     name: legacy-oslo.versionedobjects-src-grenade-dsvm-multinode
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/oslo.versionedobjects-src-grenade-dsvm-multinode/run
