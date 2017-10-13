@@ -7089,24 +7089,6 @@
       - openstack-infra/system-config
 
 - job:
-    name: legacy-openstackdocstheme-api-ref
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/openstackdocstheme-api-ref/run
-    post-run: playbooks/legacy/openstackdocstheme-api-ref/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstackdocstheme-tox-doc-publish-buildpdf
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/openstackdocstheme-tox-doc-publish-buildpdf/run
-    post-run: playbooks/legacy/openstackdocstheme-tox-doc-publish-buildpdf/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-osbackup-freezer-api-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/osbackup-freezer-api-dsvm/run
