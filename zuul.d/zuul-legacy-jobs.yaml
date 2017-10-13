@@ -6573,20 +6573,6 @@
       - openstack/openstack-ansible-plugins
 
 - job:
-    name: legacy-openstack-api-ref
-    parent: legacy-base
-    run: playbooks/legacy/openstack-api-ref/run
-    post-run: playbooks/legacy/openstack-api-ref/post
-    timeout: 1800
-
-- job:
-    name: legacy-openstack-api-ref-publish-lang
-    parent: legacy-base
-    run: playbooks/legacy/openstack-api-ref-publish-lang/run
-    post-run: playbooks/legacy/openstack-api-ref-publish-lang/post
-    timeout: 1800
-
-- job:
     name: legacy-openstack-helm-addons-multi-basic-ovs-rbd-ubuntu-xenial-3-node
     parent: legacy-base
     run: playbooks/legacy/openstack-helm-addons-multi-basic-ovs-rbd-ubuntu-xenial-3-node/run
