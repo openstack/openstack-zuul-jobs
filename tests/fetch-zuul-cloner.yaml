@@ -1,0 +1,26 @@
+- name: Test the fetch-zuul-cloner role
+  hosts: all
+  vars:
+    destination: "/usr/zuul-env/bin/zuul-cloner"
+    repo_src_dir: "/home/zuul/src/git.openstack.org"
+  roles:
+    - role: fetch-zuul-cloner
+  post_tasks:
+    - name: Check that the directory exists
+      file:
+        path: "{{ destination | dirname }}"
+        state: directory
+      register: directory
+
+    - name: Check that the zuul-cloner shim exists
+      stat:
+        path: "{{ destination }}"
+      register: cloner
+
+    - name: Validate that the shim was installed successfully
+      assert:
+        that:
+          - not directory | changed
+          - directory | succeeded
+          - cloner.stat.exists
+          - cloner.stat.mode == "0755"
