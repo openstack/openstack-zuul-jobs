@@ -1420,19 +1420,6 @@
       - openstack/python-muranoclient
 
 - job:
-    name: legacy-deploy-guide
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/deploy-guide/run
-    post-run: playbooks/legacy/deploy-guide/post
-    timeout: 1800
-    files:
-      - ^tox.ini$
-      - ^deploy-guide/.*
-      - bindep.txt
-      - other-requirements.txt
-
-- job:
     name: legacy-designate-dashboard-nodejs4-npm-run-lint
     parent: legacy-base
     run: playbooks/legacy/designate-dashboard-nodejs4-npm-run-lint/run

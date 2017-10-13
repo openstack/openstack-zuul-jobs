@@ -500,3 +500,15 @@
     post:
       jobs:
         - publish-api-ref
+
+- project-template:
+    name: deploy-guide-jobs
+    check:
+      jobs:
+        - build-openstack-deploy-guide
+    gate:
+      jobs:
+        - build-openstack-deploy-guide
+    post:
+      jobs:
+        - publish-deploy-guide

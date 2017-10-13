@@ -676,28 +676,6 @@
             voting: false
 
 - project-template:
-    name: deploy-guide-jobs
-    check:
-      jobs:
-        - legacy-deploy-guide:
-            files:
-              - ^tox.ini$
-              - ^deploy-guide/.*
-              - bindep.txt
-              - other-requirements.txt
-    gate:
-      jobs:
-        - legacy-deploy-guide:
-            files:
-              - ^tox.ini$
-              - ^deploy-guide/.*
-              - bindep.txt
-              - other-requirements.txt
-    post:
-      jobs:
-        - legacy-deploy-guide
-
-- project-template:
     name: designate-dsvm-jobs
     check:
       jobs:
