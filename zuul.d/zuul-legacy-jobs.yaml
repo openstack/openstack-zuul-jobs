@@ -4475,18 +4475,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-oslo.versionedobjects-src-grenade-dsvm-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/oslo.versionedobjects-src-grenade-dsvm-multinode/run
-    post-run: playbooks/legacy/oslo.versionedobjects-src-grenade-dsvm-multinode/post
-    timeout: 10800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/oslo.versionedobjects
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-ospurge-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/ospurge-dsvm-functional/run
