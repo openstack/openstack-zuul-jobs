@@ -885,12 +885,6 @@
         - legacy-tempest-dsvm-neutron-src-plugin
 
 - project-template:
-    name: merge-check
-    merge-check:
-      jobs:
-        - noop
-
-- project-template:
     name: nodejs4-docs
     check:
       jobs:
