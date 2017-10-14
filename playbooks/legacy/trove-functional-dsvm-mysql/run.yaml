@@ -51,13 +51,12 @@
           export DEVSTACK_PROJECT_FROM_GIT=python-troveclient
           export PROJECTS="openstack/tripleo-image-elements $PROJECTS"
           export PROJECTS="openstack/diskimage-builder $PROJECTS"
-          export PROJECTS="openstack/trove-integration $PROJECTS"
           function post_test_hook {
               export BRIDGE_IP=10.1.0.1
               export DEST=$BASE/new
               export PATH_DEVSTACK_SRC=$DEST/devstack
-              cd /opt/stack/new/trove-integration/scripts
-              ./redstack dsvm-gate-tests mysql
+              cd /opt/stack/new/trove/integration/scripts
+              ./trovestack dsvm-gate-tests mysql
           }
           export -f post_test_hook
 
