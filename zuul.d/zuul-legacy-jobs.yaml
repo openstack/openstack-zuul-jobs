@@ -14582,43 +14582,6 @@
       - openstack/vitrage-dashboard
 
 - job:
-    name: legacy-windmill-buildimages
-    parent: legacy-base
-    run: playbooks/legacy/windmill-buildimages/run
-    timeout: 3600
-    required-projects:
-      - openstack/windmill
-
-- job:
-    name: legacy-windmill-deploy
-    parent: legacy-base
-    run: playbooks/legacy/windmill-deploy/run
-    timeout: 3600
-    required-projects:
-      - openstack/windmill
-    voting: false
-
-- job:
-    name: legacy-windmill-deploy-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/windmill-deploy-centos-7/run
-    timeout: 3600
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack/windmill
-    voting: false
-
-- job:
-    name: legacy-windmill-deploy-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/windmill-deploy-fedora-26/run
-    timeout: 3600
-    nodeset: legacy-fedora-26
-    required-projects:
-      - openstack/windmill
-    voting: false
-
-- job:
     name: legacy-zaqar-tox-integration
     parent: legacy-base
     run: playbooks/legacy/zaqar-tox-integration/run

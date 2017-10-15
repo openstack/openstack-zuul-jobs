@@ -1456,46 +1456,46 @@
     name: windmill-buildimages-xenial
     check:
       jobs:
-        - legacy-windmill-buildimages
+        - windmill-buildimages
     gate:
       jobs:
-        - legacy-windmill-buildimages
+        - windmill-buildimages
 
 - project-template:
     name: windmill-jobs-centos7-nv
     check:
       jobs:
-        - legacy-windmill-deploy-centos-7:
+        - windmill-deploy-centos-7:
             voting: false
 
 - project-template:
     name: windmill-jobs-fedora-26
     check:
       jobs:
-        - legacy-windmill-deploy-fedora-26
+        - windmill-deploy-fedora-26
     gate:
       jobs:
-        - legacy-windmill-deploy-fedora-26
+        - windmill-deploy-fedora-26
 
 - project-template:
     name: windmill-jobs-fedora-26-nv
     check:
       jobs:
-        - legacy-windmill-deploy-fedora-26:
+        - windmill-deploy-fedora-26:
             voting: false
 
 - project-template:
     name: windmill-jobs-xenial
     check:
       jobs:
-        - legacy-windmill-deploy
+        - windmill-deploy
     gate:
       jobs:
-        - legacy-windmill-deploy
+        - windmill-deploy
 
 - project-template:
     name: windmill-jobs-xenial-nv
     check:
       jobs:
-        - legacy-windmill-deploy:
+        - windmill-deploy:
             voting: false
