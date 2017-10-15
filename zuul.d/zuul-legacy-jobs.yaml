@@ -13304,25 +13304,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-training-guides-tox-doc-publish-checkbuild
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/training-guides-tox-doc-publish-checkbuild/run
-    post-run: playbooks/legacy/training-guides-tox-doc-publish-checkbuild/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-training-guides-tox-doc-publishdocs
-    parent: legacy-base
-    run: playbooks/legacy/training-guides-tox-doc-publishdocs/run
-    post-run: playbooks/legacy/training-guides-tox-doc-publishdocs/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-training-labs-scripts
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/training-labs-scripts/run
