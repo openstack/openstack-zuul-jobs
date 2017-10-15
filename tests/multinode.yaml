@@ -4,3 +4,4 @@
 # Roles that are part of the 'multinode' job
 - include: multi-node-known-hosts.yaml
 - include: multi-node-hosts-file.yaml
+- include: multi-node-firewall.yaml

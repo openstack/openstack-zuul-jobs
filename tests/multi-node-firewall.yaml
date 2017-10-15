@@ -1,0 +1,34 @@
+- name: Test the multi-node-firewall role
+  hosts: all
+  roles:
+    - multi-node-firewall
+  post_tasks:
+    - name: switch and peer nodes should be in the ipv4 firewall
+      become: yes
+      command: iptables-save
+      changed_when: false
+      failed_when: false
+      register: iptables_rules
+
+    - name: Validate ipv4 firewall configuration
+      assert:
+        that:
+          - "'-A INPUT -s {{ hostvars[item]['nodepool']['private_ipv4'] }}/32 -j ACCEPT' in iptables_rules.stdout"
+          - "'-A INPUT -s {{ hostvars[item]['nodepool']['public_ipv4'] }}/32 -j ACCEPT' in iptables_rules.stdout"
+      with_items: "{{ groups['all'] }}"
+
+    # ipv6_addresses is set by the multi-node-firewall role
+    - when: ipv6_addresses | length > 0
+      block:
+        - name: switch and peer nodes should be in the ipv6 firewall
+          become: yes
+          command: ip6tables-save
+          changed_when: false
+          failed_when: false
+          register: ip6tables_rules
+
+        - name: Validate ipv6 firewall configuration
+          assert:
+            that:
+              - "'-A INPUT -s {{ hostvars[item]['nodepool']['public_ipv6'] }}/128 -j ACCEPT' in ip6tables_rules.stdout"
+          with_items: "{{ groups['all'] }}"
