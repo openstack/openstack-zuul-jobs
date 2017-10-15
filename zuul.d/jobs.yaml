@@ -14,8 +14,10 @@
     run: tests/base
     files:
       - ^roles/configure-mirror/.*
+      - ^roles/configure-unbound/.*
+      - ^roles/fetch-zuul-cloner/.*
       - ^roles/mirror-info/.*
-      - ^test/base.yaml
+      - ^tests/.*
 
 - job:
     name: base-integration-centos-7
@@ -56,6 +58,15 @@
     roles:
       - zuul: openstack-infra/zuul-jobs
     run: tests/multinode
+    files:
+      - ^roles/configure-mirror/.*
+      - ^roles/configure-unbound/.*
+      - ^roles/fetch-zuul-cloner/.*
+      - ^roles/mirror-info/.*
+      - ^roles/multi-node-firewall/.*
+      - ^roles/multi-node-hosts-file/.*
+      - ^roles/multi-node-known-hosts/.*
+      - ^tests/.*
 
 - job:
     name: multinode-integration-centos-7
