@@ -8414,22 +8414,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-propose-requirements-constraints-master
-    parent: legacy-base
-    branches: master
-    run: playbooks/legacy/propose-requirements-constraints-master/run
-    timeout: 1800
-
-- job:
-    name: legacy-propose-update-constraints
-    parent: legacy-base
-    run: playbooks/legacy/propose-update-constraints/run
-    post-run: playbooks/legacy/propose-update-constraints/post
-    timeout: 1800
-    dependencies:
-      - legacy-pypi-both-upload
-
-- job:
     name: legacy-publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/publish-kolla-dsvm-ansible-deploy-multinode-ubuntu-source-ubuntu-xenial-2-node/run
