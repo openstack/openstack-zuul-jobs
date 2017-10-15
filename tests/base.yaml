@@ -1,4 +1,8 @@
 # Roles that are part of the 'base' job
+
+# If you add new tests, also update the files section in job
+# base-integration in zuul.d/jobs.yaml.
+
 - include: configure-unbound.yaml
 - include: mirror-info.yaml
 - include: configure-mirrors.yaml
