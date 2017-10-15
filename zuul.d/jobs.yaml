@@ -12,6 +12,10 @@
     roles:
       - zuul: openstack-infra/zuul-jobs
     run: tests/base
+    files:
+      - ^roles/configure-mirror/.*
+      - ^roles/mirror-info/.*
+      - ^test/base.yaml
 
 - job:
     name: base-integration-centos-7
