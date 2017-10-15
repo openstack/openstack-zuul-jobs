@@ -8128,7 +8128,7 @@
     name: legacy-tripleo-ci-dsvm
     description: |
       Base job template for TripleO jobs that leverage devstack-gate/dsvm
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-dsvm-base
     pre-run: playbooks/legacy/nodepool-provider/pre
     required-projects:
       - openstack/aodh
