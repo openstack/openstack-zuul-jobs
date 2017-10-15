@@ -5,6 +5,8 @@
     post-run: playbooks/legacy/ansible-func/post
     timeout: 5400
     voting: false
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ansible-func-centos-7
@@ -13,6 +15,8 @@
     post-run: playbooks/legacy/ansible-func-centos-7/post
     timeout: 5400
     nodeset: legacy-centos-7
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ansible-func-fedora-26
@@ -21,6 +25,8 @@
     post-run: playbooks/legacy/ansible-func-fedora-26/post
     timeout: 5400
     nodeset: legacy-fedora-26
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ansible-func-opensuse-423
@@ -30,6 +36,8 @@
     timeout: 5400
     nodeset: legacy-opensuse-423
     branches: ^(?!stable/(newton|ocata)).*$
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ansible-func-ubuntu-trusty
@@ -39,6 +47,8 @@
     timeout: 5400
     nodeset: legacy-ubuntu-trusty
     branches: ^stable/newton$
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-ansible-lint
