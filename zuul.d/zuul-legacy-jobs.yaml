@@ -131,33 +131,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-api-guide
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/api-guide/run
-    post-run: playbooks/legacy/api-guide/post
-    timeout: 1800
-    branches: master
-    files:
-      - ^tox.ini$
-      - ^api-guide/.*
-
-- job:
-    name: legacy-api-ref
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/api-ref/run
-    post-run: playbooks/legacy/api-ref/post
-    timeout: 1800
-    branches: master
-    required-projects:
-      - openstack/requirements
-    files:
-      - ^tox.ini$
-      - ^api-ref/.*
-      - ^doc/api_samples/.*
-
-- job:
     name: legacy-app-catalog-nodejs4-npm-run-lint
     parent: legacy-base
     run: playbooks/legacy/app-catalog-nodejs4-npm-run-lint/run
