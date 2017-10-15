@@ -34,6 +34,28 @@
         - publish-openstack-sphinx-docs
 
 - project-template:
+    name: publish-openstack-sphinx-docs-horizon
+    description: |
+      Runs normal OpenStack PTI doc build and publication jobs with horizon
+      added to required-projects for the various dashboard projects that
+      need that.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs:
+            required-projects:
+              - openstack/horizon
+    post:
+      jobs:
+        - publish-openstack-sphinx-docs:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
     name: publish-openstack-sphinx-docs-neutron
     description: |
       Runs normal OpenStack PTI doc build and publication jobs with neutron
@@ -54,6 +76,7 @@
         - publish-openstack-sphinx-docs:
             required-projects:
               - openstack/neutron
+
 
 - project-template:
     name: publish-openstack-sphinx-docs-infra
@@ -139,6 +162,35 @@
               - release-openstack-python
 
 - project-template:
+    name: publish-to-pypi-horizon
+    description: |
+      Publish a Python package to PyPI with horizon added to required-projects
+      for the various dashboard projects that need that, then send release
+      announcement emails and propose updates to upper-constraints as needed.
+    pre-release:
+      jobs:
+        - release-openstack-python:
+            required-projects:
+              - openstack/horizon
+        - announce-release:
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
+    release:
+      jobs:
+        - release-openstack-python:
+            required-projects:
+              - openstack/horizon
+        - announce-release:
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python
+
+- project-template:
     name: publish-xstatic-to-pypi
     description: |
       Publish an XStatic Python package to PyPI, then send release announcement
@@ -213,6 +265,33 @@
         - publish-openstack-releasenotes
 
 - project-template:
+    name: release-notes-jobs-horizon
+    description: |
+      The standard release-notes-jobs but with horizon added as a
+      required-projects. The dashboard projects currently need this
+      due to how the tox_install.sh zuul-cloner's dashboard for them.
+    check:
+      jobs:
+        - build-openstack-releasenotes:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - build-openstack-releasenotes:
+            required-projects:
+              - openstack/horizon
+    post:
+      jobs:
+        - publish-openstack-releasenotes:
+            required-projects:
+              - openstack/horizon
+    tag:
+      jobs:
+        - publish-openstack-releasenotes:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
     name: release-notes-jobs-neutron
     description: |
       The standard release-notes-jobs but with neutron added as a
@@ -252,6 +331,34 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python-jobs-horizon
+    description: |
+      The standard openstack-python-jobs but with horizon added as a
+      required-projects. The dashboard projects currently need this
+      due to how the tox_install.sh zuul-cloner's horizon for them.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/horizon
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball:
+            required-projects:
+              - openstack/horizon
 
 - project-template:
     name: openstack-python-jobs-neutron
@@ -298,6 +405,23 @@
     gate:
       jobs:
         - openstack-tox-py35
+
+- project-template:
+    name: openstack-python35-jobs-horizon
+    description: |
+      The standard openstack-python35-jobs but with horizon added as a
+      required-projects. The dashboard projects currently need this
+      due to how the tox_install.sh zuul-cloner's horizon for them.
+    check:
+      jobs:
+        - openstack-tox-py35:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-py35:
+            required-projects:
+              - openstack/horizon
 
 - project-template:
     name: openstack-python35-jobs-neutron
