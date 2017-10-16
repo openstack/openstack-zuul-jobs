@@ -1764,8 +1764,10 @@
     post-run: playbooks/legacy/dsvm-networking-odl-fullstack-carbon-snapshot/post
     timeout: 7800
     required-projects:
-      - openstack-infra/devstack-gate
       - openstack/networking-odl
+      - openstack/networking-l2gw
+      - openstack/networking-sfc
+      - openstack/networking-bgpvpn
 
 - job:
     name: legacy-dsvm-networking-odl-fullstack-nitrogen-snapshot
@@ -1774,8 +1776,10 @@
     post-run: playbooks/legacy/dsvm-networking-odl-fullstack-nitrogen-snapshot/post
     timeout: 7800
     required-projects:
-      - openstack-infra/devstack-gate
       - openstack/networking-odl
+      - openstack/networking-l2gw
+      - openstack/networking-sfc
+      - openstack/networking-bgpvpn
 
 - job:
     name: legacy-dsvm-networking-odl-functional-carbon-snapshot
@@ -1784,8 +1788,10 @@
     post-run: playbooks/legacy/dsvm-networking-odl-functional-carbon-snapshot/post
     timeout: 7800
     required-projects:
-      - openstack-infra/devstack-gate
       - openstack/networking-odl
+      - openstack/networking-l2gw
+      - openstack/networking-sfc
+      - openstack/networking-bgpvpn
 
 - job:
     name: legacy-dsvm-networking-odl-functional-nitrogen-snapshot
@@ -1794,8 +1800,10 @@
     post-run: playbooks/legacy/dsvm-networking-odl-functional-nitrogen-snapshot/post
     timeout: 7800
     required-projects:
-      - openstack-infra/devstack-gate
       - openstack/networking-odl
+      - openstack/networking-l2gw
+      - openstack/networking-sfc
+      - openstack/networking-bgpvpn
 
 - job:
     name: legacy-dsvm-nodepool
