@@ -55,6 +55,7 @@
             sudo yum-config-manager --enable updates >/dev/null
           fi
         chdir: '{{ ansible_user_dir }}/workspace'
+        executable: /bin/bash
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -72,6 +73,7 @@
             sudo yum-config-manager --disable epel >/dev/null
           fi
         chdir: '{{ ansible_user_dir }}/workspace'
+        executable: /bin/bash
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -82,6 +84,7 @@
           ssh-keyscan localhost >> ~/.ssh/known_hosts
           ssh-keyscan 127.0.0.1 >> ~/.ssh/known_hosts
         chdir: '{{ ansible_user_dir }}/workspace'
+        executable: /bin/bash
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
@@ -90,11 +93,13 @@
           # called 'functional', so we implement a mapping
           # of the scenario 'func' to 'functional' so reduce
           # the need for code churn in those repositories
-          # immediately.
-          if [ "func" == "func" ]; then
+          # immediately. This mapping is only implemented
+          # if the tox environment 'functional' exists.
+          if grep -q functional tox.ini; then
             /usr/local/jenkins/slave_scripts/run-tox.sh functional
           else
             /usr/local/jenkins/slave_scripts/run-tox.sh func
           fi
         chdir: '{{ ansible_user_dir }}/workspace'
+        executable: /bin/bash
       environment: '{{ zuul | zuul_legacy_vars }}'
