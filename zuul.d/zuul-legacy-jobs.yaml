@@ -4,7 +4,6 @@
     run: playbooks/legacy/ansible-func/run
     post-run: playbooks/legacy/ansible-func/post
     timeout: 5400
-    voting: false
     required-projects:
       - openstack/requirements
 
