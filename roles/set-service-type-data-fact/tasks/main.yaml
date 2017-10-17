@@ -1,12 +1,13 @@
 - name: Get service-types data file
   get_url:
     url: https://service-types.openstack.org/service-types.json
-    dest: "{{ ansible_user_dir }}/service-types.json"
+    dest: /tmp
+  register: result
 
 - name: Collect service type data for project
   get_service_type_data:
     project_name: "{{ zuul.project.short_name }}"
-    service_types_file: "{{ ansible_user_dir }}/service-types.json"
+    service_types_file: "{{ result.src }}"
   register: service_type_data
 
 - name: Set service_type_data as a fact
