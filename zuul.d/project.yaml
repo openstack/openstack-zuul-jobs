@@ -17,9 +17,8 @@
         - multinode-integration-ubuntu-xenial
         - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
-        - tox-linters:
-            required-projects:
-              - openstack-infra/zuul-jobs
+        - openstack-zuul-jobs-linters:
+            voting: false
     gate:
       jobs:
         - base-integration-centos-7
@@ -34,6 +33,3 @@
         - multinode-integration-ubuntu-xenial
         - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
-        - tox-linters:
-            required-projects:
-              - openstack-infra/zuul-jobs
