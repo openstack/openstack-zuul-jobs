@@ -13784,6 +13784,15 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    files:
+      - ci/environments/scenario007-multinode.yaml
+      - ci/pingtests/scenario007-multinode.yaml
+      - ^environments/.*ovn*.*$
+      - ^puppet/services/.*ovn.*$
+      - ^manifests/profile/base/neutron/plugins/ml2/ovn.*$
+      - ^manifests/profile/base/neutron/agents/ovn.*$
+      - ^manifests/profile/base/neutron/ovn.*$
+      - config/general_config/featureset028.yml
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-container
@@ -13792,6 +13801,18 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario007-multinode-oooq-container/post
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    files:
+      - ci/environments/scenario007-multinode-containers.yaml
+      - ci/pingtests/scenario007-multinode.yaml
+      - ^environments/services-docker/.*ovn*.*$
+      - ^(docker|puppet)/services/.*ovn.*$
+      - ^manifests/profile/pacemaker/ovn.*$
+      - ^manifests/profile/base/neutron/plugins/ml2/ovn.*$
+      - ^manifests/profile/base/neutron/agents/ovn.*$
+      - ^manifests/profile/base/neutron/ovn.*$
+      - config/general_config/featureset030.yml
+      - ^container-images/.*$
+      - ^environments\/.*.yaml
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario007-multinode-oooq-puppet
