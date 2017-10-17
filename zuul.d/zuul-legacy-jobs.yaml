@@ -1685,43 +1685,6 @@
     timeout: 5400
 
 - job:
-    name: legacy-dragonflow-dsvm-fullstack
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dragonflow-dsvm-fullstack/run
-    post-run: playbooks/legacy/dragonflow-dsvm-fullstack/post
-    timeout: 9900
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/dragonflow
-      - openstack/neutron
-      - openstack/networking-sfc
-      - openstack/neutron-dynamic-routing
-
-- job:
-    name: legacy-dragonflow-dsvm-fullstack-zmq
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dragonflow-dsvm-fullstack-zmq/run
-    post-run: playbooks/legacy/dragonflow-dsvm-fullstack-zmq/post
-    timeout: 9900
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/dragonflow
-      - openstack/neutron
-      - openstack/networking-sfc
-      - openstack/neutron-dynamic-routing
-
-- job:
-    name: legacy-dragonflow-dsvm-rally
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dragonflow-dsvm-rally/run
-    post-run: playbooks/legacy/dragonflow-dsvm-rally/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/dragonflow
-      - openstack/rally
-
-- job:
     name: legacy-dsvm-ansible-func-centos-7
     parent: legacy-dsvm-base
     run: playbooks/legacy/dsvm-ansible-func-centos-7/run
@@ -10907,20 +10870,6 @@
       - openstack/designate-dashboard
       - openstack/designate-tempest-plugin
       - openstack/python-designateclient
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-dragonflow
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-dragonflow/run
-    post-run: playbooks/legacy/tempest-dsvm-dragonflow/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/dragonflow
-      - openstack/neutron
-      - openstack/networking-sfc
-      - openstack/neutron-dynamic-routing
       - openstack/tempest
 
 - job:
