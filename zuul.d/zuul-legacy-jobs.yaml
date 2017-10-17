@@ -13149,6 +13149,7 @@
       - openstack/tripleo-common
       - openstack/tripleo-image-elements
       - openstack/tripleo-puppet-elements
+      - openstack/requirements
 
 - job:
     name: legacy-tripleo-buildimage-overcloud-full-centos-7
@@ -13163,6 +13164,7 @@
       - openstack/heat-templates
       - openstack/instack-undercloud
       - openstack/python-tripleoclient
+      - openstack/requirements
       - openstack/tripleo-common
       - openstack/tripleo-image-elements
       - openstack/tripleo-puppet-elements
@@ -13183,6 +13185,7 @@
       - openstack/tripleo-common
       - openstack/tripleo-image-elements
       - openstack/tripleo-puppet-elements
+      - openstack/requirements
 
 - job:
     name: legacy-tripleo-ci-centos-7-3nodes-multinode
