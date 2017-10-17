@@ -1,7 +1,3 @@
-- name: Set build dir fact
-  set_fact:
-    doc_build_dir: "{{ zuul_work_dir }}/doc/build"
-
 - name: Write marker text
   copy:
     dest: "{{ doc_build_dir }}/html/.root-marker"
