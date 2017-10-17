@@ -4520,16 +4520,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-mixmatch-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/mixmatch-dsvm-functional/run
-    post-run: playbooks/legacy/mixmatch-dsvm-functional/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/mixmatch
-
-- job:
     name: legacy-mogan-dsvm-tempest-plugin
     parent: legacy-dsvm-base
     run: playbooks/legacy/mogan-dsvm-tempest-plugin/run
