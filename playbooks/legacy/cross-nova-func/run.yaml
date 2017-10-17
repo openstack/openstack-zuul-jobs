@@ -20,22 +20,22 @@
           trap cleanup EXIT
           cat > $CLONEMAP << EOF
           clonemap:
-            - name: 'openstack/$ZUUL_SHORT_PROJECT_NAME'
+            - name: 'openstack/nova'
               dest: .
           EOF
           # zuul cloner works poorly if there are 2 names that are the
           # same in here.
-          if [[ "openstack/$ZUUL_SHORT_PROJECT_NAME" != "openstack/requirements" ]]; then
+          if [[ "openstack/nova" != "openstack/requirements" ]]; then
           cat >> $CLONEMAP << EOF
             - name: openstack/requirements
               dest: $REQS_DIR
           EOF
           fi
           /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
-              git://git.openstack.org openstack/$ZUUL_SHORT_PROJECT_NAME openstack/requirements
+              git://git.openstack.org openstack/nova openstack/requirements
           # REQS_DIR is not set for openstack/requirements and there is also
           # no need to copy in this case.
-          if [[ "openstack/$ZUUL_SHORT_PROJECT_NAME" != "openstack/requirements" ]]; then
+          if [[ "openstack/nova" != "openstack/requirements" ]]; then
               cp $REQS_DIR/upper-constraints.txt ./
           fi
         executable: /bin/bash
