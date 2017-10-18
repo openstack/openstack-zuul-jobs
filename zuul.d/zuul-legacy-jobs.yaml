@@ -5109,24 +5109,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-refstack-tox-py27-func-mysql
-    parent: legacy-base
-    run: playbooks/legacy/refstack-tox-py27-func-mysql/run.yaml
-    post-run: playbooks/legacy/refstack-tox-py27-func-mysql/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-refstack-tox-py35-func-mysql
-    parent: legacy-base
-    run: playbooks/legacy/refstack-tox-py35-func-mysql/run.yaml
-    post-run: playbooks/legacy/refstack-tox-py35-func-mysql/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-requests-mock-tox-keystoneclient-tip
     parent: legacy-base
     run: playbooks/legacy/requests-mock-tox-keystoneclient-tip/run.yaml
