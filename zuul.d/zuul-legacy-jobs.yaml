@@ -7647,6 +7647,7 @@
     branches: master
     timeout: 3000
     required-projects:
+      - openstack/neutron
       - openstack/requirements
 
 - job:
