@@ -8025,6 +8025,14 @@
     roles:
       - zuul: openstack-infra/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-periodic-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024
@@ -8225,6 +8233,14 @@
     required-projects:
       - openstack/puppet-openstack-integration
     voting: false
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-beaker-rspec-centos-7
@@ -8235,6 +8251,14 @@
     nodeset: legacy-centos-7
     required-projects:
       - openstack/puppet-openstack-integration
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-beaker-rspec-ubuntu-trusty
@@ -8487,6 +8511,14 @@
     timeout: 3600
     nodeset: legacy-centos-7
     branches: ^(stable/(newton|ocata)).*$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-unit-3.8-legacy-centos-7
@@ -8495,6 +8527,14 @@
     timeout: 3600
     nodeset: legacy-centos-7
     branches: ^(stable/(newton|ocata)).*$
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-unit-4.8-centos-7
@@ -8502,6 +8542,14 @@
     run: playbooks/legacy/puppet-unit-4.8-centos-7/run
     timeout: 3600
     nodeset: legacy-centos-7
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-unit-latest-centos-7
@@ -8511,6 +8559,14 @@
     nodeset: legacy-centos-7
     branches: ^master
     voting: false
+    irrelevant-files:
+      - ^.*\.md$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^etc/.*$
+      - ^metadata.json$
+      - ^releasenotes/.*$
+      - ^test-requirements.txt$
 
 - job:
     name: legacy-pyeclib-tox-py27-centos-7
