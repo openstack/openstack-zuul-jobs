@@ -6,6 +6,7 @@
 
    jobs
    roles
+   project-templates
 
 Indices and tables
 ==================
