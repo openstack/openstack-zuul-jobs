@@ -2290,17 +2290,6 @@
       - openstack/python-barbicanclient
 
 - job:
-    name: legacy-grenade-dsvm-ceilometer
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-ceilometer/run
-    post-run: playbooks/legacy/grenade-dsvm-ceilometer/post
-    timeout: 10800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/ceilometer
-
-- job:
     name: legacy-grenade-dsvm-cinder-mn-sub-bak
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/run
