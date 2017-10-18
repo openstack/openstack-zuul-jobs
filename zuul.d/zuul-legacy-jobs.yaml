@@ -591,20 +591,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-bashate-devstack
-    parent: legacy-base
-    run: playbooks/legacy/bashate-devstack/run
-    timeout: 3600
-
-- job:
-    name: legacy-bashate-python36-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/bashate-python36-fedora-26/run
-    post-run: playbooks/legacy/bashate-python36-fedora-26/post
-    timeout: 2400
-    nodeset: legacy-fedora-26
-
-- job:
     name: legacy-beaker-localhost-rake
     parent: legacy-base
     run: playbooks/legacy/beaker-localhost-rake/run
