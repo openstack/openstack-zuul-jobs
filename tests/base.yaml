@@ -6,6 +6,7 @@
 # Note: set-zuul-log-path-fact is tested by emit-job-header.yaml
 - include: emit-job-header.yaml
 - include: configure-unbound.yaml
+- include: use-cached-repos.yaml
 - include: mirror-info.yaml
 - include: configure-mirrors.yaml
 - include: fetch-zuul-cloner.yaml
