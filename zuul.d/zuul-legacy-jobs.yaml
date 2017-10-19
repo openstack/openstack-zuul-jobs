@@ -5018,17 +5018,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-tap-as-a-service
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-tap-as-a-service/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-tap-as-a-service/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tap-as-a-service
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-zeromq-multibackend
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-zeromq-multibackend/run.yaml
