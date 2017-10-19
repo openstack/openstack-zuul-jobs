@@ -4709,6 +4709,7 @@
     run: playbooks/legacy/networking-cisco-tox-newton/run
     post-run: playbooks/legacy/networking-cisco-tox-newton/post
     timeout: 2400
+    override-branch: stable/newton
     required-projects:
       - openstack/requirements
 
@@ -4718,6 +4719,7 @@
     run: playbooks/legacy/networking-cisco-tox-ocata/run
     post-run: playbooks/legacy/networking-cisco-tox-ocata/post
     timeout: 2400
+    override-branch: stable/ocata
     required-projects:
       - openstack/requirements
 
@@ -4727,6 +4729,7 @@
     run: playbooks/legacy/networking-cisco-tox-pike/run
     post-run: playbooks/legacy/networking-cisco-tox-pike/post
     timeout: 2400
+    override-branch: stable/pike
     required-projects:
       - openstack/requirements
 
