@@ -7,7 +7,7 @@
 - name: Collect service type data for project
   get_service_type_data:
     project_name: "{{ zuul.project.short_name }}"
-    service_types_file: "{{ result.src }}"
+    service_types_file: "{{ result.dest }}"
   register: service_type_data
 
 - name: Set service_type_data as a fact
