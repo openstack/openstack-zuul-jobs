@@ -10047,48 +10047,6 @@
     timeout: 3900
 
 - job:
-    name: legacy-sahara-image-elements-buildimages-ambari
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-ambari/run
-    timeout: 7200
-
-- job:
-    name: legacy-sahara-image-elements-buildimages-cloudera
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-cloudera/run
-    timeout: 7200
-
-- job:
-    name: legacy-sahara-image-elements-buildimages-mapr
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-mapr/run
-    timeout: 7200
-
-- job:
-    name: legacy-sahara-image-elements-buildimages-plain
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-plain/run
-    timeout: 7200
-
-- job:
-    name: legacy-sahara-image-elements-buildimages-spark
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-spark/run
-    timeout: 7200
-
-- job:
-    name: legacy-sahara-image-elements-buildimages-storm
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-storm/run
-    timeout: 7200
-
-- job:
-    name: legacy-sahara-image-elements-buildimages-vanilla
-    parent: legacy-base
-    run: playbooks/legacy/sahara-image-elements-buildimages-vanilla/run
-    timeout: 7200
-
-- job:
     name: legacy-sandbox-tag
     parent: legacy-base
     run: playbooks/legacy/sandbox-tag/run
