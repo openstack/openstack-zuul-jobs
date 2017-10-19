@@ -15,8 +15,10 @@
     files:
       - ^roles/configure-mirror/.*
       - ^roles/configure-unbound/.*
+      - ^roles/emit-job-header/.*
       - ^roles/fetch-zuul-cloner/.*
       - ^roles/mirror-info/.*
+      - ^roles/set-zuul-log-path-fact/.*
       - ^tests/.*
 
 - job:
@@ -61,8 +63,10 @@
     files:
       - ^roles/configure-mirror/.*
       - ^roles/configure-unbound/.*
+      - ^roles/emit-job-header/.*
       - ^roles/fetch-zuul-cloner/.*
       - ^roles/mirror-info/.*
+      - ^roles/set-zuul-log-path-fact/.*
       - ^roles/multi-node-bridge/.*
       - ^roles/multi-node-firewall/.*
       - ^roles/multi-node-hosts-file/.*
