@@ -11661,22 +11661,6 @@
       - openstack/virtualbmc
 
 - job:
-    name: legacy-tempest-dsvm-ironic-pxe_ipmitool-pyghmi-src
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-pxe_ipmitool-pyghmi-src/run
-    post-run: playbooks/legacy/tempest-dsvm-ironic-pxe_ipmitool-pyghmi-src/post
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-
-- job:
     name: legacy-tempest-dsvm-ironic-pxe_ipmitool-virtualbmc-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-ironic-pxe_ipmitool-virtualbmc-src/run
