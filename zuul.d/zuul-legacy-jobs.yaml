@@ -4729,17 +4729,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-networking-generic-switch-dsvm-tempest
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/networking-generic-switch-dsvm-tempest/run
-    post-run: playbooks/legacy/networking-generic-switch-dsvm-tempest/post
-    timeout: 4800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-generic-switch
-      - openstack/tempest
-
-- job:
     name: legacy-networking-l2gw-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/networking-l2gw-dsvm-functional/run
