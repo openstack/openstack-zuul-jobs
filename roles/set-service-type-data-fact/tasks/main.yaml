@@ -1,15 +1,14 @@
 - name: Get service-types data file
-  get_url:
+  uri:
     url: https://service-types.openstack.org/service-types.json
-    dest: /tmp
-  register: result
+    body_format: json
+  register: service_types
 
-- name: Collect service type data for project
-  get_service_type_data:
-    project_name: "{{ zuul.project.short_name }}"
-    service_types_file: "{{ result.dest }}"
-  register: service_type_data
-
-- name: Set service_type_data as a fact
-  set_fact:
-    service_type_data: service_type_data
+- block:
+    - name: Set service_type_data fact
+      set_fact:
+        service_type_data: "{{ service_types['json']['primary_service_by_project'][zuul.project.short_name] }}"
+  rescue:
+    - name: Handle missing service type mapping
+      fail:
+        msg: "{{ zuul.project.short_name }} is not mapped in service types"
