@@ -274,7 +274,7 @@
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
-      tox_envlist: py27
+      tox_envlist: pypy
 
 - job:
     name: openstack-tox-linters
