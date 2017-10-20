@@ -3877,24 +3877,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-octavia-dashboard-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/horizon
-
-- job:
-    name: legacy-octavia-dashboard-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/horizon
-
-- job:
     name: legacy-omni-tests
     parent: legacy-base
     run: playbooks/legacy/omni-tests/run.yaml
