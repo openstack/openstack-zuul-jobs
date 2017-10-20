@@ -1588,54 +1588,6 @@
       - openstack/refstack
 
 - job:
-    name: legacy-dsvm-networking-odl-fullstack-carbon-snapshot
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-networking-odl-fullstack-carbon-snapshot/run
-    post-run: playbooks/legacy/dsvm-networking-odl-fullstack-carbon-snapshot/post
-    timeout: 7800
-    required-projects:
-      - openstack/networking-odl
-      - openstack/networking-l2gw
-      - openstack/networking-sfc
-      - openstack/networking-bgpvpn
-
-- job:
-    name: legacy-dsvm-networking-odl-fullstack-nitrogen-snapshot
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-networking-odl-fullstack-nitrogen-snapshot/run
-    post-run: playbooks/legacy/dsvm-networking-odl-fullstack-nitrogen-snapshot/post
-    timeout: 7800
-    required-projects:
-      - openstack/networking-odl
-      - openstack/networking-l2gw
-      - openstack/networking-sfc
-      - openstack/networking-bgpvpn
-
-- job:
-    name: legacy-dsvm-networking-odl-functional-carbon-snapshot
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-networking-odl-functional-carbon-snapshot/run
-    post-run: playbooks/legacy/dsvm-networking-odl-functional-carbon-snapshot/post
-    timeout: 7800
-    required-projects:
-      - openstack/networking-odl
-      - openstack/networking-l2gw
-      - openstack/networking-sfc
-      - openstack/networking-bgpvpn
-
-- job:
-    name: legacy-dsvm-networking-odl-functional-nitrogen-snapshot
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-networking-odl-functional-nitrogen-snapshot/run
-    post-run: playbooks/legacy/dsvm-networking-odl-functional-nitrogen-snapshot/post
-    timeout: 7800
-    required-projects:
-      - openstack/networking-odl
-      - openstack/networking-l2gw
-      - openstack/networking-sfc
-      - openstack/networking-bgpvpn
-
-- job:
     name: legacy-dsvm-nodepool
     parent: legacy-dsvm-base
     run: playbooks/legacy/dsvm-nodepool/run
@@ -2327,17 +2279,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/networking-midonet
-
-- job:
-    name: legacy-grenade-dsvm-networking-odl
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-networking-odl/run
-    post-run: playbooks/legacy/grenade-dsvm-networking-odl/post
-    timeout: 9000
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
 
 - job:
     name: legacy-grenade-dsvm-networking-ovn
@@ -8847,28 +8788,6 @@
       - openstack/rally
 
 - job:
-    name: legacy-rally-dsvm-networking-odl-carbon-snapshot
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-networking-odl-carbon-snapshot/run
-    post-run: playbooks/legacy/rally-dsvm-networking-odl-carbon-snapshot/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/rally
-
-- job:
-    name: legacy-rally-dsvm-networking-odl-nitrogen-snapshot
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-networking-odl-nitrogen-snapshot/run
-    post-run: playbooks/legacy/rally-dsvm-networking-odl-nitrogen-snapshot/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/rally
-
-- job:
     name: legacy-rally-dsvm-networking-ovn
     parent: legacy-dsvm-base
     run: playbooks/legacy/rally-dsvm-networking-ovn/run
@@ -11994,63 +11913,6 @@
       - openstack/tap-as-a-service
       - openstack/tempest
     nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-networking-odl-boron-snapshot-v2driver
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-odl-boron-snapshot-v2driver/run
-    post-run: playbooks/legacy/tempest-dsvm-networking-odl-boron-snapshot-v2driver/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-networking-odl-carbon-snapshot-vpnservice-v2driver
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-odl-carbon-snapshot-vpnservice-v2driver/run
-    post-run: playbooks/legacy/tempest-dsvm-networking-odl-carbon-snapshot-vpnservice-v2driver/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-networking-odl-multinode-carbon-snapshot
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-carbon-snapshot/run
-    post-run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-carbon-snapshot/post
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-networking-odl-multinode-nitrogen-snapshot
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-nitrogen-snapshot/run
-    post-run: playbooks/legacy/tempest-dsvm-networking-odl-multinode-nitrogen-snapshot/post
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-networking-odl-nitrogen-snapshot-vpnservice-v2driver
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-odl-nitrogen-snapshot-vpnservice-v2driver/run
-    post-run: playbooks/legacy/tempest-dsvm-networking-odl-nitrogen-snapshot-vpnservice-v2driver/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-odl
-      - openstack/tempest
 
 - job:
     name: legacy-tempest-dsvm-networking-onos
