@@ -7071,6 +7071,7 @@
     name: legacy-periodic-gitdm
     parent: legacy-base
     run: playbooks/legacy/periodic-gitdm/run
+    branches: master
     timeout: 1800
 
 - job:
