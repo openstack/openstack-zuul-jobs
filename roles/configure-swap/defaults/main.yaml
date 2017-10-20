@@ -1,0 +1,2 @@
+# Default swap partition/file size, in MiB
+configure_swap_size: 8192
