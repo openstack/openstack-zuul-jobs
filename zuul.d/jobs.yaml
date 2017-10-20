@@ -298,17 +298,19 @@
 
 - job:
     name: openstack-tox-cover
-    parent: openstack-tox
+    parent: tox-cover
     description: |
       Run code coverage tests.
 
       Uses tox with the ``cover`` environment.
+    required-projects:
+      - name: openstack/requirements
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
-      tox_envlist: cover
+      tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
 
 - job:
     name: openstack-tox-bashate
