@@ -4813,6 +4813,8 @@
     run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-lint/run
     post-run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-lint/post
     timeout: 2400
+    required-projects:
+      - openstack/horizon
 
 - job:
     name: legacy-neutron-lbaas-dashboard-nodejs4-npm-run-test
@@ -4820,6 +4822,8 @@
     run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-test/run
     post-run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-test/post
     timeout: 2400
+    required-projects:
+      - openstack/horizon
 
 - job:
     name: legacy-neutron-lbaasv2-dsvm-api
