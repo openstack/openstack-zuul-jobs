@@ -932,17 +932,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-heat-templates-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/heat-templates-dsvm/run.yaml
-    post-run: playbooks/legacy/heat-templates-dsvm/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/heat-templates
-
-- job:
     name: legacy-heat-translator-tox-py27-tp
     parent: legacy-base
     run: playbooks/legacy/heat-translator-tox-py27-tp/run.yaml
