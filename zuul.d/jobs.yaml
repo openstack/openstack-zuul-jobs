@@ -315,6 +315,7 @@
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
+    success-url: cover/
     vars:
       tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
 
