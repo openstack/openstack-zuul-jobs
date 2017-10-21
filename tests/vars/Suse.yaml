@@ -1,0 +1,2 @@
+iptables_service:
+  - SuSEfirewall2

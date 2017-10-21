@@ -10,3 +10,4 @@
 - include: multi-node-hosts-file.yaml
 - include: multi-node-firewall.yaml
 - include: multi-node-bridge.yaml
+- include: multi-node-firewall-persistence.yaml
