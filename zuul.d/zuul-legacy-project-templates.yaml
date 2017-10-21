@@ -53,26 +53,6 @@
         - legacy-ansible-func-fedora-26
 
 - project-template:
-    name: ansible-role-functional-jobs-opensuse-423
-    check:
-      jobs:
-        - legacy-ansible-func-opensuse-423
-    gate:
-      jobs:
-        - legacy-ansible-func-opensuse-423
-
-- project-template:
-    name: ansible-role-functional-jobs-trusty
-    check:
-      jobs:
-        - legacy-ansible-func-ubuntu-trusty:
-            branches: master
-    gate:
-      jobs:
-        - legacy-ansible-func-ubuntu-trusty:
-            branches: master
-
-- project-template:
     name: ansible-role-functional-jobs-xenial
     check:
       jobs:
