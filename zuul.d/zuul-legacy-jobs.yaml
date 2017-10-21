@@ -1853,16 +1853,6 @@
     timeout: 7200
 
 - job:
-    name: legacy-gate-placement-api-ref
-    parent: legacy-base
-    success-url: html/
-    required-projects:
-      - openstack/requirements
-    run: playbooks/legacy/gate-placement-api-ref/run
-    post-run: playbooks/legacy/gate-placement-api-ref/post
-    timeout: 1800
-
-- job:
     name: legacy-gate-training-labs-scripts
     parent: legacy-base
     run: playbooks/legacy/gate-training-labs-scripts/run
@@ -7740,13 +7730,6 @@
     branches: master
     timeout: 10800
     nodeset: legacy-centos-7-2-node
-
-- job:
-    name: legacy-placement-api-ref
-    parent: legacy-base
-    run: playbooks/legacy/placement-api-ref/run
-    post-run: playbooks/legacy/placement-api-ref/post
-    timeout: 1800
 
 - job:
     name: legacy-post-sahara-extra-artifacts
