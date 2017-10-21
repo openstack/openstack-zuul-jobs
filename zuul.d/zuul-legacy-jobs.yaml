@@ -830,86 +830,6 @@
       - openstack/python-barbicanclient
 
 - job:
-    name: legacy-ceilometer-dsvm-functional-mongodb
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometer-dsvm-functional-mongodb/run
-    post-run: playbooks/legacy/ceilometer-dsvm-functional-mongodb/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ceilometer
-
-- job:
-    name: legacy-ceilometer-dsvm-functional-mysql
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometer-dsvm-functional-mysql/run
-    post-run: playbooks/legacy/ceilometer-dsvm-functional-mysql/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ceilometer
-
-- job:
-    name: legacy-ceilometer-dsvm-tempest-plugin-mongodb
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometer-dsvm-tempest-plugin-mongodb/run
-    post-run: playbooks/legacy/ceilometer-dsvm-tempest-plugin-mongodb/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ceilometer
-      - openstack/tempest
-
-- job:
-    name: legacy-ceilometer-dsvm-tempest-plugin-mongodb-identity-v3-only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometer-dsvm-tempest-plugin-mongodb-identity-v3-only/run
-    post-run: playbooks/legacy/ceilometer-dsvm-tempest-plugin-mongodb-identity-v3-only/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ceilometer
-      - openstack/tempest
-
-- job:
-    name: legacy-ceilometer-dsvm-tempest-plugin-mysql
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometer-dsvm-tempest-plugin-mysql/run
-    post-run: playbooks/legacy/ceilometer-dsvm-tempest-plugin-mysql/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ceilometer
-      - openstack/tempest
-
-- job:
-    name: legacy-ceilometer-tox-py27-mongodb
-    parent: legacy-base
-    run: playbooks/legacy/ceilometer-tox-py27-mongodb/run
-    post-run: playbooks/legacy/ceilometer-tox-py27-mongodb/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-ceilometer-tox-py27-mysql
-    parent: legacy-base
-    run: playbooks/legacy/ceilometer-tox-py27-mysql/run
-    post-run: playbooks/legacy/ceilometer-tox-py27-mysql/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-ceilometer-tox-py27-postgresql
-    parent: legacy-base
-    run: playbooks/legacy/ceilometer-tox-py27-postgresql/run
-    post-run: playbooks/legacy/ceilometer-tox-py27-postgresql/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-ceilometerclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/ceilometerclient-dsvm-functional/run
@@ -10445,22 +10365,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/telemetry-dsvm-integration-aodh/run
     post-run: playbooks/legacy/telemetry-dsvm-integration-aodh/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/panko
-      # following are required when DEVSTACK_GATE_HEAT, which this
-      # job turns on
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-
-- job:
-    name: legacy-telemetry-dsvm-integration-ceilometer
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/telemetry-dsvm-integration-ceilometer/run
-    post-run: playbooks/legacy/telemetry-dsvm-integration-ceilometer/post
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
