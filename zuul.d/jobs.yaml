@@ -453,6 +453,8 @@
       - ^tox.ini$
       - ^api-ref/.*
       - ^doc/api_samples/.*
+      - bindep.txt
+      - other-requirements.txt
 
 - job:
     name: build-openstack-api-guide
@@ -471,6 +473,8 @@
     files:
       - ^tox.ini$
       - ^api-guide/.*
+      - bindep.txt
+      - other-requirements.txt
 
 - job:
     name: build-openstack-deploy-guide
@@ -485,6 +489,25 @@
     files:
       - ^tox.ini$
       - ^deploy-guide/.*
+      - bindep.txt
+      - other-requirements.txt
+
+- job:
+    name: build-placement-api-ref
+    parent: openstack-tox
+    description: |
+      Build placement-api-ref document. This job runs only on master branch.
+    success-url: html/
+    post-run: playbooks/build-placement-api-ref/post
+    timeout: 1800
+    # We only publish the master branch, so no need to run
+    # for changes on other branches.
+    branches: master
+    vars:
+      tox_envlist: placement-api-ref
+    files:
+      - ^tox.ini$
+      - ^placement-api-ref/.*
       - bindep.txt
       - other-requirements.txt
 
