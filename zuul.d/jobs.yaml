@@ -414,17 +414,9 @@
     parent: publish-openstack-artifacts
     description: |
       Publish the results of the tox-tarball job to tarballs.openstack.org.
-    pre-run: playbooks/python-tarball/pre.yaml
     run: playbooks/python-tarball/run.yaml
     post-run: playbooks/python-tarball/post.yaml
 
-- job:
-    name: build-openstack-python-tarball
-    parent: python-sdist
-    description: |
-      Build a tarball using tox but do not upload it anywhere.
-    pre-run: playbooks/python-tarball/pre.yaml
-    run: playbooks/python-tarball/run.yaml
 
 - job:
     name: publish-openstack-javascript-tarball
