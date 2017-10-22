@@ -5444,12 +5444,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-project-team-guide-publish
-    parent: legacy-base
-    run: playbooks/legacy/project-team-guide-publish/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-puppet-beaker-rspec
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec/run.yaml
