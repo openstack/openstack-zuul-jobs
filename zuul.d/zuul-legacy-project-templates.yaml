@@ -751,31 +751,6 @@
         - legacy-puppet-syntax-4-centos-7
 
 - project-template:
-    name: install-guide-jobs
-    check:
-      jobs:
-        - legacy-install-guide:
-            branches: ^stable/(newton|ocata).*$
-            files:
-              - ^tox.ini$
-              - ^install-guide/.*
-              - bindep.txt
-              - other-requirements.txt
-    gate:
-      jobs:
-        - legacy-install-guide:
-            branches: ^stable/(newton|ocata).*$
-            files:
-              - ^tox.ini$
-              - ^install-guide/.*
-              - bindep.txt
-              - other-requirements.txt
-    post:
-      jobs:
-        - legacy-install-guide:
-            branches: ^stable/(newton|ocata).*$
-
-- project-template:
     name: integrated-gate
     check:
       jobs:
