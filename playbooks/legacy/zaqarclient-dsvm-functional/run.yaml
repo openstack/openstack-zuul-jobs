@@ -31,7 +31,7 @@
           [[local|localrc]]
           enable_plugin zaqar git://git.openstack.org/openstack/zaqar
           # Enable Zaqar Tempest Plugin
-          TEMPEST_PLUGINS='/opt/stack/new/kuryr-tempest-plugin'
+          TEMPEST_PLUGINS='/opt/stack/new/zaqar-tempest-plugin'
 
           EOF
         executable: /bin/bash
