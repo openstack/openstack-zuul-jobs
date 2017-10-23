@@ -2691,7 +2691,8 @@
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run
     post-run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/post
-    branches: openstack/2.13
+    # We have several openstack/2.13 versions, we only want 2.13
+    branches: ^openstack/2\.13$
     timeout: 1800
 
 - job:
@@ -2699,7 +2700,8 @@
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/javamelody-gerrit-plugin-stable-2.13/run
     post-run: playbooks/legacy/javamelody-gerrit-plugin-stable-2.13/post
-    branches: openstack/2.13
+    # We have several openstack/2.13 versions, we only want 2.13
+    branches: ^openstack/2\.13$
     timeout: 1800
 
 - job:
