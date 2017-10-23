@@ -88,7 +88,6 @@
     timeout: 3600
     required-projects:
       - openstack/ara
-      - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-tests
       - openstack/requirements
@@ -102,7 +101,6 @@
     nodeset: legacy-centos-7
     required-projects:
       - openstack/ara
-      - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-tests
       - openstack/requirements
@@ -2717,7 +2715,6 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/js-openstack-lib
-      - openstack/openstack
 
 - job:
     name: legacy-js-openstack-lib-dsvm-nodejs6-npm-run-functional-test
@@ -2728,7 +2725,6 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/js-openstack-lib
-      - openstack/openstack
 
 - job:
     name: legacy-js-openstack-lib-nodejs6-npm-sdk-docs
@@ -4463,7 +4459,6 @@
     timeout: 5400
     required-projects:
       - openstack/keystone
-      - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_keystone
 
@@ -4476,7 +4471,6 @@
     required-projects:
       - openstack/dragonflow
       - openstack/neutron
-      - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_neutron
 
@@ -4488,7 +4482,6 @@
     timeout: 5400
     required-projects:
       - openstack/neutron
-      - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_neutron
 
@@ -4500,7 +4493,6 @@
     timeout: 5400
     required-projects:
       - openstack/nova
-      - openstack/openstack
       - openstack/openstack-ansible
       - openstack/openstack-ansible-os_nova
 
@@ -4741,7 +4733,6 @@
       - openstack-infra/puppet-user
       - openstack-infra/puppet-zanata
       - openstack-infra/puppet-zuul
-      - openstack/openstack
       - openstack/puppet-openstack-integration
       - openstack-infra/system-config
 
@@ -6245,7 +6236,6 @@
     timeout: 3600
     nodeset: legacy-centos-7
     required-projects:
-      - openstack/openstack
       - openstack/puppet-openstack-integration
     irrelevant-files:
       - ^.*\.md$
