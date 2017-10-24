@@ -2065,25 +2065,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-libec-pyeclib-unit
-    parent: legacy-base
-    run: playbooks/legacy/libec-pyeclib-unit/run.yaml
-    timeout: 1800
-    required-projects:
-      - openstack/liberasurecode
-      - openstack/pyeclib
-
-- job:
-    name: legacy-libec-pyeclib-unit-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/libec-pyeclib-unit-centos-7/run.yaml
-    timeout: 1800
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack/liberasurecode
-      - openstack/pyeclib
-
-- job:
     name: legacy-liberasurecode-unit
     parent: legacy-base
     run: playbooks/legacy/liberasurecode-unit/run.yaml
@@ -4240,16 +4221,6 @@
       - ^metadata.json$
       - ^releasenotes/.*$
       - ^test-requirements.txt$
-
-- job:
-    name: legacy-pyeclib-tox-py27-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/pyeclib-tox-py27-centos-7/run.yaml
-    post-run: playbooks/legacy/pyeclib-tox-py27-centos-7/post.yaml
-    timeout: 2400
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-python-barbicanclient-devstack
