@@ -105,12 +105,16 @@
     check:
       jobs:
         - legacy-tripleo-ci-centos-7-undercloud-oooq
+        - legacy-tripleo-ci-centos-7-undercloud-containers:
+            branches: ^(?!stable/(newton|ocata|pike)).*$
         - legacy-tripleo-ci-centos-7-undercloud-upgrades:
             voting: false
             branches: ^(?!stable/newton).*$
     gate:
       jobs:
         - legacy-tripleo-ci-centos-7-undercloud-oooq
+        - legacy-tripleo-ci-centos-7-undercloud-containers:
+            branches: ^(?!stable/(newton|ocata|pike)).*$
 
 - project-template:
     name: chef-rake-jobs
