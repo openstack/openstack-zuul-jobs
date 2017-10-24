@@ -238,16 +238,16 @@
       Release OpenStack server projects.
     pre-release:
       jobs:
-        - publish-openstack-python-tarball
+        - release-openstack-python-without-pypi
         - announce-release:
             dependencies:
-              - publish-openstack-python-tarball
+              - release-openstack-python-without-pypi
     release:
       jobs:
-        - publish-openstack-python-tarball
+        - release-openstack-python-without-pypi
         - announce-release:
             dependencies:
-              - publish-openstack-python-tarball
+              - release-openstack-python-without-pypi
 
 - project-template:
     name: release-notes-jobs
