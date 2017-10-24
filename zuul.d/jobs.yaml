@@ -494,6 +494,27 @@
       - other-requirements.txt
 
 - job:
+    name: build-openstack-install-guide
+    parent: openstack-tox
+    description: |
+      Build install-guide document.
+    success-url: html/
+    post-run: playbooks/build-deploy-guide/post
+    timeout: 1800
+    vars:
+      tox_envlist: install-guide
+    # This job runs only pre-pike, with pike the documents have been
+    # integrated into normal builds.
+    branches:
+      - stable/newton
+      - stable/ocata
+    files:
+      - ^tox.ini$
+      - ^install-guide/.*
+      - bindep.txt
+      - other-requirements.txt
+
+- job:
     name: build-placement-api-ref
     parent: openstack-tox
     description: |

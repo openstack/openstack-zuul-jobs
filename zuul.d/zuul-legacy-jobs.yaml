@@ -2561,20 +2561,6 @@
       - openstack/kuryr-kubernetes
 
 - job:
-    name: legacy-install-guide
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/install-guide/run
-    post-run: playbooks/legacy/install-guide/post
-    timeout: 1800
-    branches: ^stable/(newton|ocata).*$
-    files:
-      - ^tox.ini$
-      - ^install-guide/.*
-      - bindep.txt
-      - other-requirements.txt
-
-- job:
     name: legacy-interop-tox-doc8
     parent: legacy-base
     run: playbooks/legacy/interop-tox-doc8/run

@@ -644,3 +644,15 @@
     post:
       jobs:
         - publish-deploy-guide
+
+- project-template:
+    name: install-guide-jobs
+    check:
+      jobs:
+        - build-openstack-install-guide
+    gate:
+      jobs:
+        - build-openstack-install-guide
+    post:
+      jobs:
+        - publish-install-guide
