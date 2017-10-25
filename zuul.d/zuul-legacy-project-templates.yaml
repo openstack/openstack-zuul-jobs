@@ -135,25 +135,21 @@
       jobs:
         - legacy-tempest-dsvm-designate-pdns4
         - legacy-tempest-dsvm-designate-bind9
-        - legacy-tempest-dsvm-designate-pdns4-postgres:
-            branches: ^(?!stable/newton).*$
+        - legacy-tempest-dsvm-designate-pdns4-postgres
         - legacy-tempest-dsvm-designate-pdns4-worker-model
         - legacy-rally-dsvm-designate-designate-pdns4:
             voting: false
-        - legacy-grenade-dsvm-designate-pdns4:
-            branches: ^(?!stable/newton).*$
+        - legacy-grenade-dsvm-designate-pdns4
         - legacy-tempest-dsvm-designate-pdns4-identity-v3-only
         - legacy-tempest-dsvm-designate-pdns4-py35:
             voting: false
-            branches: ^(?!stable/(newton|ocata)).*$
+            branches: ^(?!stable/ocata).*$
     gate:
       jobs:
         - legacy-tempest-dsvm-designate-pdns4
         - legacy-tempest-dsvm-designate-bind9
-        - legacy-grenade-dsvm-designate-pdns4:
-            branches: ^(?!stable/newton).*$
-        - legacy-tempest-dsvm-designate-pdns4-postgres:
-            branches: ^(?!stable/newton).*$
+        - legacy-grenade-dsvm-designate-pdns4
+        - legacy-tempest-dsvm-designate-pdns4-postgres
         - legacy-tempest-dsvm-designate-pdns4-worker-model
         - legacy-tempest-dsvm-designate-pdns4-identity-v3-only
     experimental:
