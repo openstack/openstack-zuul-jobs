@@ -7567,24 +7567,6 @@
       - openstack/sahara-dashboard
 
 - job:
-    name: legacy-sahara-dashboard-tox-py27dj110
-    parent: legacy-base
-    run: playbooks/legacy/sahara-dashboard-tox-py27dj110/run
-    post-run: playbooks/legacy/sahara-dashboard-tox-py27dj110/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-sahara-dashboard-tox-py27dj19
-    parent: legacy-base
-    run: playbooks/legacy/sahara-dashboard-tox-py27dj19/run
-    post-run: playbooks/legacy/sahara-dashboard-tox-py27dj19/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-sahara-dsvm-scenario-mod-wsgi
     parent: legacy-dsvm-base
     run: playbooks/legacy/sahara-dsvm-scenario-mod-wsgi/run
