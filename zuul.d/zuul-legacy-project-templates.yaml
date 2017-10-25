@@ -385,13 +385,6 @@
         - legacy-periodic-py35-with-ovsdbapp-master
 
 - project-template:
-    name: periodic-newton
-    periodic-stable:
-      jobs:
-        - legacy-periodic-docs-newton
-        - legacy-periodic-python27-newton
-
-- project-template:
     name: periodic-ocata
     periodic-stable:
       jobs:

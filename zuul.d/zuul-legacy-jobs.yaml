@@ -4953,15 +4953,6 @@
       - openstack/zaqar
 
 - job:
-    name: legacy-periodic-docs-newton
-    parent: legacy-base
-    run: playbooks/legacy/periodic-docs-newton/run
-    timeout: 2400
-    branches: stable/newton
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-periodic-docs-ocata
     parent: legacy-base
     run: playbooks/legacy/periodic-docs-ocata/run
@@ -5344,16 +5335,6 @@
     post-run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/post
     branches: master
     timeout: 3000
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-python27-newton
-    parent: legacy-base
-    run: playbooks/legacy/periodic-python27-newton/run
-    post-run: playbooks/legacy/periodic-python27-newton/post
-    branches: stable/newton
-    timeout: 2400
     required-projects:
       - openstack/requirements
 
