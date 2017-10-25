@@ -4600,39 +4600,6 @@
       - openstack/python-freezerclient
 
 - job:
-    name: legacy-osc-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osc-dsvm-functional/run
-    post-run: playbooks/legacy/osc-dsvm-functional/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-openstackclient
-
-- job:
-    name: legacy-osc-dsvm-functional-n-net
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osc-dsvm-functional-n-net/run
-    post-run: playbooks/legacy/osc-dsvm-functional-n-net/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-openstackclient
-
-- job:
-    name: legacy-osc-dsvm-functional-tips
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osc-dsvm-functional-tips/run
-    post-run: playbooks/legacy/osc-dsvm-functional-tips/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/os-client-config
-      - openstack/osc-lib
-      - openstack/python-openstackclient
-      - openstack/python-openstacksdk
-
-- job:
     name: legacy-osc-placement-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/osc-placement-dsvm-functional/run
