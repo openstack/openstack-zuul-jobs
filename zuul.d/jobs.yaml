@@ -791,3 +791,18 @@
     parent: legacy-base
     required-projects:
       - openstack/requirements
+
+- job:
+    name: openstack-zuul-jobs-linters
+    parent: tox
+    description: |
+      This job runs against project-config, openstack-zuul-jobs and zuul-jobs
+      so we can properly lint our ansible playbooks / roles
+    required-projects:
+      - openstack-infra/openstack-zuul-jobs
+      - openstack-infra/project-config
+      - openstack-infra/zuul-jobs
+    vars:
+      tox_envlist: linters
+      tox_environment:
+        ANSIBLE_ROLES_PATH: ~/src/git.openstack.org/openstack-infra/zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/openstack-zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/project-config/roles

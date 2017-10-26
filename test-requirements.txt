@@ -8,6 +8,3 @@ ansible<2.4.0
 ansible-lint
 bashate>=0.2
 zuul-sphinx>=0.2.0
-
-# zuul-jobs is required to supply the ansible roles for ansible-lint
--e git://git.openstack.org/openstack-infra/zuul-jobs#egg=zuul-jobs
