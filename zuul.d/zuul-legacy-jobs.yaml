@@ -1492,28 +1492,6 @@
       - openstack/neutron
 
 - job:
-    name: legacy-functional-nova-network-dsvm-ec2api
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/functional-nova-network-dsvm-ec2api/run
-    post-run: playbooks/legacy/functional-nova-network-dsvm-ec2api/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ec2-api
-      - openstack/nova
-
-- job:
-    name: legacy-functional-nova-network-dsvm-gceapi
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/functional-nova-network-dsvm-gceapi/run
-    post-run: playbooks/legacy/functional-nova-network-dsvm-gceapi/post
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/gce-api
-      - openstack/nova
-
-- job:
     name: legacy-fuxi-dsvm-fullstack
     parent: legacy-dsvm-base
     run: playbooks/legacy/fuxi-dsvm-fullstack/run
@@ -2309,12 +2287,6 @@
     timeout: 1800
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-horizon-selenium-headless-legacy
-    parent: legacy-base
-    run: playbooks/legacy/horizon-selenium-headless-legacy/run
-    timeout: 1800
 
 - job:
     name: legacy-horizon-tox-py27dj110
@@ -3867,17 +3839,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-novaclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/novaclient-dsvm-functional/run
-    post-run: playbooks/legacy/novaclient-dsvm-functional/post
-    timeout: 7200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/nova
-      - openstack/python-novaclient
-
-- job:
     name: legacy-novaclient-dsvm-functional-identity-v3-only
     parent: legacy-dsvm-base
     run: playbooks/legacy/novaclient-dsvm-functional-identity-v3-only/run
@@ -5164,41 +5125,11 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-networking-midonet-aio-ml2-newton
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-newton/run
-    post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-newton/post
-    branches: stable/newton
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-l2gw
-      - openstack/networking-midonet
-      - openstack/neutron-dynamic-routing
-      - openstack/tap-as-a-service
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata/run
     post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata/post
     branches: stable/ocata
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-l2gw
-      - openstack/networking-midonet
-      - openstack/neutron-dynamic-routing
-      - openstack/tap-as-a-service
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-networking-midonet-aio-v2-newton
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-newton/run
-    post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-newton/post
-    branches: stable/newton
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
@@ -7699,25 +7630,6 @@
     parent: legacy-base
     run: playbooks/legacy/swift-tox-xfs-tmp-func-encryption-centos-7/run
     post-run: playbooks/legacy/swift-tox-xfs-tmp-func-encryption-centos-7/post
-    timeout: 2400
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-swift-tox-xfs-tmp-func-fast-post
-    parent: legacy-base
-    run: playbooks/legacy/swift-tox-xfs-tmp-func-fast-post/run
-    post-run: playbooks/legacy/swift-tox-xfs-tmp-func-fast-post/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-swift-tox-xfs-tmp-func-fast-post-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/swift-tox-xfs-tmp-func-fast-post-centos-7/run
-    post-run: playbooks/legacy/swift-tox-xfs-tmp-func-fast-post-centos-7/post
     timeout: 2400
     nodeset: legacy-centos-7
     required-projects:
