@@ -3,8 +3,9 @@
 
     - name: Ensure artifacts directory exists
       file:
-        path: '{{ zuul.executor.work_root }}/artifacts'
+        path: '{{ zuul.executor.work_root }}/artifacts/plugins'
         state: directory
+        recurse: yes
       delegate_to: localhost
 
     - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
