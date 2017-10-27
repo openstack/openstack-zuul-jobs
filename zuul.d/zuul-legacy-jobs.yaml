@@ -5560,13 +5560,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-puppet-module-build
-    parent: legacy-base
-    run: playbooks/legacy/puppet-module-build/run
-    timeout: 3600
-    files: ^metadata.json$
-
-- job:
     name: legacy-puppet-murano-puppet-beaker-rspec
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-murano-puppet-beaker-rspec/run
