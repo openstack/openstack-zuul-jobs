@@ -806,3 +806,14 @@
       tox_envlist: linters
       tox_environment:
         ANSIBLE_ROLES_PATH: ~/src/git.openstack.org/openstack-infra/zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/openstack-zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/project-config/roles
+
+- job:
+    # TODO(jaegerandi): remove and use openstack-zuul-jobs-linters instead
+    # once this job is stable
+    name: project-config-zuul-jobs-linters
+    parent: openstack-zuul-jobs-linters
+    description: |
+      This job runs against project-config only for iterating
+      on ansible-lint.
+    vars:
+      tox_envlist: ansible-linters
