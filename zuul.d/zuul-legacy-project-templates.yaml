@@ -404,7 +404,6 @@
       jobs:
         - legacy-puppet-beaker-rspec-centos-7
     gate:
-      queue: tripleo
       jobs:
         - legacy-puppet-beaker-rspec-centos-7
 
@@ -421,7 +420,6 @@
       jobs:
         - legacy-puppet-beaker-rspec
     gate:
-      queue: tripleo
       jobs:
         - legacy-puppet-beaker-rspec
 
@@ -441,7 +439,6 @@
         - legacy-puppet-unit-4.8-centos-7
         - legacy-puppet-unit-latest-centos-7
     gate:
-      queue: tripleo
       jobs:
         - legacy-puppet-unit-3.6-legacy-centos-7
         - legacy-puppet-unit-3.8-legacy-centos-7
@@ -458,7 +455,6 @@
         - legacy-puppet-openstack-libraries-puppet-unit-centos-7
         - legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
     gate:
-      queue: tripleo
       jobs:
         - legacy-puppet-openstack-libraries-puppet-lint-centos-7
         - legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7:
@@ -498,7 +494,6 @@
         - legacy-puppet-syntax-3-centos-7
         - legacy-puppet-syntax-4-centos-7
     gate:
-      queue: tripleo
       jobs:
         - legacy-puppet-syntax-3-centos-7
         - legacy-puppet-syntax-4-centos-7
