@@ -17,8 +17,7 @@
         - multinode-integration-ubuntu-xenial
         - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
-        - openstack-zuul-jobs-linters:
-            voting: false
+        - openstack-zuul-jobs-linters
     gate:
       jobs:
         - base-integration-centos-7
@@ -33,3 +32,4 @@
         - multinode-integration-ubuntu-xenial
         - multinode-integration-opensuse423
         - build-openstack-sphinx-docs
+        - openstack-zuul-jobs-linters
