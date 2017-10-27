@@ -4394,15 +4394,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-oslo.db-tox-mysql-python
-    parent: legacy-base
-    run: playbooks/legacy/oslo.db-tox-mysql-python/run
-    post-run: playbooks/legacy/oslo.db-tox-mysql-python/post
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-ospurge-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/ospurge-dsvm-functional/run
