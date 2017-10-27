@@ -109,6 +109,24 @@
         - publish-openstack-sphinx-docs-infra
 
 - project-template:
+    name: puppet-release-jobs
+    pre-release:
+      jobs:
+        - release-openstack-puppet
+        - announce-release:
+            dependencies:
+              - release-openstack-puppet
+    release:
+      jobs:
+        - release-openstack-puppet
+        - announce-release:
+            dependencies:
+              - release-openstack-puppet
+    post:
+      jobs:
+        - publish-openstack-puppet-branch-tarball
+
+- project-template:
     name: publish-to-pypi
     description: |
       Publish a Python package to PyPI, then send release announcement
