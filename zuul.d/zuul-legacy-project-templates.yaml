@@ -463,6 +463,7 @@
         - legacy-puppet-openstack-libraries-puppet-unit-centos-7
         - legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
 
+# TODO(pabelanger): Move this to zuul.d/project-templates.yaml
 - project-template:
     name: puppet-release-jobs
     pre-release:
@@ -485,7 +486,7 @@
         - publish-openstack-python-tarball
     post:
       jobs:
-        - publish-openstack-python-branch-tarball
+        - publish-openstack-puppet-branch-tarball
 
 - project-template:
     name: puppet-syntax
