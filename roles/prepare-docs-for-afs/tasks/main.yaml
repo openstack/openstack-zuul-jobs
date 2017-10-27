@@ -21,6 +21,7 @@
     executable: /bin/bash
   shell: |
     set -xe
+    DOCBUILD="{{ doc_build_dir }}"
     if [[ {{ zuul.ref }} =~ ^refs/tags/ ]]; then
         # This job should not be configured to run for
         # pre-releases, so if we have a tag we want to use it as
@@ -40,16 +41,16 @@
         # We will have already moved the content inside
         # a directory named for the tag, so we move that
         # directory to the publish location.
-        mv doc/build/html/$tag doc/publish/
+        mv $DOCBUILD/html/$tag doc/publish/
     elif [[ $branch_name = master ]]; then
         # The above tasks does not rename the output directory, but
         # we want it to be called "latest".
-        mv doc/build/html doc/publish/latest
+        mv $DOCBUILD/html doc/publish/latest
     elif [[ $branch_name =~ stable/ ]]; then
         # We will have already moved the content inside
         # a directory named for the branch, so move that to the
         # publish location.
-        mv doc/build/html/$(basename $branch_name) doc/publish/
+        mv $DOCBUILD/html/$(basename $branch_name) doc/publish/
     elif [[ $branch_name =~ feature/ ]]; then
         echo "Docs should not be published for feature branches"
         exit 1
@@ -62,5 +63,5 @@
         exit 1
     fi
     # Move back into doc/build/html for artifact publisher.
-    rm -rf doc/build/html
-    mv doc/publish doc/build/html
+    rm -rf $DOCBUILD/html
+    mv doc/publish $DOCBUILD/html
