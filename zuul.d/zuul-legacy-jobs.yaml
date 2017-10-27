@@ -7704,27 +7704,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-tacker-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tacker-dsvm-functional/run
-    post-run: playbooks/legacy/tacker-dsvm-functional/post
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/barbican
-      - openstack/ceilometer
-      - openstack/heat
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/networking-sfc
-      - openstack/python-barbicanclient
-      - openstack/python-mistralclient
-      - openstack/python-tackerclient
-      - openstack/tacker
-      - openstack/tacker-horizon
-
-- job:
     name: legacy-telemetry-dsvm-integration-python-ceilometerclient
     parent: legacy-dsvm-base
     run: playbooks/legacy/telemetry-dsvm-integration-python-ceilometerclient/run
