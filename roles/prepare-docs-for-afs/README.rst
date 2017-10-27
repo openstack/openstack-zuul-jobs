@@ -5,7 +5,9 @@ Prepare built OpenStack docs to be published to the OpenStack AFS cell.
 
    Directory to build documentation in.
 
-.. zuul:rolevar:: doc_build_dir
-   :default: {{ zuul_work_dir }}/doc/build
+.. zuul:rolevar:: doc_toplevel_dir
+   :default: doc
 
-   Directory that contains the built documentation.
+   Directory where the documentation lives, the build documentation is
+   in a sub directory called build, by default doc/build.
+

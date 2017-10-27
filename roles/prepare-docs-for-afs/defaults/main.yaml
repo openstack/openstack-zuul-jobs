@@ -1,2 +1,2 @@
 zuul_work_dir: "src/{{ zuul.project.canonical_name }}"
-doc_build_dir: "{{ zuul_work_dir }}/doc/build"
+doc_toplevel_dir: "doc"

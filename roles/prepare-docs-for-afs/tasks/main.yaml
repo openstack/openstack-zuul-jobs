@@ -1,3 +1,7 @@
+- name: Set build directory
+  set_fact:
+    doc_build_dir: "{{ zuul_work_dir }}/{{doc_toplevel_dir}}/build"
+
 - name: Write marker text
   copy:
     dest: "{{ doc_build_dir }}/html/.root-marker"
@@ -21,7 +25,7 @@
     executable: /bin/bash
   shell: |
     set -xe
-    DOCBUILD="{{ doc_build_dir }}"
+    DOCBUILD="{{ doc_toplevel_dir }}/build"
     if [[ {{ zuul.ref }} =~ ^refs/tags/ ]]; then
         # This job should not be configured to run for
         # pre-releases, so if we have a tag we want to use it as
