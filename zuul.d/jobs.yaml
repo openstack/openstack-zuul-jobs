@@ -13,7 +13,7 @@
       - openstack-infra/project-config
     roles:
       - zuul: openstack-infra/zuul-jobs
-    run: tests/base
+    run: tests/base.yaml
     files:
       - ^roles/configure-mirror/.*
       - ^roles/configure-unbound/.*
@@ -64,7 +64,7 @@
       - openstack-infra/project-config
     roles:
       - zuul: openstack-infra/zuul-jobs
-    run: tests/multinode
+    run: tests/multinode.yaml
     files:
       - ^roles/configure-mirror/.*
       - ^roles/configure-unbound/.*
@@ -192,14 +192,14 @@
       It runs the prepare-docs-for-afs role so that AFS stamp files
       can be examined if desired, and also validates htaccess files
       using the whereto tool.
-    run: playbooks/sphinx-docs/run
+    run: playbooks/sphinx-docs/run.yaml
     success-url: html/
     required-projects:
       - name: openstack/requirements
     roles:
       - zuul: openstack-infra/zuul-jobs
     vars:
-      tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: venv
       tox_extra_args: -vv python setup.py build_sphinx
 
@@ -209,7 +209,7 @@
     description: |
       Run zuul's py35 unittests on patches to zuul-jobs
     vars:
-      zuul_work_dir: "src/git.openstack.org/openstack-infra/zuul"
+      zuul_work_dir: src/git.openstack.org/openstack-infra/zuul
     required-projects:
       - name: openstack-infra/zuul
         override-branch: feature/zuulv3
@@ -224,7 +224,7 @@
     required-projects:
       - name: openstack/requirements
     vars:
-      tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: openstack-tox-py27
@@ -317,7 +317,7 @@
       - ^releasenotes/.*$
     success-url: cover/
     vars:
-      tox_constraints_file: "{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt"
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: openstack-tox-bashate
@@ -368,17 +368,17 @@
     parent: publish-openstack-artifacts
     description: |
       Publish the results of the tox-tarball job to tarballs.openstack.org.
-    pre-run: playbooks/python-tarball/pre
-    run: playbooks/python-tarball/run
-    post-run: playbooks/python-tarball/post
+    pre-run: playbooks/python-tarball/pre.yaml
+    run: playbooks/python-tarball/run.yaml
+    post-run: playbooks/python-tarball/post.yaml
 
 - job:
     name: build-openstack-python-tarball
     parent: python-sdist
     description: |
       Build a tarball using tox but do not upload it anywhere.
-    pre-run: playbooks/python-tarball/pre
-    run: playbooks/python-tarball/run
+    pre-run: playbooks/python-tarball/pre.yaml
+    run: playbooks/python-tarball/run.yaml
 
 - job:
     name: publish-openstack-javascript-tarball
@@ -397,26 +397,23 @@
          :default: {{ zuul.project.src_dir }}
 
         Path to operate in.
-    pre-run: playbooks/javascript/pre
-    run: playbooks/javascript/tarball
+    pre-run: playbooks/javascript/pre.yaml
+    run: playbooks/javascript/tarball.yaml
     post-run:
-      - playbooks/javascript/post
-      - playbooks/javascript/post-tarball
-
+      - playbooks/javascript/post.yaml
+      - playbooks/javascript/post-tarball.yaml
 - job:
     name: announce-release
-    description:
-      Send a release announcement after publishing a project
-    pre-run: playbooks/release/pre
-    run: playbooks/release/announce
+    description: Send a release announcement after publishing a project
+    pre-run: playbooks/release/pre.yaml
+    run: playbooks/release/announce.yaml
     required-projects:
       - openstack-infra/release-tools
 
 - job:
     name: xstatic-check-version
-    description:
-      Check version used by xstatic packages
-    run: playbooks/xstatic/check-version
+    description: Check version used by xstatic packages
+    run: playbooks/xstatic/check-version.yaml
 
 - job:
     name: build-openstack-releasenotes
@@ -424,8 +421,8 @@
     description: |
       Build releasenotes, with optional translation support, using reno.
     success-url: html/
-    run: playbooks/releasenotes/run
-    post-run: playbooks/releasenotes/post
+    run: playbooks/releasenotes/run.yaml
+    post-run: playbooks/releasenotes/post.yaml
     # Release notes always build on master.
     override-branch: master
     timeout: 1800
@@ -443,7 +440,7 @@
       Build api-ref document. This is only run on master branch of a
       project.
     success-url: html/
-    post-run: playbooks/build-api-ref/post
+    post-run: playbooks/build-api-ref/post.yaml
     timeout: 1800
     vars:
       tox_envlist: api-ref
@@ -464,7 +461,7 @@
       Build api-guide document. This is only run for changes on master
       branch of a project.
     success-url: html/
-    post-run: playbooks/build-api-guide/post
+    post-run: playbooks/build-api-guide/post.yaml
     timeout: 1800
     vars:
       tox_envlist: api-guide
@@ -483,7 +480,7 @@
     description: |
       Build deploy-guide document.
     success-url: html/
-    post-run: playbooks/build-deploy-guide/post
+    post-run: playbooks/build-deploy-guide/post.yaml
     timeout: 1800
     vars:
       tox_envlist: deploy-guide
@@ -499,7 +496,7 @@
     description: |
       Build install-guide document.
     success-url: html/
-    post-run: playbooks/build-deploy-guide/post
+    post-run: playbooks/build-deploy-guide/post.yaml
     timeout: 1800
     vars:
       tox_envlist: install-guide
@@ -520,7 +517,7 @@
     description: |
       Build placement-api-ref document. This job runs only on master branch.
     success-url: html/
-    post-run: playbooks/build-placement-api-ref/post
+    post-run: playbooks/build-placement-api-ref/post.yaml
     timeout: 1800
     # We only publish the master branch, so no need to run
     # for changes on other branches.
@@ -537,7 +534,7 @@
     name: legacy-base
     description: |
       Base job for autoconverted legacy jobs
-    pre-run: playbooks/legacy/pre
+    pre-run: playbooks/legacy/pre.yaml
     nodeset: legacy-ubuntu-xenial
 
 - job:
@@ -549,7 +546,7 @@
       may be used by jobs which have been automatically converted as
       part of the migration to Zuul v3.
     nodeset: devstack-single-node
-    pre-run: playbooks/legacy/pre
+    pre-run: playbooks/legacy/pre.yaml
     required-projects:
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
@@ -601,7 +598,7 @@
       each other.
     roles:
       - zuul: openstack-infra/zuul-jobs
-    pre-run: playbooks/legacy/multinode-networking/pre
+    pre-run: playbooks/legacy/multinode-networking/pre.yaml
 
 - job:
     name: legacy-puppet-openstack-integration
@@ -611,7 +608,7 @@
       This job runs provides the base required projects for
       puppet-openstack-integration jobs.
     nodeset: devstack-single-node
-    pre-run: playbooks/legacy/pre
+    pre-run: playbooks/legacy/pre.yaml
     required-projects:
       - openstack/puppet-aodh
       - openstack/puppet-barbican
@@ -660,7 +657,7 @@
     description: |
       Base job for autoconverted legacy jobs that publish artifacts
     nodeset: devstack-single-node
-    pre-run: playbooks/legacy/pre
+    pre-run: playbooks/legacy/pre.yaml
 
 - job:
     name: project-config-gerrit
@@ -766,10 +763,10 @@
     vars:
       tox_envlist: infra-docs
     files:
-      - 'bindep.txt'
-      - 'docs-site/.*'
-      - 'other-requirements.txt'
-      - 'tox.ini'
+      - bindep.txt
+      - docs-site/.*
+      - other-requirements.txt
+      - tox.ini
 
 - job:
     name: project-config-build-openafs-centos
@@ -779,8 +776,8 @@
       for our centos hosts that need access to the mirror to
       consume.
     parent: publish-openstack-artifacts
-    run: playbooks/package-afs-centos/run
-    post-run: playbooks/package-afs-centos/post
+    run: playbooks/package-afs-centos/run.yaml
+    post-run: playbooks/package-afs-centos/post.yaml
     nodeset: centos-7
 
 - job:
