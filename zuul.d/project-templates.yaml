@@ -122,6 +122,9 @@
         - announce-release:
             dependencies:
               - release-openstack-puppet
+    post:
+      jobs:
+        - publish-openstack-puppet-branch-tarball
 
 - project-template:
     name: publish-to-pypi
