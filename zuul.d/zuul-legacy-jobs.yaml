@@ -2321,18 +2321,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-infra-publications-publish
-    parent: legacy-base
-    run: playbooks/legacy/infra-publications-publish/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-infra-publications-publish-index
-    parent: legacy-base
-    run: playbooks/legacy/infra-publications-publish-index/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-infra-puppet-apply-base
     parent: legacy-base
     timeout: 1800
