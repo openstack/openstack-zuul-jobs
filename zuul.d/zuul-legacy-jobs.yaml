@@ -5439,7 +5439,6 @@
     timeout: 3600
     required-projects:
       - openstack/puppet-openstack-integration
-    voting: false
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
@@ -5476,7 +5475,6 @@
     nodeset: legacy-ubuntu-trusty
     required-projects:
       - openstack/puppet-openstack-integration
-    voting: false
 
 - job:
     name: legacy-puppet-httpd-forge-upload
