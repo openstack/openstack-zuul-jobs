@@ -9466,7 +9466,7 @@
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/run.yaml
     post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-ha-tempest-oooq/post.yaml
     timeout: 10800
-    nodeset: legacy-centos-7
+    nodeset: legacy-tripleo-centos-7
     irrelevant-files:
       - ^.*\.md$
       - ^.*\.rst$
