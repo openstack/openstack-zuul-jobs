@@ -265,6 +265,7 @@
       - ^.*\.rst$
       - ^doc/.*$
       - ^releasenotes/.*$
+      - ^deliverables/.*$
     vars:
       tox_envlist: py35
 
