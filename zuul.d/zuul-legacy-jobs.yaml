@@ -3160,16 +3160,6 @@
       - openstack/rally
 
 - job:
-    name: legacy-networking-sfc-functional-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/networking-sfc-functional-dsvm/run.yaml
-    post-run: playbooks/legacy/networking-sfc-functional-dsvm/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-sfc
-
-- job:
     name: legacy-networking-vpp-smoke
     parent: legacy-base
     run: playbooks/legacy/networking-vpp-smoke/run.yaml
@@ -4681,18 +4671,6 @@
       - openstack/networking-midonet
       - openstack/neutron-dynamic-routing
       - openstack/tap-as-a-service
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-networking-sfc
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-networking-sfc/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-networking-sfc/post.yaml
-    timeout: 7800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-sfc
       - openstack/tempest
 
 - job:
@@ -8052,29 +8030,6 @@
       - openstack-infra/devstack-gate
       - openstack/networking-ovs-dpdk
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-networking-sfc
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-sfc/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-sfc/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-sfc
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-networking-sfc-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-networking-sfc-multinode/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-sfc-multinode/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-sfc
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr
