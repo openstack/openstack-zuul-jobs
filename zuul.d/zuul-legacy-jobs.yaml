@@ -8839,6 +8839,9 @@
     run: playbooks/legacy/tempest-dsvm-nova-wsgi-full/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-nova-wsgi-full/post.yaml
     timeout: 10800
+    # NOVA_USE_MOD_WSGI=True has been the default in devstack since Pike so
+    # this job is only interesting in stable/ocata.
+    branches: ^stable/ocata$
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/nova
