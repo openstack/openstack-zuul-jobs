@@ -2084,17 +2084,6 @@
       - openstack/ironic-staging-drivers
 
 - job:
-    name: legacy-ironicclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ironicclient-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/ironicclient-dsvm-functional/post.yaml
-    timeout: 4800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/python-ironicclient
-
-- job:
     name: legacy-its-storyboard-gerrit-plugin-stable-2.13
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run.yaml
@@ -7676,22 +7665,6 @@
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-ceph
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-python-ironicclient-src
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-python-ironicclient-src/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-python-ironicclient-src/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
 
 - job:
     name: legacy-tempest-dsvm-redis-zaqar
