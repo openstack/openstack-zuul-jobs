@@ -5650,15 +5650,6 @@
       - openstack/python-barbicanclient
 
 - job:
-    name: legacy-python-ironic-inspector-client-tox-func
-    parent: legacy-base
-    run: playbooks/legacy/python-ironic-inspector-client-tox-func/run.yaml
-    post-run: playbooks/legacy/python-ironic-inspector-client-tox-func/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-python-mistralclient-devstack-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/python-mistralclient-devstack-dsvm/run.yaml
@@ -8925,24 +8916,6 @@
       - openstack-infra/devstack-gate
       - openstack/devstack-plugin-ceph
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-python-ironic-inspector-client
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-python-ironic-inspector-client/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-python-ironic-inspector-client/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-inspector
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/pyghmi
-      - openstack/python-ironic-inspector-client
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
 
 - job:
     name: legacy-tempest-dsvm-python-ironicclient-src
