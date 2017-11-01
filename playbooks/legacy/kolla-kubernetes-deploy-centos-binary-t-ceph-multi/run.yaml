@@ -57,6 +57,9 @@
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
+- hosts: primary
+  name: legacy-kolla-kubernetes-deploy-centos-binary-t-ceph-multi
+  tasks:
     - shell:
         cmd: |
           set -e
