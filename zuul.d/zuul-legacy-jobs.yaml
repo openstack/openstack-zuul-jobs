@@ -1644,6 +1644,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-dvr-multinode
@@ -1656,6 +1657,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
     nodeset: legacy-ubuntu-xenial-2-node
+    branches: ^(?!(driverfixes|stable/(newton|ocata))).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-forward
@@ -1680,6 +1682,7 @@
       - openstack/neutron
       - openstack/neutron-fwaas
     nodeset: legacy-ubuntu-xenial-2-node
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-libs
@@ -1700,6 +1703,7 @@
       - openstack/python-keystoneclient
       - openstack/python-neutronclient
       - openstack/python-novaclient
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-linuxbridge-multinode
@@ -1712,6 +1716,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
     nodeset: legacy-ubuntu-xenial-2-node
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode
@@ -1724,6 +1729,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
     nodeset: legacy-ubuntu-xenial-2-node
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-live-migration
@@ -1736,6 +1742,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
     nodeset: legacy-ubuntu-xenial-2-node
+    branches: ^(?!(driverfixes|stable/(newton|ocata))).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
@@ -1748,18 +1755,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
     nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-grenade-dsvm-neutron-nova-next
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-neutron-nova-next/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-nova-next/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/nova
+    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-redis-zaqar
