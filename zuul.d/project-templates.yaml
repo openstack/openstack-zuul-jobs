@@ -674,3 +674,35 @@
     post:
       jobs:
         - publish-install-guide
+
+- project-template:
+    name: periodic-stable-jobs
+    description: |
+      Runs periodic jobs on stable branches.
+    periodic-stable:
+      jobs:
+        - build-openstack-sphinx-docs:
+            branches:
+              - stable/ocata
+              - stable/pike
+        - openstack-tox-py27:
+            branches:
+              - stable/ocata
+              - stable/pike
+
+- project-template:
+    name: periodic-stable-jobs-neutron
+    periodic-stable:
+      jobs:
+        - build-openstack-sphinx-docs:
+            branches:
+              - stable/ocata
+              - stable/pike
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py27:
+            branches:
+              - stable/ocata
+              - stable/pike
+            required-projects:
+              - openstack/neutron
