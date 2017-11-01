@@ -388,24 +388,31 @@
     name: periodic-ocata
     periodic-stable:
       jobs:
-        - legacy-periodic-docs-ocata
-        - legacy-periodic-python27-ocata
+        - build-openstack-sphinx-docs:
+            branches: stable/ocata
+        - openstack-tox-py27:
+            branches: stable/ocata
 
 - project-template:
     name: periodic-pike
     periodic-stable:
       jobs:
-        - legacy-periodic-docs-pike
-        - legacy-periodic-python27-pike
+        - build-openstack-sphinx-docs:
+            branches: stable/pike
+        - openstack-tox-py27:
+            branches: stable/pike
+
 
 - project-template:
     name: periodic-ocata-neutron
     periodic-stable:
       jobs:
-        - legacy-periodic-docs-ocata:
+        - build-openstack-sphinx-docs:
+            branches: stable/ocata
             required-projects:
               - openstack/neutron
-        - legacy-periodic-python27-ocata:
+        - openstack-tox-py27:
+            branches: stable/ocata
             required-projects:
               - openstack/neutron
 
@@ -413,10 +420,12 @@
     name: periodic-pike-neutron
     periodic-stable:
       jobs:
-        - legacy-periodic-docs-pike:
+        - build-openstack-sphinx-docs:
+            branches: stable/pike
             required-projects:
               - openstack/neutron
-        - legacy-periodic-python27-pike:
+        - openstack-tox-py27:
+            branches: stable/pike
             required-projects:
               - openstack/neutron
 
