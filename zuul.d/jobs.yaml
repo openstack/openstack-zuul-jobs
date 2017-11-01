@@ -357,6 +357,9 @@
 - job:
     name: openstack-tox-compare-cover
     parent: openstack-tox
+    # NOTE(sambetts) This job runs the full UTs twice to compare the coverage
+    # pre-and-post a patch so requires longer to run.
+    timeout: 4500
     description: |
       Run coverage comparison tests.
 
