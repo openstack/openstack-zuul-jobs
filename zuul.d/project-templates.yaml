@@ -706,3 +706,14 @@
               - stable/pike
             required-projects:
               - openstack/neutron
+
+- project-template:
+    name: python-charm-layer-jobs
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-build
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-build

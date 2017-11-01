@@ -331,6 +331,16 @@
       tox_envlist: bashate
 
 - job:
+    name: openstack-tox-build
+    parent: openstack-tox
+    description: |
+      Run build tests.
+
+      Uses tox with the ``build`` environment.
+    vars:
+      tox_envlist: build
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
