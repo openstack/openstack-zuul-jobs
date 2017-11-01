@@ -4381,24 +4381,6 @@
       - openstack/zaqar
 
 - job:
-    name: legacy-periodic-docs-ocata
-    parent: legacy-base
-    run: playbooks/legacy/periodic-docs-ocata/run.yaml
-    timeout: 2400
-    branches: stable/ocata
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-docs-pike
-    parent: legacy-base
-    run: playbooks/legacy/periodic-docs-pike/run.yaml
-    timeout: 2400
-    branches: stable/pike
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-periodic-gitdm
     parent: legacy-base
     run: playbooks/legacy/periodic-gitdm/run.yaml
@@ -4763,26 +4745,6 @@
     post-run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/post.yaml
     branches: master
     timeout: 3000
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-python27-ocata
-    parent: legacy-base
-    run: playbooks/legacy/periodic-python27-ocata/run.yaml
-    post-run: playbooks/legacy/periodic-python27-ocata/post.yaml
-    timeout: 2400
-    branches: stable/ocata
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-python27-pike
-    parent: legacy-base
-    run: playbooks/legacy/periodic-python27-pike/run.yaml
-    post-run: playbooks/legacy/periodic-python27-pike/post.yaml
-    timeout: 2400
-    branches: stable/pike
     required-projects:
       - openstack/requirements
 
