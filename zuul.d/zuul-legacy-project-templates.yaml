@@ -399,6 +399,28 @@
         - legacy-periodic-python27-pike
 
 - project-template:
+    name: periodic-ocata-neutron
+    periodic-stable:
+      jobs:
+        - legacy-periodic-docs-ocata:
+            required-projects:
+              - openstack/neutron
+        - legacy-periodic-python27-ocata:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
+    name: periodic-pike-neutron
+    periodic-stable:
+      jobs:
+        - legacy-periodic-docs-pike:
+            required-projects:
+              - openstack/neutron
+        - legacy-periodic-python27-pike:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
     name: puppet-beaker-jobs
     check:
       jobs:
