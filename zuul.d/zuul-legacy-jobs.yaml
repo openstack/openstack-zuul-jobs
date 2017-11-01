@@ -1559,6 +1559,7 @@
       - openstack/designate-dashboard
       - openstack/designate-tempest-plugin
       - openstack/python-designateclient
+    branches: ^(?!stable/ocata).*$
 
 - job:
     name: legacy-grenade-dsvm-heat
