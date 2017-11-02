@@ -8847,30 +8847,6 @@
     nodeset: legacy-tripleo-centos-7
 
 - job:
-    name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton
-    parent: legacy-tripleo-ci-dsvm
-    run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/run.yaml
-    post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-newton/post.yaml
-    timeout: 10800
-    nodeset: legacy-tripleo-centos-7
-
-- job:
-    name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata
-    parent: legacy-tripleo-ci-dsvm
-    run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/run.yaml
-    post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-ocata/post.yaml
-    timeout: 10800
-    nodeset: legacy-tripleo-centos-7
-
-- job:
-    name: legacy-tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike
-    parent: legacy-tripleo-ci-dsvm
-    run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/run.yaml
-    post-run: playbooks/legacy/tripleo-ci-centos-7-ovb-1ctlr_1comp_1ceph-featureset024-puppet-pike/post.yaml
-    timeout: 10800
-    nodeset: legacy-tripleo-centos-7
-
-- job:
     name: legacy-tripleo-ci-centos-7-ovb-containers-oooq
     parent: legacy-tripleo-ci-dsvm
     run: playbooks/legacy/tripleo-ci-centos-7-ovb-containers-oooq/run.yaml
