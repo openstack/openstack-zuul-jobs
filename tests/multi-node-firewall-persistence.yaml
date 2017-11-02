@@ -1,0 +1,64 @@
+- name: Test the persistent-firewall role
+  hosts: all
+  roles:
+    # We're including multi-node-bridge a second time with the toggle for
+    # enabling firewall rules for the bridge network subnet
+    # By this time, multi-node-firewall has already ran, we don't need to run
+    # it again -- we're testing here that both are persisted properly.
+    - { role: multi-node-bridge, bridge_authorize_internal_traffic: true }
+  post_tasks:
+    - name: Include OS-specific variables
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ ansible_distribution }}_{{ ansible_distribution_release }}.yaml"
+        - "{{ ansible_distribution }}.yaml"
+        - "{{ ansible_os_family }}.yaml"
+        - "default.yaml"
+
+    - name: Flush iptables rules
+      become: yes
+      command: "{{ item }}"
+      with_items:
+        - iptables --flush
+        - ip6tables --flush
+
+    # NOTE (dmsimard): We're using with_items here because RedHat needs to
+    # restart both iptables and ip6tables.
+    - name: Restart iptables
+      become: yes
+      service:
+        name: "{{ item }}"
+        state: restarted
+      when: iptables_service is defined
+      with_items: "{{ iptables_service }}"
+
+    - name: switch and peer nodes should be in the ipv4 firewall
+      become: yes
+      command: iptables-save
+      changed_when: false
+      failed_when: false
+      register: iptables_rules
+
+    - name: Validate ipv4 firewall configuration
+      assert:
+        that:
+          - "'-A INPUT -s {{ hostvars[item]['nodepool']['private_ipv4'] }}/32 -j ACCEPT' in iptables_rules.stdout"
+          - "'-A INPUT -s {{ hostvars[item]['nodepool']['public_ipv4'] }}/32 -j ACCEPT' in iptables_rules.stdout"
+          - "'-A INPUT -s {{ bridge_address_prefix }}.0/{{ bridge_address_subnet }} -d {{ bridge_address_prefix }}.0/{{ bridge_address_subnet }} -j ACCEPT' in iptables_rules.stdout"
+      with_items: "{{ groups['all'] }}"
+
+    # ipv6_addresses is set by the multi-node-firewall role
+    - when: ipv6_addresses | length > 0
+      block:
+        - name: switch and peer nodes should be in the ipv6 firewall
+          become: yes
+          command: ip6tables-save
+          changed_when: false
+          failed_when: false
+          register: ip6tables_rules
+
+        - name: Validate ipv6 firewall configuration
+          assert:
+            that:
+              - "'-A INPUT -s {{ hostvars[item]['nodepool']['public_ipv6'] }}/128 -j ACCEPT' in ip6tables_rules.stdout"
+          with_items: "{{ groups['all'] }}"

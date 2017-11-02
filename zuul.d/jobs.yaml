@@ -60,6 +60,8 @@
       Runs roles that are included by default in the 'multinode' job in order
       to prevent regressions.
     parent: base-minimal
+    vars:
+      ara_generate_html: true
     required-projects:
       - openstack-infra/project-config
     roles:
