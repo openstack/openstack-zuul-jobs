@@ -1544,6 +1544,7 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/networking-midonet
+    branches: ^(?!stable/ocata).*$
 
 - job:
     name: legacy-grenade-dsvm-networking-midonet-v2
