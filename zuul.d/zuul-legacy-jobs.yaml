@@ -8659,15 +8659,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-tox-build
-    parent: legacy-base
-    run: playbooks/legacy/tox-build/run.yaml
-    post-run: playbooks/legacy/tox-build/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-tox-with-sudo-snap
     parent: legacy-base
     run: playbooks/legacy/tox-with-sudo-snap/run.yaml
