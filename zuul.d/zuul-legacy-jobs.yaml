@@ -28,17 +28,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-ansible-func-ubuntu-trusty
-    parent: legacy-base
-    run: playbooks/legacy/ansible-func-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/ansible-func-ubuntu-trusty/post.yaml
-    timeout: 5400
-    nodeset: legacy-ubuntu-trusty
-    branches: ^stable/newton$
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-ansible-lint
     parent: legacy-base
     run: playbooks/legacy/ansible-lint/run.yaml
@@ -4850,14 +4839,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-puppet-syntax-3-legacy-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-syntax-3-centos-7/run.yaml
-    timeout: 1800
-    nodeset: legacy-centos-7
-    branches: ^(stable/(newton|ocata)).*$
-
-- job:
     name: legacy-puppet-syntax-4-centos-7
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-4-centos-7/run.yaml
@@ -4951,14 +4932,6 @@
     nodeset: legacy-centos-7
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-pypi-both-upload
-    parent: legacy-base
-    run: playbooks/legacy/pypi-both-upload/run.yaml
-    timeout: 1800
-    dependencies:
-      - publish-openstack-python-tarball
 
 - job:
     name: legacy-python-barbicanclient-devstack
@@ -5126,36 +5099,6 @@
       - openstack/designate-dashboard
       - openstack/python-designateclient
       - openstack/rally
-
-- job:
-    name: legacy-rally-dsvm-fakevirt-ceilometer
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-fakevirt-ceilometer/run.yaml
-    post-run: playbooks/legacy/rally-dsvm-fakevirt-ceilometer/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/diskimage-builder
-      - openstack/ironic
-      - openstack/magnum
-      - openstack/networking-bgpvpn
-      - openstack/neutron
-      - openstack/neutron-fwaas
-      - openstack/neutron-lbaas
-      - openstack/neutron-vpnaas
-      - openstack/octavia
-      - openstack/panko
-      - openstack/python-magnumclient
-      - openstack/python-senlinclient
-      - openstack/python-watcherclient
-      - openstack/python-zaqarclient
-      - openstack/rally
-      - openstack/senlin
-      - openstack/tripleo-image-elements
-      - openstack/watcher
-      - openstack/zaqar-ui
 
 - job:
     name: legacy-rally-dsvm-fakevirt-heat
@@ -5775,36 +5718,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/rally-dsvm-senlin-rally/run.yaml
     post-run: playbooks/legacy/rally-dsvm-senlin-rally/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/diskimage-builder
-      - openstack/ironic
-      - openstack/magnum
-      - openstack/networking-bgpvpn
-      - openstack/neutron
-      - openstack/neutron-fwaas
-      - openstack/neutron-lbaas
-      - openstack/neutron-vpnaas
-      - openstack/octavia
-      - openstack/panko
-      - openstack/python-magnumclient
-      - openstack/python-senlinclient
-      - openstack/python-watcherclient
-      - openstack/python-zaqarclient
-      - openstack/rally
-      - openstack/senlin
-      - openstack/tripleo-image-elements
-      - openstack/watcher
-      - openstack/zaqar-ui
-
-- job:
-    name: legacy-rally-dsvm-senlin-senlin
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-senlin-senlin/run.yaml
-    post-run: playbooks/legacy/rally-dsvm-senlin-senlin/post.yaml
     timeout: 7800
     required-projects:
       - openstack-infra/devstack-gate
