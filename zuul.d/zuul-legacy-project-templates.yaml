@@ -113,23 +113,6 @@
         - legacy-tripleo-ci-centos-7-undercloud-oooq
 
 - project-template:
-    name: chef-rake-jobs
-    check:
-      jobs:
-        - legacy-chef-rake
-        - legacy-chef-rake-integration:
-            voting: false
-    gate:
-      jobs:
-        - legacy-chef-rake
-    experimental:
-      jobs:
-        - legacy-chef-rake-integration-centos-7:
-            voting: false
-        - legacy-chef-rake-integration-multinode:
-            voting: false
-
-- project-template:
     name: designate-dsvm-jobs
     check:
       jobs:
