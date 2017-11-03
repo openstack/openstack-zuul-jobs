@@ -243,20 +243,6 @@
       tox_envlist: py27
 
 - job:
-    name: openstack-tox-py34
-    parent: openstack-tox
-    description: |
-      Run unit tests for an OpenStack project under cPython version 3.4.
-
-      Uses tox with the ``py34`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^releasenotes/.*$
-    vars:
-      tox_envlist: py34
-
-- job:
     name: openstack-tox-py35
     parent: openstack-tox
     description: |
