@@ -1135,12 +1135,6 @@
       - openstack/rally
 
 - job:
-    name: legacy-elastic-recheck-docs
-    parent: legacy-base
-    run: playbooks/legacy/elastic-recheck-docs/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-elastic-recheck-tox-queries
     parent: legacy-base
     run: playbooks/legacy/elastic-recheck-tox-queries/run.yaml
