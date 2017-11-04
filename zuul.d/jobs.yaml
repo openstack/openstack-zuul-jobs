@@ -343,6 +343,16 @@
       tox_envlist: build
 
 - job:
+    name: openstack-tox-functional
+    parent: openstack-tox
+    description: |
+      Run functional tests.
+
+      Uses tox with the ``functional`` environment.
+    vars:
+      tox_envlist: functional
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
