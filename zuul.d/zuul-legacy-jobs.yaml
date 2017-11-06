@@ -3616,36 +3616,6 @@
       - openstack/openstack-helm-infra
 
 - job:
-    name: legacy-openstack-helm-infra-aio-basic-ovs-rbd
-    parent: legacy-base
-    run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd/run.yaml
-    post-run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd/post.yaml
-    timeout: 6000
-
-- job:
-    name: legacy-openstack-helm-infra-aio-basic-ovs-rbd-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-centos-7/run.yaml
-    post-run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-centos-7/post.yaml
-    timeout: 6000
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-openstack-helm-infra-aio-basic-ovs-rbd-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-fedora-26/run.yaml
-    post-run: playbooks/legacy/openstack-helm-infra-aio-basic-ovs-rbd-fedora-26/post.yaml
-    timeout: 6000
-    nodeset: legacy-fedora-26
-
-- job:
-    name: legacy-openstack-helm-infra-nocluster-linter-ovs-rbd
-    parent: legacy-base
-    run: playbooks/legacy/openstack-helm-infra-nocluster-linter-ovs-rbd/run.yaml
-    post-run: playbooks/legacy/openstack-helm-infra-nocluster-linter-ovs-rbd/post.yaml
-    timeout: 6000
-
-- job:
     name: legacy-openstack-helm-multi-armada-ovs-rbd-ubuntu-xenial-3-node
     parent: legacy-base
     run: playbooks/legacy/openstack-helm-multi-armada-ovs-rbd-ubuntu-xenial-3-node/run.yaml
