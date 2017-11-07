@@ -7309,6 +7309,7 @@
       - openstack/neutron-dynamic-routing
       - openstack/tap-as-a-service
       - openstack/tempest
+    branches: ^(?!stable/ocata).*$
 
 - job:
     name: legacy-tempest-dsvm-networking-midonet-aio-ml2-full
@@ -7338,6 +7339,7 @@
       - openstack/neutron-dynamic-routing
       - openstack/tap-as-a-service
       - openstack/tempest
+    branches: ^(?!stable/ocata).*$
 
 - job:
     name: legacy-tempest-dsvm-networking-midonet-aio-ml2-full-legacy
