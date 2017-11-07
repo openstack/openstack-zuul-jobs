@@ -943,15 +943,6 @@
       - openstack-infra/devstack-gate
 
 - job:
-    name: legacy-dib-utils-tox-func
-    parent: legacy-base
-    run: playbooks/legacy/dib-utils-tox-func/run.yaml
-    post-run: playbooks/legacy/dib-utils-tox-func/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-django_openstack_auth-tox-py27dj110
     parent: legacy-base
     run: playbooks/legacy/django_openstack_auth-tox-py27dj110/run.yaml
