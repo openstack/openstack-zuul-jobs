@@ -8260,6 +8260,7 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq/post.yaml
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    branches: ^(stable/(newton|ocata)).*$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-container
@@ -8387,6 +8388,7 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario002-multinode-oooq/post.yaml
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    branches: ^(stable/(newton|ocata)).*$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario002-multinode-oooq-container
@@ -8504,6 +8506,7 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario003-multinode-oooq/post.yaml
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    branches: ^(stable/ocata).*$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario003-multinode-oooq-container
@@ -8599,6 +8602,7 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario004-multinode-oooq/post.yaml
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    branches: ^(stable/ocata).*$
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario004-multinode-oooq-container
