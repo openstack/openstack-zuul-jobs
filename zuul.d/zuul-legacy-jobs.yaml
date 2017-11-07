@@ -3411,24 +3411,6 @@
       - openstack/nova
 
 - job:
-    name: legacy-nova-dpm-tox-functional-py35
-    parent: legacy-base
-    run: playbooks/legacy/nova-dpm-tox-functional-py35/run.yaml
-    post-run: playbooks/legacy/nova-dpm-tox-functional-py35/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-nova-tox-functional-py35
-    parent: legacy-base
-    run: playbooks/legacy/nova-tox-functional-py35/run.yaml
-    post-run: playbooks/legacy/nova-tox-functional-py35/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-novaclient-dsvm-functional-identity-v3-only
     parent: legacy-dsvm-base
     run: playbooks/legacy/novaclient-dsvm-functional-identity-v3-only/run.yaml
