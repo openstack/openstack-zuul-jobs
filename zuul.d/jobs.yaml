@@ -339,6 +339,16 @@
       tox_envlist: functional
 
 - job:
+    name: openstack-tox-functional-py35
+    parent: openstack-tox
+    description: |
+      Run functional tests using python 3.5.
+
+      Uses tox with the ``functional-py35`` environment.
+    vars:
+      tox_envlist: functional-py35
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
