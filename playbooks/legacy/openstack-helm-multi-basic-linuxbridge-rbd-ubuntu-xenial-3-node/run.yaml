@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: primary
   name: Autoconverted job legacy-openstack-helm-multi-basic-linuxbridge-rbd-ubuntu-xenial-3-node
     from old job gate-openstack-helm-multi-basic-linuxbridge-rbd-ubuntu-xenial-3-node-nv
   tasks:
