@@ -601,15 +601,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-cinder-tox-functional
-    parent: legacy-base
-    run: playbooks/legacy/cinder-tox-functional/run.yaml
-    post-run: playbooks/legacy/cinder-tox-functional/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-cinderclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/cinderclient-dsvm-functional/run.yaml
@@ -786,15 +777,6 @@
     parent: legacy-base
     run: playbooks/legacy/craton-dashboard-tox-py27dj19/run.yaml
     post-run: playbooks/legacy/craton-dashboard-tox-py27dj19/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-craton-tox-functional
-    parent: legacy-base
-    run: playbooks/legacy/craton-tox-functional/run.yaml
-    post-run: playbooks/legacy/craton-tox-functional/post.yaml
     timeout: 2400
     required-projects:
       - openstack/requirements
@@ -3429,28 +3411,10 @@
       - openstack/nova
 
 - job:
-    name: legacy-nova-dpm-tox-functional
-    parent: legacy-base
-    run: playbooks/legacy/nova-dpm-tox-functional/run.yaml
-    post-run: playbooks/legacy/nova-dpm-tox-functional/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-nova-dpm-tox-functional-py35
     parent: legacy-base
     run: playbooks/legacy/nova-dpm-tox-functional-py35/run.yaml
     post-run: playbooks/legacy/nova-dpm-tox-functional-py35/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-nova-tox-functional
-    parent: legacy-base
-    run: playbooks/legacy/nova-tox-functional/run.yaml
-    post-run: playbooks/legacy/nova-tox-functional/post.yaml
     timeout: 2400
     required-projects:
       - openstack/requirements
@@ -3524,15 +3488,6 @@
       - openstack/neutron
       - openstack/nova
       - openstack/glance_store
-      - openstack/requirements
-
-- job:
-    name: legacy-ooi-tox-functional
-    parent: legacy-base
-    run: playbooks/legacy/ooi-tox-functional/run.yaml
-    post-run: playbooks/legacy/ooi-tox-functional/post.yaml
-    timeout: 2400
-    required-projects:
       - openstack/requirements
 
 - job:
@@ -3873,15 +3828,6 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/ospurge
-
-- job:
-    name: legacy-ovsdbapp-tox-functional
-    parent: legacy-base
-    run: playbooks/legacy/ovsdbapp-tox-functional/run.yaml
-    post-run: playbooks/legacy/ovsdbapp-tox-functional/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-pbr-installation-dsvm
