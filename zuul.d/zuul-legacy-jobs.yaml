@@ -4763,13 +4763,6 @@
       - openstack/python-mistralclient
 
 - job:
-    name: legacy-python-openstacksdk-docs
-    parent: legacy-base
-    run: playbooks/legacy/python-openstacksdk-docs/run.yaml
-    post-run: playbooks/legacy/python-openstacksdk-docs/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-python-swiftclient-python36-fedora-26
     parent: legacy-base
     run: playbooks/legacy/python-swiftclient-python36-fedora-26/run.yaml
@@ -6094,28 +6087,6 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/scalpels
-
-- job:
-    name: legacy-sdk-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/sdk-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/sdk-dsvm-functional/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-openstacksdk
-
-- job:
-    name: legacy-sdk-dsvm-load-balancer-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/sdk-dsvm-load-balancer-functional/run.yaml
-    post-run: playbooks/legacy/sdk-dsvm-load-balancer-functional/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/diskimage-builder
-      - openstack/octavia
-      - openstack/python-openstacksdk
 
 - job:
     name: legacy-searchlight-ui-nodejs4-npm-run-lint
