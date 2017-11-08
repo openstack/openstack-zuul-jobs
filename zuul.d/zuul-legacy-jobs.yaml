@@ -5873,42 +5873,6 @@
       - openstack/zaqar
 
 - job:
-    name: legacy-requirements-tox-babel
-    parent: legacy-base
-    run: playbooks/legacy/requirements-tox-babel/run.yaml
-    post-run: playbooks/legacy/requirements-tox-babel/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-requirements-tox-py27-check-uc
-    parent: legacy-base
-    run: playbooks/legacy/requirements-tox-py27-check-uc/run.yaml
-    post-run: playbooks/legacy/requirements-tox-py27-check-uc/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-requirements-tox-py35-check-uc
-    parent: legacy-base
-    run: playbooks/legacy/requirements-tox-py35-check-uc/run.yaml
-    post-run: playbooks/legacy/requirements-tox-py35-check-uc/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-requirements-tox-validate-projects
-    parent: legacy-base
-    run: playbooks/legacy/requirements-tox-validate-projects/run.yaml
-    post-run: playbooks/legacy/requirements-tox-validate-projects/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-sahara-buildimages-ambari-centos-7
     parent: legacy-base
     run: playbooks/legacy/sahara-buildimages-ambari-centos-7/run.yaml
