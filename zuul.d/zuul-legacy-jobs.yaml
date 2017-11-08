@@ -551,38 +551,6 @@
       - openstack/python-zaqarclient
 
 - job:
-    name: legacy-chef-rake
-    parent: legacy-base
-    run: playbooks/legacy/chef-rake/run.yaml
-    timeout: 3600
-
-- job:
-    name: legacy-chef-rake-integration
-    parent: legacy-base
-    run: playbooks/legacy/chef-rake-integration/run.yaml
-    post-run: playbooks/legacy/chef-rake-integration/post.yaml
-    timeout: 3600
-    voting: false
-
-- job:
-    name: legacy-chef-rake-integration-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/chef-rake-integration-centos-7/run.yaml
-    post-run: playbooks/legacy/chef-rake-integration-centos-7/post.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-    voting: false
-
-- job:
-    name: legacy-chef-rake-integration-multinode
-    parent: legacy-base
-    run: playbooks/legacy/chef-rake-integration-multinode/run.yaml
-    post-run: playbooks/legacy/chef-rake-integration-multinode/post.yaml
-    timeout: 3600
-    voting: false
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-cinder-tox-bandit-baseline
     parent: legacy-base
     run: playbooks/legacy/cinder-tox-bandit-baseline/run.yaml
