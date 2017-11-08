@@ -11,6 +11,14 @@
         cmd: |
           set -e
           set -x
+          ZUUL_BRANCH_REAL=${ZUUL_BRANCH:-master}
+          # Workaround for puppet-ceph, where we need to checkout
+          # puppet-openstack-integration from stable/pike when working on
+          # stable/jewel.
+          # Ceph Jewel works with Newton to Pike
+          if [[ "$ZUUL_BRANCH" == "stable/jewel" ]]; then
+              ZUUL_BRANCH_REAL='stable/pike'
+          fi
           CLONEMAP=`mktemp`
           function cleanup {
               # In cases where zuul-cloner is aborted during a git
@@ -30,7 +38,9 @@
             - name: $ZUUL_PROJECT
               dest: .
           EOF
-          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP \
+              --cache-dir /opt/git \
+              --zuul-branch $ZUUL_BRANCH_REAL \
               git://git.openstack.org $ZUUL_PROJECT
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
