@@ -520,37 +520,6 @@
       - openstack/python-ceilometerclient
 
 - job:
-    name: legacy-check-osc-plugins
-    parent: legacy-base
-    run: playbooks/legacy/check-osc-plugins/run.yaml
-    timeout: 1800
-    voting: false
-    required-projects:
-      - openstack/python-openstackclient
-      - openstack/python-barbicanclient
-      - openstack/python-cloudkittyclient
-      - openstack/python-congressclient
-      - openstack/python-designateclient
-      - openstack/python-heatclient
-      - openstack/python-ironic-inspector-client
-      - openstack/python-ironicclient
-      - openstack/python-karborclient
-      - openstack/python-mistralclient
-      - openstack/python-muranoclient
-      - openstack/python-neutronclient
-      - openstack/python-octaviaclient
-      - openstack/python-pankoclient
-      - openstack/python-rsdclient
-      - openstack/python-saharaclient
-      - openstack/python-searchlightclient
-      - openstack/python-senlinclient
-      - openstack/python-tripleoclient
-      - openstack/python-troveclient
-      - openstack/python-vitrageclient
-      - openstack/python-watcherclient
-      - openstack/python-zaqarclient
-
-- job:
     name: legacy-cinder-tox-bandit-baseline
     parent: legacy-base
     run: playbooks/legacy/cinder-tox-bandit-baseline/run.yaml
