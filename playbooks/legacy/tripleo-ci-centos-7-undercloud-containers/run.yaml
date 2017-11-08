@@ -28,7 +28,7 @@
         cmd: |
           set -e
           set -x
-          export TOCI_JOBTYPE=undercloud-containers
+          export TOCI_JOBTYPE=multinode-1ctlr-featureset027
 
           # ZUUL does not set these for periodic jobs
           export ZUUL_BRANCH=${ZUUL_BRANCH:-master}
