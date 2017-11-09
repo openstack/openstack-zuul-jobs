@@ -6888,16 +6888,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-monasca-pipeline-events
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-monasca-pipeline-events/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-monasca-pipeline-events/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-monasca-transform-python-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-monasca-transform-python-functional/run.yaml
