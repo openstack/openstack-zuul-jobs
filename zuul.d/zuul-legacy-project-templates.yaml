@@ -302,13 +302,6 @@
         - noop
 
 - project-template:
-    name: osc-plugin-jobs
-    check:
-      jobs:
-        - legacy-check-osc-plugins:
-            voting: false
-
-- project-template:
     name: periodic-jobs-with-neutron-lib-master
     periodic:
       jobs:
