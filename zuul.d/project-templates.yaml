@@ -750,3 +750,34 @@
         - nodejs-npm-run-test:
             vars:
               node_version: 6
+
+- project-template:
+    name: nodejs4-docs
+    description: |
+      Run docs jobs using Node 4.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+
+- project-template:
+    name: nodejs6-docs
+    description: |
+      Run docs jobs using Node 6.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 6
+    gate:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 6

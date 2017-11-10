@@ -293,26 +293,6 @@
         - legacy-tempest-dsvm-neutron-src-plugin
 
 - project-template:
-    # TODO(jaegerandi): This is broken, should use npm docs
-    name: nodejs4-docs
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-
-- project-template:
-    name: nodejs6-docs
-    # TODO(jaegerandi): This is broken, should use npm docs
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-
-- project-template:
     name: noop-jobs
     check:
       jobs:
