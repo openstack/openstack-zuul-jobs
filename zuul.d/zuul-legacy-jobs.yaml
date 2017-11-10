@@ -3194,6 +3194,21 @@
       - openstack/python-neutronclient
 
 - job:
+    name: legacy-nodejs4-npm-run-test
+    parent: legacy-base
+    run: playbooks/legacy/nodejs4-npm-run-test/run.yaml
+    post-run: playbooks/legacy/nodejs4-npm-run-test/post.yaml
+    timeout: 2400
+    branches: ^(?!stable/newton).*$
+
+- job:
+    name: legacy-nodejs6-npm-run-test
+    parent: legacy-base
+    run: playbooks/legacy/nodejs6-npm-run-test/run.yaml
+    post-run: playbooks/legacy/nodejs6-npm-run-test/post.yaml
+    timeout: 2400
+
+- job:
     name: legacy-nova-api-ref-src
     parent: legacy-base
     success-url: html/
