@@ -708,3 +708,45 @@
       jobs:
         - openstack-tox-pep8
         - openstack-tox-build
+
+- project-template:
+    name: nodejs4-jobs
+    description: |
+      Run lint and test jobs using Node 4.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
+    gate:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 4
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
+
+- project-template:
+    name: nodejs6-jobs
+    description: |
+      Run lint and test jobs using Node 6.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 6
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 6
+    gate:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 6
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 6
