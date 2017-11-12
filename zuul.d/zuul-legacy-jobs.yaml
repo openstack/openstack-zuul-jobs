@@ -1657,41 +1657,6 @@
       - openstack/tempest-horizon
 
 - job:
-    name: legacy-horizon-selenium-headless
-    parent: legacy-base
-    run: playbooks/legacy/horizon-selenium-headless/run.yaml
-    timeout: 1800
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-horizon-tox-py27dj110
-    parent: legacy-base
-    run: playbooks/legacy/horizon-tox-py27dj110/run.yaml
-    post-run: playbooks/legacy/horizon-tox-py27dj110/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-horizon-tox-py27dj18
-    parent: legacy-base
-    run: playbooks/legacy/horizon-tox-py27dj18/run.yaml
-    post-run: playbooks/legacy/horizon-tox-py27dj18/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-horizon-tox-py27dj19
-    parent: legacy-base
-    run: playbooks/legacy/horizon-tox-py27dj19/run.yaml
-    post-run: playbooks/legacy/horizon-tox-py27dj19/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-infra-ansible
     parent: legacy-base
     run: playbooks/legacy/infra-ansible/run.yaml
