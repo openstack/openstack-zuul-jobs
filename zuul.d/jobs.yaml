@@ -391,6 +391,7 @@
       Build a puppet tarball but do not upload it anywhere.
     pre-run: playbooks/puppet-tarball/pre.yaml
     run: playbooks/puppet-tarball/run.yaml
+    files: ^metadata.json$
 
 - job:
     name: publish-openstack-puppet-branch-tarball
