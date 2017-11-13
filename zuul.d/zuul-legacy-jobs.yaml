@@ -2042,17 +2042,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-ironic-staging-drivers-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ironic-staging-drivers-dsvm/run.yaml
-    post-run: playbooks/legacy/ironic-staging-drivers-dsvm/post.yaml
-    timeout: 4800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-staging-drivers
-
-- job:
     name: legacy-its-storyboard-gerrit-plugin-stable-2.13
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run.yaml
@@ -6718,23 +6707,6 @@
       - openstack/tempest
       - openstack/virtualbmc
       - openstack/virtualpdu
-
-- job:
-    name: legacy-tempest-dsvm-ironic-staging-drivers-ansible-wholedisk
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-staging-drivers-ansible-wholedisk/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-staging-drivers-ansible-wholedisk/post.yaml
-    timeout: 4800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - openstack/ironic-staging-drivers
-      - openstack/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
 
 - job:
     name: legacy-tempest-dsvm-ldap-domain-specific-driver
