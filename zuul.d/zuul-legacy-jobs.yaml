@@ -5975,17 +5975,6 @@
     timeout: 2400
 
 - job:
-    name: legacy-senlinclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/senlinclient-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/senlinclient-dsvm-functional/post.yaml
-    timeout: 7200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-senlinclient
-      - openstack/senlin
-
-- job:
     name: legacy-service-types-authority-validate
     parent: legacy-base
     run: playbooks/legacy/service-types-authority-validate/run.yaml
