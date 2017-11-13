@@ -2682,18 +2682,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-manilaclient-dsvm-neutron-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/manilaclient-dsvm-neutron-functional/run.yaml
-    post-run: playbooks/legacy/manilaclient-dsvm-neutron-functional/post.yaml
-    timeout: 4800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/manila
-      - openstack/neutron
-      - openstack/python-manilaclient
-
-- job:
     name: legacy-merlin-js-release-branch
     parent: legacy-base
     run: playbooks/legacy/merlin-js-release-branch/run.yaml
