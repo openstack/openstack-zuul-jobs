@@ -1692,15 +1692,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-i18n-tox-doc-docs
-    parent: legacy-base
-    run: playbooks/legacy/i18n-tox-doc-docs/run.yaml
-    post-run: playbooks/legacy/i18n-tox-doc-docs/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-infra-ansible
     parent: legacy-base
     run: playbooks/legacy/infra-ansible/run.yaml
