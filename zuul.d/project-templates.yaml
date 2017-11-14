@@ -110,6 +110,12 @@
 
 - project-template:
     name: puppet-release-jobs
+    check:
+      jobs:
+        - build-openstack-puppet-tarball
+    gate:
+      jobs:
+        - build-openstack-puppet-tarball
     pre-release:
       jobs:
         - release-openstack-puppet
