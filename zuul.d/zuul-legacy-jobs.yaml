@@ -8226,20 +8226,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-tripleo-ui-nodejs6-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/tripleo-ui-nodejs6-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/tripleo-ui-nodejs6-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-tripleo-ui-nodejs6-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/tripleo-ui-nodejs6-npm-run-test/run.yaml
-    post-run: playbooks/legacy/tripleo-ui-nodejs6-npm-run-test/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-trove-functional-dsvm-mysql
     parent: legacy-dsvm-base
     run: playbooks/legacy/trove-functional-dsvm-mysql/run.yaml
