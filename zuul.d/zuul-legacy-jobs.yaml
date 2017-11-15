@@ -636,6 +636,7 @@
     post-run: playbooks/legacy/cross-networking-midonet-python35/post.yaml
     timeout: 3000
     required-projects:
+      - openstack/requirements
       - openstack/networking-midonet
       - openstack/neutron
       - openstack/neutron-vpnaas
