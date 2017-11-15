@@ -483,19 +483,6 @@
       - openstack/python-brick-cinderclient-ext
 
 - job:
-    name: legacy-castellan-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/castellan-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/castellan-dsvm-functional/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/barbican
-      - openstack/barbican-tempest-plugin
-      - openstack/castellan
-      - openstack/python-barbicanclient
-
-- job:
     name: legacy-ceilometerclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/ceilometerclient-dsvm-functional/run.yaml
