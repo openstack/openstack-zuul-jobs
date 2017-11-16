@@ -214,7 +214,7 @@
       zuul_work_dir: src/git.openstack.org/openstack-infra/zuul
     required-projects:
       - name: openstack-infra/zuul
-        override-branch: feature/zuulv3
+        override-checkout: feature/zuulv3
 
 - job:
     name: openstack-tox
@@ -472,7 +472,7 @@
     run: playbooks/releasenotes/run.yaml
     post-run: playbooks/releasenotes/post.yaml
     # Release notes always build on master.
-    override-branch: master
+    override-checkout: master
     timeout: 1800
     files:
       - ^releasenotes/.*
