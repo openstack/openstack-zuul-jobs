@@ -688,13 +688,17 @@
         - nodejs-npm-run-lint:
             vars:
               node_version: 4
-        - legacy-nodejs4-npm-run-test
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
     gate:
       jobs:
         - nodejs-npm-run-lint:
             vars:
               node_version: 4
-        - legacy-nodejs4-npm-run-test
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 4
 
 - project-template:
     name: nodejs6-jobs
@@ -705,7 +709,9 @@
         - nodejs-npm-run-lint:
             vars:
               node_version: 6
-        - legacy-nodejs6-npm-run-test
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 6
         - build-javascript-tarball:
             files:
               - npm-shrinkwrap.json
@@ -715,7 +721,9 @@
         - nodejs-npm-run-lint:
             vars:
               node_version: 6
-        - legacy-nodejs6-npm-run-test
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 6
         - build-javascript-tarball:
             files:
               - npm-shrinkwrap.json
