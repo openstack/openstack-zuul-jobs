@@ -291,6 +291,8 @@
 - project-template:
     name: release-notes-jobs-horizon
     description: |
+      DEPRECATED, use release-notes-jobs!
+
       The standard release-notes-jobs but with horizon added as a
       required-projects. The dashboard projects currently need this
       due to how the tox_install.sh zuul-cloner's dashboard for them.
@@ -318,6 +320,8 @@
 - project-template:
     name: release-notes-jobs-neutron
     description: |
+      DEPRECATED, use release-notes-jobs!
+
       The standard release-notes-jobs but with neutron added as a
       required-projects. The neutron stadium projects currently need this
       due to how the tox_install.sh zuul-cloner's neutron for them.
