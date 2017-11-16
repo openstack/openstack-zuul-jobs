@@ -55,6 +55,7 @@
           export PROJECTS="openstack/zun $PROJECTS"
           export PROJECTS="openstack/devstack-plugin-container $PROJECTS"
           export PROJECTS="openstack/python-zunclient $PROJECTS"
+          export PROJECTS="openstack/zun-tempest-plugin $PROJECTS"
 
           export KEEP_LOCALRC=1
 
