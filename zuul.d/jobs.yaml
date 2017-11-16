@@ -335,6 +335,10 @@
       Run functional tests.
 
       Uses tox with the ``functional`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
     vars:
       tox_envlist: functional
 
@@ -345,6 +349,10 @@
       Run functional tests using python 3.5.
 
       Uses tox with the ``functional-py35`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
     vars:
       tox_envlist: functional-py35
 
