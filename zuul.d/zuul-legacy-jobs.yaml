@@ -5158,19 +5158,6 @@
       - openstack/zaqar-ui
 
 - job:
-    name: legacy-rally-install
-    parent: legacy-base
-    run: playbooks/legacy/rally-install/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-rally-install-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/rally-install-centos-7/run.yaml
-    timeout: 1800
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-rally-tox-self
     parent: legacy-base
     run: playbooks/legacy/rally-tox-self/run.yaml
