@@ -4,6 +4,43 @@
     path: "{{ zuul_work_dir }}/releasenotes/source/locale"
   register: translations
 
+- name: Check to see if the constraints file exists
+  stat:
+    path: "{{ constraints_file|default('missing') }}"
+    get_checksum: false
+    get_mime: false
+    get_md5: false
+  register: stat_results
+  when: constraints_file is defined
+
+- name: Record file location
+  set_fact:
+    upper_constraints: "-c {{ constraints_file }}"
+  when: not stat_results|skipped and stat_results.stat.exists
+
+- name: Setup venv
+  shell:
+    chdir: '{{ zuul_work_dir }}'
+    executable: /bin/bash
+    cmd: |
+      set -e
+      set -x
+
+      UPPER_CONSTRAINTS="{{ upper_constraints }}"
+      python -m virtualenv .venv
+      VENV=.venv/bin
+      $VENV/pip install sphinx $UPPER_CONSTRAINTS
+      $VENV/pip install openstackdocstheme $UPPER_CONSTRAINTS
+      $VENV/pip install reno $UPPER_CONSTRAINTS
+      # Optionally, install local requirements
+      if [ -e releasenotes/requirements.txt ] ; then
+          $VENV/pip install -r releasenotes/requirements.txt $UPPER_CONSTRAINTS
+      fi
+      # TODO(jaegerandi): Remove once all repos are fixed.
+      # Try installing current repo in case it needs to be available for
+      # example for version number calculation. Ignore any failures here.
+      $VENV/pip install . || true
+
 - name: Prepare release note translations
   shell:
     chdir: '{{ zuul_work_dir }}'
@@ -14,6 +51,7 @@
 
       DOCNAME=releasenotes
       DIRECTORY=releasenotes
+      VENV=.venv/bin
 
       # Mapping of language codes to language names
       declare -A LANG_NAME=(
@@ -43,7 +81,7 @@
       trap "rm -f -- '$REFERENCES'" EXIT
 
       # Extract translations
-      tox -e venv -- sphinx-build -b gettext \
+      $VENV/sphinx-build -b gettext \
           -d ${DIRECTORY}/build/doctrees.gettext \
           ${DIRECTORY}/source/ \
           ${DIRECTORY}/source/locale/
@@ -85,7 +123,7 @@
           done
 
           # Build translated document
-          tox -e venv -- sphinx-build -b html -D language=${language} \
+          $VENV/sphinx-build -b html -D language=${language} \
               -d "${DIRECTORY}/build/doctrees.${language}" \
               ${DIRECTORY}/source/ ${DIRECTORY}/build/html/${language}
 
@@ -114,6 +152,14 @@
       rm -f ${DIRECTORY}/source/locale/*.pot
   when: translations.stat.exists == True
 
-- name: Build release notes
-  include_role:
-    name: tox
+- name: Run releasenotes sphinx build
+  shell:
+    chdir: '{{ zuul_work_dir }}'
+    executable: /bin/bash
+    cmd: |
+      set -e
+      set -x
+
+      VENV=.venv/bin
+      $VENV/sphinx-build -a -E -W -d releasenotes/build/doctrees -b html \
+          releasenotes/source releasenotes/build/html

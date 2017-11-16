@@ -465,7 +465,6 @@
 
 - job:
     name: build-openstack-releasenotes
-    parent: openstack-tox
     description: |
       Build releasenotes, with optional translation support, using reno.
     success-url: html/
@@ -474,12 +473,13 @@
     # Release notes always build on master.
     override-checkout: master
     timeout: 1800
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
     files:
       - ^releasenotes/.*
       - ^tox.ini
-      - ^.*requirements.txt$
-    vars:
-      tox_envlist: releasenotes
 
 - job:
     name: build-openstack-api-ref
