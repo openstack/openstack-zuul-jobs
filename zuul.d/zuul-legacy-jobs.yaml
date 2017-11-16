@@ -5566,6 +5566,7 @@
       - openstack/solum
       - openstack/solum-dashboard
       - openstack/zun
+      - openstack/zun-tempest-plugin
 
 - job:
     name: legacy-solum-devstack-dsvm-centos-7
@@ -5585,6 +5586,7 @@
       - openstack/solum
       - openstack/solum-dashboard
       - openstack/zun
+      - openstack/zun-tempest-plugin
 
 - job:
     name: legacy-solum-devstack-dsvm-py35
@@ -5603,6 +5605,7 @@
       - openstack/solum
       - openstack/solum-dashboard
       - openstack/zun
+      - openstack/zun-tempest-plugin
 
 - job:
     name: legacy-solum-devstack-dsvm-seperate-test
@@ -5622,6 +5625,7 @@
       - openstack/solum-dashboard
       - openstack/solum-tempest-plugin
       - openstack/zun
+      - openstack/zun-tempest-plugin
 
 - job:
     name: legacy-sqlalchemy-migrate-devstack-dsvm
