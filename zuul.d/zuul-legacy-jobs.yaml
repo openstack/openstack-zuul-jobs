@@ -2348,27 +2348,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-murano-congress-devstack-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/murano-congress-devstack-dsvm/run.yaml
-    post-run: playbooks/legacy/murano-congress-devstack-dsvm/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/congress
-      - openstack/congress-dashboard
-      - openstack/heat
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-congressclient
-      - openstack/python-heatclient
-      - openstack/python-mistralclient
-      - openstack/python-muranoclient
-
-- job:
     name: legacy-murano-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/murano-dsvm-functional/run.yaml
@@ -4530,21 +4509,6 @@
       - openstack/rally
 
 - job:
-    name: legacy-rally-dsvm-murano-task
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-murano-task/run.yaml
-    post-run: playbooks/legacy/rally-dsvm-murano-task/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-heatclient
-      - openstack/python-muranoclient
-      - openstack/rally
-
-- job:
     name: legacy-rally-dsvm-neutron-existing-users-rally
     parent: legacy-dsvm-base
     run: playbooks/legacy/rally-dsvm-neutron-existing-users-rally/run.yaml
@@ -6331,36 +6295,6 @@
       - openstack-infra/devstack-gate
       - openstack/tempest
     nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-murano-api
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-murano-api/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-murano-api/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-heatclient
-      - openstack/python-muranoclient
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-murano-cfapi
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-murano-cfapi/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-murano-cfapi/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-heatclient
-      - openstack/python-muranoclient
-      - openstack/tempest
 
 - job:
     name: legacy-tempest-dsvm-networking-bagpipe
