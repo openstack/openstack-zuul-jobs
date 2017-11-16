@@ -7496,6 +7496,7 @@
     post-run: playbooks/legacy/tripleo-ci-centos-7-scenario001-multinode-oooq-puppet/post.yaml
     timeout: 10800
     nodeset: legacy-centos-7-2-node
+    voting: false
 
 - job:
     name: legacy-tripleo-ci-centos-7-scenario001-multinode-upgrades

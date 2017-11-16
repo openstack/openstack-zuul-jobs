@@ -443,9 +443,6 @@
     check:
       jobs:
         - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
-    gate:
-      jobs:
-        - legacy-tripleo-ci-centos-7-scenario001-multinode-oooq-puppet
 
 - project-template:
     name: tripleo-scenario-jobs-scenario002
