@@ -26,12 +26,29 @@
       set -e
       set -x
 
+      OPTIONAL_REQUIREMENTS_SOURCES="
+      docs/requirements.txt
+      requirements.txt
+      test-requirements.txt
+      "
+
       UPPER_CONSTRAINTS="{{ upper_constraints }}"
       python -m virtualenv .venv
       VENV=.venv/bin
       $VENV/pip install sphinx $UPPER_CONSTRAINTS
       $VENV/pip install openstackdocstheme $UPPER_CONSTRAINTS
       $VENV/pip install reno $UPPER_CONSTRAINTS
+
+      # Install from other optional sources, ignoring errors.
+      # TODO(jaegerandi): as below, these extra requirements are only
+      # for things like oslosphix which some releasenotes jobs still
+      # depend on.
+      for reqfile in $OPTIONAL_REQUIREMENTS_SOURCES; do
+          if [ -e $reqfile ] ; then
+              $VENV/pip install -r $reqfile $UPPER_CONSTRAINTS || true
+          fi
+      done
+
       # Optionally, install local requirements
       if [ -e releasenotes/requirements.txt ] ; then
           $VENV/pip install -r releasenotes/requirements.txt $UPPER_CONSTRAINTS
@@ -39,4 +56,6 @@
       # TODO(jaegerandi): Remove once all repos are fixed.
       # Try installing current repo in case it needs to be available for
       # example for version number calculation. Ignore any failures here.
-      $VENV/pip install . || true
+      if [ -f setup.cfg ] ; then
+          $VENV/pip install $UPPER_CONSTRAINTS . || true
+      fi
