@@ -1,0 +1,2 @@
+zuul_work_dir: "{{ zuul.project.src_dir }}"
+zuul_work_virtualenv: "{{ ansible_user_dir }}/.venv"

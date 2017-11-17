@@ -1,0 +1,27 @@
+- name: Check for tox_install.sh
+  stat:
+    path: "{{ zuul_work_dir }}/tools/tox_install.sh"
+    get_checksum: false
+    get_mime: false
+    get_md5: false
+  register: tox_install
+
+- name: Require Constraints File
+  when: tox_install.stat.exists and constraints_file is not defined
+  fail:
+    msg: tox_install.sh projects require a constraints file to be set
+
+- name: Ensure log directory exists for backwards compat
+  when: tox_install.stat.exists
+  file:
+    path: '{{ zuul_work_virtualenv }}/log'
+    state: directory
+
+- name: Install extra things needed by tox_install.sh
+  when: tox_install.stat.exists
+  shell:
+    executable: /bin/bash
+    cmd: |
+      source {{ zuul_work_virtualenv }}/bin/activate
+      tools/tox_install.sh {{ constraints_file }}
+    chdir: "{{ zuul_work_dir }}"
