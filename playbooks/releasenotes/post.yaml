@@ -1,4 +1,0 @@
-- hosts: all
-  roles:
-    - role: fetch-sphinx-output
-      sphinx_output_src: "{{ zuul.project.src_dir }}/releasenotes/build/html"

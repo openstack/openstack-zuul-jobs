@@ -183,7 +183,6 @@
           nodes:
             - secondary
 
-
 - job:
     name: build-openstack-sphinx-docs
     parent: tox-docs
@@ -465,21 +464,14 @@
 
 - job:
     name: build-openstack-releasenotes
+    parent: build-reno-releasenotes
     description: |
       Build releasenotes, with optional translation support, using reno.
-    success-url: html/
-    run: playbooks/releasenotes/run.yaml
-    post-run: playbooks/releasenotes/post.yaml
-    # Release notes always build on master.
-    override-checkout: master
     timeout: 1800
     required-projects:
       - name: openstack/requirements
     vars:
       constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
-    files:
-      - ^releasenotes/.*
-      - ^tox.ini
 
 - job:
     name: build-openstack-api-ref
