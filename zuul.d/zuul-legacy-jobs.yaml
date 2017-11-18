@@ -3971,6 +3971,8 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit/run.yaml
     timeout: 3600
+    required-projects:
+      - openstack-infra/puppet-openstackci
 
 - job:
     name: legacy-puppet-openstack-infra-spec-helper-unit-centos-7
@@ -3978,6 +3980,8 @@
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit-centos-7/run.yaml
     timeout: 3600
     nodeset: legacy-centos-7
+    required-projects:
+      - openstack-infra/puppet-openstackci
 
 - job:
     name: legacy-puppet-openstack-infra-spec-helper-unit-ubuntu-trusty
@@ -3985,6 +3989,8 @@
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit-ubuntu-trusty/run.yaml
     timeout: 3600
     nodeset: legacy-ubuntu-trusty
+    required-projects:
+      - openstack-infra/puppet-openstackci
 
 - job:
     name: legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
