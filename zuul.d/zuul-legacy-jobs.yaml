@@ -2362,13 +2362,6 @@
       - openstack/python-muranoclient
 
 - job:
-    name: legacy-murano-firstapp-docs
-    parent: legacy-base
-    run: playbooks/legacy/murano-firstapp-docs/run.yaml
-    post-run: playbooks/legacy/murano-firstapp-docs/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-muranoclient-dsvm-functional-mysql-backend
     parent: legacy-dsvm-base
     run: playbooks/legacy/muranoclient-dsvm-functional-mysql-backend/run.yaml
