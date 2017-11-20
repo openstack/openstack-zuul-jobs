@@ -352,24 +352,6 @@
       - openstack/python-brick-cinderclient-ext
 
 - job:
-    name: legacy-cinder-tox-bandit-baseline
-    parent: legacy-base
-    run: playbooks/legacy/cinder-tox-bandit-baseline/run.yaml
-    post-run: playbooks/legacy/cinder-tox-bandit-baseline/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-cinder-tox-compliance
-    parent: legacy-base
-    run: playbooks/legacy/cinder-tox-compliance/run.yaml
-    post-run: playbooks/legacy/cinder-tox-compliance/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-cinderclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/cinderclient-dsvm-functional/run.yaml
