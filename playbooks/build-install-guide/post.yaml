@@ -2,4 +2,4 @@
   roles:
     - role: fetch-tox-output
     - role: fetch-sphinx-output
-      sphinx_output_src: "{{ zuul.project.src_dir }}/deploy-guide/build/html"
+      sphinx_output_src: "{{ zuul.project.src_dir }}/install-guide/build/html"
