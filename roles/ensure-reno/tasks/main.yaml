@@ -33,8 +33,10 @@
       "
 
       UPPER_CONSTRAINTS="{{ upper_constraints }}"
-      python -m virtualenv .venv
-      VENV=.venv/bin
+      # NOTE(dhellmann): Place the virtualenv in $HOME because
+      # that's where the build-releasenotes task expects to find it.
+      python -m virtualenv $HOME/.venv
+      VENV=$HOME/.venv/bin
       $VENV/pip install sphinx $UPPER_CONSTRAINTS
       $VENV/pip install openstackdocstheme $UPPER_CONSTRAINTS
       $VENV/pip install reno $UPPER_CONSTRAINTS
