@@ -57,5 +57,8 @@
       # Try installing current repo in case it needs to be available for
       # example for version number calculation. Ignore any failures here.
       if [ -f setup.cfg ] ; then
-          $VENV/pip install $UPPER_CONSTRAINTS . || true
+          # NOTE(dhellmann): We do *NOT* use constraints here because
+          # that makes it impossible to install anything that is listed
+          # in the constraints list.
+          $VENV/pip install . || true
       fi
