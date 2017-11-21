@@ -544,7 +544,7 @@
     description: |
       Build install-guide document.
     success-url: html/
-    post-run: playbooks/build-deploy-guide/post.yaml
+    post-run: playbooks/build-install-guide/post.yaml
     timeout: 1800
     vars:
       tox_envlist: install-guide
