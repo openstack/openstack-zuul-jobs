@@ -92,7 +92,6 @@
           export PROJECTS="openstack/oslo.versionedobjects $PROJECTS"
           export PROJECTS="openstack/oslo.vmware $PROJECTS"
           export PROJECTS="openstack/pycadf $PROJECTS"
-          export PROJECTS="openstack/python-ceilometerclient $PROJECTS"
           export PROJECTS="openstack/python-cinderclient $PROJECTS"
           export PROJECTS="openstack/python-glanceclient $PROJECTS"
           export PROJECTS="openstack/python-heatclient $PROJECTS"

@@ -352,30 +352,6 @@
       - openstack/python-brick-cinderclient-ext
 
 - job:
-    name: legacy-ceilometerclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometerclient-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/ceilometerclient-dsvm-functional/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/python-ceilometerclient
-
-- job:
-    name: legacy-ceilometerclient-dsvm-functional-identity-v3-only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ceilometerclient-dsvm-functional-identity-v3-only/run.yaml
-    post-run: playbooks/legacy/ceilometerclient-dsvm-functional-identity-v3-only/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/python-ceilometerclient
-
-- job:
     name: legacy-cinder-tox-bandit-baseline
     parent: legacy-base
     run: playbooks/legacy/cinder-tox-bandit-baseline/run.yaml
@@ -3243,7 +3219,6 @@
       - openstack/oslo.versionedobjects
       - openstack/oslo.vmware
       - openstack/pycadf
-      - openstack/python-ceilometerclient
       - openstack/python-cinderclient
       - openstack/python-glanceclient
       - openstack/python-heatclient
@@ -3341,7 +3316,6 @@
       - openstack/oslo.versionedobjects
       - openstack/oslo.vmware
       - openstack/pycadf
-      - openstack/python-ceilometerclient
       - openstack/python-cinderclient
       - openstack/python-glanceclient
       - openstack/python-heatclient
@@ -5089,7 +5063,6 @@
       - openstack/oslo.versionedobjects
       - openstack/oslo.vmware
       - openstack/pycadf
-      - openstack/python-ceilometerclient
       - openstack/python-cinderclient
       - openstack/python-glanceclient
       - openstack/python-heatclient
@@ -5188,7 +5161,6 @@
       - openstack/oslo.versionedobjects
       - openstack/oslo.vmware
       - openstack/pycadf
-      - openstack/python-ceilometerclient
       - openstack/python-cinderclient
       - openstack/python-glanceclient
       - openstack/python-heatclient
@@ -5671,23 +5643,6 @@
     parent: legacy-base
     run: playbooks/legacy/system-config-puppet-syntax-3/run.yaml
     timeout: 1800
-
-- job:
-    name: legacy-telemetry-dsvm-integration-python-ceilometerclient
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/telemetry-dsvm-integration-python-ceilometerclient/run.yaml
-    post-run: playbooks/legacy/telemetry-dsvm-integration-python-ceilometerclient/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/panko
-      - openstack/python-ceilometerclient
-      # following are required when DEVSTACK_GATE_HEAT, which this
-      # job turns on
-      - openstack/dib-utils
-      - openstack/diskimage-builder
 
 - job:
     name: legacy-tempest-almanach-dsvm
