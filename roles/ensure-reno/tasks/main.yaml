@@ -34,7 +34,7 @@
 
       UPPER_CONSTRAINTS="{{ upper_constraints }}"
       # NOTE(dhellmann): Place the virtualenv in $HOME because
-      # that's where the build-releasenotes task expects to find it.
+      # that is where the build-releasenotes task expects to find it.
       python -m virtualenv $HOME/.venv
       VENV=$HOME/.venv/bin
       $VENV/pip install sphinx $UPPER_CONSTRAINTS
