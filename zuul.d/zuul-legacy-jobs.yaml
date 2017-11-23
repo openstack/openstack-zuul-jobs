@@ -5925,18 +5925,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-lio
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-lio/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-lio/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/barbican
-      - openstack/python-barbicanclient
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-full-lio-src-os-brick
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-full-lio-src-os-brick/run.yaml
