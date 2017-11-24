@@ -1582,12 +1582,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-instack-undercloud-puppet-lint
-    parent: legacy-base
-    run: playbooks/legacy/instack-undercloud-puppet-lint/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-install-dsvm-dragonflow-kuryr-kubernetes
     parent: legacy-dsvm-base
     run: playbooks/legacy/install-dsvm-dragonflow-kuryr-kubernetes/run.yaml
