@@ -3983,20 +3983,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-puppet-tripleo-puppet-unit-4.8-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-tripleo-puppet-unit-4.8-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-puppet-tripleo-puppet-unit-latest-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-tripleo-puppet-unit-latest-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-puppet-unit-3.6-legacy-centos-7
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-unit-3.6-centos-7/run.yaml
