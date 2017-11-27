@@ -2778,24 +2778,6 @@
       - publish-openstack-python-tarball
 
 - job:
-    name: legacy-oaktree-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/oaktree-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/oaktree-dsvm-functional/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack-infra/shade
-      - openstack/oaktree
-      - openstack/oaktreemodel
-
-- job:
-    name: legacy-oaktreemodel-distcheck
-    parent: legacy-base
-    run: playbooks/legacy/oaktreemodel-distcheck/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-omni-tests
     parent: legacy-base
     run: playbooks/legacy/omni-tests/run.yaml
