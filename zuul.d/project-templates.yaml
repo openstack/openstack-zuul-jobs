@@ -51,9 +51,10 @@
               - openstack/horizon
     post:
       jobs:
-        - publish-openstack-sphinx-docs:
-            required-projects:
-              - openstack/horizon
+        - publish-openstack-sphinx-docs
+          # Final job, we cannot modify it.
+          #  required-projects:
+          #    - openstack/horizon
 
 - project-template:
     name: publish-openstack-sphinx-docs-neutron
@@ -73,9 +74,10 @@
               - openstack/neutron
     post:
       jobs:
-        - publish-openstack-sphinx-docs:
-            required-projects:
-              - openstack/neutron
+        - publish-openstack-sphinx-docs
+          # Final job, we cannot modify it.
+          #  required-projects:
+          #    - openstack/neutron
 
 
 - project-template:
