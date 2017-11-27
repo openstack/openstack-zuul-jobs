@@ -23,18 +23,26 @@
       assert:
         that:
           - forwarding_config | changed
+          - ttl_config | changed
 
     - name: Check if /etc/unbound/forwarding.conf exists
       stat:
         path: /etc/unbound/forwarding.conf
       register: forwarding_file
 
-    - name: Ensure that configuration file exists
+    - name: Check if /etc/unbound/conf.d/ttl.conf exists
+      stat:
+        path: "{{ unbound_confd }}/ttl.conf"
+      register: ttl_file
+
+    - name: Ensure that configuration files exist
       assert:
         that:
           - forwarding_file.stat.exists
+          - ttl_file.stat.exists
 
     # This is self-tested, no need to assert
     - name: Do a host lookup (sanity check)
       command: host openstack.org
       changed_when: false
+

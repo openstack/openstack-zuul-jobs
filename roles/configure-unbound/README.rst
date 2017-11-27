@@ -29,3 +29,20 @@ usable IPv6 default route, otherwise IPv4.
    :default: 2001:4860:4860::8888 (Google)
 
    The seconary IPv6 nameserver for fowarding requests
+
+.. zuul:rolevar:: unbound_cache_max_ttl
+   :default: 86400
+
+   Maximum TTL in seconds to keep successful queries cached for.
+
+   This TTL will have precedence if the DNS record TTL is higher.
+   For example, a TTL of 90000 would be reduced to 86400.
+
+.. zuul:rolevar:: unbound_cache_min_ttl
+   :default: 0
+
+   Minimum TTL in seconds to keep queries cached for.
+   Note that this is effective for both successful and failed queries.
+
+   This TTL will have precedence if the DNS record TTL is lower.
+   For example, a TTL of 60 would be raised to 900.
