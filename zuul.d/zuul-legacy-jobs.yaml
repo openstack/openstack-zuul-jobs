@@ -3410,6 +3410,87 @@
       - ^test-requirements.txt$
 
 - job:
+    name: legacy-puppet-beaker-rspec-infra
+    parent: legacy-puppet-beaker-rspec
+    required-projects:
+      - openstack-infra/project-config
+      - openstack-infra/puppet-bugdaystats
+      - openstack-infra/puppet-mysql_backup
+      - openstack-infra/puppet-openstackci
+      - openstack-infra/puppet-zuul
+      - openstack-infra/puppet-mqtt_statsd
+      - openstack-infra/puppet-meetbot
+      - openstack-infra/puppet-hound
+      - openstack-infra/puppet-pip
+      - openstack-infra/puppet-os_client_config
+      - openstack-infra/puppet-openstackid
+      - openstack-infra/puppet-bandersnatch
+      - openstack-infra/puppet-project_config
+      - openstack-infra/puppet-grafyaml
+      - openstack-infra/puppet-refstack
+      - openstack-infra/puppet-github
+      - openstack-infra/puppet-ethercalc
+      - openstack-infra/puppet-unattended_upgrades
+      - openstack-infra/puppet-openafs
+      - openstack-infra/puppet-httpd
+      - openstack-infra/puppet-drupal
+      - openstack-infra/puppet-subunit2sql
+      - openstack-infra/puppet-reviewday
+      - openstack-infra/puppet-kibana
+      - openstack-infra/puppet-redis
+      - openstack-infra/puppet-phabricator
+      - openstack-infra/puppet-ssl_cert_check
+      - openstack-infra/puppet-lpmqtt
+      - openstack-infra/puppet-germqtt
+      - openstack-infra/puppet-cgit
+      - openstack-infra/puppet-packagekit
+      - openstack-infra/puppet-haveged
+      - openstack-infra/puppet-graphite
+      - openstack-infra/puppet-diskimage_builder
+      - openstack-infra/puppet-sudoers
+      - openstack-infra/puppet-stackalytics
+      - openstack-infra/puppet-zanata
+      - openstack-infra/puppet-logstash
+      - openstack-infra/puppet-gerritbot
+      - openstack-infra/puppet-asterisk
+      - openstack-infra/puppet-statusbot
+      - openstack-infra/puppet-gerrit
+      - openstack-infra/puppet-mediawiki
+      - openstack-infra/puppet-mailman
+      - openstack-infra/puppet-exim
+      - openstack-infra/puppet-tmpreaper
+      - openstack-infra/puppet-elastic_recheck
+      - openstack-infra/puppet-ulimit
+      - openstack-infra/puppet-planet
+      - openstack-infra/puppet-nodepool
+      - openstack-infra/puppet-logrotate
+      - openstack-infra/puppet-infracloud
+      - openstack-infra/puppet-elasticsearch
+      - openstack-infra/puppet-unbound
+      - openstack-infra/puppet-storyboard
+      - openstack-infra/puppet-openstack_health
+      - openstack-infra/puppet-kerberos
+      - openstack-infra/puppet-odsreg
+      - openstack-infra/puppet-askbot
+      - openstack-infra/puppet-log_processor
+      - openstack-infra/puppet-simpleproxy
+      - openstack-infra/puppet-iptables
+      - openstack-infra/puppet-lodgeit
+      - openstack-infra/puppet-etherpad_lite
+      - openstack-infra/puppet-mosquitto
+      - openstack-infra/puppet-bup
+      - openstack-infra/puppet-pgsql_backup
+      - openstack-infra/puppet-ansible
+      - openstack-infra/puppet-ssh
+      - openstack-infra/puppet-snmpd
+      - openstack-infra/puppet-user
+      - openstack-infra/puppet-jeepyb
+      - openstack-infra/puppet-apps_site
+      - openstack-infra/puppet-accessbot
+      - openstack-infra/puppet-ptgbot
+      - openstack-infra/puppet-jenkins
+
+- job:
     name: legacy-puppet-beaker-rspec-centos-7
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec-centos-7/run.yaml

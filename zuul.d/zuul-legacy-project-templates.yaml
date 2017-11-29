@@ -321,16 +321,16 @@
     name: puppet-beaker-jobs-xenial
     check:
       jobs:
-        - legacy-puppet-beaker-rspec
+        - legacy-puppet-beaker-rspec-infra
     gate:
       jobs:
-        - legacy-puppet-beaker-rspec
+        - legacy-puppet-beaker-rspec-infra
 
 - project-template:
     name: puppet-beaker-jobs-xenial-nv
     check:
       jobs:
-        - legacy-puppet-beaker-rspec:
+        - legacy-puppet-beaker-rspec-infra:
             voting: false
 
 - project-template:
