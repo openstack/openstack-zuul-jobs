@@ -664,6 +664,22 @@
         - openstack-tox-build
 
 - project-template:
+    name: python35-charm-jobs
+    description: |
+      Run tox-pep8 and tox-py35 check and gate jobs, plus publish.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py35
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py35
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
     name: nodejs4-jobs
     description: |
       Run lint and test jobs using Node 4.
