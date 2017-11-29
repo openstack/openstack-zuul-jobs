@@ -1,11 +1,13 @@
-- name: Ensure /etc/unbound exists
-  become: yes
-  file:
+# This role assumes that Unbound is already installed, fail early if it isn't.
+- name: Check that Unbound is installed
+  stat:
     path: /etc/unbound
-    state: directory
-    owner: root
-    group: root
-    mode: 0755
+  register: unbound_config
+
+- name: Ensure that Unbound is installed
+  assert:
+    that:
+      - unbound_config.stat.exists
 
 # ansible_default_ipv6 can either be undefined (no ipv6) or blank (no
 # routable address).  We only want to use ipv6 if it's available &
@@ -24,9 +26,8 @@
   when:
     - unbound_use_ipv6 is defined
   set_fact:
-    primary_nameserver: '{{ primary_nameserver_v6 }}'
-    secondary_nameserver: '{{ secondary_nameserver_v6 }}'
-
+    unbound_primary_nameserver: '{{ unbound_primary_nameserver_v6 }}'
+    unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v6 }}'
 
 # Fallback to default ipv4 if there is no ipv6 available as this
 # causes timeouts and failovers that are unnecesary.
@@ -34,21 +35,25 @@
   when:
     - unbound_use_ipv6 is not defined
   set_fact:
-    primary_nameserver: '{{ primary_nameserver_v4 }}'
-    secondary_nameserver: '{{ secondary_nameserver_v4 }}'
+    unbound_primary_nameserver: '{{ unbound_primary_nameserver_v4 }}'
+    unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v4 }}'
 
-- name: Configure unbound fowarding
+# TODO: Move this to /etc/unbound/conf.d ?
+- name: Configure unbound forwarding
   become: yes
   template:
-    dest: '/etc/unbound/forwarding.conf'
+    dest: /etc/unbound/forwarding.conf
     owner: root
     group: root
     mode: 0644
     src: forwarding.conf.j2
+  register: forwarding_config
+  notify:
+    - Restart unbound
 
-- name: restart unbound
+- name: Start unbound
   become: yes
   service:
     name: unbound
-    state: restarted
+    state: started
     enabled: yes

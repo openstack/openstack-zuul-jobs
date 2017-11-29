@@ -10,18 +10,22 @@ usable IPv6 default route, otherwise IPv4.
 
 **Role Variables**
 
-.. zuul:rolevar:: primary_nameserver_v4
+.. zuul:rolevar:: unbound_primary_nameserver_v4
+   :default: 208.67.222.222 (OpenDNS)
 
    The primary IPv4 nameserver for fowarding requests
 
-.. zuul:rolevar:: primary_nameserver_v6
-
-   The primary IPv6 nameserver for fowarding requests
-
-.. zuul:rolevar:: secondary_nameserver_v4
+.. zuul:rolevar:: unbound_secondary_nameserver_v4
+   :default: 8.8.8.8 (Google)
 
    The secondary IPv4 nameserver for fowarding requests
 
-.. zuul:rolevar:: secondary_nameserver_v6
+.. zuul:rolevar:: unbound_primary_nameserver_v6
+   :default: 2620:0:ccc::2 (OpenDNS)
+
+   The primary IPv6 nameserver for fowarding requests
+
+.. zuul:rolevar:: unbound_secondary_nameserver_v6
+   :default: 2001:4860:4860::8888 (Google)
 
    The seconary IPv6 nameserver for fowarding requests

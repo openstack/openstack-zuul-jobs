@@ -3,11 +3,38 @@
   roles:
     - role: configure-unbound
   post_tasks:
-    - name: Check for /etc/unbound/forwarding.conf
-      stat: path=/etc/unbound/forwarding.conf
-      register: f
-    - name: Check forwarding file
+    - name: Check that unbound is started
+      become: yes
+      service:
+        name: unbound
+        state: started
+      register: unbound_service
+
+    - name: Ensure that unbound is started
       assert:
         that:
-          - f.stat.exists
-          - f.stat.isreg
+          - not unbound_service | changed
+
+    # Until nodepool no longer embeds a forwarding.conf in the image, it is
+    # safe to assume that we'll be changing the forwarding configuration
+    # because the role has logic to use v6 *or* v4 nameservers while nodepool
+    # puts all four nameservers.
+    - name: Ensure that configuration was installed
+      assert:
+        that:
+          - forwarding_config | changed
+
+    - name: Check if /etc/unbound/forwarding.conf exists
+      stat:
+        path: /etc/unbound/forwarding.conf
+      register: forwarding_file
+
+    - name: Ensure that configuration file exists
+      assert:
+        that:
+          - forwarding_file.stat.exists
+
+    # This is self-tested, no need to assert
+    - name: Do a host lookup (sanity check)
+      command: host openstack.org
+      changed_when: false

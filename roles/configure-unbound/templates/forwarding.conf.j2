@@ -2,5 +2,5 @@
 
 forward-zone:
   name: "."
-  forward-addr: {{ primary_nameserver }}
-  forward-addr: {{ secondary_nameserver }}
+  forward-addr: {{ unbound_primary_nameserver }}
+  forward-addr: {{ unbound_secondary_nameserver }}
