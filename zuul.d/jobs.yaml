@@ -240,6 +240,7 @@
       - ^releasenotes/.*$
     vars:
       tox_envlist: py27
+      bindep_profile: test py27
 
 - job:
     name: openstack-tox-py35
@@ -255,6 +256,7 @@
       - ^deliverables/.*$
     vars:
       tox_envlist: py35
+      bindep_profile: test py35
 
 - job:
     name: openstack-tox-pypy
@@ -269,6 +271,7 @@
       - ^releasenotes/.*$
     vars:
       tox_envlist: pypy
+      bindep_profile: test pypy
 
 - job:
     name: openstack-tox-linters
@@ -279,6 +282,7 @@
       Uses tox with the ``linters`` environment.
     vars:
       tox_envlist: linters
+      bindep_profile: test linters
 
 - job:
     name: openstack-tox-pep8
@@ -289,6 +293,7 @@
       Uses tox with the ``pep8`` environment.
     vars:
       tox_envlist: pep8
+      bindep_profile: test pep8
 
 - job:
     name: openstack-tox-cover
