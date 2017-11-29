@@ -321,13 +321,29 @@
     name: puppet-beaker-jobs-xenial
     check:
       jobs:
+        - legacy-puppet-beaker-rspec
+    gate:
+      jobs:
+        - legacy-puppet-beaker-rspec
+
+- project-template:
+    name: puppet-beaker-jobs-xenial-nv
+    check:
+      jobs:
+        - legacy-puppet-beaker-rspec:
+            voting: false
+
+- project-template:
+    name: puppet-beaker-jobs-xenial-infra
+    check:
+      jobs:
         - legacy-puppet-beaker-rspec-infra
     gate:
       jobs:
         - legacy-puppet-beaker-rspec-infra
 
 - project-template:
-    name: puppet-beaker-jobs-xenial-nv
+    name: puppet-beaker-jobs-xenial-infra-nv
     check:
       jobs:
         - legacy-puppet-beaker-rspec-infra:
