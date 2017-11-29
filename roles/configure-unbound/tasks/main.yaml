@@ -38,6 +38,19 @@
     unbound_primary_nameserver: '{{ unbound_primary_nameserver_v4 }}'
     unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v4 }}'
 
+- name: Include OS-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ role_path }}/vars/{{ ansible_distribution }}.yaml"
+    - "{{ role_path }}/vars/{{ ansible_os_family }}.yaml"
+    - "{{ role_path }}/vars/default.yaml"
+
+- name: Ensure Unbound conf.d directory exists
+  become: yes
+  file:
+    path: "{{ unbound_confd }}"
+    state: directory
+
 # TODO: Move this to /etc/unbound/conf.d ?
 - name: Configure unbound forwarding
   become: yes
@@ -48,6 +61,18 @@
     mode: 0644
     src: forwarding.conf.j2
   register: forwarding_config
+  notify:
+    - Restart unbound
+
+- name: Configure unbound TTL
+  become: yes
+  template:
+    dest: "{{ unbound_confd }}/ttl.conf"
+    owner: root
+    group: root
+    mode: 0644
+    src: ttl.conf.j2
+  register: ttl_config
   notify:
     - Restart unbound
 
