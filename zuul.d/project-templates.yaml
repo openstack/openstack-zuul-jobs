@@ -706,12 +706,20 @@
             vars:
               node_version: 6
         - legacy-nodejs6-npm-run-test
+        - build-javascript-tarball:
+            files:
+              - npm-shrinkwrap.json
+              - package.json
     gate:
       jobs:
         - nodejs-npm-run-lint:
             vars:
               node_version: 6
         - legacy-nodejs6-npm-run-test
+        - build-javascript-tarball:
+            files:
+              - npm-shrinkwrap.json
+              - package.json
 
 - project-template:
     name: nodejs4-docs
