@@ -101,35 +101,6 @@
         - build-openstack-sphinx-docs
 
 - project-template:
-    name: designate-dsvm-jobs
-    check:
-      jobs:
-        - legacy-tempest-dsvm-designate-pdns4
-        - legacy-tempest-dsvm-designate-bind9
-        - legacy-tempest-dsvm-designate-pdns4-postgres
-        - legacy-tempest-dsvm-designate-pdns4-worker-model
-        - legacy-rally-dsvm-designate-designate-pdns4:
-            voting: false
-        - legacy-grenade-dsvm-designate-pdns4
-        - legacy-tempest-dsvm-designate-pdns4-identity-v3-only
-        - legacy-tempest-dsvm-designate-pdns4-py35:
-            voting: false
-            branches: ^(?!stable/ocata).*$
-    gate:
-      jobs:
-        - legacy-tempest-dsvm-designate-pdns4
-        - legacy-tempest-dsvm-designate-bind9
-        - legacy-grenade-dsvm-designate-pdns4
-        - legacy-tempest-dsvm-designate-pdns4-postgres
-        - legacy-tempest-dsvm-designate-pdns4-worker-model
-        - legacy-tempest-dsvm-designate-pdns4-identity-v3-only
-    experimental:
-      jobs:
-        - legacy-tempest-dsvm-designate-agent-knot2
-        - legacy-tempest-dsvm-designate-agent-djbdns
-        - legacy-tempest-dsvm-designate-agent-gdnsd
-
-- project-template:
     name: fuel-ccp-component
     check:
       jobs:
