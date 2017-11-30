@@ -2532,16 +2532,6 @@
     timeout: 2400
 
 - job:
-    name: legacy-nova-api-ref-src
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/nova-api-ref-src/run.yaml
-    post-run: playbooks/legacy/nova-api-ref-src/post.yaml
-    timeout: 1800
-    required-projects:
-      - openstack/nova
-
-- job:
     name: legacy-novaclient-dsvm-functional-identity-v3-only
     parent: legacy-dsvm-base
     run: playbooks/legacy/novaclient-dsvm-functional-identity-v3-only/run.yaml
