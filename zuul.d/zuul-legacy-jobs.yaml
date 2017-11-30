@@ -6479,15 +6479,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-tox-plugin-sanity-check
-    parent: legacy-base
-    run: playbooks/legacy/tempest-tox-plugin-sanity-check/run.yaml
-    post-run: playbooks/legacy/tempest-tox-plugin-sanity-check/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-tox-with-sudo-snap
     parent: legacy-base
     run: playbooks/legacy/tox-with-sudo-snap/run.yaml
