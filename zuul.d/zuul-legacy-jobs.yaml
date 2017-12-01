@@ -3466,6 +3466,13 @@
       - ^test-requirements.txt$
 
 - job:
+    name: legacy-puppet-beaker-rspec-centos-7-infra
+    parent: legacy-puppet-beaker-rspec-infra
+    run: playbooks/legacy/puppet-beaker-rspec-centos-7/run.yaml
+    post-run: playbooks/legacy/puppet-beaker-rspec-centos-7/post.yaml
+    nodeset: legacy-centos-7
+
+- job:
     name: legacy-puppet-beaker-rspec-ubuntu-trusty
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec-ubuntu-trusty/run.yaml

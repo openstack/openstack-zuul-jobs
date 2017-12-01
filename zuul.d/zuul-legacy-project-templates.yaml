@@ -321,6 +321,15 @@
             voting: false
 
 - project-template:
+    name: puppet-beaker-jobs-centos-7-infra
+    check:
+      jobs:
+        - legacy-puppet-beaker-rspec-centos-7-infra
+    gate:
+      jobs:
+        - legacy-puppet-beaker-rspec-centos-7-infra
+
+- project-template:
     name: puppet-module-unit-jobs
     check:
       jobs:
