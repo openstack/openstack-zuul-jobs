@@ -4844,30 +4844,10 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-lvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-lvm/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-lvm/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-lvm-multibackend
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-lvm-multibackend/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-lvm-multibackend/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-lxc
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-lxc/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-lxc/post.yaml
     timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
@@ -5314,6 +5294,17 @@
       - openstack/tempest
       - openstack/neutron-lib
 
+# TODO(stephenfin): These jobs are artifacts of the migration process.
+# Initially there was only one job - 'tempest-dsvm-neutron-src-{name}' - where
+# '{name}' was set to the name of the project being tested. This was mainly run
+# for library projects as part of the 'lib-forward-testing-{name}' job. However
+# some non-library projects wanted to also run these tests against important
+# libraries and called the job specifically with the library. The end result
+# is jobs that look identical to 'legacy-tempest-dsvm-neutron-src' but with a
+# specific library. Eventually, when 'legacy-tempest-dsvm-neutron-src' is
+# migrated to zuulv3-native jobs, these should be removed in favour of this one
+# central job again.
+
 - job:
     name: legacy-tempest-dsvm-neutron-src-oslo.versionedobjects
     parent: legacy-dsvm-base
@@ -5325,20 +5316,6 @@
       - openstack/neutron
       - openstack/oslo.versionedobjects
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-src-plugin
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-src-plugin/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-src-plugin/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-    irrelevant-files:
-      - ^(test-|)requirements.txt$
-      - ^setup.cfg$
 
 - job:
     name: legacy-tempest-dsvm-neutron-src-python-saharaclient
@@ -5355,6 +5332,20 @@
       - openstack/sahara
       - openstack/sahara-tests
       - openstack/tempest
+
+- job:
+    name: legacy-tempest-dsvm-neutron-src-plugin
+    parent: legacy-dsvm-base
+    run: playbooks/legacy/tempest-dsvm-neutron-src-plugin/run.yaml
+    post-run: playbooks/legacy/tempest-dsvm-neutron-src-plugin/post.yaml
+    timeout: 10800
+    required-projects:
+      - openstack-infra/devstack-gate
+      - openstack/neutron
+      - openstack/tempest
+    irrelevant-files:
+      - ^(test-|)requirements.txt$
+      - ^setup.cfg$
 
 - job:
     name: legacy-tempest-dsvm-neutron-with-ryu-master
@@ -5417,20 +5408,6 @@
     run: playbooks/legacy/tempest-dsvm-nova-v20-api/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-nova-v20-api/post.yaml
     timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/nova
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-nova-wsgi-full
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-nova-wsgi-full/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-nova-wsgi-full/post.yaml
-    timeout: 10800
-    # NOVA_USE_MOD_WSGI=True has been the default in devstack since Pike so
-    # this job is only interesting in stable/ocata.
-    branches: ^stable/ocata$
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/nova
