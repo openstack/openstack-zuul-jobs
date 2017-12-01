@@ -200,26 +200,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-cliff-tox-neutronclient-tip
-    parent: legacy-base
-    run: playbooks/legacy/cliff-tox-neutronclient-tip/run.yaml
-    post-run: playbooks/legacy/cliff-tox-neutronclient-tip/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-      - openstack/python-neutronclient
-
-- job:
-    name: legacy-cliff-tox-openstackclient-tip
-    parent: legacy-base
-    run: playbooks/legacy/cliff-tox-openstackclient-tip/run.yaml
-    post-run: playbooks/legacy/cliff-tox-openstackclient-tip/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-      - openstack/python-openstackclient
-
-- job:
     name: legacy-cloudkitty-dsvm-install
     parent: legacy-dsvm-base
     run: playbooks/legacy/cloudkitty-dsvm-install/run.yaml
