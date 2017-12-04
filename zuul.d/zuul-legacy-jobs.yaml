@@ -2643,33 +2643,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-osbackup-freezer-api-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osbackup-freezer-api-dsvm/run.yaml
-    post-run: playbooks/legacy/osbackup-freezer-api-dsvm/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/freezer
-      - openstack/freezer-api
-      - openstack/freezer-web-ui
-      - openstack/python-freezerclient
-
-- job:
-    name: legacy-osbackup-freezer-api-dsvm-centos-7
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osbackup-freezer-api-dsvm-centos-7/run.yaml
-    post-run: playbooks/legacy/osbackup-freezer-api-dsvm-centos-7/post.yaml
-    timeout: 4200
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/freezer
-      - openstack/freezer-api
-      - openstack/freezer-web-ui
-      - openstack/python-freezerclient
-
-- job:
     name: legacy-osbackup-freezer-web-ui-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/osbackup-freezer-web-ui-dsvm/run.yaml
