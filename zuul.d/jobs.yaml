@@ -478,100 +478,91 @@
 
 - job:
     name: build-openstack-api-ref
-    parent: openstack-tox
+    parent: build-openstack-sphinx-docs
     description: |
       Build api-ref document. This is only run on master branch of a
       project.
-    success-url: html/
-    post-run: playbooks/build-api-ref/post.yaml
     timeout: 1800
     vars:
-      tox_envlist: api-ref
+      sphinx_build_dir: api-ref/build
+      sphinx_source_dir: api-ref/source
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
     files:
-      - ^tox.ini$
       - ^api-ref/.*
       - ^doc/api_samples/.*
       - bindep.txt
-      - other-requirements.txt
+      - doc/requirements.txt
+      - test-requirements.txt
 
 - job:
     name: build-openstack-api-guide
-    parent: openstack-tox
+    parent: build-openstack-sphinx-docs
     description: |
       Build api-guide document. This is only run for changes on master
       branch of a project.
-    success-url: html/
-    post-run: playbooks/build-api-guide/post.yaml
-    timeout: 1800
     vars:
-      tox_envlist: api-guide
+      sphinx_build_dir: api-ref/build
+      sphinx_source_dir: api-ref/source
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
     files:
-      - ^tox.ini$
       - ^api-guide/.*
       - bindep.txt
-      - other-requirements.txt
+      - doc/requirements.txt
+      - test-requirements.txt
 
 - job:
     name: build-openstack-deploy-guide
-    parent: openstack-tox
+    parent: build-openstack-sphinx-docs
     description: |
       Build deploy-guide document.
-    success-url: html/
-    post-run: playbooks/build-deploy-guide/post.yaml
-    timeout: 1800
     vars:
-      tox_envlist: deploy-guide
+      sphinx_build_dir: deploy-guide/build
+      sphinx_source_dir: deploy-guide/source
     files:
-      - ^tox.ini$
       - ^deploy-guide/.*
       - bindep.txt
-      - other-requirements.txt
+      - doc/requirements.txt
+      - test-requirements.txt
 
 - job:
     name: build-openstack-install-guide
-    parent: openstack-tox
+    parent: build-openstack-sphinx-docs
     description: |
       Build install-guide document.
-    success-url: html/
-    post-run: playbooks/build-install-guide/post.yaml
-    timeout: 1800
     vars:
-      tox_envlist: install-guide
+      sphinx_build_dir: install-guide/build
+      sphinx_source_dir: install-guide/source
     # This job runs only pre-pike, with pike the documents have been
     # integrated into normal builds.
     branches:
       - stable/newton
       - stable/ocata
     files:
-      - ^tox.ini$
       - ^install-guide/.*
       - bindep.txt
-      - other-requirements.txt
+      - doc/requirements.txt
+      - test-requirements.txt
 
 - job:
     name: build-placement-api-ref
-    parent: openstack-tox
+    parent: build-openstack-sphinx-docs
     description: |
       Build placement-api-ref document. This job runs only on master branch.
-    success-url: html/
-    post-run: playbooks/build-placement-api-ref/post.yaml
-    timeout: 1800
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
     vars:
-      tox_envlist: placement-api-ref
+      sphinx_build_dir: placement-api-ref/build
+      sphinx_source_dir: placement-api-ref/source
     files:
-      - ^tox.ini$
       - ^placement-api-ref/.*
       - bindep.txt
-      - other-requirements.txt
+      - doc/requirements.txt
+      - test-requirements.txt
 
 - job:
     name: legacy-base
