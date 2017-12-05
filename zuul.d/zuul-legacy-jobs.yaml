@@ -2643,19 +2643,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-osbackup-freezer-web-ui-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osbackup-freezer-web-ui-dsvm/run.yaml
-    post-run: playbooks/legacy/osbackup-freezer-web-ui-dsvm/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/freezer
-      - openstack/freezer-api
-      - openstack/freezer-web-ui
-      - openstack/python-freezerclient
-
-- job:
     name: legacy-osc-placement-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/osc-placement-dsvm-functional/run.yaml
