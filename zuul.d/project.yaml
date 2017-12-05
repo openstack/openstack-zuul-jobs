@@ -24,6 +24,8 @@
         - openstack-infra-multinode-integration-opensuse423
         - openstack-infra-multinode-integration-opensuse-tumbleweed:
             voting: false
+        - openstack-infra-extra-integration-xenial
+        - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters
     gate:
       jobs:

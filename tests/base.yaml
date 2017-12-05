@@ -11,4 +11,3 @@
 - include: configure-mirrors.yaml
 - include: fetch-zuul-cloner.yaml
 - include: validate-host.yaml
-

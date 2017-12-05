@@ -1496,3 +1496,35 @@
       nodes:
         - name: fedora-28
           label: fedora-28-vexxhost
+
+- job:
+    name: openstack-infra-extra-integration
+    description: |
+      Runs non-base roles that are used within various jobs to prevent
+      regressions.  As opposed to base roles, these may run in a
+      limited set of environments or have other simplifying
+      assumptions.
+    abstract: true
+    protected: true
+    parent: base
+    required-projects:
+      - openstack-infra/project-config
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    run: tests/extra.yaml
+    files:
+      - ^zuul.d/*
+      - ^roles/prepare-zanata-client/.*
+      - ^tests/.*
+
+# NOTE(ianw): This test restricted to the two node types these roles
+# run on in the gate.
+- job:
+    name: openstack-infra-extra-integration-xenial
+    parent: openstack-infra-extra-integration
+    nodeset: ubuntu-xenial
+
+- job:
+    name: openstack-infra-extra-integration-bionic
+    parent: openstack-infra-extra-integration
+    nodeset: ubuntu-bionic
