@@ -1,1 +1,2 @@
-zuul_work_dir: "src/{{ zuul.project.canonical_name }}"
+sphinx_build_dir: doc/build
+zuul_work_dir: "{{ zuul.project.src_dir }}"
