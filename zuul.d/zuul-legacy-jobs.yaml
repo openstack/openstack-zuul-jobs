@@ -1031,6 +1031,8 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/ara
+      - openstack/heat
+      - openstack/heat-tempest-plugin
       - openstack/python-saharaclient
       - openstack/sahara
 
