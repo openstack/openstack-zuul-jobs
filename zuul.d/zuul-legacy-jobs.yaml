@@ -1207,18 +1207,6 @@
       - openstack/python-heatclient
 
 - job:
-    name: legacy-horizon-dsvm-tempest-plugin
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/horizon-dsvm-tempest-plugin/run.yaml
-    post-run: playbooks/legacy/horizon-dsvm-tempest-plugin/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/horizon
-      - openstack/tempest
-      - openstack/tempest-horizon
-
-- job:
     name: legacy-infra-ansible
     parent: legacy-base
     run: playbooks/legacy/infra-ansible/run.yaml
