@@ -34,31 +34,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-app-catalog-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/app-catalog-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/app-catalog-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-app-catalog-ui-dsvm-integration
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/app-catalog-ui-dsvm-integration/run.yaml
-    post-run: playbooks/legacy/app-catalog-ui-dsvm-integration/post.yaml
-    timeout: 3600
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/app-catalog
-      - openstack/app-catalog-ui
-
-- job:
-    name: legacy-app-catalog-ui-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/app-catalog-ui-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/app-catalog-ui-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-astara-appliance-buildimage
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/astara-appliance-buildimage/run.yaml
