@@ -563,41 +563,6 @@
     nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
-    name: legacy-glance_store-dsvm-functional-cinder
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/glance_store-dsvm-functional-cinder/run.yaml
-    post-run: playbooks/legacy/glance_store-dsvm-functional-cinder/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/cinder
-      - openstack/glance
-      - openstack/glance_store
-
-- job:
-    name: legacy-glance_store-dsvm-functional-filesystem
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/glance_store-dsvm-functional-filesystem/run.yaml
-    post-run: playbooks/legacy/glance_store-dsvm-functional-filesystem/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/glance
-      - openstack/glance_store
-
-- job:
-    name: legacy-glance_store-dsvm-functional-swift
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/glance_store-dsvm-functional-swift/run.yaml
-    post-run: playbooks/legacy/glance_store-dsvm-functional-swift/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/glance
-      - openstack/glance_store
-      - openstack/swift
-
-- job:
     name: legacy-glare-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/glare-dsvm/run.yaml
