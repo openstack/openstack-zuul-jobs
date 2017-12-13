@@ -3235,6 +3235,7 @@
     parent: legacy-puppet-beaker-rspec
     required-projects:
       - openstack-infra/project-config
+      - openstack-infra/system-config
       - openstack-infra/puppet-bugdaystats
       - openstack-infra/puppet-mysql_backup
       - openstack-infra/puppet-openstackci
