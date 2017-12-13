@@ -184,6 +184,190 @@
             - secondary
 
 - job:
+    name: openstack-infra-base-integration
+    description: |
+      Runs roles that are included by default in the 'base' job in order to
+      prevent regressions. This job should not be used outside the context of
+      testing roles and playbooks found in project-config, zuul-jobs and
+      openstack-zuul-jobs.
+    parent: base-minimal
+    required-projects:
+      - openstack-infra/project-config
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    run: tests/base.yaml
+    files:
+      - ^roles/configure-mirror/.*
+      - ^roles/configure-unbound/.*
+      - ^roles/emit-job-header/.*
+      - ^roles/fetch-zuul-cloner/.*
+      - ^roles/mirror-info/.*
+      - ^roles/set-zuul-log-path-fact/.*
+      - ^roles/use-cached-repos/.*
+      - ^tests/.*
+
+- job:
+    name: openstack-infra-base-integration-centos-7
+    parent: openstack-infra-base-integration
+    nodeset: centos-7
+
+- job:
+    name: openstack-infra-base-integration-debian-jessie
+    parent: openstack-infra-base-integration
+    nodeset: debian-jessie
+
+- job:
+    name: openstack-infra-base-integration-fedora-26
+    parent: openstack-infra-base-integration
+    nodeset: fedora-26
+
+- job:
+    name: openstack-infra-base-integration-opensuse423
+    parent: openstack-infra-base-integration
+    nodeset: opensuse-423
+
+- job:
+    name: openstack-infra-base-integration-ubuntu-trusty
+    parent: openstack-infra-base-integration
+    nodeset: ubuntu-trusty
+
+- job:
+    name: openstack-infra-base-integration-ubuntu-xenial
+    parent: openstack-infra-base-integration
+    nodeset: ubuntu-xenial
+
+- job:
+    name: openstack-infra-multinode-integration
+    description: |
+      Runs roles that are included by default in the 'multinode' job in order
+      to prevent regressions. This job should not be used outside the context
+      of testing roles and playbooks found in project-config, zuul-jobs and
+      openstack-zuul-jobs.
+    parent: base-minimal
+    vars:
+      ara_generate_html: true
+    required-projects:
+      - openstack-infra/project-config
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    run: tests/multinode.yaml
+    files:
+      - ^roles/configure-mirror/.*
+      - ^roles/configure-unbound/.*
+      - ^roles/emit-job-header/.*
+      - ^roles/fetch-zuul-cloner/.*
+      - ^roles/mirror-info/.*
+      - ^roles/set-zuul-log-path-fact/.*
+      - ^roles/use-cached-repos/.*
+      - ^roles/multi-node-bridge/.*
+      - ^roles/multi-node-firewall/.*
+      - ^roles/multi-node-hosts-file/.*
+      - ^roles/multi-node-known-hosts/.*
+      - ^tests/.*
+
+- job:
+    name: openstack-infra-multinode-integration-centos-7
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: centos-7
+        - name: secondary
+          label: centos-7
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-debian-jessie
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: debian-jessie
+        - name: secondary
+          label: debian-jessie
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-fedora-26
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: fedora-26
+        - name: secondary
+          label: fedora-26
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-opensuse423
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: opensuse-423
+        - name: secondary
+          label: opensuse-423
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-ubuntu-trusty
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: ubuntu-trusty
+        - name: secondary
+          label: ubuntu-trusty
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-ubuntu-xenial
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: ubuntu-xenial
+        - name: secondary
+          label: ubuntu-xenial
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
     name: build-openstack-sphinx-docs
     parent: tox-docs
     branches: ^(?!driverfixes/).*$
