@@ -2139,27 +2139,6 @@
       - openstack/networking-bgpvpn
 
 - job:
-    name: legacy-networking-l2gw-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/networking-l2gw-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/networking-l2gw-dsvm-functional/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-l2gw
-
-- job:
-    name: legacy-networking-l2gw-dsvm-tempest-api-dummy-driver
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/networking-l2gw-dsvm-tempest-api-dummy-driver/run.yaml
-    post-run: playbooks/legacy/networking-l2gw-dsvm-tempest-api-dummy-driver/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-l2gw
-      - openstack/tempest
-
-- job:
     name: legacy-networking-midonet-rally-dsvm-ml2
     parent: legacy-dsvm-base
     run: playbooks/legacy/networking-midonet-rally-dsvm-ml2/run.yaml
