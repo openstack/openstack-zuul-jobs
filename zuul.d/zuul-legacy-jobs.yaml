@@ -4839,27 +4839,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-storyboard-webclient-nodejs4-npm-run-test-functional
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-test-functional/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-test-functional/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-storyboard-webclient-nodejs4-npm-run-test-integration
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-test-integration/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-test-integration/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-storyboard-webclient-nodejs4-npm-run-test-unit
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-test-unit/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-test-unit/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-swift-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/swift-dsvm-functional/run.yaml
