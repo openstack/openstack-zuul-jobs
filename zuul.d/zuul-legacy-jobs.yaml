@@ -187,20 +187,6 @@
       - openstack/python-cloudkittyclient
 
 - job:
-    name: legacy-craton-dashboard-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/craton-dashboard-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/craton-dashboard-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-craton-dashboard-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/craton-dashboard-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/craton-dashboard-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-craton-dashboard-tox-py27dj110
     parent: legacy-base
     run: playbooks/legacy/craton-dashboard-tox-py27dj110/run.yaml
@@ -268,20 +254,6 @@
       - openstack/murano
       - openstack/murano-dashboard
       - openstack/python-muranoclient
-
-- job:
-    name: legacy-designate-dashboard-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/designate-dashboard-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/designate-dashboard-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-designate-dashboard-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/designate-dashboard-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/designate-dashboard-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
 
 - job:
     name: legacy-devstack-dsvm-py35-updown
@@ -590,13 +562,6 @@
     parent: legacy-base
     run: playbooks/legacy/fuel-octane-puppet-lint/run.yaml
     timeout: 1800
-
-- job:
-    name: legacy-fuel-ui-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/fuel-ui-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/fuel-ui-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
 
 - job:
     name: legacy-functional-dsvm-astara
@@ -2363,24 +2328,6 @@
       - openstack/neutron-fwaas
       - openstack/tempest
     nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-neutron-lbaas-dashboard-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/horizon
-
-- job:
-    name: legacy-neutron-lbaas-dashboard-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/neutron-lbaas-dashboard-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/horizon
 
 - job:
     name: legacy-neutron-vpnaas-dsvm-functional-sswan
@@ -4829,34 +4776,6 @@
       - openstack/scalpels
 
 - job:
-    name: legacy-searchlight-ui-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/searchlight-ui-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/searchlight-ui-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-searchlight-ui-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/searchlight-ui-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/searchlight-ui-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-senlin-dashboard-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/senlin-dashboard-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/senlin-dashboard-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-senlin-dashboard-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/senlin-dashboard-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/senlin-dashboard-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-service-types-authority-validate
     parent: legacy-base
     run: playbooks/legacy/service-types-authority-validate/run.yaml
@@ -4926,13 +4845,6 @@
     run: playbooks/legacy/storyboard-webclient-js-release-master/run.yaml
     post-run: playbooks/legacy/storyboard-webclient-js-release-master/post.yaml
     timeout: 1800
-
-- job:
-    name: legacy-storyboard-webclient-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
 
 - job:
     name: legacy-storyboard-webclient-nodejs4-npm-run-test-functional
@@ -6493,20 +6405,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-zaqar-ui-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/zaqar-ui-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/zaqar-ui-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-zaqar-ui-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/zaqar-ui-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/zaqar-ui-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-zaqarclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/zaqarclient-dsvm-functional/run.yaml
@@ -6538,17 +6436,3 @@
     run: playbooks/legacy/zmq-event-publisher-maven-build-ubuntu-trusty/run.yaml
     timeout: 1800
     nodeset: legacy-ubuntu-trusty
-
-- job:
-    name: legacy-zun-ui-nodejs4-npm-run-lint
-    parent: legacy-base
-    run: playbooks/legacy/zun-ui-nodejs4-npm-run-lint/run.yaml
-    post-run: playbooks/legacy/zun-ui-nodejs4-npm-run-lint/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-zun-ui-nodejs4-npm-run-test
-    parent: legacy-base
-    run: playbooks/legacy/zun-ui-nodejs4-npm-run-test/run.yaml
-    post-run: playbooks/legacy/zun-ui-nodejs4-npm-run-test/post.yaml
-    timeout: 2400
