@@ -2398,14 +2398,6 @@
       - openstack/python-novaclient
 
 - job:
-    name: legacy-npm-upload
-    parent: legacy-base
-    run: playbooks/legacy/npm-upload/run.yaml
-    timeout: 1800
-    dependencies:
-      - publish-openstack-python-tarball
-
-- job:
     name: legacy-omni-tests
     parent: legacy-base
     run: playbooks/legacy/omni-tests/run.yaml
