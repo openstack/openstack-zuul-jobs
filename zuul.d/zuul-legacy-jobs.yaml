@@ -1320,15 +1320,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-irc-meetings-tox-ical
-    parent: legacy-base
-    run: playbooks/legacy/irc-meetings-tox-ical/run.yaml
-    post-run: playbooks/legacy/irc-meetings-tox-ical/post.yaml
-    timeout: 1800
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-its-storyboard-gerrit-plugin-stable-2.13
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run.yaml
