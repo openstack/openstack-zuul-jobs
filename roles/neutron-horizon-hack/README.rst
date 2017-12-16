@@ -9,6 +9,11 @@ inside of a virtualenv, so we can just run it in the sphinx ~/.venv and
 get them installed. This will let us work towards a solution that does not
 involve a custom install script.
 
+Note that this role only works if the file is called
+``tools/tox_install.sh`` and takes three arguments
+``constraints-file``, ``opts`` and ``packages``. The script must allow
+invocation with the single ``constraints-file`` argument as well.
+
 **Role Variables**
 
 .. zuul:rolevar:: constraints_file
