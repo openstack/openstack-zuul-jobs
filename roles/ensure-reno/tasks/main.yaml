@@ -6,12 +6,19 @@
 
 - name: Check to see if the constraints file exists
   stat:
-    path: "{{ constraints_file|default('missing') }}"
+    path: "{{ constraints_file }}"
     get_checksum: false
     get_mime: false
     get_md5: false
   register: stat_results
   when: constraints_file is defined
+
+- name: Fail if constraints file does not exist
+  fail:
+    msg: "Variable constraints_file is set but file does not exist."
+  when:
+    - constraints_file is defined
+    - not stat_results|skipped and not stat_results.stat.exists
 
 - name: Record file location
   set_fact:
