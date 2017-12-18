@@ -189,7 +189,7 @@
 
 - job:
     name: build-openstack-sphinx-docs
-    parent: tox-docs
+    parent: build-sphinx-docs
     branches: ^(?!driverfixes/).*$
     description: |
       Builds documentation using Sphinx per the OpenStack PTI and then
@@ -198,16 +198,14 @@
       It runs the prepare-docs-for-afs role so that AFS stamp files
       can be examined if desired, and also validates htaccess files
       using the whereto tool.
-    run: playbooks/sphinx-docs/run.yaml
     success-url: html/
     required-projects:
       - name: openstack/requirements
+    pre-run: playbooks/sphinx-docs/neutron-horizon-hack.yaml
     roles:
       - zuul: openstack-infra/zuul-jobs
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
-      tox_envlist: venv
-      tox_extra_args: -vv python setup.py build_sphinx
+      constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: tox-py35-on-zuul
