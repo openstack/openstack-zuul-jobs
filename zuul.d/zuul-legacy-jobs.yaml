@@ -1160,33 +1160,6 @@
       - openstack/kuryr-kubernetes
 
 - job:
-    name: legacy-interop-tox-doc8
-    parent: legacy-base
-    run: playbooks/legacy/interop-tox-doc8/run.yaml
-    post-run: playbooks/legacy/interop-tox-doc8/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-interop-tox-jsonlint
-    parent: legacy-base
-    run: playbooks/legacy/interop-tox-jsonlint/run.yaml
-    post-run: playbooks/legacy/interop-tox-jsonlint/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-interop-tox-jsonschema
-    parent: legacy-base
-    run: playbooks/legacy/interop-tox-jsonschema/run.yaml
-    post-run: playbooks/legacy/interop-tox-jsonschema/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-its-storyboard-gerrit-plugin-stable-2.13
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run.yaml
