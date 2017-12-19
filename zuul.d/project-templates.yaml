@@ -528,13 +528,15 @@
 - project-template:
     name: translation-jobs
     description: |
-      Sync translations to translation server and back again.
+      Sync translations to translation server and back again for
+      **master** only.
 
       This is intented for official OpenStack projects that have
       translations set up.
     post:
       jobs:
-        - upstream-translation-update
+        - upstream-translation-update:
+            branches: master
     periodic:
       jobs:
         - propose-translation-update:
@@ -543,7 +545,15 @@
 - project-template:
     name: translation-jobs-ocata
     description: |
-      Sync translations from translation server for ocata branch.
+      Sync translations to translation server and back again for
+      **stable/ocata** branch only.
+
+      This is intented for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update:
+            branches: stable/ocata
     periodic:
       jobs:
         - propose-translation-update:
@@ -552,7 +562,15 @@
 - project-template:
     name: translation-jobs-pike
     description: |
-      Sync translations from translation server for pike branch.
+      Sync translations to translation server and back again for
+      **stable/pike** branch only.
+
+      This is intented for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update:
+            branches: stable/pike
     periodic:
       jobs:
         - propose-translation-update:
