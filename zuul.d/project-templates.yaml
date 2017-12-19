@@ -20,6 +20,23 @@
         - build-openstack-sphinx-docs
 
 - project-template:
+    name: build-openstack-sphinx-docs-python3
+    description: |
+      Runs normal OpenStack PTI doc build without publication jobs.
+
+      Builds the docs using Sphinx with Python3.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs:
+            vars:
+              sphinx_python: python3
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs:
+            vars:
+              sphinx_python: python3
+
+- project-template:
     name: publish-openstack-sphinx-docs
     description: |
       Runs normal OpenStack PTI doc build and publication jobs.
@@ -32,6 +49,26 @@
     post:
       jobs:
         - publish-openstack-sphinx-docs
+
+- project-template:
+    name: publish-openstack-sphinx-docs-python3
+    description: |
+      Runs normal OpenStack PTI doc build and publication jobs.
+
+      Builds the docs using Sphinx with Python3.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs:
+            vars:
+              sphinx_python: python3
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs:
+            vars:
+              sphinx_python: python3
+    post:
+      jobs:
+        - publish-openstack-sphinx-docs-python3
 
 - project-template:
     name: publish-openstack-sphinx-docs-horizon
