@@ -186,13 +186,13 @@
     name: integrated-gate
     check:
       jobs:
-        - legacy-tempest-dsvm-neutron-full:
+        - tempest-full:
             branches: ^(?!driverfixes/).*$
         - legacy-grenade-dsvm-neutron:
             branches: ^(?!stable/newton).*$
     gate:
       jobs:
-        - legacy-tempest-dsvm-neutron-full:
+        - tempest-full:
             branches: ^(?!driverfixes/).*$
         - legacy-grenade-dsvm-neutron:
             branches: ^(?!stable/newton).*$
