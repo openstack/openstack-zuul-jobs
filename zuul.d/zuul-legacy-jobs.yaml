@@ -187,24 +187,6 @@
       - openstack/python-cloudkittyclient
 
 - job:
-    name: legacy-craton-dashboard-tox-py27dj110
-    parent: legacy-base
-    run: playbooks/legacy/craton-dashboard-tox-py27dj110/run.yaml
-    post-run: playbooks/legacy/craton-dashboard-tox-py27dj110/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-craton-dashboard-tox-py27dj19
-    parent: legacy-base
-    run: playbooks/legacy/craton-dashboard-tox-py27dj19/run.yaml
-    post-run: playbooks/legacy/craton-dashboard-tox-py27dj19/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-cross-networking-midonet-python35
     parent: legacy-base
     run: playbooks/legacy/cross-networking-midonet-python35/run.yaml
@@ -351,33 +333,6 @@
     timeout: 3900
     required-projects:
       - openstack-infra/devstack-gate
-
-- job:
-    name: legacy-django_openstack_auth-tox-py27dj110
-    parent: legacy-base
-    run: playbooks/legacy/django_openstack_auth-tox-py27dj110/run.yaml
-    post-run: playbooks/legacy/django_openstack_auth-tox-py27dj110/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-django_openstack_auth-tox-py27dj18
-    parent: legacy-base
-    run: playbooks/legacy/django_openstack_auth-tox-py27dj18/run.yaml
-    post-run: playbooks/legacy/django_openstack_auth-tox-py27dj18/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-django_openstack_auth-tox-py27dj19
-    parent: legacy-base
-    run: playbooks/legacy/django_openstack_auth-tox-py27dj19/run.yaml
-    post-run: playbooks/legacy/django_openstack_auth-tox-py27dj19/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-dox-buildimages
@@ -1911,24 +1866,6 @@
       - openstack/manila
       - openstack/manila-ui
       - openstack/python-manilaclient
-
-- job:
-    name: legacy-manila-ui-tox-py27dj110
-    parent: legacy-base
-    run: playbooks/legacy/manila-ui-tox-py27dj110/run.yaml
-    post-run: playbooks/legacy/manila-ui-tox-py27dj110/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-manila-ui-tox-py27dj19
-    parent: legacy-base
-    run: playbooks/legacy/manila-ui-tox-py27dj19/run.yaml
-    post-run: playbooks/legacy/manila-ui-tox-py27dj19/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-merlin-js-release-branch
