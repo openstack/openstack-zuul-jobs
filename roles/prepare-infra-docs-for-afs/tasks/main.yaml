@@ -1,6 +1,6 @@
 - name: Set build dir fact
   set_fact:
-    doc_build_dir: "{{ zuul_work_dir }}/doc/build"
+    doc_build_dir: "{{ zuul_work_dir }}/{{ sphinx_doc_build }}"
 
 - name: Write marker text
   copy:
