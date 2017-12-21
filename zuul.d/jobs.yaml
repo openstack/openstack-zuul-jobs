@@ -201,6 +201,10 @@
     success-url: html/
     required-projects:
       - name: openstack/requirements
+      # Add neutron and horizon for the neutron-horizon-hack.
+      # TODO(AJaeger) ZOMG DELETE THIS once we neutron-horizon-hack.
+      - name: openstack/horizon
+      - name: openstack/neutron
     pre-run: playbooks/sphinx-docs/neutron-horizon-hack.yaml
     roles:
       - zuul: openstack-infra/zuul-jobs
