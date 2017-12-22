@@ -205,17 +205,6 @@
             branches: ^(?!stable/(newton|ocata)).*$
 
 - project-template:
-    name: integrated-gate-nova-net
-    check:
-      jobs:
-        - legacy-tempest-dsvm-nnet:
-            branches: stable/newton
-    gate:
-      jobs:
-        - legacy-tempest-dsvm-nnet:
-            branches: stable/newton
-
-- project-template:
     name: integrated-gate-py35
     check:
       jobs:
