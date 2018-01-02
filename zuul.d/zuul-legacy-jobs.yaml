@@ -1820,20 +1820,6 @@
       - openstack/python-manilaclient
 
 - job:
-    name: legacy-merlin-js-release-branch
-    parent: legacy-base
-    run: playbooks/legacy/merlin-js-release-branch/run.yaml
-    post-run: playbooks/legacy/merlin-js-release-branch/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-merlin-js-release-master
-    parent: legacy-base
-    run: playbooks/legacy/merlin-js-release-master/run.yaml
-    post-run: playbooks/legacy/merlin-js-release-master/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-monasca-api-localrepo-upload
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-api-localrepo-upload/run.yaml
@@ -4618,28 +4604,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-storyboard-webclient-js-draft
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/storyboard-webclient-js-draft/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-js-draft/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-storyboard-webclient-js-release-branch
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-webclient-js-release-branch/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-js-release-branch/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-storyboard-webclient-js-release-master
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-webclient-js-release-master/run.yaml
-    post-run: playbooks/legacy/storyboard-webclient-js-release-master/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-swift-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/swift-dsvm-functional/run.yaml
@@ -6036,28 +6000,6 @@
     timeout: 2400
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-vinz-webclient-js-draft
-    parent: legacy-base
-    success-url: html/
-    run: playbooks/legacy/vinz-webclient-js-draft/run.yaml
-    post-run: playbooks/legacy/vinz-webclient-js-draft/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-vinz-webclient-js-release-branch
-    parent: legacy-base
-    run: playbooks/legacy/vinz-webclient-js-release-branch/run.yaml
-    post-run: playbooks/legacy/vinz-webclient-js-release-branch/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-vinz-webclient-js-release-master
-    parent: legacy-base
-    run: playbooks/legacy/vinz-webclient-js-release-master/run.yaml
-    post-run: playbooks/legacy/vinz-webclient-js-release-master/post.yaml
-    timeout: 1800
 
 - job:
     name: legacy-zaqarclient-dsvm-functional
