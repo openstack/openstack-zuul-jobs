@@ -4710,13 +4710,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-storlets-functional
-    parent: legacy-base
-    run: playbooks/legacy/storlets-functional/run.yaml
-    post-run: playbooks/legacy/storlets-functional/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-storyboard-js-integration
     parent: legacy-base
     run: playbooks/legacy/storyboard-js-integration/run.yaml
