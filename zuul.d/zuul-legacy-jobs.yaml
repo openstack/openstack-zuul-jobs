@@ -280,24 +280,6 @@
       - openstack/sahara-dashboard
 
 - job:
-    name: legacy-devstack-gate-tox-py3-run-tests
-    parent: legacy-base
-    run: playbooks/legacy/devstack-gate-tox-py3-run-tests/run.yaml
-    post-run: playbooks/legacy/devstack-gate-tox-py3-run-tests/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-devstack-gate-tox-run-tests
-    parent: legacy-base
-    run: playbooks/legacy/devstack-gate-tox-run-tests/run.yaml
-    post-run: playbooks/legacy/devstack-gate-tox-run-tests/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-devstack-plugin-container-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/devstack-plugin-container-dsvm/run.yaml
