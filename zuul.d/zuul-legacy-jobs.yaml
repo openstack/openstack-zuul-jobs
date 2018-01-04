@@ -856,12 +856,6 @@
       - openstack/trove-dashboard
 
 - job:
-    name: legacy-grenade-publish-docs
-    parent: legacy-base
-    run: playbooks/legacy/grenade-publish-docs/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-group-based-policy-dsvm-aim
     parent: legacy-dsvm-base
     run: playbooks/legacy/group-based-policy-dsvm-aim/run.yaml
