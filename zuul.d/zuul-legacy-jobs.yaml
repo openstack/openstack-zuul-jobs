@@ -5489,6 +5489,10 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/tempest
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
 
 - job:
     name: legacy-tempest-dsvm-py35-full-devstack-plugin-ceph
