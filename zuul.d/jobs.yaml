@@ -235,6 +235,14 @@
       tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
 
 - job:
+    name: openstack-tox-with-sudo
+    parent: openstack-tox
+    description: |
+      Job to run tox for tests with OpenStack project specific
+      settings such as constraints but without sudo access being revoked.
+    run: playbooks/tox-with-sudo/run.yaml
+
+- job:
     name: openstack-tox-py27
     parent: openstack-tox
     description: |
@@ -345,9 +353,24 @@
     name: openstack-tox-functional
     parent: openstack-tox
     description: |
-      Run functional tests.
+      Run tox-based functional tests for an OpenStack Python project.
 
       Uses tox with the ``functional`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional-with-sudo
+    parent: openstack-tox-with-sudo
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      Sudo access is not revoked.
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
@@ -359,7 +382,8 @@
     name: openstack-tox-functional-py35
     parent: openstack-tox
     description: |
-      Run functional tests using python 3.5.
+      Run tox-based functional tests for an OpenStack Python project
+      under cPython version 3.5..
 
       Uses tox with the ``functional-py35`` environment.
     irrelevant-files:
