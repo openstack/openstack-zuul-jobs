@@ -813,3 +813,17 @@
         - nodejs-npm-run-docs:
             vars:
               node_version: 6
+
+- project-template:
+    name: tempest-plugin-jobs
+    description: |
+        A set of jobs to run against Tempest Plugins
+    check:
+      jobs:
+        - openstack-tox-pep8
+    gate:
+      jobs:
+       - openstack-tox-pep8
+    post:
+      jobs:
+       - publish-openstack-python-branch-tarball
