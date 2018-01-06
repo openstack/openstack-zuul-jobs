@@ -117,47 +117,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-bindep-fallback
-    parent: legacy-base
-    run: playbooks/legacy/bindep-fallback/run.yaml
-    post-run: playbooks/legacy/bindep-fallback/post.yaml
-
-- job:
-    name: legacy-bindep-fallback-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/bindep-fallback-centos-7/run.yaml
-    post-run: playbooks/legacy/bindep-fallback-centos-7/post.yaml
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-bindep-fallback-debian-jessie
-    parent: legacy-base
-    run: playbooks/legacy/bindep-fallback-debian-jessie/run.yaml
-    post-run: playbooks/legacy/bindep-fallback-debian-jessie/post.yaml
-    nodeset: legacy-debian-jessie
-
-- job:
-    name: legacy-bindep-fallback-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/bindep-fallback-fedora-26/run.yaml
-    post-run: playbooks/legacy/bindep-fallback-fedora-26/post.yaml
-    nodeset: legacy-fedora-26
-
-- job:
-    name: legacy-bindep-fallback-opensuse-423
-    parent: legacy-base
-    run: playbooks/legacy/bindep-fallback-opensuse-423/run.yaml
-    post-run: playbooks/legacy/bindep-fallback-opensuse-423/post.yaml
-    nodeset: legacy-opensuse-423
-
-- job:
-    name: legacy-bindep-fallback-ubuntu-trusty
-    parent: legacy-base
-    run: playbooks/legacy/bindep-fallback-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/bindep-fallback-ubuntu-trusty/post.yaml
-    nodeset: legacy-ubuntu-trusty
-
-- job:
     name: legacy-brick-cinderclient-ext-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/brick-cinderclient-ext-dsvm-functional/run.yaml
