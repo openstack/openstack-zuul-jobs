@@ -340,23 +340,6 @@
         - release-openstack-python
 
 - project-template:
-    name: release-openstack-server
-    description: |
-      Release OpenStack server projects.
-    pre-release:
-      jobs:
-        - release-openstack-python-without-pypi
-        - announce-release:
-            dependencies:
-              - release-openstack-python-without-pypi
-    release:
-      jobs:
-        - release-openstack-python-without-pypi
-        - announce-release:
-            dependencies:
-              - release-openstack-python-without-pypi
-
-- project-template:
     name: release-notes-jobs
     description: |
       Runs the release notes test and publish jobs.
