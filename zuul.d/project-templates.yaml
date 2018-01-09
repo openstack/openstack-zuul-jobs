@@ -563,6 +563,21 @@
               - publish-openstack-javascript-tarball
 
 - project-template:
+    name: nodejs8-publish-to-npm
+    release:
+      jobs:
+        - publish-openstack-javascript-tarball:
+            vars:
+              node_version: 8
+        - release-openstack-javascript:
+            vars:
+              node_version: 8
+        - announce-release:
+            dependencies:
+              - release-openstack-javascript
+              - publish-openstack-javascript-tarball
+
+- project-template:
     name: translation-jobs
     description: |
       Sync translations to translation server and back again for
@@ -785,6 +800,35 @@
               - package.json
 
 - project-template:
+    name: nodejs8-jobs
+    description: |
+      Run lint and test jobs using Node 8.
+    check:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 8
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 8
+        - build-javascript-tarball:
+            files:
+              - npm-shrinkwrap.json
+              - package.json
+    gate:
+      jobs:
+        - nodejs-npm-run-lint:
+            vars:
+              node_version: 8
+        - nodejs-npm-run-test:
+            vars:
+              node_version: 8
+        - build-javascript-tarball:
+            files:
+              - npm-shrinkwrap.json
+              - package.json
+
+- project-template:
     name: nodejs4-docs
     description: |
       Run docs jobs using Node 4.
@@ -813,6 +857,21 @@
         - nodejs-npm-run-docs:
             vars:
               node_version: 6
+
+- project-template:
+    name: nodejs8-docs
+    description: |
+      Run docs jobs using Node 8.
+    check:
+      jobs:
+        - nodejs-npm-run-docs:
+            vars:
+              node_version: 8
+    gate:
+      jobs:
+        - nodejs-npm-run-docs:
+            vars:
+              node_version: 8
 
 - project-template:
     name: tempest-plugin-jobs
