@@ -60,7 +60,7 @@
       environment: '{{ zuul | zuul_legacy_vars }}'
 
     - shell:
-        cmd: /usr/local/jenkins/slave_scripts/run-tox-with-dependency-master.sh $ZUUL_SHORT_PROJECT_NAME
+        cmd: /usr/local/jenkins/slave_scripts/run-tox-with-dependency-master.sh ovsdbapp
           py35
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
