@@ -165,6 +165,9 @@
 
 - project-template:
     name: integrated-gate
+    description: |
+      Jobs that are run across several projects to test the base
+      OpenStack functionality.
     check:
       jobs:
         - legacy-tempest-dsvm-neutron-full:
@@ -174,7 +177,7 @@
         # reminder that we don't want the job running there.
         - tempest-full:
             branches: ^(?!driverfixes/)master$
-        - legacy-grenade-dsvm-neutron:
+        - neutron-grenade:
             branches: ^(?!stable/newton).*$
     gate:
       jobs:
@@ -182,7 +185,7 @@
             branches: ^stable/(newton|ocata|pike)$
         - tempest-full:
             branches: ^(?!driverfixes/)master$
-        - legacy-grenade-dsvm-neutron:
+        - neutron-grenade:
             branches: ^(?!stable/newton).*$
     experimental:
       jobs:
