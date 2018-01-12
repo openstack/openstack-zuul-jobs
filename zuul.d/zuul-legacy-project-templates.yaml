@@ -73,25 +73,6 @@
         - openstack-tox-linters
 
 - project-template:
-    name: bindep-fallback
-    check:
-      jobs:
-        - legacy-bindep-fallback-centos-7
-        - legacy-bindep-fallback-fedora-26
-        - legacy-bindep-fallback-debian-jessie
-        - legacy-bindep-fallback-opensuse-423
-        - legacy-bindep-fallback-ubuntu-trusty
-        - legacy-bindep-fallback
-    gate:
-      jobs:
-        - legacy-bindep-fallback-centos-7
-        - legacy-bindep-fallback-fedora-26
-        - legacy-bindep-fallback-debian-jessie
-        - legacy-bindep-fallback-opensuse-423
-        - legacy-bindep-fallback-ubuntu-trusty
-        - legacy-bindep-fallback
-
-- project-template:
     name: build-only-specs-jobs
     check:
       jobs:
