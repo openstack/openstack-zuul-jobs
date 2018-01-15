@@ -1881,17 +1881,6 @@
       - openstack/neutron
 
 - job:
-    name: legacy-neutron-dsvm-tempest-vpnaas
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutron-dsvm-tempest-vpnaas/run.yaml
-    post-run: playbooks/legacy/neutron-dsvm-tempest-vpnaas/post.yaml
-    timeout: 3900
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-neutron-dynamic-routing-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/neutron-dynamic-routing-dsvm-functional/run.yaml
@@ -2033,29 +2022,6 @@
       - openstack/neutron-fwaas
       - openstack/tempest
     nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-neutron-vpnaas-dsvm-functional-sswan
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutron-vpnaas-dsvm-functional-sswan/run.yaml
-    post-run: playbooks/legacy/neutron-vpnaas-dsvm-functional-sswan/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/neutron-vpnaas
-
-- job:
-    name: legacy-neutron-vpnaas-dsvm-rally
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutron-vpnaas-dsvm-rally/run.yaml
-    post-run: playbooks/legacy/neutron-vpnaas-dsvm-rally/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/neutron-vpnaas
-      - openstack/rally
 
 - job:
     name: legacy-neutronclient-test-dsvm-functional
