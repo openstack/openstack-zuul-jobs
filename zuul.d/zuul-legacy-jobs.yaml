@@ -1188,18 +1188,6 @@
       - openstack/keystone-tempest-plugin
 
 - job:
-    name: legacy-keystone-dsvm-grenade-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/keystone-dsvm-grenade-multinode/run.yaml
-    post-run: playbooks/legacy/keystone-dsvm-grenade-multinode/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/keystone
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-keystone-dsvm-py35-functional-v3-only
     parent: legacy-dsvm-base
     run: playbooks/legacy/keystone-dsvm-py35-functional-v3-only/run.yaml
@@ -1209,15 +1197,6 @@
       - openstack-infra/devstack-gate
       - openstack/keystone
       - openstack/keystone-tempest-plugin
-
-- job:
-    name: legacy-keystone-tox-patch_cover
-    parent: legacy-base
-    run: playbooks/legacy/keystone-tox-patch_cover/run.yaml
-    post-run: playbooks/legacy/keystone-tox-patch_cover/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-keystoneclient-dsvm-functional
