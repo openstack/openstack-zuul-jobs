@@ -507,12 +507,6 @@
       - openstack/fuxi
 
 - job:
-    name: legacy-gate-training-labs-scripts
-    parent: legacy-base
-    run: playbooks/legacy/gate-training-labs-scripts/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-gearman-plugin-hpi-artifact
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/gearman-plugin-hpi-artifact/run.yaml
@@ -5427,13 +5421,6 @@
     timeout: 2400
     required-projects:
       - openstack/requirements
-
-- job:
-    name: legacy-training-labs-scripts
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/training-labs-scripts/run.yaml
-    post-run: playbooks/legacy/training-labs-scripts/post.yaml
-    timeout: 1800
 
 - job:
     name: legacy-tricircle-dsvm-functional
