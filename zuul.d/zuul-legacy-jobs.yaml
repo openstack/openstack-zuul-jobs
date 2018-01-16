@@ -2912,17 +2912,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-puppet-murano-puppet-beaker-rspec
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-murano-puppet-beaker-rspec/run.yaml
-    post-run: playbooks/legacy/puppet-murano-puppet-beaker-rspec/post.yaml
-    timeout: 3600
-    required-projects:
-      - openstack/murano
-      - openstack/puppet-murano
-      - openstack/puppet-openstack-integration
-
-- job:
     name: legacy-puppet-openstack-infra-spec-helper-unit
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit/run.yaml
