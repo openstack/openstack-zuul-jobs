@@ -787,6 +787,7 @@
       tox_envlist: nodepool
     files:
       - ^nodepool/nodepool.yaml
+      - ^nodepool/nl.*yaml$
       - bindep.txt
       - other-requirements.txt
       - tox.ini
