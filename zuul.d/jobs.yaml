@@ -219,8 +219,7 @@
     vars:
       zuul_work_dir: src/git.openstack.org/openstack-infra/zuul
     required-projects:
-      - name: openstack-infra/zuul
-        override-checkout: feature/zuulv3
+      - openstack-infra/zuul
 
 - job:
     name: openstack-tox
