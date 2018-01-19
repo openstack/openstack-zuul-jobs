@@ -532,6 +532,7 @@
     # for changes on other branches.
     branches: master
     files:
+      - ^os_api_ref/.*
       - ^api-ref/.*
       - ^doc/api_samples/.*
       - bindep.txt
