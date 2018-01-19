@@ -5115,15 +5115,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tox-with-sudo-snap
-    parent: legacy-base
-    run: playbooks/legacy/tox-with-sudo-snap/run.yaml
-    post-run: playbooks/legacy/tox-with-sudo-snap/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-tricircle-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/tricircle-dsvm-functional/run.yaml

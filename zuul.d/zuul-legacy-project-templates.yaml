@@ -376,12 +376,3 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: snap-jobs
-    check:
-      jobs:
-        - legacy-tox-with-sudo-snap
-    gate:
-      jobs:
-        - legacy-tox-with-sudo-snap

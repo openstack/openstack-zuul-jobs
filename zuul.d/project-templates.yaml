@@ -839,3 +839,14 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: snap-jobs
+    description: |
+      Run tests for snap repositories.
+    check:
+      jobs:
+        - openstack-tox-snap-with-sudo
+    gate:
+      jobs:
+        - openstack-tox-snap-with-sudo

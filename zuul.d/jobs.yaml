@@ -430,6 +430,21 @@
       tox_envlist: compare-cover
 
 - job:
+    name: openstack-tox-snap-with-sudo
+    parent: openstack-tox-with-sudo
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``snap`` environment.
+      Sudo access is not revoked.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: snap
+
+- job:
     name: build-openstack-puppet-tarball
     description: |
       Build a puppet tarball but do not upload it anywhere.
