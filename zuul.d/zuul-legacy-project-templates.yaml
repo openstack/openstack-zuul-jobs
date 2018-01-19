@@ -62,26 +62,6 @@
             voting: false
 
 - project-template:
-    name: ansible-role-jobs
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-        - openstack-tox-linters
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-        - openstack-tox-linters
-
-- project-template:
-    name: build-only-specs-jobs
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-
-- project-template:
     name: fuel-ccp-component
     check:
       jobs:
@@ -225,15 +205,6 @@
         - legacy-tempest-dsvm-neutron-src-plugin
 
 - project-template:
-    name: noop-jobs
-    check:
-      jobs:
-        - noop
-    gate:
-      jobs:
-        - noop
-
-- project-template:
     name: periodic-jobs-with-neutron-lib-master
     periodic:
       jobs:
@@ -353,26 +324,3 @@
       jobs:
         - legacy-puppet-syntax-3-centos-7
         - legacy-puppet-syntax-4-centos-7
-
-- project-template:
-    name: python-charm-interface-jobs
-    check:
-      jobs:
-        - openstack-tox-pep8
-    gate:
-      jobs:
-        - openstack-tox-pep8
-
-- project-template:
-    name: python-charm-jobs
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py27
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py27
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball

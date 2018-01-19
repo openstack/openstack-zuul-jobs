@@ -9,6 +9,21 @@
         - noop
 
 - project-template:
+    name: noop-jobs
+    description: |
+      This template runs no jobs, it is needed if a project does not use
+      any single job so that changes can get merged.
+
+      Do not use this with projects that have jobs defined in the gate
+      pipeline.
+    check:
+      jobs:
+        - noop
+    gate:
+      jobs:
+        - noop
+
+- project-template:
     name: build-openstack-sphinx-docs
     description: |
       Runs normal OpenStack PTI doc build without publication jobs.
@@ -596,7 +611,20 @@
         - publish-openstack-specs
 
 - project-template:
+    name: build-only-specs-jobs
+    description: |
+      Runs jobs to build only documents for a specs repository.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+
+- project-template:
     name: api-guide-jobs
+    description: |
+      Build and publish api-guide document.
     check:
       jobs:
         - build-openstack-api-guide
@@ -609,6 +637,8 @@
 
 - project-template:
     name: api-ref-jobs
+    description: |
+      Build and publish api-ref document.
     check:
       jobs:
         - build-openstack-api-ref
@@ -621,6 +651,8 @@
 
 - project-template:
     name: deploy-guide-jobs
+    description: |
+      Build and publish deploy-guide document.
     check:
       jobs:
         - build-openstack-deploy-guide
@@ -633,6 +665,8 @@
 
 - project-template:
     name: install-guide-jobs
+    description: |
+      Build and publish install-guide document.
     check:
       jobs:
         - build-openstack-install-guide
@@ -674,6 +708,33 @@
               - stable/pike
             required-projects:
               - openstack/neutron
+
+- project-template:
+    name: python-charm-interface-jobs
+    description: |
+      Run Python tests for charm-interface projects.
+    check:
+      jobs:
+        - openstack-tox-pep8
+    gate:
+      jobs:
+        - openstack-tox-pep8
+
+- project-template:
+    name: python-charm-jobs
+    description: |
+      Run Python tests for charm projects.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: python-charm-layer-jobs
@@ -839,6 +900,20 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: ansible-role-jobs
+    description: |
+      Run default tests for ansible-role repositories: Build
+      documentation and run tox based linter.
+    check:
+      jobs:
+        - build-openstack-sphinx-docs
+        - openstack-tox-linters
+    gate:
+      jobs:
+        - build-openstack-sphinx-docs
+        - openstack-tox-linters
 
 - project-template:
     name: snap-jobs
