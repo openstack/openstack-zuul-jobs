@@ -3031,20 +3031,6 @@
       - openstack/python-barbicanclient
 
 - job:
-    name: legacy-python-mistralclient-devstack-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/python-mistralclient-devstack-dsvm/run.yaml
-    post-run: playbooks/legacy/python-mistralclient-devstack-dsvm/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/python-mistralclient
-
-- job:
     name: legacy-python-swiftclient-python36-fedora-26
     parent: legacy-base
     run: playbooks/legacy/python-swiftclient-python36-fedora-26/run.yaml
@@ -3284,19 +3270,6 @@
       - openstack/tripleo-image-elements
       - openstack/watcher
       - openstack/zaqar-ui
-
-- job:
-    name: legacy-rally-dsvm-mistral-rally
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-mistral-rally/run.yaml
-    post-run: playbooks/legacy/rally-dsvm-mistral-rally/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/mistral
-      - openstack/mistral-dashboard
-      - openstack/python-mistralclient
-      - openstack/rally
 
 - job:
     name: legacy-rally-dsvm-monasca-rally
