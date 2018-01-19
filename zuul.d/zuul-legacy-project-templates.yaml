@@ -8,26 +8,6 @@
         - legacy-ansible-lint
 
 - project-template:
-    name: ansible-role-functional-dsvm-jobs-centos7
-    check:
-      jobs:
-        - legacy-dsvm-ansible-func-centos-7
-    gate:
-      jobs:
-        - legacy-dsvm-ansible-func-centos-7
-
-- project-template:
-    name: ansible-role-functional-dsvm-jobs-trusty
-    check:
-      jobs:
-        - legacy-dsvm-ansible-func-ubuntu-trusty:
-            branches: master
-    gate:
-      jobs:
-        - legacy-dsvm-ansible-func-ubuntu-trusty:
-            branches: master
-
-- project-template:
     name: ansible-role-functional-jobs-centos7
     check:
       jobs:
