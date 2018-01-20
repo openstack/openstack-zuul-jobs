@@ -658,7 +658,6 @@
       - openstack/requirements
       - openstack/swift
       - openstack/tempest
-      - openstack/tempest-lib
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
       - openstack/tripleo-incubator
