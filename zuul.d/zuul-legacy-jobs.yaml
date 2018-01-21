@@ -146,22 +146,6 @@
       - openstack/python-cloudkittyclient
 
 - job:
-    name: legacy-cross-networking-midonet-python35
-    parent: legacy-base
-    run: playbooks/legacy/cross-networking-midonet-python35/run.yaml
-    post-run: playbooks/legacy/cross-networking-midonet-python35/post.yaml
-    timeout: 3000
-    required-projects:
-      - openstack/requirements
-      - openstack/networking-midonet
-      - openstack/neutron
-      - openstack/neutron-vpnaas
-      - openstack/neutron-lbaas
-      - openstack/neutron-dynamic-routing
-      - openstack/networking-l2gw
-      - openstack/tap-as-a-service
-
-- job:
     name: legacy-cue-integration-dsvm-rabbitmq
     parent: legacy-dsvm-base
     run: playbooks/legacy/cue-integration-dsvm-rabbitmq/run.yaml
@@ -355,15 +339,6 @@
       - openstack-infra/devstack-gate
       - openstack/ec2-api
       - openstack/rally
-
-- job:
-    name: legacy-elastic-recheck-tox-queries
-    parent: legacy-base
-    run: playbooks/legacy/elastic-recheck-tox-queries/run.yaml
-    post-run: playbooks/legacy/elastic-recheck-tox-queries/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-fuel-astute-puppet-unit-3.8-centos-7
@@ -2996,14 +2971,6 @@
       - openstack/python-barbicanclient
 
 - job:
-    name: legacy-python-swiftclient-python36-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/python-swiftclient-python36-fedora-26/run.yaml
-    post-run: playbooks/legacy/python-swiftclient-python36-fedora-26/post.yaml
-    timeout: 2400
-    nodeset: legacy-fedora-26
-
-- job:
     name: legacy-rally-dsvm-certification-with-keystone-v3
     parent: legacy-dsvm-base
     run: playbooks/legacy/rally-dsvm-certification-with-keystone-v3/run.yaml
@@ -3816,33 +3783,6 @@
       - openstack/watcher
       - openstack/zaqar
       - openstack/zaqar-ui
-
-- job:
-    name: legacy-rally-tox-self
-    parent: legacy-base
-    run: playbooks/legacy/rally-tox-self/run.yaml
-    post-run: playbooks/legacy/rally-tox-self/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-requests-mock-tox-keystoneclient-tip
-    parent: legacy-base
-    run: playbooks/legacy/requests-mock-tox-keystoneclient-tip/run.yaml
-    post-run: playbooks/legacy/requests-mock-tox-keystoneclient-tip/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-requests-mock-tox-novaclient-tip
-    parent: legacy-base
-    run: playbooks/legacy/requests-mock-tox-novaclient-tip/run.yaml
-    post-run: playbooks/legacy/requests-mock-tox-novaclient-tip/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-requirements-integration-dsvm
