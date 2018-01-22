@@ -152,19 +152,14 @@
       jobs:
         - legacy-tempest-dsvm-neutron-full:
             branches: ^stable/(newton|ocata|pike)$
-        # NOTE(andreaf) Only run on master for now.
-        # The negative lookup is redudant but it's a
-        # reminder that we don't want the job running there.
-        - tempest-full:
-            branches: ^(?!driverfixes/)master$
+        - tempest-full
         - neutron-grenade:
             branches: ^(?!stable/newton).*$
     gate:
       jobs:
         - legacy-tempest-dsvm-neutron-full:
             branches: ^stable/(newton|ocata|pike)$
-        - tempest-full:
-            branches: ^(?!driverfixes/)master$
+        - tempest-full
         - neutron-grenade:
             branches: ^(?!stable/newton).*$
     experimental:
