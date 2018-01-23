@@ -244,6 +244,7 @@
 - job:
     name: openstack-tox-py27
     parent: openstack-tox
+    timeout: 2400
     description: |
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
@@ -260,6 +261,7 @@
     name: openstack-tox-py35
     parent: openstack-tox
     branches: ^(?!driverfixes/).*$
+    timeout: 2400
     description: |
       Run unit tests for an OpenStack project under cPython version 3.5.
 
@@ -326,7 +328,7 @@
     success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
-    timeout: 2400
+    timeout: 3000
 
 - job:
     name: openstack-tox-bashate
