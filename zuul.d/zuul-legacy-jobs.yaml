@@ -2412,18 +2412,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-networking-calico-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-networking-calico-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-networking-calico-master/post.yaml
-    timeout: 7800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-calico
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/run.yaml
@@ -4644,17 +4632,6 @@
       - openstack-infra/devstack-gate
       - openstack/networking-bagpipe
       - openstack/networking-bgpvpn
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-networking-calico
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-calico/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-calico/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-calico
       - openstack/tempest
 
 - job:
