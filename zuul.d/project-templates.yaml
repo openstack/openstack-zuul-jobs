@@ -502,48 +502,51 @@
 
 - project-template:
     name: nodejs4-publish-to-npm
-    release:
+    post:
       jobs:
         - publish-openstack-javascript-tarball:
             vars:
               node_version: 4
+    release:
+      jobs:
         - release-openstack-javascript:
             vars:
               node_version: 4
         - announce-release:
             dependencies:
               - release-openstack-javascript
-              - publish-openstack-javascript-tarball
 
 - project-template:
     name: nodejs6-publish-to-npm
-    release:
+    post:
       jobs:
         - publish-openstack-javascript-tarball:
             vars:
               node_version: 6
+    release:
+      jobs:
         - release-openstack-javascript:
             vars:
               node_version: 6
         - announce-release:
             dependencies:
               - release-openstack-javascript
-              - publish-openstack-javascript-tarball
 
 - project-template:
     name: nodejs8-publish-to-npm
-    release:
+    post:
       jobs:
         - publish-openstack-javascript-tarball:
             vars:
               node_version: 8
+    release:
+      jobs:
         - release-openstack-javascript:
             vars:
               node_version: 8
         - announce-release:
             dependencies:
               - release-openstack-javascript
-              - publish-openstack-javascript-tarball
 
 - project-template:
     name: translation-jobs
