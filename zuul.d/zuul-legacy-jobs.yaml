@@ -272,27 +272,6 @@
     timeout: 5400
 
 - job:
-    name: legacy-dsvm-ansible-func-centos-7
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-ansible-func-centos-7/run.yaml
-    post-run: playbooks/legacy/dsvm-ansible-func-centos-7/post.yaml
-    timeout: 6000
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack-infra/devstack-gate
-
-- job:
-    name: legacy-dsvm-ansible-func-ubuntu-trusty
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-ansible-func-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/dsvm-ansible-func-ubuntu-trusty/post.yaml
-    timeout: 6000
-    nodeset: legacy-ubuntu-trusty
-    required-projects:
-      - openstack-infra/devstack-gate
-    branches: master
-
-- job:
     name: legacy-dsvm-nodepool-debian-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/dsvm-nodepool-debian-src/run.yaml
