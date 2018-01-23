@@ -2142,7 +2142,6 @@
       - openstack/swift
       - openstack/taskflow
       - openstack/tempest
-      - openstack/tempest-lib
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
@@ -2239,7 +2238,6 @@
       - openstack/swift
       - openstack/taskflow
       - openstack/tempest
-      - openstack/tempest-lib
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
@@ -3994,7 +3992,6 @@
       - openstack/swift
       - openstack/taskflow
       - openstack/tempest
-      - openstack/tempest-lib
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
@@ -4092,7 +4089,6 @@
       - openstack/swift
       - openstack/taskflow
       - openstack/tempest
-      - openstack/tempest-lib
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements

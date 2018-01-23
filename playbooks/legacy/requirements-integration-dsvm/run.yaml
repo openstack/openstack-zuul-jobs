@@ -112,7 +112,6 @@
           export PROJECTS="openstack/swift $PROJECTS"
           export PROJECTS="openstack/taskflow $PROJECTS"
           export PROJECTS="openstack/tempest $PROJECTS"
-          export PROJECTS="openstack/tempest-lib $PROJECTS"
           export PROJECTS="openstack/tooz $PROJECTS"
           export PROJECTS="openstack/tripleo-heat-templates $PROJECTS"
           export PROJECTS="openstack/tripleo-image-elements $PROJECTS"
