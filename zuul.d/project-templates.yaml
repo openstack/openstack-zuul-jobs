@@ -92,10 +92,10 @@
       docs location.
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - build-sphinx-docs
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - build-sphinx-docs
     post:
       jobs:
         - publish-openstack-sphinx-docs-infra
@@ -107,10 +107,10 @@
       docs location only on tagged releases.
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - build-sphinx-docs
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - build-sphinx-docs
     release:
       jobs:
         - publish-openstack-sphinx-docs-infra
