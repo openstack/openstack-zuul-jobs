@@ -1,6 +1,5 @@
 # Project pipeline definition for openstack-zuul-jobs
 - project:
-    name: openstack-infra/openstack-zuul-jobs
     check:
       jobs:
         - openstack-infra-base-integration-centos-7
