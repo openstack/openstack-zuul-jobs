@@ -62,20 +62,6 @@
       command: "/usr/sbin/visudo -c"
       become: true
 
-    - name: Modify run-tox.sh to use zuul-sudo-grep.sh pre
-      lineinfile:
-        path: /usr/local/jenkins/slave_scripts/run-tox.sh
-        regexp: '^sudo .script_path/jenkins-sudo-grep.sh pre'
-        line: 'sudo $script_path/zuul-sudo-grep.sh pre'
-      become: true
-
-    - name: Modify run-tox.sh to use zuul-sudo-grep.sh post
-      lineinfile:
-        path: /usr/local/jenkins/slave_scripts/run-tox.sh
-        regexp: '^    sudo .script_path/jenkins-sudo-grep.sh post'
-        line: '    sudo $script_path/zuul-sudo-grep.sh post'
-      become: true
-
     - name: Show the environment passed in to job shell scripts
       shell:
         cmd: |
