@@ -318,29 +318,6 @@
       - openstack-infra/os-loganalyze
 
 - job:
-    name: legacy-ec2-api-functional-neutron-dsvm-full
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ec2-api-functional-neutron-dsvm-full/run.yaml
-    post-run: playbooks/legacy/ec2-api-functional-neutron-dsvm-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ec2-api
-      - openstack/neutron
-      - openstack/swift3
-
-- job:
-    name: legacy-ec2-api-rally-dsvm-fakevirt
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ec2-api-rally-dsvm-fakevirt/run.yaml
-    post-run: playbooks/legacy/ec2-api-rally-dsvm-fakevirt/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ec2-api
-      - openstack/rally
-
-- job:
     name: legacy-fuel-astute-puppet-unit-3.8-centos-7
     parent: legacy-base
     run: playbooks/legacy/fuel-astute-puppet-unit-3.8-centos-7/run.yaml
@@ -415,17 +392,6 @@
       - openstack/astara-appliance
       - openstack/astara-horizon
       - openstack/astara-neutron
-
-- job:
-    name: legacy-functional-neutron-dsvm-ec2api
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/functional-neutron-dsvm-ec2api/run.yaml
-    post-run: playbooks/legacy/functional-neutron-dsvm-ec2api/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ec2-api
-      - openstack/neutron
 
 - job:
     name: legacy-functional-neutron-dsvm-gceapi
