@@ -117,17 +117,6 @@
             branches: ^(?!stable/(newton|ocata)).*$
 
 - project-template:
-    name: integrated-gate-py35
-    check:
-      jobs:
-        - legacy-tempest-dsvm-py35:
-            branches: ^(?!(stable|driverfixes))
-    gate:
-      jobs:
-        - legacy-tempest-dsvm-py35:
-            branches: ^(?!(stable|driverfixes))
-
-- project-template:
     name: lib-forward-testing
     check:
       jobs:
