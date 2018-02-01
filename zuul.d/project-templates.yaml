@@ -600,6 +600,23 @@
             branches: stable/pike
 
 - project-template:
+    name: translation-jobs-queens
+    description: |
+      Sync translations to translation server and back again for
+      **stable/queens** branch only.
+
+      This is intented for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update:
+            branches: stable/queens
+    periodic:
+      jobs:
+        - propose-translation-update:
+            branches: stable/queens
+
+- project-template:
     name: openstack-specs-jobs
     description: |
       Runs jobs to build and publish documents for a specs repository.
