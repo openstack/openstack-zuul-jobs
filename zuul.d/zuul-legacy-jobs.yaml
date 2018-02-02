@@ -767,15 +767,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-heat-translator-tox-py27-tp
-    parent: legacy-base
-    run: playbooks/legacy/heat-translator-tox-py27-tp/run.yaml
-    post-run: playbooks/legacy/heat-translator-tox-py27-tp/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-infra-ansible
     parent: legacy-base
     run: playbooks/legacy/infra-ansible/run.yaml
@@ -1954,15 +1945,6 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/osc-placement
-
-- job:
-    name: legacy-oslo-cookiecutter-tox-cookiecutter
-    parent: legacy-base
-    run: playbooks/legacy/oslo-cookiecutter-tox-cookiecutter/run.yaml
-    post-run: playbooks/legacy/oslo-cookiecutter-tox-cookiecutter/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-ospurge-dsvm-functional
@@ -4074,13 +4056,6 @@
       - openstack/scalpels
 
 - job:
-    name: legacy-service-types-authority-validate
-    parent: legacy-base
-    run: playbooks/legacy/service-types-authority-validate/run.yaml
-    post-run: playbooks/legacy/service-types-authority-validate/post.yaml
-    timeout: 2400
-
-- job:
     name: legacy-sqlalchemy-migrate-devstack-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/sqlalchemy-migrate-devstack-dsvm/run.yaml
@@ -4090,15 +4065,6 @@
       - openstack-dev/devstack
       - openstack-infra/devstack-gate
       - openstack/sqlalchemy-migrate
-
-- job:
-    name: legacy-sqlalchemy-migrate-tox-py27sa07
-    parent: legacy-base
-    run: playbooks/legacy/sqlalchemy-migrate-tox-py27sa07/run.yaml
-    post-run: playbooks/legacy/sqlalchemy-migrate-tox-py27sa07/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/requirements
 
 - job:
     name: legacy-storyboard-js-integration
