@@ -465,6 +465,115 @@
       tox_envlist: snap
 
 - job:
+    name: openstack-tox-with-oslo-master-base
+    parent: openstack-tox-py27
+    timeout: 3000
+    description: |
+      This job installs all oslo libraries from source and tests that the
+      unit tests of the tested project work.
+    required-projects:
+      - openstack/automaton
+      - openstack/debtcollector
+      - openstack/futurist
+      - openstack/osprofiler
+      - openstack/oslo.cache
+      - openstack/oslo.concurrency
+      - openstack/oslo.config
+      - openstack/oslo.context
+      - openstack/oslo.db
+      - openstack/oslo.i18n
+      - openstack/oslo.log
+      - openstack/oslo.messaging
+      - openstack/oslo.middleware
+      - openstack/oslo.policy
+      - openstack/oslo.privsep
+      - openstack/oslo.reports
+      - openstack/oslo.rootwrap
+      - openstack/oslo.serialization
+      - openstack/oslo.service
+      - openstack/oslo.utils
+      - openstack/oslo.versionedobjects
+      - openstack/oslo.vmware
+      - openstack/oslosphinx
+      - openstack/oslotest
+      - openstack/pycadf
+      - openstack/stevedore
+      - openstack/taskflow
+      - openstack/tooz
+      - openstack-dev/pbr
+    vars:
+      tox_install_siblings: true
+
+- job:
+    name: openstack-tox-py27-with-oslo-master
+    parent: openstack-tox-with-oslo-master-base
+    description: |
+      This job installs all oslo libraries from source and tests that the
+      unit tests of the tested project work.
+
+      It uses the tox ``py27`` environment.
+
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    branches: master
+    vars:
+      tox_envlist: py27
+      bindep_profile: test py27
+
+- job:
+    name: openstack-tox-py35-with-oslo-master
+    parent: openstack-tox-with-oslo-master-base
+    description: |
+      This job installs all oslo libraries from source and tests that the
+      unit tests of the tested project work.
+
+      It uses the tox ``py35`` environment.
+
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    branches: master
+    vars:
+      tox_envlist: py35
+      bindep_profile: test py35
+
+- job:
+    name: openstack-tox-py35-with-neutron-lib-master
+    parent: openstack-tox-py35
+    timeout: 3000
+    description: |
+      This job installs neutron-lib from source and tests that the
+      unit tests of the tested project work.
+
+      It uses the tox ``py35`` environment.
+
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    branches: master
+    required-projects:
+      - openstack/neutron
+      - openstack/neutron-lib
+    vars:
+      tox_install_siblings: true
+
+- job:
+    name: openstack-tox-py35-with-ovsdbapp-master
+    parent: openstack-tox-py35
+    timeout: 3000
+    description: |
+      This job installs ovsdbapp from source and tests that the
+      unit tests of the tested project work.
+
+      It uses the tox ``py35`` environment.
+
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    branches: master
+    required-projects:
+      - openstack/ovsdbapp
+    vars:
+      tox_install_siblings: true
+
+- job:
     name: build-openstack-puppet-tarball
     description: |
       Build a puppet tarball but do not upload it anywhere.

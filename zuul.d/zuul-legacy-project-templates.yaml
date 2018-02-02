@@ -180,25 +180,6 @@
         - legacy-tempest-dsvm-neutron-src-plugin
 
 - project-template:
-    name: periodic-jobs-with-neutron-lib-master
-    periodic:
-      jobs:
-        - legacy-periodic-py35-with-neutron-lib-master
-
-- project-template:
-    name: periodic-jobs-with-oslo-master
-    periodic:
-      jobs:
-        - legacy-periodic-py27-with-oslo-master
-        - legacy-periodic-py35-with-oslo-master
-
-- project-template:
-    name: periodic-jobs-with-ovsdbapp-master
-    periodic:
-      jobs:
-        - legacy-periodic-py35-with-ovsdbapp-master
-
-- project-template:
     name: puppet-beaker-jobs
     check:
       jobs:
