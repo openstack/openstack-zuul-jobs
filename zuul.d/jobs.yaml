@@ -398,6 +398,28 @@
       tox_envlist: functional
 
 - job:
+    name: openstack-tox-functional-centos-7
+    parent: openstack-tox-functional
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+
+      Runs on CentOS 7 node.
+    nodeset: centos-7
+
+- job:
+    name: openstack-tox-functional-fedora-26
+    parent: openstack-tox-functional
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+
+      Runs on a Fedora 26 node.
+    nodeset: fedora-26
+
+- job:
     name: openstack-tox-functional-py35
     parent: openstack-tox
     description: |

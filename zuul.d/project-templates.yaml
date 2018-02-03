@@ -912,3 +912,49 @@
     gate:
       jobs:
         - openstack-tox-snap-with-sudo
+
+- project-template:
+    name: ansible-role-functional-jobs-centos7
+    description: |
+      Run functional tests on ansible-role repositories using
+      CentOS 7 nodes.
+    check:
+      jobs:
+        - openstack-tox-functional-centos-7
+    gate:
+      jobs:
+        - openstack-tox-functional-centos-7
+
+- project-template:
+    name: ansible-role-functional-jobs-fedora-26
+    description: |
+      Run functional tests on ansible-role repositories using
+      Fedora 26 nodes.
+    check:
+      jobs:
+        - openstack-tox-functional-fedora-26
+    gate:
+      jobs:
+        - openstack-tox-functional-fedora-26
+
+- project-template:
+    name: ansible-role-functional-jobs-xenial
+    description: |
+      Run functional tests on ansible-role repositories using
+      Ubuntu Xenial nodes.
+    check:
+      jobs:
+        - openstack-tox-functional
+    gate:
+      jobs:
+        - openstack-tox-functional
+
+- project-template:
+    name: ansible-role-functional-jobs-xenial-nv
+    description: |
+      Run functional tests on ansible-role repositories using
+      Ubuntu Xenial nodes. The tests are non-voting.
+    check:
+      jobs:
+        - openstack-tox-functional:
+            voting: false

@@ -8,40 +8,6 @@
         - legacy-ansible-lint
 
 - project-template:
-    name: ansible-role-functional-jobs-centos7
-    check:
-      jobs:
-        - legacy-ansible-func-centos-7
-    gate:
-      jobs:
-        - legacy-ansible-func-centos-7
-
-- project-template:
-    name: ansible-role-functional-jobs-fedora-26
-    check:
-      jobs:
-        - legacy-ansible-func-fedora-26
-    gate:
-      jobs:
-        - legacy-ansible-func-fedora-26
-
-- project-template:
-    name: ansible-role-functional-jobs-xenial
-    check:
-      jobs:
-        - legacy-ansible-func
-    gate:
-      jobs:
-        - legacy-ansible-func
-
-- project-template:
-    name: ansible-role-functional-jobs-xenial-nv
-    check:
-      jobs:
-        - legacy-ansible-func:
-            voting: false
-
-- project-template:
     name: fuel-ccp-component
     check:
       jobs:
