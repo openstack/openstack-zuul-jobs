@@ -1,33 +1,4 @@
 - job:
-    name: legacy-ansible-func
-    parent: legacy-base
-    run: playbooks/legacy/ansible-func/run.yaml
-    post-run: playbooks/legacy/ansible-func/post.yaml
-    timeout: 5400
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-ansible-func-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/ansible-func-centos-7/run.yaml
-    post-run: playbooks/legacy/ansible-func-centos-7/post.yaml
-    timeout: 5400
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-ansible-func-fedora-26
-    parent: legacy-base
-    run: playbooks/legacy/ansible-func-fedora-26/run.yaml
-    post-run: playbooks/legacy/ansible-func-fedora-26/post.yaml
-    timeout: 5400
-    nodeset: legacy-fedora-26
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-ansible-lint
     parent: legacy-base
     run: playbooks/legacy/ansible-lint/run.yaml
