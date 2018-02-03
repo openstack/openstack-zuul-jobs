@@ -2324,47 +2324,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-periodic-py27-with-oslo-master
-    parent: legacy-base
-    run: playbooks/legacy/periodic-py27-with-oslo-master/run.yaml
-    post-run: playbooks/legacy/periodic-py27-with-oslo-master/post.yaml
-    branches: master
-    timeout: 3000
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-py35-with-neutron-lib-master
-    parent: legacy-base
-    run: playbooks/legacy/periodic-py35-with-neutron-lib-master/run.yaml
-    post-run: playbooks/legacy/periodic-py35-with-neutron-lib-master/post.yaml
-    branches: master
-    timeout: 3000
-    required-projects:
-      - openstack/neutron
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-py35-with-oslo-master
-    parent: legacy-base
-    run: playbooks/legacy/periodic-py35-with-oslo-master/run.yaml
-    post-run: playbooks/legacy/periodic-py35-with-oslo-master/post.yaml
-    branches: master
-    timeout: 3000
-    required-projects:
-      - openstack/requirements
-
-- job:
-    name: legacy-periodic-py35-with-ovsdbapp-master
-    parent: legacy-base
-    run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/run.yaml
-    post-run: playbooks/legacy/periodic-py35-with-ovsdbapp-master/post.yaml
-    branches: master
-    timeout: 3000
-    required-projects:
-      - openstack/requirements
-
-- job:
     name: legacy-periodic-tempest-dsvm-all-master
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-all-master/run.yaml
