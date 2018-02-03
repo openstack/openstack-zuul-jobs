@@ -730,6 +730,34 @@
               - openstack/neutron
 
 - project-template:
+    name: periodic-jobs-with-neutron-lib-master
+    description: |
+      Runs periodic job on master branch using
+      neutron-lib from source.
+    periodic:
+      jobs:
+        - openstack-tox-py35-with-neutron-lib-master
+
+- project-template:
+    name: periodic-jobs-with-oslo-master
+    description: |
+      Runs periodic jobs on master branch using
+      oslo libraries from source.
+    periodic:
+      jobs:
+        - openstack-tox-py27-with-oslo-master
+        - openstack-tox-py35-with-oslo-master
+
+- project-template:
+    name: periodic-jobs-with-ovsdbapp-master
+    description: |
+      Runs periodic job on master branch using
+      ovdsdbapp from source.
+    periodic:
+      jobs:
+        - openstack-tox-py35-with-ovsdbapp-master
+
+- project-template:
     name: python-charm-interface-jobs
     description: |
       Run Python tests for charm-interface projects.
