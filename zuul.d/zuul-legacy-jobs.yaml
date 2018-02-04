@@ -2455,20 +2455,6 @@
     timeout: 3900
 
 - job:
-    name: legacy-project-config-jenkins-project
-    parent: legacy-base
-    run: playbooks/legacy/project-config-jenkins-project/run.yaml
-    post-run: playbooks/legacy/project-config-jenkins-project/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-project-config-layout
-    parent: legacy-base
-    run: playbooks/legacy/project-config-layout/run.yaml
-    post-run: playbooks/legacy/project-config-layout/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-puppet-beaker-rspec
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec/run.yaml
