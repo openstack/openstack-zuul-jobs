@@ -398,28 +398,6 @@
       tox_envlist: functional
 
 - job:
-    name: openstack-tox-functional-centos-7
-    parent: openstack-tox-functional
-    description: |
-      Run tox-based functional tests for an OpenStack Python project.
-
-      Uses tox with the ``functional`` environment.
-
-      Runs on CentOS 7 node.
-    nodeset: centos-7
-
-- job:
-    name: openstack-tox-functional-fedora-26
-    parent: openstack-tox-functional
-    description: |
-      Run tox-based functional tests for an OpenStack Python project.
-
-      Uses tox with the ``functional`` environment.
-
-      Runs on a Fedora 26 node.
-    nodeset: fedora-26
-
-- job:
     name: openstack-tox-functional-py35
     parent: openstack-tox
     description: |
@@ -1032,3 +1010,29 @@
       tox_envlist: linters
       tox_environment:
         ANSIBLE_ROLES_PATH: ~/src/git.openstack.org/openstack-infra/zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/openstack-zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/project-config/roles
+
+- job:
+    name: ansible-role-functional-base
+    parent: tox
+    description: |
+      Run functional functional tests for ansible-role projects.
+
+      Uses tox with the ``functional`` environment.
+    pre-run: playbooks/ansible-role-functional/pre.yaml
+    run: playbooks/tox-with-sudo/run.yaml
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: ansible-role-functional-centos-7
+    parent: ansible-role-functional-base
+    nodeset: centos-7
+
+- job:
+    name: ansible-role-functional-fedora-26
+    parent: ansible-role-functional-base
+    nodeset: fedora-26
+
+- job:
+    name: ansible-role-functional-ubuntu-xenial
+    parent: ansible-role-functional-base

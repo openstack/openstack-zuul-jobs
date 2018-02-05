@@ -965,10 +965,10 @@
       CentOS 7 nodes.
     check:
       jobs:
-        - openstack-tox-functional-centos-7
+        - ansible-role-functional-centos-7
     gate:
       jobs:
-        - openstack-tox-functional-centos-7
+        - ansible-role-functional-centos-7
 
 - project-template:
     name: ansible-role-functional-jobs-fedora-26
@@ -977,10 +977,10 @@
       Fedora 26 nodes.
     check:
       jobs:
-        - openstack-tox-functional-fedora-26
+        - ansible-role-functional-fedora-26
     gate:
       jobs:
-        - openstack-tox-functional-fedora-26
+        - ansible-role-functional-fedora-26
 
 - project-template:
     name: ansible-role-functional-jobs-xenial
@@ -989,10 +989,10 @@
       Ubuntu Xenial nodes.
     check:
       jobs:
-        - openstack-tox-functional
+        - ansible-role-functional-ubuntu-xenial
     gate:
       jobs:
-        - openstack-tox-functional
+        - ansible-role-functional-ubuntu-xenial
 
 - project-template:
     name: ansible-role-functional-jobs-xenial-nv
@@ -1001,5 +1001,5 @@
       Ubuntu Xenial nodes. The tests are non-voting.
     check:
       jobs:
-        - openstack-tox-functional:
+        - ansible-role-functional-ubuntu-xenial:
             voting: false
