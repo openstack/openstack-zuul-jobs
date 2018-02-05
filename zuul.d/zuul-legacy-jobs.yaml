@@ -4792,20 +4792,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-py35
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-py35/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-py35/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^releasenotes/.*$
-
-- job:
     name: legacy-tempest-dsvm-py35-full-devstack-plugin-ceph
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-py35-full-devstack-plugin-ceph/run.yaml

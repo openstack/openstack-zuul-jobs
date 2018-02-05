@@ -1003,3 +1003,17 @@
       jobs:
         - ansible-role-functional-ubuntu-xenial:
             voting: false
+
+- project-template:
+    name: integrated-gate-py35
+    description: |
+      Run the python3 Tempest integration tests in check and gate for
+      repositories in the integrated gate.
+    check:
+      jobs:
+        - tempest-full-py3:
+            branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
+    gate:
+      jobs:
+        - tempest-full-py3:
+            branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
