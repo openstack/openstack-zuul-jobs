@@ -2132,6 +2132,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-ceph/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-ceph/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-2-iscsi
@@ -2139,6 +2141,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-iscsi/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-2-iscsi/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-3-ceph
@@ -2146,6 +2150,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-ceph/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-ceph/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-3-iscsi
@@ -2153,6 +2159,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-iscsi/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-3-iscsi/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-4-ceph
@@ -2160,6 +2168,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-ceph/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-ceph/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-4-iscsi
@@ -2167,6 +2177,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-iscsi/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-centos-binary-4-iscsi/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-2-ceph
@@ -2174,6 +2186,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-ceph/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-ceph/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi
@@ -2181,6 +2195,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-2-iscsi/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-3-ceph
@@ -2188,6 +2204,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-ceph/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-ceph/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-3-iscsi
@@ -2195,6 +2213,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-iscsi/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-3-iscsi/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-4-ceph
@@ -2202,6 +2222,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-ceph/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-ceph/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-ubuntu-binary-4-iscsi
@@ -2209,6 +2231,8 @@
     run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-iscsi/run.yaml
     post-run: playbooks/legacy/periodic-kolla-kubernetes-deploy-ubuntu-binary-4-iscsi/post.yaml
     timeout: 3600
+    required-projects:
+      - openstack/requirements
 
 - job:
     name: legacy-periodic-neutron-dsvm-functional
