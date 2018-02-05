@@ -738,13 +738,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-infra-ansible
-    parent: legacy-base
-    run: playbooks/legacy/infra-ansible/run.yaml
-    post-run: playbooks/legacy/infra-ansible/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-infra-puppet-apply-base
     parent: legacy-base
     timeout: 1800
