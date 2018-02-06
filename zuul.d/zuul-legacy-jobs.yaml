@@ -4345,18 +4345,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-neutron-nova-next-full
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-nova-next-full/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-nova-next-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/nova
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-pecan
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-pecan/run.yaml
