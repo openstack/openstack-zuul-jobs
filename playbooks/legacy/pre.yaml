@@ -44,11 +44,14 @@
         - id_rsa
         - id_rsa.pub
 
-    - name: Copy zuul-sudo-grep.sh to the script dir on the node
+    - name: Copy files to the script dir on the node
       copy:
-        dest: /usr/local/jenkins/slave_scripts/zuul-sudo-grep.sh
-        src: zuul-sudo-grep.sh
+        dest: '/usr/local/jenkins/slave_scripts/{{ item }}'
+        src: '{{ item }}'
         mode: 0755
+      with_items:
+        - install-distro-packages.sh
+        - zuul-sudo-grep.sh
       become: true
 
     - name: Add sudoers role for zuul-sudo-grep.sh
