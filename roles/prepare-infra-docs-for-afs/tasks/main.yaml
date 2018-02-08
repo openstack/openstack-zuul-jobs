@@ -2,19 +2,26 @@
   set_fact:
     doc_build_dir: "{{ zuul_work_dir }}/{{ sphinx_build_dir }}"
 
-- name: Write marker text
+- name: Write branch marker text
   copy:
     dest: "{{ doc_build_dir }}/html/.root-marker"
     content: "Project: {{ zuul.project.name }} Branch: {{ zuul.branch }} Build: {{ zuul.build }} Revision: {{ zuul.ref }}"
+  when: "zuul.branch is defined"
+
+- name: Write tag marker text
+  copy:
+    dest: "{{ doc_build_dir }}/html/.root-marker"
+    content: "Project: {{ zuul.project.name }} Tag: {{ zuul.tag }} Build: {{ zuul.build }} Revision: {{ zuul.ref }}"
+  when: "zuul.tag is defined"
 
 - name: Process tagged build
   include: tagged.yaml
-  when: "zuul.branch != 'master' and zuul.tag is defined"
+  when: "zuul.tag is defined"
 
 - name: Process stable branch build
   include: stable.yaml
-  when: "'stable' in zuul.branch and zuul.tag is not defined"
+  when: "zuul.branch is defined and 'stable' in zuul.branch and zuul.tag is not defined"
 
 - name: Process branch build
   include: branch.yaml
-  when: "zuul.branch != 'master' and 'stable' not in zuul.branch and zuul.tag is not defined"
+  when: "zuul.branch is defined and zuul.branch != 'master' and 'stable' not in zuul.branch and zuul.tag is not defined"
