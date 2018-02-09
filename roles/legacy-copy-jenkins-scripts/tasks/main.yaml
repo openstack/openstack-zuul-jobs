@@ -1,0 +1,10 @@
+- name: Copy files to the slave_script dir on the node
+  copy:
+    # Ansible will create this folder automatically
+    dest: '/usr/local/jenkins/slave_scripts/'
+    src: '{{ item }}'
+    mode: 0755
+  with_items:
+    - install-distro-packages.sh
+    - zuul-sudo-grep.sh
+  become: true

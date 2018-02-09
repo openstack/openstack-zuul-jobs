@@ -3,6 +3,7 @@
     - role: fetch-zuul-cloner
       destination: "/usr/zuul-env/bin/zuul-cloner"
       repo_src_dir: "/home/zuul/src/git.openstack.org"
+    - legacy-copy-jenkins-scripts
 
   tasks:
     - name: Create nodepool directory
@@ -43,16 +44,6 @@
       with_items:
         - id_rsa
         - id_rsa.pub
-
-    - name: Copy files to the script dir on the node
-      copy:
-        dest: '/usr/local/jenkins/slave_scripts/{{ item }}'
-        src: '{{ item }}'
-        mode: 0755
-      with_items:
-        - install-distro-packages.sh
-        - zuul-sudo-grep.sh
-      become: true
 
     - name: Add sudoers role for zuul-sudo-grep.sh
       copy:
