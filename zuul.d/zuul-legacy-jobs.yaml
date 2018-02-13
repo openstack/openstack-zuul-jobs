@@ -2022,17 +2022,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-periodic-neutron-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-neutron-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/periodic-neutron-dsvm-functional/post.yaml
-    timeout: 7800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-
-- job:
     name: legacy-periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4/run.yaml
@@ -2158,30 +2147,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/run.yaml
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/post.yaml
-    timeout: 10800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-neutron-pg-full
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-pg-full/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-pg-full/post.yaml
-    timeout: 10800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-neutron-with-ryu-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-with-ryu-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-with-ryu-master/post.yaml
     timeout: 10800
     branches: master
     required-projects:
