@@ -205,12 +205,6 @@
       - openstack/devstack-plugin-container
 
 - job:
-    name: legacy-devstack-unit-tests
-    parent: legacy-base
-    run: playbooks/legacy/devstack-unit-tests/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-dg-hooks-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/dg-hooks-dsvm/run.yaml
