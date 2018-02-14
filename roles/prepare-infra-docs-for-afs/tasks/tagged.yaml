@@ -14,5 +14,5 @@
     path: "{{ doc_build_dir }}/html/{{ zuul.tag | dirname }}"
     state: directory
 
-- name: Move html to branch location
+- name: Move html to tag location
   command: "mv {{ doc_build_dir }}/tmp {{ doc_build_dir }}/html/{{ zuul.tag }}"
