@@ -141,23 +141,6 @@
       - openstack/python-muranoclient
 
 - job:
-    name: legacy-devstack-dsvm-py35-updown
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/devstack-dsvm-py35-updown/run.yaml
-    post-run: playbooks/legacy/devstack-dsvm-py35-updown/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      # following are required when DEVSTACK_GATE_HEAT, which this
-      # job turns on
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      # Required by DEVSTACK_GATE_SAHARA
-      - openstack/sahara
-      - openstack/sahara-dashboard
-
-- job:
     name: legacy-devstack-dsvm-py36-updown-fedora-26
     parent: legacy-dsvm-base
     run: playbooks/legacy/devstack-dsvm-py36-updown-fedora-26/run.yaml
