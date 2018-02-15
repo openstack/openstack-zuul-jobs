@@ -1329,6 +1329,7 @@
       - openstack-infra/devstack-gate
       - openstack/networking-bagpipe
       - openstack/networking-bgpvpn
+      - openstack/networking-sfc
 
 - job:
     name: legacy-networking-bgpvpn-bagpipe-dsvm-functional
