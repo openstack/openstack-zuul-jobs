@@ -10,6 +10,8 @@
       prevent regressions. This job should not be used outside the context of
       testing roles and playbooks found in project-config, zuul-jobs and
       openstack-zuul-jobs.
+    abstract: true
+    protected: true
     parent: base-minimal
     required-projects:
       - openstack-infra/project-config
@@ -58,6 +60,8 @@
 
 - job:
     name: openstack-infra-multinode-integration
+    abstract: true
+    protected: true
     description: |
       Runs roles that are included by default in the 'multinode' job in order
       to prevent regressions. This job should not be used outside the context
@@ -223,6 +227,7 @@
 
 - job:
     name: openstack-tox
+    abstract: true
     parent: tox
     description: |
       Base job to run tox jobs with OpenStack project specific updates.
@@ -598,7 +603,6 @@
     run: playbooks/python-tarball/run.yaml
     post-run: playbooks/python-tarball/post.yaml
 
-
 - job:
     name: publish-openstack-javascript-tarball
     parent: publish-openstack-artifacts
@@ -738,6 +742,7 @@
 
 - job:
     name: legacy-base
+    abstract: true
     description: |
       Base job for autoconverted legacy jobs
     pre-run: playbooks/legacy/pre.yaml
@@ -745,6 +750,7 @@
 
 - job:
     name: legacy-dsvm-base
+    abstract: true
     description: |
       Base job for autoconverted legacy devstack-gate jobs
 
@@ -795,6 +801,7 @@
 
 - job:
     name: legacy-dsvm-base-multinode
+    abstract: true
     parent: legacy-dsvm-base
     description: |
       Base job for multinode devstack jobs.
@@ -807,6 +814,7 @@
 
 - job:
     name: legacy-puppet-openstack-integration
+    abstract: true
     description: |
       Base job for autoconverted legacy puppet-openstack-integration
 
@@ -859,6 +867,7 @@
 
 - job:
     name: legacy-publish-openstack-artifacts
+    abstract: true
     parent: publish-openstack-artifacts
     description: |
       Base job for autoconverted legacy jobs that publish artifacts
@@ -1004,6 +1013,7 @@
 
 - job:
     name: ansible-role-functional-base
+    abstract: true
     parent: tox
     description: |
       Run functional functional tests for ansible-role projects.
