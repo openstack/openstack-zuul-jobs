@@ -707,10 +707,12 @@
             branches:
               - stable/ocata
               - stable/pike
+              - stable/queens
         - openstack-tox-py27:
             branches:
               - stable/ocata
               - stable/pike
+              - stable/queens
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -720,12 +722,14 @@
             branches:
               - stable/ocata
               - stable/pike
+              - stable/queens
             required-projects:
               - openstack/neutron
         - openstack-tox-py27:
             branches:
               - stable/ocata
               - stable/pike
+              - stable/queens
             required-projects:
               - openstack/neutron
 
