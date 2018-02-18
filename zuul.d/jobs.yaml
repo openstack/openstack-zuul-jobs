@@ -1027,3 +1027,32 @@
 - job:
     name: ansible-role-functional-ubuntu-xenial
     parent: ansible-role-functional-base
+
+- job:
+    name: golang-base
+    parent: unittests
+    abstract: true
+    description: |
+      Base job for golang tests.
+    pre-run: playbooks/golang/pre.yaml
+    run: playbooks/golang/run.yaml
+
+- job:
+    name: golang-fmt
+    parent: golang-base
+    description: |
+      Run golang fmt test.
+
+      This uses the make target ``fmt``.
+    vars:
+      golang_target: "fmt"
+
+- job:
+    name: golang-unit
+    parent: golang-base
+    description: |
+      Run golang unit test.
+
+      This uses the make target ``test``.
+    vars:
+      golang_target: "test"

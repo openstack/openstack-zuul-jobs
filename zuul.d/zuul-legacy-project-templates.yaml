@@ -28,17 +28,6 @@
         - legacy-fuel-ccp-validate
 
 - project-template:
-    name: golang-jobs
-    check:
-      jobs:
-        - legacy-golang-fmt
-        - legacy-golang-unit
-    gate:
-      jobs:
-        - legacy-golang-fmt
-        - legacy-golang-unit
-
-- project-template:
     name: infra-logstash-filter-jobs
     check:
       jobs:
