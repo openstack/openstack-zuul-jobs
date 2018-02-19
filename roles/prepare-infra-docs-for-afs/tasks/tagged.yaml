@@ -4,10 +4,8 @@
 # docs are always the latest release with older tags available under the
 # root in the tagname dir.
 - name: Copy content to the temporary location
-  copy:
-    remote_src: true
-    src: "{{ doc_build_dir }}/html"
-    dest: "{{ doc_build_dir }}/tmp"
+  # remote_src copy does not work recursively, using command
+  command: cp -a {{ doc_build_dir }}/html {{ doc_build_dir }}/tmp
 
 - name: Make destination path
   file:
