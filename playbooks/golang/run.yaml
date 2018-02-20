@@ -1,0 +1,11 @@
+- hosts: all
+
+  tasks:
+    - name: Run golang tests
+      shell:
+        chdir: '{{ zuul.project.src_dir }}'
+        executable: /bin/bash
+        cmd: |
+          set -e
+          set -x
+          make env {{ golang_target }}

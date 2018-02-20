@@ -1021,3 +1021,16 @@
       jobs:
         - tempest-full-py3:
             branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
+
+- project-template:
+    name: golang-jobs
+    description: |
+      Run golang tests in check and gate.
+    check:
+      jobs:
+        - golang-fmt
+        - golang-unit
+    gate:
+      jobs:
+        - golang-fmt
+        - golang-unit
