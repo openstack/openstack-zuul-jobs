@@ -390,18 +390,6 @@
       - openstack/python-glareclient
 
 - job:
-    name: legacy-golang-fmt
-    parent: legacy-base
-    run: playbooks/legacy/golang-fmt/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-golang-unit
-    parent: legacy-base
-    run: playbooks/legacy/golang-unit/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-grenade-dsvm-cinder-mn-sub-bak
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/run.yaml
