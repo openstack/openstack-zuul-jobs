@@ -876,7 +876,7 @@
     files:
       - ^gerrit/acls/.*$
       - bindep.txt
-      - check_valid_gerrit_projects.py
+      - tools/check_valid_gerrit_projects.py
       - gerrit/projects.yaml
       - other-requirements.txt
       - tools/check_projects_yaml_alphabetized.sh
