@@ -24,7 +24,7 @@ elif [ -e other-requirements.txt ] ; then
     export PACKAGES=other-requirements.txt
 else
     # use the bindep fallback list preinstalled on the worker
-    export PACKAGES=/usr/local/jenkins/common_data/bindep-fallback.txt
+    export PACKAGES=/usr/local/bindep-fallback/bindep-fallback.txt
 fi
 
 # an install loop, retrying to check that all requested packages are obtained
