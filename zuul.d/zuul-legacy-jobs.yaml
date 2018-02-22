@@ -4112,19 +4112,6 @@
       - openstack/neutron
       - openstack/tempest
 
-# TODO(pabelanger): Remove once project-config is updated to use fedora-27.
-- job:
-    name: legacy-tempest-dsvm-neutron-full-fedora-26
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-fedora-26/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-fedora-26/post.yaml
-    timeout: 10800
-    nodeset: legacy-fedora-26
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
 - job:
     name: legacy-tempest-dsvm-neutron-full-fedora-27
     parent: legacy-dsvm-base
