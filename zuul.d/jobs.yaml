@@ -42,6 +42,11 @@
     nodeset: fedora-26
 
 - job:
+    name: openstack-infra-base-integration-fedora-27
+    parent: openstack-infra-base-integration
+    nodeset: fedora-27
+
+- job:
     name: openstack-infra-base-integration-opensuse423
     parent: openstack-infra-base-integration
     nodeset: opensuse-423
@@ -120,14 +125,14 @@
             - secondary
 
 - job:
-    name: openstack-infra-multinode-integration-fedora-26
+    name: openstack-infra-multinode-integration-fedora-27
     parent: openstack-infra-multinode-integration
     nodeset:
       nodes:
         - name: primary
-          label: fedora-26
+          label: fedora-27
         - name: secondary
-          label: fedora-26
+          label: fedora-27
       groups:
         - name: switch
           nodes:
@@ -162,6 +167,23 @@
           label: ubuntu-trusty
         - name: secondary
           label: ubuntu-trusty
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-fedora-26
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: fedora-26
+        - name: secondary
+          label: fedora-26
       groups:
         - name: switch
           nodes:
