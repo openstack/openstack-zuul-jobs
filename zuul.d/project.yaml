@@ -11,7 +11,8 @@
         - openstack-infra-base-integration-opensuse423
         - openstack-infra-multinode-integration-centos-7
         - openstack-infra-multinode-integration-debian-jessie
-        - openstack-infra-multinode-integration-fedora-26
+        - openstack-infra-multinode-integration-fedora-26:
+            voting: false
         - openstack-infra-multinode-integration-ubuntu-trusty
         - openstack-infra-multinode-integration-ubuntu-xenial
         - openstack-infra-multinode-integration-opensuse423
@@ -26,7 +27,6 @@
         - openstack-infra-base-integration-opensuse423
         - openstack-infra-multinode-integration-centos-7
         - openstack-infra-multinode-integration-debian-jessie
-        - openstack-infra-multinode-integration-fedora-26
         - openstack-infra-multinode-integration-ubuntu-trusty
         - openstack-infra-multinode-integration-ubuntu-xenial
         - openstack-infra-multinode-integration-opensuse423
