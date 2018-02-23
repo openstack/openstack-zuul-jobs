@@ -89,14 +89,14 @@
             branches: ^stable/(newton|ocata|pike)$
         - tempest-full
         - neutron-grenade:
-            branches: ^(?!stable/newton).*$
+            branches: ^(?!stable/(newton|ocata)).*$
     gate:
       jobs:
         - legacy-tempest-dsvm-neutron-full:
             branches: ^stable/(newton|ocata|pike)$
         - tempest-full
         - neutron-grenade:
-            branches: ^(?!stable/newton).*$
+            branches: ^(?!stable/(newton|ocata)).*$
     experimental:
       jobs:
         - legacy-tempest-dsvm-neutron-pg-full:
