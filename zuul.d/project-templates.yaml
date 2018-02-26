@@ -566,23 +566,6 @@
             branches: master
 
 - project-template:
-    name: translation-jobs-ocata
-    description: |
-      Sync translations to translation server and back again for
-      **stable/ocata** branch only.
-
-      This is intented for official OpenStack projects that have
-      translations set up.
-    post:
-      jobs:
-        - upstream-translation-update:
-            branches: stable/ocata
-    periodic:
-      jobs:
-        - propose-translation-update:
-            branches: stable/ocata
-
-- project-template:
     name: translation-jobs-pike
     description: |
       Sync translations to translation server and back again for
