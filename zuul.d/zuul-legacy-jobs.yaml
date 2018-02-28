@@ -2032,18 +2032,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-neutron-full-pike
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-pike/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-pike/post.yaml
-    timeout: 10800
-    branches: stable/pike
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-neutron-full-test-accounts-master
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/run.yaml
@@ -4176,17 +4164,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-full-opensuse-423/post.yaml
     timeout: 10800
     nodeset: legacy-opensuse-423
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-full-pike
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-pike/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-pike/post.yaml
-    timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
