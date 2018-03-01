@@ -784,9 +784,6 @@
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py27
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: python-charm-layer-jobs
@@ -811,9 +808,6 @@
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py35
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: nodejs4-jobs
