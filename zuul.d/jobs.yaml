@@ -88,6 +88,7 @@
       - ^roles/multi-node-hosts-file/.*
       - ^roles/multi-node-known-hosts/.*
       - ^tests/.*
+      - ^playbooks/multinode/.*
 
 - job:
     name: openstack-infra-multinode-integration-centos-7
