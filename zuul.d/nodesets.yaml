@@ -42,6 +42,12 @@
         label: ubuntu-trusty
 
 - nodeset:
+    name: ubuntu-xenial-arm64
+    nodes:
+      - name: ubuntu-xenial-arm64
+        label: ubuntu-xenial-arm64
+
+- nodeset:
     name: ubuntu-xenial
     nodes:
       - name: ubuntu-xenial
