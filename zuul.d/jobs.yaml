@@ -19,7 +19,7 @@
       - zuul: openstack-infra/zuul-jobs
     run: tests/base.yaml
     files:
-      - ^roles/configure-mirror/.*
+      - ^roles/configure-mirrors/.*
       - ^roles/configure-unbound/.*
       - ^roles/emit-job-header/.*
       - ^roles/fetch-zuul-cloner/.*
@@ -76,7 +76,7 @@
       - zuul: openstack-infra/zuul-jobs
     run: tests/multinode.yaml
     files:
-      - ^roles/configure-mirror/.*
+      - ^roles/configure-mirrors/.*
       - ^roles/configure-unbound/.*
       - ^roles/emit-job-header/.*
       - ^roles/fetch-zuul-cloner/.*
