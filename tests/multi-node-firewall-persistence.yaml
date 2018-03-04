@@ -7,13 +7,15 @@
     # it again -- we're testing here that both are persisted properly.
     - { role: multi-node-bridge, bridge_authorize_internal_traffic: true }
   post_tasks:
+    # NOTE (dmsimard): Using with_first_found and include_vars can yield
+    # unexpected results, see multinode_firewall_persistence_vars/README.rst
     - name: Include OS-specific variables
       include_vars: "{{ item }}"
       with_first_found:
-        - "{{ ansible_distribution }}_{{ ansible_distribution_release }}.yaml"
-        - "{{ ansible_distribution }}.yaml"
-        - "{{ ansible_os_family }}.yaml"
-        - "default.yaml"
+        - "multinode_firewall_persistence_vars/{{ ansible_distribution }}_{{ ansible_distribution_release }}.yaml"
+        - "multinode_firewall_persistence_vars/{{ ansible_distribution }}.yaml"
+        - "multinode_firewall_persistence_vars/{{ ansible_os_family }}.yaml"
+        - "multinode_firewall_persistence_vars/default.yaml"
 
     - name: Flush iptables rules
       become: yes

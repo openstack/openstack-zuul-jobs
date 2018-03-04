@@ -41,9 +41,9 @@
 - name: Include OS-specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "{{ role_path }}/vars/{{ ansible_distribution }}.yaml"
-    - "{{ role_path }}/vars/{{ ansible_os_family }}.yaml"
-    - "{{ role_path }}/vars/default.yaml"
+    - "{{ ansible_distribution }}.yaml"
+    - "{{ ansible_os_family }}.yaml"
+    - "default.yaml"
 
 - name: Ensure Unbound conf.d directory exists
   become: yes
