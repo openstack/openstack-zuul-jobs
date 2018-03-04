@@ -131,11 +131,18 @@
       - name: primary
         label: debian-jessie
 
+# TODO(pabelanger): Remove once project-config is update to run fedora-27.
 - nodeset:
     name: legacy-fedora-26
     nodes:
       - name: primary
         label: fedora-26
+
+- nodeset:
+    name: legacy-fedora-27
+    nodes:
+      - name: primary
+        label: fedora-27
 
 - nodeset:
     name: legacy-opensuse-423
