@@ -929,19 +929,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-liberasurecode-unit
-    parent: legacy-base
-    run: playbooks/legacy/liberasurecode-unit/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-liberasurecode-unit-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/liberasurecode-unit-centos-7/run.yaml
-    timeout: 1800
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-logstash-filters
     parent: legacy-base
     required-projects:
