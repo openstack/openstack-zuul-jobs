@@ -97,13 +97,6 @@
         - tempest-full
         - neutron-grenade:
             branches: ^(?!stable/(newton|ocata)).*$
-    experimental:
-      jobs:
-        - legacy-tempest-dsvm-neutron-pg-full:
-            voting: false
-        - legacy-tempest-dsvm-neutron-full-opensuse-423:
-            voting: false
-            branches: ^(?!stable/(newton|ocata)).*$
 
 - project-template:
     name: lib-forward-testing
