@@ -30,12 +30,6 @@
         label: opensuse-423
 
 - nodeset:
-    name: tripleo-centos-7
-    nodes:
-      - name: tripleo-centos-7
-        label: tripleo-centos-7
-
-- nodeset:
     name: ubuntu-bionic
     nodes:
       - name: ubuntu-bionic
@@ -155,12 +149,6 @@
     nodes:
       - name: primary
         label: opensuse-423
-
-- nodeset:
-    name: legacy-tripleo-centos-7
-    nodes:
-      - name: primary
-        label: tripleo-centos-7
 
 - nodeset:
     name: legacy-ubuntu-trusty
