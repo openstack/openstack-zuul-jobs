@@ -36,6 +36,12 @@
         label: tripleo-centos-7
 
 - nodeset:
+    name: ubuntu-bionic
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic
+
+- nodeset:
     name: ubuntu-trusty
     nodes:
       - name: ubuntu-trusty
