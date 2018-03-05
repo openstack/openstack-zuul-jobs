@@ -1,11 +1,11 @@
-- name: Create /usr/local/jenkins/slave_scripts
+- name: Create old jenkins folders
+  become: true
   file:
     path: /usr/local/jenkins/slave_scripts
     state: directory
 
 - name: Copy files to the slave_script dir on the node
   copy:
-    # Ansible will create this folder automatically
     dest: '/usr/local/jenkins/slave_scripts/'
     src: '{{ item }}'
     mode: 0755
