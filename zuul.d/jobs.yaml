@@ -54,6 +54,11 @@
     nodeset: opensuse-423
 
 - job:
+    name: openstack-infra-base-integration-ubuntu-bionic
+    parent: openstack-infra-base-integration
+    nodeset: ubuntu-bionic
+
+- job:
     name: openstack-infra-base-integration-ubuntu-trusty
     parent: openstack-infra-base-integration
     nodeset: ubuntu-trusty
@@ -155,6 +160,23 @@
           label: opensuse-423
         - name: secondary
           label: opensuse-423
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-ubuntu-bionic
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: ubuntu-bionic
+        - name: secondary
+          label: ubuntu-bionic
       groups:
         - name: switch
           nodes:
