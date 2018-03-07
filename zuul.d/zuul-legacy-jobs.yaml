@@ -342,12 +342,6 @@
       - openstack-infra/gerrit
 
 - job:
-    name: legacy-gitdm
-    parent: legacy-base
-    run: playbooks/legacy/gitdm/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-glance-dsvm-grenade-multinode
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/glance-dsvm-grenade-multinode/run.yaml
@@ -1793,13 +1787,6 @@
       - openstack/trove
       - openstack/trove-dashboard
       - openstack/zaqar
-
-- job:
-    name: legacy-periodic-gitdm
-    parent: legacy-base
-    run: playbooks/legacy/periodic-gitdm/run.yaml
-    branches: master
-    timeout: 1800
 
 - job:
     name: legacy-periodic-kolla-kubernetes-deploy-centos-binary-2-ceph
