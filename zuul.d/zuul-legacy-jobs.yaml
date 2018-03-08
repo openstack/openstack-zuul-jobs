@@ -99,12 +99,6 @@
       - openstack/python-brick-cinderclient-ext
 
 - job:
-    name: legacy-cl-openstack-client-run-tests
-    parent: legacy-base
-    run: playbooks/legacy/cl-openstack-client-run-tests/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-cloudkitty-dsvm-install
     parent: legacy-dsvm-base
     run: playbooks/legacy/cloudkitty-dsvm-install/run.yaml
