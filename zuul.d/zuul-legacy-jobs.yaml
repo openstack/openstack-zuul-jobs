@@ -1964,18 +1964,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-neutron-full-newton
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-newton/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-newton/post.yaml
-    timeout: 10800
-    branches: stable/newton
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-neutron-full-non-admin-master
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-non-admin-master/run.yaml
@@ -2009,17 +1997,6 @@
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-nnet-newton
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-nnet-newton/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-nnet-newton/post.yaml
-    branches: stable/newton
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
       - openstack/tempest
 
 - job:
@@ -3954,17 +3931,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-neutron-full-newton
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-newton/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-newton/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-full-non-admin
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-full-non-admin/run.yaml
@@ -4141,16 +4107,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-nnet/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-nnet/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-nnet-newton
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-nnet-newton/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-nnet-newton/post.yaml
     timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
