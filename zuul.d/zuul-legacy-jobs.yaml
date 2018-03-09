@@ -111,18 +111,6 @@
       - openstack/python-cloudkittyclient
 
 - job:
-    name: legacy-cue-integration-dsvm-rabbitmq
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/cue-integration-dsvm-rabbitmq/run.yaml
-    post-run: playbooks/legacy/cue-integration-dsvm-rabbitmq/post.yaml
-    timeout: 6600
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/cue
-      - openstack/cue-dashboard
-      - openstack/python-cueclient
-
-- job:
     name: legacy-dashboard-dsvm-selenium-package
     parent: legacy-dsvm-base
     run: playbooks/legacy/dashboard-dsvm-selenium-package/run.yaml
@@ -2495,19 +2483,6 @@
     timeout: 4800
     required-projects:
       - openstack-infra/devstack-gate
-      - openstack/rally
-
-- job:
-    name: legacy-rally-dsvm-cue-rabbitmq
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-cue-rabbitmq/run.yaml
-    post-run: playbooks/legacy/rally-dsvm-cue-rabbitmq/post.yaml
-    timeout: 6600
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/cue
-      - openstack/cue-dashboard
-      - openstack/python-cueclient
       - openstack/rally
 
 - job:
