@@ -307,7 +307,7 @@
 
 - job:
     name: legacy-gerrit-buck
-    parent: legacy-publish-openstack-artifacts
+    parent: legacy-base
     run: playbooks/legacy/gerrit-buck/run.yaml
     post-run: playbooks/legacy/gerrit-buck/post.yaml
     timeout: 2400
