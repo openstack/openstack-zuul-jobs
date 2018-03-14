@@ -301,6 +301,7 @@
       Uses tox with the ``py27`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -318,6 +319,7 @@
       Uses tox with the ``py35`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^deliverables/.*$
@@ -337,6 +339,7 @@
       Uses tox with the ``py36`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -352,6 +355,7 @@
       Uses tox with the ``pypy`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -391,6 +395,7 @@
       - name: openstack/requirements
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     success-url: cover/
@@ -427,6 +432,7 @@
       Uses tox with the ``functional`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -442,6 +448,7 @@
       Sudo access is not revoked.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -457,6 +464,7 @@
       Uses tox with the ``functional-py35`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -481,6 +489,7 @@
       Uses tox with the ``pylint`` environment.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
@@ -509,6 +518,7 @@
       Sudo access is not revoked.
     irrelevant-files:
       - ^.*\.rst$
+      - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
     vars:
