@@ -109,10 +109,8 @@
     name: lib-forward-testing
     check:
       jobs:
-        - legacy-tempest-dsvm-neutron-src
-    gate:
-      jobs:
-        - legacy-tempest-dsvm-neutron-src
+        - legacy-tempest-dsvm-neutron-src:
+            voting: false
 
 - project-template:
     name: lib-forward-testing-plugin
