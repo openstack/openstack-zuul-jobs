@@ -195,26 +195,6 @@
         - legacy-puppet-unit-4.8-centos-7
 
 - project-template:
-    name: puppet-openstack-libraries-jobs
-    check:
-      jobs:
-        - legacy-puppet-openstack-libraries-puppet-lint-centos-7
-        - legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7:
-            branches: ^(stable/(newton|ocata)).*$
-        - legacy-puppet-openstack-libraries-puppet-syntax-4-centos-7
-        - legacy-puppet-openstack-libraries-puppet-unit-centos-7
-        - legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
-    gate:
-      jobs:
-        - legacy-puppet-openstack-libraries-puppet-lint-centos-7
-        - legacy-puppet-openstack-libraries-puppet-syntax-3-legacy-centos-7:
-            branches: ^(stable/(newton|ocata)).*$
-        - legacy-puppet-openstack-libraries-puppet-syntax-4-centos-7
-        - legacy-puppet-openstack-libraries-puppet-unit-centos-7
-        - legacy-puppet-openstack-libraries-puppet-beaker-rspec-centos-7
-
-
-- project-template:
     name: puppet-syntax
     check:
       jobs:
