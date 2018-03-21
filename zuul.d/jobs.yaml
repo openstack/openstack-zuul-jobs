@@ -634,6 +634,26 @@
       tox_install_siblings: true
 
 - job:
+    name: openstack-tox-lower-constraints
+    parent: openstack-tox
+    branches: ^(?!driverfixes/).*$
+    timeout: 2400
+    description: |
+      Run unit tests using the lower constraints.
+
+      Uses tox with the ``lower-constraints`` environment,
+      which should be configured to use Python 3 by default
+      unless the project does not support Python 3.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^api-ref/.*$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: lower-constraints
+      bindep_profile: test py35
+
+- job:
     name: build-openstack-puppet-tarball
     description: |
       Build a puppet tarball but do not upload it anywhere.
