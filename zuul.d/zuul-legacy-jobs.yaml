@@ -73,17 +73,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-brick-cinderclient-ext-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/brick-cinderclient-ext-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/brick-cinderclient-ext-dsvm-functional/post.yaml
-    timeout: 3900
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/cinder
-      - openstack/python-brick-cinderclient-ext
-
-- job:
     name: legacy-cloudkitty-dsvm-install
     parent: legacy-dsvm-base
     run: playbooks/legacy/cloudkitty-dsvm-install/run.yaml
