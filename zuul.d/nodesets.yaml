@@ -30,6 +30,12 @@
         label: opensuse-423
 
 - nodeset:
+    name: opensuse-tumbleweed
+    nodes:
+      - name: opensuse-tumbleweed
+        label: opensuse-tumbleweed
+
+- nodeset:
     name: ubuntu-bionic
     nodes:
       - name: ubuntu-bionic

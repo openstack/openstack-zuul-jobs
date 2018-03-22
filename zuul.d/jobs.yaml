@@ -54,6 +54,11 @@
     nodeset: opensuse-423
 
 - job:
+    name: openstack-infra-base-integration-opensuse-tumbleweed
+    parent: openstack-infra-base-integration
+    nodeset: opensuse-tumbleweed
+
+- job:
     name: openstack-infra-base-integration-ubuntu-bionic
     parent: openstack-infra-base-integration
     nodeset: ubuntu-bionic
@@ -160,6 +165,23 @@
           label: opensuse-423
         - name: secondary
           label: opensuse-423
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-opensuse-tumbleweed
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: opensuse-tumbleweed
+        - name: secondary
+          label: opensuse-tumbleweed
       groups:
         - name: switch
           nodes:
