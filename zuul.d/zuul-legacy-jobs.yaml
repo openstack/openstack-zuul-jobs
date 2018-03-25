@@ -280,24 +280,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-gerrit-buck
-    parent: legacy-base
-    run: playbooks/legacy/gerrit-buck/run.yaml
-    post-run: playbooks/legacy/gerrit-buck/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack-infra/gerrit
-
-- job:
-    name: legacy-gerrit-package-buck
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/gerrit-package-buck/run.yaml
-    post-run: playbooks/legacy/gerrit-package-buck/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack-infra/gerrit
-
-- job:
     name: legacy-glance-dsvm-grenade-multinode
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/glance-dsvm-grenade-multinode/run.yaml
@@ -716,24 +698,6 @@
       - openstack/dragonflow
       - openstack/kuryr
       - openstack/kuryr-kubernetes
-
-- job:
-    name: legacy-its-storyboard-gerrit-plugin-stable-2.13
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/run.yaml
-    post-run: playbooks/legacy/its-storyboard-gerrit-plugin-stable-2.13/post.yaml
-    # We have several openstack/2.13 versions, we only want 2.13
-    branches: ^openstack/2\.13$
-    timeout: 1800
-
-- job:
-    name: legacy-javamelody-gerrit-plugin-stable-2.13
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/javamelody-gerrit-plugin-stable-2.13/run.yaml
-    post-run: playbooks/legacy/javamelody-gerrit-plugin-stable-2.13/post.yaml
-    # We have several openstack/2.13 versions, we only want 2.13
-    branches: ^openstack/2\.13$
-    timeout: 1800
 
 - job:
     name: legacy-js-generator-openstack-nodejs6-npm-docs
