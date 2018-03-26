@@ -1050,6 +1050,7 @@
       - openstack/manila
       - openstack/manila-ui
       - openstack/python-manilaclient
+      - openstack/manila-tempest-plugin
 
 - job:
     name: legacy-monasca-api-localrepo-upload

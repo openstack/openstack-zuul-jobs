@@ -62,6 +62,7 @@
           export DEVSTACK_GATE_INSTALL_TESTONLY=1
           export DEVSTACK_GATE_NEUTRON=1
           export DEVSTACK_PROJECT_FROM_GIT="python-manilaclient"
+          export PROJECTS="openstack/manila-tempest-plugin $PROJECTS"
 
           # Keep localrc to be able to set some vars in pre_test_hook
           export KEEP_LOCALRC=1
