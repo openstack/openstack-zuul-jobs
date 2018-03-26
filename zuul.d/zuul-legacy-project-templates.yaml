@@ -44,25 +44,25 @@
     name: infra-puppet-apply-jobs
     check:
       jobs:
-        - legacy-infra-puppet-apply-3-centos-7
-        - legacy-infra-puppet-apply-3-ubuntu-trusty:
+        - infra-puppet-apply-3-centos-7
+        - infra-puppet-apply-3-ubuntu-trusty:
             branches: master
-        - legacy-infra-puppet-apply-3
+        - infra-puppet-apply-3-ubuntu-xenial
         - legacy-openstackci-beaker-centos-7
         - legacy-openstackci-beaker-ubuntu-trusty
         - legacy-openstackci-beaker:
             voting: false
     gate:
       jobs:
-        - legacy-infra-puppet-apply-3-centos-7
-        - legacy-infra-puppet-apply-3-ubuntu-trusty:
+        - infra-puppet-apply-3-centos-7
+        - infra-puppet-apply-3-ubuntu-trusty:
             branches: master
-        - legacy-infra-puppet-apply-3
+        - infra-puppet-apply-3-ubuntu-xenial
         - legacy-openstackci-beaker-centos-7
         - legacy-openstackci-beaker-ubuntu-trusty
     experimental:
       jobs:
-        - legacy-infra-puppet-apply-4-centos-7
+        - infra-puppet-apply-4-centos-7
 
 - project-template:
     name: infra-puppet-check-jobs

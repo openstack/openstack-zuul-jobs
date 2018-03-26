@@ -1,0 +1,8 @@
+- hosts: all
+  name: infra-puppet-apply-3
+  tasks:
+
+    - name: Run puppet-apply test
+      command: ./tools/apply-test.sh
+      args:
+        chdir: "{{ zuul.projects['git.openstack.org/openstack-infra/system-config'].src_dir }}"
