@@ -1423,16 +1423,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-osc-placement-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/osc-placement-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/osc-placement-dsvm-functional/post.yaml
-    timeout: 7200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/osc-placement
-
-- job:
     name: legacy-ospurge-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/ospurge-dsvm-functional/run.yaml
