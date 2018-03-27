@@ -3,6 +3,7 @@
   roles:
     - role: configure-mirrors
       mirror_fqdn: "{{ zuul_site_mirror_fqdn }}"
+      set_apt_mirrors_trusted: True
   post_tasks:
     - name: Install a package to sanity check the mirror configuration
       package:
