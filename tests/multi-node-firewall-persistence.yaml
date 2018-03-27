@@ -41,11 +41,25 @@
       failed_when: false
       register: iptables_rules
 
-    - name: Validate ipv4 firewall configuration
+    - name: Validate ipv4 private firewall configuration
       assert:
         that:
           - "'-A INPUT -s {{ hostvars[item]['nodepool']['private_ipv4'] }}/32 -j ACCEPT' in iptables_rules.stdout"
+      with_items: "{{ groups['all'] }}"
+      when:
+        - hostvars[item]['nodepool']['private_ipv4']
+
+    - name: Validate ipv4 public firewall configuration
+      assert:
+        that:
           - "'-A INPUT -s {{ hostvars[item]['nodepool']['public_ipv4'] }}/32 -j ACCEPT' in iptables_rules.stdout"
+      with_items: "{{ groups['all'] }}"
+      when:
+        - hostvars[item]['nodepool']['public_ipv4']
+
+    - name: Validate ipv4 bridge firewall configuration
+      assert:
+        that:
           - "'-A INPUT -s {{ bridge_address_prefix }}.0/{{ bridge_address_subnet }} -d {{ bridge_address_prefix }}.0/{{ bridge_address_subnet }} -j ACCEPT' in iptables_rules.stdout"
       with_items: "{{ groups['all'] }}"
 
