@@ -14,8 +14,8 @@
 # routable; combine these checks into this fact.
 - name: Check for IPv6
   when:
-    - ansible_default_ipv6 is defined
-    - ansible_default_ipv6.address is defined
+    - hostvars[inventory_hostname]['ansible_default_ipv6'] is defined
+    - hostvars[inventory_hostname]['ansible_default_ipv6']['address'] is defined
   set_fact:
     unbound_use_ipv6: True
 
