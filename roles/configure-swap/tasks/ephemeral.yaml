@@ -2,7 +2,8 @@
 
 # Configure attached ephemeral devices for storage and swap
 
-- assert:
+- name: Assert that ephemeral_device is defined
+  assert:
     that:
       - "ephemeral_device is defined"
 
@@ -106,6 +107,8 @@
     mount {{ opt_partition }} /mnt
     find /opt/ -mindepth 1 -maxdepth 1 -exec mv {} /mnt/ \;
     umount /mnt
+  tags:
+    - skip_ansible_lint
 
 # This overmounts any existing /opt
 - name: Add opt to fstab and mount
