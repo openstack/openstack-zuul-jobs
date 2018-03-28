@@ -3254,18 +3254,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-cells
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-cells/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-cells/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-    # TODO(mriedem): Remove the branch restriction once bug 1745838 is fixed.
-    branches: ^(?!stable/(newton|ocata|pike)).*$
-
-- job:
     name: legacy-tempest-dsvm-cinder-v1
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-cinder-v1/run.yaml
