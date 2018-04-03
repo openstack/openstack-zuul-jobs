@@ -1128,11 +1128,6 @@
     nodeset: centos-7
 
 - job:
-    name: ansible-role-functional-fedora-26
-    parent: ansible-role-functional-base
-    nodeset: fedora-26
-
-- job:
     name: ansible-role-functional-ubuntu-xenial
     parent: ansible-role-functional-base
 
