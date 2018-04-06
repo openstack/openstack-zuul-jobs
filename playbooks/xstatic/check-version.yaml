@@ -3,7 +3,7 @@
     - name: Copy version check script
       copy:
         src: xstatic_check_version.py
-        dest: xstatic_check_version.py
+        dest: "{{ ansible_user_dir }}"
 
     - name: Make virtualenv
       command: virtualenv .venv
