@@ -2299,37 +2299,6 @@
       - openstack/zaqar-ui
 
 - job:
-    name: legacy-rally-dsvm-magnum-rally
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/rally-dsvm-magnum-rally/run.yaml
-    post-run: playbooks/legacy/rally-dsvm-magnum-rally/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/aodh
-      - openstack/ceilometer
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      - openstack/ironic
-      - openstack/magnum
-      - openstack/networking-bgpvpn
-      - openstack/neutron
-      - openstack/neutron-fwaas
-      - openstack/neutron-lbaas
-      - openstack/neutron-vpnaas
-      - openstack/octavia
-      - openstack/panko
-      - openstack/python-magnumclient
-      - openstack/python-senlinclient
-      - openstack/python-watcherclient
-      - openstack/python-zaqarclient
-      - openstack/rally
-      - openstack/senlin
-      - openstack/tripleo-image-elements
-      - openstack/watcher
-      - openstack/zaqar-ui
-
-- job:
     name: legacy-rally-dsvm-neutron-existing-users-rally
     parent: legacy-dsvm-base
     run: playbooks/legacy/rally-dsvm-neutron-existing-users-rally/run.yaml
