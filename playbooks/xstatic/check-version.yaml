@@ -15,7 +15,9 @@
       command: .venv/bin/pip install setuptools_scm
 
     - name: Check version match
-      command: .venv/bin/python xstatic_check_version.py
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+      command: "{{ ansible_user_dir }}/.venv/bin/python xstatic_check_version.py"
 
     - name: Clean up after ourselves
       file:
