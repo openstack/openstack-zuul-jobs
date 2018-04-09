@@ -3798,6 +3798,11 @@
       - openstack/neutron
       - openstack/tempest
       - openstack/neutron-lib
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^api-ref/.*$
+      - ^doc/.*$
+      - ^releasenotes/.*$
 
 # TODO(stephenfin): These jobs are artifacts of the migration process.
 # Initially there was only one job - 'tempest-dsvm-neutron-src-{name}' - where
