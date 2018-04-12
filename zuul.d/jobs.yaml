@@ -262,7 +262,7 @@
 
 - job:
     name: tox-py35-on-zuul
-    parent: zuul-tox-py35
+    parent: tox-py35
     description: |
       Run zuul's py35 unittests on patches to zuul-jobs
     vars:
