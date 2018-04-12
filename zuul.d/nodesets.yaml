@@ -12,6 +12,12 @@
         label: debian-jessie
 
 - nodeset:
+    name: debian-stable
+    nodes:
+      - name: debian-stretch
+        label: debian-stretch
+
+- nodeset:
     name: fedora-26
     nodes:
       - name: fedora-26
