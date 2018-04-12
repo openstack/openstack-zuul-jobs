@@ -296,6 +296,31 @@
         - publish-openstack-releasenotes
 
 - project-template:
+    name: release-notes-jobs-python3
+    description: |
+      Runs the release notes jobs under python 3.
+    check:
+      jobs:
+        - build-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
+    gate:
+      jobs:
+        - build-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
+    post:
+      jobs:
+        - publish-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
+    tag:
+      jobs:
+        - publish-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
+
+- project-template:
     name: openstack-python-jobs
     check:
       jobs:
