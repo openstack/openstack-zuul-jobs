@@ -39,6 +39,11 @@
     nodeset: debian-jessie
 
 - job:
+    name: openstack-infra-base-integration-debian-stable
+    parent: openstack-infra-base-integration
+    nodeset: debian-stable
+
+- job:
     name: openstack-infra-base-integration-fedora-27
     parent: openstack-infra-base-integration
     nodeset: fedora-27
@@ -126,6 +131,23 @@
           label: debian-jessie
         - name: secondary
           label: debian-jessie
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-debian-stable
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: debian-stretch
+        - name: secondary
+          label: debian-stretch
       groups:
         - name: switch
           nodes:
