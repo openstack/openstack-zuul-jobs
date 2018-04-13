@@ -755,8 +755,8 @@
       Build api-guide document. This is only run for changes on master
       branch of a project.
     vars:
-      sphinx_build_dir: api-ref/build
-      sphinx_source_dir: api-ref/source
+      sphinx_build_dir: api-guide/build
+      sphinx_source_dir: api-guide/source
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
