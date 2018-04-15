@@ -549,19 +549,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-install-dsvm-dragonflow-kuryr-kubernetes
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/install-dsvm-dragonflow-kuryr-kubernetes/run.yaml
-    post-run: playbooks/legacy/install-dsvm-dragonflow-kuryr-kubernetes/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-      - openstack/dragonflow
-      - openstack/kuryr
-      - openstack/kuryr-kubernetes
-
-- job:
     name: legacy-js-generator-openstack-nodejs6-npm-docs
     parent: legacy-base
     run: playbooks/legacy/js-generator-openstack-nodejs6-npm-docs/run.yaml
