@@ -1203,6 +1203,14 @@
     name: infra-puppet-apply-4-centos-7
     parent: infra-puppet-apply-base
     nodeset: centos-7
+    vars:
+      puppet_version: 4
+
+- job:
+    name: infra-puppet-apply-4-ubuntu-xenial
+    parent: infra-puppet-apply-base
+    vars:
+      puppet_version: 4
 
 - job:
     name: ansible-role-functional-base
