@@ -6,12 +6,6 @@
         label: centos-7
 
 - nodeset:
-    name: debian-jessie
-    nodes:
-      - name: debian-jessie
-        label: debian-jessie
-
-- nodeset:
     name: debian-stable
     nodes:
       - name: debian-stretch
@@ -142,12 +136,6 @@
     nodes:
       - name: primary
         label: centos-7
-
-- nodeset:
-    name: legacy-debian-jessie
-    nodes:
-      - name: primary
-        label: debian-jessie
 
 # TODO(pabelanger): Remove once project-config is update to run fedora-27.
 - nodeset:
