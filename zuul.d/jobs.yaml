@@ -34,11 +34,6 @@
     nodeset: centos-7
 
 - job:
-    name: openstack-infra-base-integration-debian-jessie
-    parent: openstack-infra-base-integration
-    nodeset: debian-jessie
-
-- job:
     name: openstack-infra-base-integration-debian-stable
     parent: openstack-infra-base-integration
     nodeset: debian-stable
@@ -114,23 +109,6 @@
           label: centos-7
         - name: secondary
           label: centos-7
-      groups:
-        - name: switch
-          nodes:
-            - primary
-        - name: peers
-          nodes:
-            - secondary
-
-- job:
-    name: openstack-infra-multinode-integration-debian-jessie
-    parent: openstack-infra-multinode-integration
-    nodeset:
-      nodes:
-        - name: primary
-          label: debian-jessie
-        - name: secondary
-          label: debian-jessie
       groups:
         - name: switch
           nodes:
