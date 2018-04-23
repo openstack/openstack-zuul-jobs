@@ -30,7 +30,7 @@
     - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
       synchronize:
         src: '{{ ansible_user_dir }}/workspace/'
-        dest: tarballs/$ZUUL_SHORT_PROJECT_NAME/
+        dest: '{{ zuul.executor.log_root }}/tarballs/{{ zuul.project.short_name}}'
         mode: pull
         copy_links: true
         verify_host: true
