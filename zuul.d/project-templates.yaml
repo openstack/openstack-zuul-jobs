@@ -311,14 +311,10 @@
               sphinx_python: python3
     post:
       jobs:
-        - publish-openstack-releasenotes:
-            vars:
-              sphinx_python: python3
+        - publish-openstack-releasenotes-python3
     tag:
       jobs:
-        - publish-openstack-releasenotes:
-            vars:
-              sphinx_python: python3
+        - publish-openstack-releasenotes-python3
 
 - project-template:
     name: openstack-python-jobs
