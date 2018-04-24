@@ -2791,23 +2791,6 @@
       - openstack/sahara-dashboard
 
 - job:
-    name: legacy-sahara-dsvm-scenario-multinode-spark
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/sahara-dsvm-scenario-multinode-spark/run.yaml
-    post-run: playbooks/legacy/sahara-dsvm-scenario-multinode-spark/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/ara
-      - openstack/python-saharaclient
-      - openstack/sahara
-      - openstack/sahara-extra
-      - openstack/sahara-image-elements
-      - openstack/sahara-tests
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-sahara-extra-artifacts
     parent: legacy-base
     run: playbooks/legacy/sahara-extra-artifacts/run.yaml
