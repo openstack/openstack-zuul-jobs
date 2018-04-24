@@ -1,5 +1,8 @@
 - hosts: all
   name: Autoconverted job legacy-puppet-unit-4.8-centos-7 from old job gate-{name}-puppet-unit-4.8-centos-7
+  roles:
+    - bindep
+
   tasks:
 
     - name: Ensure legacy workspace directory
@@ -43,11 +46,6 @@
               --zuul-branch $ZUUL_BRANCH_REAL \
               git://git.openstack.org $ZUUL_PROJECT
         executable: /bin/bash
-        chdir: '{{ ansible_user_dir }}/workspace'
-      environment: '{{ zuul | zuul_legacy_vars }}'
-
-    - shell:
-        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 

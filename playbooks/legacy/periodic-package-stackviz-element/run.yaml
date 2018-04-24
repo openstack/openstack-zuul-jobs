@@ -1,5 +1,8 @@
 - hosts: all
   name: Autoconverted job legacy-periodic-package-stackviz-element from old job periodic-package-stackviz-element
+  roles:
+    - bindep
+
   tasks:
 
     - name: Ensure legacy workspace directory
@@ -27,11 +30,6 @@
               --branch=$BRANCH \
               git://git.openstack.org $ZUUL_PROJECT
         executable: /bin/bash
-        chdir: '{{ ansible_user_dir }}/workspace'
-      environment: '{{ zuul | zuul_legacy_vars }}'
-
-    - shell:
-        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 

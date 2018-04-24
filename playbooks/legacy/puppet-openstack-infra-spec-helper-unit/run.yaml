@@ -1,6 +1,9 @@
 - hosts: all
   name: Autoconverted job legacy-puppet-openstack-infra-spec-helper-unit from old
     job gate-puppet-openstack-infra-spec-helper-unit-ubuntu-xenial
+  roles:
+    - bindep
+
   tasks:
 
     - name: Ensure legacy workspace directory
@@ -13,11 +16,6 @@
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
               git://git.openstack.org openstack-infra/puppet-openstack_infra_spec_helper
         executable: /bin/bash
-        chdir: '{{ ansible_user_dir }}/workspace'
-      environment: '{{ zuul | zuul_legacy_vars }}'
-
-    - shell:
-        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
 
