@@ -708,7 +708,7 @@
     pre-run: playbooks/release/pre.yaml
     run: playbooks/release/announce.yaml
     required-projects:
-      - openstack-infra/release-tools
+      - openstack/releases
 
 - job:
     name: xstatic-check-version
