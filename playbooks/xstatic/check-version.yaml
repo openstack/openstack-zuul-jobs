@@ -17,7 +17,7 @@
     - name: Check version match
       args:
         chdir: "{{ zuul.project.src_dir }}"
-      command: "{{ ansible_user_dir }}/.venv/bin/python xstatic_check_version.py"
+      command: "{{ ansible_user_dir }}/.venv/bin/python {{ ansible_user_dir }}/xstatic_check_version.py"
 
     - name: Clean up after ourselves
       file:
