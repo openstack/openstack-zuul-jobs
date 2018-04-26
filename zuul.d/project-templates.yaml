@@ -437,6 +437,22 @@
             voting: false
 
 - project-template:
+    name: openstack-python36-jobs
+    check:
+      jobs:
+        - openstack-tox-py36
+    gate:
+      jobs:
+        - openstack-tox-py36
+
+- project-template:
+    name: openstack-python36-jobs-nonvoting
+    check:
+      jobs:
+        - openstack-tox-py36:
+            voting: false
+
+- project-template:
     name: openstack-python-jobs-no-constraints
     description: |
       Runs the OpenStack PTI jobs for python, but uses the versions of them
