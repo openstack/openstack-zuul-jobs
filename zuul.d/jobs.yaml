@@ -330,12 +330,11 @@
 - job:
     name: openstack-tox-py36
     parent: openstack-tox
-    # TODO(pabelanger): Switch this to ubuntu-bionic once released.
-    nodeset: fedora-27
+    nodeset: ubuntu-bionic
     description: |
 
       Run unit tests for an OpenStack Python project under cPython
-      version 3.6. This test runs on a Fedora 27 node.
+      version 3.6.
 
       Uses tox with the ``py36`` environment.
     irrelevant-files:
