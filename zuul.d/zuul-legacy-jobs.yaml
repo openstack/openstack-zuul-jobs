@@ -669,7 +669,7 @@
 
 - job:
     name: legacy-laravel-openstackid-release-branch
-    parent: legacy-base
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/laravel-openstackid-release-branch/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-release-branch/post.yaml
     timeout: 1800
@@ -677,7 +677,7 @@
 
 - job:
     name: legacy-laravel-openstackid-release-master
-    parent: legacy-base
+    parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/laravel-openstackid-release-master/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-release-master/post.yaml
     timeout: 1800
