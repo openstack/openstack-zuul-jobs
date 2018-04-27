@@ -29,14 +29,14 @@
 
     - name: Ensure artifact transit directory exists
       file:
-        path: '{{ zuul.executor.log_root }}/artifacts'
+        path: '{{ zuul.executor.work_root }}/artifacts'
         state: directory
       delegate_to: localhost
 
     - name: Copy files from {{ ansible_user_dir }}/workspace/ on node
       synchronize:
         src: '{{ ansible_user_dir }}/workspace/'
-        dest: '{{ zuul.executor.log_root }}/artifacts/'
+        dest: '{{ zuul.executor.work_root }}/artifacts/'
         mode: pull
         copy_links: true
         verify_host: true
