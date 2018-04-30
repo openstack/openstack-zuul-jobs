@@ -1,0 +1,14 @@
+- hosts: all
+
+  tasks:
+  - name: Install puppet
+    command: ./install_puppet.sh
+    args:
+      chdir: "{{ zuul.projects['git.openstack.org/openstack-infra/system-config'].src_dir }}"
+    become: yes
+
+  - name: Install modules
+    command: ./tools/install_modules_acceptance.sh
+    args:
+      chdir: "{{ zuul.projects['git.openstack.org/openstack-infra/system-config'].src_dir }}"
+    become: yes
