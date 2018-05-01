@@ -890,19 +890,6 @@
     timeout: 3600
 
 - job:
-    name: legacy-manila-ui-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/manila-ui-dsvm/run.yaml
-    post-run: playbooks/legacy/manila-ui-dsvm/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/manila
-      - openstack/manila-ui
-      - openstack/python-manilaclient
-      - openstack/manila-tempest-plugin
-
-- job:
     name: legacy-monasca-api-localrepo-upload
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-api-localrepo-upload/run.yaml
