@@ -3172,17 +3172,6 @@
     nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
-    name: legacy-tempest-dsvm-multinode-live-migration
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-multinode-live-migration/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-multinode-live-migration/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-tempest-dsvm-networking-bagpipe
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-networking-bagpipe/run.yaml
