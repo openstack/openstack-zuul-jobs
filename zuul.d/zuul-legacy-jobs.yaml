@@ -1347,7 +1347,6 @@
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
-      - openstack/tripleo-incubator
       - openstack/trove
       - openstack/trove-dashboard
       - openstack/zaqar
@@ -1443,7 +1442,6 @@
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
-      - openstack/tripleo-incubator
       - openstack/trove
       - openstack/trove-dashboard
       - openstack/zaqar
@@ -2637,7 +2635,6 @@
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
-      - openstack/tripleo-incubator
       - openstack/trove
       - openstack/trove-dashboard
       - openstack/zaqar
@@ -2734,7 +2731,6 @@
       - openstack/tooz
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
-      - openstack/tripleo-incubator
       - openstack/trove
       - openstack/trove-dashboard
       - openstack/zaqar
