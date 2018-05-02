@@ -24,6 +24,12 @@
         label: fedora-27
 
 - nodeset:
+    name: fedora-latest
+    nodes:
+      - name: fedora-28
+        label: fedora-28
+
+- nodeset:
     name: opensuse-423
     nodes:
       - name: opensuse-423

@@ -44,6 +44,11 @@
     nodeset: fedora-27
 
 - job:
+    name: openstack-infra-base-integration-fedora-latest
+    parent: openstack-infra-base-integration
+    nodeset: fedora-latest
+
+- job:
     name: openstack-infra-base-integration-opensuse423
     parent: openstack-infra-base-integration
     nodeset: opensuse-423
@@ -143,6 +148,23 @@
           label: fedora-27
         - name: secondary
           label: fedora-27
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-fedora-latest
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: fedora-28
+        - name: secondary
+          label: fedora-28
       groups:
         - name: switch
           nodes:
