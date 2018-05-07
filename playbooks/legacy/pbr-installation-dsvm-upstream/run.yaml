@@ -115,7 +115,6 @@
           export PROJECTS="openstack/tooz $PROJECTS"
           export PROJECTS="openstack/tripleo-heat-templates $PROJECTS"
           export PROJECTS="openstack/tripleo-image-elements $PROJECTS"
-          export PROJECTS="openstack/tripleo-incubator $PROJECTS"
           export PROJECTS="openstack/trove $PROJECTS"
           export PROJECTS="openstack/trove-dashboard $PROJECTS"
           export PYTHONUNBUFFERED=true
