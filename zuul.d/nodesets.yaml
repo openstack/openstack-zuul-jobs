@@ -42,6 +42,12 @@
         label: ubuntu-bionic
 
 - nodeset:
+    name: ubuntu-bionic-arm64
+    nodes:
+      - name: ubuntu-bionic-arm64
+        label: ubuntu-bionic-arm64
+
+- nodeset:
     name: ubuntu-trusty
     nodes:
       - name: ubuntu-trusty
