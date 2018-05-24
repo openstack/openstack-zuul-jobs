@@ -1,0 +1,9 @@
+- name: Get scenarios
+  command: "find {{ zuul.project.src_dir }}/tests/scenarios/ -maxdepth 1 -mindepth 1"
+  register: scenarios
+
+- name: Test scenarios
+  include: scenario.yaml
+  with_items: "{{ scenarios.stdout_lines }}"
+  loop_control:
+    loop_var: scenario
