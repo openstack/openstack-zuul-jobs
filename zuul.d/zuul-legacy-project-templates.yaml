@@ -64,9 +64,6 @@
         - legacy-openstackci-beaker-ubuntu-trusty
         - infra-puppet-apply-4-centos-7
         - infra-puppet-apply-4-ubuntu-xenial
-    experimental:
-      jobs:
-        - infra-puppet-functional-3-ubuntu-xenial
 
 - project-template:
     name: infra-puppet-check-jobs
