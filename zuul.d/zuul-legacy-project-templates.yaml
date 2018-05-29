@@ -128,13 +128,6 @@
         - legacy-puppet-beaker-rspec-centos-7
 
 - project-template:
-    name: puppet-beaker-jobs-trusty-nv
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec-ubuntu-trusty:
-            voting: false
-
-- project-template:
     name: puppet-beaker-jobs-xenial
     check:
       jobs:

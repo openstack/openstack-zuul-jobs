@@ -1817,16 +1817,6 @@
     nodeset: legacy-centos-7
 
 - job:
-    name: legacy-puppet-beaker-rspec-ubuntu-trusty
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-beaker-rspec-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/puppet-beaker-rspec-ubuntu-trusty/post.yaml
-    timeout: 3600
-    nodeset: legacy-ubuntu-trusty
-    required-projects:
-      - openstack/puppet-openstack-integration
-
-- job:
     name: legacy-puppet-httpd-forge-upload
     parent: legacy-base
     run: playbooks/legacy/puppet-httpd-forge-upload/run.yaml
