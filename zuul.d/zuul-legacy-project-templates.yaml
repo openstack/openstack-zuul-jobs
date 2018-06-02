@@ -41,31 +41,6 @@
             branches: master
 
 - project-template:
-    name: infra-puppet-apply-jobs
-    check:
-      jobs:
-        - infra-puppet-apply-3-centos-7
-        - infra-puppet-apply-3-ubuntu-trusty:
-            branches: master
-        - infra-puppet-apply-3-ubuntu-xenial
-        - legacy-openstackci-beaker-centos-7
-        - legacy-openstackci-beaker-ubuntu-trusty
-        - legacy-openstackci-beaker:
-            voting: false
-        - infra-puppet-apply-4-centos-7
-        - infra-puppet-apply-4-ubuntu-xenial
-    gate:
-      jobs:
-        - infra-puppet-apply-3-centos-7
-        - infra-puppet-apply-3-ubuntu-trusty:
-            branches: master
-        - infra-puppet-apply-3-ubuntu-xenial
-        - legacy-openstackci-beaker-centos-7
-        - legacy-openstackci-beaker-ubuntu-trusty
-        - infra-puppet-apply-4-centos-7
-        - infra-puppet-apply-4-ubuntu-xenial
-
-- project-template:
     name: infra-puppet-check-jobs
     check:
       jobs:

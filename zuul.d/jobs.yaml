@@ -1241,6 +1241,7 @@
     run: playbooks/infra-puppet-beaker-rspec/run.yaml
     vars:
       nodeset: nodepool-xenial
+      project_src_dir: "{{ zuul.project.src_dir }}"
     timeout: 3600
     irrelevant-files:
       - ^.*\.md$
@@ -1335,6 +1336,26 @@
     nodeset: centos-7
     vars:
       nodeset: nodepool-centos7
+
+- job:
+    name: openstackci-beaker
+    parent: puppet-beaker-rspec-infra
+    vars:
+      project_src_dir: "{{ zuul.projects['git.openstack.org/openstack-infra/puppet-openstackci'].src_dir }}"
+
+- job:
+    name: openstackci-beaker-centos-7
+    parent: openstackci-beaker
+    nodeset: centos-7
+    vars:
+      nodeset: nodepool-centos7
+
+- job:
+    name: openstackci-beaker-ubuntu-trusty
+    parent: openstackci-beaker
+    nodeset: ubuntu-trusty
+    vars:
+      nodeset: nodepool-trusty
 
 - job:
     name: ansible-role-functional-base

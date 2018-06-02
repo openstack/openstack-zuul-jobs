@@ -1061,3 +1061,26 @@
     gate:
       jobs:
         - puppet-beaker-rspec-centos-7-infra
+
+- project-template:
+    name: infra-puppet-apply-jobs
+    check:
+      jobs:
+        - infra-puppet-apply-3-centos-7
+        - infra-puppet-apply-3-ubuntu-trusty:
+            branches: master
+        - infra-puppet-apply-3-ubuntu-xenial
+        - openstackci-beaker-centos-7
+        - openstackci-beaker-ubuntu-trusty
+        - openstackci-beaker:
+            voting: false
+    gate:
+      jobs:
+        - infra-puppet-apply-3-centos-7
+        - infra-puppet-apply-3-ubuntu-trusty:
+            branches: master
+        - infra-puppet-apply-3-ubuntu-xenial
+        - openstackci-beaker-centos-7
+        - openstackci-beaker-ubuntu-trusty
+        - infra-puppet-apply-4-centos-7
+        - infra-puppet-apply-4-ubuntu-xenial
