@@ -44,20 +44,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-beaker-localhost-rake
-    parent: legacy-base
-    run: playbooks/legacy/beaker-localhost-rake/run.yaml
-    post-run: playbooks/legacy/beaker-localhost-rake/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-beaker-nodepool-rake
-    parent: legacy-base
-    run: playbooks/legacy/beaker-nodepool-rake/run.yaml
-    post-run: playbooks/legacy/beaker-nodepool-rake/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-cloudkitty-dsvm-install
     parent: legacy-dsvm-base
     run: playbooks/legacy/cloudkitty-dsvm-install/run.yaml
