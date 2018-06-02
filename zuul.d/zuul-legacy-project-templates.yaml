@@ -117,7 +117,8 @@
       jobs:
         - legacy-tempest-dsvm-neutron-src-plugin
 
-- project-template:
+
+- project-template: # Used by puppet-midonet
     name: puppet-beaker-jobs
     check:
       jobs:
@@ -125,31 +126,6 @@
     gate:
       jobs:
         - legacy-puppet-beaker-rspec-centos-7
-
-- project-template:
-    name: puppet-beaker-jobs-xenial-infra
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec-infra
-    gate:
-      jobs:
-        - legacy-puppet-beaker-rspec-infra
-
-- project-template:
-    name: puppet-beaker-jobs-xenial-infra-nv
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec-infra:
-            voting: false
-
-- project-template:
-    name: puppet-beaker-jobs-centos-7-infra
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec-centos-7-infra
-    gate:
-      jobs:
-        - legacy-puppet-beaker-rspec-centos-7-infra
 
 - project-template:
     name: puppet-module-unit-jobs

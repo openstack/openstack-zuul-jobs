@@ -1036,3 +1036,28 @@
       jobs:
         - golang-fmt
         - golang-unit
+
+- project-template:
+    name: puppet-beaker-jobs-xenial-infra
+    check:
+      jobs:
+        - puppet-beaker-rspec-infra
+    gate:
+      jobs:
+        - puppet-beaker-rspec-infra
+
+- project-template:
+    name: puppet-beaker-jobs-xenial-infra-nv
+    check:
+      jobs:
+        - puppet-beaker-rspec-infra:
+            voting: false
+
+- project-template:
+    name: puppet-beaker-jobs-centos-7-infra
+    check:
+      jobs:
+        - puppet-beaker-rspec-centos-7-infra
+    gate:
+      jobs:
+        - puppet-beaker-rspec-centos-7-infra
