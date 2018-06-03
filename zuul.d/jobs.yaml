@@ -1338,6 +1338,22 @@
       nodeset: nodepool-centos7
 
 - job:
+    name: puppet-beaker-rspec-puppet-4-infra
+    parent: puppet-beaker-rspec-infra
+    description: |
+      Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial
+    vars:
+      puppet_version: 4
+
+- job:
+    name: puppet-beaker-rspec-puppet-4-centos-7-infra
+    parent: puppet-beaker-rspec-centos-7-infra
+    description: |
+      Run beaker-rspec functional tests with puppet 4 on CentOS 7
+    vars:
+      puppet_version: 4
+
+- job:
     name: openstackci-beaker
     parent: puppet-beaker-rspec-infra
     vars:
@@ -1356,6 +1372,24 @@
     nodeset: ubuntu-trusty
     vars:
       nodeset: nodepool-trusty
+
+- job:
+    name: openstackci-beaker-puppet-4
+    parent: openstackci-beaker
+    description: |
+      Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial for the
+      puppet-openstackci module
+    vars:
+      puppet_version: 4
+
+- job:
+    name: openstackci-beaker-puppet-4-centos-7
+    parent: openstackci-beaker-centos-7
+    description: |
+      Run beaker-rspec functional tests with puppet 4 on CentOS 7 for the
+      puppet-openstackci module
+    vars:
+      puppet_version: 4
 
 - job:
     name: ansible-role-functional-base

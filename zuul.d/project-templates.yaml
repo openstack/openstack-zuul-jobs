@@ -1045,6 +1045,9 @@
     gate:
       jobs:
         - puppet-beaker-rspec-infra
+    experimental:
+      jobs:
+        - puppet-beaker-rspec-puppet-4-infra
 
 - project-template:
     name: puppet-beaker-jobs-xenial-infra-nv
@@ -1061,6 +1064,9 @@
     gate:
       jobs:
         - puppet-beaker-rspec-centos-7-infra
+    experimental:
+      jobs:
+        - puppet-beaker-rspec-puppet-4-centos-7-infra
 
 - project-template:
     name: infra-puppet-apply-jobs
@@ -1084,3 +1090,7 @@
         - infra-puppet-apply-4-centos-7
         - infra-puppet-apply-4-ubuntu-xenial
         - openstackci-beaker
+    experimental:
+      jobs:
+        - openstackci-beaker-puppet-4-centos-7
+        - openstackci-beaker-puppet-4
