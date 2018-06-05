@@ -30,6 +30,12 @@
         label: opensuse-423
 
 - nodeset:
+    name: opensuse-150
+    nodes:
+      - name: opensuse-150
+        label: opensuse-150
+
+- nodeset:
     name: opensuse-tumbleweed
     nodes:
       - name: opensuse-tumbleweed
