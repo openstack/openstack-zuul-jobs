@@ -52,6 +52,8 @@
         - legacy-openstackci-beaker-ubuntu-trusty
         - legacy-openstackci-beaker:
             voting: false
+        - infra-puppet-apply-4-centos-7
+        - infra-puppet-apply-4-ubuntu-xenial
     gate:
       jobs:
         - infra-puppet-apply-3-centos-7
@@ -60,10 +62,10 @@
         - infra-puppet-apply-3-ubuntu-xenial
         - legacy-openstackci-beaker-centos-7
         - legacy-openstackci-beaker-ubuntu-trusty
-    experimental:
-      jobs:
         - infra-puppet-apply-4-centos-7
         - infra-puppet-apply-4-ubuntu-xenial
+    experimental:
+      jobs:
         - infra-puppet-functional-3-ubuntu-xenial
 
 - project-template:
