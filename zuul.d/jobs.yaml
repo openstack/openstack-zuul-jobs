@@ -996,13 +996,14 @@
       env.
     vars:
       tox_envlist: grafyaml
+      tox_environment:
+        GRAFYAML_SRC: "{{ ansible_user_dir }}/{{ zuul.projects['git.openstack.org/openstack-infra/grafyaml'].src_dir }}"
     required-projects:
       - openstack-infra/grafyaml
     files:
       - ^grafana/.*$
       - bindep.txt
       - other-requirements.txt
-      - tools/grafyaml-validate.sh
       - tox.ini
 
 - job:
