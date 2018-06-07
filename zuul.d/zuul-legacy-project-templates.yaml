@@ -127,22 +127,6 @@
         - legacy-puppet-beaker-rspec-centos-7
 
 - project-template:
-    name: puppet-beaker-jobs-xenial
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec
-    gate:
-      jobs:
-        - legacy-puppet-beaker-rspec
-
-- project-template:
-    name: puppet-beaker-jobs-xenial-nv
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec:
-            voting: false
-
-- project-template:
     name: puppet-beaker-jobs-xenial-infra
     check:
       jobs:
