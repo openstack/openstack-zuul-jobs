@@ -1112,12 +1112,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-openstack-planet-unittest
-    parent: legacy-base
-    run: playbooks/legacy/openstack-planet-unittest/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-openstackci-base
     parent: legacy-base
     required-projects:
