@@ -1441,3 +1441,16 @@
       This uses the make target ``test``.
     vars:
       golang_target: "test"
+
+- job:
+    name: kata-runsh
+    parent: base
+    description: |
+      Run kata's setup.sh and run.sh CI scripts
+    pre-run: playbooks/kata-runsh/pre.yaml
+    run: playbooks/kata-runsh/run.yaml
+    timeout: 3600
+    nodeset:
+      nodes:
+        - name: ubuntu-bionic
+          label: ubuntu-bionic-vexxhost
