@@ -8,7 +8,7 @@
           # TODO: fedora
           YUM=${YUM:-yum}
 
-          VERSION=1.6.16
+          VERSION=1.6.22.3
           SRC_VERSION=${VERSION}-1
           SRC_RPM=openafs-${SRC_VERSION}.src.rpm
           SRC_URL=https://www.openafs.org/dl/openafs/${VERSION}/${SRC_RPM}
