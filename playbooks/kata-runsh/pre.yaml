@@ -1,6 +1,30 @@
 - hosts: all
   tasks:
+    - name: Install build-essential
+      package:
+        name: build-essential
+        state: present
+      become: yes
+    - name: Install golang
+      package:
+        name: golang-1.10
+        state: present
+      become: yes
+    - name: Make sure sources.list.d exists
+      file:
+        path: /etc/apt/sources.list.d
+        owner: root
+        group: root
+        mode: 0755
+        state: directory
+      become: yes
     - name: Run kata setup.sh
       args:
+        executable: /bin/bash
         chdir: "{{ zuul.project.src_dir }}"
-      command: ".ci/setup.sh"
+      shell: |
+        set -x
+        export PATH=$PATH:/usr/lib/go-1.10/bin
+        export CI=true
+        export GOPATH=$HOME
+        .ci/setup.sh
