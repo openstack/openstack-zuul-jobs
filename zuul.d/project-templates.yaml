@@ -164,6 +164,30 @@
               - release-openstack-python
 
 - project-template:
+    name: publish-to-pypi-python3
+    description: |
+      Publish a Python package to PyPI, then send release announcement
+      emails and propose updates to upper-constraints as needed.
+    pre-release:
+      jobs:
+        - release-openstack-python3
+        - announce-release:
+            dependencies:
+              - release-openstack-python3
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python3
+    release:
+      jobs:
+        - release-openstack-python3
+        - announce-release:
+            dependencies:
+              - release-openstack-python3
+        - propose-update-constraints:
+            dependencies:
+              - release-openstack-python3
+
+- project-template:
     name: publish-to-pypi-neutron
     description: |
       Publish a Python package to PyPI with neutron added to required-projects
