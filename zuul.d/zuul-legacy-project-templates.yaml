@@ -46,12 +46,11 @@
       jobs:
         - legacy-puppet-lint
         - legacy-puppet-syntax-3
+        - legacy-puppet-syntax-4-centos-7
     gate:
       jobs:
         - legacy-puppet-lint
         - legacy-puppet-syntax-3
-    experimental:
-      jobs:
         - legacy-puppet-syntax-4-centos-7
 
 - project-template:
