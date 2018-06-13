@@ -24,5 +24,5 @@
         src: '{{ ansible_user_dir }}/rpmbuild/RPMS/x86_64/'
         dest: '{{ zuul.executor.work_root }}/artifacts/package-afs-centos7'
         mode: pull
-        rsync_opts:
-          - --delete
+        delete: true
+        recursive: true
