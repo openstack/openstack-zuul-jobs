@@ -12,22 +12,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-barbican-simple-crypto-dsvm-tempest-glance
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-glance/run.yaml
-    post-run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-glance/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/barbican
-      - openstack/barbican-tempest-plugin
-      - openstack/castellan
-      - openstack/cursive
-      - openstack/glance
-      - openstack/python-barbicanclient
-      - openstack/tempest
-
-- job:
     name: legacy-barbican-simple-crypto-dsvm-tempest-nova
     parent: legacy-dsvm-base
     run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-nova/run.yaml
