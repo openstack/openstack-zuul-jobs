@@ -14,7 +14,7 @@
           SRC_URL=https://www.openafs.org/dl/openafs/${VERSION}/${SRC_RPM}
 
           UPSTREAM_BASE=https://tarballs.openstack.org/project-config/package-afs-centos7
-          UPSTREAM_CHECK=${UPSTREAM_BASE}/openafs-client-${SRC_VERSION}.el7.centos.x86_64.rpm
+          UPSTREAM_CHECK=${UPSTREAM_BASE}/openafs-client-${SRC_VERSION}.el7.x86_64.rpm
           if wget -O/dev/null -q $UPSTREAM_CHECK; then
               echo "Found existing upstream RPM build, nothing to do"
               # scp should just publish nothing
