@@ -1118,3 +1118,16 @@
       jobs:
         - openstackci-beaker-puppet-4-centos-7
         - openstackci-beaker-puppet-4
+
+- project-template:
+    name: lib-forward-testing-python3
+    description: |
+      Run tempest under python 3, installing the library from source
+      to ensure that changes in the library do not break any of the
+      services running in devstack.
+    check:
+      jobs:
+        - tempest-full-py3
+    gate:
+      jobs:
+        - tempest-full-py3
