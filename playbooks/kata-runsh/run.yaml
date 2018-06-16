@@ -2,5 +2,11 @@
   tasks:
     - name: Run kata run.sh
       args:
+        executable: /bin/bash
         chdir: "{{ zuul.project.src_dir }}"
-      command: ".ci/run.sh"
+      shell: |
+        set -x
+        export PATH=$PATH:/usr/lib/go-1.10/bin
+        export CI=true
+        export GOPATH=$HOME
+        .ci/run.sh

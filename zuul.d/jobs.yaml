@@ -1452,5 +1452,5 @@
     timeout: 3600
     nodeset:
       nodes:
-        - name: ubuntu-bionic
-          label: ubuntu-bionic-vexxhost
+        - name: ubuntu-xenial
+          label: ubuntu-xenial-vexxhost
