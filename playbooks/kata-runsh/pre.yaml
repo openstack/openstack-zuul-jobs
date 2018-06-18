@@ -18,6 +18,40 @@
         mode: 0755
         state: directory
       become: yes
+
+    # Install docker because .ci/setup.sh installs a version that is too old
+    # to pass CI testing with.
+    # TODO have .ci/setup.sh do the right thing
+    - name: Install apt-transport-https
+      package:
+        name: apt-transport-https
+        state: present
+      become: yes
+    - name: Install ca-certificates
+      package:
+        name: ca-certificates
+        state: present
+      become: yes
+    - name: Install software-properties-common
+      package:
+        name: software-properties-common
+        state: present
+      become: yes
+    - name: Add docker-ce repo
+      args:
+        executable: /bin/bash
+      shell: |
+        set -x
+        curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -
+        add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        apt-get update
+      become: yes
+    - name: Install docker-ce
+      package:
+        name: docker-ce
+        state: present
+      become: yes
+
     - name: Run kata setup.sh
       args:
         executable: /bin/bash
