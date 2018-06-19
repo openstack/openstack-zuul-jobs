@@ -1449,6 +1449,7 @@
       Run kata's setup.sh and run.sh CI scripts
     pre-run: playbooks/kata-runsh/pre.yaml
     run: playbooks/kata-runsh/run.yaml
+    post-run: playbooks/kata-runsh/post.yaml
     timeout: 3600
     nodeset:
       nodes:
