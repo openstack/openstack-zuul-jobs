@@ -66,4 +66,8 @@ export NODEPOOL_RDO_PROXY=${NODEPOOL_RDO_PROXY:-http://$NODEPOOL_MIRROR_HOST:808
 export NODEPOOL_RUGYGEMS_PROXY=${NODEPOOL_RUBYGEMS_PROXY:-http://$NODEPOOL_MIRROR_HOST:8080/rubygems/}
 export NODEPOOL_NPM_REGISTRY_PROXY=${NODEPOOL_NPM_REGISTRY_PROXY:-http://$NODEPOOL_MIRROR_HOST:8080/registry.npmjs}
 export NODEPOOL_TARBALLS_PROXY=${NODEPOOL_TARBALLS_PROXY:-http://$NODEPOOL_MIRROR_HOST:8080/tarballs}
+
+# NOTE(mnaser): The following two proxies are consumed by OpenStack Ansible.  They do not contain `http://` because we
+#               can only override hosts, not the entire base URL.
 export NODEPOOL_LXC_IMAGE_PROXY=${NODEPOOL_LXC_IMAGE_PROXY:-$NODEPOOL_MIRROR_HOST:8080/images.linuxcontainers}
+export NODEPOOL_PERCONA_PROXY=${NODEPOOL_PERCONA_PROXY:-$NODEPOOL_MIRROR_HOST:8080/percona}
