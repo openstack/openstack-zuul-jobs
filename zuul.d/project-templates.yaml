@@ -177,12 +177,6 @@
     pre-release:
       jobs:
         - release-openstack-python3
-        - announce-release:
-            dependencies:
-              - release-openstack-python3
-        - propose-update-constraints:
-            dependencies:
-              - release-openstack-python3
     release:
       jobs:
         - release-openstack-python3
