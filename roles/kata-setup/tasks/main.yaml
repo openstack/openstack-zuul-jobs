@@ -1,0 +1,20 @@
+- name: Install distribution specific package needs
+  include: "{{ item }}"
+  static: no
+  with_first_found:
+    - "setup/{{ ansible_distribution }}.yaml"
+    - "setup/{{ ansible_os_family }}.yaml"
+    - "setup/default.yaml"
+
+- name: Run kata setup.sh
+  args:
+    executable: /bin/bash
+    chdir: "{{ zuul.project.src_dir }}"
+  shell: |
+    set -x
+    if [ -d '/usr/lib/go-1.10/bin' ] ; then
+        export PATH=$PATH:/usr/lib/go-1.10/bin
+    fi
+    export CI=true
+    export GOPATH=$HOME
+    .ci/setup.sh

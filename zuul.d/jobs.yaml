@@ -1455,3 +1455,11 @@
       nodes:
         - name: ubuntu-xenial
           label: ubuntu-xenial-vexxhost
+
+- job:
+    name: kata-runsh-fedora-28
+    parent: kata-runsh
+    nodeset:
+      nodes:
+        - name: fedora-28
+          label: fedora-28-vexxhost

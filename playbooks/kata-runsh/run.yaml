@@ -6,7 +6,9 @@
         chdir: "{{ zuul.project.src_dir }}"
       shell: |
         set -x
-        export PATH=$PATH:/usr/lib/go-1.10/bin
+        if [ -d '/usr/lib/go-1.10/bin' ] ; then
+            export PATH=$PATH:/usr/lib/go-1.10/bin
+        fi
         export CI=true
         export GOPATH=$HOME
         .ci/run.sh
