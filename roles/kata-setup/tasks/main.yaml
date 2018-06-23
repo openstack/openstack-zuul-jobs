@@ -6,6 +6,18 @@
     - "setup/{{ ansible_os_family }}.yaml"
     - "setup/default.yaml"
 
+- name: Allow k8s cluster range to talk to k8s api
+  iptables:
+    state: present
+    action: insert
+    chain: INPUT
+    ip_version: ipv4
+    protocol: tcp
+    source: "10.244.0.0/16"
+    destination_port: 6443
+    jump: ACCEPT
+  become: yes
+
 - name: Run kata setup.sh
   args:
     executable: /bin/bash

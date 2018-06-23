@@ -45,3 +45,12 @@
     name: docker-ce
     state: present
   become: yes
+
+  # TODO why isn't this necessary on Ubuntu?
+- name: Ensure vhost and vhost_net modules are present as kata checks for these
+  args:
+    executable: /bin/bash
+  shell: |
+    set -x
+    modprobe vhost_net
+  become: yes
