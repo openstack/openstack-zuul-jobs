@@ -58,7 +58,6 @@ export NODEPOOL_FEDORA_MIRROR=${NODEPOOL_FEDORA_MIRROR:-http://$NODEPOOL_MIRROR_
 export NODEPOOL_OPENSUSE_MIRROR=${NODEPOOL_OPENSUSE_MIRROR:-http://$NODEPOOL_MIRROR_HOST/opensuse}
 export NODEPOOL_CEPH_MIRROR=${NODEPOOL_CEPH_MIRROR:-http://$NODEPOOL_MIRROR_HOST/ceph-deb-hammer}
 export NODEPOOL_UCA_MIRROR=${NODEPOOL_UCA_MIRROR:-http://$NODEPOOL_MIRROR_HOST/ubuntu-cloud-archive}
-export NODEPOOL_MARIADB_MIRROR=${NODEPOOL_MARIADB_MIRROR:-http://$NODEPOOL_MIRROR_HOST/ubuntu-mariadb}
 # Reverse proxy servers
 export NODEPOOL_BUILDLOGS_CENTOS_PROXY=${NODEPOOL_BUILDLOGS_CENTOS_PROXY:-http://$NODEPOOL_MIRROR_HOST:8080/buildlogs.centos}
 export NODEPOOL_DOCKER_REGISTRY_PROXY=${NODEPOOL_DOCKER_REGISTRY_PROXY:-http://$NODEPOOL_MIRROR_HOST:8081/registry-1.docker/}
@@ -67,7 +66,8 @@ export NODEPOOL_RUGYGEMS_PROXY=${NODEPOOL_RUBYGEMS_PROXY:-http://$NODEPOOL_MIRRO
 export NODEPOOL_NPM_REGISTRY_PROXY=${NODEPOOL_NPM_REGISTRY_PROXY:-http://$NODEPOOL_MIRROR_HOST:8080/registry.npmjs}
 export NODEPOOL_TARBALLS_PROXY=${NODEPOOL_TARBALLS_PROXY:-http://$NODEPOOL_MIRROR_HOST:8080/tarballs}
 
-# NOTE(mnaser): The following two proxies are consumed by OpenStack Ansible.  They do not contain `http://` because we
+# NOTE(mnaser): The following three proxies are consumed by OpenStack Ansible.  They do not contain `http://` because we
 #               can only override hosts, not the entire base URL.
 export NODEPOOL_LXC_IMAGE_PROXY=${NODEPOOL_LXC_IMAGE_PROXY:-$NODEPOOL_MIRROR_HOST:8080/images.linuxcontainers}
 export NODEPOOL_PERCONA_PROXY=${NODEPOOL_PERCONA_PROXY:-$NODEPOOL_MIRROR_HOST:8080/percona}
+export NODEPOOL_MARIADB_PROXY=${NODEPOOL_MARIADB_PROXY:-$NODEPOOL_MIRROR_HOST:8080/mariadb}
