@@ -693,14 +693,6 @@
     post-run: playbooks/puppet-branch-tarball/post.yaml
 
 - job:
-    name: publish-openstack-python-tarball
-    parent: publish-openstack-artifacts
-    description: |
-      Publish the results of the tox-tarball job to tarballs.openstack.org.
-    run: playbooks/python-tarball/run.yaml
-    post-run: playbooks/python-tarball/post.yaml
-
-- job:
     name: publish-openstack-javascript-tarball
     parent: publish-openstack-artifacts
     description: |
