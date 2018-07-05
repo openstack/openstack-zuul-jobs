@@ -86,6 +86,22 @@
         - publish-openstack-sphinx-docs-python3
 
 - project-template:
+    name: publish-openstack-docs-pti
+    description: |
+      Runs normal OpenStack PTI doc build and publication jobs
+      following the project testing interface.
+
+    check:
+      jobs:
+        - openstack-tox-docs
+    gate:
+      jobs:
+        - openstack-tox-docs
+    post:
+      jobs:
+        - publish-openstack-tox-docs
+
+- project-template:
     name: publish-openstack-sphinx-docs-infra
     description: |
       Runs normal OpenStack PTI build jobs and publishes to the Infra

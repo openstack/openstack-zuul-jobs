@@ -548,6 +548,16 @@
       tox_envlist: snap
 
 - job:
+    name: openstack-tox-docs
+    parent: openstack-tox
+    description: |
+      Run documentation build.
+
+      Uses tox with the ``docs`` environment.
+    vars:
+      tox_envlist: docs
+
+- job:
     name: openstack-tox-with-oslo-master-base
     parent: openstack-tox-py27
     timeout: 3000
