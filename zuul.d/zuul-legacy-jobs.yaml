@@ -1420,13 +1420,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-post-sahara-extra-artifacts
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/post-sahara-extra-artifacts/run.yaml
-    post-run: playbooks/legacy/post-sahara-extra-artifacts/post.yaml
-    timeout: 3900
-
-- job:
     name: legacy-puppet-beaker-rspec
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec/run.yaml
@@ -1937,12 +1930,6 @@
       - openstack/ara
       - openstack/sahara
       - openstack/sahara-dashboard
-
-- job:
-    name: legacy-sahara-extra-artifacts
-    parent: legacy-base
-    run: playbooks/legacy/sahara-extra-artifacts/run.yaml
-    timeout: 3900
 
 - job:
     name: legacy-sandbox-tag
