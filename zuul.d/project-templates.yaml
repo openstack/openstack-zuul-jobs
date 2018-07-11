@@ -1094,6 +1094,8 @@
         - infra-puppet-apply-3-ubuntu-trusty:
             branches: master
         - infra-puppet-apply-3-ubuntu-xenial
+        - infra-puppet-apply-4-centos-7
+        - infra-puppet-apply-4-ubuntu-xenial
         - openstackci-beaker-centos-7
         - openstackci-beaker-ubuntu-trusty
         - openstackci-beaker
