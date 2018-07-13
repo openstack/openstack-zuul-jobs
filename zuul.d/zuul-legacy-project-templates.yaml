@@ -61,7 +61,7 @@
     check:
       jobs:
         - legacy-tempest-dsvm-neutron-full:
-            branches: ^stable/(newton|ocata)$
+            branches: ^stable/(newton|ocata|pike)$
         - tempest-full
         - neutron-grenade:
             branches: ^(?!stable/(newton|ocata)).*$
