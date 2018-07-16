@@ -11,4 +11,5 @@
         fi
         export CI=true
         export GOPATH=$HOME
+        export PATH=${GOPATH}/bin:$PATH
         .ci/run.sh
