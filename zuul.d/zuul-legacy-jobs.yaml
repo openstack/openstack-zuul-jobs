@@ -2547,18 +2547,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-neutron-scenario-multinode-lvm-multibackend
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-neutron-scenario-multinode-lvm-multibackend/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-scenario-multinode-lvm-multibackend/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-tempest-dsvm-neutron-serviceipv6
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-serviceipv6/run.yaml
