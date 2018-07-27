@@ -2634,18 +2634,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-nova-os-vif
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-nova-os-vif/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-nova-os-vif/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/nova
-      - openstack/os-vif
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-nova-v20-api
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-nova-v20-api/run.yaml
