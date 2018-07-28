@@ -873,20 +873,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-muranoclient-dsvm-functional-mysql-backend
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/muranoclient-dsvm-functional-mysql-backend/run.yaml
-    post-run: playbooks/legacy/muranoclient-dsvm-functional-mysql-backend/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/heat
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-heatclient
-      - openstack/python-muranoclient
-
-- job:
     name: legacy-networking-bagpipe-dsvm-fullstack
     parent: legacy-dsvm-base
     run: playbooks/legacy/networking-bagpipe-dsvm-fullstack/run.yaml
