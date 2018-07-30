@@ -657,6 +657,23 @@
             branches: stable/queens
 
 - project-template:
+    name: translation-jobs-rocky
+    description: |
+      Sync translations to translation server and back again for
+      **stable/rocky** branch only.
+
+      This is intented for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update:
+            branches: stable/rocky
+    periodic:
+      jobs:
+        - propose-translation-update:
+            branches: stable/rocky
+
+- project-template:
     name: openstack-specs-jobs
     description: |
       Runs jobs to build and publish documents for a specs repository.
