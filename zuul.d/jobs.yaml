@@ -556,6 +556,10 @@
       Uses tox with the ``docs`` environment.
     vars:
       tox_envlist: docs
+    success-url: html/
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    post-run: playbooks/docs/post.yaml
 
 - job:
     name: openstack-tox-with-oslo-master-base
