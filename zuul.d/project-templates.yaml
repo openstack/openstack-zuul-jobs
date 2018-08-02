@@ -538,9 +538,30 @@
 - project-template:
     name: docs-on-readthedocs
     description: |
-      Runs normal OpenStack PTI build jobs but publishes to readthedocs
-      instead of docs.openstack.org. This is intended for projects that are
-      aiming to follow the PTI but are not official.
+      Runs normal OpenStack PTI build jobs but publishes to
+      `readthedocs <https://readthedocs.org>`__ instead of
+      `docs.openstack.org <https://docs.openstack.org>`__. This is
+      intended for projects that are aiming to follow the PTI but are
+      not official.
+
+      To use this template you need to:
+
+      #. add the ``openstackci`` user as an admin to your RTD project
+      #. generate a webhook URL via the "Integrations" dashboard page
+      #. provide the ``id`` in the ``rtd_webhook_id`` variable in your project
+
+      For example
+
+      .. code-block:: yaml
+
+        project:
+          name: openstack-project
+          description: My Project
+          templates:
+            - docs-on-readthedocs
+          vars:
+            rtd_webhook_id: '1234'
+
     check:
       jobs:
         - build-openstack-sphinx-docs
@@ -549,13 +570,13 @@
         - build-openstack-sphinx-docs
     post:
       jobs:
-        - trigger-readthedocs
+        - trigger-readthedocs-webhook
     pre-release:
       jobs:
-        - trigger-readthedocs
+        - trigger-readthedocs-webhook
     release:
       jobs:
-        - trigger-readthedocs
+        - trigger-readthedocs-webhook
 
 - project-template:
     name: nodejs4-publish-to-npm
