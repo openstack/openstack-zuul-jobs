@@ -12,12 +12,6 @@
         label: debian-stretch
 
 - nodeset:
-    name: fedora-27
-    nodes:
-      - name: fedora-27
-        label: fedora-27
-
-- nodeset:
     name: fedora-latest
     nodes:
       - name: fedora-28
@@ -148,12 +142,6 @@
     nodes:
       - name: primary
         label: centos-7
-
-- nodeset:
-    name: legacy-fedora-27
-    nodes:
-      - name: primary
-        label: fedora-27
 
 - nodeset:
     name: legacy-opensuse-423
