@@ -2183,17 +2183,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-zmq
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-zmq/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-zmq/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-zmq
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-identity-v3-test-accounts
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-identity-v3-test-accounts/run.yaml
