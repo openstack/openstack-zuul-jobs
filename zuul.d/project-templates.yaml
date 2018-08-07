@@ -632,7 +632,7 @@
       Sync translations to translation server and back again for
       **master** only.
 
-      This is intented for official OpenStack projects that have
+      This is intended for official OpenStack projects that have
       translations set up.
     post:
       jobs:
@@ -649,7 +649,7 @@
       Sync translations to translation server and back again for
       **stable/pike** branch only.
 
-      This is intented for official OpenStack projects that have
+      This is intended for official OpenStack projects that have
       translations set up.
     post:
       jobs:
@@ -666,7 +666,7 @@
       Sync translations to translation server and back again for
       **stable/queens** branch only.
 
-      This is intented for official OpenStack projects that have
+      This is intended for official OpenStack projects that have
       translations set up.
     post:
       jobs:
@@ -683,7 +683,7 @@
       Sync translations to translation server and back again for
       **stable/rocky** branch only.
 
-      This is intented for official OpenStack projects that have
+      This is intended for official OpenStack projects that have
       translations set up.
     post:
       jobs:
@@ -693,6 +693,47 @@
       jobs:
         - propose-translation-update:
             branches: stable/rocky
+
+
+- project-template:
+    name: translation-jobs-master-only
+    description: |
+      Sync translations to translation server and back again for
+      **master** only.
+
+      This is intended for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update:
+            branches: master
+    periodic:
+      jobs:
+        - propose-translation-update:
+            branches: master
+
+- project-template:
+    name: translation-jobs-master-stable
+    description: |
+      Sync translations to translation server and back again for
+      **master** and translated stable branches.
+
+      This is intended for official OpenStack projects that have
+      translations set up.
+    post:
+      jobs:
+        - upstream-translation-update:
+            branches:
+              - master
+              - stable/queens
+              - stable/rocky
+    periodic:
+      jobs:
+        - propose-translation-update:
+            branches:
+              - master
+              - stable/queens
+              - stable/rocky
 
 - project-template:
     name: openstack-specs-jobs
