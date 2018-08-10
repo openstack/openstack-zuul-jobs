@@ -1,5 +1,7 @@
 # Project pipeline definition for openstack-zuul-jobs
 - project:
+    templates:
+      - publish-openstack-sphinx-docs-infra
     check:
       jobs:
         - openstack-infra-base-integration-centos-7
@@ -26,7 +28,6 @@
         - openstack-infra-multinode-integration-opensuse423
         - openstack-infra-multinode-integration-opensuse-tumbleweed:
             voting: false
-        - build-openstack-sphinx-docs
         - openstack-zuul-jobs-linters
     gate:
       jobs:
@@ -42,5 +43,4 @@
         - openstack-infra-multinode-integration-ubuntu-trusty
         - openstack-infra-multinode-integration-ubuntu-xenial
         - openstack-infra-multinode-integration-opensuse423
-        - build-openstack-sphinx-docs
         - openstack-zuul-jobs-linters
