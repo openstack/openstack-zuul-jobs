@@ -627,57 +627,6 @@
               - release-openstack-javascript
 
 - project-template:
-    name: translation-jobs
-    description: |
-      Sync translations to translation server and back again for
-      **master** only.
-
-      This is intended for official OpenStack projects that have
-      translations set up.
-    post:
-      jobs:
-        - upstream-translation-update:
-            branches: master
-    periodic:
-      jobs:
-        - propose-translation-update:
-            branches: master
-
-- project-template:
-    name: translation-jobs-pike
-    description: |
-      Sync translations to translation server and back again for
-      **stable/pike** branch only.
-
-      This is intended for official OpenStack projects that have
-      translations set up.
-    post:
-      jobs:
-        - upstream-translation-update:
-            branches: stable/pike
-    periodic:
-      jobs:
-        - propose-translation-update:
-            branches: stable/pike
-
-- project-template:
-    name: translation-jobs-queens
-    description: |
-      Sync translations to translation server and back again for
-      **stable/queens** branch only.
-
-      This is intended for official OpenStack projects that have
-      translations set up.
-    post:
-      jobs:
-        - upstream-translation-update:
-            branches: stable/queens
-    periodic:
-      jobs:
-        - propose-translation-update:
-            branches: stable/queens
-
-- project-template:
     name: translation-jobs-rocky
     description: |
       Sync translations to translation server and back again for
@@ -685,6 +634,12 @@
 
       This is intended for official OpenStack projects that have
       translations set up.
+
+      .. note::
+         This template is obsolete, use
+         ``translation-jobs-master-only`` or
+         ``translation-jobs-master-stable`` instead.
+
     post:
       jobs:
         - upstream-translation-update:
