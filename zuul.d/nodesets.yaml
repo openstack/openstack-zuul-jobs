@@ -174,21 +174,6 @@
           - secondary
 
 - nodeset:
-    name: legacy-centos-7-3-node
-    nodes:
-      - name: primary
-        label: centos-7
-      - name: secondary-1
-        label: centos-7
-      - name: secondary-2
-        label: centos-7
-    groups:
-      - name: subnodes
-        nodes:
-          - secondary-1
-          - secondary-2
-
-- nodeset:
     name: legacy-ubuntu-xenial-2-node
     nodes:
       - name: primary
