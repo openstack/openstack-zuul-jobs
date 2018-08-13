@@ -1147,7 +1147,6 @@
       - openstack-infra/puppet-mqtt_statsd
       - openstack-infra/puppet-mysql_backup
       - openstack-infra/puppet-nodepool
-      - openstack-infra/puppet-odsreg
       - openstack-infra/puppet-openafs
       - openstack-infra/puppet-openstackci
       - openstack-infra/puppet-openstack_health
@@ -1170,7 +1169,6 @@
       - openstack-infra/puppet-snmpd
       - openstack-infra/puppet-ssh
       - openstack-infra/puppet-ssl_cert_check
-      - openstack-infra/puppet-stackalytics
       - openstack-infra/puppet-statusbot
       - openstack-infra/puppet-storyboard
       - openstack-infra/puppet-subunit2sql
@@ -1274,7 +1272,6 @@
       - openstack-infra/puppet-graphite
       - openstack-infra/puppet-diskimage_builder
       - openstack-infra/puppet-sudoers
-      - openstack-infra/puppet-stackalytics
       - openstack-infra/puppet-zanata
       - openstack-infra/puppet-logstash
       - openstack-infra/puppet-gerritbot
@@ -1296,7 +1293,6 @@
       - openstack-infra/puppet-storyboard
       - openstack-infra/puppet-openstack_health
       - openstack-infra/puppet-kerberos
-      - openstack-infra/puppet-odsreg
       - openstack-infra/puppet-askbot
       - openstack-infra/puppet-log_processor
       - openstack-infra/puppet-simpleproxy
