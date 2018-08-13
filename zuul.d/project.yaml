@@ -6,8 +6,6 @@
       jobs:
         - openstack-infra-base-integration-centos-7
         - openstack-infra-base-integration-debian-stable
-        - openstack-infra-base-integration-fedora-27:
-            voting: false
         - openstack-infra-base-integration-fedora-latest:
             voting: false
         - openstack-infra-base-integration-ubuntu-bionic
@@ -18,8 +16,6 @@
             voting: false
         - openstack-infra-multinode-integration-centos-7
         - openstack-infra-multinode-integration-debian-stable
-        - openstack-infra-multinode-integration-fedora-27:
-            voting: false
         - openstack-infra-multinode-integration-fedora-latest:
             voting: false
         - openstack-infra-multinode-integration-ubuntu-bionic
