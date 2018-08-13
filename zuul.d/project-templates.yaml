@@ -26,7 +26,10 @@
 - project-template:
     name: build-openstack-sphinx-docs
     description: |
-      Runs normal OpenStack PTI doc build without publication jobs.
+      Runs legacy OpenStack doc build without publication jobs.
+
+      This template is deprecated and should only be used for older stable
+      branches.
     check:
       jobs:
         - build-openstack-sphinx-docs
@@ -37,9 +40,12 @@
 - project-template:
     name: build-openstack-sphinx-docs-python3
     description: |
-      Runs normal OpenStack PTI doc build without publication jobs.
+      Runs legacy OpenStack doc build without publication jobs.
 
       Builds the docs using Sphinx with Python3.
+
+      This template is deprecated and should only be used for older stable
+      branches.
     check:
       jobs:
         - build-openstack-sphinx-docs:
@@ -54,7 +60,10 @@
 - project-template:
     name: publish-openstack-sphinx-docs
     description: |
-      Runs normal OpenStack PTI doc build and publication jobs.
+      Runs legacy OpenStack doc build and publication jobs.
+
+      This template is deprecated and should only be used for older stable
+      branches.
     check:
       jobs:
         - build-openstack-sphinx-docs
@@ -68,8 +77,20 @@
 - project-template:
     name: publish-openstack-docs-pti
     description: |
-      Runs normal OpenStack PTI doc build and publication jobs
+      Runs normal `OpenStack PTI documentation build and publication jobs
+      <https://governance.openstack.org/tc/reference/project-testing-interface.html#documentation>`_
       following the project testing interface.
+
+      Once you have docs published, add them to the index pages
+      following the `documentation
+      <https://docs.openstack.org/doc-contrib-guide/doc-index.html>`_
+      .
+
+      .. note::
+
+         Only repos listed in ``openstack/governance`` repository are
+         allowed to publish to the `OpenStack docs website
+         <https://docs.openstack.org>`_ .
 
     check:
       jobs:
