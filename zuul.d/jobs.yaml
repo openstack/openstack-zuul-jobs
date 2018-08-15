@@ -728,7 +728,8 @@
     parent: build-reno-releasenotes
     description: |
       Build releasenotes, with optional translation support, using reno.
-    timeout: 1800
+    # Building translated releasenotes can take long for large repositories
+    timeout: 3600
     required-projects:
       - name: openstack/requirements
     vars:
