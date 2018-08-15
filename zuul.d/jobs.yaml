@@ -333,6 +333,7 @@
     name: openstack-tox-py36
     parent: openstack-tox
     nodeset: ubuntu-bionic
+    timeout: 2400
     description: |
 
       Run unit tests for an OpenStack Python project under cPython
