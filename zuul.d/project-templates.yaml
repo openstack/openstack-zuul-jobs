@@ -4,6 +4,10 @@
     name: system-required
     description: |
       Jobs that *every* project in OpenStack CI should have by default.
+    # Include a check queue so that initially every repo has a check queue
+    # and we can report invalid zuul.yaml files.
+    check:
+      jobs: []
     merge-check:
       jobs:
         - noop
