@@ -525,6 +525,19 @@
         - openstack-tox-py36
 
 - project-template:
+    name: openstack-python36-jobs-neutron
+    check:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
     name: openstack-python36-jobs-nonvoting
     check:
       jobs:
