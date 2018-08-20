@@ -1,7 +1,7 @@
 # Project pipeline definition for openstack-zuul-jobs
 - project:
     templates:
-      - publish-openstack-sphinx-docs-infra
+      - publish-tox-docs-infra
     check:
       jobs:
         - openstack-infra-base-integration-centos-7
