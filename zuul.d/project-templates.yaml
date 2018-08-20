@@ -107,23 +107,6 @@
         - publish-openstack-tox-docs
 
 - project-template:
-    name: publish-openstack-sphinx-docs-infra
-    description: |
-      Runs normal OpenStack PTI build jobs and publishes to the Infra
-      docs location.
-
-      This template is obsolete, use publish-openstack-tox-docs-infra instead.
-    check:
-      jobs:
-        - build-sphinx-docs
-    gate:
-      jobs:
-        - build-sphinx-docs
-    post:
-      jobs:
-        - publish-openstack-sphinx-docs-infra
-
-- project-template:
     name: publish-tox-docs-infra
     description: |
       Runs normal OpenStack PTI build jobs and publishes to the Infra
@@ -137,23 +120,6 @@
     post:
       jobs:
         - publish-tox-docs-infra
-
-- project-template:
-    name: release-openstack-sphinx-docs-infra
-    description: |
-      Runs normal OpenStack PTI build jobs and publishes to the Infra
-      docs location only on tagged releases.
-
-      This template is obsolete, use release-tox-docs-infra instead.
-    check:
-      jobs:
-        - build-sphinx-docs
-    gate:
-      jobs:
-        - build-sphinx-docs
-    release:
-      jobs:
-        - publish-openstack-sphinx-docs-infra
 
 - project-template:
     name: release-tox-docs-infra
