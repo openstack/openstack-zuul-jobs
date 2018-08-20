@@ -79,6 +79,19 @@
         - publish-openstack-sphinx-docs
 
 - project-template:
+    name: build-openstack-docs-pti
+    description: |
+      Runs normal `OpenStack PTI documentation build and publication jobs
+      <https://governance.openstack.org/tc/reference/project-testing-interface.html#documentation>`_
+      following the project testing interface.
+    check:
+      jobs:
+        - openstack-tox-docs
+    gate:
+      jobs:
+        - openstack-tox-docs
+
+- project-template:
     name: publish-openstack-docs-pti
     description: |
       Runs normal `OpenStack PTI documentation build and publication jobs
@@ -105,6 +118,18 @@
     post:
       jobs:
         - publish-openstack-tox-docs
+
+
+- project-template:
+    name: build-tox-docs
+    description: |
+      Runs tox docs jobs without publishing.
+    check:
+      jobs:
+        - tox-docs
+    gate:
+      jobs:
+        - tox-docs
 
 - project-template:
     name: publish-tox-docs-infra
