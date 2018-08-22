@@ -529,17 +529,18 @@
 
 - job:
     name: openstack-tox-docs
-    parent: openstack-tox
+    parent: tox-docs
     description: |
       Run documentation build.
 
       Uses tox with the ``docs`` environment.
+    required-projects:
+      - name: openstack/requirements
     vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
+      bindep_profile: compile doc
     success-url: html/
-    roles:
-      - zuul: openstack-infra/zuul-jobs
-    post-run: playbooks/docs/post.yaml
 
 - job:
     name: openstack-tox-with-oslo-master-base
