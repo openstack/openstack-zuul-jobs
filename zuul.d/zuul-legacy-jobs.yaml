@@ -587,18 +587,6 @@
       - openstack/kingbird
 
 - job:
-    name: legacy-labs-ig-cluster-kvm-ubuntu
-    parent: legacy-base
-    run: playbooks/legacy/labs-ig-cluster-kvm-ubuntu/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-labs-ig-cluster-vbox-ubuntu
-    parent: legacy-base
-    run: playbooks/legacy/labs-ig-cluster-vbox-ubuntu/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-laravel-openstackid-release-branch
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/laravel-openstackid-release-branch/run.yaml
