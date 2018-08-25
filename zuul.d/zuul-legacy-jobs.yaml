@@ -5,13 +5,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-astara-appliance-buildimage
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/astara-appliance-buildimage/run.yaml
-    post-run: playbooks/legacy/astara-appliance-buildimage/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-barbican-simple-crypto-dsvm-tempest-nova
     parent: legacy-dsvm-base
     run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-nova/run.yaml
@@ -152,34 +145,6 @@
     parent: legacy-base
     run: playbooks/legacy/fuel-octane-puppet-lint/run.yaml
     timeout: 1800
-
-- job:
-    name: legacy-functional-dsvm-astara
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/functional-dsvm-astara/run.yaml
-    post-run: playbooks/legacy/functional-dsvm-astara/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ara
-      - openstack/astara
-      - openstack/astara-appliance
-      - openstack/astara-horizon
-      - openstack/astara-neutron
-
-- job:
-    name: legacy-functional-dsvm-astara-appliance-src
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/functional-dsvm-astara-appliance-src/run.yaml
-    post-run: playbooks/legacy/functional-dsvm-astara-appliance-src/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ara
-      - openstack/astara
-      - openstack/astara-appliance
-      - openstack/astara-horizon
-      - openstack/astara-neutron
 
 - job:
     name: legacy-functional-neutron-dsvm-gceapi
