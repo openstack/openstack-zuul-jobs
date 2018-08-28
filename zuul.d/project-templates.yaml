@@ -845,11 +845,13 @@
               - stable/ocata
               - stable/pike
               - stable/queens
+              - stable/rocky
         - openstack-tox-py27:
             branches:
               - stable/ocata
               - stable/pike
               - stable/queens
+              - stable/rocky
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -860,6 +862,7 @@
               - stable/ocata
               - stable/pike
               - stable/queens
+              - stable/rocky
             required-projects:
               - openstack/neutron
         - openstack-tox-py27:
@@ -867,6 +870,7 @@
               - stable/ocata
               - stable/pike
               - stable/queens
+              - stable/rocky
             required-projects:
               - openstack/neutron
 
