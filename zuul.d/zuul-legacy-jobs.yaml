@@ -466,12 +466,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-js-generator-openstack-nodejs6-npm-docs
-    parent: legacy-base
-    run: playbooks/legacy/js-generator-openstack-nodejs6-npm-docs/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-js-openstack-lib-dsvm-nodejs4-npm-run-functional-test
     parent: legacy-dsvm-base
     run: playbooks/legacy/js-openstack-lib-dsvm-nodejs4-npm-run-functional-test/run.yaml
