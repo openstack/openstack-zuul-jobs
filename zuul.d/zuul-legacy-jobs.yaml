@@ -73,15 +73,6 @@
       - openstack/devstack-plugin-container
 
 - job:
-    name: legacy-dg-hooks-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dg-hooks-dsvm/run.yaml
-    post-run: playbooks/legacy/dg-hooks-dsvm/post.yaml
-    timeout: 3900
-    required-projects:
-      - openstack-infra/devstack-gate
-
-- job:
     name: legacy-dox-buildimages
     parent: legacy-base
     run: playbooks/legacy/dox-buildimages/run.yaml
