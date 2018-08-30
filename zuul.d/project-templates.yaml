@@ -457,6 +457,38 @@
               - openstack/neutron
 
 - project-template:
+    name: openstack-cover-jobs
+    description: |
+        Runs openstack-tox-cover in only the check pipeline.
+    check:
+      jobs:
+        - openstack-tox-cover
+
+- project-template:
+    name: openstack-cover-jobs-horizon
+    description: |
+      The standard openstack-cover-jobs but with horizon added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
+    check:
+      jobs:
+        - openstack-tox-cover:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
+    name: openstack-cover-jobs-neutron
+    description: |
+      The standard openstack-cover-jobs but with neutron added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
+    check:
+      jobs:
+        - openstack-tox-cover:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
     name: openstack-python35-jobs
     check:
       jobs:
