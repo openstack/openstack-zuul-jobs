@@ -1122,7 +1122,6 @@
       - openstack-infra/puppet-ethercalc
       - openstack-infra/puppet-etherpad_lite
       - openstack-infra/puppet-exim
-      - openstack-infra/puppet-featuretracker
       - openstack-infra/puppet-germqtt
       - openstack-infra/puppet-gerrit
       - openstack-infra/puppet-gerritbot
