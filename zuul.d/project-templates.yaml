@@ -516,6 +516,23 @@
         - openstack-tox-py36
 
 - project-template:
+    name: openstack-python36-jobs-horizon
+    description: |
+      The standard openstack-python36-jobs but with horizon added as a
+      required-projects. The dashboard projects currently need this
+      due to how the tox_install.sh zuul-cloner's horizon for them.
+    check:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
     name: openstack-python36-jobs-neutron
     check:
       jobs:
