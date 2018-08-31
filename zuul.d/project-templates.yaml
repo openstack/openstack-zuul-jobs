@@ -568,6 +568,51 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-lower-constraints-jobs
+    description: |
+      Runs openstack-tox-lower-constraints in both the check and gate pipelines.
+    check:
+      jobs:
+        - openstack-tox-lower-constraints
+    gate:
+      jobs:
+        - openstack-tox-lower-constraints
+
+- project-template:
+    name: openstack-lower-constraints-jobs-horizon
+    description: |
+      The standard openstack-lower-constraints-jobs but with horizon added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
+    check:
+      jobs:
+        - openstack-tox-lower-constraints:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-lower-constraints:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
+    name: openstack-lower-constraints-jobs-neutron
+    description: |
+      The standard openstack-lower-constraints-jobs but with neutron added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
+    check:
+      jobs:
+        - openstack-tox-lower-constraints:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-lower-constraints:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
     name: openstack-pypy-jobs
     check:
       jobs:
