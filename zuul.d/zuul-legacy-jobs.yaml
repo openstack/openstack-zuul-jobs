@@ -1671,17 +1671,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-kafka
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-kafka/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-kafka/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-kafka
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-full-lio-src-os-brick
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-full-lio-src-os-brick/run.yaml
