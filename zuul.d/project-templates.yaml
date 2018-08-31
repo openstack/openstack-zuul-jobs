@@ -4,6 +4,9 @@
     name: system-required
     description: |
       Jobs that *every* project in OpenStack CI should have by default.
+
+      This is automatically added to all projects in OpenStack CI, no
+      repository should use this directly.
     # Include a check queue so that initially every repo has a check queue
     # and we can report invalid zuul.yaml files.
     check:
@@ -163,6 +166,9 @@
 
 - project-template:
     name: puppet-release-jobs
+    description: |
+      Runs release jobs for a Puppet project, tests also that tarballs can be
+      generated.
     check:
       jobs:
         - build-openstack-puppet-tarball
@@ -352,6 +358,8 @@
 
 - project-template:
     name: release-notes-jobs
+    description: |
+      Runs the release notes test and publish jobs.
     check:
       jobs:
         - build-openstack-releasenotes
@@ -388,6 +396,8 @@
 
 - project-template:
     name: openstack-python-jobs
+    description: |
+      Runs OpenStack PTI jobs for python.
     check:
       jobs:
         - openstack-tox-pep8
@@ -403,9 +413,10 @@
 - project-template:
     name: openstack-python-jobs-horizon
     description: |
-      The standard openstack-python-jobs but with horizon added as a
-      required-projects. The dashboard projects currently need this
-      due to how the tox_install.sh zuul-cloner's horizon for them.
+      The standard :zuul:project_template:`openstack-python-jobs`
+      but with horizon added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use horizon when building the venv.
     check:
       jobs:
         - openstack-tox-pep8:
@@ -431,9 +442,10 @@
 - project-template:
     name: openstack-python-jobs-neutron
     description: |
-      The standard openstack-python-jobs but with neutron added as a
-      required-projects. The neutron stadium projects currently need this
-      due to how the tox_install.sh zuul-cloner's neutron for them.
+      The standard :zuul:project_template:`openstack-python-jobs`
+      but with neutron added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use neutron when building the venv.
     check:
       jobs:
         - openstack-tox-pep8:
@@ -458,6 +470,9 @@
 
 - project-template:
     name: openstack-python35-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.5.
     check:
       jobs:
         - openstack-tox-py35
@@ -468,9 +483,10 @@
 - project-template:
     name: openstack-python35-jobs-horizon
     description: |
-      The standard openstack-python35-jobs but with horizon added as a
-      required-projects. The dashboard projects currently need this
-      due to how the tox_install.sh zuul-cloner's horizon for them.
+      The standard :zuul:project_template:`openstack-python35-jobs`
+      but with horizon added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use horizon
+      when building the venv.
     check:
       jobs:
         - openstack-tox-py35:
@@ -485,9 +501,10 @@
 - project-template:
     name: openstack-python35-jobs-neutron
     description: |
-      The standard openstack-python35-jobs but with neutron added as a
-      required-projects. The neutron stadium projects currently need this
-      due to how the tox_install.sh zuul-cloner's neutron for them.
+      The standard :zuul:project_template:`openstack-python35-jobs`
+      but with neutron added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use neutron
+      when building the venv.
     check:
       jobs:
         - openstack-tox-py35:
@@ -501,6 +518,11 @@
 
 - project-template:
     name: openstack-python35-jobs-nonvoting
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.5.
+
+      The job is non-voting.
     check:
       jobs:
         - openstack-tox-py35:
@@ -508,6 +530,9 @@
 
 - project-template:
     name: openstack-python36-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.6.
     check:
       jobs:
         - openstack-tox-py36
@@ -517,6 +542,11 @@
 
 - project-template:
     name: openstack-python36-jobs-neutron
+    description: |
+      The standard :zuul:project_template:`openstack-python36-jobs`
+      but with neutron added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use neutron
+      when building the venv.
     check:
       jobs:
         - openstack-tox-py36:
@@ -530,6 +560,11 @@
 
 - project-template:
     name: openstack-python36-jobs-nonvoting
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.6.
+
+      The job is non-voting.
     check:
       jobs:
         - openstack-tox-py36:
@@ -581,8 +616,9 @@
 - project-template:
     name: openstack-lower-constraints-jobs-horizon
     description: |
-      The standard openstack-lower-constraints-jobs but with horizon added as a
-      required-projects. This checks out the project code and allows
+      The standard :zuul:project_template:`openstack-lower-constraints-jobs`
+      but with horizon added as a required-projects.
+      This checks out the project code and allows
       tox_install_siblings to use it when building the venv.
     check:
       jobs:
@@ -598,8 +634,9 @@
 - project-template:
     name: openstack-lower-constraints-jobs-neutron
     description: |
-      The standard openstack-lower-constraints-jobs but with neutron added as a
-      required-projects. This checks out the project code and allows
+      The standard :zuul:project_template:`openstack-lower-constraints-jobs`
+      but with neutron added as a required-projects.
+      This checks out the project code and allows
       tox_install_siblings to use it when building the venv.
     check:
       jobs:
@@ -614,6 +651,8 @@
 
 - project-template:
     name: openstack-pypy-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under PyPy.
     check:
       jobs:
         - openstack-tox-pypy
@@ -623,6 +662,10 @@
 
 - project-template:
     name: openstack-pypy-jobs-nonvoting
+    description: |
+      Runs unit tests for an OpenStack Python project under PyPy.
+
+      The job is non-voting.
     check:
       jobs:
         - openstack-tox-pypy:
@@ -630,6 +673,12 @@
 
 - project-template:
     name: openstack-python-jobs-trusty
+    description: |
+      The standard :zuul:project_template:`openstack-python-jobs`
+      but run on an Ubuntu Trusty system.
+
+      This template is obsolete, use
+      :zuul:project_template:`openstack-python-jobs` instead.
     check:
       jobs:
         - openstack-tox-pep8:
@@ -688,6 +737,9 @@
 
 - project-template:
     name: nodejs4-publish-to-npm
+    description: |
+      Runs publish jobs and tarball generation for Javascript.
+      Uses NodeJS version 4.
     post:
       jobs:
         - publish-openstack-javascript-tarball:
@@ -704,6 +756,9 @@
 
 - project-template:
     name: nodejs6-publish-to-npm
+    description: |
+      Runs publish jobs and tarball generation for Javascript.
+      Uses NodeJS version 6.
     post:
       jobs:
         - publish-openstack-javascript-tarball:
@@ -720,6 +775,9 @@
 
 - project-template:
     name: nodejs8-publish-to-npm
+    description: |
+      Runs publish jobs and tarball generation for Javascript.
+      Uses NodeJS version 8.
     post:
       jobs:
         - publish-openstack-javascript-tarball:
@@ -745,8 +803,9 @@
 
       .. note::
          This template is obsolete, use
-         ``translation-jobs-master-only`` or
-         ``translation-jobs-master-stable`` instead.
+         :zuul:project_template:`translation-jobs-master-only` or
+         :zuul:project_template:`translation-jobs-master-stable`
+         instead.
 
     post:
       jobs:
@@ -900,6 +959,11 @@
 
 - project-template:
     name: periodic-stable-jobs-neutron
+    description: |
+      The :zuul:project_template:`periodic-stable-jobs` template
+      but with neutron added as a required-projects.
+      This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
     periodic-stable:
       jobs:
         - build-openstack-sphinx-docs:
@@ -973,6 +1037,8 @@
 
 - project-template:
     name: python-charm-layer-jobs
+    description: |
+      Run Python tests for charm layer projects.
     check:
       jobs:
         - openstack-tox-pep8
@@ -985,7 +1051,7 @@
 - project-template:
     name: python35-charm-jobs
     description: |
-      Run tox-pep8 and tox-py35 check and gate jobs, plus publish.
+      Run tox-pep8 and tox-py35 check and gate jobs.
     check:
       jobs:
         - openstack-tox-pep8
@@ -1205,6 +1271,9 @@
 
 - project-template:
     name: puppet-beaker-jobs-xenial-infra
+    description: |
+      Runs puppet beaker tests for OpenStack Infrastructure.
+      The jobs are run on Ubuntu Xenial.
     check:
       jobs:
         - puppet-beaker-rspec-infra
@@ -1216,6 +1285,9 @@
 
 - project-template:
     name: puppet-beaker-jobs-xenial-infra-nv
+    description: |
+      Runs puppet beaker tests for OpenStack Infrastructure.
+      The jobs are run on Ubuntu Xenial and are non-voting.
     check:
       jobs:
         - puppet-beaker-rspec-infra:
@@ -1223,6 +1295,9 @@
 
 - project-template:
     name: puppet-beaker-jobs-centos-7-infra
+    description: |
+      Runs puppet beaker tests for OpenStack Infrastructure.
+      The jobs are run on CentOS 7.
     check:
       jobs:
         - puppet-beaker-rspec-centos-7-infra
@@ -1234,6 +1309,8 @@
 
 - project-template:
     name: infra-puppet-apply-jobs
+    description: |
+      Runs puppet apply tests for OpenStack Infrastructure.
     check:
       jobs:
         - infra-puppet-apply-3-centos-7
