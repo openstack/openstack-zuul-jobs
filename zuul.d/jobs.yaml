@@ -263,6 +263,14 @@
       constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
 
 - job:
+    name: your-readthedocs-job-requires-attention
+    parent: base
+    description: |
+      A placeholder job to warn projects their readthedocs
+      post-pipeline jobs are failing and require updating
+    run: playbooks/docs/rtd-warning-job.yaml
+
+- job:
     name: tox-py35-on-zuul
     parent: tox-py35
     description: |
