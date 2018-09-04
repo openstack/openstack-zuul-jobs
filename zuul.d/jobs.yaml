@@ -1115,7 +1115,6 @@
       - openstack-infra/puppet-cgit
       - openstack-infra/puppet-ciwatch
       - openstack-infra/puppet-diskimage_builder
-      - openstack-infra/puppet-docker_registry
       - openstack-infra/puppet-drupal
       - openstack-infra/puppet-elastic_recheck
       - openstack-infra/puppet-elasticsearch
@@ -1167,7 +1166,6 @@
       - openstack-infra/puppet-puppet
       - openstack-infra/puppet-redis
       - openstack-infra/puppet-refstack
-      - openstack-infra/puppet-releasestatus
       - openstack-infra/puppet-reviewday
       - openstack-infra/puppet-simpleproxy
       - openstack-infra/puppet-snmpd
@@ -1184,7 +1182,6 @@
       - openstack-infra/puppet-unbound
       - openstack-infra/puppet-user
       - openstack-infra/puppet-vcsrepo
-      - openstack-infra/puppet-vinz
       - openstack-infra/puppet-yum
       - openstack-infra/puppet-zanata
       - openstack-infra/puppet-zuul
