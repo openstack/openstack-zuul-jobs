@@ -482,6 +482,23 @@
       tox_envlist: functional-py35
 
 - job:
+    name: openstack-tox-functional-py36
+    parent: openstack-tox
+    nodeset: ubuntu-bionic
+    description: |
+      Run tox-based functional tests for an OpenStack Python project
+      under cPython version 3.6.
+
+      Uses tox with the ``functional-py36`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^api-ref/.*$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: functional-py36
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
