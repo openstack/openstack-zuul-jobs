@@ -324,22 +324,6 @@
     branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
-    name: legacy-grenade-dsvm-sahara
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-sahara/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-sahara/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-dev/grenade
-      - openstack-infra/devstack-gate
-      - openstack/ara
-      - openstack/heat
-      - openstack/heat-tempest-plugin
-      - openstack/python-saharaclient
-      - openstack/sahara
-
-- job:
     name: legacy-group-based-policy-dsvm-aim
     parent: legacy-dsvm-base
     run: playbooks/legacy/group-based-policy-dsvm-aim/run.yaml
