@@ -799,8 +799,8 @@
       This job always fails and provides a link to the mailing list
       post with details of how to fix the job.
 
-      Revert to docs-on-readthedocs when the webhook id is added to
-      the project.
+      Revert to :zuul:project_template:`docs-on-readthedocs` when the
+      webhook id is added to the project.
     check:
       jobs:
         - build-openstack-sphinx-docs

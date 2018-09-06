@@ -243,12 +243,16 @@
     parent: build-sphinx-docs
     branches: ^(?!driverfixes/).*$
     description: |
-      Builds documentation using Sphinx per the OpenStack PTI and then
+      Builds documentation using Sphinx per a previous version of the
+      OpenStack PTI and then
       collects the results into the log directory so that they can be
       examined in their published form after a successful build.
       It runs the prepare-docs-for-afs role so that AFS stamp files
       can be examined if desired, and also validates htaccess files
       using the whereto tool.
+
+      This job is obsolete and should not be used anymore since rocky, use
+      :zuul:job:`openstack-tox-docs` instead.
     success-url: html/
     required-projects:
       - name: openstack/requirements
@@ -267,14 +271,14 @@
     parent: base
     description: |
       A placeholder job to warn projects their readthedocs
-      post-pipeline jobs are failing and require updating
+      post-pipeline jobs are failing and require updating.
     run: playbooks/docs/rtd-warning-job.yaml
 
 - job:
     name: tox-py35-on-zuul
     parent: tox-py35
     description: |
-      Run zuul's py35 unittests on patches to zuul-jobs
+      Run zuul's py35 unittests on patches to zuul-jobs.
     vars:
       zuul_work_dir: src/git.openstack.org/openstack-infra/zuul
     required-projects:
@@ -1245,7 +1249,7 @@
 - job:
     name: puppet-beaker-rspec-infra
     description: |
-      Base job for beaker-rspec tests for Infra's puppet modules
+      Base job for beaker-rspec tests for Infra's puppet modules.
     nodeset: devstack-single-node
     run: playbooks/infra-puppet-beaker-rspec/run.yaml
     vars:
@@ -1348,7 +1352,7 @@
     name: puppet-beaker-rspec-puppet-4-infra
     parent: puppet-beaker-rspec-infra
     description: |
-      Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial
+      Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial.
     vars:
       puppet_version: 4
 
@@ -1356,7 +1360,7 @@
     name: puppet-beaker-rspec-puppet-4-centos-7-infra
     parent: puppet-beaker-rspec-centos-7-infra
     description: |
-      Run beaker-rspec functional tests with puppet 4 on CentOS 7
+      Run beaker-rspec functional tests with puppet 4 on CentOS 7.
     vars:
       puppet_version: 4
 
@@ -1385,7 +1389,7 @@
     parent: openstackci-beaker
     description: |
       Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial for the
-      puppet-openstackci module
+      puppet-openstackci module.
     vars:
       puppet_version: 4
 
@@ -1394,7 +1398,7 @@
     parent: openstackci-beaker-centos-7
     description: |
       Run beaker-rspec functional tests with puppet 4 on CentOS 7 for the
-      puppet-openstackci module
+      puppet-openstackci module.
     vars:
       puppet_version: 4
 
@@ -1453,7 +1457,7 @@
     name: kata-runsh
     parent: base
     description: |
-      Run kata's setup.sh and run.sh CI scripts
+      Run kata's setup.sh and run.sh CI scripts.
     pre-run: playbooks/kata-runsh/pre.yaml
     run: playbooks/kata-runsh/run.yaml
     post-run: playbooks/kata-runsh/post.yaml
