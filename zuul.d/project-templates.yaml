@@ -938,10 +938,10 @@
       Runs jobs to build and publish documents for a specs repository.
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
     post:
       jobs:
         - publish-openstack-specs
@@ -952,10 +952,10 @@
       Runs jobs to build only documents for a specs repository.
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
 
 - project-template:
     name: api-guide-jobs
