@@ -21,18 +21,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-cloudkitty-dsvm-install
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/cloudkitty-dsvm-install/run.yaml
-    post-run: playbooks/legacy/cloudkitty-dsvm-install/post.yaml
-    timeout: 7200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/cloudkitty
-      - openstack/cloudkitty-dashboard
-      - openstack/python-cloudkittyclient
-
-- job:
     name: legacy-dashboard-dsvm-selenium-package
     parent: legacy-dsvm-base
     run: playbooks/legacy/dashboard-dsvm-selenium-package/run.yaml
