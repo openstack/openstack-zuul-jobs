@@ -976,16 +976,6 @@
       - openstack/requirements
 
 - job:
-    name: legacy-ospurge-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/ospurge-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/ospurge-dsvm-functional/post.yaml
-    timeout: 3600
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/ospurge
-
-- job:
     name: legacy-periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4/run.yaml
