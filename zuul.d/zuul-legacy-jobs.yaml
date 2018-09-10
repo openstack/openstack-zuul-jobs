@@ -50,17 +50,6 @@
       - openstack/sahara-dashboard
 
 - job:
-    name: legacy-devstack-plugin-container-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/devstack-plugin-container-dsvm/run.yaml
-    post-run: playbooks/legacy/devstack-plugin-container-dsvm/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-container
-
-- job:
     name: legacy-dox-buildimages
     parent: legacy-base
     run: playbooks/legacy/dox-buildimages/run.yaml
