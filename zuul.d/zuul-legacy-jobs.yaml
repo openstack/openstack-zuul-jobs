@@ -126,17 +126,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-functional-neutron-dsvm-gceapi
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/functional-neutron-dsvm-gceapi/run.yaml
-    post-run: playbooks/legacy/functional-neutron-dsvm-gceapi/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/gce-api
-      - openstack/neutron
-
-- job:
     name: legacy-fuxi-dsvm-fullstack
     parent: legacy-dsvm-base
     run: playbooks/legacy/fuxi-dsvm-fullstack/run.yaml
