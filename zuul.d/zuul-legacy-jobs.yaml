@@ -21,18 +21,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-dashboard-dsvm-selenium-package
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dashboard-dsvm-selenium-package/run.yaml
-    post-run: playbooks/legacy/dashboard-dsvm-selenium-package/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/murano
-      - openstack/murano-dashboard
-      - openstack/python-muranoclient
-
-- job:
     name: legacy-devstack-dsvm-updown
     parent: legacy-dsvm-base
     run: playbooks/legacy/devstack-dsvm-updown/run.yaml
