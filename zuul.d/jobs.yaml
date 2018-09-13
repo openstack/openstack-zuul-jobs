@@ -45,6 +45,11 @@
     nodeset: fedora-latest
 
 - job:
+    name: openstack-infra-base-integration-gentoo-17-0-systemd
+    parent: openstack-infra-base-integration
+    nodeset: gentoo-17-0-systemd
+
+- job:
     name: openstack-infra-base-integration-opensuse423
     parent: openstack-infra-base-integration
     nodeset: opensuse-423
@@ -145,6 +150,23 @@
           label: fedora-28
         - name: secondary
           label: fedora-28
+      groups:
+        - name: switch
+          nodes:
+            - primary
+        - name: peers
+          nodes:
+            - secondary
+
+- job:
+    name: openstack-infra-multinode-integration-gentoo-17-0-systemd
+    parent: openstack-infra-multinode-integration
+    nodeset:
+      nodes:
+        - name: primary
+          label: gentoo-17-0-systemd
+        - name: secondary
+          label: gentoo-17-0-systemd
       groups:
         - name: switch
           nodes:

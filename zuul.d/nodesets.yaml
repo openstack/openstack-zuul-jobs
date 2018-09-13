@@ -18,6 +18,12 @@
         label: fedora-28
 
 - nodeset:
+    name: gentoo-17-0-systemd
+    nodes:
+      - name: gentoo-17-0-systemd
+        label: gentoo-17-0-systemd
+
+- nodeset:
     name: opensuse-423
     nodes:
       - name: opensuse-423

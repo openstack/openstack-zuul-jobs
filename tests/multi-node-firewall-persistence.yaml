@@ -24,8 +24,8 @@
         - iptables --flush
         - ip6tables --flush
 
-    # NOTE (dmsimard): We're using with_items here because RedHat needs to
-    # restart both iptables and ip6tables.
+    # NOTE (dmsimard): We're using with_items here because RedHat and Gentoo
+    # need to restart both iptables and ip6tables.
     - name: Restart iptables
       become: yes
       service:
