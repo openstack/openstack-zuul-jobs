@@ -18,6 +18,13 @@
     jump: ACCEPT
   become: yes
 
+- name: Configure git user for kata patch application
+  shell: |
+    git config --global user.email "zuul@test.machine"
+    git config --global user.name "Zuul CI"
+  tags:
+    - skip_ansible_lint
+
 - name: Run kata setup.sh
   args:
     executable: /bin/bash
