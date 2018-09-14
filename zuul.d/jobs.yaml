@@ -1461,7 +1461,7 @@
     pre-run: playbooks/kata-runsh/pre.yaml
     run: playbooks/kata-runsh/run.yaml
     post-run: playbooks/kata-runsh/post.yaml
-    timeout: 3600
+    timeout: 7200
     nodeset:
       nodes:
         - name: ubuntu-xenial
