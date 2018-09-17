@@ -421,39 +421,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-keystone-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/keystone-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/keystone-dsvm-functional/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/keystone
-      - openstack/keystone-tempest-plugin
-
-- job:
-    name: legacy-keystone-dsvm-functional-v3-only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/keystone-dsvm-functional-v3-only/run.yaml
-    post-run: playbooks/legacy/keystone-dsvm-functional-v3-only/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/keystone
-      - openstack/keystone-tempest-plugin
-
-- job:
-    name: legacy-keystone-dsvm-py35-functional-v3-only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/keystone-dsvm-py35-functional-v3-only/run.yaml
-    post-run: playbooks/legacy/keystone-dsvm-py35-functional-v3-only/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/keystone
-      - openstack/keystone-tempest-plugin
-
-- job:
     name: legacy-keystoneclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/keystoneclient-dsvm-functional/run.yaml
@@ -1442,48 +1409,6 @@
     post-run: playbooks/legacy/storyboard-js-integration-ubuntu-trusty/post.yaml
     timeout: 2400
     nodeset: legacy-ubuntu-trusty
-
-- job:
-    name: legacy-swift-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/swift-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/swift-dsvm-functional/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/swift
-
-- job:
-    name: legacy-swift-dsvm-functional-identity-v3-only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/swift-dsvm-functional-identity-v3-only/run.yaml
-    post-run: playbooks/legacy/swift-dsvm-functional-identity-v3-only/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/swift
-
-- job:
-    name: legacy-swiftclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/swiftclient-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/swiftclient-dsvm-functional/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-swiftclient
-      - openstack/swift
-
-- job:
-    name: legacy-swiftclient-dsvm-functional-identity-v3-only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/swiftclient-dsvm-functional-identity-v3-only/run.yaml
-    post-run: playbooks/legacy/swiftclient-dsvm-functional-identity-v3-only/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/python-swiftclient
-      - openstack/swift
 
 - job:
     name: legacy-system-config-puppet-syntax-3
