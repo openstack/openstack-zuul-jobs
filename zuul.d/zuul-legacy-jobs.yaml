@@ -123,17 +123,6 @@
     nodeset: legacy-ubuntu-trusty
 
 - job:
-    name: legacy-glare-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/glare-dsvm/run.yaml
-    post-run: playbooks/legacy/glare-dsvm/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/glare
-      - openstack/python-glareclient
-
-- job:
     name: legacy-grenade-dsvm-cinder-mn-sub-bak
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/run.yaml
