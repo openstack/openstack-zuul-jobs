@@ -1994,28 +1994,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tricircle-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tricircle-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/tricircle-dsvm-functional/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tricircle
-
-- job:
-    name: legacy-tricircle-dsvm-multiregion
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tricircle-dsvm-multiregion/run.yaml
-    post-run: playbooks/legacy/tricircle-dsvm-multiregion/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-sfc
-      - openstack/tricircle
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
     name: legacy-trio2o-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/trio2o-dsvm-functional/run.yaml
