@@ -5,8 +5,12 @@
       mirror_fqdn: "{{ zuul_site_mirror_fqdn }}"
       set_apt_mirrors_trusted: True
   post_tasks:
+    - name: Set emacs package fact for gentoo
+      set_fact:
+        emacs_package: app-editors/emacs
+      when: ansible_distribution == 'Gentoo'
     - name: Install a package to sanity check the mirror configuration
       package:
-        name: "emacs"
+        name: "{{ emacs_package | default('emacs') }}"
         state: "present"
       become: yes
