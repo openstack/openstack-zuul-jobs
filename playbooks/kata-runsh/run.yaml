@@ -10,6 +10,7 @@
             export PATH=$PATH:/usr/lib/go-1.10/bin
         fi
         export CI=true
+        export ZUUL=true
         export GOPATH=$HOME
         export PATH=${GOPATH}/bin:$PATH
         .ci/run.sh
