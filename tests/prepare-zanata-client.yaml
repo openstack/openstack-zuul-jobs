@@ -1,0 +1,17 @@
+- name: Test the prepare-zanata-client role
+  hosts: all
+
+  vars:
+    zanata_api_credentials:
+      fqdn: translate.openstack.org
+      server_id: translate.openstack.org
+      url: https://translate.openstack.org/
+      username: infra
+      key: a_fake_key
+  roles:
+    - role: prepare-zanata-client
+
+  post_tasks:
+    - name: Check zanata client works
+      command: "/opt/zanata/zanata-cli-{{ zanata_client_version }}/bin/zanata-cli --version"
+      changed_when: false
