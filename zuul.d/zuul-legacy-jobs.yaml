@@ -604,29 +604,11 @@
     branches: master
 
 - job:
-    name: legacy-manila-buildimage-docker
-    parent: legacy-base
-    run: playbooks/legacy/manila-buildimage-docker/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-manila-buildimage-generic
-    parent: legacy-base
-    run: playbooks/legacy/manila-buildimage-generic/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-manila-publishimage-generic
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/manila-publishimage-generic/run.yaml
     post-run: playbooks/legacy/manila-publishimage-generic/post.yaml
     timeout: 1800
-
-- job:
-    name: legacy-manila-test-image-build
-    parent: legacy-base
-    run: playbooks/legacy/manila-test-image-build/run.yaml
-    timeout: 3600
 
 - job:
     name: legacy-monasca-api-localrepo-upload
