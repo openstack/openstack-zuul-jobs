@@ -928,6 +928,9 @@
       - openstack/os-net-config
       - openstack/os-refresh-config
       - openstack/osc-lib
+      # NOTE(mriedem): The openstack/placement repo is new in Stein and will
+      # be ignored on stable branches before Stein.
+      - openstack/placement
       - openstack/requirements
       - openstack/swift
       - openstack/tempest
