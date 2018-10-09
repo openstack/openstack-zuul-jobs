@@ -1377,17 +1377,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-cinder-v1
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-cinder-v1/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-cinder-v1/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/cinder
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-full-bdd
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-full-bdd/run.yaml
