@@ -406,6 +406,26 @@
       bindep_profile: test py36
 
 - job:
+    name: openstack-tox-py37
+    parent: openstack-tox
+    nodeset: ubuntu-bionic
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.7.
+
+      Uses tox with the ``py37`` environment.
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^api-ref/.*$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+    vars:
+      tox_envlist: py37
+      bindep_profile: test py37
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
