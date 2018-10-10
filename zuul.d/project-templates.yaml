@@ -603,6 +603,65 @@
             voting: false
 
 - project-template:
+    name: openstack-python37-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.7.
+    check:
+      jobs:
+        - openstack-tox-py37
+    gate:
+      jobs:
+        - openstack-tox-py37
+
+- project-template:
+    name: openstack-python37-jobs-horizon
+    description: |
+      The standard openstack-python37-jobs but with horizon added as a
+      required-projects. The dashboard projects currently need this
+      due to how the tox_install.sh zuul-cloner's horizon for them.
+    check:
+      jobs:
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
+    name: openstack-python37-jobs-neutron
+    description: |
+      The standard :zuul:project_template:`openstack-python37-jobs`
+      but with neutron added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use neutron
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
+    name: openstack-python37-jobs-nonvoting
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.7.
+
+      The job is non-voting.
+    check:
+      jobs:
+        - openstack-tox-py37:
+            voting: false
+
+- project-template:
     name: openstack-python-jobs-no-constraints
     description: |
       Runs the OpenStack PTI jobs for python, but uses the versions of them
