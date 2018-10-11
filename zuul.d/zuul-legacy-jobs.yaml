@@ -890,17 +890,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-full-test-accounts-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-full-test-accounts-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-full-test-accounts-master/post.yaml
-    timeout: 10800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/run.yaml
@@ -931,36 +920,12 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-neutron-full-non-admin-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-non-admin-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-non-admin-master/post.yaml
-    timeout: 10800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-neutron-full-ocata
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-ocata/run.yaml
     post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-ocata/post.yaml
     branches: stable/ocata
     timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-neutron-full-test-accounts-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-test-accounts-master/post.yaml
-    timeout: 10800
-    branches: master
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
@@ -1494,26 +1459,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-test-accounts
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-test-accounts/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-test-accounts/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-identity-v3-test-accounts
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-identity-v3-test-accounts/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-identity-v3-test-accounts/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-ironic-pxe_snmp-virtualpdu-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-ironic-pxe_snmp-virtualpdu-src/run.yaml
@@ -1743,17 +1688,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-neutron-full-non-admin
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-non-admin/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-non-admin/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-full-ocata
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-full-ocata/run.yaml
@@ -1771,17 +1705,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-full-opensuse-423/post.yaml
     timeout: 10800
     nodeset: legacy-opensuse-423
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-full-test-accounts
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-test-accounts/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-test-accounts/post.yaml
-    timeout: 10800
     required-projects:
       - openstack-infra/devstack-gate
       - openstack/neutron
