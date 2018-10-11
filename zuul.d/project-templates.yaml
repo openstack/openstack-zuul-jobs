@@ -45,26 +45,6 @@
         - build-openstack-sphinx-docs
 
 - project-template:
-    name: build-openstack-sphinx-docs-python3
-    description: |
-      Runs legacy OpenStack doc build without publication jobs.
-
-      Builds the docs using Sphinx with Python3.
-
-      This template is deprecated and should only be used for older stable
-      branches.
-    check:
-      jobs:
-        - build-openstack-sphinx-docs:
-            vars:
-              sphinx_python: python3
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs:
-            vars:
-              sphinx_python: python3
-
-- project-template:
     name: publish-openstack-sphinx-docs
     description: |
       Runs legacy OpenStack doc build and publication jobs.
