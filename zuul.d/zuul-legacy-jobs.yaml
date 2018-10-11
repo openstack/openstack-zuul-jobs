@@ -1854,18 +1854,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-py35-full-devstack-plugin-ceph
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-py35-full-devstack-plugin-ceph/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-py35-full-devstack-plugin-ceph/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/devstack-plugin-ceph
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-zeromq-multibackend
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-zeromq-multibackend/run.yaml
