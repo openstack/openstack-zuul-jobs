@@ -424,6 +424,7 @@
     vars:
       tox_envlist: py37
       bindep_profile: test py37
+      python_version: 3.7
 
 - job:
     name: openstack-tox-pypy
