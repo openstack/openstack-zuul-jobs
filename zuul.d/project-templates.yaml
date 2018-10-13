@@ -1398,6 +1398,26 @@
         - openstackci-beaker
 
 - project-template:
+    name: lib-forward-testing
+    description: |
+      Run tempest, installing the library from source to ensure that
+      changes in the library do not break any of the services running
+      in devstack.
+    check:
+      jobs:
+        # Tempest-full is only working on pike and newer.
+        - tempest-full:
+            branches: ^(?!stable/(newton|ocata)).*$
+        - legacy-tempest-dsvm-neutron-src:
+            branches: ^stable/(newton|ocata)$
+    gate:
+      jobs:
+        - tempest-full:
+            branches: ^(?!stable/(newton|ocata)).*$
+        - legacy-tempest-dsvm-neutron-src:
+            branches: ^stable/(newton|ocata)$
+
+- project-template:
     name: lib-forward-testing-python3
     description: |
       Run tempest under python 3, installing the library from source
