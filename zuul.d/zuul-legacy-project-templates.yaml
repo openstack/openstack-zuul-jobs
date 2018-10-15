@@ -74,15 +74,6 @@
             branches: ^(?!stable/(newton|ocata)).*$
 
 - project-template:
-    name: lib-forward-testing
-    check:
-      jobs:
-        - legacy-tempest-dsvm-neutron-src
-    gate:
-      jobs:
-        - legacy-tempest-dsvm-neutron-src
-
-- project-template:
     name: lib-forward-testing-plugin
     check:
       jobs:
