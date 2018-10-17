@@ -374,6 +374,35 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python-jobs-ceilometer
+    description: |
+      The standard :zuul:project_template:`openstack-python-jobs`
+      but with ceilometer added as a
+      required-projects. This checks out the project code and allows
+      tox_install_siblings to use ceilometer when building the venv.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/ceilometer
+    post:
+      jobs:
+        # This job does not use tox and thus does not need
+        # any required-projects.
+        - publish-openstack-python-branch-tarball
+
+- project-template:
     name: openstack-cover-jobs
     description: |
         Runs openstack-tox-cover in only the check pipeline.
@@ -454,6 +483,24 @@
               - openstack/neutron
 
 - project-template:
+    name: openstack-python35-jobs-ceilometer
+    description: |
+      The standard :zuul:project_template:`openstack-python35-jobs`
+      but with ceilometer added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use ceilometer
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py35:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-py35:
+            required-projects:
+              - openstack/ceilometer
+
+- project-template:
     name: openstack-python35-jobs-nonvoting
     description: |
       Runs unit tests for an OpenStack Python project under cPython
@@ -513,6 +560,24 @@
               - openstack/neutron
 
 - project-template:
+    name: openstack-python36-jobs-ceilometer
+    description: |
+      The standard :zuul:project_template:`openstack-python36-jobs`
+      but with ceilometer added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use ceilometer
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/ceilometer
+
+- project-template:
     name: openstack-python36-jobs-nonvoting
     description: |
       Runs unit tests for an OpenStack Python project under cPython
@@ -570,6 +635,24 @@
         - openstack-tox-py37:
             required-projects:
               - openstack/neutron
+
+- project-template:
+    name: openstack-python37-jobs-ceilometer
+    description: |
+      The standard :zuul:project_template:`openstack-python37-jobs`
+      but with ceilometer added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use ceilometer
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/ceilometer
 
 - project-template:
     name: openstack-python37-jobs-nonvoting
@@ -661,6 +744,24 @@
         - openstack-tox-lower-constraints:
             required-projects:
               - openstack/neutron
+
+- project-template:
+    name: openstack-lower-constraints-jobs-ceilometer
+    description: |
+      The standard :zuul:project_template:`openstack-lower-constraints-jobs`
+      but with ceilometer added as a required-projects.
+      This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
+    check:
+      jobs:
+        - openstack-tox-lower-constraints:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-lower-constraints:
+            required-projects:
+              - openstack/ceilometer
 
 - project-template:
     name: openstack-pypy-jobs
@@ -1021,6 +1122,32 @@
               - stable/rocky
             required-projects:
               - openstack/neutron
+
+- project-template:
+    name: periodic-stable-jobs-ceilometer
+    description: |
+      The :zuul:project_template:`periodic-stable-jobs` template
+      ut with ceilometer added as a required-projects.
+      This checks out the project code and allows
+      tox_install_siblings to use it when building the venv.
+    periodic-stable:
+      jobs:
+        - build-openstack-sphinx-docs:
+            branches:
+              - stable/ocata
+              - stable/pike
+              - stable/queens
+              - stable/rocky
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py27:
+            branches:
+              - stable/ocata
+              - stable/pike
+              - stable/queens
+              - stable/rocky
+            required-projects:
+              - openstack/ceilometer
 
 - project-template:
     name: periodic-jobs-with-neutron-lib-master
