@@ -1190,6 +1190,7 @@
       - openstack-infra/project-config
       - openstack-infra/system-config
       - openstack-infra/zuul-jobs
+      - openstack-infra/zuul
     vars:
       tox_envlist: linters
       tox_environment:
