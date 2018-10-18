@@ -932,35 +932,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-oslo-latest-full-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-oslo-latest-full-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-oslo-latest-full-master/post.yaml
-    timeout: 10800
-    branches: master
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/oslo.cache
-      - openstack/oslo.concurrency
-      - openstack/oslo.config
-      - openstack/oslo.context
-      - openstack/oslo.db
-      - openstack/oslo.i18n
-      - openstack/oslo.log
-      - openstack/oslo.messaging
-      - openstack/oslo.middleware
-      - openstack/oslo.policy
-      - openstack/oslo.privsep
-      - openstack/oslo.reports
-      - openstack/oslo.rootwrap
-      - openstack/oslo.serialization
-      - openstack/oslo.service
-      - openstack/oslo.utils
-      - openstack/oslo.versionedobjects
-      - openstack/oslo.vmware
-      - openstack/tempest
-
-- job:
     name: legacy-puppet-beaker-rspec
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec/run.yaml
