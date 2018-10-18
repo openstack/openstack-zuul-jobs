@@ -1120,6 +1120,8 @@
       env.
     vars:
       tox_envlist: nodepool
+    required-projects:
+      - openstack-infra/nodepool
     files:
       - ^nodepool/nodepool.yaml
       - ^nodepool/nl.*yaml$
