@@ -19,8 +19,8 @@
     - name: Get ephemeral0 device node
       command: /sbin/blkid -L ephemeral0
       register: ephemeral0
-      # If this doesn't exist, returns !0
-      ignore_errors: yes
+      # rc !=0 is expected
+      failed_when: False
       changed_when: False
 
     - name: Set ephemeral device if LABEL exists
