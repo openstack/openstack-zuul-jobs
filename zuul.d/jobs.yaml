@@ -904,23 +904,6 @@
       - test-requirements.txt
 
 - job:
-    name: build-placement-api-ref
-    parent: build-openstack-sphinx-docs
-    description: |
-      Build placement-api-ref document. This job runs only on master branch.
-    # We only publish the master branch, so no need to run
-    # for changes on other branches.
-    branches: master
-    vars:
-      sphinx_build_dir: placement-api-ref/build
-      sphinx_source_dir: placement-api-ref/source
-    files:
-      - ^placement-api-ref/.*
-      - bindep.txt
-      - doc/requirements.txt
-      - test-requirements.txt
-
-- job:
     name: legacy-base
     abstract: true
     description: |
