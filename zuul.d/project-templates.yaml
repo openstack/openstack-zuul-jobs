@@ -274,9 +274,6 @@
     post:
       jobs:
         - publish-openstack-releasenotes
-    tag:
-      jobs:
-        - publish-openstack-releasenotes
 
 - project-template:
     name: release-notes-jobs-python3
