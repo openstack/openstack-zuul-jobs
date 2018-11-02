@@ -176,6 +176,12 @@
     description: |
       Publish a Python package to PyPI, then send release announcement
       emails and propose updates to upper-constraints as needed.
+    check:
+      jobs:
+        - test-release-openstack
+    gate:
+      jobs:
+        - test-release-openstack
     pre-release:
       jobs:
         - release-openstack-python
@@ -200,6 +206,8 @@
     description: |
       Publish a Python package to PyPI, then send release announcement
       emails and propose updates to upper-constraints as needed.
+
+      This is now obsolete, publish-to-pypi uses the same definition.
     check:
       jobs:
         - test-release-openstack-python3
