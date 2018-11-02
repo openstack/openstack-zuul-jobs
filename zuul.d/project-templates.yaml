@@ -202,32 +202,6 @@
               - release-openstack-python
 
 - project-template:
-    name: publish-to-pypi-python3
-    description: |
-      Publish a Python package to PyPI, then send release announcement
-      emails and propose updates to upper-constraints as needed.
-
-      This is now obsolete, publish-to-pypi uses the same definition.
-    check:
-      jobs:
-        - test-release-openstack-python3
-    gate:
-      jobs:
-        - test-release-openstack-python3
-    pre-release:
-      jobs:
-        - release-openstack-python3
-    release:
-      jobs:
-        - release-openstack-python3
-        - announce-release:
-            dependencies:
-              - release-openstack-python3
-        - propose-update-constraints:
-            dependencies:
-              - release-openstack-python3
-
-- project-template:
     name: publish-xstatic-to-pypi
     description: |
       Publish an XStatic Python package to PyPI, then send release announcement
