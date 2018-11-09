@@ -36,6 +36,14 @@ INVALID_PO_FILE=0
 # set to 0 on successful run.
 ERROR_ABORT=1
 
+# List of repos that have doc/source translated, we test with a smaller
+# set for now.
+DOC_TARGETS=('contributor-guide'
+             'horizon'
+             'openstack-ansible'
+             'openstack-helm'
+             'operations-guide')
+
 # We need a UTF-8 locale, set it properly in case it's not set.
 export LANG=en_US.UTF-8
 

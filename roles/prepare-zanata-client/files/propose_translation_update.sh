@@ -176,8 +176,8 @@ function handle_python_django_project {
 # Handle project doc proposals
 function handle_project_doc {
     local project=$1
-    # doing only things in the test repos for project doc translation
-    if ! [[ "$project" =~ ^(horizon|openstack-ansible|openstack-helm)$ ]]; then
+    # Doing only things in the test repos for project doc translation
+    if ! [[ ${DOC_TARGETS[*]} =~ "$project" ]]; then
         return
     fi
     # setup_project and pull_from_zanata are already done
