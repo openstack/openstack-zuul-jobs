@@ -55,7 +55,7 @@
     nodeset: opensuse-423
 
 - job:
-    name: openstack-infra-base-integration-opensuse150
+    name: openstack-infra-base-integration-opensuse15
     parent: openstack-infra-base-integration
     nodeset: opensuse-150
 
@@ -198,7 +198,13 @@
             - secondary
 
 - job:
-    name: openstack-infra-multinode-integration-opensuse150
+    # Being updated to the latest opensuse 15.x release when available
+    name: openstack-infra-multinode-integration-opensuse15
+    description: |
+      Multinode integration job for openSUSE Leap 15.x. Currently
+      points to Leap 15.0 but will be updated to point to the latest
+      available 15.x minor release automatically as they stay backward
+      compatible.
     parent: openstack-infra-multinode-integration
     nodeset:
       nodes:
