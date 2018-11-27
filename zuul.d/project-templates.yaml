@@ -1397,10 +1397,12 @@
       repositories in the integrated gate.
     check:
       jobs:
+        - grenade-py3
         - tempest-full-py3:
             branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
     gate:
       jobs:
+        - grenade-py3
         - tempest-full-py3:
             branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
 
