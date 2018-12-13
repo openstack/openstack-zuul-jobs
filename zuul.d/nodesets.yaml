@@ -48,6 +48,18 @@
         label: ubuntu-bionic
 
 - nodeset:
+    name: ubuntu-bionic-2-node
+    nodes:
+      - name: primary
+        label: ubuntu-bionic
+      - name: secondary
+        label: ubuntu-bionic
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary
+
+- nodeset:
     name: ubuntu-bionic-arm64
     nodes:
       - name: ubuntu-bionic-arm64
