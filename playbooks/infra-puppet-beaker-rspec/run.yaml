@@ -42,7 +42,7 @@
     - name: Execute acceptance tests
       shell:
         cmd: |
-          gem install bundler --no-rdoc --no-ri --verbose
+          gem install bundler --no-ri --no-rdoc --verbose --version '<2.0.0'
           $GEM_HOME/bin/bundle install --retry 3
           export BEAKER_set={{ nodeset }}
           export BEAKER_debug=yes
