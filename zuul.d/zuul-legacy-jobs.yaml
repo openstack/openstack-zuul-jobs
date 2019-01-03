@@ -414,7 +414,7 @@
     run: playbooks/legacy/laravel-openstackid-release-branch/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-release-branch/post.yaml
     timeout: 1800
-    nodeset: legacy-ubuntu-trusty
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-laravel-openstackid-release-master
@@ -422,7 +422,7 @@
     run: playbooks/legacy/laravel-openstackid-release-master/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-release-master/post.yaml
     timeout: 1800
-    nodeset: legacy-ubuntu-trusty
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-laravel-openstackid-unittests
@@ -430,7 +430,7 @@
     run: playbooks/legacy/laravel-openstackid-unittests/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-unittests/post.yaml
     timeout: 1800
-    nodeset: legacy-ubuntu-trusty
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-logstash-filters
