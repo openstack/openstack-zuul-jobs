@@ -73,7 +73,7 @@
           export PUPPET_GEM_VERSION='~> 3'
           mkdir .bundled_gems
           export GEM_HOME=`pwd`/.bundled_gems
-          gem install bundler --no-rdoc --no-ri --verbose
+          gem install bundler --no-rdoc --no-ri --verbose --version '<2.0.0'
           $GEM_HOME/bin/bundle install --retry 3
           # FUTURE_PARSER=yes is only supported by Puppet 3.x
           if [ "3" -lt "4" ]; then
