@@ -1,0 +1,32 @@
+- name: Test the ensure-output-dirs role
+  hosts: all
+  roles:
+    - role: ensure-output-dirs
+  post_tasks:
+    - name: Check that log dir has been created
+      file:
+        path: "{{ zuul_output_dir }}/logs"
+        state: directory
+      register: log_directory
+
+    - name: Check that artifact dir has been created
+      file:
+        path: "{{ zuul_output_dir }}/artifacts"
+        state: directory
+      register: artifact_directory
+
+    - name: Check that doc dir has been created
+      file:
+        path: "{{ zuul_output_dir }}/docs"
+        state: directory
+      register: doc_directory
+
+    - name: Validate that directories were set correctly
+      assert:
+        that:
+          - not log_directory | changed
+          - log_directory | succeeded
+          - not artifact_directory | changed
+          - artifact_directory | succeeded
+          - not doc_directory | changed
+          - doc_directory | succeeded

@@ -22,10 +22,12 @@
       - ^roles/configure-mirrors/.*
       - ^roles/configure-unbound/.*
       - ^roles/emit-job-header/.*
+      - ^roles/ensure-output-dirs/.*
       - ^roles/fetch-zuul-cloner/.*
       - ^roles/mirror-info/.*
       - ^roles/set-zuul-log-path-fact/.*
       - ^roles/use-cached-repos/.*
+      - ^roles/fetch-output/.*
       - ^roles/validate-host/.*
       - ^tests/.*
 
@@ -100,7 +102,9 @@
       - ^roles/configure-mirrors/.*
       - ^roles/configure-unbound/.*
       - ^roles/emit-job-header/.*
+      - ^roles/ensure-output-dirs/.*
       - ^roles/fetch-zuul-cloner/.*
+      - ^roles/fetch-output/.*
       - ^roles/mirror-info/.*
       - ^roles/set-zuul-log-path-fact/.*
       - ^roles/use-cached-repos/.*
