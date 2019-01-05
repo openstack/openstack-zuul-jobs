@@ -6,6 +6,6 @@ hacking>=0.12.0,<0.13 # Apache-2.0
 
 zuul
 ansible<2.4.0
-ansible-lint
+ansible-lint<4
 bashate>=0.2
 zuul-sphinx>=0.2.0
