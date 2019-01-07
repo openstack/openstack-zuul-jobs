@@ -13,7 +13,7 @@
     - name: Ensure that unbound is started
       assert:
         that:
-          - not unbound_service | changed
+          - unbound_service is not changed
 
     # Until nodepool no longer embeds a forwarding.conf in the image, it is
     # safe to assume that we'll be changing the forwarding configuration
@@ -22,8 +22,8 @@
     - name: Ensure that configuration was installed
       assert:
         that:
-          - forwarding_config | changed
-          - ttl_config | changed
+          - forwarding_config is changed
+          - ttl_config is changed
 
     - name: Check if /etc/unbound/forwarding.conf exists
       stat:

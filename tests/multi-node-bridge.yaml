@@ -45,9 +45,9 @@
         - name: assert test results
           assert:
             that:
-              - not ovs_installed | changed
-              - not ovs_running | changed
-              - not ovs_bridge | changed
+              - ovs_installed is not changed
+              - ovs_running is not changed
+              - ovs_bridge is not changed
               - ovs_port.rc == 0
               - "'Port \"br-infra_' in ovs_port.stdout"
               - ovs_ping_switch.rc == 0

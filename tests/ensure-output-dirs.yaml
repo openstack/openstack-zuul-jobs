@@ -24,9 +24,9 @@
     - name: Validate that directories were set correctly
       assert:
         that:
-          - not log_directory | changed
-          - log_directory | succeeded
-          - not artifact_directory | changed
-          - artifact_directory | succeeded
-          - not doc_directory | changed
-          - doc_directory | succeeded
+          - log_directory is not changed
+          - log_directory is succeeded
+          - artifact_directory is not changed
+          - artifact_directory is succeeded
+          - doc_directory is not changed
+          - doc_directory is succeeded

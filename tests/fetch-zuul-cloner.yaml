@@ -20,8 +20,8 @@
     - name: Validate that the shim was installed successfully
       assert:
         that:
-          - not directory | changed
-          - directory | succeeded
+          - directory is not changed
+          - directory is succeeded
           - cloner.stat.exists
           - cloner.stat.mode == "0755"
 
@@ -77,8 +77,8 @@
     - name: Validate zuul-cloner shim results
       assert:
         that:
-          - clone_with_required | succeeded
-          - clone_with_required | changed
+          - clone_with_required is succeeded
+          - clone_with_required is changed
           - with_required_stat.stat.exists
-          - clone_without_required | failed
+          - clone_without_required is failed
           - not without_required_stat.stat.exists
