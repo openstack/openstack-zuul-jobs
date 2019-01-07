@@ -38,9 +38,9 @@
     - name: Validate that files were pulled correctly
       assert:
         that:
-          - not local_log_content | changed
-          - local_log_content | succeeded
-          - not local_artifact_content | changed
-          - local_artifact_content | succeeded
-          - not local_doc_content | changed
-          - local_doc_content | succeeded
+          - local_log_content is not changed
+          - local_log_content is succeeded
+          - local_artifact_content is not changed
+          - local_artifact_content is succeeded
+          - local_doc_content is not changed
+          - local_doc_content is succeeded
