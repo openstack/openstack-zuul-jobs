@@ -1,0 +1,46 @@
+- name: Run the fetch-output role
+  hosts: all
+  pre_tasks:
+    # ensure-output-dirs is run before this
+    - name: Write test log file
+      copy:
+        dest: '{{ zuul_output_dir }}/{{ item }}/{{ inventory_hostname }}'
+        content: '{{ item }}'
+      loop:
+        - logs
+        - docs
+        - artifacts
+  roles:
+    - role: fetch-output
+  post_tasks:
+    - name: Check that logs have been pulled
+      delegate_to: localhost
+      file:
+        # log_path fact is set in fetch-output
+        path: "{{ log_path }}/{{ inventory_hostname }}"
+        state: file
+      register: local_log_content
+
+    - name: Check that artifacts have been pulled
+      delegate_to: localhost
+      file:
+        path: "{{ zuul.executor.work_root }}/artifacts/{{ inventory_hostname }}"
+        state: file
+      register: local_artifact_content
+
+    - name: Check that docs have been pulled
+      delegate_to: localhost
+      file:
+        path: "{{ zuul.executor.work_root }}/docs/{{ inventory_hostname }}"
+        state: file
+      register: local_doc_content
+
+    - name: Validate that files were pulled correctly
+      assert:
+        that:
+          - not local_log_content | changed
+          - local_log_content | succeeded
+          - not local_artifact_content | changed
+          - local_artifact_content | succeeded
+          - not local_doc_content | changed
+          - local_doc_content | succeeded
