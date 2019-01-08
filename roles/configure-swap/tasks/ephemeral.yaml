@@ -16,7 +16,11 @@
   become: yes
   mount:
     name: "{{ ephemeral_device }}"
-    state: unmounted
+    state: "{{ item }}"
+  with_items:
+    - unmounted
+    - absent
+  # ^ https://github.com/ansible/ansible/issues/48313
 
 - name: Get existing partitions
   become: yes
