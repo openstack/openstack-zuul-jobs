@@ -1,7 +1,5 @@
 - hosts: all
   name: Autoconverted job legacy-laravel-openstackid-unittests from old job gate-laravel-openstackid-unittests
-  roles:
-    - bindep
 
   tasks:
 
@@ -48,6 +46,9 @@
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - include_role:
+        name: bindep
 
     - shell:
         cmd: |
