@@ -604,13 +604,6 @@
     branches: master
 
 - job:
-    name: legacy-manila-publishimage-generic
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/manila-publishimage-generic/run.yaml
-    post-run: playbooks/legacy/manila-publishimage-generic/post.yaml
-    timeout: 1800
-
-- job:
     name: legacy-monasca-api-localrepo-upload
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-api-localrepo-upload/run.yaml
