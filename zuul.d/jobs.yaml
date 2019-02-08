@@ -20,7 +20,6 @@
     run: tests/base.yaml
     files:
       - ^roles/configure-mirrors/.*
-      - ^roles/configure-unbound/.*
       - ^roles/emit-job-header/.*
       - ^roles/ensure-output-dirs/.*
       - ^roles/fetch-zuul-cloner/.*
@@ -100,7 +99,6 @@
     run: tests/multinode.yaml
     files:
       - ^roles/configure-mirrors/.*
-      - ^roles/configure-unbound/.*
       - ^roles/emit-job-header/.*
       - ^roles/ensure-output-dirs/.*
       - ^roles/fetch-zuul-cloner/.*
