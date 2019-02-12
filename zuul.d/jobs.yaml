@@ -1178,9 +1178,10 @@
     name: openstack-zuul-jobs-linters
     parent: tox
     description: |
-      This job runs against project-config, openstack-zuul-jobs and zuul-jobs
-      so we can properly lint our ansible playbooks / roles
+      This job runs against base-jobs, project-config, openstack-zuul-jobs
+      and zuul-jobs so we can properly lint our ansible playbooks / roles.
     required-projects:
+      - opendev/base-jobs
       - openstack-infra/openstack-zuul-jobs
       - openstack-infra/project-config
       - openstack-infra/system-config
@@ -1189,7 +1190,7 @@
     vars:
       tox_envlist: linters
       tox_environment:
-        ANSIBLE_ROLES_PATH: ~/src/git.openstack.org/openstack-infra/zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/openstack-zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/project-config/roles:~/src/git.openstack.org/openstack-infra/system-config/roles
+        ANSIBLE_ROLES_PATH: ~/src/git.openstack.org/opendev/base-jobs/roles:~/src/git.openstack.org/openstack-infra/zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/openstack-zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/project-config/roles:~/src/git.openstack.org/openstack-infra/system-config/roles
 
 - job:
     name: infra-puppet-apply-base
