@@ -814,10 +814,10 @@
 
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
     post:
       jobs:
         - trigger-readthedocs-webhook
