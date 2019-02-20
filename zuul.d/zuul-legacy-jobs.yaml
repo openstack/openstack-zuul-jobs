@@ -1238,19 +1238,6 @@
       - openstack/zaqar-ui
 
 - job:
-    name: legacy-sahara-dashboard-dsvm-integration
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/sahara-dashboard-dsvm-integration/run.yaml
-    post-run: playbooks/legacy/sahara-dashboard-dsvm-integration/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack/ara
-      - openstack/sahara
-      - openstack/sahara-dashboard
-
-- job:
     name: legacy-sandbox-tag
     parent: legacy-base
     run: playbooks/legacy/sandbox-tag/run.yaml
