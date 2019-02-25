@@ -917,20 +917,103 @@
     name: legacy-base
     abstract: true
     description: |
-      Base job for autoconverted legacy jobs
+      Base job (xenial) for autoconverted legacy jobs
+
+      This job runs on Xenial and this is for stable/ocata, pike, queens
+      and rocky. This job is prepared to make sure all stable branches
+      before stable/stein will keep running on xenial.
     pre-run: playbooks/legacy/pre.yaml
     nodeset: legacy-ubuntu-xenial
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+
+- job:
+    name: legacy-base
+    abstract: true
+    description: |
+      Base job (bionic) for autoconverted legacy jobs
+
+      This job runs on Bionic from stable/stein on.
+    pre-run: playbooks/legacy/pre.yaml
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    nodeset: legacy-ubuntu-bionic
 
 - job:
     name: legacy-dsvm-base
     abstract: true
     description: |
-      Base job for autoconverted legacy devstack-gate jobs
+      Base job (xenial) for autoconverted legacy devstack-gate jobs
 
       This job runs devstack-gate with as few changes as possible and
       may be used by jobs which have been automatically converted as
-      part of the migration to Zuul v3.
+      part of the migration to Zuul v3. This job runs on Xenial for
+      stable/ocata, pike, queens and rocky. This job is prepared to
+      make sure all stable branches before stable/stein will keep
+      running on xenial.
     nodeset: devstack-single-node
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+    pre-run: playbooks/legacy/pre.yaml
+    required-projects:
+      - openstack-dev/devstack
+      - openstack-infra/devstack-gate
+      - openstack-infra/tripleo-ci
+      - openstack/ceilometer
+      - openstack/ceilometermiddleware
+      - openstack/cinder
+      - openstack/django_openstack_auth
+      - openstack/glance
+      - openstack/glance_store
+      - openstack/heat
+      - openstack/heat-cfntools
+      - openstack/heat-templates
+      - openstack/horizon
+      - openstack/keystone
+      - openstack/keystoneauth
+      - openstack/keystonemiddleware
+      - openstack/manila
+      - openstack/manila-ui
+      - openstack/neutron
+      - openstack/neutron-fwaas
+      - openstack/neutron-lbaas
+      - openstack/neutron-vpnaas
+      - openstack/nova
+      - openstack/octavia
+      - openstack/os-apply-config
+      - openstack/os-brick
+      - openstack/os-client-config
+      - openstack/os-collect-config
+      - openstack/os-net-config
+      - openstack/os-refresh-config
+      - openstack/osc-lib
+      # NOTE(mriedem): The openstack/placement repo is new in Stein and will
+      # be ignored on stable branches before Stein.
+      - openstack/placement
+      - openstack/requirements
+      - openstack/swift
+      - openstack/tempest
+      - openstack/tripleo-heat-templates
+      - openstack/tripleo-image-elements
+      - openstack/zaqar
+
+- job:
+    name: legacy-dsvm-base
+    abstract: true
+    description: |
+      Base job (bionic) for autoconverted legacy devstack-gate jobs
+
+      This job runs devstack-gate with as few changes as possible and
+      may be used by jobs which have been automatically converted as
+      part of the migration to Zuul v3. This job runs on Bionic from
+      stable/stein on.
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
       - openstack-dev/devstack
@@ -979,13 +1062,37 @@
     abstract: true
     parent: legacy-dsvm-base
     description: |
-      Base job for multinode devstack jobs.
+      Base job (xenial) for multinode devstack jobs.
 
       Will setup firewall rules on all the nodes allowing them to talk to
-      each other.
+      each other. This job runs on Xenial for stable/ocata, pike, queens
+      and rocky. This job is prepared to make sure all stable branches
+      before stable/stein will keep running on xenial.
+
     roles:
       - zuul: openstack-infra/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
+    nodeset: legacy-ubuntu-xenial-2-node
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+
+- job:
+    name: legacy-dsvm-base-multinode
+    abstract: true
+    parent: legacy-dsvm-base
+    description: |
+      Base job (bionic) for multinode devstack jobs.
+
+      Will setup firewall rules on all the nodes allowing them to talk to
+      each other. This job runs on Bionic from stable/stein on.
+    roles:
+      - zuul: openstack-infra/zuul-jobs
+    pre-run: playbooks/legacy/multinode-networking/pre.yaml
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    nodeset: legacy-ubuntu-bionic-2-node
 
 - job:
     name: legacy-puppet-openstack-integration
@@ -1045,9 +1152,31 @@
     abstract: true
     parent: publish-openstack-artifacts
     description: |
-      Base job for autoconverted legacy jobs that publish artifacts
+      Base job (xenial) for autoconverted legacy jobs that publish artifacts
+
+      This job runs on Xenial for stable/ocata, pike, queens
+      and rocky. This job is prepared to make sure all stable branches
+      before stable/stein will keep running on xenial.
     nodeset: devstack-single-node
     pre-run: playbooks/legacy/pre.yaml
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+
+- job:
+    name: legacy-publish-openstack-artifacts
+    abstract: true
+    parent: publish-openstack-artifacts
+    description: |
+      Base job (bionic) for autoconverted legacy jobs that publish artifacts.
+
+      This job runs on Bionic from stable/stein on.
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    nodeset: legacy-ubuntu-bionic
+    pre-run: playbooks/legacy/pre.yaml
+
 
 - job:
     name: project-config-gerrit
