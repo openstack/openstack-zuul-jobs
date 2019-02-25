@@ -147,12 +147,30 @@
         label: ubuntu-xenial
 
 - nodeset:
+    name: legacy-ubuntu-bionic
+    nodes:
+      - name: primary
+        label: ubuntu-bionic
+
+- nodeset:
     name: legacy-ubuntu-xenial-2-node
     nodes:
       - name: primary
         label: ubuntu-xenial
       - name: secondary
         label: ubuntu-xenial
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary
+
+- nodeset:
+    name: legacy-ubuntu-bionic-2-node
+    nodes:
+      - name: primary
+        label: ubuntu-bionic
+      - name: secondary
+        label: ubuntu-bionic
     groups:
       - name: subnodes
         nodes:
