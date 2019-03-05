@@ -1405,6 +1405,7 @@
       - openstack-infra/puppet-accessbot
       - openstack-infra/puppet-ptgbot
       - openstack-infra/puppet-jenkins
+      - openstack-infra/puppet-vcsrepo
 
 - job:
     name: puppet-beaker-rspec-centos-7-infra

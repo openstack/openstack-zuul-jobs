@@ -508,6 +508,7 @@
       - openstack-infra/puppet-unattended_upgrades
       - openstack-infra/puppet-unbound
       - openstack-infra/puppet-user
+      - openstack-infra/puppet-vcsrepo
       - openstack-infra/puppet-zanata
       - openstack-infra/puppet-zuul
       - openstack-infra/system-config
@@ -592,6 +593,7 @@
       - openstack-infra/puppet-unattended_upgrades
       - openstack-infra/puppet-unbound
       - openstack-infra/puppet-user
+      - openstack-infra/puppet-vcsrepo
       - openstack-infra/puppet-zanata
       - openstack-infra/puppet-zuul
       - openstack-infra/system-config
