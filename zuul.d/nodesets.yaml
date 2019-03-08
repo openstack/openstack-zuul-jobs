@@ -175,3 +175,18 @@
       - name: subnodes
         nodes:
           - secondary
+
+- nodeset:
+    name: legacy-ubuntu-bionic-3-node
+    nodes:
+      - name: primary
+        label: ubuntu-bionic
+      - name: secondary-1
+        label: ubuntu-bionic
+      - name: secondary-2
+        label: ubuntu-bionic
+    groups:
+      - name: subnodes
+        nodes:
+          - secondary-1
+          - secondary-2
