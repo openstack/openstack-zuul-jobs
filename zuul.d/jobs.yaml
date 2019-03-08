@@ -331,6 +331,7 @@
 - job:
     name: tox-py35-on-zuul
     parent: tox-py35
+    nodeset: ubuntu-xenial
     description: |
       Run zuul's py35 unittests on patches to zuul-jobs.
     vars:
@@ -379,6 +380,7 @@
 - job:
     name: openstack-tox-py35
     parent: openstack-tox
+    nodeset: ubuntu-xenial
     branches: ^(?!driverfixes/).*$
     timeout: 2400
     description: |
@@ -547,6 +549,7 @@
 - job:
     name: openstack-tox-functional-py35
     parent: openstack-tox
+    nodeset: ubuntu-xenial
     description: |
       Run tox-based functional tests for an OpenStack Python project
       under cPython version 3.5..
@@ -705,6 +708,7 @@
 - job:
     name: openstack-tox-py35-with-oslo-master
     parent: openstack-tox-with-oslo-master-base
+    nodeset: ubuntu-xenial
     description: |
       This job installs all oslo libraries from source and tests that the
       unit tests of the tested project work.
@@ -773,7 +777,7 @@
       - ^releasenotes/.*$
     vars:
       tox_envlist: lower-constraints
-      bindep_profile: test py35
+      bindep_profile: test py35 py36
 
 - job:
     name: build-openstack-puppet-tarball
