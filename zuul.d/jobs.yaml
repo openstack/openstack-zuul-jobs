@@ -347,6 +347,30 @@
       Base job to run tox jobs with OpenStack project specific updates.
 
       Processing upper-constraints files from openstack/requirements.
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+
+- job:
+    name: openstack-tox
+    abstract: true
+    parent: tox
+    nodeset: ubuntu-xenial
+    description: |
+      Base job (xenial) to run tox jobs with OpenStack project specific updates.
+
+      Processing upper-constraints files from openstack/requirements.
+
+      This job runs on Xenial for stable/ocata, pike, queens and rocky. This
+      job is prepared to make sure all stable branches before stable/stein will
+      keep running on xenial.
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
     required-projects:
       - name: openstack/requirements
     vars:
