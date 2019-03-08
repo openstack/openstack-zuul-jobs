@@ -132,7 +132,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volbak
@@ -145,7 +144,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volschbak
@@ -157,7 +155,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/cinder
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-grenade-dsvm-neutron-forward
@@ -181,7 +178,6 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/neutron-fwaas
-    nodeset: legacy-ubuntu-xenial-2-node
     branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
@@ -215,7 +211,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: legacy-ubuntu-xenial-2-node
     branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
@@ -228,7 +223,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: legacy-ubuntu-xenial-2-node
     branches: ^(?!(driverfixes|stable/(newton|ocata))).*$
 
 - job:
@@ -241,7 +235,6 @@
       - openstack-dev/grenade
       - openstack-infra/devstack-gate
       - openstack/neutron
-    nodeset: legacy-ubuntu-xenial-2-node
     branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
@@ -414,7 +407,6 @@
     run: playbooks/legacy/laravel-openstackid-release-branch/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-release-branch/post.yaml
     timeout: 1800
-    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-laravel-openstackid-release-master
@@ -422,7 +414,6 @@
     run: playbooks/legacy/laravel-openstackid-release-master/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-release-master/post.yaml
     timeout: 1800
-    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-laravel-openstackid-unittests
@@ -430,7 +421,6 @@
     run: playbooks/legacy/laravel-openstackid-unittests/run.yaml
     post-run: playbooks/legacy/laravel-openstackid-unittests/post.yaml
     timeout: 1800
-    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-logstash-filters
@@ -793,7 +783,6 @@
       - openstack/neutron
       - openstack/neutron-fwaas
       - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-neutron-fwaas-v2-dsvm-tempest
@@ -818,7 +807,6 @@
       - openstack/neutron
       - openstack/neutron-fwaas
       - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-neutronclient-test-dsvm-functional
@@ -1619,7 +1607,6 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-scenario
@@ -1631,7 +1618,6 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
 
 - job:
     name: legacy-tempest-dsvm-neutron-full
@@ -1666,6 +1652,7 @@
       - openstack-infra/devstack-gate
       - openstack/neutron
       - openstack/tempest
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-tempest-dsvm-neutron-full-opensuse-423
