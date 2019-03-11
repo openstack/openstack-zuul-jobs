@@ -414,6 +414,92 @@
               - openstack/neutron
 
 - project-template:
+    name: openstack-python3-train-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing in the Train release.
+    check:
+      jobs:
+        - openstack-tox-py36
+        - openstack-tox-py37
+    gate:
+      jobs:
+        - openstack-tox-py36
+        - openstack-tox-py37
+
+- project-template:
+    name: openstack-python3-train-jobs-horizon
+    description: |
+      The standard :zuul:project_template:`openstack-python3-train-jobs`
+      but with horizon added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use horizon
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/horizon
+
+- project-template:
+    name: openstack-python3-train-jobs-neutron
+    description: |
+      The standard :zuul:project_template:`openstack-python3-train-jobs`
+      but with neutron added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use neutron
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/neutron
+
+- project-template:
+    name: openstack-python3-train-jobs-ceilometer
+    description: |
+      The standard :zuul:project_template:`openstack-python3-train-jobs`
+      but with ceilometer added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use ceilometer
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-py36:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py37:
+            required-projects:
+              - openstack/ceilometer
+
+- project-template:
     name: openstack-python35-jobs
     description: |
       Runs unit tests for an OpenStack Python project under cPython
