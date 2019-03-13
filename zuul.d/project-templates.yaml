@@ -952,11 +952,13 @@
         - publish-openstack-javascript-tarball:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
     release:
       jobs:
         - release-openstack-javascript:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
         - announce-release:
             dependencies:
               - release-openstack-javascript
@@ -1303,17 +1305,21 @@
         - nodejs-npm-run-lint:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
         - nodejs-npm-run-test:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
     gate:
       jobs:
         - nodejs-npm-run-lint:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
         - nodejs-npm-run-test:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
 
 - project-template:
     name: nodejs6-jobs
@@ -1366,11 +1372,13 @@
         - nodejs-npm-run-docs:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
     gate:
       jobs:
         - nodejs-npm-run-docs:
             vars:
               node_version: 4
+            nodeset: ubuntu-xenial
 
 - project-template:
     name: nodejs6-docs
