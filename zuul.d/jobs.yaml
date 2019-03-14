@@ -1466,6 +1466,7 @@
 - job:
     name: infra-puppet-apply-3-ubuntu-xenial
     parent: infra-puppet-apply-base
+    nodeset: ubuntu-xenial
 
 - job:
     name: infra-puppet-apply-3-centos-7
@@ -1488,6 +1489,7 @@
 - job:
     name: infra-puppet-apply-4-ubuntu-xenial
     parent: infra-puppet-apply-base
+    nodeset: ubuntu-xenial
     vars:
       puppet_version: 4
 
