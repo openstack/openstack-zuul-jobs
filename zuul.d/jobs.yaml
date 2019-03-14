@@ -665,6 +665,7 @@
       Run documentation build.
 
       Uses tox with the ``docs`` environment.
+    branches: ^(?!stable/rocky).*$
     required-projects:
       - name: openstack/requirements
     vars:
@@ -672,6 +673,27 @@
       tox_envlist: docs
       bindep_profile: compile doc
     success-url: html/
+
+- job:
+    name: openstack-tox-docs
+    parent: tox-docs
+    description: |
+      Run documentation build (xenial).
+
+      Uses tox with the ``docs`` environment.
+
+      This job runs on Xenial for stable/rocky. This job is prepared
+      to make sure all stable/rocky will keep running on xenial.
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_envlist: docs
+      bindep_profile: compile doc
+    success-url: html/
+    nodeset: ubuntu-xenial
+    branches:
+      - stable/rocky
 
 - job:
     name: openstack-tox-with-oslo-master-base
