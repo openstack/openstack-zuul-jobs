@@ -1024,6 +1024,7 @@
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-3/run.yaml
     timeout: 1800
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-puppet-syntax-3-centos-7
@@ -1268,6 +1269,7 @@
     parent: legacy-base
     run: playbooks/legacy/system-config-puppet-syntax-3/run.yaml
     timeout: 1800
+    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-tempest-almanach-dsvm
