@@ -1,0 +1,86 @@
+- name: Run tests for the upload-git-mirror role
+  hosts: all
+  vars:
+    test_repo: https://opendev.org/openstack-infra/zuul-jobs
+    test_repo_path: "{{ ansible_user_dir }}/tests/zuul-jobs"
+  pre_tasks:
+    - name: Create tests directory
+      file:
+        path: "{{ ansible_user_dir }}/tests"
+        state: directory
+
+    # For pushing to localhost over ssh
+    - name: Create a test ssh keypair
+      command: "ssh-keygen -t rsa -b 2048 -N '' -f {{ ansible_user_dir }}/tests/id_rsa"
+
+    - name: Get test private key
+      command: "cat {{ ansible_user_dir }}/tests/id_rsa"
+      changed_when: false
+      register: private_key_contents
+
+    - name: Get test public key
+      command: "cat {{ ansible_user_dir }}/tests/id_rsa.pub"
+      changed_when: false
+      register: public_key_contents
+
+    - name: Add public key to authorized_keys
+      authorized_key:
+        user: "{{ ansible_user }}"
+        state: present
+        key: "{{ public_key_contents.stdout }}"
+
+    - name: Add localhost to known_hosts
+      shell: ssh-keyscan -H localhost >> {{ ansible_user_dir }}/.ssh/known_hosts
+  tasks:
+    - name: Get git commit hash for current patch of zuul-jobs
+      command: git rev-parse HEAD
+      changed_when: false
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+      register: current_commit
+
+    - name: Clone upstream zuul-jobs as a bare repository
+      git:
+        repo: "{{ test_repo }}"
+        dest: "{{ test_repo_path }}"
+        bare: yes
+      register: test_repo_clone
+
+    - name: Assert that the git repositories have different commits for HEAD
+      assert:
+        that:
+          - test_repo_clone.after != current_commit.stdout
+
+    - name: Run upload-git-mirror with specified credentials
+      vars:
+        git_mirror_credentials:
+          user: "{{ ansible_user }}"
+          host: localhost
+          key: "{{ private_key_contents.stdout }}"
+        git_mirror_repository: "{{ test_repo_path }}"
+      include_role:
+        name: upload-git-mirror
+
+    - name: Get new repository HEAD commit
+      command: git rev-parse HEAD
+      changed_when: false
+      args:
+        chdir: "{{ test_repo_path }}"
+      register: after_mirror
+
+    - name: Assert that the git repositories have the same commit for HEAD
+      assert:
+        that:
+          - after_mirror.stdout == current_commit.stdout
+
+    - name: Check that the private key has been removed
+      stat:
+        path: "{{ ssh_private_key_tmp.path }}"
+      register: private_key_stat
+
+    - name: Assert that the private key and the config was removed
+      assert:
+        that:
+          - git_mirror_key_removed is changed
+          - not private_key_stat.stat.exists
+          - git_mirror_ssh_config_removed is changed
