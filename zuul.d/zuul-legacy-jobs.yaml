@@ -958,6 +958,7 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-lint/run.yaml
     timeout: 1800
+    nodeset: ubuntu-xenial
 
 - job:
     name: legacy-puppet-midonet-puppet-unit-3.6-centos-7
