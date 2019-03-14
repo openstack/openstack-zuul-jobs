@@ -293,6 +293,7 @@
 - job:
     name: build-openstack-sphinx-docs
     parent: build-sphinx-docs
+    nodeset: ubuntu-xenial
     branches: ^(?!driverfixes/).*$
     description: |
       Builds documentation using Sphinx per a previous version of the
