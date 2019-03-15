@@ -506,6 +506,7 @@
     post-run: playbooks/legacy/logstash-filters/post.yaml
     timeout: 1800
     voting: false
+    nodeset: ubuntu-xenial
 
 - job:
     name: legacy-logstash-filters-ubuntu-trusty
