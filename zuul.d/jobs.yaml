@@ -393,11 +393,12 @@
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
       Uses tox with the ``py27`` environment.
-    irrelevant-files:
+    irrelevant-files: &common-irrelevant-files
       - ^.*\.rst$
       - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
+      - ^deliverables/.*$
     vars:
       tox_envlist: py27
       bindep_profile: test py27
@@ -412,12 +413,7 @@
       Run unit tests for an OpenStack project under cPython version 3.5.
 
       Uses tox with the ``py35`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
-      - ^deliverables/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: py35
       bindep_profile: test py35
@@ -433,11 +429,7 @@
       version 3.6.
 
       Uses tox with the ``py36`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: py36
       bindep_profile: test py36
@@ -453,11 +445,7 @@
       version 3.7.
 
       Uses tox with the ``py37`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: py37
       bindep_profile: test py37
@@ -470,11 +458,7 @@
       Run unit tests for an OpenStack Python project under PyPy.
 
       Uses tox with the ``pypy`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: pypy
       bindep_profile: test pypy
@@ -510,11 +494,7 @@
       Uses tox with the ``cover`` environment.
     required-projects:
       - name: openstack/requirements
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
@@ -547,11 +527,7 @@
       Run tox-based functional tests for an OpenStack Python project.
 
       Uses tox with the ``functional`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional
 
@@ -563,11 +539,7 @@
 
       Uses tox with the ``functional`` environment.
       Sudo access is not revoked.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional
 
@@ -580,11 +552,7 @@
       under cPython version 3.5..
 
       Uses tox with the ``functional-py35`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional-py35
 
@@ -597,11 +565,7 @@
       under cPython version 3.6.
 
       Uses tox with the ``functional-py36`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional-py36
 
@@ -622,11 +586,7 @@
       Runs pylint tests.
 
       Uses tox with the ``pylint`` environment.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: pylint
 
@@ -651,11 +611,7 @@
 
       Uses tox with the ``snap`` environment.
       Sudo access is not revoked.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: snap
 
@@ -817,11 +773,7 @@
       Uses tox with the ``lower-constraints`` environment,
       which should be configured to use Python 3 by default
       unless the project does not support Python 3.
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: lower-constraints
       bindep_profile: test py35 py36
