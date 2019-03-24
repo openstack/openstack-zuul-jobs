@@ -18,7 +18,7 @@
               dest: devstack-gate
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              git://git.openstack.org \
+              https://git.openstack.org \
               openstack-infra/devstack-gate
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
@@ -75,7 +75,7 @@
           if [[ "$ZUUL_BRANCH" != "master" ]] ; then
             # NOTE(jroll) if this is not a patch against master, then
             # fetch master to install the plugin
-            export DEVSTACK_LOCAL_CONFIG+=$'\n'"TEMPEST_PLUGINS+=' git+git://git.openstack.org/openstack/ironic'"
+            export DEVSTACK_LOCAL_CONFIG+=$'\n'"TEMPEST_PLUGINS+=' git+https://git.openstack.org/openstack/ironic'"
           else
             # on master, use the local change, so we can pick up any changes to the plugin
             export DEVSTACK_LOCAL_CONFIG+=$'\n'"TEMPEST_PLUGINS+=' /opt/stack/new/ironic'"
@@ -152,7 +152,7 @@
           # Pull in the EARLY variables injected by the optional builders
           source ironic-vars-early
 
-          export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin ironic git://git.openstack.org/openstack/ironic"
+          export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin ironic https://git.openstack.org/openstack/ironic"
 
           # Ensure the ironic-EXTRA-vars file exists
           touch ironic-extra-vars
