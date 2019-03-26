@@ -1159,12 +1159,14 @@
               - stable/pike
               - stable/queens
               - stable/rocky
+              - stable/stein
         - openstack-tox-py27:
             branches:
               - stable/ocata
               - stable/pike
               - stable/queens
               - stable/rocky
+              - stable/stein
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -1181,6 +1183,7 @@
               - stable/pike
               - stable/queens
               - stable/rocky
+              - stable/stein
             required-projects:
               - openstack/neutron
         - openstack-tox-py27:
@@ -1189,6 +1192,7 @@
               - stable/pike
               - stable/queens
               - stable/rocky
+              - stable/stein
             required-projects:
               - openstack/neutron
 
