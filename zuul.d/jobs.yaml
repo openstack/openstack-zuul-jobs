@@ -492,6 +492,7 @@
       Run code coverage tests.
 
       Uses tox with the ``cover`` environment.
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
@@ -499,6 +500,31 @@
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
     timeout: 3000
+
+- job:
+    name: openstack-tox-cover
+    parent: tox-cover
+    description: |
+      Run code coverage tests (Xenial).
+
+      Uses tox with the ``cover`` environment.
+
+      This job runs on Xenial for stable/ocata, pike, queens and rocky. This
+      job is prepared to make sure all stable branches before stable/stein will
+      keep running on xenial.
+    nodeset: ubuntu-xenial
+    required-projects:
+      - name: openstack/requirements
+    irrelevant-files: *common-irrelevant-files
+    success-url: cover/
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+    timeout: 3000
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
 
 - job:
     name: openstack-tox-bashate
