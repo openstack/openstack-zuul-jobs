@@ -1058,6 +1058,7 @@
               - master
               - stable/queens
               - stable/rocky
+              - stable/stein
     periodic:
       jobs:
         - propose-translation-update:
@@ -1065,6 +1066,7 @@
               - master
               - stable/queens
               - stable/rocky
+              - stable/stein
 
 - project-template:
     name: openstack-specs-jobs
