@@ -705,16 +705,6 @@
       - openstack/networking-bgpvpn
 
 - job:
-    name: legacy-networking-vpp-smoke
-    parent: legacy-base
-    run: playbooks/legacy/networking-vpp-smoke/run.yaml
-    post-run: playbooks/legacy/networking-vpp-smoke/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack-infra/devstack-gate
-      - openstack/networking-vpp
-
-- job:
     name: legacy-neutron-dsvm-api
     parent: legacy-dsvm-base
     run: playbooks/legacy/neutron-dsvm-api/run.yaml
