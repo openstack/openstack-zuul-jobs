@@ -17,7 +17,7 @@
               dest: devstack-gate
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              git://git.openstack.org \
+              https://git.openstack.org \
               openstack-infra/devstack-gate
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
@@ -29,7 +29,7 @@
           set -x
           cat << 'EOF' >>"/tmp/dg-local.conf"
           [[local|localrc]]
-          enable_plugin nova-lxd git://git.openstack.org/openstack/nova-lxd
+          enable_plugin nova-lxd https://git.openstack.org/openstack/nova-lxd
           # Enable linuxbridge agent and configure physical network
           Q_AGENT=linuxbridge
           PHYSICAL_NETWORK=default

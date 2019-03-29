@@ -40,7 +40,7 @@
               dest: {{ ansible_user_dir }}
           EOF
           /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP \
-              --cache-dir /opt/git git://git.openstack.org \
+              --cache-dir /opt/git https://git.openstack.org \
               openstack-infra/project-config
       register: clone_with_required
 
@@ -64,7 +64,7 @@
               dest: {{ ansible_user_dir }}
           EOF
           /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP \
-              --cache-dir /opt/git git://git.openstack.org \
+              --cache-dir /opt/git https://git.openstack.org \
               openstack-infra/jenkins-job-builder
       ignore_errors: yes
       register: clone_without_required
