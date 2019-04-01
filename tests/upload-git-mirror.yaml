@@ -29,8 +29,9 @@
         state: present
         key: "{{ public_key_contents.stdout }}"
 
-    - name: Add localhost to known_hosts
-      shell: ssh-keyscan -H localhost >> {{ ansible_user_dir }}/.ssh/known_hosts
+    - name: Get localhost ssh host public key
+      shell: ssh-keyscan -t rsa localhost
+      register: host_key
   tasks:
     - name: Get git commit hash for current patch of zuul-jobs
       command: git rev-parse HEAD
@@ -56,6 +57,10 @@
         git_mirror_credentials:
           user: "{{ ansible_user }}"
           host: localhost
+          ssh_key: "{{ private_key_contents.stdout }}"
+          host_key: "{{ host_key.stdout }}"
+          # TODO: key is renamed to ssh_key to prevent ambiguity with host_key.
+          # Remove key when the rename has landed in the role.
           key: "{{ private_key_contents.stdout }}"
         git_mirror_repository: "{{ test_repo_path }}"
       include_role:
