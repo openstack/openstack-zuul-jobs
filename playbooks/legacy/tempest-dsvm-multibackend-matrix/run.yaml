@@ -13,12 +13,12 @@
           set -x
           cat > clonemap.yaml << EOF
           clonemap:
-            - name: openstack-infra/devstack-gate
+            - name: openstack/devstack-gate
               dest: devstack-gate
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              https://git.openstack.org \
-              openstack-infra/devstack-gate
+              https://opendev.org \
+              openstack/devstack-gate
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -29,8 +29,8 @@
           set -x
           cat << 'EOF' >>"/tmp/dg-local.conf"
           [[local|localrc]]
-          enable_plugin devstack-plugin-nfs https://git.openstack.org/devstack-plugin-nfs
-          enable_plugin devstack-plugin-ceph https://git.openstack.org/openstack/devstack-plugin-ceph
+          enable_plugin devstack-plugin-nfs https://opendev.org/devstack-plugin-nfs
+          enable_plugin devstack-plugin-ceph https://opendev.org/openstack/devstack-plugin-ceph
           CINDER_ENABLED_BACKENDS=lvm:lvm,nfs:nfs,ceph:ceph
 
           EOF
@@ -50,7 +50,7 @@
               export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
           fi
 
-          export PROJECTS="openstack/devstack-plugin-nfs $PROJECTS"
+          export PROJECTS="x/devstack-plugin-nfs $PROJECTS"
           export PROJECTS="openstack/devstack-plugin-ceph $PROJECTS"
 
           function post_test_hook {

@@ -1,6 +1,6 @@
 ---
 # This is all bad and I feel bad, but it's translated from
-# https://github.com/openstack-infra/puppet-zanata/blob/master/manifests/client.pp
+# https://github.com/opendev/puppet-zanata/blob/master/manifests/client.pp
 
 - name: Find java package name
   include_vars: "{{ ansible_os_family }}.yaml"

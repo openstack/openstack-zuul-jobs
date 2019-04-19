@@ -1,7 +1,7 @@
 - name: Run tests for the upload-git-mirror role
   hosts: all
   vars:
-    test_repo: https://opendev.org/openstack-infra/zuul-jobs
+    test_repo: https://opendev.org/zuul/zuul-jobs
     test_repo_path: "{{ ansible_user_dir }}/tests/zuul-jobs"
   pre_tasks:
     - name: Create tests directory

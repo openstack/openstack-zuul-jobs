@@ -14,7 +14,7 @@
     - shell:
         cmd: |
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
-              https://git.openstack.org openstack-infra/puppet-openstack_infra_spec_helper
+              https://opendev.org opendev/puppet-openstack_infra_spec_helper
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -42,7 +42,7 @@
         cmd: |
           set -e
           set -x
-          cd openstack-infra/puppet-openstack_infra_spec_helper
+          cd opendev/puppet-openstack_infra_spec_helper
           ./run_unit_tests.sh
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'

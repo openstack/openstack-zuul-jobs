@@ -2,5 +2,5 @@
   tasks:
     - name: Send release announcement
       command: >
-        src/git.openstack.org/openstack/releases/tools/announce.sh
+        src/opendev.org/openstack/releases/tools/announce.sh
           src/{{ zuul.project.canonical_name }} {{ zuul.tag }}

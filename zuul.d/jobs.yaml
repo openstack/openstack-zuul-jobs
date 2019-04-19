@@ -1,7 +1,7 @@
 # Shared jobs specific to the OpenStack Project
 # imports jobs from:
-#    https://git.openstack.org/cgit/openstack-infra/project-config
-#    https://git.openstack.org/cgit/openstack-infra/zuul-jobs
+#    https://opendev.org/cgit/openstack/project-config
+#    https://opendev.org/cgit/zuul/zuul-jobs
 
 - job:
     name: openstack-infra-base-integration
@@ -14,9 +14,9 @@
     protected: true
     parent: base-minimal
     required-projects:
-      - openstack-infra/project-config
+      - openstack/project-config
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     run: tests/base.yaml
     files:
       - ^roles/configure-mirrors/.*
@@ -93,9 +93,9 @@
     vars:
       ara_generate_html: true
     required-projects:
-      - openstack-infra/project-config
+      - openstack/project-config
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     run: tests/multinode.yaml
     files:
       - ^roles/configure-mirrors/.*
@@ -315,9 +315,9 @@
       - name: openstack/neutron
     pre-run: playbooks/sphinx-docs/neutron-horizon-hack.yaml
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     vars:
-      constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: your-readthedocs-job-requires-attention
@@ -336,9 +336,9 @@
     description: |
       Run zuul's py35 unittests on patches to zuul-jobs.
     vars:
-      zuul_work_dir: src/git.openstack.org/openstack-infra/zuul
+      zuul_work_dir: src/opendev.org/zuul/zuul
     required-projects:
-      - openstack-infra/zuul
+      - zuul/zuul
 
 - job:
     name: openstack-tox
@@ -352,7 +352,7 @@
     required-projects:
       - name: openstack/requirements
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: openstack-tox
@@ -375,7 +375,7 @@
     required-projects:
       - name: openstack/requirements
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: openstack-tox-with-sudo
@@ -498,7 +498,7 @@
     irrelevant-files: *common-irrelevant-files
     success-url: cover/
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
     timeout: 3000
 
 - job:
@@ -518,7 +518,7 @@
     irrelevant-files: *common-irrelevant-files
     success-url: cover/
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
     timeout: 3000
     branches:
       - stable/ocata
@@ -652,7 +652,7 @@
     required-projects:
       - name: openstack/requirements
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
       bindep_profile: compile doc
     success-url: html/
@@ -671,7 +671,7 @@
     required-projects:
       - name: openstack/requirements
     vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
       bindep_profile: compile doc
     success-url: html/
@@ -718,7 +718,7 @@
       - openstack/stevedore
       - openstack/taskflow
       - openstack/tooz
-      - openstack-dev/pbr
+      - openstack/pbr
     vars:
       tox_install_siblings: true
 
@@ -872,7 +872,7 @@
     required-projects:
       - name: openstack/requirements
     vars:
-      constraints_file: '{{ ansible_user_dir }}/src/git.openstack.org/openstack/requirements/upper-constraints.txt'
+      constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
 
 - job:
     name: build-openstack-api-ref
@@ -994,9 +994,9 @@
       - stable/rocky
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
+      - openstack/devstack
+      - openstack/devstack-gate
+      - openstack/tripleo-ci
       - openstack/ceilometer
       - openstack/ceilometermiddleware
       - openstack/cinder
@@ -1049,9 +1049,9 @@
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
-      - openstack-dev/devstack
-      - openstack-infra/devstack-gate
-      - openstack-infra/tripleo-ci
+      - openstack/devstack
+      - openstack/devstack-gate
+      - openstack/tripleo-ci
       - openstack/ceilometer
       - openstack/ceilometermiddleware
       - openstack/cinder
@@ -1103,7 +1103,7 @@
       before stable/stein will keep running on xenial.
 
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
     nodeset: legacy-ubuntu-xenial-2-node
     branches:
@@ -1122,7 +1122,7 @@
       Will setup firewall rules on all the nodes allowing them to talk to
       each other. This job runs on Bionic from stable/stein on.
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
     branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
     nodeset: legacy-ubuntu-bionic-2-node
@@ -1155,7 +1155,7 @@
       - openstack/puppet-keystone
       - openstack/puppet-manila
       - openstack/puppet-mistral
-      - openstack/puppet-modulesync-configs
+      - x/puppet-modulesync-configs
       - openstack/puppet-monasca
       - openstack/puppet-murano
       - openstack/puppet-neutron
@@ -1238,9 +1238,9 @@
     vars:
       tox_envlist: grafyaml
       tox_environment:
-        GRAFYAML_SRC: "{{ ansible_user_dir }}/{{ zuul.projects['git.openstack.org/openstack-infra/grafyaml'].src_dir }}"
+        GRAFYAML_SRC: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/opendev/grafyaml'].src_dir }}"
     required-projects:
-      - openstack-infra/grafyaml
+      - opendev/grafyaml
     files:
       - ^grafana/.*$
       - bindep.txt
@@ -1276,7 +1276,7 @@
     vars:
       tox_envlist: nodepool
     required-projects:
-      - openstack-infra/nodepool
+      - zuul/nodepool
     files:
       - ^nodepool/nodepool.yaml
       - ^nodepool/nl.*yaml$
@@ -1344,103 +1344,103 @@
       and zuul-jobs so we can properly lint our ansible playbooks / roles.
     required-projects:
       - opendev/base-jobs
-      - openstack-infra/openstack-zuul-jobs
-      - openstack-infra/project-config
-      - openstack-infra/system-config
-      - openstack-infra/zuul-jobs
-      - openstack-infra/zuul
+      - openstack/openstack-zuul-jobs
+      - openstack/project-config
+      - opendev/system-config
+      - zuul/zuul-jobs
+      - zuul/zuul
     vars:
       tox_envlist: linters
       tox_environment:
-        ANSIBLE_ROLES_PATH: ~/src/git.openstack.org/opendev/base-jobs/roles:~/src/git.openstack.org/openstack-infra/zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/openstack-zuul-jobs/roles:~/src/git.openstack.org/openstack-infra/project-config/roles:~/src/git.openstack.org/openstack-infra/system-config/roles
+        ANSIBLE_ROLES_PATH: ~/src/opendev.org/opendev/base-jobs/roles:~/src/opendev.org/zuul/zuul-jobs/roles:~/src/opendev.org/openstack/openstack-zuul-jobs/roles:~/src/opendev.org/openstack/project-config/roles:~/src/opendev.org/opendev/system-config/roles
 
 - job:
     name: infra-puppet-apply-base
     timeout: 1800
     required-projects:
-      - openstack-infra/system-config
-      - openstack-infra/ansible-role-puppet
-      - openstack-infra/puppet-accessbot
-      - openstack-infra/puppet-ansible
-      - openstack-infra/puppet-apparmor
-      - openstack-infra/puppet-askbot
-      - openstack-infra/puppet-asterisk
-      - openstack-infra/puppet-bandersnatch
-      - openstack-infra/puppet-bugdaystats
-      - openstack-infra/puppet-bup
-      - openstack-infra/puppet-cgit
-      - openstack-infra/puppet-ciwatch
-      - openstack-infra/puppet-diskimage_builder
-      - openstack-infra/puppet-drupal
-      - openstack-infra/puppet-elastic_recheck
-      - openstack-infra/puppet-elasticsearch
-      - openstack-infra/puppet-ethercalc
-      - openstack-infra/puppet-etherpad_lite
-      - openstack-infra/puppet-exim
-      - openstack-infra/puppet-germqtt
-      - openstack-infra/puppet-gerrit
-      - openstack-infra/puppet-gerritbot
-      - openstack-infra/puppet-github
-      - openstack-infra/puppet-grafyaml
-      - openstack-infra/puppet-graphite
-      - openstack-infra/puppet-haveged
-      - openstack-infra/puppet-hound
-      - openstack-infra/puppet-httpd
-      - openstack-infra/puppet-infracloud
-      - openstack-infra/puppet-infra-cookiecutter
-      - openstack-infra/puppet-ipsilon
-      - openstack-infra/puppet-iptables
-      - openstack-infra/puppet-jeepyb
-      - openstack-infra/puppet-jenkins
-      - openstack-infra/puppet-kerberos
-      - openstack-infra/puppet-kibana
-      - openstack-infra/puppet-lodgeit
-      - openstack-infra/puppet-log_processor
-      - openstack-infra/puppet-logrotate
-      - openstack-infra/puppet-logstash
-      - openstack-infra/puppet-lpmqtt
-      - openstack-infra/puppet-mailman
-      - openstack-infra/puppet-mediawiki
-      - openstack-infra/puppet-meetbot
-      - openstack-infra/puppet-mosquitto
-      - openstack-infra/puppet-mqtt_statsd
-      - openstack-infra/puppet-mysql_backup
-      - openstack-infra/puppet-nodepool
-      - openstack-infra/puppet-openafs
-      - openstack-infra/puppet-openstackci
-      - openstack-infra/puppet-openstack_health
-      - openstack-infra/puppet-openstackid
-      - openstack-infra/puppet-openstack_infra_spec_helper
-      - openstack-infra/puppet-os_client_config
-      - openstack-infra/puppet-packagekit
-      - openstack-infra/puppet-pgsql_backup
-      - openstack-infra/puppet-phabricator
-      - openstack-infra/puppet-pip
-      - openstack-infra/puppet-planet
-      - openstack-infra/puppet-project_config
-      - openstack-infra/puppet-ptgbot
-      - openstack-infra/puppet-puppet
-      - openstack-infra/puppet-redis
-      - openstack-infra/puppet-refstack
-      - openstack-infra/puppet-reviewday
-      - openstack-infra/puppet-simpleproxy
-      - openstack-infra/puppet-snmpd
-      - openstack-infra/puppet-ssh
-      - openstack-infra/puppet-ssl_cert_check
-      - openstack-infra/puppet-statusbot
-      - openstack-infra/puppet-storyboard
-      - openstack-infra/puppet-subunit2sql
-      - openstack-infra/puppet-sudoers
-      - openstack-infra/puppet-tmpreaper
-      - openstack-infra/puppet-translation_checksite
-      - openstack-infra/puppet-ulimit
-      - openstack-infra/puppet-unattended_upgrades
-      - openstack-infra/puppet-unbound
-      - openstack-infra/puppet-user
-      - openstack-infra/puppet-vcsrepo
-      - openstack-infra/puppet-yum
-      - openstack-infra/puppet-zanata
-      - openstack-infra/puppet-zuul
+      - opendev/system-config
+      - opendev/ansible-role-puppet
+      - opendev/puppet-accessbot
+      - opendev/puppet-ansible
+      - opendev/puppet-apparmor
+      - opendev/puppet-askbot
+      - opendev/puppet-asterisk
+      - opendev/puppet-bandersnatch
+      - opendev/puppet-bugdaystats
+      - opendev/puppet-bup
+      - opendev/puppet-cgit
+      - opendev/puppet-ciwatch
+      - opendev/puppet-diskimage_builder
+      - opendev/puppet-drupal
+      - opendev/puppet-elastic_recheck
+      - opendev/puppet-elasticsearch
+      - opendev/puppet-ethercalc
+      - opendev/puppet-etherpad_lite
+      - opendev/puppet-exim
+      - opendev/puppet-germqtt
+      - opendev/puppet-gerrit
+      - opendev/puppet-gerritbot
+      - opendev/puppet-github
+      - opendev/puppet-grafyaml
+      - opendev/puppet-graphite
+      - opendev/puppet-haveged
+      - opendev/puppet-hound
+      - opendev/puppet-httpd
+      - opendev/puppet-infracloud
+      - opendev/puppet-infra-cookiecutter
+      - opendev/puppet-ipsilon
+      - opendev/puppet-iptables
+      - opendev/puppet-jeepyb
+      - opendev/puppet-jenkins
+      - opendev/puppet-kerberos
+      - opendev/puppet-kibana
+      - opendev/puppet-lodgeit
+      - opendev/puppet-log_processor
+      - opendev/puppet-logrotate
+      - opendev/puppet-logstash
+      - opendev/puppet-lpmqtt
+      - opendev/puppet-mailman
+      - opendev/puppet-mediawiki
+      - opendev/puppet-meetbot
+      - opendev/puppet-mosquitto
+      - opendev/puppet-mqtt_statsd
+      - opendev/puppet-mysql_backup
+      - opendev/puppet-nodepool
+      - opendev/puppet-openafs
+      - opendev/puppet-openstackci
+      - opendev/puppet-openstack_health
+      - opendev/puppet-openstackid
+      - opendev/puppet-openstack_infra_spec_helper
+      - opendev/puppet-os_client_config
+      - opendev/puppet-packagekit
+      - opendev/puppet-pgsql_backup
+      - opendev/puppet-phabricator
+      - opendev/puppet-pip
+      - opendev/puppet-planet
+      - opendev/puppet-project_config
+      - opendev/puppet-ptgbot
+      - opendev/puppet-puppet
+      - opendev/puppet-redis
+      - opendev/puppet-refstack
+      - opendev/puppet-reviewday
+      - opendev/puppet-simpleproxy
+      - opendev/puppet-snmpd
+      - opendev/puppet-ssh
+      - opendev/puppet-ssl_cert_check
+      - opendev/puppet-statusbot
+      - opendev/puppet-storyboard
+      - opendev/puppet-subunit2sql
+      - opendev/puppet-sudoers
+      - opendev/puppet-tmpreaper
+      - opendev/puppet-translation_checksite
+      - opendev/puppet-ulimit
+      - opendev/puppet-unattended_upgrades
+      - opendev/puppet-unbound
+      - opendev/puppet-user
+      - opendev/puppet-vcsrepo
+      - opendev/puppet-yum
+      - opendev/puppet-zanata
+      - opendev/puppet-zuul
     pre-run: playbooks/infra-puppet-apply/pre.yaml
     run: playbooks/infra-puppet-apply/run.yaml
     post-run: playbooks/infra-puppet-apply/post.yaml
@@ -1494,82 +1494,82 @@
       - ^releasenotes/.*$
       - ^test-requirements.txt$
     required-projects:
-      - openstack-infra/project-config
-      - openstack-infra/system-config
-      - openstack-infra/puppet-openstack_infra_spec_helper
-      - openstack-infra/puppet-bugdaystats
-      - openstack-infra/puppet-mysql_backup
-      - openstack-infra/puppet-openstackci
-      - openstack-infra/puppet-zuul
-      - openstack-infra/puppet-mqtt_statsd
-      - openstack-infra/puppet-meetbot
-      - openstack-infra/puppet-hound
-      - openstack-infra/puppet-pip
-      - openstack-infra/puppet-os_client_config
-      - openstack-infra/puppet-openstackid
-      - openstack-infra/puppet-bandersnatch
-      - openstack-infra/puppet-project_config
-      - openstack-infra/puppet-grafyaml
-      - openstack-infra/puppet-refstack
-      - openstack-infra/puppet-github
-      - openstack-infra/puppet-ethercalc
-      - openstack-infra/puppet-unattended_upgrades
-      - openstack-infra/puppet-openafs
-      - openstack-infra/puppet-httpd
-      - openstack-infra/puppet-drupal
-      - openstack-infra/puppet-subunit2sql
-      - openstack-infra/puppet-reviewday
-      - openstack-infra/puppet-kibana
-      - openstack-infra/puppet-redis
-      - openstack-infra/puppet-phabricator
-      - openstack-infra/puppet-ssl_cert_check
-      - openstack-infra/puppet-lpmqtt
-      - openstack-infra/puppet-germqtt
-      - openstack-infra/puppet-cgit
-      - openstack-infra/puppet-packagekit
-      - openstack-infra/puppet-haveged
-      - openstack-infra/puppet-graphite
-      - openstack-infra/puppet-diskimage_builder
-      - openstack-infra/puppet-sudoers
-      - openstack-infra/puppet-zanata
-      - openstack-infra/puppet-logstash
-      - openstack-infra/puppet-gerritbot
-      - openstack-infra/puppet-asterisk
-      - openstack-infra/puppet-statusbot
-      - openstack-infra/puppet-gerrit
-      - openstack-infra/puppet-mediawiki
-      - openstack-infra/puppet-mailman
-      - openstack-infra/puppet-exim
-      - openstack-infra/puppet-tmpreaper
-      - openstack-infra/puppet-elastic_recheck
-      - openstack-infra/puppet-ulimit
-      - openstack-infra/puppet-planet
-      - openstack-infra/puppet-nodepool
-      - openstack-infra/puppet-logrotate
-      - openstack-infra/puppet-infracloud
-      - openstack-infra/puppet-elasticsearch
-      - openstack-infra/puppet-unbound
-      - openstack-infra/puppet-storyboard
-      - openstack-infra/puppet-openstack_health
-      - openstack-infra/puppet-kerberos
-      - openstack-infra/puppet-askbot
-      - openstack-infra/puppet-log_processor
-      - openstack-infra/puppet-simpleproxy
-      - openstack-infra/puppet-iptables
-      - openstack-infra/puppet-lodgeit
-      - openstack-infra/puppet-etherpad_lite
-      - openstack-infra/puppet-mosquitto
-      - openstack-infra/puppet-bup
-      - openstack-infra/puppet-pgsql_backup
-      - openstack-infra/puppet-ansible
-      - openstack-infra/puppet-ssh
-      - openstack-infra/puppet-snmpd
-      - openstack-infra/puppet-user
-      - openstack-infra/puppet-jeepyb
-      - openstack-infra/puppet-accessbot
-      - openstack-infra/puppet-ptgbot
-      - openstack-infra/puppet-jenkins
-      - openstack-infra/puppet-vcsrepo
+      - openstack/project-config
+      - opendev/system-config
+      - opendev/puppet-openstack_infra_spec_helper
+      - opendev/puppet-bugdaystats
+      - opendev/puppet-mysql_backup
+      - opendev/puppet-openstackci
+      - opendev/puppet-zuul
+      - opendev/puppet-mqtt_statsd
+      - opendev/puppet-meetbot
+      - opendev/puppet-hound
+      - opendev/puppet-pip
+      - opendev/puppet-os_client_config
+      - opendev/puppet-openstackid
+      - opendev/puppet-bandersnatch
+      - opendev/puppet-project_config
+      - opendev/puppet-grafyaml
+      - opendev/puppet-refstack
+      - opendev/puppet-github
+      - opendev/puppet-ethercalc
+      - opendev/puppet-unattended_upgrades
+      - opendev/puppet-openafs
+      - opendev/puppet-httpd
+      - opendev/puppet-drupal
+      - opendev/puppet-subunit2sql
+      - opendev/puppet-reviewday
+      - opendev/puppet-kibana
+      - opendev/puppet-redis
+      - opendev/puppet-phabricator
+      - opendev/puppet-ssl_cert_check
+      - opendev/puppet-lpmqtt
+      - opendev/puppet-germqtt
+      - opendev/puppet-cgit
+      - opendev/puppet-packagekit
+      - opendev/puppet-haveged
+      - opendev/puppet-graphite
+      - opendev/puppet-diskimage_builder
+      - opendev/puppet-sudoers
+      - opendev/puppet-zanata
+      - opendev/puppet-logstash
+      - opendev/puppet-gerritbot
+      - opendev/puppet-asterisk
+      - opendev/puppet-statusbot
+      - opendev/puppet-gerrit
+      - opendev/puppet-mediawiki
+      - opendev/puppet-mailman
+      - opendev/puppet-exim
+      - opendev/puppet-tmpreaper
+      - opendev/puppet-elastic_recheck
+      - opendev/puppet-ulimit
+      - opendev/puppet-planet
+      - opendev/puppet-nodepool
+      - opendev/puppet-logrotate
+      - opendev/puppet-infracloud
+      - opendev/puppet-elasticsearch
+      - opendev/puppet-unbound
+      - opendev/puppet-storyboard
+      - opendev/puppet-openstack_health
+      - opendev/puppet-kerberos
+      - opendev/puppet-askbot
+      - opendev/puppet-log_processor
+      - opendev/puppet-simpleproxy
+      - opendev/puppet-iptables
+      - opendev/puppet-lodgeit
+      - opendev/puppet-etherpad_lite
+      - opendev/puppet-mosquitto
+      - opendev/puppet-bup
+      - opendev/puppet-pgsql_backup
+      - opendev/puppet-ansible
+      - opendev/puppet-ssh
+      - opendev/puppet-snmpd
+      - opendev/puppet-user
+      - opendev/puppet-jeepyb
+      - opendev/puppet-accessbot
+      - opendev/puppet-ptgbot
+      - opendev/puppet-jenkins
+      - opendev/puppet-vcsrepo
 
 - job:
     name: puppet-beaker-rspec-centos-7-infra
@@ -1598,7 +1598,7 @@
     name: openstackci-beaker
     parent: puppet-beaker-rspec-infra
     vars:
-      project_src_dir: "{{ zuul.projects['git.openstack.org/openstack-infra/puppet-openstackci'].src_dir }}"
+      project_src_dir: "{{ zuul.projects['opendev.org/opendev/puppet-openstackci'].src_dir }}"
 
 - job:
     name: openstackci-beaker-centos-7
@@ -1716,9 +1716,9 @@
     protected: true
     parent: base
     required-projects:
-      - openstack-infra/project-config
+      - openstack/project-config
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     run: tests/extra.yaml
     files:
       - ^zuul.d/*
@@ -1743,7 +1743,7 @@
       Tests for the upload-git-mirror role from zuul-jobs
     parent: base
     roles:
-      - zuul: openstack-infra/zuul-jobs
+      - zuul: zuul/zuul-jobs
     run: tests/upload-git-mirror.yaml
     files:
       - ^roles/upload-git-mirror/.*

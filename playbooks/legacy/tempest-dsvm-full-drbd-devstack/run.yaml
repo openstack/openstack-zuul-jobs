@@ -19,12 +19,12 @@
           set -x
           cat > clonemap.yaml << EOF
           clonemap:
-            - name: openstack-infra/devstack-gate
+            - name: openstack/devstack-gate
               dest: devstack-gate
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              https://git.openstack.org \
-              openstack-infra/devstack-gate
+              https://opendev.org \
+              openstack/devstack-gate
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -35,7 +35,7 @@
           set -x
           cat << 'EOF' >>"/tmp/dg-local.conf"
           [[local|localrc]]
-          enable_plugin drbd-devstack https://git.openstack.org/drbd-devstack
+          enable_plugin drbd-devstack https://opendev.org/drbd-devstack
           CINDER_ENABLED_BACKENDS=drbd:drbdmanage
 
           EOF
@@ -54,7 +54,7 @@
           # the regex to limit the tests to the same as a tempest -efull would
           # run.
           export DEVSTACK_GATE_TEMPEST_REGEX='(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario)|(^cinder\.tests.tempest))'
-          export PROJECTS="openstack/drbd-devstack $PROJECTS"
+          export PROJECTS="x/drbd-devstack $PROJECTS"
 
           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
           ./safe-devstack-vm-gate-wrap.sh

@@ -5,7 +5,7 @@
     - name: Run puppet-apply test
       shell: ./tools/apply-test.sh
       args:
-        chdir: "{{ zuul.projects['git.openstack.org/openstack-infra/system-config'].src_dir }}"
+        chdir: "{{ zuul.projects['opendev.org/opendev/system-config'].src_dir }}"
       environment:
         PUPPET_VERSION: "{{ puppet_version | default('3') }}"
       tags:

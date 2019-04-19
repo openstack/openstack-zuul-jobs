@@ -24,12 +24,12 @@
           cd "$WORKSPACE"
           cat > clonemap.yaml << EOF
           clonemap:
-            - name: openstack/fuel-ccp
+            - name: x/fuel-ccp
               dest: fuel-ccp
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              https://git.openstack.org \
-              openstack/fuel-ccp
+              https://opendev.org \
+              x/fuel-ccp
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

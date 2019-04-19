@@ -12,7 +12,7 @@
           set -e
           set -x
           /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
-            https://git.openstack.org openstack-infra/system-config
+            https://opendev.org opendev/system-config
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -21,7 +21,7 @@
         cmd: |
           set -e
           set -x
-          cd openstack-infra/system-config
+          cd opendev/system-config
           ./tools/logstash-filter-test.sh
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'

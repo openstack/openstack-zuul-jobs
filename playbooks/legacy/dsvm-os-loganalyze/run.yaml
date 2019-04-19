@@ -13,12 +13,12 @@
           set -x
           cat > clonemap.yaml << EOF
           clonemap:
-            - name: openstack-infra/devstack-gate
+            - name: openstack/devstack-gate
               dest: devstack-gate
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              https://git.openstack.org \
-              openstack-infra/devstack-gate
+              https://opendev.org \
+              openstack/devstack-gate
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -29,7 +29,7 @@
           set -x
           cat << 'EOF' >>"/tmp/dg-local.conf"
           [[local|localrc]]
-          enable_plugin devstack-plugin-os-loganalyze https://git.openstack.org/openstack-infra/os-loganalyze
+          enable_plugin devstack-plugin-os-loganalyze https://opendev.org/openstack/os-loganalyze
 
           EOF
         executable: /bin/bash
@@ -43,7 +43,7 @@
           export PYTHONUNBUFFERED=true
           export DEVSTACK_GATE_TEMPEST=1
           export ENABLED_SERVICES=os-loganalyze
-          export PROJECTS="openstack-infra/os-loganalyze $PROJECTS"
+          export PROJECTS="openstack/os-loganalyze $PROJECTS"
 
           function post_test_hook {
               # Copy the tempest output to the os-loganalyze DocumentRoot

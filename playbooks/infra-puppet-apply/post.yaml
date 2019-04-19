@@ -2,6 +2,6 @@
   tasks:
   - name: Copy puppet-apply test output to log server
     synchronize:
-      src: "{{ zuul.projects['git.openstack.org/openstack-infra/system-config'].src_dir }}/applytest/"
+      src: "{{ zuul.projects['opendev.org/opendev/system-config'].src_dir }}/applytest/"
       dest: '{{ zuul.executor.log_root }}/applytest/'
       mode: pull

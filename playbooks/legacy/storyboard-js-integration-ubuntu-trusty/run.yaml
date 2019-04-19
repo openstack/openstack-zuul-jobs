@@ -35,7 +35,7 @@
               dest: .
           EOF
           /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
-              https://git.openstack.org $ZUUL_PROJECT
+              https://opendev.org $ZUUL_PROJECT
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -85,13 +85,13 @@
         cmd: |
           set -e
           set -x
-          /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git https://git.openstack.org openstack-infra/storyboard openstack-infra/storyboard-webclient
+          /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git https://opendev.org opendev/storyboard opendev/storyboard-webclient
 
           export CREATE_USER=1
           export DB_ADMIN_USER=root
-          export STORYBOARD_PATH=openstack-infra/storyboard
+          export STORYBOARD_PATH=opendev/storyboard
 
-          ./openstack-infra/storyboard/tools/install_test_backend.sh
+          ./opendev/storyboard/tools/install_test_backend.sh
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -120,7 +120,7 @@
         cmd: |
           set -e
           set -x
-          ./openstack-infra/storyboard/tools/destroy_test_backend.sh
+          ./opendev/storyboard/tools/destroy_test_backend.sh
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'

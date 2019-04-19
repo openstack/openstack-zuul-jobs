@@ -14,12 +14,12 @@
           set -x
           cat > clonemap.yaml << EOF
           clonemap:
-            - name: openstack-infra/devstack-gate
+            - name: openstack/devstack-gate
               dest: devstack-gate
           EOF
           /usr/zuul-env/bin/zuul-cloner -m clonemap.yaml --cache-dir /opt/git \
-              https://git.openstack.org \
-              openstack-infra/devstack-gate
+              https://opendev.org \
+              openstack/devstack-gate
         executable: /bin/bash
         chdir: '{{ ansible_user_dir }}/workspace'
       environment: '{{ zuul | zuul_legacy_vars }}'
@@ -75,7 +75,7 @@
           if [[ "$ZUUL_BRANCH" != "master" ]] ; then
             # NOTE(jroll) if this is not a patch against master, then
             # fetch master to install the plugin
-            export DEVSTACK_LOCAL_CONFIG+=$'\n'"TEMPEST_PLUGINS+=' git+https://git.openstack.org/openstack/ironic'"
+            export DEVSTACK_LOCAL_CONFIG+=$'\n'"TEMPEST_PLUGINS+=' git+https://opendev.org/openstack/ironic'"
           else
             # on master, use the local change, so we can pick up any changes to the plugin
             export DEVSTACK_LOCAL_CONFIG+=$'\n'"TEMPEST_PLUGINS+=' /opt/stack/new/ironic'"
@@ -94,7 +94,7 @@
           export PROJECTS="openstack/ironic-lib $PROJECTS"
           export PROJECTS="openstack/ironic-python-agent $PROJECTS"
           export PROJECTS="openstack/python-ironicclient $PROJECTS"
-          export PROJECTS="openstack/pyghmi $PROJECTS"
+          export PROJECTS="x/pyghmi $PROJECTS"
           export PROJECTS="openstack/virtualbmc $PROJECTS"
           export PYTHONUNBUFFERED=true
           export DEVSTACK_GATE_TEMPEST=1
@@ -152,7 +152,7 @@
           # Pull in the EARLY variables injected by the optional builders
           source ironic-vars-early
 
-          export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin ironic https://git.openstack.org/openstack/ironic"
+          export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin ironic https://opendev.org/openstack/ironic"
 
           # Ensure the ironic-EXTRA-vars file exists
           touch ironic-extra-vars
