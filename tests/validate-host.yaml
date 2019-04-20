@@ -10,4 +10,4 @@
   hosts: all
   roles:
     - role: validate-host
-      zuul_site_traceroute_host: git.openstack.org
+      zuul_site_traceroute_host: files.openstack.org

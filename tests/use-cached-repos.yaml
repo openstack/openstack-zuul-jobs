@@ -3,13 +3,13 @@
   roles:
     - role: use-cached-repos
   post_tasks:
-    # openstack-infra/project-config is in 'required-projects'.
+    # openstack/project-config is in 'required-projects'.
     # Also check that the project being tested is being prepared.
     # We're checking them explicitly rather than with_items on zuul.projects
     # in case there is a regression which would take an item out.
-    - name: Check that openstack-infra/project-config was prepared
+    - name: Check that openstack/project-config was prepared
       stat:
-        path: "{{ ansible_user_dir }}/src/git.openstack.org/openstack-infra/project-config"
+        path: "{{ ansible_user_dir }}/src/opendev.org/openstack/project-config"
       register: project_config
 
     - name: Check this project was prepared
