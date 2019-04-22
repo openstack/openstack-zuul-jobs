@@ -1451,22 +1451,10 @@
     nodeset: ubuntu-xenial
 
 - job:
-    name: infra-puppet-apply-3-centos-7
-    parent: infra-puppet-apply-base
-    nodeset: centos-7
-
-- job:
     name: infra-puppet-apply-3-ubuntu-trusty
     parent: infra-puppet-apply-base
     nodeset: ubuntu-trusty
     branches: master
-
-- job:
-    name: infra-puppet-apply-4-centos-7
-    parent: infra-puppet-apply-base
-    nodeset: centos-7
-    vars:
-      puppet_version: 4
 
 - job:
     name: infra-puppet-apply-4-ubuntu-xenial
@@ -1601,13 +1589,6 @@
       project_src_dir: "{{ zuul.projects['opendev.org/opendev/puppet-openstackci'].src_dir }}"
 
 - job:
-    name: openstackci-beaker-centos-7
-    parent: openstackci-beaker
-    nodeset: centos-7
-    vars:
-      nodeset: nodepool-centos7
-
-- job:
     name: openstackci-beaker-ubuntu-trusty
     parent: openstackci-beaker
     nodeset: ubuntu-trusty
@@ -1619,15 +1600,6 @@
     parent: openstackci-beaker
     description: |
       Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial for the
-      puppet-openstackci module.
-    vars:
-      puppet_version: 4
-
-- job:
-    name: openstackci-beaker-puppet-4-centos-7
-    parent: openstackci-beaker-centos-7
-    description: |
-      Run beaker-rspec functional tests with puppet 4 on CentOS 7 for the
       puppet-openstackci module.
     vars:
       puppet_version: 4
