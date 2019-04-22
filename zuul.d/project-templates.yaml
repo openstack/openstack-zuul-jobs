@@ -1580,28 +1580,20 @@
       Runs puppet apply tests for OpenStack Infrastructure.
     check:
       jobs:
-        - infra-puppet-apply-3-centos-7
         - infra-puppet-apply-3-ubuntu-trusty:
             branches: master
         - infra-puppet-apply-3-ubuntu-xenial
-        - infra-puppet-apply-4-centos-7
         - infra-puppet-apply-4-ubuntu-xenial
-        - openstackci-beaker-centos-7
         - openstackci-beaker-ubuntu-trusty
         - openstackci-beaker
-        - openstackci-beaker-puppet-4-centos-7:
-            voting: false
         - openstackci-beaker-puppet-4:
             voting: false
     gate:
       jobs:
-        - infra-puppet-apply-3-centos-7
         - infra-puppet-apply-3-ubuntu-trusty:
             branches: master
         - infra-puppet-apply-3-ubuntu-xenial
-        - openstackci-beaker-centos-7
         - openstackci-beaker-ubuntu-trusty
-        - infra-puppet-apply-4-centos-7
         - infra-puppet-apply-4-ubuntu-xenial
         - openstackci-beaker
 
