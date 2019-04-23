@@ -1303,6 +1303,19 @@
         - openstack-tox-py35
 
 - project-template:
+    name: python36-charm-jobs
+    description: |
+      Run tox-pep8 and tox-py36 check and gate jobs.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py36
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py36
+
+- project-template:
     name: nodejs4-jobs
     description: |
       Run lint and test jobs using Node 4.
