@@ -1161,6 +1161,8 @@
               - stable/pike
               - stable/queens
               - stable/rocky
+        - openstack-tox-docs:
+            branches:
               - stable/stein
         - openstack-tox-py27:
             branches:
