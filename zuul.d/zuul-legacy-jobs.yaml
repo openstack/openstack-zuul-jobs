@@ -843,14 +843,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-package-stackviz-element
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/periodic-package-stackviz-element/run.yaml
-    post-run: playbooks/legacy/periodic-package-stackviz-element/post.yaml
-    branches: master
-    timeout: 1800
-
-- job:
     name: legacy-periodic-tempest-dsvm-all-master
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-all-master/run.yaml
