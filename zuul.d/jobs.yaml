@@ -1001,6 +1001,8 @@
       before stable/stein will keep running on xenial.
     pre-run: playbooks/legacy/pre.yaml
     nodeset: legacy-ubuntu-xenial
+    vars:
+      bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
     branches:
       - stable/ocata
       - stable/pike
@@ -1015,6 +1017,8 @@
 
       This job runs on Bionic from stable/stein on.
     pre-run: playbooks/legacy/pre.yaml
+    vars:
+      bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
     branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
     nodeset: legacy-ubuntu-bionic
 
