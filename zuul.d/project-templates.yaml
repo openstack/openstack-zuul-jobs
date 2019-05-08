@@ -1056,7 +1056,6 @@
         - upstream-translation-update:
             branches:
               - master
-              - stable/queens
               - stable/rocky
               - stable/stein
     periodic:
@@ -1064,7 +1063,6 @@
         - propose-translation-update:
             branches:
               - master
-              - stable/queens
               - stable/rocky
               - stable/stein
 
