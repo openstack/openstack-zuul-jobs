@@ -1,10 +1,4 @@
 - job:
-    name: legacy-ansible-lint
-    parent: legacy-base
-    run: playbooks/legacy/ansible-lint/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-barbican-simple-crypto-dsvm-tempest-nova
     parent: legacy-dsvm-base
     run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-nova/run.yaml
