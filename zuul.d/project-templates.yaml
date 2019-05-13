@@ -1002,31 +1002,6 @@
               - release-openstack-javascript
 
 - project-template:
-    name: translation-jobs-rocky
-    description: |
-      Sync translations to translation server and back again for
-      **stable/rocky** branch only.
-
-      This is intended for official OpenStack projects that have
-      translations set up.
-
-      .. note::
-         This template is obsolete, use
-         :zuul:project_template:`translation-jobs-master-only` or
-         :zuul:project_template:`translation-jobs-master-stable`
-         instead.
-
-    post:
-      jobs:
-        - upstream-translation-update:
-            branches: stable/rocky
-    periodic:
-      jobs:
-        - propose-translation-update:
-            branches: stable/rocky
-
-
-- project-template:
     name: translation-jobs-master-only
     description: |
       Sync translations to translation server and back again for
