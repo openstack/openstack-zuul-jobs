@@ -837,17 +837,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-all-master
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-all-master/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-all-master/post.yaml
-    timeout: 10800
-    branches: master
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata
     parent: legacy-dsvm-base
     run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/run.yaml
@@ -1123,17 +1112,6 @@
       - openstack/devstack-gate
       - openstack/neutron
       - x/scalpels
-
-- job:
-    name: legacy-sqlalchemy-migrate-devstack-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/sqlalchemy-migrate-devstack-dsvm/run.yaml
-    post-run: playbooks/legacy/sqlalchemy-migrate-devstack-dsvm/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack
-      - openstack/devstack-gate
-      - x/sqlalchemy-migrate
 
 - job:
     name: legacy-storyboard-js-integration
@@ -1699,19 +1677,6 @@
     required-projects:
       - openstack/devstack-gate
       - x/trio2o
-
-- job:
-    name: legacy-zaqarclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/zaqarclient-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/zaqarclient-dsvm-functional/post.yaml
-    timeout: 6000
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/python-zaqarclient
-      - openstack/zaqar
-      - openstack/zaqar-tempest-plugin
-      - openstack/zaqar-ui
 
 - job:
     name: legacy-zmq-event-publisher-hpi-artifact
