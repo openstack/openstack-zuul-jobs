@@ -1,13 +1,4 @@
 - project-template:
-    name: ansible-lint-jobs
-    check:
-      jobs:
-        - legacy-ansible-lint
-    gate:
-      jobs:
-        - legacy-ansible-lint
-
-- project-template:
     name: fuel-ccp-component
     check:
       jobs:
