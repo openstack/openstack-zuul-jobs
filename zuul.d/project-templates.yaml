@@ -1532,11 +1532,11 @@
     check:
       jobs:
         - puppet-beaker-rspec-infra
-        - puppet-beaker-rspec-puppet-4-infra:
-            voting: false
+        - puppet-beaker-rspec-puppet-4-infra
     gate:
       jobs:
         - puppet-beaker-rspec-infra
+        - puppet-beaker-rspec-puppet-4-infra
 
 - project-template:
     name: puppet-beaker-jobs-xenial-infra-nv
@@ -1547,6 +1547,8 @@
       jobs:
         - puppet-beaker-rspec-infra:
             voting: false
+        - puppet-beaker-rspec-puppet-4-infra:
+            voting: false
 
 - project-template:
     name: puppet-beaker-jobs-centos-7-infra
@@ -1556,11 +1558,11 @@
     check:
       jobs:
         - puppet-beaker-rspec-centos-7-infra
-        - puppet-beaker-rspec-puppet-4-centos-7-infra:
-            voting: false
+        - puppet-beaker-rspec-puppet-4-centos-7-infra
     gate:
       jobs:
         - puppet-beaker-rspec-centos-7-infra
+        - puppet-beaker-rspec-puppet-4-centos-7-infra
 
 - project-template:
     name: infra-puppet-apply-jobs
@@ -1574,8 +1576,7 @@
         - infra-puppet-apply-4-ubuntu-xenial
         - openstackci-beaker-ubuntu-trusty
         - openstackci-beaker
-        - openstackci-beaker-puppet-4:
-            voting: false
+        - openstackci-beaker-puppet-4
     gate:
       jobs:
         - infra-puppet-apply-3-ubuntu-trusty:
@@ -1584,6 +1585,7 @@
         - openstackci-beaker-ubuntu-trusty
         - infra-puppet-apply-4-ubuntu-xenial
         - openstackci-beaker
+        - openstackci-beaker-puppet-4
 
 - project-template:
     name: lib-forward-testing
