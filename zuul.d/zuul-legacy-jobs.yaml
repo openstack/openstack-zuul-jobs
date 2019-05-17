@@ -987,20 +987,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-puppet-syntax-3
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-syntax-3/run.yaml
-    timeout: 1800
-    nodeset: legacy-ubuntu-xenial
-
-- job:
-    name: legacy-puppet-syntax-3-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-syntax-3-centos-7/run.yaml
-    timeout: 1800
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-puppet-syntax-4-centos-7
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-syntax-4-centos-7/run.yaml
@@ -1102,13 +1088,6 @@
     post-run: playbooks/legacy/storyboard-js-integration-ubuntu-trusty/post.yaml
     timeout: 2400
     nodeset: legacy-ubuntu-trusty
-
-- job:
-    name: legacy-system-config-puppet-syntax-3
-    parent: legacy-base
-    run: playbooks/legacy/system-config-puppet-syntax-3/run.yaml
-    timeout: 1800
-    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-tempest-almanach-dsvm
