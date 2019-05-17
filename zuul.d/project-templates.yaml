@@ -1566,13 +1566,11 @@
       jobs:
         - infra-puppet-apply-3-ubuntu-xenial
         - infra-puppet-apply-4-ubuntu-xenial
-        - openstackci-beaker
         - openstackci-beaker-puppet-4
     gate:
       jobs:
         - infra-puppet-apply-3-ubuntu-xenial
         - infra-puppet-apply-4-ubuntu-xenial
-        - openstackci-beaker
         - openstackci-beaker-puppet-4
 
 - project-template:
