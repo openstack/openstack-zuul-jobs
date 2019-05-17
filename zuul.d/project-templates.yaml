@@ -1531,11 +1531,9 @@
       The jobs are run on Ubuntu Xenial.
     check:
       jobs:
-        - puppet-beaker-rspec-infra
         - puppet-beaker-rspec-puppet-4-infra
     gate:
       jobs:
-        - puppet-beaker-rspec-infra
         - puppet-beaker-rspec-puppet-4-infra
 
 - project-template:
@@ -1545,8 +1543,6 @@
       The jobs are run on Ubuntu Xenial and are non-voting.
     check:
       jobs:
-        - puppet-beaker-rspec-infra:
-            voting: false
         - puppet-beaker-rspec-puppet-4-infra:
             voting: false
 
@@ -1557,11 +1553,9 @@
       The jobs are run on CentOS 7.
     check:
       jobs:
-        - puppet-beaker-rspec-centos-7-infra
         - puppet-beaker-rspec-puppet-4-centos-7-infra
     gate:
       jobs:
-        - puppet-beaker-rspec-centos-7-infra
         - puppet-beaker-rspec-puppet-4-centos-7-infra
 
 - project-template:
