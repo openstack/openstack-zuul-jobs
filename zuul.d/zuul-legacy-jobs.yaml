@@ -208,18 +208,6 @@
     branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
-    name: legacy-grenade-dsvm-neutron-multinode-live-migration
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-neutron-multinode-live-migration/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-multinode-live-migration/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/devstack-gate
-      - openstack/neutron
-    branches: ^(?!(driverfixes|stable/(newton|ocata))).*$
-
-- job:
     name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/run.yaml
