@@ -1563,13 +1563,6 @@
       - opendev/puppet-vcsrepo
 
 - job:
-    name: puppet-beaker-rspec-centos-7-infra
-    parent: puppet-beaker-rspec-infra
-    nodeset: centos-7
-    vars:
-      nodeset: nodepool-centos7
-
-- job:
     name: puppet-beaker-rspec-puppet-4-infra
     parent: puppet-beaker-rspec-infra
     description: |
@@ -1579,10 +1572,12 @@
 
 - job:
     name: puppet-beaker-rspec-puppet-4-centos-7-infra
-    parent: puppet-beaker-rspec-centos-7-infra
+    parent: puppet-beaker-rspec-infra
+    nodeset: centos-7
     description: |
       Run beaker-rspec functional tests with puppet 4 on CentOS 7.
     vars:
+      nodeset: nodepool-centos7
       puppet_version: 4
 
 - job:
