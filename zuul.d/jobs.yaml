@@ -1231,6 +1231,7 @@
       - tools/check_projects_yaml_alphabetized.sh
       - tools/check_valid_gerrit_config.sh
       - tox.ini
+      - zuul/main.yaml
 
 - job:
     name: project-config-grafyaml
