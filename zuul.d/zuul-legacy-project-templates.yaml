@@ -36,12 +36,10 @@
     check:
       jobs:
         - legacy-puppet-lint
-        - legacy-puppet-syntax-3
         - legacy-puppet-syntax-4-centos-7
     gate:
       jobs:
         - legacy-puppet-lint
-        - legacy-puppet-syntax-3
         - legacy-puppet-syntax-4-centos-7
 
 - project-template:
@@ -101,9 +99,7 @@
     name: puppet-syntax
     check:
       jobs:
-        - legacy-puppet-syntax-3-centos-7
         - legacy-puppet-syntax-4-centos-7
     gate:
       jobs:
-        - legacy-puppet-syntax-3-centos-7
         - legacy-puppet-syntax-4-centos-7
