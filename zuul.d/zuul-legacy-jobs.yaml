@@ -867,18 +867,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-periodic-tempest-dsvm-neutron-full-ocata
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-ocata/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-neutron-full-ocata/post.yaml
-    branches: stable/ocata
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-puppet-beaker-rspec
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-beaker-rspec/run.yaml
