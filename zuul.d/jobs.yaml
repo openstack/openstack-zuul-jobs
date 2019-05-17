@@ -1581,25 +1581,13 @@
       puppet_version: 4
 
 - job:
-    name: openstackci-beaker
-    parent: puppet-beaker-rspec-infra
-    vars:
-      project_src_dir: "{{ zuul.projects['opendev.org/opendev/puppet-openstackci'].src_dir }}"
-
-- job:
-    name: openstackci-beaker-ubuntu-trusty
-    parent: openstackci-beaker
-    nodeset: ubuntu-trusty
-    vars:
-      nodeset: nodepool-trusty
-
-- job:
     name: openstackci-beaker-puppet-4
-    parent: openstackci-beaker
+    parent: puppet-beaker-rspec-infra
     description: |
       Run beaker-rspec functional tests with puppet 4 on Ubuntu Xenial for the
       puppet-openstackci module.
     vars:
+      project_src_dir: "{{ zuul.projects['opendev.org/opendev/puppet-openstackci'].src_dir }}"
       puppet_version: 4
 
 - job:
