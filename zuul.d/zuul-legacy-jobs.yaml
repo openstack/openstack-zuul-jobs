@@ -49,13 +49,6 @@
       - openstack/os-loganalyze
 
 - job:
-    name: legacy-fuel-astute-puppet-unit-3.8-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/fuel-astute-puppet-unit-3.8-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-fuel-ccp-validate
     parent: legacy-base
     run: playbooks/legacy/fuel-ccp-validate/run.yaml
@@ -70,23 +63,9 @@
     timeout: 1800
 
 - job:
-    name: legacy-fuel-library-puppet-unit-3.8-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/fuel-library-puppet-unit-3.8-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-fuel-library-puppet-unit-4.5-centos-7
     parent: legacy-base
     run: playbooks/legacy/fuel-library-puppet-unit-4.5-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-fuel-nailgun-agent-puppet-unit-3.8-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/fuel-nailgun-agent-puppet-unit-3.8-centos-7/run.yaml
     timeout: 3600
     nodeset: legacy-centos-7
 
