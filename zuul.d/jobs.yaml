@@ -875,14 +875,13 @@
 
 - job:
     name: build-openstack-api-ref
-    parent: build-openstack-sphinx-docs
+    parent: openstack-tox-docs
     description: |
       Build api-ref document. This is only run on master branch of a
       project.
     timeout: 1800
     vars:
-      sphinx_build_dir: api-ref/build
-      sphinx_source_dir: api-ref/source
+      tox_envlist: api-ref
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
@@ -896,13 +895,12 @@
 
 - job:
     name: build-openstack-api-guide
-    parent: build-openstack-sphinx-docs
+    parent: openstack-tox-docs
     description: |
       Build api-guide document. This is only run for changes on master
       branch of a project.
     vars:
-      sphinx_build_dir: api-guide/build
-      sphinx_source_dir: api-guide/source
+      tox_envlist: api-guide
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
