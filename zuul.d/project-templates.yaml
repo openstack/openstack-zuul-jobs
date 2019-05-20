@@ -1160,6 +1160,10 @@
               - stable/pike
               - stable/queens
               - stable/rocky
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-docs:
+            branches:
               - stable/stein
             required-projects:
               - openstack/neutron
@@ -1190,12 +1194,18 @@
               - stable/rocky
             required-projects:
               - openstack/ceilometer
+        - openstack-tox-docs:
+            branches:
+              - stable/stein
+            required-projects:
+              - openstack/ceilometer
         - openstack-tox-py27:
             branches:
               - stable/ocata
               - stable/pike
               - stable/queens
               - stable/rocky
+              - stable/stein
             required-projects:
               - openstack/ceilometer
 
