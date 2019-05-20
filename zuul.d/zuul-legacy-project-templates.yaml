@@ -72,27 +72,14 @@
         - legacy-tempest-dsvm-neutron-src-plugin
 
 
-- project-template: # Used by puppet-midonet
-    name: puppet-beaker-jobs
-    check:
-      jobs:
-        - legacy-puppet-beaker-rspec-centos-7
-    gate:
-      jobs:
-        - legacy-puppet-beaker-rspec-centos-7
-
 - project-template:
     name: puppet-module-unit-jobs
     check:
       jobs:
-        - legacy-puppet-unit-3.6-legacy-centos-7
-        - legacy-puppet-unit-3.8-legacy-centos-7
         - legacy-puppet-unit-4.8-centos-7
         - legacy-puppet-unit-latest-centos-7
     gate:
       jobs:
-        - legacy-puppet-unit-3.6-legacy-centos-7
-        - legacy-puppet-unit-3.8-legacy-centos-7
         - legacy-puppet-unit-4.8-centos-7
 
 - project-template:

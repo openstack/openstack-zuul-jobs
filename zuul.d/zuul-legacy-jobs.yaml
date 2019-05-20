@@ -872,24 +872,6 @@
       - ^test-requirements.txt$
 
 - job:
-    name: legacy-puppet-beaker-rspec-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-beaker-rspec-centos-7/run.yaml
-    post-run: playbooks/legacy/puppet-beaker-rspec-centos-7/post.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-    required-projects:
-      - openstack/puppet-openstack-integration
-    irrelevant-files:
-      - ^.*\.md$
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^etc/.*$
-      - ^metadata.json$
-      - ^releasenotes/.*$
-      - ^test-requirements.txt$
-
-- job:
     name: legacy-puppet-httpd-forge-upload
     parent: legacy-base
     run: playbooks/legacy/puppet-httpd-forge-upload/run.yaml
@@ -901,20 +883,6 @@
     run: playbooks/legacy/puppet-lint/run.yaml
     timeout: 1800
     nodeset: ubuntu-xenial
-
-- job:
-    name: legacy-puppet-midonet-puppet-unit-3.6-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/puppet-midonet-puppet-unit-3.6-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-puppet-midonet-puppet-unit-3.8-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/puppet-midonet-puppet-unit-3.8-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
 
 - job:
     name: legacy-puppet-midonet-puppet-unit-4.5-centos-7
@@ -968,38 +936,6 @@
     run: playbooks/legacy/puppet-syntax-4-centos-7/run.yaml
     timeout: 1800
     nodeset: legacy-centos-7
-
-- job:
-    name: legacy-puppet-unit-3.6-legacy-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-unit-3.6-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-    branches: ^(stable/(newton|ocata)).*$
-    irrelevant-files:
-      - ^.*\.md$
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^etc/.*$
-      - ^metadata.json$
-      - ^releasenotes/.*$
-      - ^test-requirements.txt$
-
-- job:
-    name: legacy-puppet-unit-3.8-legacy-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-unit-3.8-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-    branches: ^(stable/(newton|ocata)).*$
-    irrelevant-files:
-      - ^.*\.md$
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^etc/.*$
-      - ^metadata.json$
-      - ^releasenotes/.*$
-      - ^test-requirements.txt$
 
 - job:
     name: legacy-puppet-unit-4.8-centos-7
