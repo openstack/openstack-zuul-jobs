@@ -44,15 +44,7 @@
           export DEVSTACK_GATE_TEMPEST=1
           export PROJECTS="x/devstack-plugin-hdfs $PROJECTS"
 
-          if [[ "hdfs" = "sheepdog" ]]; then
-              export DEVSTACK_GATE_TEMPEST_ALL_PLUGINS=1
-              # As we are setting DEVSTACK_GATE_TEMPEST_ALL_PLUGINS, we need
-              # to add the regex to limit the tests to the same as a tempest
-              # -efull would run.
-              export DEVSTACK_GATE_TEMPEST_REGEX='(?!.*\[.*\bslow\b.*\])(^tempest\.(api|scenario)|(^cinder\.tests.tempest))'
-          else
-              export DEVSTACK_GATE_TEMPEST_FULL=1
-          fi
+          export DEVSTACK_GATE_TEMPEST_FULL=1
 
           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
           ./safe-devstack-vm-gate-wrap.sh
