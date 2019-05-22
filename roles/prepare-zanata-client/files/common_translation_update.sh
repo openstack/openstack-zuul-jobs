@@ -55,8 +55,11 @@ function init_branch {
 
     # The calling environment puts upper-constraints.txt in our
     # working directory.
-    # UPPER_CONSTRAINTS_FILE needs to be exported so that tox can use it
+    # TOX_CONSTRAINTS_FILE needs to be exported so that tox can use it
     # if needed.
+    export TOX_CONSTRAINTS_FILE=$(pwd)/upper-constraints.txt
+    # The deprecated name of TOX_CONSTRAINTS_FILE is UPPER_CONSTRAINTS_FILE,
+    # so handle that one as well for now.
     export UPPER_CONSTRAINTS_FILE=$(pwd)/upper-constraints.txt
     GIT_BRANCH=$branch
 }
