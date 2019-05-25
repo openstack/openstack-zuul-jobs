@@ -893,6 +893,7 @@
       - bindep.txt
       - doc/requirements.txt
       - test-requirements.txt
+      - tox.ini
 
 - job:
     name: build-openstack-api-guide
@@ -911,6 +912,7 @@
       - bindep.txt
       - doc/requirements.txt
       - test-requirements.txt
+      - tox.ini
 
 - job:
     name: build-openstack-deploy-guide
@@ -925,6 +927,7 @@
       - bindep.txt
       - doc/requirements.txt
       - test-requirements.txt
+      - tox.ini
 
 - job:
     name: build-openstack-install-guide
