@@ -1435,11 +1435,11 @@
       documentation and run tox based linter.
     check:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
         - openstack-tox-linters
     gate:
       jobs:
-        - build-openstack-sphinx-docs
+        - openstack-tox-docs
         - openstack-tox-linters
 
 - project-template:
