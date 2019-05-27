@@ -914,12 +914,12 @@
 
 - job:
     name: build-openstack-deploy-guide
-    parent: build-openstack-sphinx-docs
+    parent: openstack-tox-docs
     description: |
       Build deploy-guide document.
     vars:
       sphinx_build_dir: deploy-guide/build
-      sphinx_source_dir: deploy-guide/source
+      tox_envlist: deploy-guide
     files:
       - ^deploy-guide/.*
       - bindep.txt
