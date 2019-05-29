@@ -7,6 +7,6 @@
       args:
         chdir: "{{ zuul.projects['opendev.org/opendev/system-config'].src_dir }}"
       environment:
-        PUPPET_VERSION: "{{ puppet_version | default('3') }}"
+        PUPPET_VERSION: "{{ puppet_version | default('4') }}"
       tags:
         - skip_ansible_lint

@@ -1453,17 +1453,6 @@
     post-run: playbooks/infra-puppet-apply/post.yaml
 
 - job:
-    name: infra-puppet-apply-3-ubuntu-xenial
-    parent: infra-puppet-apply-base
-    nodeset: ubuntu-xenial
-
-- job:
-    name: infra-puppet-apply-3-ubuntu-trusty
-    parent: infra-puppet-apply-base
-    nodeset: ubuntu-trusty
-    branches: master
-
-- job:
     name: infra-puppet-apply-4-ubuntu-xenial
     parent: infra-puppet-apply-base
     nodeset: ubuntu-xenial

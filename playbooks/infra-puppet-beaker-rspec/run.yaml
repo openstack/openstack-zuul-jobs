@@ -51,4 +51,4 @@
         chdir: "{{ project_src_dir }}"
       environment:
         'GEM_HOME': "{{ ansible_user_dir }}/.bundled_gems"
-        'PUPPET_VERSION': "{{ puppet_version | default('3') }}"
+        'PUPPET_VERSION': "{{ puppet_version | default('4') }}"
