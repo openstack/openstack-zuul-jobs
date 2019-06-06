@@ -1613,3 +1613,18 @@
     gate:
       jobs:
         - tempest-full-py3
+
+- project-template:
+    name: openstack-tox-molecule
+    description: |
+      Runs Ansible molecule testing using tox 'molecule' environment.
+    check:
+      jobs:
+        - tox-molecule:
+            success-url: "tox/reports.html"
+            failure-url: "tox/reports.html"
+    gate:
+      jobs:
+        - tox-molecule:
+            success-url: "tox/reports.html"
+            failure-url: "tox/reports.html"
