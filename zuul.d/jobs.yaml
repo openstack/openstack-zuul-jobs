@@ -58,7 +58,7 @@
 - job:
     name: openstack-infra-base-integration-opensuse15
     parent: openstack-infra-base-integration
-    nodeset: opensuse-150
+    nodeset: opensuse-15
 
 - job:
     name: openstack-infra-base-integration-opensuse-tumbleweed
@@ -211,9 +211,9 @@
     nodeset:
       nodes:
         - name: primary
-          label: opensuse-150
+          label: opensuse-15
         - name: secondary
-          label: opensuse-150
+          label: opensuse-15
       groups:
         - name: switch
           nodes:

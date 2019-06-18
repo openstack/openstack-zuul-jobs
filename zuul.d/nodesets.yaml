@@ -23,17 +23,25 @@
       - name: gentoo-17-0-systemd
         label: gentoo-17-0-systemd
 
+# Deprecated, please use opensuse-15 going forward
 - nodeset:
     name: opensuse-423
     nodes:
       - name: opensuse-423
         label: opensuse-423
 
+# Deprecated, please use opensuse-15 going forward
 - nodeset:
     name: opensuse-150
     nodes:
       - name: opensuse-150
         label: opensuse-150
+
+- nodeset:
+    name: opensuse-15
+    nodes:
+      - name: opensuse-15
+        label: opensuse-15
 
 - nodeset:
     name: opensuse-tumbleweed
