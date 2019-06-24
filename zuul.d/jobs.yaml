@@ -1363,6 +1363,8 @@
 
 - job:
     name: infra-puppet-apply-base
+    # Required to install z-c for puppet module installs.
+    parent: legacy-base
     timeout: 1800
     required-projects:
       - opendev/system-config
