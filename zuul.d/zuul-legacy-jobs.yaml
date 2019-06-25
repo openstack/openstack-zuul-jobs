@@ -806,23 +806,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-puppet-beaker-rspec
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-beaker-rspec/run.yaml
-    post-run: playbooks/legacy/puppet-beaker-rspec/post.yaml
-    timeout: 3600
-    required-projects:
-      - openstack/puppet-openstack-integration
-    irrelevant-files:
-      - ^.*\.md$
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^etc/.*$
-      - ^metadata.json$
-      - ^releasenotes/.*$
-      - ^test-requirements.txt$
-
-- job:
     name: legacy-puppet-httpd-forge-upload
     parent: legacy-base
     run: playbooks/legacy/puppet-httpd-forge-upload/run.yaml
