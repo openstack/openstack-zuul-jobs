@@ -1689,16 +1689,3 @@
     name: openstack-infra-extra-integration-bionic
     parent: openstack-infra-extra-integration
     nodeset: ubuntu-bionic
-
-- job:
-    name: zuul-jobs-upload-git-mirror
-    description: |
-      Tests for the upload-git-mirror role from zuul-jobs
-    parent: base
-    roles:
-      - zuul: zuul/zuul-jobs
-    run: tests/upload-git-mirror.yaml
-    files:
-      - ^roles/upload-git-mirror/.*
-      - ^tests/upload-git-mirror.*
-    nodeset: ubuntu-bionic
