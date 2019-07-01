@@ -607,6 +607,7 @@
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional-py37
+      python_version: 3.7
 
 - job:
     name: openstack-tox-validate
