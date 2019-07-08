@@ -4,49 +4,11 @@
       - publish-tox-docs-infra
     check:
       jobs:
-        - openstack-infra-base-integration-centos-7
-        - openstack-infra-base-integration-debian-stable
-        - openstack-infra-base-integration-fedora-latest
-        - openstack-infra-base-integration-gentoo-17-0-systemd
-        - openstack-infra-base-integration-ubuntu-bionic
-        - openstack-infra-base-integration-ubuntu-trusty
-        - openstack-infra-base-integration-ubuntu-xenial
-        - openstack-infra-base-integration-opensuse423
-        - openstack-infra-base-integration-opensuse15
-        - openstack-infra-base-integration-opensuse-tumbleweed
-        - openstack-infra-multinode-integration-centos-7
-        - openstack-infra-multinode-integration-debian-stable
-        - openstack-infra-multinode-integration-fedora-latest
-        - openstack-infra-multinode-integration-gentoo-17-0-systemd
-        - openstack-infra-multinode-integration-ubuntu-bionic
-        - openstack-infra-multinode-integration-ubuntu-trusty
-        - openstack-infra-multinode-integration-ubuntu-xenial
-        - openstack-infra-multinode-integration-opensuse423
-        - openstack-infra-multinode-integration-opensuse15
-        - openstack-infra-multinode-integration-opensuse-tumbleweed
+        - openstack-zuul-jobs-test-mirror-info
         - openstack-infra-extra-integration-xenial
         - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters
     gate:
       jobs:
-        - openstack-infra-base-integration-centos-7
-        - openstack-infra-base-integration-debian-stable
-        - openstack-infra-base-integration-fedora-latest
-        - openstack-infra-base-integration-gentoo-17-0-systemd
-        - openstack-infra-base-integration-ubuntu-bionic
-        - openstack-infra-base-integration-ubuntu-trusty
-        - openstack-infra-base-integration-ubuntu-xenial
-        - openstack-infra-base-integration-opensuse423
-        - openstack-infra-base-integration-opensuse15
-        - openstack-infra-base-integration-opensuse-tumbleweed
-        - openstack-infra-multinode-integration-centos-7
-        - openstack-infra-multinode-integration-debian-stable
-        - openstack-infra-multinode-integration-fedora-latest
-        - openstack-infra-multinode-integration-gentoo-17-0-systemd
-        - openstack-infra-multinode-integration-ubuntu-bionic
-        - openstack-infra-multinode-integration-ubuntu-trusty
-        - openstack-infra-multinode-integration-ubuntu-xenial
-        - openstack-infra-multinode-integration-opensuse423
-        - openstack-infra-multinode-integration-opensuse15
-        - openstack-infra-multinode-integration-opensuse-tumbleweed
+        - openstack-zuul-jobs-test-mirror-info
         - openstack-zuul-jobs-linters

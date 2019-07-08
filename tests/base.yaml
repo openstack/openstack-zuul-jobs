@@ -3,12 +3,12 @@
 # If you add new tests, also update the files section in job
 # base-integration in zuul.d/jobs.yaml.
 
-# Note: set-zuul-log-path-fact is tested by emit-job-header.yaml
-- include: emit-job-header.yaml
-- include: ensure-output-dirs.yaml
-- include: use-cached-repos.yaml
+- hosts: all
+  roles:
+    - ensure-output-dirs
+
 - include: mirror-info.yaml
-- include: configure-mirrors.yaml
-- include: fetch-zuul-cloner.yaml
-- include: validate-host.yaml
-- include: fetch-output.yaml
+
+- hosts: all
+  roles:
+    - fetch-output

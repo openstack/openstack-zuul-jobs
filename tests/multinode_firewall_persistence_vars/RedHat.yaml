@@ -1,3 +1,0 @@
-iptables_service:
-  - iptables
-  - ip6tables

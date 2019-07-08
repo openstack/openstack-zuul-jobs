@@ -1,3 +1,0 @@
-iptables_service:
-  - iptables-restore
-  - ip6tables-restore
