@@ -1620,11 +1620,7 @@
       Runs Ansible molecule testing using tox 'molecule' environment.
     check:
       jobs:
-        - tox-molecule:
-            success-url: "tox/reports.html"
-            failure-url: "tox/reports.html"
+        - openstack-tox-molecule
     gate:
       jobs:
-        - tox-molecule:
-            success-url: "tox/reports.html"
-            failure-url: "tox/reports.html"
+        - openstack-tox-molecule

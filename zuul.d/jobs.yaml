@@ -203,6 +203,18 @@
       bindep_profile: test linters
 
 - job:
+    name: openstack-tox-molecule
+    parent: tox-molecule
+    description: |
+      Runs molecule to test Ansible roles.
+
+      Uses tox with the ``molecule`` environment.
+    success-url: "tox/reports.html"
+    failure-url: "tox/reports.html"
+    vars:
+      bindep_profile: test molecule
+
+- job:
     name: openstack-tox-pep8
     parent: openstack-tox
     description: |
