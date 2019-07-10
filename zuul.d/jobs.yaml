@@ -224,6 +224,7 @@
     vars:
       tox_envlist: pep8
       bindep_profile: test pep8
+      test_setup_skip: true
 
 - job:
     name: openstack-tox-cover
