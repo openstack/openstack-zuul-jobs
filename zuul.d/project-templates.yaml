@@ -247,6 +247,12 @@
     name: release-notes-jobs
     description: |
       Runs the release notes test and publish jobs.
+
+      .. note::
+
+         Only repos listed in ``openstack/governance`` repository are
+         allowed to publish to the `OpenStack docs website
+         <https://docs.openstack.org>`_ .
     check:
       jobs:
         - build-openstack-releasenotes
@@ -260,7 +266,13 @@
 - project-template:
     name: release-notes-jobs-python3
     description: |
-      Runs the release notes jobs under python 3.
+      Builds and publishes the release notes jobs under python 3.
+
+      .. note::
+
+         Only repos listed in ``openstack/governance`` repository are
+         allowed to publish to the `OpenStack docs website
+         <https://docs.openstack.org>`_ .
     check:
       jobs:
         - build-openstack-releasenotes:
@@ -277,6 +289,22 @@
     tag:
       jobs:
         - publish-openstack-releasenotes-python3
+
+- project-template:
+    name: build-release-notes-jobs-python3
+    description: |
+      Runs the release notes jobs under python 3. This only builds releasenotes
+      but does not publish them.
+    check:
+      jobs:
+        - build-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
+    gate:
+      jobs:
+        - build-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
 
 - project-template:
     name: openstack-python-jobs
