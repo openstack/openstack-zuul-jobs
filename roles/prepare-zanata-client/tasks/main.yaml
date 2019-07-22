@@ -5,13 +5,15 @@
 - name: Find java package name
   include_vars: "{{ ansible_os_family }}.yaml"
 
-- name: install necessary packages
+- name: Install necessary packages
   package:
-    name: "{{ zanata_jre_package }}"
+    name:
+      - "{{ zanata_jre_package }}"
+      - gettext
     state: present
   become: yes
 
-- name: ensure zanata install dir
+- name: Ensure zanata install dir
   file:
     path: /opt/zanata
     owner: "{{ ansible_ssh_user }}"
@@ -57,12 +59,12 @@
     remote_src: yes
   when: not cached_client.stat.exists
 
-- name: ensure zanata-cli perms
+- name: Ensure zanata-cli perms
   file:
     path: "/opt/zanata/zanata-cli-{{ zanata_client_version }}/bin/zanata-cli"
     mode: 0755
 
-- name: link zanata-cli
+- name: Link zanata-cli
   file:
     path: /usr/local/bin/zanata-cli
     src: "/opt/zanata/zanata-cli-{{ zanata_client_version }}/bin/zanata-cli"
@@ -79,18 +81,18 @@
   become: true
   # Use sudo to ensure root ownership
 
-- name: set permissions for cacert
+- name: Set permissions for cacert
   file:
     path: /etc/ssl/certs/java/cacerts
     mode: 0644
   become: true
 
-- name: ensure zanata config dir
+- name: Ensure zanata config dir
   file:
     path: ~/.config
     state: directory
 
-- name: write out zanata config
+- name: Write out zanata config
   template:
     src: zanata.ini
     dest: ~/.config/zanata.ini
