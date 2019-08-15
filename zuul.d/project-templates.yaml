@@ -1100,13 +1100,21 @@
       Build and publish api-guide document.
     check:
       jobs:
-        - build-openstack-api-guide
+        - build-openstack-api-guide:
+            files: &api-guide-triggers
+              - ^api-guide/.*
+              - bindep.txt
+              - doc/requirements.txt
+              - test-requirements.txt
+              - tox.ini
     gate:
       jobs:
-        - build-openstack-api-guide
-    post:
+        - build-openstack-api-guide:
+            files: *api-guide-triggers
+    promote:
       jobs:
-        - publish-api-guide
+        - promote-api-guide:
+            files: *api-guide-triggers
 
 - project-template:
     name: api-ref-jobs
@@ -1114,13 +1122,23 @@
       Build and publish api-ref document.
     check:
       jobs:
-        - build-openstack-api-ref
+        - build-openstack-api-ref:
+            files: &api-ref-triggers
+              - ^os_api_ref/.*
+              - ^api-ref/.*
+              - ^doc/api_samples/.*
+              - bindep.txt
+              - doc/requirements.txt
+              - test-requirements.txt
+              - tox.ini
     gate:
       jobs:
-        - build-openstack-api-ref
-    post:
+        - build-openstack-api-ref:
+            files: *api-ref-triggers
+    promote:
       jobs:
-        - publish-api-ref
+        - promote-api-ref:
+            files: *api-ref-triggers
 
 - project-template:
     name: deploy-guide-jobs

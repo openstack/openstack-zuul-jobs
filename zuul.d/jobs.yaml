@@ -641,14 +641,6 @@
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
-    files:
-      - ^os_api_ref/.*
-      - ^api-ref/.*
-      - ^doc/api_samples/.*
-      - bindep.txt
-      - doc/requirements.txt
-      - test-requirements.txt
-      - tox.ini
 
 - job:
     name: build-openstack-api-guide
@@ -662,12 +654,6 @@
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
-    files:
-      - ^api-guide/.*
-      - bindep.txt
-      - doc/requirements.txt
-      - test-requirements.txt
-      - tox.ini
 
 - job:
     name: build-openstack-deploy-guide
