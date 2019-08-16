@@ -98,9 +98,9 @@
     gate:
       jobs:
         - openstack-tox-docs
-    post:
+    promote:
       jobs:
-        - publish-openstack-tox-docs
+        - promote-openstack-tox-docs
 
 
 - project-template:
