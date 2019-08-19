@@ -58,9 +58,16 @@
 
 - nodeset:
     name: legacy-opensuse-423
+    # Deprecated, use legacy-opensuse-15 instead
     nodes:
       - name: primary
         label: opensuse-423
+
+- nodeset:
+    name: legacy-opensuse-15
+    nodes:
+      - name: primary
+        label: opensuse-15
 
 - nodeset:
     name: legacy-ubuntu-trusty
