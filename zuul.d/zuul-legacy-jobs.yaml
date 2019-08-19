@@ -1303,18 +1303,6 @@
     nodeset: legacy-ubuntu-xenial
 
 - job:
-    name: legacy-tempest-dsvm-neutron-full-opensuse-423
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-opensuse-423/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-opensuse-423/post.yaml
-    timeout: 10800
-    nodeset: legacy-opensuse-423
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-ipv6only
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-ipv6only/run.yaml
