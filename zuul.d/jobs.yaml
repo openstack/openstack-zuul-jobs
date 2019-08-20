@@ -398,7 +398,7 @@
 
 - job:
     name: openstack-tox-docs
-    parent: tox-docs
+    parent: opendev-tox-docs
     description: |
       Run documentation build.
 
@@ -414,7 +414,7 @@
 
 - job:
     name: openstack-tox-docs
-    parent: tox-docs
+    parent: opendev-tox-docs
     description: |
       Run documentation build (xenial).
 
