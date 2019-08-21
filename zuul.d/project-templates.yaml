@@ -121,13 +121,13 @@
       docs location.
     check:
       jobs:
-        - tox-docs
+        - opendev-tox-docs
     gate:
       jobs:
-        - tox-docs
-    post:
+        - opendev-tox-docs
+    promote:
       jobs:
-        - publish-tox-docs-infra
+        - promote-tox-docs-infra
 
 - project-template:
     name: release-tox-docs-infra
@@ -136,10 +136,10 @@
       docs location only on tagged releases.
     check:
       jobs:
-        - tox-docs
+        - opendev-tox-docs
     gate:
       jobs:
-        - tox-docs
+        - opendev-tox-docs
     release:
       jobs:
         - publish-tox-docs-infra
