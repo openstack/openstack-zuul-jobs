@@ -663,12 +663,6 @@
     vars:
       sphinx_build_dir: deploy-guide/build
       tox_envlist: deploy-guide
-    files:
-      - ^deploy-guide/.*
-      - bindep.txt
-      - doc/requirements.txt
-      - test-requirements.txt
-      - tox.ini
 
 - job:
     name: build-openstack-install-guide

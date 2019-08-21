@@ -1146,13 +1146,21 @@
       Build and publish deploy-guide document.
     check:
       jobs:
-        - build-openstack-deploy-guide
+        - build-openstack-deploy-guide:
+            files: &deploy-guide-triggers
+              - ^deploy-guide/.*
+              - bindep.txt
+              - doc/requirements.txt
+              - test-requirements.txt
+              - tox.ini
     gate:
       jobs:
-        - build-openstack-deploy-guide
-    post:
+        - build-openstack-deploy-guide:
+            files: *deploy-guide-triggers
+    promote:
       jobs:
-        - publish-deploy-guide
+        - promote-deploy-guide:
+            files: *deploy-guide-triggers
 
 - project-template:
     name: install-guide-jobs
