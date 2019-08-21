@@ -1,0 +1,11 @@
+- name: Check tox env for PDF build in tox.ini
+  shell: |
+    grep '^\[testenv:{{ tox_pdf_envlist }}\]' {{ zuul_work_dir }}/tox.ini
+  register: pdfdocs_env
+  ignore_errors: yes
+
+- include_role:
+    name: tox
+  vars:
+    tox_envlist: "{{ tox_pdf_envlist }}"
+  when: pdfdocs_env is success

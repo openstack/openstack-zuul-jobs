@@ -403,13 +403,36 @@
       Run documentation build.
 
       Uses tox with the ``docs`` environment.
+
+      .. zuul:jobvar: tox_envlist
+
+         The tox environment for building HTML, default is ``docs``.
+
+      .. zuul:jobvar: tox_pdf_envlist
+
+         The tox environment for building PDF, default is ``pdf-docs``.
+         If this enironment does not exist, no PDF building is done.
+
+      .. zuul:jobvar: tox_skip_pdf
+
+         Whether to skip building of PDF documents. By default a PDF
+         file is build if the tox environment specified by
+         :zuul:jobvar:`tox_pdf_envlist` exists.
+
     branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
     required-projects:
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      tox_envlist: docs
       bindep_profile: compile doc
+      tox_envlist: docs
+      tox_pdf_envlist: pdf-docs
+      tox_skip_pdf: false
+    # PDF Building is only done from stein onwards, therefore these
+    # pre-run and run playbooks are not part of the other
+    # openstack-tox-docs job.
+    pre-run: playbooks/tox-docs/pre.yaml
+    run: playbooks/tox-docs/run.yaml
     success-url: html/
 
 - job:
@@ -663,6 +686,7 @@
     vars:
       sphinx_build_dir: deploy-guide/build
       tox_envlist: deploy-guide
+      tox_skip_pdf: true
 
 - job:
     name: build-openstack-install-guide
