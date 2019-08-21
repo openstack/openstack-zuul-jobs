@@ -125,9 +125,9 @@
     gate:
       jobs:
         - tox-docs
-    promote:
+    post:
       jobs:
-        - promote-tox-docs-infra
+        - publish-tox-docs-infra
 
 - project-template:
     name: release-tox-docs-infra
