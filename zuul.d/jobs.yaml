@@ -433,7 +433,6 @@
     # openstack-tox-docs job.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
-    success-url: html/
 
 - job:
     name: openstack-tox-docs
@@ -452,7 +451,6 @@
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
       bindep_profile: compile doc
-    success-url: html/
     nodeset: ubuntu-xenial
     branches:
       - stable/ocata
