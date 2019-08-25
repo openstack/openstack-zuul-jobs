@@ -259,9 +259,9 @@
     gate:
       jobs:
         - build-openstack-releasenotes
-    post:
+    promote:
       jobs:
-        - publish-openstack-releasenotes
+        - promote-openstack-releasenotes
 
 - project-template:
     name: release-notes-jobs-python3
@@ -283,9 +283,9 @@
         - build-openstack-releasenotes:
             vars:
               sphinx_python: python3
-    post:
+    promote:
       jobs:
-        - publish-openstack-releasenotes-python3
+        - promote-openstack-releasenotes
     tag:
       jobs:
         - publish-openstack-releasenotes-python3
