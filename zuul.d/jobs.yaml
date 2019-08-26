@@ -651,7 +651,7 @@
 
 - job:
     name: build-openstack-api-ref
-    parent: opendev-tox-docs
+    parent: openstack-tox-docs
     description: |
       Build api-ref document. This is only run on master branch of a
       project.
@@ -659,19 +659,21 @@
     vars:
       sphinx_build_dir: api-ref/build
       tox_envlist: api-ref
+      tox_skip_pdf: true
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
 
 - job:
     name: build-openstack-api-guide
-    parent: opendev-tox-docs
+    parent: openstack-tox-docs
     description: |
       Build api-guide document. This is only run for changes on master
       branch of a project.
     vars:
       sphinx_build_dir: api-guide/build
       tox_envlist: api-guide
+      tox_skip_pdf: true
     # We only publish the master branch, so no need to run
     # for changes on other branches.
     branches: master
