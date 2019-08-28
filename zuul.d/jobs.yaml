@@ -1397,28 +1397,6 @@
       golang_target: "test"
 
 - job:
-    name: kata-runsh
-    parent: base
-    description: |
-      Run kata's setup.sh and run.sh CI scripts.
-    pre-run: playbooks/kata-runsh/pre.yaml
-    run: playbooks/kata-runsh/run.yaml
-    post-run: playbooks/kata-runsh/post.yaml
-    timeout: 7200
-    nodeset:
-      nodes:
-        - name: ubuntu-xenial
-          label: ubuntu-xenial-vexxhost
-
-- job:
-    name: kata-runsh-fedora-28
-    parent: kata-runsh
-    nodeset:
-      nodes:
-        - name: fedora-28
-          label: fedora-28-vexxhost
-
-- job:
     name: openstack-infra-extra-integration
     description: |
       Runs non-base roles that are used within various jobs to prevent

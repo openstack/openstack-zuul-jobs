@@ -1,5 +1,0 @@
-- name: Warn about unsupported distribution
-  debug:
-    msg: >
-      WARNING: {{ ansible_distribution }} not supported for Kata CI under Zuul.
-      You can add support to this directory if desired.
