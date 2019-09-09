@@ -77,9 +77,10 @@
 - project-template:
     name: publish-openstack-docs-pti
     description: |
-      Runs normal `OpenStack PTI documentation build and publication jobs
+      Runs normal `OpenStack PTI documentation build jobs
       <https://governance.openstack.org/tc/reference/project-testing-interface.html#documentation>`_
-      following the project testing interface.
+      following the project testing interface and publishes the result
+      using a promote job.
 
       Once you have docs published, add them to the index pages
       following the `documentation
@@ -117,8 +118,8 @@
 - project-template:
     name: publish-tox-docs-infra
     description: |
-      Runs normal OpenStack PTI build jobs and publishes to the Infra
-      docs location.
+      Runs normal OpenStack PTI build jobs and publishes the result to
+      the Infra docs location using a promote job.
     check:
       jobs:
         - opendev-tox-docs
@@ -246,7 +247,8 @@
 - project-template:
     name: release-notes-jobs
     description: |
-      Runs the release notes test and publish jobs.
+      Runs the release notes test and publishes the result using a
+      promote job.
 
       .. note::
 
@@ -266,7 +268,8 @@
 - project-template:
     name: release-notes-jobs-python3
     description: |
-      Builds and publishes the release notes jobs under python 3.
+      Builds the release notes jobs under python 3 and publishes the
+      result using a promote job.
 
       .. note::
 
@@ -1097,7 +1100,8 @@
 - project-template:
     name: api-guide-jobs
     description: |
-      Build and publish api-guide document.
+      Build the api-guide document and publish the result
+      using a promote job.
     check:
       jobs:
         - build-openstack-api-guide:
@@ -1119,7 +1123,8 @@
 - project-template:
     name: api-ref-jobs
     description: |
-      Build and publish api-ref document.
+      Build the api-ref document and publish the result
+      using a promote job.
     check:
       jobs:
         - build-openstack-api-ref:
@@ -1143,7 +1148,8 @@
 - project-template:
     name: deploy-guide-jobs
     description: |
-      Build and publish deploy-guide document.
+      Build the deploy-guide document and publish the result
+      using a promote job.
     check:
       jobs:
         - build-openstack-deploy-guide:
