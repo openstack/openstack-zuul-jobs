@@ -209,8 +209,7 @@
       Runs molecule to test Ansible roles.
 
       Uses tox with the ``molecule`` environment.
-    success-url: "tox/reports.html"
-    failure-url: "tox/reports.html"
+    post-run: playbooks/tox-molecule/post.yaml
     vars:
       bindep_profile: test molecule
 
