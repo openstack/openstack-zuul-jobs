@@ -131,21 +131,6 @@
         - promote-tox-docs-infra
 
 - project-template:
-    name: release-tox-docs-infra
-    description: |
-      Runs normal OpenStack PTI build jobs and publishes to the Infra
-      docs location only on tagged releases.
-    check:
-      jobs:
-        - opendev-tox-docs
-    gate:
-      jobs:
-        - opendev-tox-docs
-    release:
-      jobs:
-        - publish-tox-docs-infra
-
-- project-template:
     name: puppet-release-jobs
     description: |
       Runs release jobs for a Puppet project, tests also that tarballs can be
