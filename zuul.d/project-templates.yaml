@@ -1062,15 +1062,15 @@
         - upstream-translation-update:
             branches:
               - master
-              - stable/rocky
               - stable/stein
+              - stable/train
     periodic:
       jobs:
         - propose-translation-update:
             branches:
               - master
-              - stable/rocky
               - stable/stein
+              - stable/train
 
 - project-template:
     name: openstack-specs-jobs
