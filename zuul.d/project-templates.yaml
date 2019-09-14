@@ -1075,16 +1075,17 @@
 - project-template:
     name: openstack-specs-jobs
     description: |
-      Runs jobs to build and publish documents for a specs repository.
+      Runs jobs to build documents for a specs repository and publishes the
+      result using a promote job.
     check:
       jobs:
         - openstack-tox-docs
     gate:
       jobs:
         - openstack-tox-docs
-    post:
+    promote:
       jobs:
-        - publish-openstack-specs
+        - promote-openstack-specs
 
 - project-template:
     name: build-only-specs-jobs
