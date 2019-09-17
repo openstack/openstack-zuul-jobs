@@ -1051,11 +1051,12 @@
 
 - job:
     name: build-openstack-specs-site
-    parent: tox
+    parent: opendev-tox-docs
     description: |
       Generates the index page of http://specs.openstack.org/.
     vars:
       tox_envlist: specs
+      sphinx_build_dir: specs
     files:
       - bindep.txt
       - specs/.*
@@ -1078,11 +1079,12 @@
 
 - job:
     name: project-config-infra-docs-index
-    parent: tox
+    parent: opendev-tox-docs
     description: |
       Generates the index page for https://docs.openstack.org/infra/.
     vars:
       tox_envlist: infra-docs
+      sphinx_build_dir: docs-site
     files:
       - bindep.txt
       - docs-site/.*
