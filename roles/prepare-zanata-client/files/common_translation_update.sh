@@ -386,7 +386,7 @@ function install_horizon {
 
     # Zuul has checked out horizon on the same branch as the project
     # already for us.
-    (cd ${HORIZON_DIR}/horizon && pip install -c $UPPER_CONSTRAINTS_FILE .)
+    (cd ${HORIZON_DIR} && pip install -c $UPPER_CONSTRAINTS_FILE .)
 }
 
 
