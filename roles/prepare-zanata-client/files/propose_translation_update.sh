@@ -15,6 +15,7 @@
 PROJECT=$1
 BRANCH=$2
 JOBNAME=$3
+HORIZON_DIR=$4
 
 # Replace /'s in the branch name with -'s because Zanata does not
 # allow /'s in version names.

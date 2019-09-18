@@ -92,10 +92,6 @@ function finish {
         rm -rf $VENV
         VENV=""
     fi
-    if [ "$HORIZON_ROOT" != "" ] ; then
-        rm -rf $HORIZON_ROOT
-        HORIZON_ROOT=""
-    fi
 }
 
 # The ensure-babel and ensure-sphinx roles create a venv in ~/.venv containing
@@ -388,17 +384,9 @@ function extract_messages_python {
 # our venv. The function setup_venv needs to be called first.
 function install_horizon {
 
-    # TODO(mordred) Replace this with something else that uses the horizon
-    # repo on disk
-    HORIZON_ROOT=$(mktemp -d)
-
-    # Checkout same branch of horizon as the project - including
-    # same constraints.
-    git clone --depth=1 --branch $GIT_BRANCH \
-        https://git.openstack.org/openstack/horizon.git $HORIZON_ROOT/horizon
-    (cd ${HORIZON_ROOT}/horizon && pip install -c $UPPER_CONSTRAINTS_FILE .)
-    rm -rf HORIZON_ROOT
-    HORIZON_ROOT=""
+    # Zuul has checked out horizon on the same branch as the project
+    # already for us.
+    (cd ${HORIZON_DIR}/horizon && pip install -c $UPPER_CONSTRAINTS_FILE .)
 }
 
 
