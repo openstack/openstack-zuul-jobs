@@ -1057,11 +1057,6 @@
     vars:
       tox_envlist: specs
       sphinx_build_dir: specs
-    files:
-      - bindep.txt
-      - specs/.*
-      - other-requirements.txt
-      - tox.ini
 
 - job:
     name: project-config-dib
@@ -1085,11 +1080,6 @@
     vars:
       tox_envlist: infra-docs
       sphinx_build_dir: docs-site
-    files:
-      - bindep.txt
-      - docs-site/.*
-      - other-requirements.txt
-      - tox.ini
 
 - job:
     name: project-config-build-openafs-centos
