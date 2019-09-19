@@ -14,17 +14,11 @@
 
 PROJECT=$1
 JOBNAME=$2
-HORIZON_DIR=$3
+BRANCHNAME=$3
+HORIZON_DIR=$4
 
 # Replace /'s in branch names with -'s because Zanata doesn't
 # allow /'s in version names.
-# Zuul v3 native job passes the branch in as parameter but
-# does not set ZUUL_REFNAME.
-if [ -z "$ZUUL_REFNAME" ] ; then
-    BRANCHNAME=$3
-else
-    BRANCHNAME=$ZUUL_REFNAME
-fi
 ZANATA_VERSION=${BRANCHNAME//\//-}
 
 SCRIPTSDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
