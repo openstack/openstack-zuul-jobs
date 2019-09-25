@@ -711,6 +711,10 @@ function compress_po_files {
     local directory=$1
 
     for i in $(find $directory -name *.po) ; do
+        # Remove auto translated comments, those are not needed.
+        # Do this first since it introduces empty lines, the msgattrib
+        # remove them.
+        sed -e 's|^# auto translated by TM merge.*$||' -i $i
         msgattrib --translated --no-location --sort-output "$i" \
             --output="${i}.tmp"
         mv "${i}.tmp" "$i"
