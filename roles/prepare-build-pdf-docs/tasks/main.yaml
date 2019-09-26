@@ -12,6 +12,7 @@
       - texlive-fonts-recommended
       - fonts-liberation
       - inkscape
+      - xindy
       # Required by sphinxcontrib-svg2pdfconverter to handle SVG images
       - librsvg2-bin
     state: present
