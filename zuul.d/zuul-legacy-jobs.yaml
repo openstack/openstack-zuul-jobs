@@ -1041,29 +1041,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-sheepdog
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-sheepdog/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-sheepdog/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - x/devstack-plugin-sheepdog
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-full-sheepdog-src-os-brick
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-sheepdog-src-os-brick/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-sheepdog-src-os-brick/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - x/devstack-plugin-sheepdog
-      - openstack/os-brick
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-ironic-pxe_snmp-virtualpdu-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-ironic-pxe_snmp-virtualpdu-src/run.yaml
