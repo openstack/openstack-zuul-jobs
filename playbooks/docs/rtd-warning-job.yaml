@@ -1,7 +1,0 @@
-- hosts: localhost
-  tasks:
-    - name: Fail job
-      fail:
-        msg: |
-          Your project requires manual intervention to correctly publish results
-          to readthedocs.  For more details see http://lists.openstack.org/pipermail/openstack-dev/2018-August/132836.html
