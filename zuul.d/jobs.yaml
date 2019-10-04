@@ -1,7 +1,7 @@
 # Shared jobs specific to the OpenStack Project
 # imports jobs from:
-#    https://opendev.org/cgit/openstack/project-config
-#    https://opendev.org/cgit/zuul/zuul-jobs
+#    https://opendev.org/openstack/project-config
+#    https://opendev.org/zuul/zuul-jobs
 
 - job:
     name: openstack-zuul-jobs-test-mirror-info
