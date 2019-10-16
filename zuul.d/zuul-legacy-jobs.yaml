@@ -865,13 +865,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-puppet-syntax-4-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-syntax-4-centos-7/run.yaml
-    timeout: 1800
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-puppet-unit-4.8-centos-7
     parent: legacy-puppet-openstack-integration
     run: playbooks/legacy/puppet-unit-4.8-centos-7/run.yaml
