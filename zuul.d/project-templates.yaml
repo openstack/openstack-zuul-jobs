@@ -436,12 +436,17 @@
       version 3 releases designated for testing in the Ussuri release.
     check:
       jobs:
+        - openstack-tox-pep8
         - openstack-tox-py36
         - openstack-tox-py37
     gate:
       jobs:
+        - openstack-tox-pep8
         - openstack-tox-py36
         - openstack-tox-py37
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: openstack-python3-ussuri-jobs-horizon
@@ -452,6 +457,9 @@
       when building the venv.
     check:
       jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
         - openstack-tox-py36:
             required-projects:
               - openstack/horizon
@@ -460,12 +468,18 @@
               - openstack/horizon
     gate:
       jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
         - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py37:
             required-projects:
               - openstack/horizon
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: openstack-python3-ussuri-jobs-neutron
@@ -476,6 +490,9 @@
       when building the venv.
     check:
       jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
         - openstack-tox-py36:
             required-projects:
               - openstack/neutron
@@ -484,12 +501,18 @@
               - openstack/neutron
     gate:
       jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
         - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py37:
             required-projects:
               - openstack/neutron
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: openstack-python3-ussuri-jobs-ceilometer
@@ -500,6 +523,9 @@
       when building the venv.
     check:
       jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/ceilometer
         - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
@@ -508,12 +534,18 @@
               - openstack/ceilometer
     gate:
       jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/ceilometer
         - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py37:
             required-projects:
               - openstack/ceilometer
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
 
 - project-template:
     name: openstack-python3-train-jobs
