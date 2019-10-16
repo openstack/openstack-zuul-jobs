@@ -36,11 +36,9 @@
     check:
       jobs:
         - legacy-puppet-lint
-        - legacy-puppet-syntax-4-centos-7
     gate:
       jobs:
         - legacy-puppet-lint
-        - legacy-puppet-syntax-4-centos-7
 
 - project-template:
     name: integrated-gate
