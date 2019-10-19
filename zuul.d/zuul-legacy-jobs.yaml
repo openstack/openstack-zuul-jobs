@@ -1051,16 +1051,6 @@
       - x/virtualpdu
 
 - job:
-    name: legacy-tempest-dsvm-ldap-domain-specific-driver
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ldap-domain-specific-driver/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ldap-domain-specific-driver/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-lvm-multibackend
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-lvm-multibackend/run.yaml
