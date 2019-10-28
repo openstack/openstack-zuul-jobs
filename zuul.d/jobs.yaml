@@ -400,7 +400,7 @@
       .. zuul:jobvar: tox_pdf_envlist
 
          The tox environment for building PDF, default is ``pdf-docs``.
-         If this enironment does not exist, no PDF building is done.
+         If this environment does not exist, no PDF building is done.
 
       .. zuul:jobvar: tox_skip_pdf
 
