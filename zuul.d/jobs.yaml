@@ -487,22 +487,6 @@
       tox_install_siblings: true
 
 - job:
-    name: openstack-tox-py27-with-oslo-master
-    parent: openstack-tox-with-oslo-master-base
-    description: |
-      This job installs all oslo libraries from source and tests that the
-      unit tests of the tested project work.
-
-      It uses the tox ``py27`` environment.
-
-      The job is normally run in a periodic pipeline, it is configured
-      to run on the master branch.
-    branches: master
-    vars:
-      tox_envlist: py27
-      bindep_profile: test py27
-
-- job:
     name: openstack-tox-py36-with-oslo-master
     parent: openstack-tox-with-oslo-master-base
     nodeset: ubuntu-bionic

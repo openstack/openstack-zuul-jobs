@@ -1369,7 +1369,6 @@
       oslo libraries from source.
     periodic:
       jobs:
-        - openstack-tox-py27-with-oslo-master
         - openstack-tox-py36-with-oslo-master
 
 - project-template:
