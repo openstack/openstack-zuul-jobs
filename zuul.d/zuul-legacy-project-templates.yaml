@@ -79,12 +79,3 @@
     gate:
       jobs:
         - legacy-puppet-unit-4.8-centos-7
-
-- project-template:
-    name: puppet-syntax
-    check:
-      jobs:
-        - legacy-puppet-syntax-4-centos-7
-    gate:
-      jobs:
-        - legacy-puppet-syntax-4-centos-7
