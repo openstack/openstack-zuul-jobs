@@ -865,38 +865,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-puppet-unit-4.8-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-unit-4.8-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-    irrelevant-files:
-      - ^.*\.md$
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^etc/.*$
-      - ^metadata.json$
-      - ^releasenotes/.*$
-      - ^test-requirements.txt$
-
-- job:
-    name: legacy-puppet-unit-latest-centos-7
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-unit-latest-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-    branches: ^master
-    voting: false
-    irrelevant-files:
-      - ^.*\.md$
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^etc/.*$
-      - ^metadata.json$
-      - ^releasenotes/.*$
-      - ^test-requirements.txt$
-
-- job:
     name: legacy-sandbox-tag
     parent: legacy-base
     run: playbooks/legacy/sandbox-tag/run.yaml
