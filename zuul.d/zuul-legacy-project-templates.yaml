@@ -51,14 +51,14 @@
             branches: ^stable/(newton|ocata)$
         - tempest-full
         - neutron-grenade:
-            branches: ^(?!stable/(newton|ocata)).*$
+            branches: ^stable/(pike|queens|rocky|stein|train).*$
     gate:
       jobs:
         - legacy-tempest-dsvm-neutron-full:
             branches: ^stable/(newton|ocata)$
         - tempest-full
         - neutron-grenade:
-            branches: ^(?!stable/(newton|ocata)).*$
+            branches: ^stable/(pike|queens|rocky|stein|train).*$
 
 - project-template:
     name: lib-forward-testing-plugin
