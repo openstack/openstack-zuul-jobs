@@ -61,16 +61,6 @@
             branches: ^stable/(pike|queens|rocky|stein|train).*$
 
 - project-template:
-    name: lib-forward-testing-plugin
-    check:
-      jobs:
-        - legacy-tempest-dsvm-neutron-src-plugin
-    gate:
-      jobs:
-        - legacy-tempest-dsvm-neutron-src-plugin
-
-
-- project-template:
     name: puppet-module-unit-jobs
     check:
       jobs:

@@ -1326,20 +1326,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-neutron-src-plugin
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-src-plugin/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-src-plugin/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-    irrelevant-files:
-      - ^(test-|)requirements.txt$
-      - ^setup.cfg$
-
-- job:
     name: legacy-tempest-dsvm-neutron-with-ryu-master
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-with-ryu-master/run.yaml
