@@ -32,6 +32,7 @@
           export DEVSTACK_GATE_NEUTRON=1
           export DEVSTACK_GATE_CONFIGDRIVE=0
           export DEVSTACK_GATE_GRENADE=pullup
+          export DEVSTACK_GATE_USE_PYTHON3=False
           export PROJECTS="openstack/grenade $PROJECTS"
           export DEVSTACK_LOCAL_CONFIG="Q_AGENT=linuxbridge"$'\n'"PHYSICAL_NETWORK=default"$'\n'
           export BRANCH_OVERRIDE=default
