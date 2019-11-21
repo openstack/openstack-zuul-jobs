@@ -15,23 +15,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-devstack-dsvm-updown
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/devstack-dsvm-updown/run.yaml
-    post-run: playbooks/legacy/devstack-dsvm-updown/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack/devstack
-      - openstack/devstack-gate
-      # following are required when DEVSTACK_GATE_HEAT, which this
-      # job turns on
-      - openstack/dib-utils
-      - openstack/diskimage-builder
-      # Required by DEVSTACK_GATE_SAHARA
-      - openstack/sahara
-      - openstack/sahara-dashboard
-
-- job:
     name: legacy-dox-buildimages
     parent: legacy-base
     run: playbooks/legacy/dox-buildimages/run.yaml
