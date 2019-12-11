@@ -298,6 +298,11 @@
     name: openstack-python-jobs
     description: |
       Runs OpenStack PTI jobs for python.
+
+      This template is deprecated and should only be used for older
+      stable branches (train and older). For newer releases, use the
+      release specific template instead, for example
+      :zuul:project_template:`openstack-python3-ussuri-jobs`.
     check:
       jobs:
         - openstack-tox-pep8
@@ -317,6 +322,11 @@
       but with horizon added as a
       required-projects. This checks out the project code and allows
       tox_install_siblings to use horizon when building the venv.
+
+      This template is deprecated and should only be used for older
+      stable branches (train and older). For newer releases, use the
+      release specific template instead, for example
+      :zuul:project_template:`openstack-python3-ussuri-jobs-horizon`.
     check:
       jobs:
         - openstack-tox-pep8:
@@ -346,6 +356,11 @@
       but with neutron added as a
       required-projects. This checks out the project code and allows
       tox_install_siblings to use neutron when building the venv.
+
+      This template is deprecated and should only be used for older
+      stable branches (train and older). For newer releases, use the
+      release specific template instead, for example
+      :zuul:project_template:`openstack-python3-ussuri-jobs-neutron`.
     check:
       jobs:
         - openstack-tox-pep8:
@@ -375,6 +390,11 @@
       but with ceilometer added as a
       required-projects. This checks out the project code and allows
       tox_install_siblings to use ceilometer when building the venv.
+
+      This template is deprecated and should only be used for older
+      stable branches (train and older). For newer releases, use the
+      release specific template instead, for example
+      :zuul:project_template:`openstack-python3-ussuri-jobs-ceilometer`.
     check:
       jobs:
         - openstack-tox-pep8:
