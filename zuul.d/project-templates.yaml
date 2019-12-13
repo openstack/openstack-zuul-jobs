@@ -1296,6 +1296,8 @@
             branches:
               - stable/stein
               - stable/train
+        # py27 periodic jobs will run until Train, from Ussuri it will
+        # be replaced with py37 periodic job
         - openstack-tox-py27:
             branches:
               - stable/ocata
@@ -1303,6 +1305,12 @@
               - stable/queens
               - stable/rocky
               - stable/stein
+              - stable/train
+        - openstack-tox-py36:
+            branches:
+              - stable/train
+        - openstack-tox-py37:
+            branches:
               - stable/train
 
 - project-template:
@@ -1328,6 +1336,8 @@
               - stable/train
             required-projects:
               - openstack/neutron
+        # py27 periodic jobs will run until Train, from Ussuri it will
+        # be replaced with py37 periodic job
         - openstack-tox-py27:
             branches:
               - stable/ocata
@@ -1335,6 +1345,16 @@
               - stable/queens
               - stable/rocky
               - stable/stein
+              - stable/train
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py36:
+            branches:
+              - stable/train
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py37:
+            branches:
               - stable/train
             required-projects:
               - openstack/neutron
@@ -1362,6 +1382,8 @@
               - stable/train
             required-projects:
               - openstack/ceilometer
+        # py27 periodic jobs will run until Train, from Ussuri it will
+        # be replaced with py37 periodic job
         - openstack-tox-py27:
             branches:
               - stable/ocata
@@ -1369,6 +1391,16 @@
               - stable/queens
               - stable/rocky
               - stable/stein
+              - stable/train
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py36:
+            branches:
+              - stable/train
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py37:
+            branches:
               - stable/train
             required-projects:
               - openstack/ceilometer
