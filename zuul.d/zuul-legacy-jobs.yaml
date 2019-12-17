@@ -865,21 +865,6 @@
       - x/scalpels
 
 - job:
-    name: legacy-storyboard-js-integration
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-js-integration/run.yaml
-    post-run: playbooks/legacy/storyboard-js-integration/post.yaml
-    timeout: 2400
-
-- job:
-    name: legacy-storyboard-js-integration-ubuntu-trusty
-    parent: legacy-base
-    run: playbooks/legacy/storyboard-js-integration-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/storyboard-js-integration-ubuntu-trusty/post.yaml
-    timeout: 2400
-    nodeset: legacy-ubuntu-trusty
-
-- job:
     name: legacy-tempest-almanach-dsvm
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-almanach-dsvm/run.yaml
