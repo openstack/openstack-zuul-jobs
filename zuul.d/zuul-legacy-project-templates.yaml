@@ -1,24 +1,4 @@
 - project-template:
-    name: fuel-ccp-component
-    check:
-      jobs:
-        - openstack-tox-linters
-        - legacy-fuel-ccp-validate
-    gate:
-      jobs:
-        - openstack-tox-linters
-        - legacy-fuel-ccp-validate
-
-- project-template:
-    name: fuel-ccp-cross-repo-gate
-    check:
-      jobs:
-        - legacy-fuel-ccp-validate
-    gate:
-      jobs:
-        - legacy-fuel-ccp-validate
-
-- project-template:
     name: infra-logstash-filter-jobs
     check:
       jobs:

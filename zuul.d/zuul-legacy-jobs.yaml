@@ -32,33 +32,6 @@
       - openstack/os-loganalyze
 
 - job:
-    name: legacy-fuel-ccp-validate
-    parent: legacy-base
-    run: playbooks/legacy/fuel-ccp-validate/run.yaml
-    timeout: 1800
-    required-projects:
-      - x/fuel-ccp
-
-- job:
-    name: legacy-fuel-library-puppet-lint
-    parent: legacy-base
-    run: playbooks/legacy/fuel-library-puppet-lint/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-fuel-library-puppet-unit-4.5-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/fuel-library-puppet-unit-4.5-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-fuel-octane-puppet-lint
-    parent: legacy-base
-    run: playbooks/legacy/fuel-octane-puppet-lint/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-gearman-plugin-hpi-artifact
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/gearman-plugin-hpi-artifact/run.yaml
