@@ -1007,27 +1007,6 @@
             voting: false
 
 - project-template:
-    name: openstack-python-jobs-trusty
-    description: |
-      The standard :zuul:project_template:`openstack-python-jobs`
-      but run on an Ubuntu Trusty system.
-
-      This template is obsolete, use
-      :zuul:project_template:`openstack-python-jobs` instead.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            nodeset: ubuntu-trusty
-        - openstack-tox-py27:
-            nodeset: ubuntu-trusty
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            nodeset: ubuntu-trusty
-        - openstack-tox-py27:
-            nodeset: ubuntu-trusty
-
-- project-template:
     name: docs-on-readthedocs
     description: |
       Runs normal OpenStack PTI build jobs but publishes to
