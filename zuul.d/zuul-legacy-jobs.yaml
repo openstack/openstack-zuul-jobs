@@ -181,20 +181,6 @@
       - x/python-group-based-policy-client
 
 - job:
-    name: legacy-group-based-policy-dsvm-functional-ubuntu-trusty
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/group-based-policy-dsvm-functional-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/group-based-policy-dsvm-functional-ubuntu-trusty/post.yaml
-    timeout: 7800
-    nodeset: legacy-ubuntu-trusty
-    required-projects:
-      - openstack/devstack-gate
-      - x/group-based-policy
-      - x/group-based-policy-automation
-      - x/group-based-policy-ui
-      - x/python-group-based-policy-client
-
-- job:
     name: legacy-group-based-policy-dsvm-nfp
     parent: legacy-dsvm-base
     run: playbooks/legacy/group-based-policy-dsvm-nfp/run.yaml
@@ -206,21 +192,6 @@
       - x/group-based-policy-automation
       - x/group-based-policy-ui
       - x/python-group-based-policy-client
-
-- job:
-    name: legacy-group-based-policy-dsvm-nfp-ubuntu-trusty
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/group-based-policy-dsvm-nfp-ubuntu-trusty/run.yaml
-    post-run: playbooks/legacy/group-based-policy-dsvm-nfp-ubuntu-trusty/post.yaml
-    timeout: 7800
-    nodeset: legacy-ubuntu-trusty
-    required-projects:
-      - openstack/devstack-gate
-      - x/group-based-policy
-      - x/group-based-policy-automation
-      - x/group-based-policy-ui
-      - x/python-group-based-policy-client
-
 
 - job:
     name: legacy-groups-release-branch
