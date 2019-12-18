@@ -2,14 +2,10 @@
     name: infra-logstash-filter-jobs
     check:
       jobs:
-        - legacy-logstash-filters-ubuntu-trusty:
-            branches: master
-        - legacy-logstash-filters:
-            voting: false
+        - legacy-logstash-filters
     gate:
       jobs:
-        - legacy-logstash-filters-ubuntu-trusty:
-            branches: master
+        - legacy-logstash-filters
 
 - project-template:
     name: infra-puppet-check-jobs
