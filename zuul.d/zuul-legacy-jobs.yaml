@@ -769,18 +769,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-devstack-plugin-ceph
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-devstack-plugin-ceph/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-devstack-plugin-ceph/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack
-      - openstack/devstack-gate
-      - openstack/devstack-plugin-ceph
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-full-devstack-plugin-nfs
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-full-devstack-plugin-nfs/run.yaml
