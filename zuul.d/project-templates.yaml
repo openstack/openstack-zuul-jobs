@@ -920,6 +920,23 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python37-jobs-no-constraints
+    description: |
+      Runs the OpenStack PTI jobs for python3.7, but uses the versions of them
+      that do not use constraints.
+    check:
+      jobs:
+        - tox-pep8
+        - tox-py37
+    gate:
+      jobs:
+        - tox-pep8
+        - tox-py37
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
     name: openstack-lower-constraints-jobs
     description: |
       Runs openstack-tox-lower-constraints in both the check and gate pipelines.
