@@ -988,17 +988,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-networking-ovs-dpdk
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-ovs-dpdk/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-ovs-dpdk/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - x/networking-ovs-dpdk
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-full
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/run.yaml
