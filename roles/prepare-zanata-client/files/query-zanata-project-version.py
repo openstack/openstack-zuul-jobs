@@ -45,7 +45,7 @@ def main():
     except ValueError:
         sys.exit(1)
     if r.status_code == 200:
-        details = json.loads(r.content)
+        details = json.loads(r.content.decode('utf-8'))
         if details['status'] == 'READONLY':
             sys.exit(1)
         sys.exit(0)
