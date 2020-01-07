@@ -15,13 +15,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-dox-buildimages
-    parent: legacy-base
-    run: playbooks/legacy/dox-buildimages/run.yaml
-    post-run: playbooks/legacy/dox-buildimages/post.yaml
-    timeout: 5400
-
-- job:
     name: legacy-dsvm-os-loganalyze
     parent: legacy-dsvm-base
     run: playbooks/legacy/dsvm-os-loganalyze/run.yaml
