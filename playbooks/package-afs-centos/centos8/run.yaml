@@ -1,0 +1,41 @@
+- hosts: all
+  tasks:
+
+    - name: Build CentOS 8 packages of OpenAFS
+      shell: |
+          set -eux
+
+          VERSION=1.8.4
+          SRC_VERSION=${VERSION}-1
+          SRC_RPM=openafs-${SRC_VERSION}.src.rpm
+          SRC_URL=https://www.openafs.org/dl/openafs/${VERSION}/${SRC_RPM}
+
+          UPSTREAM_BASE=https://tarballs.openstack.org/project-config/package-afs-centos8
+          UPSTREAM_CHECK=${UPSTREAM_BASE}/openafs-client-${SRC_VERSION}.el8.x86_64.rpm
+          if wget -O/dev/null -q $UPSTREAM_CHECK; then
+              echo "Found existing upstream RPM build, nothing to do"
+              # scp should just publish nothing
+              exit 0
+          fi
+
+          # some common prereqs
+          sudo dnf -y group install "Development Tools"
+          sudo dnf -y install rpm-build kernel-devel createrepo
+
+          wget $SRC_URL
+          # install the build dependencies for the package
+          sudo dnf builddep -y ./${SRC_RPM}
+
+          # install source-rpm
+          # (this installs to ~/rpmbuild)
+          rpm -i ./${SRC_RPM}
+
+          # build everything
+          pushd ~/rpmbuild/SPECS/
+          rpmbuild -ba ./openafs.spec
+          popd
+
+          # create final repo for copying
+          createrepo ~/rpmbuild/RPMS/x86_64
+      args:
+        executable: /bin/bash
