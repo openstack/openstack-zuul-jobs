@@ -26,6 +26,11 @@
           # install the build dependencies for the package
           sudo dnf builddep -y ./${SRC_RPM}
 
+          # for whatever reason (I think because it is in a macro
+          # check in the .spec) the above builddep misses this
+          # dependency
+          sudo dnf install -y elfutils-devel
+
           # install source-rpm
           # (this installs to ~/rpmbuild)
           rpm -i ./${SRC_RPM}
