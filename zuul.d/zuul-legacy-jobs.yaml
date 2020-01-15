@@ -38,13 +38,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-gearman-plugin-maven-build-ubuntu-trusty
-    parent: legacy-base
-    run: playbooks/legacy/gearman-plugin-maven-build-ubuntu-trusty/run.yaml
-    timeout: 1800
-    nodeset: legacy-ubuntu-trusty
-
-- job:
     name: legacy-gearman-plugin-maven-build
     parent: legacy-base
     run: playbooks/legacy/gearman-plugin-maven-build/run.yaml
