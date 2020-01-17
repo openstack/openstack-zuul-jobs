@@ -214,32 +214,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-js-openstack-lib-dsvm-nodejs4-npm-run-functional-test
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/js-openstack-lib-dsvm-nodejs4-npm-run-functional-test/run.yaml
-    post-run: playbooks/legacy/js-openstack-lib-dsvm-nodejs4-npm-run-functional-test/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/js-openstack-lib
-
-- job:
-    name: legacy-js-openstack-lib-dsvm-nodejs6-npm-run-functional-test
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/js-openstack-lib-dsvm-nodejs6-npm-run-functional-test/run.yaml
-    post-run: playbooks/legacy/js-openstack-lib-dsvm-nodejs6-npm-run-functional-test/post.yaml
-    timeout: 2400
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/js-openstack-lib
-
-- job:
-    name: legacy-js-openstack-lib-nodejs6-npm-sdk-docs
-    parent: legacy-base
-    run: playbooks/legacy/js-openstack-lib-nodejs6-npm-sdk-docs/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-keystoneclient-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/keystoneclient-dsvm-functional/run.yaml

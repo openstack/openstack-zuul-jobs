@@ -1576,21 +1576,6 @@
             nodeset: ubuntu-xenial
 
 - project-template:
-    name: nodejs6-docs
-    description: |
-      Run docs jobs using Node 6.
-    check:
-      jobs:
-        - nodejs-npm-run-docs:
-            vars:
-              node_version: 6
-    gate:
-      jobs:
-        - nodejs-npm-run-docs:
-            vars:
-              node_version: 6
-
-- project-template:
     name: nodejs8-docs
     description: |
       Run docs jobs using Node 8.
