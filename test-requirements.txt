@@ -8,4 +8,3 @@ zuul
 ansible>=2.7.0,<2.8
 ansible-lint<4
 bashate>=0.2
-zuul-sphinx>=0.2.0
