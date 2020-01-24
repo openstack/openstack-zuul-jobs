@@ -9,8 +9,8 @@
 
 - name: Set partition names
   set_fact:
-    swap_partition: "{{ ephemeral_device}}1"
-    opt_partition: "{{ ephemeral_device}}2"
+    swap_partition: "{{ ephemeral_device }}1"
+    opt_partition: "{{ ephemeral_device }}2"
 
 - name: Ensure ephemeral device is unmounted
   become: yes
