@@ -242,10 +242,14 @@
          <https://docs.openstack.org>`_ .
     check:
       jobs:
-        - build-openstack-releasenotes
+        - build-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
     gate:
       jobs:
-        - build-openstack-releasenotes
+        - build-openstack-releasenotes:
+            vars:
+              sphinx_python: python3
     promote:
       jobs:
         - promote-openstack-releasenotes
