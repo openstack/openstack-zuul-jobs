@@ -545,12 +545,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-puppet-httpd-forge-upload
-    parent: legacy-base
-    run: playbooks/legacy/puppet-httpd-forge-upload/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-puppet-lint
     parent: legacy-base
     run: playbooks/legacy/puppet-lint/run.yaml
@@ -587,12 +581,6 @@
     nodeset: legacy-centos-7
     required-projects:
       - opendev/puppet-openstackci
-
-- job:
-    name: legacy-puppet-storyboard-forge-upload
-    parent: legacy-puppet-openstack-integration
-    run: playbooks/legacy/puppet-storyboard-forge-upload/run.yaml
-    timeout: 1800
 
 - job:
     name: legacy-sandbox-tag
