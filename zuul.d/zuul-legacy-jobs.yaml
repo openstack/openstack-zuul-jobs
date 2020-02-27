@@ -611,17 +611,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-bdd
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-bdd/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-bdd/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - x/devstack-plugin-bdd
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-full-ceph-plugin-src-glance_store
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-glance_store/run.yaml
