@@ -13,7 +13,6 @@
     - install-distro-packages.sh
     - jenkinsci-upload.sh
     - php-laravel-build.sh
-    - run-jsbuild.sh
     - version-properties.sh
     - zuul-sudo-grep.sh
   become: true
