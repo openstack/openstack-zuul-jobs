@@ -4,7 +4,6 @@
 
 hacking>=2.0.0,<2.1 # Apache-2.0
 
-zuul
 ansible>=2.7.0,<2.8
 ansible-lint>=4,<=5
 bashate>=0.2
