@@ -4,11 +4,9 @@
       - publish-tox-docs-infra
     check:
       jobs:
-        - openstack-zuul-jobs-test-mirror-info
         - openstack-infra-extra-integration-xenial
         - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters
     gate:
       jobs:
-        - openstack-zuul-jobs-test-mirror-info
         - openstack-zuul-jobs-linters

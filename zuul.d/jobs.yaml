@@ -4,21 +4,6 @@
 #    https://opendev.org/zuul/zuul-jobs
 
 - job:
-    name: openstack-zuul-jobs-test-mirror-info
-    description: |
-      Test the mirror-info role.
-
-      This is meant to be included in a base job, so we inherit from
-      base-minimal to make sure it hasn't already run.
-    parent: base-minimal
-    roles:
-      - zuul: zuul/zuul-jobs
-    run: tests/base.yaml
-    files:
-      - ^roles/mirror-info/.*
-      - ^tests/.*
-
-- job:
     name: build-openstack-sphinx-docs
     parent: build-sphinx-docs
     nodeset: ubuntu-xenial

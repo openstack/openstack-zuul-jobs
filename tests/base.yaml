@@ -7,8 +7,6 @@
   roles:
     - ensure-output-dirs
 
-- include: mirror-info.yaml
-
 - hosts: all
   roles:
     - fetch-output
