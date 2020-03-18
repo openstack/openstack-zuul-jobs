@@ -10,6 +10,7 @@
     name:
       - "{{ zanata_jre_package }}"
       - gettext
+      - libpcre3-dev
     state: present
   become: yes
 
