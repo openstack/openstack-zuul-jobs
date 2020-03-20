@@ -1137,6 +1137,9 @@
     pre-run: playbooks/infra-puppet-apply/pre.yaml
     run: playbooks/infra-puppet-apply/run.yaml
     post-run: playbooks/infra-puppet-apply/post.yaml
+    irrelevant-files:
+      - docker/.*
+      - playbooks/.*
 
 - job:
     name: infra-puppet-apply-4-ubuntu-xenial
