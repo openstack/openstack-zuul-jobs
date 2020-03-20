@@ -30,7 +30,7 @@
           set -x
           cat << 'EOF' >>"/tmp/dg-local.conf"
           [[local|localrc]]
-          enable_plugin devstack-plugin-nfs https://opendev.org/x/devstack-plugin-nfs
+          enable_plugin devstack-plugin-nfs https://opendev.org/openstack/devstack-plugin-nfs
           ENABLE_NFS_CINDER=True
 
           EOF
@@ -46,7 +46,7 @@
           export DEVSTACK_GATE_TEMPEST=1
           export DEVSTACK_GATE_TEMPEST_FULL=1
 
-          export PROJECTS="x/devstack-plugin-nfs $PROJECTS"
+          export PROJECTS="openstack/devstack-plugin-nfs $PROJECTS"
 
           export BRANCH_OVERRIDE=default
           if [ "$BRANCH_OVERRIDE" != "default" ] ; then

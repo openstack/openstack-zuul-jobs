@@ -50,7 +50,7 @@
               export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
           fi
 
-          export PROJECTS="x/devstack-plugin-nfs $PROJECTS"
+          export PROJECTS="openstack/devstack-plugin-nfs $PROJECTS"
           export PROJECTS="openstack/devstack-plugin-ceph $PROJECTS"
 
           function post_test_hook {

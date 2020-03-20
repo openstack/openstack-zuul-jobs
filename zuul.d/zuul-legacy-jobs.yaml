@@ -644,7 +644,7 @@
     required-projects:
       - openstack/devstack
       - openstack/devstack-gate
-      - x/devstack-plugin-nfs
+      - openstack/devstack-plugin-nfs
       - openstack/tempest
 
 - job:
@@ -781,7 +781,7 @@
     required-projects:
       - openstack/devstack-gate
       - openstack/devstack-plugin-ceph
-      - x/devstack-plugin-nfs
+      - openstack/devstack-plugin-nfs
       - openstack/tempest
 
 - job:
