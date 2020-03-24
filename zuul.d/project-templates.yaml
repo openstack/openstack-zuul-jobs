@@ -1465,6 +1465,9 @@
     name: python-charm-jobs
     description: |
       Run Python tests for charm projects.
+      This run py2.7 job and supposed to be used
+      on stable branch until stable/train. Ussuri
+      onwards, py3 template should be used.
     check:
       jobs:
         - openstack-tox-pep8
