@@ -360,6 +360,8 @@
       Uses tox with the ``pylint`` environment.
     irrelevant-files: *common-irrelevant-files
     vars:
+      # pylint is very noisy
+      tox_inline_comments: false
       tox_envlist: pylint
 
 - job:
