@@ -2340,17 +2340,6 @@
             branches: master
 
 - project-template:
-    name: openstack-pypy-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under PyPy.
-    check:
-      jobs:
-        - openstack-tox-pypy
-    gate:
-      jobs:
-        - openstack-tox-pypy
-
-- project-template:
     name: openstack-pypy-jobs-nonvoting
     description: |
       Runs unit tests for an OpenStack Python project under PyPy.
