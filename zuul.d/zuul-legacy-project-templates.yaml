@@ -1,13 +1,4 @@
 - project-template:
-    name: infra-logstash-filter-jobs
-    check:
-      jobs:
-        - legacy-logstash-filters
-    gate:
-      jobs:
-        - legacy-logstash-filters
-
-- project-template:
     name: infra-puppet-check-jobs
     check:
       jobs:
