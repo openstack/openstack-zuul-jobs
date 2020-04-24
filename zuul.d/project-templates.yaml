@@ -1295,15 +1295,15 @@
         - upstream-translation-update:
             branches:
               - master
-              - stable/stein
               - stable/train
+              - stable/ussuri
     periodic:
       jobs:
         - propose-translation-update:
             branches:
               - master
-              - stable/stein
               - stable/train
+              - stable/ussuri
 
 - project-template:
     name: openstack-specs-jobs
