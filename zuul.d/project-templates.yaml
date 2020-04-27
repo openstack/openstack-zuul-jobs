@@ -1432,6 +1432,7 @@
             branches:
               - stable/stein
               - stable/train
+              - stable/ussuri
         # py27 periodic jobs will run until Train, from Ussuri it will
         # be replaced with py37 periodic job
         - openstack-tox-py27:
@@ -1445,9 +1446,11 @@
         - openstack-tox-py36:
             branches:
               - stable/train
+              - stable/ussuri
         - openstack-tox-py37:
             branches:
               - stable/train
+              - stable/ussuri
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -1470,6 +1473,7 @@
             branches:
               - stable/stein
               - stable/train
+              - stable/ussuri
             required-projects:
               - openstack/neutron
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -1487,11 +1491,13 @@
         - openstack-tox-py36:
             branches:
               - stable/train
+              - stable/ussuri
             required-projects:
               - openstack/neutron
         - openstack-tox-py37:
             branches:
               - stable/train
+              - stable/ussuri
             required-projects:
               - openstack/neutron
 
@@ -1516,6 +1522,7 @@
             branches:
               - stable/stein
               - stable/train
+              - stable/ussuri
             required-projects:
               - openstack/ceilometer
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -1533,11 +1540,13 @@
         - openstack-tox-py36:
             branches:
               - stable/train
+              - stable/ussuri
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py37:
             branches:
               - stable/train
+              - stable/ussuri
             required-projects:
               - openstack/ceilometer
 
