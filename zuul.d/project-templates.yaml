@@ -1905,3 +1905,13 @@
     gate:
       jobs:
         - openstack-tox-molecule
+
+- project-template:
+    name: official-openstack-repo-jobs
+    description: |
+      Jobs attached to official and active OpenStack repositories.
+      
+      This template must be added in openstack/project-config repository.
+    post:
+      jobs:
+        - openstack-upload-github-mirror
