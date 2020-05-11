@@ -1711,6 +1711,27 @@
               node_version: 8
 
 - project-template:
+    name: nodejs10-jobs
+    description: |
+      Run lint and test jobs using Node 10.
+    check:
+      jobs:
+        - nodejs-run-lint:
+            vars:
+              node_version: 10
+        - nodejs-run-test:
+            vars:
+              node_version: 10
+    gate:
+      jobs:
+        - nodejs-run-lint:
+            vars:
+              node_version: 10
+        - nodejs-run-test:
+            vars:
+              node_version: 10
+
+- project-template:
     name: nodejs4-docs
     description: |
       Run docs jobs using Node 4.
