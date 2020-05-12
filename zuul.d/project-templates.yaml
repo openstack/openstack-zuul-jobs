@@ -1719,7 +1719,7 @@
         - nodejs-run-lint:
             vars:
               node_version: 10
-        - nodejs-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 10
     gate:
@@ -1727,7 +1727,7 @@
         - nodejs-run-lint:
             vars:
               node_version: 10
-        - nodejs-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 10
 
