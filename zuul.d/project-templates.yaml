@@ -1649,21 +1649,21 @@
       Run lint and test jobs using Node 4.
     check:
       jobs:
-        - nodejs-npm-run-lint:
+        - nodejs-run-lint:
             vars:
               node_version: 4
             nodeset: ubuntu-xenial
-        - nodejs-npm-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 4
             nodeset: ubuntu-xenial
     gate:
       jobs:
-        - nodejs-npm-run-lint:
+        - nodejs-run-lint:
             vars:
               node_version: 4
             nodeset: ubuntu-xenial
-        - nodejs-npm-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 4
             nodeset: ubuntu-xenial
@@ -1674,18 +1674,18 @@
       Run lint and test jobs using Node 6.
     check:
       jobs:
-        - nodejs-npm-run-lint:
+        - nodejs-run-lint:
             vars:
               node_version: 6
-        - nodejs-npm-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 6
     gate:
       jobs:
-        - nodejs-npm-run-lint:
+        - nodejs-run-lint:
             vars:
               node_version: 6
-        - nodejs-npm-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 6
 
@@ -1695,18 +1695,18 @@
       Run lint and test jobs using Node 8.
     check:
       jobs:
-        - nodejs-npm-run-lint:
+        - nodejs-run-lint:
             vars:
               node_version: 8
-        - nodejs-npm-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 8
     gate:
       jobs:
-        - nodejs-npm-run-lint:
+        - nodejs-run-lint:
             vars:
               node_version: 8
-        - nodejs-npm-run-test:
+        - nodejs-run-test-browser:
             vars:
               node_version: 8
 
