@@ -8,4 +8,16 @@
     name: tox
   vars:
     tox_envlist: "{{ tox_pdf_envlist }}"
+    # We run tox against the envlist without running tests so that we can
+    # control how the tox output is handled. PDF generations tends to be
+    # incredibly verbose and we don't want those logs going to the console.
+    tox_extra_args: "-vv --notest"
   when: pdfdocs_env is success
+
+- name: Run tox with output redirected to a file
+  args:
+    chdir: "{{ zuul.project.src_dir }}"
+  shell: |
+    echo "Running tox -e {{ tox_pdf_envlist }} -vv > {{ ansible_user_dir }}/zuul-output/logs/sphinx-build-pdf.log 2>&1"
+    echo "Output is redirected to a file as it tends to be quite verbose."
+    tox -e {{ tox_pdf_envlist }} -vv > {{ ansible_user_dir }}/zuul-output/logs/sphinx-build-pdf.log 2>&1
