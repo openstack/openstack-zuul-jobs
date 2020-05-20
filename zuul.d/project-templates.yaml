@@ -1026,6 +1026,30 @@
             voting: false
 
 - project-template:
+    name: openstack-python38-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.8.
+    check:
+      jobs:
+        - openstack-tox-py38
+    gate:
+      jobs:
+        - openstack-tox-py38
+
+- project-template:
+    name: openstack-python38-jobs-nonvoting
+    description: |
+      Runs unit tests for an OpenStack Python project under cPython
+      version 3.8.
+
+      The job is non-voting.
+    check:
+      jobs:
+        - openstack-tox-py38:
+            voting: false
+
+- project-template:
     name: openstack-python-jobs-no-constraints
     description: |
       Runs the OpenStack PTI jobs for python, but uses the versions of them
