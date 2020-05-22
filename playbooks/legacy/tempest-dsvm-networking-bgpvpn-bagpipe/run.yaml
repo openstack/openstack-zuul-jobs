@@ -31,6 +31,7 @@
           cat << 'EOF' >>"/tmp/dg-local.conf"
           [[local|localrc]]
           enable_plugin networking-bgpvpn https://opendev.org/openstack/networking-bgpvpn
+          TEMPEST_PLUGINS='/opt/stack/new/networking-bgpvpn'
 
           EOF
         executable: /bin/bash
@@ -45,6 +46,7 @@
           export DEVSTACK_GATE_NEUTRON=1
           # Make sure tempest is installed and performed
           export DEVSTACK_GATE_TEMPEST=1
+          export DEVSTACK_GATE_TEMPEST_ALL_PLUGINS=0
           export BRANCH_OVERRIDE=default
           if [ "$BRANCH_OVERRIDE" != "default" ] ; then
               export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
