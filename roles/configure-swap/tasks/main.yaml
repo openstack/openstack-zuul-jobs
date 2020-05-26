@@ -30,8 +30,7 @@
 
 # If we have ephemeral storage and we don't appear to have setup swap,
 # we will create a swap and move /opt to a large data partition there.
-- include: ephemeral.yaml
-  static: no
+- include_tasks: ephemeral.yaml
   when:
     - ephemeral_device is defined
     - ansible_memory_mb['swap']['total'] | int + 10 <= configure_swap_size
@@ -39,8 +38,7 @@
 # If no ephemeral device and no swap, then we will setup some swap
 # space on the root device to ensure all hosts a consistent memory
 # environment.
-- include: root.yaml
-  static: no
+- include_tasks: root.yaml
   when:
     - ephemeral_device is undefined
     - ansible_memory_mb['swap']['total'] | int + 10 <= configure_swap_size

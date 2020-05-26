@@ -8,15 +8,15 @@
     content: "Project: {{ zuul.project.name }} Branch: {{ zuul.branch }} Build: {{ zuul.build }} Revision: {{ zuul.ref }}"
 
 - name: Process tagged build
-  include: tagged.yaml
+  include_tasks: tagged.yaml
   when: "zuul.branch != 'master' and zuul.tag is defined"
 
 - name: Process stable branch build
-  include: stable.yaml
+  include_tasks: stable.yaml
   when: "'stable' in zuul.branch and zuul.tag is not defined"
 
 - name: Process branch build
-  include: branch.yaml
+  include_tasks: branch.yaml
   when: "zuul.branch != 'master' and 'stable' not in zuul.branch and zuul.tag is not defined"
 
 - name: Rearrange publish directories
