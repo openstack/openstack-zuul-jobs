@@ -1145,3 +1145,190 @@
     name: openstack-infra-extra-integration-bionic
     parent: openstack-infra-extra-integration
     nodeset: ubuntu-bionic
+
+
+- job:
+    name: build-wheel-cache-base
+    abstract: true
+    description: |
+      Base job for building wheels published in OpenStack CI mirrors.
+    pre-run:
+      - playbooks/wheel-cache/pre.yaml
+    run: playbooks/wheel-cache/build.yaml
+    post-run: playbooks/wheel-cache/post-base.yaml
+    # 2.5 hours
+    timeout: 9000
+    # The job iterates over all branches, so we only need to run it on
+    # master.
+    branches: master
+    roles:
+      - zuul: opendev/system-config
+    allowed-projects:
+      - openstack/requirements
+
+- job:
+    name: build-wheel-cache-centos-7
+    parent: build-wheel-cache-base
+    description: |
+      Build CentOS 7 wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-centos-7-python2
+          label: centos-7
+    host-vars:
+      wheel-cache-centos-7-python2:
+        wheel_python: python2
+
+- job:
+    name: build-wheel-cache-centos-8
+    parent: build-wheel-cache-base
+    description: |
+      Build CentOS 8 wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-centos-8-python3
+          label: centos-8
+    host-vars:
+      wheel-cache-centos-8-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-centos-8-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build CentOS 8 wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-centos-8-arm64-python3
+          label: centos-8-arm64
+    host-vars:
+      wheel-cache-centos-8-arm64-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-debian-buster
+    parent: build-wheel-cache-base
+    description: |
+      Build Debian buster wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-debian-buster-python2
+          label: debian-buster
+        - name: wheel-cache-debian-buster-python3
+          label: debian-buster
+    host-vars:
+      wheel-cache-debian-buster-python2:
+        wheel_python: python2
+      wheel-cache-debian-buster-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-debian-buster-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build Debian buster wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-debian-buster-arm64-python2
+          label: debian-buster-arm64
+        - name: wheel-cache-debian-buster-arm64-python3
+          label: debian-buster-arm64
+    host-vars:
+      wheel-cache-debian-buster-arm64-python2:
+        wheel_python: python2
+      wheel-cache-debian-buster-arm64-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-focal
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Focal wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-focal-python3
+          label: ubuntu-focal
+    host-vars:
+      wheel-cache-ubuntu-focal-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-focal-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Focal wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-focal-arm64-python3
+          label: ubuntu-focal-arm64
+    host-vars:
+      wheel-cache-ubuntu-focal-arm64-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-bionic
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Bionic wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-bionic-python2
+          label: ubuntu-bionic
+        - name: wheel-cache-ubuntu-bionic-python3
+          label: ubuntu-bionic
+    host-vars:
+      wheel-cache-ubuntu-bionic-python2:
+        wheel_python: python2
+      wheel-cache-ubuntu-bionic-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-bionic-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Bionic wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-bionic-arm64-python2
+          label: ubuntu-bionic-arm64
+        - name: wheel-cache-ubuntu-bionic-arm64-python3
+          label: ubuntu-bionic-arm64
+    host-vars:
+      wheel-cache-ubuntu-bionic-arm64-python2:
+        wheel_python: python2
+      wheel-cache-ubuntu-bionic-arm64-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-xenial
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Xenial wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-xenial-python2
+          label: ubuntu-xenial
+        - name: wheel-cache-ubuntu-xenial-python3
+          label: ubuntu-xenial
+    host-vars:
+      wheel-cache-ubuntu-xenial-python2:
+        wheel_python: python2
+      wheel-cache-ubuntu-xenial-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-xenial-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Xenial ARM64 wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-xenial-arm64-python2
+          label: ubuntu-xenial-arm64
+        - name: wheel-cache-ubuntu-xenial-arm64-python3
+          label: ubuntu-xenial-arm64
+    host-vars:
+      wheel-cache-ubuntu-xenial-arm64-python2:
+        wheel_python: python2
+      wheel-cache-ubuntu-xenial-arm64-python3:
+        wheel_python: python3
