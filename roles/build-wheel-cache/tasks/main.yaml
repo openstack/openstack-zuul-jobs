@@ -1,3 +1,7 @@
+- name: Ensure virtualenv dependency
+  include_role:
+    name: ensure-virtualenv
+
 - name: Ensure wheel dir exists
   file:
     group: zuul
