@@ -1,3 +1,0 @@
-sphinx_build_dir: "doc/build"
-zuul_work_dir: "{{ zuul.project.src_dir }}"
-root_marker_dir: "{{ zuul_work_dir }}/{{ sphinx_build_dir }}/html"
