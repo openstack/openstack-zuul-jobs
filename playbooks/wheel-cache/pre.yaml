@@ -18,9 +18,33 @@
     # NOTE(pabelanger): We need to install extra libraries, such as
     #  liberasurecode-devel
     # which are only part of the RDO repositories.
-    - name: Add centos-release-openstack-queens support
+    - name: Add centos-release-openstack
       yum:
-        name: centos-release-openstack-queens
+        name: centos-release-openstack-train
         state: present
       become: yes
-      when: ansible_distribution == "CentOS"
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == '7'
+
+    - name: Add centos-release-openstack
+      yum:
+        name: centos-release-openstack-ussuri
+        state: present
+      become: yes
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == '8'
+
+    # This depends on rabbitmq, which isn't build for
+    # aarch64 and thus causes everything to stop
+    # See https://bugs.centos.org/view.php?id=16968
+    - name: Remove rabbitmq for aarch64
+      file:
+        path: /etc/yum.repos.d/CentOS-Messaging-rabbitmq.repo
+        state: absent
+      become: yes
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == '8'
+        - ansible_architecture == 'aarch64'
