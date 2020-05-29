@@ -1146,7 +1146,6 @@
     parent: openstack-infra-extra-integration
     nodeset: ubuntu-bionic
 
-
 - job:
     name: build-wheel-cache-base
     abstract: true
@@ -1158,13 +1157,11 @@
     post-run: playbooks/wheel-cache/post-base.yaml
     # 2.5 hours
     timeout: 9000
+    required-projects:
+      - name: openstack/requirements
     # The job iterates over all branches, so we only need to run it on
     # master.
     branches: master
-    roles:
-      - zuul: opendev/system-config
-    allowed-projects:
-      - openstack/requirements
 
 - job:
     name: build-wheel-cache-centos-7
