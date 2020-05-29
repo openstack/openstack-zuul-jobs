@@ -1,4 +1,0 @@
-- name: Write marker text
-  copy:
-    dest: "{{ root_marker_dir }}/.root-marker"
-    content: "Project: {{ zuul.project.name }} Branch: {{ zuul.branch | default('') }} Build: {{ zuul.build }} Revision: {{ zuul.ref }}"
