@@ -1162,6 +1162,9 @@
     # The job iterates over all branches, so we only need to run it on
     # master.
     branches: master
+    vars:
+      bindep_dir: "{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}"
+      bindep_profile: test wheel
 
 - job:
     name: build-wheel-cache-centos-7
