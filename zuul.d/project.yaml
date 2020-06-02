@@ -5,6 +5,9 @@
 
     check:
       jobs:
+        - openafs-rpm-package-build-centos-7-x86
+        - openafs-rpm-package-build-centos-8-x86
+        - openafs-rpm-package-build-centos-8-arm64
         - openstack-infra-extra-integration-xenial
         - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters

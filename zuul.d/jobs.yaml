@@ -1022,6 +1022,32 @@
       sphinx_build_dir: docs-site
 
 - job:
+    name: openafs-rpm-package-build
+    description: |
+      There are no official builds for AFS on Centos, hence we build
+      our own and publish them to tarballs.openstack.org for our
+      centos hosts that need access to the mirror to consume.
+    run: playbooks/openafs-rpm-package-build/run.yaml
+    files:
+      - playbooks/openafs-rpm-package-build
+      - roles/openafs-rpm-package-build
+
+- job:
+    name: openafs-rpm-package-build-centos-7-x86
+    parent: openafs-rpm-package-build
+    nodeset: centos-7
+
+- job:
+    name: openafs-rpm-package-build-centos-8-x86
+    parent: openafs-rpm-package-build
+    nodeset: centos-8
+
+- job:
+    name: openafs-rpm-package-build-centos-8-arm64
+    parent: openafs-rpm-package-build
+    nodeset: centos-8-arm64
+
+- job:
     name: project-config-build-openafs-centos
     description: |
       There are no official builds for AFS on Centos 7, hence
