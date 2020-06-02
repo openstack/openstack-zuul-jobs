@@ -3,5 +3,5 @@
 # If you add new tests, also update the files section in job
 # extra-integration in zuul.d/jobs.yaml.
 
-- include: prepare-zanata-client.yaml
+- import_playbook: prepare-zanata-client.yaml
   when: ansible_os_family == 'Debian'
