@@ -1048,6 +1048,13 @@
     nodeset: centos-8-arm64
 
 - job:
+    name: openafs-rpm-package-build-promote
+    description: |
+        Publish the openafs RPM packages
+    parent: publish-openstack-artifacts
+    run: playbooks/openafs-rpm-package-build/publish.yaml
+
+- job:
     name: project-config-build-openafs-centos
     description: |
       There are no official builds for AFS on Centos 7, hence
