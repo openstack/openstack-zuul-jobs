@@ -1,9 +1,11 @@
 exclude_paths:
   - playbooks/legacy
 parseable: true
+# [204] Lines < 160
 # [301] Commands should not change things if nothing needs doing
 # [306] shells with pipe should use pipe
 skip_list:
+  - '204'
   - '301'
   - '306'
 use_default_rules: true
