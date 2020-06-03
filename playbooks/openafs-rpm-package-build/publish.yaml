@@ -1,0 +1,33 @@
+- hosts: localhost
+  tasks:
+
+    # Download everything to the artifacts/ directory for publish
+    - name: Download centos 7 x86 artifact
+      include_role:
+        name: download-artifact
+      vars:
+        download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
+        download_artifact_type: rpm
+        download_artifact_pipeline: gate
+        download_artifact_job: openafs-rpm-package-build-centos-7-x86
+        download_artifact_directory: '{{ zuul.executor.work_root }}/artifacts/centos7'
+
+    - name: Download centos 8 x86 artifact
+      include_role:
+        name: download-artifact
+      vars:
+        download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
+        download_artifact_type: rpm
+        download_artifact_pipeline: gate
+        download_artifact_job: openafs-rpm-package-build-centos-8-x86
+        download_artifact_directory: '{{ zuul.executor.work_root }}/artifacts/centos8'
+
+    - name: Download centos 8 arm64 artifact
+      include_role:
+        name: download-artifact
+      vars:
+        download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
+        download_artifact_type: rpm
+        download_artifact_pipeline: gate
+        download_artifact_job: openafs-rpm-package-build-centos-8-arm64
+        download_artifact_directory: '{{ zuul.executor.work_root }}/artifacts/centos8'

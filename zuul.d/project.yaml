@@ -57,7 +57,12 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
-
     gate:
       jobs:
+        - openafs-rpm-package-build-centos-7-x86
+        - openafs-rpm-package-build-centos-8-x86
+        - openafs-rpm-package-build-centos-8-arm64
         - openstack-zuul-jobs-linters
+    promote:
+      jobs:
+        - openafs-rpm-package-build-promote
