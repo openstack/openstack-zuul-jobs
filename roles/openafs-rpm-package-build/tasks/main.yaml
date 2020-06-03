@@ -1,0 +1,75 @@
+- name: Install prereqs
+  package:
+    name:
+      - rpm-build
+      - kernel-devel
+      - createrepo
+  become: yes
+
+- name: Install centos8 packages
+  package:
+    name:
+      - elfutils-devel
+  become: yes
+  when: ansible_distribution_major_version == '8'
+
+# https://wiki.openafs.org/devel/HowToBuildOpenAfsRpmPackages/
+- name: Build and install srpm
+  environment:
+    PACKAGER: "{{ (ansible_distribution_major_version == '7') | ternary('yum', 'dnf') }}"
+  shell: |
+      set -eux
+
+      VERSION=1.8.5
+
+      mkdir openafs
+      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
+      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-doc.tar.bz2
+      wget https://www.openafs.org/dl/openafs/${VERSION}/RELNOTES-${VERSION}
+      wget https://www.openafs.org/dl/openafs/${VERSION}/ChangeLog
+
+      # Build the source RPM.
+      tar xf openafs-${VERSION}-src.tar.bz2 --strip-components=4 '*/makesrpm.pl'
+      perl makesrpm.pl openafs-${VERSION}-src.tar.bz2 openafs-${VERSION}-doc.tar.bz2 RELNOTES-${VERSION} ChangeLog
+
+      if [[ ${PACKAGER} == "yum" ]]; then
+        sudo yum-builddep -y openafs-${VERSION}-1.src.rpm
+      else
+        sudo dnf builddep -y openafs-${VERSION}-1.src.rpm
+      fi
+
+      rpm -i openafs-${VERSION}-1.src.rpm
+
+      pushd ~/rpmbuild/SPECS
+      rpmbuild -ba ./openafs.spec
+      popd
+
+      # create final repo
+      createrepo ~/rpmbuild/RPMS/{{ ansible_architecture }}
+
+- name: Copy built rpms
+  synchronize:
+    src: '{{ ansible_user_dir }}/rpmbuild/'
+    dest: '{{ zuul.executor.log_root }}'
+    mode: pull
+    rsync_opts:
+      - --include=/RPMS/**
+      - --include=/SRPMS/**
+      - --include=*/
+      - --exclude=*
+      - --prune-empty-dirs
+
+- name: Return build artifact
+  zuul_return:
+    data:
+      zuul:
+        artifacts:
+          - name: rpms
+            url: RPMS
+            metadata:
+              type: rpm
+          - name: srpms
+            url: SRPMS
+            metadata:
+              type: srpm
+
