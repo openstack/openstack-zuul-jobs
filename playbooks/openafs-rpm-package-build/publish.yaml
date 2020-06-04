@@ -1,6 +1,11 @@
 - hosts: localhost
   tasks:
 
+    - name: Ensure artifacts directory exists
+      file:
+        state: directory
+        path: '{{ zuul.executor.work_root }}/artifacts/'
+
     # Download everything to the artifacts/ directory for publish
     - name: Download centos 7 x86 artifact
       include_role:
