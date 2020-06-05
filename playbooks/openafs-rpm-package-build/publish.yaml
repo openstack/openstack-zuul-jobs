@@ -16,6 +16,7 @@
         download_artifact_pipeline: gate
         download_artifact_job: openafs-rpm-package-build-centos-7-x86
         download_artifact_directory: '{{ zuul.executor.work_root }}/artifacts/centos7'
+        download_artifact_recurse: True
 
     - name: Download centos 8 x86 artifact
       include_role:
@@ -26,6 +27,7 @@
         download_artifact_pipeline: gate
         download_artifact_job: openafs-rpm-package-build-centos-8-x86
         download_artifact_directory: '{{ zuul.executor.work_root }}/artifacts/centos8'
+        download_artifact_recurse: True
 
     - name: Download centos 8 arm64 artifact
       include_role:
@@ -36,3 +38,4 @@
         download_artifact_pipeline: gate
         download_artifact_job: openafs-rpm-package-build-centos-8-arm64
         download_artifact_directory: '{{ zuul.executor.work_root }}/artifacts/centos8'
+        download_artifact_recurse: True
