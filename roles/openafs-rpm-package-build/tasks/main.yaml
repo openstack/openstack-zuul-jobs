@@ -47,6 +47,10 @@
       # create final repo
       createrepo ~/rpmbuild/RPMS/{{ ansible_architecture }}
 
+      # tar result
+      pushd ~/rpmbuild
+      tar cvzf openafs-rpms.tar.gz RPMS
+
 - name: Copy built rpms
   synchronize:
     src: '{{ ansible_user_dir }}/rpmbuild/'
@@ -55,6 +59,7 @@
     rsync_opts:
       - --include=/RPMS/**
       - --include=/SRPMS/**
+      - --include=openafs-rpms.tar.gz
       - --include=*/
       - --exclude=*
       - --prune-empty-dirs
@@ -72,4 +77,8 @@
             url: SRPMS
             metadata:
               type: srpm
+          - name: rpms-tar
+            url: openafs-rpms.tar.gz
+            metadata:
+              type: rpm.tar.gz
 
