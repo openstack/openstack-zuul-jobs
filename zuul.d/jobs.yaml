@@ -1053,6 +1053,8 @@
         Publish the openafs RPM packages
     parent: publish-openstack-artifacts
     run: playbooks/openafs-rpm-package-build/publish.yaml
+    nodeset:
+      nodes: []
 
 - job:
     name: project-config-build-openafs-centos
