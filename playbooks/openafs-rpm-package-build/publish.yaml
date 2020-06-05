@@ -1,6 +1,5 @@
 - hosts: localhost
   tasks:
-
     - name: Ensure artifacts directory exists
       file:
         state: directory
