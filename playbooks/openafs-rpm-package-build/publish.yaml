@@ -24,6 +24,11 @@
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
         dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos7'
 
+    - name: Remove artifact
+      file:
+        state: absent
+        path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+
     - name: Download centos 8 x86 artifact
       include_role:
         name: download-artifact
@@ -39,6 +44,11 @@
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
         dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8'
 
+    - name: Remove artifact
+      file:
+        state: absent
+        path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+
     - name: Download centos 8 arm64 artifact
       include_role:
         name: download-artifact
@@ -53,3 +63,8 @@
       unarchive:
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
         dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8'
+
+    - name: Remove artifact
+      file:
+        state: absent
+        path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
