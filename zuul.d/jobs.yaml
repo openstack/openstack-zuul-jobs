@@ -1057,30 +1057,6 @@
       nodes: []
 
 - job:
-    name: project-config-build-openafs-centos
-    description: |
-      There are no official builds for AFS on Centos 7, hence
-      we build our own and publish them to tarballs.openstack.org
-      for our centos hosts that need access to the mirror to
-      consume.
-    parent: publish-openstack-artifacts
-    run: playbooks/package-afs-centos/centos7/run.yaml
-    post-run: playbooks/package-afs-centos/centos7/post.yaml
-    nodeset: centos-7
-
-- job:
-    name: project-config-build-openafs-centos8
-    description: |
-      There are no official builds for AFS on CentOS 8, hence
-      we build our own and publish them to tarballs.openstack.org
-      for our centos hosts that need access to the mirror to
-      consume.
-    parent: publish-openstack-artifacts
-    run: playbooks/package-afs-centos/centos8/run.yaml
-    post-run: playbooks/package-afs-centos/centos8/post.yaml
-    nodeset: centos-8
-
-- job:
     name: openstack-zuul-jobs-linters
     parent: tox
     description: |
