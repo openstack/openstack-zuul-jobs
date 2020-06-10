@@ -1173,6 +1173,10 @@
     # The job iterates over all branches, so we only need to run it on
     # master.
     branches: master
+    # The publish jobs use kerberos/openafs roles in pre/post
+    # playbooks, so this needs to be included here in the parent.
+    roles:
+      - zuul: opendev/system-config
     vars:
       bindep_dir: "{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}"
 
