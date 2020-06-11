@@ -19,6 +19,16 @@ for BRANCH in master $BRANCHES; do
     git --git-dir=$WORKING_DIR/.git show $BRANCH:upper-constraints.txt \
         2>/dev/null > /tmp/upper-constraints.txt  || true
 
+    # TODO(ianw) 2020-06: these are taking like 2000 seconds each to
+    # build on arm64 and blowing out the build past a reasonable
+    # timeout.  It only seems to happen with the master versions for
+    # now (scipy===1.4.1 and scikit-learn===0.23.1, at least).  It
+    # seems like they should not take that long; skip until someone
+    # can investigate thoroughly.
+    if [[ $(uname -m) != 'x86_64' && ${BRANCH} == 'master' ]]; then
+        sed -i -e '/^scipy.*/d' -e '/^scikit-learn.*/d' /tmp/upper-constraints.txt
+    fi
+
     # setup the building virtualenv.  We want to freshen this for each
     # branch.
     rm -rf build_env
