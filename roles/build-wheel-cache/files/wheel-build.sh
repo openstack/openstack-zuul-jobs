@@ -12,9 +12,20 @@ FAIL_LOG=${LOGS}/failed.txt
 mkdir -p ${LOGS}
 rm -rf ${LOGS}/*
 
+# output everything to a logfile incase we are killed in flight
+exec 1> ${LOGS}/wheel-build.sh.log
+exec 2>&1
+
 # Extract and iterate over all the branch names.
-BRANCHES=`git --git-dir=$WORKING_DIR/.git branch -a | grep '^  stable' | \
-            grep -Ev '(newton)'`
+if [[ $(uname -m) != 'x86_64' ]]; then
+    # Because arm64 has so many more wheels to make, we limit to just the latest
+    # two branches.
+    BRANCHES=$(git --git-dir=$WORKING_DIR/.git branch -a | grep '^  stable' | \
+                   tail -2)
+else
+    BRANCHES=$(git --git-dir=$WORKING_DIR/.git branch -a | grep '^  stable' | \
+                      grep -Ev '(newton)')
+fi
 for BRANCH in master $BRANCHES; do
     git --git-dir=$WORKING_DIR/.git show $BRANCH:upper-constraints.txt \
         2>/dev/null > /tmp/upper-constraints.txt  || true
@@ -51,9 +62,9 @@ for BRANCH in master $BRANCHES; do
     # file keeps an overview of all run jobs, which we can probe to
     # find failed jobs.
     cat /tmp/upper-constraints.txt | \
-        parallel --files --progress --joblog ${LOGS}/$SHORT_BRANCH-job.log \
+        parallel --files --joblog ${LOGS}/$SHORT_BRANCH-job.log \
                 --results ${LOGS}/build/$SHORT_BRANCH \
-                build_env/bin/pip --verbose --exists-action=i wheel \
+                build_env/bin/pip --exists-action=i wheel \
                 -c /tmp/upper-constraints.txt \
                 -w $WHEELHOUSE_DIR {}
     set -e
@@ -81,16 +92,6 @@ popd
 if [ -f ${FAIL_LOG} ]; then
     cat ${FAIL_LOG}
 fi
-
-# XXX This does make a lot of log files; about 80mb after compression.
-# In theory we could correlate just the failed logs and keep those
-# from the failure logs above.  This is currently (2017-01) left as an
-# exercise for when the job is stable :) bz2 gave about 20%
-# improvement over gzip in testing.
-pushd ${LOGS}
-tar zcvf build-logs.tar.gz ./build
-rm -rf ./build
-popd
 
 # Set the final exit status to 1 if remove-wheels.txt is empty so the
 # job will fail.

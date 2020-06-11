@@ -6,7 +6,18 @@
         state: directory
       delegate_to: localhost
 
-    - name: Collect build logs
+    - name: Compress build logs
+      archive:
+        dest: '~/logs/build-logs.tar.bz2'
+        path: '~/logs/build'
+        format: bz2
+
+    - name: Remove uncompressed logs
+      file:
+        state: absent
+        path: '~/logs/build'
+
+    - name: Collect final logs
       synchronize:
         dest: "{{ zuul.executor.log_root }}/{{ wheel_python }}"
         mode: pull
