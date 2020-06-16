@@ -6,4 +6,6 @@
     - role: bindep
       bindep_profile: test
       bindep_dir: src/opendev.org/openstack/releases
+    - ensure-tox
+    - ensure-virtualenv
     - revoke-sudo
