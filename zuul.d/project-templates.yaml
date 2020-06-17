@@ -35,7 +35,9 @@
     description: |
       Runs legacy OpenStack doc build without publication jobs.
 
-      This template is deprecated and should only be used for older stable
+      This template is deprecated, it is only running on branches
+      until rocky. Use
+      :zuul:project_template:`build-openstack-docs-pti` for newer
       branches.
     check:
       jobs:
@@ -49,7 +51,9 @@
     description: |
       Runs legacy OpenStack doc build and publication jobs.
 
-      This template is deprecated and should only be used for older stable
+      This template is deprecated, it is only running on branches
+      until rocky. Use
+      :zuul:project_template:`publish-openstack-docs-pti` for newer
       branches.
     check:
       jobs:

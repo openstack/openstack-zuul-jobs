@@ -6,8 +6,8 @@
 - job:
     name: build-openstack-sphinx-docs
     parent: build-sphinx-docs
+    branches: ^stable/(ocata|pike|queens|rocky).*$
     nodeset: ubuntu-xenial
-    branches: ^(?!driverfixes/).*$
     description: |
       Builds documentation using Sphinx per a previous version of the
       OpenStack PTI and then
@@ -17,7 +17,7 @@
       can be examined if desired, and also validates htaccess files
       using the whereto tool.
 
-      This job is obsolete and should not be used anymore since rocky, use
+      This job is obsolete and is not supported on branches after rocky, use
       :zuul:job:`openstack-tox-docs` instead.
     success-url: html/
     required-projects:
@@ -31,6 +31,7 @@
       - zuul: zuul/zuul-jobs
     vars:
       constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      sphinx_python: python2
 
 - job:
     name: tox-py35-on-zuul
