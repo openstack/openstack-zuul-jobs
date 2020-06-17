@@ -19,7 +19,7 @@
     chdir: "{{ zuul_work_dir }}"
   environment: "{{ tox_environment|combine(tox_constraints_env|default({})) }}"
   shell: |
-    echo "Running tox -e {{ tox_pdf_envlist }} -vv > {{ ansible_user_dir }}/zuul-output/logs/sphinx-build-pdf.log 2>&1"
+    echo "Running {{ tox_executable }} -e {{ tox_pdf_envlist }} -vv > {{ ansible_user_dir }}/zuul-output/logs/sphinx-build-pdf.log 2>&1"
     echo "Output is redirected to a file as it tends to be quite verbose."
     {{ tox_executable }} -e {{ tox_pdf_envlist }} -vv > {{ ansible_user_dir }}/zuul-output/logs/sphinx-build-pdf.log 2>&1
   when: pdfdocs_env is success
