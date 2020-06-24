@@ -1871,12 +1871,22 @@
       repositories in the integrated gate.
     check:
       jobs:
-        - grenade
+        - grenade:
+            # NOTE(gmann): Do not run the grenade job for
+            # Extended Maintainance or oldest stable branch.
+            # We need to upate this list when any stable
+            # is moved to Extended Maintainance state.
+            branches: ^(?!(stable/(ocata|pike|queens|rocky|stein))).*$
         - tempest-full-py3:
             branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
     gate:
       jobs:
-        - grenade
+        - grenade:
+            # NOTE(gmann): Do not run the grenade job for
+            # Extended Maintainance or oldest stable branch.
+            # We need to upate this list when any stable
+            # is moved to Extended Maintainance state.
+            branches: ^(?!(stable/(ocata|pike|queens|rocky|stein))).*$
         - tempest-full-py3:
             branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
 

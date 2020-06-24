@@ -18,14 +18,22 @@
             branches: ^stable/(newton|ocata)$
         - tempest-full
         - neutron-grenade:
-            branches: ^stable/(pike|queens|rocky|stein|train).*$
+            # NOTE(gmann): Do not run the grenade job for
+            # Extended Maintainance or oldest stable branch.
+            # Now this is only needed for stable/train as
+            # stable/ussuri onwards we use integrated-gate-py3.
+            branches: stable/train
     gate:
       jobs:
         - legacy-tempest-dsvm-neutron-full:
             branches: ^stable/(newton|ocata)$
         - tempest-full
         - neutron-grenade:
-            branches: ^stable/(pike|queens|rocky|stein|train).*$
+            # NOTE(gmann): Do not run the grenade job for
+            # Extended Maintainance or oldest stable branch.
+            # Now this is only needed for stable/train as
+            # stable/ussuri onwards we use integrated-gate-py3.
+            branches: stable/train
 
 - project-template:
     name: puppet-module-unit-jobs
