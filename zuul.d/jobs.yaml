@@ -1029,7 +1029,7 @@
       our own and publish them to tarballs.openstack.org for our
       centos hosts that need access to the mirror to consume.
     run: playbooks/openafs-rpm-package-build/run.yaml
-    files:
+    files: &afs-files
       - playbooks/openafs-rpm-package-build
       - roles/openafs-rpm-package-build
 
@@ -1054,6 +1054,7 @@
         Publish the openafs RPM packages
     parent: publish-openstack-artifacts
     run: playbooks/openafs-rpm-package-build/publish.yaml
+    files: *afs-files
     nodeset:
       nodes: []
 
