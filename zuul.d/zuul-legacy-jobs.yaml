@@ -727,17 +727,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-networking-onos
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-onos/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-onos/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/networking-onos
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-networking-ovn-ovs-release-ovsdbapp-src
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-networking-ovn-ovs-release-ovsdbapp-src/run.yaml
