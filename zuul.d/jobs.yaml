@@ -48,11 +48,34 @@
     name: openstack-tox
     abstract: true
     parent: tox
+    nodeset: ubuntu-focal
     description: |
       Base job to run tox jobs with OpenStack project specific updates.
 
       Processing upper-constraints files from openstack/requirements.
-    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein|train|ussuri)).*$
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+
+- job:
+    name: openstack-tox
+    abstract: true
+    parent: tox
+    nodeset: ubuntu-bionic
+    description: |
+      Base job (bionic) to run tox jobs with OpenStack project specific updates.
+
+      Processing upper-constraints files from openstack/requirements.
+
+      This job runs on bionic for stable/stein, train, and ussuri. This
+      job is prepared to make sure all stable branches from stable/stein till
+      stable/ussuri will keep running on bionic.
+    branches:
+      - stable/stein
+      - stable/train
+      - stable/ussuri
     required-projects:
       - name: openstack/requirements
     vars:
