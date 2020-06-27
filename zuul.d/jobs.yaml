@@ -115,6 +115,7 @@
 - job:
     name: openstack-tox-py27
     parent: openstack-tox
+    nodeset: ubuntu-bionic
     timeout: 2400
     description: |
       Run unit tests for an OpenStack Python project under cPython version 2.7.
@@ -181,7 +182,7 @@
 - job:
     name: openstack-tox-py38
     parent: openstack-tox
-    nodeset: ubuntu-bionic
+    nodeset: ubuntu-focal
     timeout: 2400
     description: |
 
@@ -190,6 +191,29 @@
 
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
+    branches: ^(?!stable/(train|ussuri)).*$
+    vars:
+      tox_envlist: py38
+      bindep_profile: test py38
+      python_version: 3.8
+
+- job:
+    name: openstack-tox-py38
+    parent: openstack-tox
+    nodeset: ubuntu-bionic
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.8 on ubuntu bionic.
+
+      This job runs on bionic for stable/train and ussuri.
+
+      Uses tox with the ``py38`` environment.
+    irrelevant-files: *common-irrelevant-files
+    branches:
+      - stable/train
+      - stable/ussuri
     vars:
       tox_envlist: py38
       bindep_profile: test py38
