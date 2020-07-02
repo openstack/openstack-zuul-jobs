@@ -70,7 +70,7 @@ function get_modulename {
     local project=$1
     local target=$2
 
-    python $SCRIPTSDIR/get-modulename.py -p $project -t $target
+    python3 $SCRIPTSDIR/get-modulename.py -p $project -t $target
 }
 
 function finish {
@@ -139,7 +139,7 @@ function setup_project {
     # and .venv
     local exclude='.*/**'
 
-    python $SCRIPTSDIR/create-zanata-xml.py \
+    python3 $SCRIPTSDIR/create-zanata-xml.py \
         -p $project -v $version --srcdir . --txdir . \
         -r '**/*.pot' '{path}/{locale_with_underscore}/LC_MESSAGES/{filename}.po' \
         -e "$exclude" -f zanata.xml
@@ -219,7 +219,7 @@ function setup_manuals {
         ZANATA_RULES="$ZANATA_RULES -r ./releasenotes/source/locale/releasenotes.pot releasenotes/source/locale/{locale_with_underscore}/LC_MESSAGES/releasenotes.po"
     fi
 
-    python $SCRIPTSDIR/create-zanata-xml.py \
+    python3 $SCRIPTSDIR/create-zanata-xml.py \
         -p $project -v $version --srcdir . --txdir . \
         $ZANATA_RULES -e "$EXCLUDE" \
         -f zanata.xml
@@ -233,7 +233,7 @@ function setup_training_guides {
     # Update the .pot file
     tox -e generatepot-training
 
-    python $SCRIPTSDIR/create-zanata-xml.py \
+    python3 $SCRIPTSDIR/create-zanata-xml.py \
         -p $project -v $version \
         --srcdir doc/upstream-training/source/locale \
         --txdir doc/upstream-training/source/locale \
@@ -248,7 +248,7 @@ function setup_i18n {
     # Update the .pot file
     tox -e generatepot
 
-    python $SCRIPTSDIR/create-zanata-xml.py \
+    python3 $SCRIPTSDIR/create-zanata-xml.py \
         -p $project -v $version \
         --srcdir doc/source/locale \
         --txdir doc/source/locale \
@@ -270,7 +270,7 @@ function setup_reactjs_project {
     # Transform them into .pot files
     npm run json2pot
 
-    python $SCRIPTSDIR/create-zanata-xml.py \
+    python3 $SCRIPTSDIR/create-zanata-xml.py \
         -p $project -v $version --srcdir . --txdir . \
         -r '**/*.pot' '{path}/{locale}.po' \
         -e "$exclude" -f zanata.xml
