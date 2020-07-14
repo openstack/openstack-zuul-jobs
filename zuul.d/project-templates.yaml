@@ -458,6 +458,25 @@
               - openstack/neutron
 
 - project-template:
+    name: openstack-python3-charm-jobs
+    description: |
+      Runs unit tests for an OpenStack Charm project under the CPython
+      version 3 releases designated for testing across OpenStack
+      releases.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py35
+        - openstack-tox-py36
+        - openstack-tox-py38
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py35
+        - openstack-tox-py36
+        - openstack-tox-py38
+
+- project-template:
     name: openstack-python3-victoria-jobs
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
@@ -1657,7 +1676,8 @@
       Run Python tests for charm projects.
       This run py2.7 job and supposed to be used
       on stable branch until stable/train. Ussuri
-      onwards, py3 template should be used.
+      onwards, py3 template should be used
+      (DEPRECATED FOR REMOVAL).
     check:
       jobs:
         - openstack-tox-pep8
@@ -1683,7 +1703,8 @@
 - project-template:
     name: python35-charm-jobs
     description: |
-      Run tox-pep8 and tox-py35 check and gate jobs.
+      Run tox-pep8 and tox-py35 check and gate jobs
+      (DEPRECATED FOR REMOVAL).
     check:
       jobs:
         - openstack-tox-pep8
@@ -1696,7 +1717,8 @@
 - project-template:
     name: python36-charm-jobs
     description: |
-      Run tox-pep8 and tox-py36 check and gate jobs.
+      Run tox-pep8 and tox-py36 check and gate jobs
+      (DEPRECATED FOR REMOVAL).
     check:
       jobs:
         - openstack-tox-pep8
