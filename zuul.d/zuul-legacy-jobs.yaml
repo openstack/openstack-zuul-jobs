@@ -105,17 +105,6 @@
       - openstack/neutron
 
 - job:
-    name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/devstack-gate
-      - openstack/neutron
-
-- job:
     name: legacy-group-based-policy-dsvm-aim
     parent: legacy-dsvm-base
     run: playbooks/legacy/group-based-policy-dsvm-aim/run.yaml
