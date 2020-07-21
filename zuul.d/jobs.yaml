@@ -173,6 +173,18 @@
       python_version: 3.8
 
 - job:
+    name: openstack-tox-py38-arm64
+    parent: openstack-tox-py38
+    nodeset: ubuntu-bionic-arm64
+    timeout: 3600
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.8 on top of arm64 architecture.
+
+      Uses tox with the ``py38`` environment in arm64 platform.
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
