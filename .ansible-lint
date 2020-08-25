@@ -4,9 +4,13 @@ parseable: true
 # [204] Lines < 160
 # [301] Commands should not change things if nothing needs doing
 # [306] shells with pipe should use pipe
+# [108] role names have "-"
+# [208] file permissions not mentioned
 skip_list:
   - '204'
   - '301'
   - '306'
+  - '106'
+  - '208'
 use_default_rules: true
 verbosity: 1
