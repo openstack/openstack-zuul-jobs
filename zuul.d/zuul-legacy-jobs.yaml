@@ -796,17 +796,6 @@
     nodeset: legacy-ubuntu-xenial
 
 - job:
-    name: legacy-tempest-dsvm-neutron-ipv6only
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-ipv6only/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-ipv6only/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-pecan
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-pecan/run.yaml
@@ -833,17 +822,6 @@
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-neutron-scenario-linuxbridge/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-neutron-scenario-linuxbridge/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-serviceipv6
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-serviceipv6/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-serviceipv6/post.yaml
     timeout: 7800
     required-projects:
       - openstack/devstack-gate
