@@ -439,7 +439,7 @@
     branches: stable/ocata
     required-projects:
       - openstack/devstack-gate
-      - openstack/networking-l2gw
+      - x/networking-l2gw
       - openstack/networking-midonet
       - openstack/neutron-dynamic-routing
       - x/tap-as-a-service
@@ -454,7 +454,7 @@
     timeout: 7800
     required-projects:
       - openstack/devstack-gate
-      - openstack/networking-l2gw
+      - x/networking-l2gw
       - openstack/networking-midonet
       - openstack/neutron-dynamic-routing
       - x/tap-as-a-service
