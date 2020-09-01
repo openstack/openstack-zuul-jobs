@@ -378,6 +378,7 @@
       Uses tox with the ``validate`` environment.
     vars:
       tox_envlist: validate
+      ensure_global_symlinks: true
 
 - job:
     name: openstack-tox-pylint
