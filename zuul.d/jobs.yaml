@@ -369,6 +369,42 @@
 
       Uses tox with the ``functional`` environment.
     irrelevant-files: *common-irrelevant-files
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein|train|ussuri)).*$
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional
+    parent: openstack-tox
+    description: |
+      Run tox-based (bionic) functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      This job runs on bionic for stable/stein, train, and ussuri.
+    irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-bionic
+    branches:
+      - stable/stein
+      - stable/train
+      - stable/ussuri
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional
+    parent: openstack-tox
+    description: |
+      Run tox-based (xenial) functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      This job runs on xenial for stable/rocky.
+    irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-xenial
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
     vars:
       tox_envlist: functional
 
@@ -381,6 +417,44 @@
       Uses tox with the ``functional`` environment.
       Sudo access is not revoked.
     irrelevant-files: *common-irrelevant-files
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein|train|ussuri)).*$
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional-with-sudo
+    parent: openstack-tox-with-sudo
+    description: |
+      Run tox-based (bionic) functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      Sudo access is not revoked.
+      This job runs on bionic for stable/stein, train, and ussuri.
+    irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-bionic
+    branches:
+      - stable/stein
+      - stable/train
+      - stable/ussuri
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional-with-sudo
+    parent: openstack-tox-with-sudo
+    description: |
+      Run tox-based (xenial) functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      Sudo access is not revoked.
+      This job runs on xenial till stable/rocky.
+    irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-xenial
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
     vars:
       tox_envlist: functional
 
@@ -427,13 +501,33 @@
 - job:
     name: openstack-tox-functional-py38
     parent: openstack-tox
-    nodeset: ubuntu-bionic
+    nodeset: ubuntu-focal
     description: |
       Run tox-based functional tests for an OpenStack Python project
       under cPython version 3.8.
 
       Uses tox with the ``functional-py38`` environment.
     irrelevant-files: *common-irrelevant-files
+    branches: ^(?!stable/(train|ussuri)).*$
+    vars:
+      tox_envlist: functional-py38
+      bindep_profile: test py38
+      python_version: 3.8
+
+- job:
+    name: openstack-tox-functional-py38
+    parent: openstack-tox
+    nodeset: ubuntu-bionic
+    description: |
+      Run tox-based (bionic) functional tests for an OpenStack Python project
+      under cPython version 3.8.
+
+      Uses tox with the ``functional-py38`` environment.
+      This job runs on bionic for stable/train and ussuri.
+    irrelevant-files: *common-irrelevant-files
+    branches:
+      - stable/train
+      - stable/ussuri
     vars:
       tox_envlist: functional-py38
       bindep_profile: test py38
