@@ -1239,11 +1239,13 @@
     check:
       jobs:
         - tox-pep8
-        - tox-py27
+        - tox-py27:
+            nodeset: ubuntu-bionic
     gate:
       jobs:
         - tox-pep8
-        - tox-py27
+        - tox-py27:
+            nodeset: ubuntu-bionic
     post:
       jobs:
         - publish-openstack-python-branch-tarball
@@ -1271,10 +1273,12 @@
       This uses a variant that do not use constraints.
     check:
       jobs:
-        - tox-py36
+        - tox-py36:
+            nodeset: ubuntu-bionic
     gate:
       jobs:
-        - tox-py36
+        - tox-py36:
+            nodeset: ubuntu-bionic
 
 - project-template:
     name: openstack-python37-jobs-no-constraints
