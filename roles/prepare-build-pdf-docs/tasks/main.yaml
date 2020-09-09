@@ -8,6 +8,7 @@
   package:
     name:
       - latexmk
+      - texlive-full
       - texlive-xetex
       - texlive-fonts-recommended
       - fonts-liberation

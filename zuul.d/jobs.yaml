@@ -585,6 +585,7 @@
 - job:
     name: openstack-tox-docs
     parent: opendev-tox-docs
+    nodeset: ubuntu-focal
     description: |
       Run documentation build.
 
@@ -605,7 +606,7 @@
          file is build if the tox environment specified by
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
-    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein|train|ussuri)).*$
     required-projects:
       - name: openstack/requirements
     vars:
@@ -619,6 +620,27 @@
     # openstack-tox-docs job.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
+
+- job:
+    name: openstack-tox-docs
+    parent: opendev-tox-docs
+    description: |
+      Run documentation build (bionic).
+
+      Uses tox with the ``docs`` environment.
+
+      This job runs on bionic for stable/stein, train, and ussuri.
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      tox_envlist: docs
+      bindep_profile: compile doc
+    nodeset: ubuntu-bionic
+    branches:
+      - stable/stein
+      - stable/train
+      - stable/ussuri
 
 - job:
     name: openstack-tox-docs
