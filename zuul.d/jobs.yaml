@@ -284,7 +284,30 @@
       Run code coverage tests.
 
       Uses tox with the ``cover`` environment.
-    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
+    nodeset: ubuntu-focal
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein|train|ussuri)).*$
+    required-projects:
+      - name: openstack/requirements
+    irrelevant-files: *common-irrelevant-files
+    success-url: cover/
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+    timeout: 3000
+
+- job:
+    name: openstack-tox-cover
+    parent: tox-cover
+    description: |
+      Run code coverage tests (Bionic).
+
+      Uses tox with the ``cover`` environment.
+
+      This job runs on bionic for stable/stein, train, and ussuri.
+    nodeset: ubuntu-bionic
+    branches:
+      - stable/stein
+      - stable/train
+      - stable/ussuri
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
