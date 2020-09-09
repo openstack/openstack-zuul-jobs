@@ -1897,17 +1897,21 @@
         - nodejs-run-lint:
             vars:
               node_version: 6
+            nodeset: ubuntu-bionic
         - nodejs-run-test-browser:
             vars:
               node_version: 6
+            nodeset: ubuntu-bionic
     gate:
       jobs:
         - nodejs-run-lint:
             vars:
               node_version: 6
+            nodeset: ubuntu-bionic
         - nodejs-run-test-browser:
             vars:
               node_version: 6
+            nodeset: ubuntu-bionic
 
 - project-template:
     name: nodejs8-jobs
@@ -1918,17 +1922,21 @@
         - nodejs-run-lint:
             vars:
               node_version: 8
+            nodeset: ubuntu-bionic
         - nodejs-run-test-browser:
             vars:
               node_version: 8
+            nodeset: ubuntu-bionic
     gate:
       jobs:
         - nodejs-run-lint:
             vars:
               node_version: 8
+            nodeset: ubuntu-bionic
         - nodejs-run-test-browser:
             vars:
               node_version: 8
+            nodeset: ubuntu-bionic
 
 - project-template:
     name: nodejs10-jobs
@@ -1939,17 +1947,21 @@
         - nodejs-run-lint:
             vars:
               node_version: 10
+            nodeset: ubuntu-focal
         - nodejs-run-test-browser:
             vars:
               node_version: 10
+            nodeset: ubuntu-focal
     gate:
       jobs:
         - nodejs-run-lint:
             vars:
               node_version: 10
+            nodeset: ubuntu-focal
         - nodejs-run-test-browser:
             vars:
               node_version: 10
+            nodeset: ubuntu-focal
 
 - project-template:
     name: nodejs4-docs
@@ -1977,11 +1989,13 @@
         - nodejs-npm-run-docs:
             vars:
               node_version: 8
+            nodeset: ubuntu-bionic
     gate:
       jobs:
         - nodejs-npm-run-docs:
             vars:
               node_version: 8
+            nodeset: ubuntu-bionic
 
 - project-template:
     name: tempest-plugin-jobs
