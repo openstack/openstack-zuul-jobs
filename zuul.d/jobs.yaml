@@ -762,6 +762,7 @@
 - job:
     name: openstack-tox-lower-constraints
     parent: openstack-tox
+    nodeset: ubuntu-bionic
     branches: ^(?!driverfixes/).*$
     timeout: 2400
     description: |
