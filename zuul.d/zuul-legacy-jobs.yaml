@@ -903,17 +903,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-zeromq-multibackend
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-zeromq-multibackend/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-zeromq-multibackend/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/devstack-plugin-zmq
-      - openstack/tempest
-
-- job:
     name: legacy-trio2o-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/trio2o-dsvm-functional/run.yaml
