@@ -115,7 +115,6 @@
 - job:
     name: openstack-tox-py27
     parent: openstack-tox
-    nodeset: ubuntu-bionic
     timeout: 2400
     description: |
       Run unit tests for an OpenStack Python project under cPython version 2.7.
