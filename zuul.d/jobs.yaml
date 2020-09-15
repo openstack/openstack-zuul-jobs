@@ -614,9 +614,7 @@
       tox_envlist: docs
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
-    # PDF Building is only done from stein onwards, therefore these
-    # pre-run and run playbooks are not part of the other
-    # openstack-tox-docs job.
+    # PDF Building is only done from stein onwards.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
 
@@ -629,13 +627,36 @@
       Uses tox with the ``docs`` environment.
 
       This job runs on bionic for stable/stein, train, and ussuri.
+
+      .. zuul:jobvar: tox_envlist
+
+         The tox environment for building HTML, default is ``docs``.
+
+      .. zuul:jobvar: tox_pdf_envlist
+
+         The tox environment for building PDF, default is ``pdf-docs``.
+         If this environment does not exist, no PDF building is done.
+
+      .. zuul:jobvar: tox_skip_pdf
+
+         Whether to skip building of PDF documents. By default a PDF
+         file is build if the tox environment specified by
+         :zuul:jobvar:`tox_pdf_envlist` exists.
+
     required-projects:
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
       bindep_profile: compile doc
+      tox_pdf_envlist: pdf-docs
+      tox_skip_pdf: false
     nodeset: ubuntu-bionic
+    # PDF Building is only done from stein onwards, therefore these
+    # pre-run and run playbooks are not part of
+    # openstack-tox-docs job for older branches up to rocky.
+    pre-run: playbooks/tox-docs/pre.yaml
+    run: playbooks/tox-docs/run.yaml
     branches:
       - stable/stein
       - stable/train
