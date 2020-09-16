@@ -115,17 +115,42 @@
 - job:
     name: openstack-tox-py27
     parent: openstack-tox
+    nodeset: ubuntu-bionic
     timeout: 2400
     description: |
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
       Uses tox with the ``py27`` environment.
+    branches: ^(?!stable/(ocata|pike|queens|rocky)).*$
     irrelevant-files: &common-irrelevant-files
       - ^.*\.rst$
       - ^api-ref/.*$
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^deliverables/.*$
+    vars:
+      tox_envlist: py27
+      bindep_profile: test py27
+
+- job:
+    name: openstack-tox-py27
+    parent: openstack-tox
+    nodeset: ubuntu-xenial
+    timeout: 2400
+    description: |
+      Run unit tests for an OpenStack Python project under cPython version 2.7.
+
+      Uses tox with the ``py27`` environment.
+
+      This job runs on Xenial for stable/ocata, pike, queens and rocky. This
+      job is prepared to make sure all stable branches before stable/stein will
+      keep running on xenial.
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+    irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: py27
       bindep_profile: test py27
