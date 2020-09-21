@@ -1314,7 +1314,6 @@
       - openstack/project-config
       - opendev/system-config
       - zuul/zuul-jobs
-      - zuul/zuul
     vars:
       tox_envlist: linters
       tox_environment:
