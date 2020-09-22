@@ -8,9 +8,9 @@
   package:
     name:
       - latexmk
-      - texlive-full
       - texlive-xetex
       - texlive-fonts-recommended
+      - cm-super
       - fonts-liberation
       - inkscape
       - xindy
