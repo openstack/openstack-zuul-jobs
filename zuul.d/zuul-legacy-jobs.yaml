@@ -15,16 +15,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-dsvm-os-loganalyze
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/dsvm-os-loganalyze/run.yaml
-    post-run: playbooks/legacy/dsvm-os-loganalyze/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/os-loganalyze
-
-- job:
     name: legacy-gearman-plugin-hpi-artifact
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/gearman-plugin-hpi-artifact/run.yaml
