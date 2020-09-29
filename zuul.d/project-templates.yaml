@@ -1512,15 +1512,15 @@
         - upstream-translation-update:
             branches:
               - master
-              - stable/train
               - stable/ussuri
+              - stable/victoria
     periodic:
       jobs:
         - propose-translation-update:
             branches:
               - master
-              - stable/train
               - stable/ussuri
+              - stable/victoria
 
 - project-template:
     name: openstack-specs-jobs
