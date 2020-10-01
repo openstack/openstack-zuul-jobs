@@ -1681,7 +1681,7 @@
               - stable/ussuri
               - stable/victoria
         # py27 periodic jobs will run until Train, from Ussuri it will
-        # be replaced with py37 periodic job
+        # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
               - stable/ocata
@@ -1729,7 +1729,7 @@
             required-projects:
               - openstack/neutron
         # py27 periodic jobs will run until Train, from Ussuri it will
-        # be replaced with py37 periodic job
+        # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
               - stable/ocata
@@ -1785,7 +1785,7 @@
             required-projects:
               - openstack/ceilometer
         # py27 periodic jobs will run until Train, from Ussuri it will
-        # be replaced with py37 periodic job
+        # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
               - stable/ocata
