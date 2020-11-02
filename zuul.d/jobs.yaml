@@ -587,6 +587,21 @@
       python_version: 3.8
 
 - job:
+    name: openstack-tox-functional-py39
+    parent: openstack-tox
+    nodeset: ubuntu-focal
+    description: |
+      Run tox-based functional tests for an OpenStack Python project
+      under cPython version 3.9.
+
+      Uses tox with the ``functional-py39`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: functional-py39
+      bindep_profile: test py39
+      python_version: 3.9
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
