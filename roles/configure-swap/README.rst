@@ -6,6 +6,6 @@ will be mounted on /opt).
 **Role Variables**
 
 .. zuul:rolevar:: configure_swap_size
-   :default: 8192
+   :default: 1024
 
    The size of the swap partition, in MiB.
