@@ -86,7 +86,10 @@ find ${LOGS}/build/ -name stdout -exec grep 'Downloading' {} \; \
     | sed -n 's,.*Downloading.*[ /]\([^ /]*\.whl\)\([ #].*\|$\),\1,p' \
     | sort -u > ${LOGS}/remove-wheels.txt
 pushd ${WHEELHOUSE_DIR}
-cat ${LOGS}/remove-wheels.txt | xargs rm
+# NOTE(ianw) -f to ignore missing because the new pip resolver says it
+# downloaded some things that it has ulitmately cleaned up itself; see
+#  https://github.com/pypa/pip/issues/9271
+cat ${LOGS}/remove-wheels.txt | xargs rm -f
 popd
 
 if [ -f ${FAIL_LOG} ]; then
