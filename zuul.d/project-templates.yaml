@@ -1693,10 +1693,14 @@
             branches:
               - stable/train
               - stable/ussuri
+              - stable/victoria
         - openstack-tox-py37:
             branches:
               - stable/train
               - stable/ussuri
+        - openstack-tox-py38:
+            branches:
+              - stable/victoria
 
 - project-template:
     name: periodic-stable-jobs-neutron
