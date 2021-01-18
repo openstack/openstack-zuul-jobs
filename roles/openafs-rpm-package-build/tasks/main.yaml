@@ -20,7 +20,7 @@
   shell: |
       set -eux
 
-      VERSION=1.8.6
+      VERSION=1.8.7
 
       mkdir openafs
       wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
