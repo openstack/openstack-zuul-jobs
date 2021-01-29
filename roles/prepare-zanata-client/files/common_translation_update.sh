@@ -614,6 +614,11 @@ function filter_commits {
             REAL_CHANGE=1
         fi
     done
+    # If renamed files exist, we need to commit the change.
+    # This happens only when locales are changed.
+    for f in $(git diff --cached --name-only --diff-filter=R); do
+        REAL_CHANGE=1
+    done
 
     # If no file has any real change, revert all changes.
     if [ $REAL_CHANGE -eq 0 ] ; then
