@@ -2046,6 +2046,21 @@
             nodeset: ubuntu-bionic
 
 - project-template:
+    name: nodejs10-docs
+    description: |
+      Run docs jobs using Node 10.
+    check:
+      jobs:
+        - nodejs-run-docs:
+            vars:
+              node_version: 10
+    gate:
+      jobs:
+        - nodejs-run-docs:
+            vars:
+              node_version: 10
+
+- project-template:
     name: tempest-plugin-jobs
     description: |
         A set of jobs to run against Tempest Plugins
