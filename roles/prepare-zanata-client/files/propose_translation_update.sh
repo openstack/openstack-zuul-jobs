@@ -169,6 +169,7 @@ function handle_python_django_project {
 
     setup_project "$project" "$ZANATA_VERSION"
     pull_from_zanata "$project"
+    rename_django_chinese_locales "$project" "$BRANCH"
     handle_python_django $project python
     handle_python_django $project django
     handle_project_doc $project
@@ -189,6 +190,44 @@ function handle_project_doc {
     # Add all changed files to git
     git_add_po_files doc/source/locale
 }
+
+# Rename existing Chinese locales in the project repository
+# (zh_CN -> zh_Hans, zh_TW -> zh_Hant)
+# NOTE: This is expected to call after pulling translations from zanata.
+function rename_django_chinese_locales {
+    local project=$1
+    local branch=$2
+    local module_name module_names
+    local old_locale new_locale
+
+    # Renaming Chinese locales is unnecessary for Victoria or earlier.
+    # TODO(amotoki): Once all stable branches support the new Chinese locales
+    # in horizon and its plugins, this branch check can be dropped.
+    case "$branch" in
+        stable/ussuri|stable/victoria) return ;;
+        *) ;;
+    esac
+
+    declare -A locale_rename_map=(
+        ["zh_CN"]="zh_Hans"
+        ["zh_TW"]="zh_Hant"
+    )
+
+    module_names=$(get_modulename $project django)
+    for module_name in $module_names; do
+        for old_locale in "${!locale_rename_map[@]}"; do
+            new_locale=${locale_rename_map[$old_locale]}
+            rm -rf $module_name/locale/$new_locale
+            if [ -d $module_name/locale/$old_locale ]; then
+                mv $module_name/locale/$old_locale $module_name/locale/$new_locale
+            fi
+            if git ls-files | grep -q $module_name/locale/$old_locale; then
+                git rm -r $module_name/locale/$old_locale
+            fi
+        done
+    done
+}
+
 
 # Handle either python or django proposals
 function handle_python_django {
