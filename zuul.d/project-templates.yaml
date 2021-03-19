@@ -1644,6 +1644,25 @@
               - release-openstack-javascript
 
 - project-template:
+    name: nodejs10-publish-to-npm
+    description: |
+      Runs publish jobs and tarball generation for Javascript.
+      Uses NodeJS version 10.
+    post:
+      jobs:
+        - publish-openstack-javascript-tarball:
+            vars:
+              node_version: 10
+    release:
+      jobs:
+        - release-openstack-javascript:
+            vars:
+              node_version: 10
+        - announce-release:
+            dependencies:
+              - release-openstack-javascript
+
+- project-template:
     name: translation-jobs-master-only
     description: |
       Sync translations to translation server and back again for
