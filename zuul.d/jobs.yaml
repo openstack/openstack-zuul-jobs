@@ -1509,6 +1509,32 @@
         wheel_python: python3
 
 - job:
+    name: build-wheel-cache-debian-bullseye
+    parent: build-wheel-cache-base
+    description: |
+      Build Debian bullseye wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-debian-bullseye-python3
+          label: debian-bullseye
+    host-vars:
+      wheel-cache-debian-bullseye-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-debian-bullseye-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build Debian bullseye wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-debian-bullseye-arm64-python3
+          label: debian-bullseye-arm64
+    host-vars:
+      wheel-cache-debian-bullseye-arm64-python3:
+        wheel_python: python3
+
+- job:
     name: build-wheel-cache-debian-buster
     parent: build-wheel-cache-base
     description: |
