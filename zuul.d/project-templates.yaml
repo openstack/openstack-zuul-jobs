@@ -1846,6 +1846,7 @@
               - stable/train
               - stable/ussuri
               - stable/victoria
+              - stable/wallaby
         # py27 periodic jobs will run until Train, from Ussuri it will
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
@@ -1861,6 +1862,7 @@
               - stable/train
               - stable/ussuri
               - stable/victoria
+              - stable/wallaby
         - openstack-tox-py37:
             branches:
               - stable/train
@@ -1868,6 +1870,7 @@
         - openstack-tox-py38:
             branches:
               - stable/victoria
+              - stable/wallaby
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -1892,6 +1895,7 @@
               - stable/train
               - stable/ussuri
               - stable/victoria
+              - stable/wallaby
             required-projects:
               - openstack/neutron
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -1911,6 +1915,7 @@
               - stable/train
               - stable/ussuri
               - stable/victoria
+              - stable/wallaby
             required-projects:
               - openstack/neutron
         - openstack-tox-py37:
@@ -1922,6 +1927,7 @@
         - openstack-tox-py38:
             branches:
               - stable/victoria
+              - stable/wallaby
             required-projects:
               - openstack/neutron
 
@@ -1948,6 +1954,7 @@
               - stable/train
               - stable/ussuri
               - stable/victoria
+              - stable/wallaby
             required-projects:
               - openstack/ceilometer
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -1967,6 +1974,7 @@
               - stable/train
               - stable/ussuri
               - stable/victoria
+              - stable/wallaby
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py37:
@@ -1978,6 +1986,7 @@
         - openstack-tox-py38:
             branches:
               - stable/victoria
+              - stable/wallaby
             required-projects:
               - openstack/ceilometer
 
