@@ -1707,15 +1707,15 @@
         - upstream-translation-update:
             branches:
               - master
-              - stable/ussuri
               - stable/victoria
+              - stable/wallaby
     periodic:
       jobs:
         - propose-translation-update:
             branches:
               - master
-              - stable/ussuri
               - stable/victoria
+              - stable/wallaby
 
 - project-template:
     name: openstack-specs-jobs
