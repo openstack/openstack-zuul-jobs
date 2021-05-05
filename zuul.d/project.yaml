@@ -45,10 +45,6 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
-        - build-wheel-cache-ubuntu-xenial-arm64:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
         - build-wheel-cache-ubuntu-bionic-arm64:
             files:
               - playbooks/wheel-cache
