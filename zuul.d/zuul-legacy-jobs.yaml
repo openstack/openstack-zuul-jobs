@@ -264,16 +264,6 @@
       - openstack/networking-sfc
 
 - job:
-    name: legacy-neutron-dsvm-api
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutron-dsvm-api/run.yaml
-    post-run: playbooks/legacy/neutron-dsvm-api/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-
-- job:
     name: legacy-neutron-dsvm-api-pecan
     parent: legacy-dsvm-base
     run: playbooks/legacy/neutron-dsvm-api-pecan/run.yaml
@@ -399,36 +389,6 @@
       - openstack/devstack-gate
       - openstack/neutron
       - openstack/neutron-dynamic-routing
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-ml2-full-ocata/post.yaml
-    timeout: 7800
-    branches: stable/ocata
-    required-projects:
-      - openstack/devstack-gate
-      - x/networking-l2gw
-      - openstack/networking-midonet
-      - openstack/neutron-dynamic-routing
-      - x/tap-as-a-service
-      - openstack/tempest
-
-- job:
-    name: legacy-periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata/run.yaml
-    post-run: playbooks/legacy/periodic-tempest-dsvm-networking-midonet-aio-v2-full-ocata/post.yaml
-    branches: stable/ocata
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - x/networking-l2gw
-      - openstack/networking-midonet
-      - openstack/neutron-dynamic-routing
-      - x/tap-as-a-service
       - openstack/tempest
 
 - job:
