@@ -1464,10 +1464,12 @@
       This uses a variant that do not use constraints.
     check:
       jobs:
-        - tox-py37
+        - tox-py37:
+            nodeset: ubuntu-bionic
     gate:
       jobs:
-        - tox-py37
+        - tox-py37:
+            nodeset: ubuntu-bionic
 
 - project-template:
     name: openstack-lower-constraints-jobs
