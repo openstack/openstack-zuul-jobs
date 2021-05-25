@@ -246,7 +246,7 @@
 - job:
     name: openstack-tox-py38-arm64
     parent: openstack-tox-py38
-    nodeset: ubuntu-bionic-arm64
+    nodeset: ubuntu-focal-arm64
     timeout: 3600
     description: |
 
