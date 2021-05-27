@@ -15,25 +15,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-gearman-plugin-hpi-artifact
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/gearman-plugin-hpi-artifact/run.yaml
-    post-run: playbooks/legacy/gearman-plugin-hpi-artifact/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-gearman-plugin-jenkinsci-upload
-    parent: legacy-base
-    run: playbooks/legacy/gearman-plugin-jenkinsci-upload/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-gearman-plugin-maven-build
-    parent: legacy-base
-    run: playbooks/legacy/gearman-plugin-maven-build/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-grenade-dsvm-cinder-mn-sub-bak
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/run.yaml
