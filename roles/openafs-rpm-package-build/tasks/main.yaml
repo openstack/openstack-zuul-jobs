@@ -20,25 +20,33 @@
   shell: |
       set -eux
 
-      VERSION=1.8.7
+      VERSION=1.8.8pre1
+
+      # NOTE(ianw) 2021-06-16 : we need a candidate release
+      # to deal with some changes pulled in by CentOS 8 kernel
+      URL_PATH=candidate/${VERSION}
+      SRPM=openafs-1.8.8-0.pre1.src.rpm
+
+      # URL_PATH=${VERSION}
+      # SRPM=openafs-${VERSION}-1.src.rpm
 
       mkdir openafs
-      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
-      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-doc.tar.bz2
-      wget https://www.openafs.org/dl/openafs/${VERSION}/RELNOTES-${VERSION}
-      wget https://www.openafs.org/dl/openafs/${VERSION}/ChangeLog
+      wget https://www.openafs.org/dl/openafs/${URL_PATH}/openafs-${VERSION}-src.tar.bz2
+      wget https://www.openafs.org/dl/openafs/${URL_PATH}/openafs-${VERSION}-doc.tar.bz2
+      wget https://www.openafs.org/dl/openafs/${URL_PATH}/RELNOTES-${VERSION}
+      wget https://www.openafs.org/dl/openafs/${URL_PATH}/ChangeLog
 
       # Build the source RPM.
       tar xf openafs-${VERSION}-src.tar.bz2 --strip-components=4 '*/makesrpm.pl'
       perl makesrpm.pl openafs-${VERSION}-src.tar.bz2 openafs-${VERSION}-doc.tar.bz2 RELNOTES-${VERSION} ChangeLog
 
       if [[ ${PACKAGER} == "yum" ]]; then
-        sudo yum-builddep -y openafs-${VERSION}-1.src.rpm
+        sudo yum-builddep -y ${SRPM}
       else
-        sudo dnf builddep -y openafs-${VERSION}-1.src.rpm
+        sudo dnf builddep -y ${SRPM}
       fi
 
-      rpm -i openafs-${VERSION}-1.src.rpm
+      rpm -i ${SRPM}
 
       pushd ~/rpmbuild/SPECS
       rpmbuild -ba ./openafs.spec
