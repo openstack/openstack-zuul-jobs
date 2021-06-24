@@ -17,9 +17,10 @@ exec 1> ${LOGS}/wheel-build.sh.log
 exec 2>&1
 
 # Extract and iterate over all the branch names.
-if [[ $(uname -m) != 'x86_64' ]]; then
+if [[ $(uname -m) != 'x86_64' ]] || $(lsb_release -a 2>&1 | grep -q bullseye) ; then
     # Because arm64 has so many more wheels to make, we limit to just the latest
-    # two branches.
+    # two branches.  Bullseye is using Python 3.9 by default and also
+    # has to build too much at this stage, so we do similar there.
     BRANCHES=$(git --git-dir=$WORKING_DIR/.git branch -a | grep '^  stable' | \
                    tail -2)
 else

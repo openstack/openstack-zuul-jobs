@@ -23,6 +23,10 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
+        - build-wheel-cache-debian-bullseye:
+            files:
+              - playbooks/wheel-cache
+              - roles/build-wheel-cache
         - build-wheel-cache-ubuntu-xenial:
             files:
               - playbooks/wheel-cache
@@ -42,6 +46,10 @@
               - playbooks/wheel-cache
               - roles/build-wheel-cache
         - build-wheel-cache-debian-buster-arm64:
+            files:
+              - playbooks/wheel-cache
+              - roles/build-wheel-cache
+        - build-wheel-cache-debian-bullseye-arm64:
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
