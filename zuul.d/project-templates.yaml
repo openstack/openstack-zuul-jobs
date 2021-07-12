@@ -192,6 +192,49 @@
               - release-openstack-python
 
 - project-template:
+    name: publish-to-pypi-stable-only
+    description: |
+      Publish a Python package to PyPI, then send release announcement
+      emails and propose updates to upper-constraints as needed. This
+      template is supposed to be used for deliverables having stable
+      branch release only, means deprecated deliverables who still
+      support stable release.
+    check:
+      jobs:
+        - test-release-openstack:
+            # NOTE(gmann): Do not run the release job on master branch.
+            # This template is supposed to be used for stable only release.
+            branches: ^(?!master).*$
+    gate:
+      jobs:
+        - test-release-openstack:
+            branches: ^(?!master).*$
+    pre-release:
+      jobs:
+        - release-openstack-python:
+            branches: ^(?!master).*$
+        - announce-release:
+            branches: ^(?!master).*$
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            branches: ^(?!master).*$
+            dependencies:
+              - release-openstack-python
+    release:
+      jobs:
+        - release-openstack-python:
+            branches: ^(?!master).*$
+        - announce-release:
+            branches: ^(?!master).*$
+            dependencies:
+              - release-openstack-python
+        - propose-update-constraints:
+            branches: ^(?!master).*$
+            dependencies:
+              - release-openstack-python
+
+- project-template:
     name: publish-xstatic-to-pypi
     description: |
       Publish an XStatic Python package to PyPI, then send release announcement
