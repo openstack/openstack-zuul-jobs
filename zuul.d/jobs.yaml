@@ -1054,7 +1054,6 @@
       - openstack/ceilometer
       - openstack/ceilometermiddleware
       - openstack/cinder
-      - openstack/django_openstack_auth
       - openstack/glance
       - openstack/glance_store
       - openstack/heat
@@ -1068,7 +1067,6 @@
       - openstack/manila-ui
       - openstack/neutron
       - openstack/neutron-fwaas
-      - openstack/neutron-lbaas
       - openstack/neutron-vpnaas
       - openstack/nova
       - openstack/octavia
@@ -1109,7 +1107,6 @@
       - openstack/ceilometer
       - openstack/ceilometermiddleware
       - openstack/cinder
-      - openstack/django_openstack_auth
       - openstack/glance
       - openstack/glance_store
       - openstack/heat
@@ -1123,7 +1120,6 @@
       - openstack/manila-ui
       - openstack/neutron
       - openstack/neutron-fwaas
-      - openstack/neutron-lbaas
       - openstack/neutron-vpnaas
       - openstack/nova
       - openstack/octavia

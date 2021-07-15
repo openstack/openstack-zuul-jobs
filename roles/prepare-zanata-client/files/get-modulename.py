@@ -21,7 +21,6 @@ DJANGO_PROJECT_SUFFIXES = (
     '-dashboard',
     'horizon',  # to match horizon and *-horizon
     '-ui',
-    'django_openstack_auth',
 )
 
 
