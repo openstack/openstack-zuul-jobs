@@ -859,6 +859,7 @@
 - job:
     name: openstack-tox-lower-constraints
     parent: openstack-tox
+    nodeset: ubuntu-bionic
     branches: ^(?!driverfixes/).*$
     timeout: 2400
     description: |
@@ -870,7 +871,7 @@
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: lower-constraints
-      bindep_profile: test py35 py36
+      bindep_profile: test py36
 
 - job:
     name: build-openstack-puppet-tarball
