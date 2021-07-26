@@ -10,6 +10,9 @@
       - latexmk
       - texlive-xetex
       - texlive-fonts-recommended
+      # Required for tgtermes.sty style, this is a recommended package
+      # for texlive-fonts-recommended but it is not installed by default.
+      - tex-gyre
       - cm-super
       - fonts-liberation
       - inkscape
