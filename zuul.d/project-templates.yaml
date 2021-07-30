@@ -1580,6 +1580,20 @@
               - openstack/ceilometer
 
 - project-template:
+    name: openstack-lower-constraints-master-branch-jobs
+    description: |
+      Runs openstack-tox-lower-constraints in both the check and gate pipelines
+      but only on the master branch.
+    check:
+      jobs:
+        - openstack-tox-lower-constraints:
+            branches: master
+    gate:
+      jobs:
+        - openstack-tox-lower-constraints:
+            branches: master
+
+- project-template:
     name: openstack-pypy-jobs
     description: |
       Runs unit tests for an OpenStack Python project under PyPy.
