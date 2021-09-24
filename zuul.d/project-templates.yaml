@@ -2053,6 +2053,7 @@
               - stable/ussuri
               - stable/victoria
               - stable/wallaby
+              - stable/xena
         # py27 periodic jobs will run until Train, from Ussuri it will
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
@@ -2069,6 +2070,7 @@
               - stable/ussuri
               - stable/victoria
               - stable/wallaby
+              - stable/xena
         - openstack-tox-py37:
             branches:
               - stable/train
@@ -2077,6 +2079,7 @@
             branches:
               - stable/victoria
               - stable/wallaby
+              - stable/xena
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -2101,6 +2104,7 @@
               - stable/ussuri
               - stable/victoria
               - stable/wallaby
+              - stable/xena
             required-projects:
               - openstack/neutron
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -2120,6 +2124,7 @@
               - stable/ussuri
               - stable/victoria
               - stable/wallaby
+              - stable/xena
             required-projects:
               - openstack/neutron
         - openstack-tox-py37:
@@ -2132,6 +2137,7 @@
             branches:
               - stable/victoria
               - stable/wallaby
+              - stable/xena
             required-projects:
               - openstack/neutron
 
@@ -2158,6 +2164,7 @@
               - stable/ussuri
               - stable/victoria
               - stable/wallaby
+              - stable/xena
             required-projects:
               - openstack/ceilometer
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -2177,6 +2184,7 @@
               - stable/ussuri
               - stable/victoria
               - stable/wallaby
+              - stable/xena
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py37:
@@ -2189,6 +2197,7 @@
             branches:
               - stable/victoria
               - stable/wallaby
+              - stable/xena
             required-projects:
               - openstack/ceilometer
 
