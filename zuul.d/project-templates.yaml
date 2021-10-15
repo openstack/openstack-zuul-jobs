@@ -520,6 +520,25 @@
         - openstack-tox-py38
 
 - project-template:
+    name: openstack-python3-charm-yoga-jobs
+    description: |
+      Runs unit tests for an OpenStack Charm project under the CPython
+      version 3 releases designated for testing across OpenStack
+      releases from Yoga onwards.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py36
+        - openstack-tox-py38
+        - openstack-tox-py39
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py36
+        - openstack-tox-py38
+        - openstack-tox-py39
+
+- project-template:
     name: openstack-python3-yoga-jobs
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
