@@ -2061,7 +2061,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/ocata
               - stable/pike
               - stable/queens
               - stable/rocky
@@ -2077,7 +2076,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/ocata
               - stable/pike
               - stable/queens
               - stable/rocky
