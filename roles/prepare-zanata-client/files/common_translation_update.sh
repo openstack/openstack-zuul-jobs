@@ -42,7 +42,8 @@ DOC_TARGETS=('contributor-guide'
              'horizon'
              'openstack-ansible'
              'openstack-helm'
-             'operations-guide')
+             'operations-guide',
+             'swift')
 
 # We need a UTF-8 locale, set it properly in case it's not set.
 export LANG=en_US.UTF-8
