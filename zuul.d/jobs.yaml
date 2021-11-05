@@ -47,7 +47,7 @@
 - job:
     name: openstack-tox
     abstract: true
-    parent: tox
+    parent: tox-fips
     nodeset: ubuntu-focal
     description: |
       Base job to run tox jobs with OpenStack project specific updates.
@@ -58,6 +58,7 @@
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      enable_fips: false
 
 - job:
     name: openstack-tox
