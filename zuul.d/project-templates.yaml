@@ -546,12 +546,12 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py38
+        - openstack-tox-py36
         - openstack-tox-py39
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py38
+        - openstack-tox-py36
         - openstack-tox-py39
     post:
       jobs:
@@ -569,7 +569,7 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py38:
+        - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py39:
@@ -580,7 +580,7 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py38:
+        - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py39:
@@ -602,7 +602,7 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py38:
+        - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -613,7 +613,7 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py38:
+        - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -635,7 +635,7 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py38:
+        - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py39:
@@ -646,7 +646,7 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py38:
+        - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py39:
