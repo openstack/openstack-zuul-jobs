@@ -15,7 +15,8 @@
       set_fact:
         root_filesystem: "{{ root_fs.stdout }}"
 
-    - debug: var=root_filesystem
+    - name: Debug the root_filesystem variable
+      debug: var=root_filesystem
 
 # Note, we don't use a sparse device to avoid wedging when disk space
 # and memory are both unavailable.
@@ -53,4 +54,5 @@
   become: yes
   command: swapon -a
 
-- debug: var=swap_required
+- name: Debug the swap_required variable
+  debug: var=swap_required

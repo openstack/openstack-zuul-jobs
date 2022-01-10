@@ -60,4 +60,5 @@
     value: 30
     state: present
 
-- debug:  var=ephemeral_device
+- name: Debug the ephemeral_device variable
+  debug: var=ephemeral_device

@@ -4,7 +4,8 @@
   register: pdfdocs_env
   ignore_errors: yes
 
-- include_role:
+- name: Run tox with pdf build envlist
+  include_role:
     name: tox
   vars:
     tox_envlist: "{{ tox_pdf_envlist }}"
