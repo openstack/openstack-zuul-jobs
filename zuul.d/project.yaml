@@ -6,16 +6,12 @@
     check:
       jobs:
         - openafs-rpm-package-build-centos-7-x86
-        - openafs-rpm-package-build-centos-8-x86
-        - openafs-rpm-package-build-centos-8-arm64
+        - openafs-rpm-package-build-centos-8-stream-x86
+        - openafs-rpm-package-build-centos-8-stream-arm64
         - openstack-infra-extra-integration-xenial
         - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters
         - build-wheel-cache-centos-7:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
-        - build-wheel-cache-centos-8:
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
@@ -45,10 +41,6 @@
               - roles/build-wheel-cache
     check-arm64:
       jobs:
-        - build-wheel-cache-centos-8-arm64:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
         - build-wheel-cache-centos-8-stream-arm64:
             files:
               - playbooks/wheel-cache
@@ -72,8 +64,8 @@
     gate:
       jobs:
         - openafs-rpm-package-build-centos-7-x86
-        - openafs-rpm-package-build-centos-8-x86
-        - openafs-rpm-package-build-centos-8-arm64
+        - openafs-rpm-package-build-centos-8-stream-x86
+        - openafs-rpm-package-build-centos-8-stream-arm64
         - openstack-zuul-jobs-linters
     promote:
       jobs:

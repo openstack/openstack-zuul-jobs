@@ -36,13 +36,19 @@
         download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
         download_artifact_type: rpm.tar.gz
         download_artifact_pipeline: gate
-        download_artifact_job: openafs-rpm-package-build-centos-8-x86
+        download_artifact_job: openafs-rpm-package-build-centos-8-stream-x86
         download_artifact_directory: '{{ zuul.executor.work_root }}'
 
     - name: Extract centos 8 x86
       unarchive:
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        # Keep this old path for backward compat
         dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8'
+
+    - name: Extract centos 8 x86 stream
+      unarchive:
+        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8-stream'
 
     - name: Remove artifact
       file:
@@ -56,13 +62,19 @@
         download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
         download_artifact_type: rpm.tar.gz
         download_artifact_pipeline: gate
-        download_artifact_job: openafs-rpm-package-build-centos-8-arm64
+        download_artifact_job: openafs-rpm-package-build-centos-8-stream-arm64
         download_artifact_directory: '{{ zuul.executor.work_root }}'
 
     - name: Extract centos 8 arm64
       unarchive:
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        # Keep this old path for backward compat
         dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8'
+
+    - name: Extract centos 8 arm64 stream
+      unarchive:
+        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8-stream'
 
     - name: Remove artifact
       file:

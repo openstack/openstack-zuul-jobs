@@ -1332,14 +1332,14 @@
     nodeset: centos-7
 
 - job:
-    name: openafs-rpm-package-build-centos-8-x86
+    name: openafs-rpm-package-build-centos-8-stream-x86
     parent: openafs-rpm-package-build
-    nodeset: centos-8
+    nodeset: centos-8-stream
 
 - job:
-    name: openafs-rpm-package-build-centos-8-arm64
+    name: openafs-rpm-package-build-centos-8-stream-arm64
     parent: openafs-rpm-package-build
-    nodeset: centos-8-arm64
+    nodeset: centos-8-stream-arm64
 
 - job:
     name: openafs-rpm-package-build-promote
@@ -1486,32 +1486,6 @@
     host-vars:
       wheel-cache-centos-7-python2:
         wheel_python: python2
-
-- job:
-    name: build-wheel-cache-centos-8
-    parent: build-wheel-cache-base
-    description: |
-      Build CentOS 8 wheels for OpenStack CI mirrors.
-    nodeset:
-      nodes:
-        - name: wheel-cache-centos-8-python3
-          label: centos-8
-    host-vars:
-      wheel-cache-centos-8-python3:
-        wheel_python: python3
-
-- job:
-    name: build-wheel-cache-centos-8-arm64
-    parent: build-wheel-cache-base
-    description: |
-      Build CentOS 8 wheels for OpenStack CI mirrors.
-    nodeset:
-      nodes:
-        - name: wheel-cache-centos-8-arm64-python3
-          label: centos-8-arm64
-    host-vars:
-      wheel-cache-centos-8-arm64-python3:
-        wheel_python: python3
 
 - job:
     name: build-wheel-cache-centos-8-stream
