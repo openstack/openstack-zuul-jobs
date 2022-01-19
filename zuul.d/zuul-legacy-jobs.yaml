@@ -28,7 +28,7 @@
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volbak
     parent: legacy-dsvm-base-multinode
-    branches: ^(?!(driverfixes|stable/(newton|ocata))).*$
+    branches: ^(?!(driverfixes)).*$
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/run.yaml
     post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/post.yaml
     timeout: 10800
@@ -70,7 +70,6 @@
       - openstack/devstack-gate
       - openstack/neutron
       - openstack/neutron-fwaas
-    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-libs
@@ -91,7 +90,6 @@
       - openstack/python-keystoneclient
       - openstack/python-neutronclient
       - openstack/python-novaclient
-    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-linuxbridge-multinode
@@ -103,7 +101,6 @@
       - openstack/grenade
       - openstack/devstack-gate
       - openstack/neutron
-    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
@@ -115,7 +112,6 @@
       - openstack/grenade
       - openstack/devstack-gate
       - openstack/neutron
-    branches: ^(?!stable/(newton|ocata)).*$
 
 - job:
     name: legacy-group-based-policy-dsvm-aim
@@ -601,18 +597,6 @@
       - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-full-ocata
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-ocata/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-ocata/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial
 
 - job:
     name: legacy-tempest-dsvm-neutron-pecan

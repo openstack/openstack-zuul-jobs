@@ -1335,25 +1335,6 @@
       tox_skip_pdf: true
 
 - job:
-    name: build-openstack-install-guide
-    parent: build-openstack-sphinx-docs
-    description: |
-      Build install-guide document.
-    vars:
-      sphinx_build_dir: install-guide/build
-      sphinx_source_dir: install-guide/source
-    # This job runs only pre-pike, with pike the documents have been
-    # integrated into normal builds.
-    branches:
-      - stable/newton
-      - stable/ocata
-    files:
-      - ^install-guide/.*
-      - bindep.txt
-      - doc/requirements.txt
-      - test-requirements.txt
-
-- job:
     name: legacy-base
     abstract: true
     description: |

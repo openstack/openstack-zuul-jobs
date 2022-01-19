@@ -14,8 +14,6 @@
       OpenStack functionality.
     check:
       jobs:
-        - legacy-tempest-dsvm-neutron-full:
-            branches: ^stable/(newton|ocata)$
         - tempest-full
         - neutron-grenade:
             # NOTE(gmann): Do not run the grenade job for
@@ -25,8 +23,6 @@
             branches: ^stable/(queens|rocky|stein|train).*$
     gate:
       jobs:
-        - legacy-tempest-dsvm-neutron-full:
-            branches: ^stable/(newton|ocata)$
         - tempest-full
         - neutron-grenade:
             # NOTE(gmann): Do not run the grenade job for
