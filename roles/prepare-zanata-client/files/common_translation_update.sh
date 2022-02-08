@@ -102,6 +102,10 @@ function finish {
 function setup_venv {
     if [ -d ~/.venv ] ; then
         source ~/.venv/bin/activate
+        # Ensure this venv is running the latest pip; if this has come
+        # from the system pip we might have a bionic-era pip that
+        # can't build modern things.
+        pip install --upgrade pip
     else
         # Ensure ~/.local/bin is in the path
         export PATH=~/.local/bin:$PATH
