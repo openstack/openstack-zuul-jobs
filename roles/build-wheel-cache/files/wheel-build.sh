@@ -8,6 +8,15 @@ LOGS=$(pwd)/logs
 
 FAIL_LOG=${LOGS}/failed.txt
 
+# NOTE(ianw) : Some Python 3 platforms (>= 9-stream) are deprecating
+# virtualenv.  When we finally ditch Python 2 platforms, just use
+# python3 -m venv everywhere.
+if [[ ${PYTHON_VERSION} =~ python2 ]]; then
+    VIRTUALENV_CMD="virtualenv -p $PYTHON_VERSION"
+else
+    VIRTUALENV_CMD="${PYTHON_VERSION} -m venv"
+fi
+
 # preclean logs
 mkdir -p ${LOGS}
 rm -rf ${LOGS}/*
@@ -44,7 +53,7 @@ for BRANCH in master $BRANCHES; do
     # setup the building virtualenv.  We want to freshen this for each
     # branch.
     rm -rf build_env
-    virtualenv -p $PYTHON_VERSION build_env
+    ${VIRTUALENV_CMD} build_env
 
     build_env/bin/pip install --upgrade pip
 

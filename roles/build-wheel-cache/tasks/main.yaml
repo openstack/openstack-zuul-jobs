@@ -1,6 +1,15 @@
 - name: Ensure virtualenv dependency
   include_role:
     name: ensure-virtualenv
+  when: wheel_python == "python2"
+
+# NOTE(ianw) : 2022-02-08 - on python3 we use -m venv; ensure-pip will
+# set this up for us.  Remove above and the conditional here when we
+# drop python2 platforms.
+- name: Ensure pip
+  include_role:
+    name: ensure-pip
+  when: wheel_python == "python3"
 
 - name: Ensure wheel dir exists
   file:
