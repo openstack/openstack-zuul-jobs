@@ -1484,9 +1484,13 @@
       nodes:
         - name: wheel-cache-centos-7-python2
           label: centos-7
+        - name: wheel-cache-centos-7-python3
+          label: centos-7
     host-vars:
       wheel-cache-centos-7-python2:
         wheel_python: python2
+      wheel-cache-centos-7-python3:
+        wheel_python: python3
 
 - job:
     name: build-wheel-cache-centos-8-stream
