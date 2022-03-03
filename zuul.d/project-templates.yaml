@@ -548,6 +548,8 @@
         - openstack-tox-pep8
         - openstack-tox-py38
         - openstack-tox-py39
+        - openstack-tox-py310:
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
@@ -575,6 +577,10 @@
         - openstack-tox-py39:
             required-projects:
               - openstack/horizon
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/horizon
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -608,6 +614,10 @@
         - openstack-tox-py39:
             required-projects:
               - openstack/neutron
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/neutron
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -641,6 +651,10 @@
         - openstack-tox-py39:
             required-projects:
               - openstack/ceilometer
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/ceilometer
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:

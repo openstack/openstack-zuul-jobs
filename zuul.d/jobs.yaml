@@ -286,6 +286,23 @@
       Uses tox with the ``py39`` environment in arm64 platform.
 
 - job:
+    name: openstack-tox-py310
+    parent: openstack-tox
+    nodeset: fedora-latest
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.10.
+
+      Uses tox with the ``py310`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: py310
+      bindep_profile: test py310
+      python_version: '3.10'
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
