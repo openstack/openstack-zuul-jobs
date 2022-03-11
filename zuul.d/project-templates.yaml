@@ -543,19 +543,19 @@
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
       version 3 releases designated for testing in the Zed release.
-    check:
+    check: &openstack-python3-latest-check-jobs
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py38
         - openstack-tox-py39
         - openstack-tox-py310:
             voting: false
-    gate:
+    gate: &openstack-python3-latest-gate-jobs
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py38
         - openstack-tox-py39
-    post:
+    post: &openstack-python3-latest-post-jobs
       jobs:
         - publish-openstack-python-branch-tarball
 
@@ -1464,6 +1464,17 @@
         - openstack-tox-py37:
             required-projects:
               - openstack/ceilometer
+
+- project-template:
+    name: openstack-python3-jobs
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing the latest release.
+      This will be updated at the start of each new release. It should
+      only be used for projects using the *independent* release cycle.
+    check: *openstack-python3-latest-check-jobs
+    gate: *openstack-python3-latest-gate-jobs
+    post: *openstack-python3-latest-post-jobs
 
 - project-template:
     name: openstack-python35-jobs
