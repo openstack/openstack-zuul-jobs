@@ -501,44 +501,6 @@
               - openstack/neutron
 
 - project-template:
-    name: openstack-python3-charm-jobs
-    description: |
-      Runs unit tests for an OpenStack Charm project under the CPython
-      version 3 releases designated for testing across OpenStack
-      releases.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py35
-        - openstack-tox-py36
-        - openstack-tox-py38
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py35
-        - openstack-tox-py36
-        - openstack-tox-py38
-
-- project-template:
-    name: openstack-python3-charm-yoga-jobs
-    description: |
-      Runs unit tests for an OpenStack Charm project under the CPython
-      version 3 releases designated for testing across OpenStack
-      releases from Yoga onwards.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py36
-        - openstack-tox-py38
-        - openstack-tox-py39
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py36
-        - openstack-tox-py38
-        - openstack-tox-py39
-
-- project-template:
     name: openstack-python3-zed-jobs
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
@@ -817,6 +779,23 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python3-charm-yoga-jobs
+    description: |
+      Runs unit tests for an OpenStack Charm project under the CPython
+      version 3 releases designated for testing across OpenStack
+      releases from Yoga onwards.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py38
+        - openstack-tox-py310:
+            voting: false
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py38
 
 - project-template:
     name: openstack-python3-xena-jobs
@@ -1475,6 +1454,15 @@
     check: *openstack-python3-latest-check-jobs
     gate: *openstack-python3-latest-gate-jobs
     post: *openstack-python3-latest-post-jobs
+
+- project-template:
+    name: openstack-python3-charm-jobs
+    description: |
+      Runs unit tests for an OpenStack Charm project under the CPython
+      version 3 releases designated for testing the latest release.
+      This will be updated at the start of each new release.
+    check: *openstack-python3-latest-check-jobs
+    gate: *openstack-python3-latest-gate-jobs
 
 - project-template:
     name: openstack-python35-jobs
