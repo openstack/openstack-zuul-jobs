@@ -417,8 +417,6 @@
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit/run.yaml
     timeout: 3600
-    required-projects:
-      - opendev/puppet-openstackci
 
 - job:
     name: legacy-sandbox-tag
