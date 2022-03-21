@@ -560,6 +560,21 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-zed-jobs-arm64
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing in the Zed release
+      on top of ARM64 architecture. This currently runs only a limited
+      test set and supplements the python3-zed-jobs. And it should
+      not be run instead of the default!
+    check-arm64:
+      jobs:
+        - openstack-tox-py38-arm64:
+            voting: false
+        - openstack-tox-py39-arm64:
+            voting: false
+
+- project-template:
     name: openstack-python3-zed-jobs-horizon
     description: |
       The standard :zuul:project_template:`openstack-python3-zed-jobs`
@@ -690,6 +705,21 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-yoga-jobs-arm64
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing in the Yoga release
+      on top of ARM64 architecture. This currently runs only a limited
+      test set and supplements the python3-yoga-jobs. And it should
+      not be run instead of the default!
+    check-arm64:
+      jobs:
+        - openstack-tox-py38-arm64:
+            voting: false
+        - openstack-tox-py39-arm64:
+            voting: false
+
+- project-template:
     name: openstack-python3-yoga-jobs-horizon
     description: |
       The standard :zuul:project_template:`openstack-python3-yoga-jobs`
@@ -808,6 +838,21 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python3-xena-jobs-arm64
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing in the Xena release
+      on top of ARM64 architecture. This currently runs only a limited
+      test set and supplements the python3-xena-jobs. And it should
+      not be run instead of the default!
+    check-arm64:
+      jobs:
+        - openstack-tox-py38-arm64:
+            voting: false
+        - openstack-tox-py39-arm64:
+            voting: false
 
 - project-template:
     name: openstack-python3-xena-jobs-horizon
@@ -942,6 +987,21 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-wallaby-jobs-arm64
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing in the Wallaby release
+      on top of ARM64 architecture. This currently runs only a limited
+      test set and supplements the python3-wallaby-jobs. And it should
+      not be run instead of the default!
+    check-arm64:
+      jobs:
+        - openstack-tox-py38-arm64:
+            voting: false
+        - openstack-tox-py39-arm64:
+            voting: false
+
+- project-template:
     name: openstack-python3-wallaby-jobs-horizon
     description: |
       The standard :zuul:project_template:`openstack-python3-wallaby-jobs`
@@ -1070,66 +1130,6 @@
     post:
       jobs:
         - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-zed-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Zed release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-zed-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs:
-        - openstack-tox-py38-arm64:
-            voting: false
-        - openstack-tox-py39-arm64:
-            voting: false
-
-- project-template:
-    name: openstack-python3-yoga-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Yoga release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-yoga-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs:
-        - openstack-tox-py38-arm64:
-            voting: false
-        - openstack-tox-py39-arm64:
-            voting: false
-
-- project-template:
-    name: openstack-python3-xena-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Xena release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-xena-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs:
-        - openstack-tox-py38-arm64:
-            voting: false
-        - openstack-tox-py39-arm64:
-            voting: false
-
-- project-template:
-    name: openstack-python3-wallaby-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Wallaby release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-wallaby-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs:
-        - openstack-tox-py38-arm64:
-            voting: false
-        - openstack-tox-py39-arm64:
-            voting: false
 
 - project-template:
     name: openstack-python3-victoria-jobs-arm64
