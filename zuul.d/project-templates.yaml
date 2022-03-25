@@ -2216,6 +2216,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
         # py27 periodic jobs will run until Train, from Ussuri it will
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
@@ -2232,6 +2233,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
         - openstack-tox-py37:
             branches:
               - stable/train
@@ -2241,6 +2243,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -2266,6 +2269,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
             required-projects:
               - openstack/neutron
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -2286,6 +2290,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
             required-projects:
               - openstack/neutron
         - openstack-tox-py37:
@@ -2299,6 +2304,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
             required-projects:
               - openstack/neutron
 
@@ -2326,6 +2332,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
             required-projects:
               - openstack/ceilometer
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -2346,6 +2353,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py37:
@@ -2359,6 +2367,7 @@
               - stable/victoria
               - stable/wallaby
               - stable/xena
+              - stable/yoga
             required-projects:
               - openstack/ceilometer
 
