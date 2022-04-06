@@ -36,6 +36,23 @@
         - ansible_distribution == "CentOS"
         - ansible_distribution_major_version == '8'
 
+    # NOTE(ianw) 2022-04-11 : For now use buildlogs staging version
+    # until final releases are made and there are packages to install
+    # repos.
+    - name: Add centos-release-openstack for CentOS 9
+      copy:
+        content: |
+            [RDO-CentOS-9-stream-yoga]
+            name=CentOS OpenStack Yoga Repository
+            baseurl=https://buildlogs.centos.org/centos/9-stream/cloud/{{ ansible_architecture }}/openstack-yoga
+            gpgcheck=0
+            enable=1
+        dest: /etc/yum.repos.d/openstack-yoga.repo
+      become: yes
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == '9'
+
     # This depends on rabbitmq, which isn't build for
     # aarch64 and thus causes everything to stop
     # See https://bugs.centos.org/view.php?id=16968

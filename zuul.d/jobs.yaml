@@ -1510,6 +1510,32 @@
         wheel_python: python3
 
 - job:
+    name: build-wheel-cache-centos-9-stream
+    parent: build-wheel-cache-base
+    description: |
+      Build CentOS 9 wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-centos-9-stream-python3
+          label: centos-9-stream
+    host-vars:
+      wheel-cache-centos-9-stream-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-centos-9-stream-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build CentOS 9 wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-centos-9-stream-arm64-python3
+          label: centos-9-stream-arm64
+    host-vars:
+      wheel-cache-centos-9-stream-arm64-python3:
+        wheel_python: python3
+
+- job:
     name: build-wheel-cache-centos-8-stream
     parent: build-wheel-cache-base
     description: |

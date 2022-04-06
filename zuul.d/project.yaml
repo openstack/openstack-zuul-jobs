@@ -19,6 +19,10 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
+        - build-wheel-cache-centos-9-stream:
+            files:
+              - playbooks/wheel-cache
+              - roles/build-wheel-cache
         - build-wheel-cache-debian-buster:
             files:
               - playbooks/wheel-cache
@@ -42,6 +46,10 @@
     check-arm64:
       jobs:
         - build-wheel-cache-centos-8-stream-arm64:
+            files:
+              - playbooks/wheel-cache
+              - roles/build-wheel-cache
+        - build-wheel-cache-centos-9-stream-arm64:
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
