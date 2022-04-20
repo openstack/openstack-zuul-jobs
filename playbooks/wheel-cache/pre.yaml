@@ -36,18 +36,10 @@
         - ansible_distribution == "CentOS"
         - ansible_distribution_major_version == '8'
 
-    # NOTE(ianw) 2022-04-11 : For now use buildlogs staging version
-    # until final releases are made and there are packages to install
-    # repos.
     - name: Add centos-release-openstack for CentOS 9
-      copy:
-        content: |
-            [RDO-CentOS-9-stream-yoga]
-            name=CentOS OpenStack Yoga Repository
-            baseurl=https://buildlogs.centos.org/centos/9-stream/cloud/{{ ansible_architecture }}/openstack-yoga
-            gpgcheck=0
-            enable=1
-        dest: /etc/yum.repos.d/openstack-yoga.repo
+      yum:
+        name: centos-release-openstack-yoga
+        state: present
       become: yes
       when:
         - ansible_distribution == "CentOS"
