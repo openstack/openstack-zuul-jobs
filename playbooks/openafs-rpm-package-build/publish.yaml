@@ -7,6 +7,11 @@
       loop:
         - 'artifacts/openafs/centos7'
         - 'artifacts/openafs/centos8'
+        - 'artifacts/openafs/centos9'
+
+    #
+    # CentOS 7
+    #
 
     # Download everything to the artifacts/ directory for publish
     - name: Download centos 7 x86 artifact
@@ -28,6 +33,10 @@
       file:
         state: absent
         path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+
+    #
+    # CentOS 8
+    #
 
     - name: Download centos 8 x86 artifact
       include_role:
@@ -75,6 +84,56 @@
       unarchive:
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
         dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos8-stream'
+
+    - name: Remove artifact
+      file:
+        state: absent
+        path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+
+    #
+    # CentOS 9
+    #
+
+    - name: Download centos 9 x86 artifact
+      include_role:
+        name: download-artifact
+      vars:
+        download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
+        download_artifact_type: rpm.tar.gz
+        download_artifact_pipeline: gate
+        download_artifact_job: openafs-rpm-package-build-centos-9-stream-x86
+        download_artifact_directory: '{{ zuul.executor.work_root }}'
+
+    - name: Extract centos 9 x86 stream
+      unarchive:
+        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos9-stream'
+
+    - name: Remove artifact
+      file:
+        state: absent
+        path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+
+    - name: Download centos 9 arm64 artifact
+      include_role:
+        name: download-artifact
+      vars:
+        download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
+        download_artifact_type: rpm.tar.gz
+        download_artifact_pipeline: gate
+        download_artifact_job: openafs-rpm-package-build-centos-9-stream-arm64
+        download_artifact_directory: '{{ zuul.executor.work_root }}'
+
+    - name: Extract centos 9 arm64
+      unarchive:
+        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        # Keep this old path for backward compat
+        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos9'
+
+    - name: Extract centos 9 arm64 stream
+      unarchive:
+        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
+        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos9-stream'
 
     - name: Remove artifact
       file:
