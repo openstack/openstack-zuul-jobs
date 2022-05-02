@@ -7,6 +7,7 @@
       loop:
         - 'artifacts/openafs/centos7'
         - 'artifacts/openafs/centos8'
+        - 'artifacts/openafs/centos8-stream'
         - 'artifacts/openafs/centos9'
 
     #
