@@ -1365,6 +1365,11 @@
     nodeset: centos-9-stream
 
 - job:
+    name: openafs-rpm-package-build-centos-9-stream-arm64
+    parent: openafs-rpm-package-build
+    nodeset: centos-9-stream-arm64
+
+- job:
     name: openafs-rpm-package-build-promote
     description: |
         Publish the openafs RPM packages
