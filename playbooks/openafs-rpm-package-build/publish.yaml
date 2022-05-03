@@ -125,12 +125,6 @@
         download_artifact_job: openafs-rpm-package-build-centos-9-stream-arm64
         download_artifact_directory: '{{ zuul.executor.work_root }}'
 
-    - name: Extract centos 9 arm64
-      unarchive:
-        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
-        # Keep this old path for backward compat
-        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos9'
-
     - name: Extract centos 9 arm64 stream
       unarchive:
         src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
