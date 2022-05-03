@@ -1,0 +1,47 @@
+#!/bin/sh
+
+case ${ARCH:-`uname -m`} in
+alpha)
+    echo alpha_linux_26
+    ;;
+arm|armel|armhf|armv5tel)
+    echo arm_linux26
+    ;;
+arm64)
+    echo arm64_linux26
+    ;;
+i[3456]86)
+    echo i386_linux26
+    ;;
+ia64)
+    echo ia64_linux26
+    ;;
+ppc)
+    echo ppc_linux26
+    ;;
+ppc64)
+    echo ppc64_linux26
+    ;;
+ppc64le)
+    echo ppc64le_linux26
+    ;;
+s390)
+    echo s390_linux26
+    ;;
+s390x)
+    echo s390x_linux26
+    ;;
+sparc)
+    echo sparc_linux24
+    ;;
+sparc64)
+    echo sparc64_linux26
+    ;;
+x86_64)
+    echo amd64_linux26
+    ;;
+*)
+    echo "ERROR: unsupported architecture" >&2
+    echo UNKNOWN
+    exit 1
+esac

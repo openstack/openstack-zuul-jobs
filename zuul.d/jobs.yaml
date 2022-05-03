@@ -1380,6 +1380,15 @@
       nodes: []
 
 - job:
+    name: openafs-deb-package-build
+    description: |
+        Push deb builds
+    run: playbooks/openafs-deb-package-build/run.yaml
+    files:
+      - playbooks/openafs-deb-package-build
+      - roles/openafs-deb-package-build
+
+- job:
     name: openstack-zuul-jobs-linters
     parent: tox
     description: |

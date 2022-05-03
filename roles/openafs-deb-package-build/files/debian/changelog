@@ -1,0 +1,3557 @@
+openafs (1.8.8.1-3~ppa0~%opendev_distro%) %opendev_distro%; urgency=medium
+
+  * Build for openstack-ci PPA.
+
+ -- Ian Wienand <iwienand@redhat.com>  Wed, 04 May 2022 20:29:00 +0000
+
+openafs (1.8.8.1-2) unstable; urgency=medium
+
+  * Skip unit test that fails on the buildds by virtue of using a
+    hardcoded port number.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sat, 12 Mar 2022 21:00:27 -0800
+
+openafs (1.8.8.1-1) unstable; urgency=high
+
+  * New upstream release:
+    - Support linux kernel 5.16 (Closes: #1005404)
+    - Treat the Rx SACK table as bits, not bytes, in preparation for
+      subsequent changes to expand the maximum window size.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 20 Feb 2022 20:15:56 -0800
+
+openafs (1.8.8-3) unstable; urgency=medium
+
+  * Import upstream FTBFS fix for Linux 5.15
+
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Tue, 23 Nov 2021 15:39:23 +0000
+
+openafs (1.8.8-2) unstable; urgency=medium
+
+  * Import upstream patch to improve support for linux 5.14 (avoiding
+    a runtime error when the set_page_dirty operation is requested)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Tue, 12 Oct 2021 22:10:08 -0700
+
+openafs (1.8.8-1) unstable; urgency=medium
+
+  * New upstream release:
+    - Support linux kernel 5.14 (Closes: #995134)
+      PowerPC may be affected by a new ABI restriction.
+    - Fix key handling for keys with parity bits (e.g., triple-DES)
+      (Closes: #987690)
+    - Use proper credentials for I/O to cache to avoid unneeded blockage
+      by security mechanisms like AppArmor
+    - Improvements in certain Rx call edge cases
+    - Attempt to recover from certain errors instead of panicking clients
+    - Additional changes noted in upstream changelog
+  * Update debian/copyright for new file added upstream
+  * Update to policy 4.6.0 (no changes needed)
+  * Specify Build-Depends-Package in symbols files
+  * Update to watch file version=4
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 26 Sep 2021 22:34:07 -0700
+
+openafs (1.8.6-5) unstable; urgency=emergency
+
+  * Pull in upstream patches to fix outgoing connections after
+    unix epoch time 0x60000000 (Closes: #980115, #980116)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Thu, 14 Jan 2021 11:48:18 -0800
+
+openafs (1.8.6-4) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.5.0 (no changes needed)
+  * Pull in upstream patches for linux kernel 5.9 support
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 25 Oct 2020 11:28:45 -0700
+
+openafs (1.8.6-3) unstable; urgency=medium
+
+  * Pull in upstream patches for linux kernel 5.8 support (Closes: #970258)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sat, 19 Sep 2020 15:39:18 -0700
+
+openafs (1.8.6-2) unstable; urgency=medium
+
+  * Pull in upstream patches for -fcommon support (Closes: #966881)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 30 Aug 2020 19:39:18 -0700
+
+openafs (1.8.6-1) unstable; urgency=medium
+
+  * New upstream release:
+    - Support linux kernel 5.7 (thanks Paolo Pisati for an early backport)
+      (Closes: #964027)
+    - other changes noted in the 1.8.6~pre1-1 entry
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Tue, 30 Jun 2020 21:32:42 -0700
+
+openafs (1.8.6~pre1-3) unstable; urgency=medium
+
+  * Temporarily disable a test that fails on armhf buildd but not porterbox
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Tue, 24 Mar 2020 17:30:45 -0700
+
+openafs (1.8.6~pre1-2) unstable; urgency=medium
+
+  * Pull in upstream patch to not resolve IP addresses to names in the
+    vos tests (Closes: #953729)
+  * Only use dh_missing --fail-missing for binary packages, to match
+    the behavior used by the debhelper-compat-9 packaging prior to
+    1.8.6~pre1-1 (Closes: #953709)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sat, 21 Mar 2020 18:58:47 -0700
+
+openafs (1.8.6~pre1-1) unstable; urgency=medium
+
+  * New upstream prerelease (Closes: #953709):
+    - Code cleanup prompted by gcc9 errors
+    - Update "vos zap -force" to clean up empty directories
+    - Relax implementation-specific XDR array length limits for prdb types,
+      which were being hit in practice at some large sites
+    - Tighten up fileservers' -readonly mode, and add an option to allow
+      members of system:administrators to be able to write to readonly servers
+    - Support linux kernels up to version 5.6rc2
+    - Additional sundry changes; see upstream NEWS
+  * Pull in additional patches from upstream:
+    - Support linux kernel 5.6 release
+    - Recognize ppc64le in configure's OS-detection logic
+    - Skip vos tests if vlserver port is already bound (Closes: #953729)
+  * Fix typo preventing ppc64el support from working (Closes: #946520)
+  * Update Italian debconf translation; thanks Beatrice Torracca
+    (Closes: #952799)
+  * Update to debhelper-compat 12
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sat, 21 Mar 2020 14:10:06 -0700
+
+openafs (1.8.5-1) unstable; urgency=high
+
+  * New upstream security release (Closes: #943587):
+    - Fix OPENAFS-SA-2019-001, OPENAFS-SA-2019-002: information leakage from
+      uninitialized RPC output variables
+    - Fix OPENAFS-SA-2019-003: database server DoS (NULL dereference)
+  * Configure --without-ctf-tools to allow kernel module builds when ctfutils
+    are installed. (Closes: #935771)
+  * Enable support for ppc64le. (Closes: #941658)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 27 Oct 2019 15:13:27 -0700
+
+openafs (1.8.4~pre1-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Removing redundant Priority field in binary package
+  * d/changelog: Remove trailing whitespaces
+
+  [ Anders Kaseorg ]
+  * New upstream release 1.8.3:
+    - Miscellaneous improvements to error handling and server efficiency
+      (see NEWS).
+    - Support Linux 5.0.
+  * Update CellServDB from grand.central.org (2018-05-14).
+  * Remove custom compression settings for Debian tarball and binary
+    packages.
+
+  [ Benjamin Kaduk ]
+  * New upstream prerelease 1.8.4pre1:
+    - Further work to avoid spurious ENOENTs from filesystem access.
+    - Fix the behavior of ptserver -restricted to match the documentation.
+    - Autoconf updates and modernization. (Closes: #934758)
+    - Additional miscellaneous improvements (see NEWS).
+  * openafs-fileserver now depends on openafs-krb5 for akeyconvert in the
+    maintainer script. (Closes: #934236)
+  * Debconf translation update:
+    - Danish, thanks Joe Hansen.  (Closes: #923111)
+  * Backport upstream patch to require opt-in for weak crypto in aklog
+    and klog.krb5. (Closes: #931819)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sat, 17 Aug 2019 06:54:44 -0700
+
+openafs (1.8.2-1) unstable; urgency=high
+
+  * New upstream release 1.8.1.1:
+    - Support Linux 4.18.
+  * New upstream security release 1.8.2 (Closes: #908616):
+    - Fix OPENAFS-SA-2018-001: unauthenticated volume operations via butc
+      (CVE-2018-16947).
+    - Fix OPENAFS-SA-2018-002: information leakage in RPC output variables
+      (CVE-2018-16948).
+    - Fix OPENAFS-SA-2018-003: denial of service due to excess resource
+      consumption (CVE-2018-16949).
+
+ -- Anders Kaseorg <andersk@mit.edu>  Tue, 11 Sep 2018 22:53:43 -0700
+
+openafs (1.8.1-1) unstable; urgency=medium
+
+  * New upstream release.  In addition to changes in pre2:
+    - Fix issue where `vldb_check -fix` would corrupt databases with multiple
+      MH blocks
+    - Improved error handling when the cache partition is inaccessible
+    - Improved error handling when page allocation fails
+  * Supply sysname generation for arm64 to get further in the build.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 29 Jul 2018 10:35:12 -0500
+
+openafs (1.8.1~pre2-1) unstable; urgency=medium
+
+  * New upstream prerelease:
+    - Add support for arm64
+    - Improve usability of the shared libraries and public API
+    - Fix volume callbacks so clients see updates after volume releases
+    - Fix Rx connection refcount error that could lead to server crashes
+    - Fix panic when cahe bypass is enabled
+    - Use valid serial number for Rx aborts if possible (and 0 otherwise)
+    - Return valid InlineBulkStatus responses in error cases
+    - The fileserver rejects invalid partition names when attaching partitions
+    - Improve cache manager behavior when unable to open cache files (e.g.,
+      if the cache partition is remounted readonly)
+    - Improve some error messages
+  * Update Dutch debconf translation; thanks Frans Spiesschaert.
+    (Closes: #895459)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 01 Jul 2018 18:42:26 -0500
+
+openafs (1.8.0-1) unstable; urgency=low
+
+  * New upstream release.  Changes since pre5:
+    - Fix issues with -Wpointer-sign
+    - Edits to the afsd manpage regarding the -volume-ttl feature
+  * Update debian/README.source to reflect the move from Alioth to Salsa
+  * Update German debconf translation; thanks Pfannenstein Erik.
+    (Closes: #887663)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Thu, 05 Apr 2018 21:16:37 -0500
+
+openafs (1.8.0~pre5-1) unstable; urgency=low
+
+  [ Russ Allbery ]
+  * Remove myself from Uploaders.
+
+  [ Benjamin Kaduk ]
+  * New upstream release candidate:
+    - Update CellServDB from grand.central.org (2017-03-14)
+    - Avoid rare deadlock condition when recreating a deleted file/directory
+      on old Linux kernels
+    - Clean up ubik DISK_ RPC behavior with respect to sending updates to
+      sites that would reject the update
+    - Remove includes of <rpc/types.h>, for compatibility with glibc 2.26
+    - Do not include RXGEN_OPCODE when throttling clients that generate too
+      many abort replies
+  * Update Vcs- entries in control to reflect the move from alioth to salsa
+  * Correct 1.8.0~pre4-1 changelog entry to reflect that it closed one more
+    Mayhem-reported bug.  (Closes: #716446)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Mon, 19 Feb 2018 10:51:08 -0600
+
+openafs (1.8.0~pre4-1) unstable; urgency=low
+
+  [ Benjamin Kaduk ]
+  * New upstream major release (prerelease):
+    - Servers no longer use rxkad.keytab for long-term keys, which are
+      now stored in KeyFileExt.  Administrators must use akeyconvert
+      or similar tooling to populate the KeyFileExt after updating the
+      krb5 keys in rxkad.keytab.  In most cases, `akeyconvert` with no
+      arguments will suffice; that command is run automatically in the
+      package's postinstall script.
+    - kaserver, klog.afs, pam-openafs-kaserver, and other kauth-related
+      tools are removed.
+    - Server log handling has changed.  Logs are not truncated at
+      startup by default, and are re-opened on SIGUSR1, to be compatible
+      with external log rotation tools.
+    - Client time management support (afsd -settime and afsd -nosettime)
+      has been removed.
+    - Linux versions prior to 2.6 are no longer supported by the client.
+    - Desupport 32-bit s390/s390x
+    - Most binaries now use pthreads instead of LWP green threads.
+    - The fileserver ihandle fsync thread is removed.
+    - Support Linux up to 4.14
+    - Provide vldb cache timeout option for clients
+    - Eliminate potential 100ms delay after rx receive window changes
+    - Modify volume update date after salvager makes changes
+    - Improve ubik safety for relabels and writes shortly after an election
+    - Preserve volume stats during reclone and restore operations
+    - Improve command-line parsing for various utilities.
+      (Closes: #715623, #715787, #716144, #716234, #716444, #716446)
+    - Fix for OPENAFS-SA-2017-001. (Closes: #883602)
+    - Many other generic improvements throughout the tree; consult the
+      upstream changelog for details.
+  * Add versioned build-depends for renamed symbols in heimdal-multidev.
+    (Closes: #848664)
+  * Bump Standards-Version to 4.1.3 (no changes needed).
+  * Update Dutch debconf translation; thanks Frans Spiesschaert.
+    (Closes: #874280)
+
+  [ Anders Kaseorg ]
+  * Use dh_auto_configure.
+  * Correct some paths in the openafs-doc packaging
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 03 Jan 2018 22:14:49 -0600
+
+openafs (1.6.22-3) unstable; urgency=medium
+
+  * Pull in upstream patch to avoid OOPS on linux 4.14 kernels.
+    (Closes: #884420)
+  * Pull in pending upstream patch to include stdint.h where needed.
+    This should allow Ubuntu to return to syncing openafs from Debian.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Thu, 14 Dec 2017 21:08:16 -0600
+
+openafs (1.6.22-2) unstable; urgency=medium
+
+  * Update Russian debconf translation; thanks Lev Lamberov.
+    (Closes: #883916)
+  * Pull in upstream patches to build with kernel 4.14. (Closes: #884276)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 13 Dec 2017 19:15:58 -0600
+
+openafs (1.6.22-1) unstable; urgency=high
+
+  * New upstream security release:
+    - Fix for OPENAFS-SA-2017-001. (Closes: #883602)
+    - Improved support for recent Linux versions
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Tue, 05 Dec 2017 10:28:15 -0600
+
+openafs (1.6.21-3) unstable; urgency=medium
+
+  * Build documentation with FORCE_SOURCE_DATE=1, without which pdfTeX
+    refuses to behave fully reproducibly.
+  * debian/patches:
+    - Linux-Include-linux-uaccess.h-rather-than-asm-uacces.patch: Fix
+    build failure on s390x with Linux kernel 4.12.  (LP: #1711835)
+
+ -- Anders Kaseorg <andersk@mit.edu>  Wed, 30 Aug 2017 23:42:03 -0400
+
+openafs (1.6.21-2) unstable; urgency=medium
+
+  * debian/patches:
+    - AFS_component_version_number.c-Respect-SOURCE_DATE_E.patch: Use UTC
+      for better reproducibility.
+    - 0003-Add-dummy-exit-command-for-afsd-to-do-nothing.patch: Fix
+      rebasing mistake so -exit works correctly.
+    - Linux-4.13-use-designated-initializers-where-require.patch: Support
+      Linux kernel 4.13.  (LP: #1706433)
+  * Update Portuguese debconf translation; thanks Rui Branco.
+    (Closes: #871559)
+  * Update French debconf translation; thanks Alban Vidal.
+    (Closes: #872026)
+  * Update CellServDB from grand.central.org (2017-03-14).
+
+ -- Anders Kaseorg <andersk@mit.edu>  Tue, 22 Aug 2017 19:47:50 -0400
+
+openafs (1.6.21-1) unstable; urgency=medium
+
+  * New upstream release (1.6.21):
+    - Include support for Linx versions through 4.12.  (Closes: #859155)
+    - Improve support for Linux kernels with backported patches.
+      (Closes: #855366)
+    - Improve bosserver startup behavior with unexpected arguments or
+      configuration symlinks.
+    - Re-enable vcache cleanup improvement from 1.6.18, with bugs fixed.
+    - Provide the afsd -inumcalc option; this behavior was previously
+      only configurable via sysctl.
+    - The salvager updates volume "last update" times when modifying volumes.
+    - Demand-attach fileserver improvements for reducing log spew and preventing
+      thread exhaustion during CPS recalculation.
+    - Avoid a potential 100ms transmit delay in RX when the peer's receive
+      window advances.
+  * Switch openafs-fileserver.service to Type=simple and pass -nofork to
+    bosserver.  (Closes: #865962)
+  * Update for policy version 4.0.0, honor nodoc in DEB_BUILD_OPTIONS
+  * Use service(8) instead of /etc/init.d/* directly in documentation and
+    helper scripts
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Mon, 10 Jul 2017 15:27:56 -0500
+
+openafs (1.6.20-2) unstable; urgency=medium
+
+  * Build-Depend debhelper (>= 9.20160114) for dh_strip
+    --dbgsym-migration.
+  * debian/patches:
+    - LINUX-split-dentry-eviction-from-osi_TryEvictVCache.patch,
+      Reformat-src-afs-LINUX-osi_vcache.c.patch,
+      LINUX-do-not-use-d_invalidate-to-evict-dentries.patch,
+      afs-shake-harder-in-shake-loose-vcaches.patch: Avoid system hangs on
+      busy machines due to vcache deallocation failures.
+    - Linux-4.9-deal-with-demise-of-GROUP_AT.patch,
+      Linux-4.9-inode_operation-rename-now-takes-flags.patch,
+      Linux-4.9-inode_change_ok-becomes-setattr_prepare.patch: Support
+      Linux kernel 4.9.  (Closes: #847011)
+    - AFS_component_version_number.c-Respect-SOURCE_DATE_E.patch:
+      Respect SOURCE_DATE_EPOCH in cml_version_number to improve build
+      reproducibility.
+  * openafs-modules-source: Generate /usr/src/openafs.tar.bz2
+    reproducibly.
+
+ -- Anders Kaseorg <andersk@mit.edu>  Sun, 04 Dec 2016 17:49:15 -0500
+
+openafs (1.6.20-1) unstable; urgency=high
+
+  * New upstream release (1.6.19):
+    - Fix issue that could result in using out-of-date database versions
+      in rare cases
+    - Don't commit more data to a file than was actually copied during writes,
+      which could happen on architectures with a page size greater than 4K
+  * New upstream security release (1.6.20):
+    - Fix information leakage (file/directory names) from reused directory
+      buffers
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 30 Nov 2016 16:52:29 -0500
+
+openafs (1.6.18.3-3) unstable; urgency=medium
+
+  * Drop openafs-dbg in favor of automatically generated dbgsym packages.
+  * Mark openafs-doc Multi-Arch: foreign.
+  * debian/patches/tests-util-ktime-t.c-Specify-EST-offset-in-TZ.patch:
+    Fix FTBFS with tzdata uninstalled.  (Closes: #839481)
+  * Depend lsb-base (>= 3.0-6) in openafs-client and openafs-fileserver
+    for /lib/lsb/init-functions.
+
+ -- Anders Kaseorg <andersk@mit.edu>  Wed, 12 Oct 2016 18:04:12 -0400
+
+openafs (1.6.18.3-2) unstable; urgency=medium
+
+  * Drop hardening-wrapper in favor of passing flags via CC.
+    (Closes: #836642)
+  * Clean doxyen-generated documentation with dh_doxygen.
+
+ -- Anders Kaseorg <andersk@mit.edu>  Sun, 11 Sep 2016 17:15:39 -0400
+
+openafs (1.6.18.3-1) unstable; urgency=medium
+
+  * New upstream release 1.6.18.3:
+    - Support Linux kernel 4.7.
+
+ -- Anders Kaseorg <andersk@mit.edu>  Thu, 04 Aug 2016 15:44:22 -0400
+
+openafs (1.6.18.2-1) unstable; urgency=medium
+
+  * New upstream release 1.6.18.2:
+    - Support Linux kernel 4.6.
+    - Revert the vcache cleanup improvement of 1.6.18, which exposed
+      another previously latent issue that wrongly invalidated the current
+      working directroy on some kernels.
+  * Update CellServDB to the 2016-01-01 release.
+
+ -- Anders Kaseorg <andersk@mit.edu>  Mon, 25 Jul 2016 19:12:12 -0400
+
+openafs (1.6.18.1-1) unstable; urgency=medium
+
+  * New upstream release 1.6.18.1:
+    - Support Linux kernel 4.5.
+    - Check return value from bdi_init.
+  * Import upstream Gerrit patch to allow building with Linux kernel 4.6.
+    (Closes: #826922)
+
+ -- Anders Kaseorg <andersk@mit.edu>  Sun, 26 Jun 2016 20:16:54 -0400
+
+openafs (1.6.18-1) unstable; urgency=high
+
+  * New upstream release 1.6.18:
+    - Support for Linux 4.4 kernels.
+    - Improve dynamic vcache cleanup behavior, reducing memory usage and
+      avoiding a long hang when many vcaches are in use
+    - Deprecate afsd -settime.
+    - Failure to release a volume now reports an error back to the client.
+    - Check for invalid IP addresses in the CellServDB.
+    - Fix dafileserver crash experience with large volumes.
+    - Close race between "umount /afs" and "afsd -shutdown".
+    - Prefer -dryrun arguments to -noexecute.
+    - Limit ChangeAddr RPCs to removal, to avoid database corruption.
+    - Improve behavior relating to large (~2GB fetches from the fileserver).
+  * Import patches from upstream gerrit to improve support for
+    Linux 4.5 kernels.  (Closes: #821782)
+  * Depend on sysint.target instead of basic.target in openafs-client.service,
+    to eliminate dependency cycles with other services that depend on
+    remote-fs.target.  (Closes: #794451)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Sun, 15 May 2016 22:19:38 -0400
+
+openafs (1.6.17-2) unstable; urgency=high
+
+  * debian/rules: Fix FTBFS when built with dpkg-buildpackage -A.
+    (Closes: #806088)
+
+ -- Anders Kaseorg <andersk@mit.edu>  Thu, 17 Mar 2016 04:48:16 -0400
+
+openafs (1.6.17-1) unstable; urgency=high
+
+  * New upstream release 1.6.16.
+    - Fix bosserver crashes related to fixed-sized buffers.
+    - Fix potential denial of service issue in pioctl logic
+      (CVE-2015-8312).
+    - Provide a new vos remaddrs subcommand for removing server entries.
+    - Allow pioctls to work with read-only /proc (e.g. Docker containers).
+  * New upstream security release 1.6.17.
+    - Prevent users in foreign Kerberos realms from creating groups as if
+      they were administrators (CVE-2016-2860).
+    - Fix an information leak of uninitialized memory over the network.
+    - Fix a crash when the AFS root volume is not found.
+  * debian/patches/Linux-4.4-key_payload-has-no-member-value.patch,
+    debian/patches/Linux-4.4-Use-locks_lock_file_wait.patch,
+    debian/patches/Linux-4.4-Do-not-use-splice.patch:
+    Add upstream patches for current Linux kernel support.  (Closes: #815521)
+
+ -- Anders Kaseorg <andersk@mit.edu>  Thu, 17 Mar 2016 00:55:42 -0400
+
+openafs (1.6.15-1) unstable; urgency=high
+
+  * New upstream security release.
+    - Fix data leakage in rx ACK packets, OPENAFS-SA-2015-007,
+      CVE-2015-7762, CVE-2015-7763.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 28 Oct 2015 15:56:38 -0400
+
+openafs (1.6.14-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Restore support for using regexes for volume names to backup,
+      accidentally disabled as part of the fix for OPENAFS-SA-2015-006
+  * Update Swedish translation, thanks Martin Bagge and Anders Jonsson.
+    (Closes: #781678)
+  * Note that the protocol document rfc5864.txt is dual licensed.
+    (Closes: #754735)
+  * Supply copyright notice for systemd helper scripts. (Closes: #779170)
+  * Import upstream patches to support the 4.2 Linux kernel.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Mon, 17 Aug 2015 15:01:01 -0400
+
+openafs (1.6.13-1) unstable; urgency=high
+
+  * New upstream security release.
+    - OPENAFS-SA-2015-001 CVE-2015-3282: vos leaks stack data onto the wire
+      in the clear when creating vldb entries
+    - OPENAFS-SA-2015-002 CVE-2015-3283: bos commands can be spoofed,
+      including some which alter server state
+    - OPENAFS-SA-2015-003 CVE-2015-3284: pioctls leak kernel memory contents
+    - OPENAFS-SA-2015-004 CVE-2015-3285: kernel pioctl support for OSD
+      command passing can trigger a panic
+    - OPENAFS-SA02015-005 CVE-2015-3286 is Solaris-specific and did not
+      affect Debian
+    - OPENAFS-SA-2015-006 CV-2015-3287: buffer overflow in vlserver
+  * Also includes changes from the upstream 1.6.12 release:
+    - Avoid database corruption if a database server is shut down and
+      brought up again quickly with an altered database
+    - Fix a potential buffer overflow in aklog
+    - Support for Linux kernels up to 4.1
+    - Avoid spurious EIO errors when writing large chunks of data to
+      mmapped files
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Thu, 30 Jul 2015 17:42:43 -0400
+
+openafs (1.6.11.1-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Support for Linux kernels up to 4.0.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Fri, 15 May 2015 11:02:14 -0400
+
+openafs (1.6.11~pre2-1) experimental; urgency=low
+
+  * New upstream pre-release.
+    - Avoid using a stale data version in certain cases when writing
+      files larger than the AFS cache, which manifested as file corruption.
+    - Fix a refcount leak that could lead to panics.
+    - Support newer linux versions, up through 3.19.
+    - Fix some leaks and crashes in error cases.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Fri, 20 Feb 2015 15:50:49 -0500
+
+openafs (1.6.11~pre1-1) experimental; urgency=low
+
+  * New upstream pre-release.
+    - Linux kernels up to 3.17 are now supported.
+    - Fix more incorrect behavior in our revalidation of dcache entries. Bugs
+      in this area can cause stale path lookups in certain situations, as well
+      as cause getcwd() to fail spuriously.
+    - Allow aklog to succeed in creating native K5 tokens even when K5-to-K4
+      principal conversion fails.
+
+ -- Andrew Deason <adeason@sinenomine.net>  Sun, 07 Dec 2014 23:43:21 -0600
+
+openafs (1.6.10-4) unstable; urgency=medium
+
+  * Update Spanish translation, thanks Javier Fernandez-Sanguino Pena.
+    (Closes: #773565)
+  * Import many patches from upstream:
+    - Support newer linux versions, up through 3.19. (Closes: #771298)
+    - Avoid some spurious getcwd() failures.
+    - Improve configure test for key_type.match (which caused buggy
+      behavior in certain versions of RHEL).
+    - Fix a refcount leak that would manifest as an unrelated OOPS.
+    - Avoid using a stale data version in certain cases when writing
+      files larger than the AFS cache, which manifested as file corruption.
+    This leaves us roughly equivalent to the forthcoming 1.6.11pre2
+    release candidate.
+  * Update CellServDB to the 2015-01-19 release.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 04 Feb 2015 13:35:48 -0500
+
+openafs (1.6.10-3) unstable; urgency=medium
+
+  * Make openafs-client Before=umount.target for improved shutdown
+    behavior. (Affects: #760063)
+  * Mark openafs-client.service as RemainAfterExit=true. (Closes: #770815)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 26 Nov 2014 13:00:27 -0500
+
+openafs (1.6.10-2) unstable; urgency=medium
+
+  * Some shell quoting and similar cleanups in openafs-client-precheck
+    from Anders Kaseorg.
+  * Make the openafs-client unit silently succeed when it is already
+    running, to match the behavior of the sysV script. (Closes: #767056)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Tue, 28 Oct 2014 18:52:47 -0400
+
+openafs (1.6.10-1) unstable; urgency=medium
+
+  * New upstream release.
+    - fix segfault with aklog -path.
+  * The 1.6.10~pre1-1 changelog entry contains a full summary of changes
+    in the upstream release.
+  * Add a systemd unit file for openafs-client. (Closes: #760063)
+    - The variables AFS_PRE_SHUTDOWN and AFS_POST_INIT from
+      /etc/openafs.afs.conf are no longer honored.  They should be
+      converted to the systemd format and placed in
+      /etc/systemd/system/openafs-client.service.d/ ; automatic conversion
+      is not possible.  In particular, the kill_all_afs functionality is
+      not available.
+    - The LIBAFS, MODULEDIR, and DKMSDIR settings from
+      /etc/openafs/afs.conf are not used by the unit file.
+    - The extra shutdown handling for when the NFS translator is used
+      was not converted to the systemd format; the necessary feature
+      was removed from the Linux kernel in 2008.
+    - Support for cold shutdowns is removed.  They generally resulted
+      only in strange failures later on.
+  * Add a systemd unit file for openafs-fileserver.
+  * Use heap-allocated buffers of sufficient length for realpath() in
+    userok.c. (Closes: #757378)
+  * Update Dutch translation. (Closes: #765083)
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Wed, 22 Oct 2014 13:10:59 -0400
+
+openafs (1.6.10~pre1-1) experimental; urgency=low
+
+  [ Benjamin Kaduk ]
+  * New upstream pre-release.
+    - Linux kernels up to 3.16 are now supported.
+    - The amount of free space and reported for /afs is now 2 TiB, up
+      from the previous reported value of around 9 GiB.
+    - Fix 'pts removeuser' behavior in the ptserver for some supergroups
+      over a certain membership size.
+    - Fix logging behavior when rotating logs via the "copy and truncate"
+      approach.
+    - Add new log messages in the volserver log and the vlserver audit log.
+    - Reduce the amount of kernel stack space used in the client.
+    - Improve error handling for a wide variety of cases for various tools.
+    - Improve periodic hanging in the client when a large number of PAGs
+      and files are in use.
+    - Fix 'afs-up' to handle large ACLs correctly.
+    - Fix a crash in 'aklog' when retrying ticket acquisition.
+    - Fix a crash in xstat_fs_test and scout when their local port is
+      already in use.
+    - Fix an error in the client lock handling that prevented checking
+      for the existence of write locks on readonly volumes.
+    - Fix an error in the client that could cause cache inconsistencies
+      if another client removed a directory entry, and recreated a
+      different entry with the same name.
+    - Avoid ignoring build failures during the client kernel module build
+      process, hopefully leading to better error messages in some cases
+      when building the kernel module.
+    - Fix various possible problems when building with parallel make.
+
+  [ Andrew Deason ]
+  * Include the new volscan tool in openafs-fileserver.
+
+  [ Russ Allbery ]
+  * Retroactively add the CVE for OPENAFS-SA-2014-002 to the changelog for
+    1.6.9-1.  It was assigned after the release was uploaded.
+  * Add Benjamin Kaduk as Maintainer and move myself to Uploaders.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Tue, 19 Aug 2014 18:53:34 -0400
+
+openafs (1.6.9-2) unstable; urgency=medium
+
+  [ Russ Allbery ]
+  * Retroactively add the CVE for OPENAFS-SA-2014-002 to the changelog for
+    1.6.9-1.  It was assigned after the release was uploaded.
+  * Add Benjamin Kaduk as Maintainer and move myself to Uploaders.
+
+  [ Benjamin Kaduk ]
+  * Apply upstream deltas to fix the build with the linux kernel 3.16
+    (Closes: #762248):
+    - [ea0c9d8c] Linux 3.16: Switch to iter_file_splice_write
+    - [02a07404] Linux 3.16: Convert to new write_iter/read_iter ops
+  * Update README.source for the gbp pq patch-management procedure.
+
+ -- Benjamin Kaduk <kaduk@mit.edu>  Mon, 22 Sep 2014 13:17:12 -0400
+
+openafs (1.6.9-1) unstable; urgency=high
+
+  * New upstream release.
+    - OPENAFS-SA-2014-002: Fix use of uninitialized memory in the host
+      object in the fileserver.  (CVE-2014-4044)
+
+ -- Russ Allbery <rra@debian.org>  Thu, 12 Jun 2014 12:39:25 -0700
+
+openafs (1.6.8-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Change the default fileserver sync behavior from delayed to
+      onclose so that explicit syncing only happens when a volume is
+      detached.
+    - Add -offline-timeout and -offline-shutdown-timeout options to the
+      fileserver, allowing interrupting of clients accessing volumes that
+      the fileserver is trying to take off-line.
+    - Fix RX bug that could hide errors during packet reception.
+    - Fix vos size -dump display for large volumes.
+    - Give up callbacks when the client is shut down.  This can cause
+      crashes in old fileservers (prior to 1.4.6).
+    - Restore vos e alias for vos examine.
+    - Throttle byte-range lock warnings per file, and include the FID of
+      the file that the client is trying to lock.
+    - Avoid a possible panic during shutdown while tracing.
+    - Fix a bug that could cause getcwd to fail to find parent
+      directories.
+    - Avoid a delay when accessing uncached data in AFS in a confined
+      context under SELinux.
+    - Documentation, diagnostics, and error message improvements.
+  * Add Lintian override for the copy of RFC 5864, which has been
+    dual-licensed by the author.
+
+ -- Russ Allbery <rra@debian.org>  Sat, 24 May 2014 17:55:20 -0700
+
+openafs (1.6.7-1) unstable; urgency=high
+
+  * New upstream security release.
+    - OPENAFS-SA-2014-001: Fix potential buffer overflow in the
+      fileserver.  (CVE-2014-0159)
+    - Fix a potential DoS attack against Rx servers by avoiding suspending
+      the listener thread when delaying connection abort messages.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 09 Apr 2014 10:33:38 -0700
+
+openafs (1.6.6-1) unstable; urgency=low
+
+  * New upstream release.
+    - Remove server-side NAT pings since there's no evidence they help.
+  * Fix linking of /usr/share/doc directories for libpam-openafs-kaserver,
+    openafs-fuse, and openafs-kpasswd.  This was broken in previous
+    releases by a miswritten debian/rules override.  Thanks to Andreas
+    Beckmann for finding the problem and solution.  (Closes: #736305)
+  * Accept AFS_DYNROOT=true as an alias for Yes in afs.conf.client,
+    matching behavior of releases prior to 1.6.2.1-1.  (Closes: #729353)
+
+ -- Russ Allbery <rra@debian.org>  Thu, 23 Jan 2014 20:43:05 -0800
+
+openafs (1.6.6~pre2-1) unstable; urgency=low
+
+  * New upstream pre-release.
+    - Linux kernels up to 3.12 are now supported, including kernels with
+      user namespace support enabled (which affects Debian's 3.12-1 kernel
+      and newer).
+    - Fixed core dumps into AFS with current kernels.
+    - When starting the client fails, backing device information created
+      in sysfs is now properly cleared.
+    - The AFS mountpoint specified in the cacheinfo file must now be an
+      absolute path.
+    - Stop tracking file locks on read-only volumes.  Write locks always
+      fail and read locks always succeed.
+    - New fs flushall command to discard all cached data.
+    - Fixed a bug that could cause the client to incorrectly believe its
+      cache was up to date.
+    - New -rxmaxfrags switch to afsd to limit the number of UDP fragments
+      sent or received per RX packet.
+    - Fixed afsd threads entering an infinite loop.
+    - The file server now ignores any vice partitions with a NeverAttach
+      flag file present in the root directory.
+    - Enabled server-side NAT pings to refresh NAT timeouts.
+    - Forcing file server CPS recalculation (for IP ACLs) is now
+      restricted to administrators.
+    - vos examine of a volume in a transaction is now shown as busy again
+      rather than off-line.
+    - Multiple bug fixes to the salvager.
+    - Fixed a bug that could cause state information to be discarded when
+      restarting a large or busy file server.
+    - Fixed a vlserver bug during file server address registration.
+    - volserver supports a new -preserve-vol-stats option, which preserves
+      access statistics across volume restore and reclone operations.
+    - Releasing a volume after adding a new RO site no longer touches the
+      existing RO sites if the volume has not changed since the last
+      release.
+    - Fixed undefined ptserver behavior with too many allocated PTS ids.
+    - Avoid redefining assert in public header files.
+    - Documentation, diagnostics, and error message improvements.
+
+ -- Russ Allbery <rra@debian.org>  Sat, 28 Dec 2013 11:38:19 -0800
+
+openafs (1.6.5.2-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fix support for tmpfs as the cache filesystem.
+    - Support kernels with backported changes affecting getname/putname.
+  * Exit successfully in the openafs-client init script if /sbin/afsd
+    doesn't exist, indicating that openafs-client is not installed.
+  * Load /lib/lsdb/init-functions in the openafs-client init script as the
+    first step towards upstart or systemd support.
+  * Update standards version to 3.9.5 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Sun, 22 Dec 2013 13:40:10 -0800
+
+openafs (1.6.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Support for Linux 3.11 and 3.12 (up to 3.12-rc3).
+    - Fixed core dumps into AFS with some Linux kernels.
+  * Cherry-pick additional upstream fixes.
+    - [7242e25a] Fix library ordering when building aklog.
+    - [514fc63d] Fix budb crash when the -servers command-line option
+      is given.  (Closes: #718253)
+  * Ignore errors when reading ThisCell in the openafs-client config
+    script.  If the file doesn't end in a newline, read will still succeed
+    and set the variable, but will exit with a non-zero status.  This
+    would abort configuration of the package without a useful error
+    message.
+  * Drop Recommends of libjs-jquery in openafs-doc.  We're no longer
+    replacing the embedded jQuery, pending a better fix in the Doxygen
+    packaging.
+  * Optimize the get-orig-source target.  Thanks, Anders Kaseorg.
+  * Translation updates:
+    - German, thanks Erik Pfannenstein.  (Closes: #719154)
+
+ -- Russ Allbery <rra@debian.org>  Sun, 20 Oct 2013 09:26:37 -0700
+
+openafs (1.6.5-1) unstable; urgency=high
+
+  * New upstream release.
+    - OPENAFS-SA-2013-003: New support for non-DES enctypes in the
+      long-lived AFS key.  This requires deploying rxkad.keytab files on
+      each server containing all of the encryption types for the cell AFS
+      key.  Once this is deployed on servers, DES will only be used for
+      the session key.  Once deployed on all clients, a stronger security
+      mechanism will be used that allows the DES keys to be removed from
+      the AFS principal in the Kerberos KDC (but still uses DES for some
+      session encryption purposes).  (CVE-2013-4134)
+    - OPENAFS-SA-2013-004: Properly support the -encrypt option in vos,
+      including with -localauth.  (CVE-2013-4135)
+  * Move the documentation and kernel module build dependencies to
+    Build-Depends-Indep and only do those parts of the build if building
+    architecture-independent packages.
+  * Drop the sequence numbers from the openafs-client init script
+    registration.  Debian now always uses dependency-based boot ordering.
+  * Translation updates:
+    - Japanese, thanks victory.  (Closes: #714223)
+
+ -- Russ Allbery <rra@debian.org>  Wed, 24 Jul 2013 14:32:22 -0700
+
+openafs (1.6.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 18 Jun 2013 11:10:45 -0700
+
+openafs (1.6.3-1) unstable; urgency=low
+
+  * New upstream release.
+    - Support for Linux 3.9 and 3.10.  (Closes: #711920)
+    - Multiple fixes for use after free, use of uninitialized memory,
+      and similar C memory management bugs found via code analysis.
+    - Obey jumbo/nojumbo settings for Ubik (database) servers.
+    - General improvements in diagnostic and log messages.
+    - Avoid incorrectly sending small amounts of data over the wire
+      unencrypted in some situations and report the correct error message
+      in this case.
+    - Avoid generating duplicate IDs for readonly and backup volumes.
+    - Return quota and free space information without an access check.
+    - Improve client bookkeeping in the file server, fixing several
+      potential corruption and segfault issues.
+    - Avoid known cases of silent data corruption in background syncs in
+      the file server.
+    - Run-time configuration support for fileserver synchronization.
+    - Fix transient network error interference with establishing a ubik
+      quorum.
+    - Do not discard the persistent client disk cache on restart.
+    - Fix bugs that made it impossible to unmount a disk cache file system
+      after it had been used by the client.
+  * Give openafs-dbserver its own documentation directory rather than
+    linking it to openafs-client, allowing relaxation of the versioned
+    dependency on openafs-client to Recommends.  (However, openafs-client
+    will still have to be installed for the openafs-fileserver init
+    script, which uses the bos binary, so will still be pulled in by
+    dependencies.)
+  * Cleanup of the openafs-client postinst script.
+    - Perform all work unconditionally to handle various rare error
+      recovery cases properly.
+    - Only force creation of CellServDB on initial installation or if
+      AFSDB/SRV records are not being used.
+  * Remove openafs-fileserver postinst support for upgrades from ancient
+    versions (1.4.4.dfsg1-4 and 1.4.11+dfsg-3).
+  * General coding style cleanup of maintainer scripts.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 17 Jun 2013 14:53:41 -0700
+
+openafs (1.6.2.1-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * Translation updates:
+    - Brazilian Portuguese, thanks Albino B Neto.  (Closes: #706627)
+
+ -- Russ Allbery <rra@debian.org>  Thu, 09 May 2013 09:00:57 -0700
+
+openafs (1.6.2.1-1) experimental; urgency=low
+
+  * New upstream release.
+    - Support for Linux 3.8.
+  * Support configuring -dynroot-sparse via debconf.  The AFS_DYNROOT
+    option in /etc/openafs/afs.conf.client is now tri-valued instead of a
+    boolean, and the boolean values will be mapped to the corresponding
+    options on upgrade.  Based on work by Jakob Haufe.  (Closes: #644564)
+  * Translation updates:
+    - Czech, thanks Martin Šín.  (Closes: #705013)
+    - Russian, thanks Yuri Kozlov.  (Closes: #705159)
+    - French, thanks Christian Perrier.  (Closes: #705296)
+    - Portuguese, thanks Miguel Figueiredo.  (Closes: #705307)
+    - Danish, thanks Joe Hansen.  (Closes: #705660)
+    - Italian, thanks Beatrice Torracca.  (Closes: #705864)
+
+ -- Russ Allbery <rra@debian.org>  Sun, 21 Apr 2013 20:51:57 -0700
+
+openafs (1.6.2-1) experimental; urgency=low
+
+  * New upstream release.
+    - OPENAFS-SA-2013-001: Fix fileserver buffer overflow when parsing
+      client-supplied ACL entries and protect against client parsing of
+      bad ACL entries.  (CVE-2013-1794)
+    - OPENAFS-SA-2013-002: Fix ptserver buffer overflow via integer
+      overflow in the IdToName RPC.  (CVE-2013-1795)
+    - Fix aklog warning about allow_weak_crypto.
+  * Update CellServDB to the 2013-01-28 version.
+  * Fix DKMS builds of the OpenAFS kernel module for amd64 kernels on the
+    i386 architecture by parsing the kernel version for the architecture
+    and kernel class and using that to tell the OpenAFS build system what
+    sysname to use.  Patch from Thorsten Alteholz.
+  * Avoid re-running setup after build when building modules from the
+    openafs-modules-source package with module-assistant.  This will
+    hopefully avoid an issue where, following an upgrade of
+    openafs-modules-source, module-assistant cannot build new module
+    packages without an intervening module-assistant clean.  Patch from
+    Thorsten Alteholz.  (Closes: #660622)
+  * Make another attempt at suppressing the wildcard action for building
+    debian/rules to fix problems building module packages using
+    make-kpkg.  Patch from Thorsten Alteholz.  (Closes: #639475)
+
+ -- Russ Allbery <rra@debian.org>  Mon, 04 Mar 2013 13:54:30 -0800
+
+openafs (1.6.2~pre3-1) experimental; urgency=low
+
+  * New upstream prerelease.
+    - Avoid unnecessary panic in kernel module when freeing vcaches.
+    - Add additional objects to the *_pic libraries in support of the AFS
+      Perl bindings.
+  * Remove unnecessary change to the upstream Debian packaging files to
+    support armhf.  These files aren't used during a package build, so no
+    need to carry a Debian patch.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 21 Jan 2013 11:17:36 -0800
+
+openafs (1.6.2~pre2-2) experimental; urgency=low
+
+  * Restore include of <sys/param.h> in userspace builds of rx/rx_packet.h
+    to get a definition of MIN and MAX on, at least, powerpc.  Thanks,
+    Andrew Deason.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 03 Jan 2013 12:06:41 -0800
+
+openafs (1.6.2~pre2-1) experimental; urgency=low
+
+  * New upstream prerelease.
+    - Support Linux kernels up to 3.7.  (Closes: #685973)
+    - Fix fileservers to properly report >2 TiB partitions.
+    - Fix stale volume info from vos examine on non-DAFS filservers.
+    - Fix possible volume corruption with vos convertROtoRW.
+    - Fix bosserver to preserve all command-line options over restart.
+    - Fix bosserver to properly kill hung processes during shutdown.
+    - Fixes for memcache, especially on Solaris.
+    - Increase the size of the DNS resolver answer buffer to allow sites
+      with a long response list to use SRV and AFSDB records.
+    - Fix possible abuse of fs mkmount.  In previous versions, users could
+      crash a client by nesting volume mounts.
+    - Fix client page cache corruption on Linux.  When multiple clients
+      read and write to a file, the reading client may see first couple
+      bytes of a file as nulls.
+    - Support newer glibc versions.
+  * Build-Depend on hardening-wrapper and enable it to work around the
+    current upstream munging of CFLAGS and LDFLAGS.  (Closes: #659663)
+  * Fix server installation instructions in README.servers, which used the
+    early demand-attach syntax before separate demand-attach binaries were
+    built.  Thanks, Björn Torkelsson.  (Closes: #693311)
+  * Remove the symlink from the openafs-fileserver doc directory to the
+    openafs-client doc directory.  We used to install this symlink and
+    share doc directories, but this stopped in 1.4.12+dfsg-1.  However,
+    dpkg doesn't remove symlinks to a directory, so systems that had
+    upgraded from the older package were overwriting openafs-client doc
+    files with the openafs-fileserver versions.  Thanks, Andreas
+    Beckmann.  (Closes: #694063)
+  * Switch to xz compression for the upstream tarball, Debian tarball, and
+    binary packages.
+  * Remove debian/import-upstream and change README.source to document
+    using git-import-orig with --upstream-vcs-tag instead.
+  * Move single-debian-patch to local-options and patch-header to
+    local-patch-header so that they only apply to the packages I build and
+    NMUs get regular version-numbered patches.
+  * Update Vcs-* URLs for the new anonscm.debian.org URL layout.
+  * Update standards version to 3.9.4 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Thu, 03 Jan 2013 10:07:39 -0800
+
+openafs (1.6.1-2) unstable; urgency=low
+
+  * Translation updates:
+    - Fix German translation encoding.  Thanks, Christian PERRIER.
+      (Closes: #678736)
+    - Italian, thanks Beatrice Torracca.  (Closes: #671640)
+
+ -- Russ Allbery <rra@debian.org>  Tue, 21 Aug 2012 17:11:58 -0700
+
+openafs (1.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Do not ignore all InlineBulkStatus errors in file server.
+    - Support for Linux 3.3 and 3.4.
+    - Fix incorrect kernel error handling in afs_notify_change.
+    - Fix locking around RXS_PreparePacket.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 28 Mar 2012 17:25:05 -0700
+
+openafs (1.6.1~pre4-1) unstable; urgency=low
+
+  * New upstream prerelease.
+    - Always retry busy rx calls and retriable actions.
+    - Do not abort the salvager on large volume IDs.
+    - Ensure one NAT ping connection per srvAddr.
+    - Improvements to the file server address tracking.
+    - Improve locking in the host table in the file server.
+    - Avoid discrepancy between lastBusy and PEER_BUSY.
+    - Allow a null host for callback breaks.
+    - Fix probing for noop_fsync in the Linux kernel.
+    - Fix handling of expired locks in the file server.
+    - Reset blacklisted servers on a hard-mount retry.
+  * Update debhelper compatibility level to V9.
+  * Update standards version to 3.9.3 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Thu, 08 Mar 2012 18:24:53 -0800
+
+openafs (1.6.1~pre2-1) unstable; urgency=low
+
+  * New upstream prerelease.
+    - Disable server-side Rx keepalive during disk I/O.
+    - Avoid timing out on non-kernel busy Rx channels.
+    - Add separate client connection pool for replicated volumes.
+    - Remove SYNC client disable behavior on some error patterns.
+    - Correctly test for the end of the Rx call queue.
+    - Fix cleanup of special inodes on the server.
+    - Provide a public Rx function for toggling keepalive.
+    - Fix connection management in the client checkserver loop.
+    - Discard cached state in the client when unsure of validity.
+    - Fix thread safety of free inode management with demand-attach.
+    - Fix xstat handling of time values on 64-bit platforms.
+    - Increase the idledead time.
+    - Fix return status of fsync on a directory.
+  * Fix afs-newcell's creation of the file server process to pass
+    -localauth.  This was broken when demand-attach support was
+    added.  Thanks, Florian Hatat.  (Closes: #652973)
+  * Fix afs-newcell's unwind of file server process creation.  Thanks,
+    Davor.  (Closes: #655136)
+  * Description typo, thanks Jonas Smedegaard.  (Closes: #657933)
+  * Translation updates:
+    - Danish, thanks Joe Hansen.  (Closes: #654933)
+
+ -- Russ Allbery <rra@debian.org>  Wed, 08 Feb 2012 14:30:07 -0800
+
+openafs (1.6.1~pre1-1) unstable; urgency=low
+
+  * New upstream prerelease.
+    - Install new afsio utility.
+    - Fixes performance issues in both the client and the server.
+    - Rate-limit waiting for volume messages in kernel logs.
+    - Avoid a possible memory allocation issue in ticket data management.
+    - Disable MTU discovery.
+    - Reduce the quantity of NAT pings sent by the client.
+    - Various fixes for demand-attach file servers.
+    - Fix volume lock violations.
+    - Report the bosserver -rxbind address in a file.
+    - Revert process group changes on keyring failure.
+    - Various fixes for the salvager.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 20 Dec 2011 13:51:57 -0800
+
+openafs (1.6.0-3) unstable; urgency=low
+
+  * Apply upstream deltas to fix file corruption issue in file server:
+    - [c73b6644] viced: disable accelerated copyonwrite
+    - [4e05bc3b] remove CopyOnWrite2 and unused vars
+
+ -- Russ Allbery <rra@debian.org>  Wed, 07 Dec 2011 18:47:48 -0800
+
+openafs (1.6.0-2) unstable; urgency=low
+
+  * Apply upstream deltas for Linux 3.1 and 3.2 (Closes: #649765):
+    - [f129142] Linux: 3.1: update RCU path walking detection in
+      permission i_op (Closes: #649996)
+    - [7f55b45] Linux: d_delete now takes a const argument
+    - [737a280] Linux: 3.2: Use set_nlink to update i_nlink
+    - [364fad6] Linux: 3.1: adapt to fsync changes
+    - [032736b] Linux: make sure backing_dev_info is zeroed
+  * Add support for armhf.  Patch from Konstantinos Margaritis.
+    (Closes: #645395)
+
+ -- Russ Allbery <rra@debian.org>  Mon, 28 Nov 2011 17:53:45 -0800
+
+openafs (1.6.0-1) unstable; urgency=low
+
+  * New upstream stable release.
+    - Rx NAT pings are not enabled until peer has answered
+    - Numerous fixes to command argument parsing
+    - Avoid crashing on host table exhaustion and defer clients instead
+    - Rx connection reference counting is enabled
+    - An Rx connection reference count leak is fixed in bulkstat
+    - Handle unparsable directory objects
+    - Handle Kerberos credential cache errors in aklog
+  * Generate stub header files that include the actual system header when
+    building libuafs instead of symlinking h to the appropriate directory.
+    Fixes build failures now that Debian has switched to multiarch and
+    moved some of the system headers.  (Closes: #639063, LP #831287)
+  * Fix another Doxygen call to generate a configuration file, and remove
+    the generated configuration files after Doxygen runs.
+  * Update CellServDB to the 2011-08-14 release.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 01 Sep 2011 18:43:02 -0700
+
+openafs (1.6.0~pre7-2) unstable; urgency=low
+
+  * Force use of dblatex to build the manual, even if docbook2pdf is
+    available, since the latter dies with errors about TeX capacity.
+    (Closes: #635306)
+  * Fix generation of protocol documentation from Doxygen headers.
+    Doxygen cannot be called directly on header files and needs a
+    configuration file to be generated first.  Thanks, Anders Kaseorg.
+  * Add another dummy rule for ./debian/rules to the kernel module rules
+    file to fix another variation of make-kpkg breakage.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 24 Jul 2011 16:45:28 -0700
+
+openafs (1.6.0~pre7-1) unstable; urgency=low
+
+  * New upstream prerelease.
+    - Substantial Rx updates to correct erroneous behavior
+    - Salvager tries harder to detect linktable issues
+    - Additional documentation
+    - xstat tools now cope with differing timeval structures between
+      endpoints
+    - Don't attach volumes with special status set in demand attach
+    - Treat Linux 3.0 as Linux 2.6 for sysname purposes
+  * Update README.source for a few changes in procedures and source
+    package format.
+  * Reapply the removal of the Doxygen-generated copy of jquery, since
+    this apparently wasn't as fixed as had been advertised.  However, make
+    it conditional on the existence of the jquery.js script, so we should
+    hopefully only fix this where necessary.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 20 Jul 2011 13:04:07 -0700
+
+openafs (1.6.0~pre6-2) unstable; urgency=medium
+
+  * Urgency set to medium since 1.6.0~pre6-1 has been in unstable for some
+    time, blocked only by the armel build problem, and 1.6.0~pre4-1 in
+    testing has serious bugs.
+  * Revert the removal of Doxygen's jquery copy.  This has now been fixed
+    in the Doxygen package.
+  * Disable optimization on armel to work around #630746.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 13 Jul 2011 14:05:26 -0700
+
+openafs (1.6.0~pre6-1) unstable; urgency=low
+
+  * New upstream prerelease.
+    - Don't do unnecessary page invalidation with directories.
+    - Flush vcaches in afs_shutdown for better callback givebacks.
+    - Fix the vnode type for dynroot FIDs.
+    - Fix volinfo -filenames.
+    - Fall back to afs3-vlserver for SRV records for afs3-prserver.
+    - Fix a client locking issue on ICBS that could deadlock.
+    - Fix callback state handling with demand-attach when salvaged.
+    - Fix reference leak in GetCapabilities.
+    - Document DNS SRV record usage in afsd man page.
+  * Add a dummy debian/rules rule in the kernel module rules file to fix
+    builds with make-kpkg.  (Closes: #622260)
+  * Remove and symlink the copies of jquery generated by Doxygen and add a
+    Recommends on libjs-jquery for openafs-doc.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 16 Jun 2011 09:07:30 -0700
+
+openafs (1.6.0~pre5-2) unstable; urgency=low
+
+  * Apply upstream patch from http://gerrit.openafs.org/#change,4656 for
+    correct reading of files larger than the chunk size.
+  * Use dpkg-buildflags to get the default values of CFLAGS, CPPFLAGS, and
+    LDFLAGS.  Upstream does not entirely honor these yet, but we're
+    getting closer.
+  * Update to standards version 3.9.2 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Sun, 15 May 2011 00:29:14 -0700
+
+openafs (1.6.0~pre5-1) unstable; urgency=low
+
+  * New upstream prerelease.
+    - Avoid downward vcache pressure when entries are free.
+    - Avoid client to fileserver deadlock during callback giveup.
+    - Improve calculation of when to flush vcaches.
+    - Don't read pages beyond the cache EOF.
+    - Improve file server reference counting, locking, and logging.
+    - Rename the OpenAFS com_err library to avoid conflicts.
+    - Restrict the number of CBRs allocated at once.
+    - Permit importing of -md5 and -md4 keys with asetkey.
+    - Fix token return in aklog with 524 conversion.
+  * Apply upstream patch from http://gerrit.openafs.org/#change,4654 to
+    fix a configure problem detecting Linux kernel properties, leading to
+    a lockup on 2.6.38 kernels.
+  * Update import-upstream and README.source for moving 1.6 from the
+    experimental and upstream-1.5 branches to the master and upstream
+    branches.
+  * Change to Debian source format 3.0 (quilt).  Force a single Debian
+    patch for simplicity since the packaging is maintained in Git using
+    branches, and include a patch header explaining why.
+
+ -- Russ Allbery <rra@debian.org>  Sat, 14 May 2011 11:52:40 -0700
+
+openafs (1.6.0~pre4-1) unstable; urgency=low
+
+  * Upload to unstable.
+  * New upstream prerelease.
+    - Fix file descriptor leak in the file server that could result in
+      corrupted files.
+    - Properly support large volume numbers.
+    - Document current client setuid behavior.  (Closes: #612608)
+    - Allow salvager to be run manually with demand-attach servers.
+    - Properly report setpag() errors.
+  * Apply upstream deltas:
+    - [1e322b88] Linux: 2.6.39: deal with BKL removal
+    - [a8aa6f42] Linux: 2.6.39: replace path_lookup with kern_path
+  * Declare optional dependencies in the openafs-client init script on
+    openafs-fileserver so that, if the same host is running both a
+    fileserver and a client, the fileserver starts before and stops after
+    the client.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 31 Mar 2011 15:00:04 -0700
+
+openafs (1.6.0~pre3-1) experimental; urgency=low
+
+  * New upstream prerelease.
+    - Revert UUID support in vos.
+    - pt_util fixed to properly create new database.
+    - MTU discovery now properly shut down on call reset.
+    - FUSE client support fixed for non-/afs mounts.
+    - A deleted volume can now be recreated properly.
+    - Callbacks are again not broken during whole partition salvages.
+    - Positional vectored IO fixed.
+    - Fileserver per-client thread usage again properly enforced.
+    - Anonymous dropbox support improved and drawbacks documented.
+    - Ensure vnodes are not reallocated while in use for demand-attach.
+    - Perform vcache eviction via a fast path before visiting vcaches
+      where sleep is needed.
+  * Apply upstream deltas:
+    - [17b48f99] Add missing semicolon (Closes: #618496)
+    - [ee2811b0] viced: Allow checkout of VOL_STATE_DELETED volumes
+
+ -- Russ Allbery <rra@debian.org>  Tue, 22 Mar 2011 05:07:22 -0700
+
+openafs (1.6.0~pre2-1) experimental; urgency=low
+
+  * New upstream prerelease.
+    - Avoid spurious Rx connection timeouts.
+    - Do not retry Rx calls on channels returning busy errors.
+    - Fix double-free error in the vos command-line utility.
+    - Properly enable Rx connection hard timeouts.
+    - Fix lock initialization in Rx.
+    - Check for /afs existence before starting unless -nomount given.
+    - Fix panic when using /afs/.:mount syntax.
+    - Avoid a panic in memcache mode due to missing CellItems file.
+    - Attempt to recover more quickly from timed-out volume releases.
+    - Improve speed of volume removal.
+    - Improve CPU utilization during demand-attach volume attachment.
+    - Fix various error handling problems.
+    - Linux 2.6.38 support.
+    - Improve correctness and performance in cache bypass mode.
+    - Avoid extra runs of the vcache freeing routine.
+  * In README.modules, document the need to install the Linux headers
+    package in the DKMS instructions and the need for module-assistant
+    clean openafs in the module-assitant instructions.  (Closes: #606235)
+
+ -- Russ Allbery <rra@debian.org>  Thu, 03 Mar 2011 17:49:27 -0800
+
+openafs (1.6.0~pre1-1) experimental; urgency=low
+
+  * New upstream prerelease.
+    - Rx performance improvements.
+    - Correct byte order handling of port in SRV record lookups.
+    - More robust vos release to sites previously marked "don't use."
+    - vos properly matches sites with multihomed servers.
+    - Fix ptserver supergroups support on 64-bit platforms.
+    - Bug fixes for demand-attach salvaging.
+    - Avoid potential crash when attaching a volume fails.
+    - Properly hold the host lock during host enumeration in fileserver.
+    - Use larger I/O sizes in memcache to improve performance.
+    - Avoid potential alignment issues in pioctl calls.
+    - Servers now marked down when GetCapabilities returns an error.
+    - Avoid blocking xvcache lock when freeing in-use vcaches.
+    - In-use vcache count now properly tracked.
+    - Properly configure LWP to use ucontext on appropriate platforms.
+    - Eliminate spurious AFS system call errors.
+    - Linux 2.6.37 support.
+  * Apply upstream deltas:
+    - [4a3e5291] Update NEWS for 1.5.78 and 1.6.0pre1
+  * In the openafs-client init script, don't attempt to stop or restart
+    the AFS client if module loading is disabled.  Stopping afsd without
+    unloading the module would leave the system in an inconsistent state.
+  * Add $named to Should-Start in the openafs-client init script since the
+    client may do DNS lookups for the VLDB and file servers during startup
+    in some situations.  (Closes: #586226)
+  * Drop --enable-reduced-depends for right now.  aklog doesn't deal with
+    it correctly.
+  * Now that upstream has renamed compile_et to afs_compile_et, include it
+    in libopenafs-dev.
+  * Update CellServDB to the 2010-12-13 version.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 29 Dec 2010 12:27:59 -0800
+
+openafs (1.5.77-2) experimental; urgency=low
+
+  * Apply upstream deltas:
+    - [ca2a7363] libuafs: Don't #define user (fixes armel build)
+    - [f7f366d0] Link dafssync-debug(8) to fssync-debug(8)
+    - [a2cf6b8d] Fix POD errors in fileserver and dasalvager
+    - [e36b4e00] Update bos create man page for new demand-attach
+  * Add backslashes to the DKMS command, which will be required once DKMS
+    uses proper shell quoting.
+  * In openafs-modules-source, use /lib/modules/`uname -r`/build as the
+    default path to the kernel headers rather than /usr/src/linux.
+    Current kernel header packages will create an appropriate symlink
+    there.  This default is only used when neither module-assistant nor
+    kernel-package are used.
+  * In the openafs-client init script, stop looking for openafs.o; Debian
+    hasn't supported 2.4 kernels for quite some time.  Remove all the $MP
+    handling since we force a module name of openafs.ko using
+    --with-linux-kernel-packaging.
+
+ -- Russ Allbery <rra@debian.org>  Fri, 24 Sep 2010 21:37:03 -0700
+
+openafs (1.5.77-1) experimental; urgency=low
+
+  * Apply upstream deltas:
+    - [7594331c] Add NEWS entries for OpenAFS 1.5.77 and 1.5.76
+  * New upstream testing release.
+    - Demand-attach servers are now always built and installed under
+      separate names (dafileserver, davolserver, dasalvager).  This means
+      that the default names are no longer demand-attach, which means that
+      upgrades from previous experimental versions will fail (but upgrades
+      from non-experimental versions will be much cleaner).
+    - Linux 2.6.36 support and improved freezer interface support.
+    - More robust path MTU detection.
+    - Return VNOVOL from fileserver when a volume is deleted.
+    - Improve handling of some corruption in the salvager.
+    - Relax too-strict checks in ptserver on foreign names.
+    - Better reporting of failures during volume attach.
+    - Better fileserver handling of host hash collisions.
+    - Fix statistics reporting in RXAFS_GetStatistics64.
+    - Improved disconnected mode reference tracking.
+    - Avoid a kernel panic during vcache contention.
+    - Fix potential kernel panic during bulkstatus.
+    - Better vos dry-run mode for syncvldb and syncserv.
+    - Fix s390x kernel build support.
+  * Update afs-newcell and README.servers to recommend using the
+    demand-attach fileserver binaries and dafs bos type.
+  * Force disabling of Linux syscall probing in kernel module builds.
+  * Remove obsolete --enable-demand-attach-fs and --enable-disconnected
+    configure flags.  These are now unconditional upstream.
+  * The openafs-fileserver init script now depends on $named since
+    apparently the volserver requires DNS during startup.  Thanks, Jaap
+    Winius.  (Closes: #589783)
+  * Use dpkg --print-architecture, not --print-installation-architecture,
+    in the openafs-fileserver config script.  The latter is deprecated.
+    Thanks, Peter Palfrader.  (Closes: #594488)
+  * Add a dependency on libc6-dev to openafs-modules-dkms.  dkms doesn't
+    depend on it because most kernel modules don't need it, but openafs
+    builds userspace helper programs.  Thanks, Peter Palfrader.
+  * Fix the sample CellServDB entry printed by afs-newcell if the cell
+    isn't found in /etc/openafs/CellServDB to include the correct server
+    syntax.  Thanks, Peter Palfrader.
+  * Run the DKMS build commands in a subshell to work around a DKMS bug
+    that caused the module build logs to be discarded.  (LP: #593509)
+  * Add a status command to the openafs-fileserver init script.
+  * Update to debhelper compatibility level V8.
+    - Rewrite debian/rules to use dh and overrides.
+    - Use dh_installdocs --link-doc to handle linked doc directories.
+    - Rewrite debian/module/rules to use dh and overrides.
+    - Bump -source package dependency and compat to debhelper 8.
+  * Add ${perl:Depends} to openafs-modules-dkms and perl to the
+    dependencies of openafs-modules-source, since Perl is used as part of
+    the module build system now.
+  * Remove bison and flex dependencies for the module build packages.  We
+    now ship the results of rxgen, so don't need all the tools required to
+    build the full source tree.
+  * Update standards version to 3.9.1 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Tue, 21 Sep 2010 17:59:42 -0700
+
+openafs (1.5.75-2) experimental; urgency=low
+
+  * Apply upstream deltas:
+    - [57d727da] Link libafsauthent with -lresolv if required
+    - [c3fc948e] Check for crypt in external library
+    - [a1351d48] Fix ktime test on 64-bit systems
+  * Use --after instead of --remaining in binary-indep to avoid running
+    dh_auto_install and doing the installation process again.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 14 Jul 2010 12:05:12 -0700
+
+openafs (1.5.75-1) experimental; urgency=low
+
+  * New upstream testing release.
+    - Path MTU discovery for networks with bad fragmentation.
+    - New -human flag for human-readable units in some fs commands.
+    - Provide reasons for locked volumes in vos when known.
+    - Improvements to Rx ping and NAT handling.
+    - Improvements to the userspace AFS client.
+    - Substantial updates to the Administrator's Guide.
+    - Various bug fixes and improvements to the file server.
+    - Force core file generation in bosserver.
+    - Improve vlclient and vldb_check.
+    - Avoid volume corruption on creation if files were left over from a
+      previous failed cleanup.
+    - Do not tie up fileserver threads with volumes being taken offline.
+    - Break origin's callback on the target of a rename operation.
+    - Do not open /dev/console in the fileserver.  (Closes: #582111)
+    - Avoid unneeded sync() calls in the fileserver.
+    - Update client disk cache version.
+    - Parallelization improvements in lock management in the client.
+    - New -dynroot-sparse mode for afsd to not show all cells in the
+      CellServDB until that cell is needed.
+    - Fix aklog crash with linked cell handling.
+    - Fix fs getserverprefs -vlservers with default CellServDB list.
+    - Report server address when logging warnings.
+    - Avoid panic in GetCapabilities with an unknown cell.
+    - Report process name and ID for advisory lock warnings when
+      possible.
+    - Flush pending changes to server when releasing file locks.
+    - Various other client bug fixes on error handling and callbacks.
+    - Disable syscall probes when keyrings are supported.
+    - Use filehandles for all Linux 2.6 versions to avoid
+      incompatibilities with mismatched afsds.
+    - Update Linux kernel support for 2.6.35.
+    - The stripped source tree generated for kernel module builds is now
+      truly architecture-independent and can build on i386 for amd64
+      kernels (for example).  (Closes: #518270)
+    - Fix build problems on alpha.
+  * Apply upstream deltas:
+    - [bbce0515] Add NEWS entries for 1.5.75
+    - [c790e7d0] Remove a few erroneous NEWS entries for 1.5.75
+    - [9e2aba99] Fix ktime test for errors
+    - [5cc6293c] Provide man pages for more fssync-debug commands
+  * Set the OpenAFS build version to the Debian package version with
+    -debian appended so that the Debian package versions can be
+    distinguished from unmodified upstream versions.
+  * Build shared library packages for libafsauthent and libafsrpc.
+    Upstream is now more careful about the ABI.  (Closes: #433054)
+  * Explicitly link libafsauthent with -lresolv -lcrypt.  This is a
+    temporary fix for Linux that will be replaced by a better upstream fix
+    in the next release.
+  * openafs-modules-source and openafs-modules-dkms are now architecture:
+    all.  The generated kernel source is now architecture-independent.
+  * openafs-modules-source and openafs-modules-dkms now recommend an
+    appropriate version of openafs-client.
+  * Update kernel module packaging scripts:
+    - Remove selection of linux-image vs. kernel-image for kernel names.
+    - Use Breaks instead of Conflicts.
+    - Update standards version to 3.9.0.
+  * Tighten the dependencies on openafs-client in packages that symlink
+    their /usr/share/doc directories to openafs-client's to meet the
+    Policy requirements for changelog files.
+  * Remove the lpia architecture.  This was an experiment in Ubuntu that
+    has apparently been dropped.
+  * Add preliminary support for powerpcspe, mapping that architecture to
+    ppc_linux26.  The kernel build won't work unless uname -m on that
+    architecture returns ppc.
+  * Minor update to README.Debian for openafs-doc: the old IBM release
+    notes are no longer included.
+  * Remove conflicts/replaces/provides for openafs-ptutil, which was
+    ancient (removed in 2001).
+  * Install an upstream changelog file now that upstream provides one.
+  * Add a workaround in the clean target to allow the same packaging files
+    to be used by upstream, which removes changelog during distclean
+    because it's Autoconf-generated.  This workaround will not trigger
+    during a normal Debian package build.
+  * Update standards version to 3.9.0.
+    - Use Breaks instead of Conflicts where appropriate.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 13 Jul 2010 14:46:10 -0700
+
+openafs (1.5.74.1-1) experimental; urgency=low
+
+  * New upstream testing release.
+    - Correctly recognize cache version differences in upgrades from 1.4
+      and invalidate the old cache.
+    - Resolve symlinks in fs rmmount.
+    - Include PID in byte-range lock warning.
+  * Preserve the AFS mount point and cache directories set in
+    /etc/openafs/cacheinfo if the file already exists rather than
+    overwriting them with the defaults.  Thanks, Liam Healy.
+    (Closes: #580077)
+  * In the openafs-client init script, don't assume that AFS is mounted on
+    /afs when unmounting it or killing processes with AFS files open.
+    Instead, parse /etc/mtab to find the AFS mount point.
+  * Move the experimental afsd.fuse AFS FUSE client into openafs-fuse to
+    avoid adding a FUSE dependency in openafs-client.  Document its
+    current limitations in the package description.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 04 May 2010 21:49:52 -0700
+
+openafs (1.5.74-2) experimental; urgency=low
+
+  * Apply upstream deltas:
+    - [e6f6c349] Fixes and clarifications to vos setaddrs man page
+    - [d80382ef] Remove special-case call for KAM_SetPassword on s390
+  * Fix ucontext detection on ppc_linux26, hopefully fixing build failures
+    on the Debian powerpc architecture.
+  * Install afsd.fuse and a man page link for it if the FUSE client build
+    is enabled.
+  * Add build dependency on libfuse-dev and pass --enable-fuse-client to
+    configure so that the new FUSE afsd is built.  Install afsd.fuse into
+    the openafs-client package for the time being; it will move to some
+    other package before being uploaded to unstable so that openafs-client
+    doesn't keep a dependency on libfuse.  There is, as yet, no
+    documentation or init script support for the FUSE implementation.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 20 Apr 2010 18:12:06 -0700
+
+openafs (1.5.74-1) experimental; urgency=low
+
+  * New upstream testing release.
+    - New vos setaddrs command.
+    - Significant improvements to libuafs (user-space AFS client).
+    - Initial FUSE implementation for afsd.
+    - pts mem -supergroup and -expandgroups options.
+    - Rx lock acquisition and thread safety fixes.
+    - Fileserver capabilities support for the UNIX client.
+    - Various afsmonitor improvements.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 19 Apr 2010 14:27:10 -0700
+
+openafs (1.5.73.3-1) experimental; urgency=low
+
+  * New upstream testing release.
+    - New demand-attach file server support for greatly improved file
+      server restart times.
+    - Support for split readonly/read-write client caches.
+    - Better client handling of file server meltdowns.
+    - Experimental read-only client disconnected mode.
+    - NFS translator clients now work properly on Linux.
+    - Client cache readahead.
+    - Network performance improvements.
+    - New libkopenafs library providing a kernel PAG manipulation
+      interface (a subset of the API provided by Heimdal's libkafs).
+    - Fix builds on sparc64.  (LP: #181661)
+  * Apply upstream deltas:
+    - [7d395f17] Improve demand-attach fileserver bos documentation
+    - [a763edc3] Make src/rx/rx.c not executable
+    - [8d41bc24] Reallocate memory in aklog for the AFS ID string
+    - [be449999] Fix typo in bos_create manpage
+    - [fdb9429e] Linux: kmap() not page_address()
+  * Build OpenAFS with demand-attach enabled for the file server, bos
+    restricted mode enabled for bosserver, and disconnected mode enabled
+    for the client.  Except for demand-attach, these options don't change
+    the default behavior, just make new capabilities available.
+  * The openafs-modules package now provides openafs-modules3 and
+    conflicts on pre-1.5.61 openafs-client packages since the interface
+    between afsd and the module has changed.  openafs-client now conflicts
+    with openafs-modules2 and recommends openafs-modules3.
+  * Change the default permissions of /etc/openafs/server to 0755 to match
+    upstream defaults, but do not change permissions on upgrade.  The only
+    file in that directory that needs to be protected is KeyFile, which
+    should be mode 0600 anyway.  Drop the patch to bosserver to allow more
+    restrictive permissions.  bosserver will complain about directory
+    permissions after upgrade until the directory is manually changed.
+  * Upstream now installs afszcm.cat and finds it in /usr/share/openafs/C,
+    so use the version installed via make install and install it in the
+    same location.
+  * Upstream builds specific files with -fno-strict-aliasing where needed,
+    so we no longer need to build the whole source with that flag.
+  * Upstream no longer includes files covered by the Apple Public Source
+    License, so we no longer have to repackage the upstream source to
+    remove those files.  Drop Debian patches to the build system that were
+    compensating for the removal of those files.
+  * Switch to generating upstream tarballs from the upstream Git tag
+    rather than from tarball releases.  There's no reason to include all
+    the generated files when we're going to regenerate them anyway, and
+    this saves effort combining the doc and src tarballs.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 08 Apr 2010 13:20:50 -0700
+
+openafs (1.4.12+dfsg-3) unstable; urgency=low
+
+  * Apply upstream deltas:
+    - [135e196b] Create missing root directory when ORPH_ATTACH
+    - [190ef2cb] volmonitor keep vtrans lock
+    - [812dcc2c] Increase the maximum number of sysnames
+    - [a123d4ab] Print rxdebug statistics as unsigned values
+  * If the user configures openafs-client to use AFSDB records for VLDB
+    server location, don't prompt the user for VLDB servers for the local
+    cell even if they're not present in CellServDB and don't try to add an
+    entry for the local cell to CellServDB.  (Closes: #575299)
+
+ -- Russ Allbery <rra@debian.org>  Fri, 26 Mar 2010 16:05:30 -0700
+
+openafs (1.4.12+dfsg-2) unstable; urgency=low
+
+  * Apply upstream deltas:
+    - [4ca7b6fc] Remove lih_r
+    - [f3899ac3] Allow GetSomeSpace_r to select an optimal host
+    - [94a43966] h_TossStuff_r: check held-ness after lock
+    - [b78eeb0c] h_TossStuff_r: make sure host does not go away
+    - [0583af32] volmonitor copy link before calling free
+    - [eb799d07] Move non-executable stack assembly code to end of file
+  * Build with -fno-strict-aliasing.  The upstream development branch has
+    a better fix that selectively enables this for specific files with
+    known problems, but be conservative for the stable release.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 22 Mar 2010 15:53:48 -0700
+
+openafs (1.4.12+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    - Enable weak encryption types in aklog and klog.krb5.
+    - Build support for Linux 2.6.33.
+    - Improvements to host tracking safety in the file server.
+    - Fall back to current kernel credentials if we can't use stored ones.
+    - Fix truncation handling in some large file situations.
+    - Further fixes to mmap handling.
+    - Avoid double-free in some FetchData64 error situations.
+    - Stop warning about system call hooks when keyrings are in use.
+    - Flush vcaches when a mount fails to avoid inconsistent data.
+    - New dump tag and length standard for vos dump.
+    - Fix stack executability for programs containing assembly code.
+    - Various salvager robustness fixes.
+  * Use dh_dkms from the DKMS package to handle creation of the maintainer
+    scripts for openafs-modules-dkms rather than rolling our own.
+    (LP: #497149)
+  * Update init script to require $remote_fs be started first and stopped
+    after OpenAFS.  This won't be the case in the long run, but for now
+    some important boot-time options need /usr/bin/fs to set them.
+  * List $syslog in Should-Start for the openafs-client init script, since
+    otherwise if loading the module causes a kernel panic, it won't be
+    logged to disk.
+  * Update CellServDB to the 2010-02-28 version.
+  * Add README.source explaining maintenance procedures and a
+    debian/import-upstream script to do a Git-aware merge of a new
+    upstream release that will allow us to cherry-pick upstream patches
+    and do proper merges.
+  * Stop linking the openafs-fileserver doc directory to openafs-client so
+    that we can provide a separate NEWS.Debian.
+  * Update standards version to 3.8.4 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Mon, 08 Mar 2010 16:32:49 -0800
+
+openafs (1.4.11+dfsg-6) unstable; urgency=low
+
+  * Apply upstream deltas:
+    - [c12ec354] Fix write_begin configure test for recent RHEL kernels
+    - [b7198421] Fix memory allocation warnings at shutdown
+    - [7183c113] Do not check *aoutSize in PGetPAG
+    - [c0323c49] cm: address race condition in afs_QueueVCB
+    - [ad6dabdc] Clean up console message
+    - [c9f7fe37] Make ktc_curpag also detect ONEGROUP PAG gids
+    - [2f87c43e] volser transaction object race conditions
+    - [2d6c0390] Add array bounds checking in h_Enumerate
+    - [70f6a328] Check for (hostFlags & HOSTDELETED) after h_Lock_r
+    - [c7a59397] Avoid IHandle leak when failing to attach volume
+  * Remove incorrect return call in shutdown_icl() introduced by b7198421.
+  * Do not attempt to build the kernel module with DKMS if the appropriate
+    Linux headers aren't installed.  Based on code from the common DKMS
+    postinst script (which we'll just use once it's reliably available).
+    Thanks, Anders Kaseorg.  (LP: #487535)
+  * Fix configure flags used for enabling or disabling LWP and kernel
+    debugging flags and always pass --disable-strip-binaries.
+  * Fix the openafs-dbg dependencies and package description to reflect
+    its inclusion of debugging symbols for all server binaries in
+    openafs-fileserver and openafs-dbserver, but not the legacy PAM
+    modules.
+  * In anticipation of a change in dpkg-source's defaults, force source
+    package format 1.0.  The package is maintained using Git and
+    generating a proper quilt series is complex and relatively pointless
+    work, so the additional complexity of the 3.0 format is currently not
+    that useful.
+  * Change section of openafs-modules-dkms to kernel to match override.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 30 Nov 2009 16:54:08 -0800
+
+openafs (1.4.11+dfsg-5) unstable; urgency=low
+
+  * Apply upstream deltas:
+    - [7833e472] Make afsd.pod reflect reality
+    - [c9974c7a] Avoid prematurely destroying callback_rxcon
+    - [9b37972e] Linux: 2.6.32 - Adapt to writeback changes
+    - [abdf72bc] Linux: Avoid deadlock in readdir - release GLOCK for
+      filldir
+    - [bdb4f98a] Protect rx_call iovq from simultaneous attempts to empty
+      it
+    - [c08609ae] Avoid using released hosts
+    - [a410b7fd] Linux - Fix disk cache access for selinux/AppArmor
+      constrained processes (LP: #415766)
+    - [49094ccf] Add automatic sysname detection for ARM Linux
+    - [525b594a] Make ktc_curpag generally available (LP: #446521)
+  * In the postinst of openafs-modules-dkms, if the openafs module is
+    already added in DKMS, try to remove it first before adding it.  This
+    should more correctly handle the case of a user installing this
+    package without the correct kernel headers, having it fail in
+    postinst, and then installing the correct headers and having dpkg
+    attempt to configure the package again.  Thanks, Philipp Kaluza.
+    (Closes: #553542)
+
+ -- Russ Allbery <rra@debian.org>  Tue, 03 Nov 2009 20:57:21 -0800
+
+openafs (1.4.11+dfsg-4) unstable; urgency=low
+
+  * When changing the name of the source package built by
+    openafs-modules-source, we need to change the package name in the
+    changelog as well or dpkg-gencontrol explodes.  Thanks, Aaron M.
+    Ucko.  (Closes: #549140)
+
+ -- Russ Allbery <rra@debian.org>  Wed, 30 Sep 2009 18:04:44 -0700
+
+openafs (1.4.11+dfsg-3) unstable; urgency=low
+
+  * Apply upstream deltas:
+    - openafs-stable-1_4_x/fileserver-no-negative-fetchdata-20090926:
+      never return a negative data length from client reads past the end
+      of a file.
+    - openafs-stable-1_4_x/fileserver-gethost-r-cleanup-fixes-20090925:
+      fix memory leak and possible double-free in error handling cases in
+      fileserver.
+    - openafs-stable-1_4_x/fileserver-retry-registeraddrs-20090810: retry
+      VL_RegisterAddrs in the file server on failure.
+    - openafs-stable-1_4_x/kernel-init-vrequest-structure-20090914:
+      properly initialize vrequest structure in the kernel.
+  * Change the permissions of /var/lib/openafs/local to 0700 to match
+    upstream defaults.  This directory contains the fssync.sock file used
+    for coordination between the fileserver and the volserver, and
+    commands sent to that socket are not authenticated.  Linux protects
+    the socket from unprivileged writes by default, but other operating
+    systems do not.  Upstream therefore wants this directory to be 0700
+    and bosserver will complain by default if it's not.  Changing the
+    permissions let us drop a patch to bosserver.
+  * Fix the second module control file for the standards version, section,
+    and maintainer update.
+  * Change the source package name of the stripped package generated by
+    openafs-modules-source so that, should someone build a Debian source
+    package from it, it won't have the same name as the main openafs
+    source package.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 29 Sep 2009 15:34:58 -0700
+
+openafs (1.4.11+dfsg-2) unstable; urgency=low
+
+  * Add armv5tel to debian/sysname, mapping it to arm_linux26.  Patch from
+    Daniel Bayer.  Also make the similar change for the module source
+    package.  (Closes: #542315)
+  * Also install restorevol in the openafs-client package.
+  * Swap maintainer and uploaders in the packaging files for the module
+    source package, matching the main package.
+  * Update standards version to 3.8.3.
+    - Change section of packages generated by openafs-modules-source to
+      kernel.
+    - Add Homepage to packages generated by openafs-modules-source.
+
+ -- Russ Allbery <rra@debian.org>  Fri, 21 Aug 2009 19:20:03 -0700
+
+openafs (1.4.11+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Russ Allbery <rra@debian.org>  Fri, 10 Jul 2009 13:57:55 -0700
+
+openafs (1.4.11~pre3+dfsg-1) unstable; urgency=low
+
+  * New upstream release candidate.
+    - Further fixes for rcu_read_lock dependencies in some kernels.
+    - Clean up return values of Linux vnode operations.
+    - Call inode's setattr operation correctly.
+  * Ignore failures to remove an existing DKMS tree in the prerm of the
+    openafs-modules-dkms package.  In the possible cases where the tree
+    may not be present to be removed, failing package removal doesn't
+    make sense.  (Further addresses LP #368471.)
+  * Don't install man pages for fs command variants that are only
+    available on Windows.
+  * Bring src/config/linux-version closer to upstream since upstream now
+    handles unversioned source directories.  There is one remaining change
+    required to search for UTS_RELEASE in the correct header path.
+  * Update CellServDB to 2009-06-29 version.
+  * Translation updates:
+    - Russian, thanks Yuri Kozlov.  (Closes: #534807)
+
+ -- Russ Allbery <rra@debian.org>  Sat, 04 Jul 2009 15:20:06 -0700
+
+openafs (1.4.11~pre1+dfsg1-1) unstable; urgency=low
+
+  * New upstream release candidate.
+    - New getpag pioctl to discover a PAG from userspace portably.
+    - Allow disabling of syscall probing in the kernel module.
+    - New -maxmtu override switch in afsd to accommodate some VPNs.
+    - pts client encryption support.
+    - Further fixes to address/UUID tracking in the file server.
+    - New DocBook-based manuals replacing the old HTML manuals.
+    - New Doxygen-based protocol reference replacing the old PDF files.
+    - Man pages for remaining AFS subcommands.
+  * Update standards version to 3.8.2 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Wed, 17 Jun 2009 13:32:31 -0700
+
+openafs (1.4.10+dfsg1-2) unstable; urgency=low
+
+  * Apply upstream CVS deltas:
+    - STABLE14-dprintf-rename-20090427: rename AFS's dprintf to avoid
+      conflicts with one in the kernel.
+    - STABLE14-linux26-defer-cred-changing-20090511: defer changing groups
+      when the real and effective credentials of a process differ to avoid
+      running afoul of checks in newer Linux kernels that cause oops.
+      (Closes: #528785)
+    - STABLE14-linux-mmap-antirecursion-fix-20090512 and
+      STABLE14-linux-mmap-antirecursion-avoid-spurious-eio-20090526:
+      improvements in flag setting and locking around recursive mmap
+      protection.
+    - STABLE14-memcache-write-on-laststore-20090512: write back dirty
+      pages on last store with memcache to avoid losing changes.
+    - STABLE14-background-fsync-consistency-issues-20090522: file
+      descriptor handling fixes for the file server.
+    - STABLE14-man-page-vos-dump-flags-20090526: document the -clone and
+      -omitdirs flags to vos dump.  (Closes: #502571)
+  * Provide an openafs-modules-dkms package that uses DKMS to dynamically
+    build kernel modules for the local kernel and document this option in
+    README.modules.  This is an alternative to installing
+    openafs-modules-source and building kernel modules for each new kernel
+    with module-assistant or make-kpkg.  (Closes: #168852, #525131)
+    (LP: #52786, #368471, #369875)
+  * Have openafs-client recommend at least the current source version of
+    openafs-modules-source or openafs-modules-dkms instead of any old
+    version.  While the API probably hasn't changed, it's best practice to
+    keep a relatively close match between the userspace andn the kernel
+    module version.  (LP: #369875)
+  * Dynamically determine the Debian and upstream versions for dkms.conf
+    and get-orig-source from debian/changelog.  Thanks, Anders Kaseorg.
+    (LP: #364426)
+  * Build-depend on cpio (used for generating openafs-modules-source).
+
+ -- Russ Allbery <rra@debian.org>  Tue, 26 May 2009 21:18:54 -0700
+
+openafs (1.4.10+dfsg1-1) unstable; urgency=high
+
+  * New upstream release.
+    - OPENAFS-SA-2009-001: Avoid a potential kernel memory overrun if more
+      items than requested are returned from an InlineBulk or BulkStatus
+      message.  (CVE-2009-1251)
+    - OPENAFS-SA-2009-002: Avoid converting negative errors into invalid
+      kernel memory pointers.  (CVE-2009-1250)
+    - Preliminary support for 2.6.30 kernels.
+    - Dynamic vcache allocation support to deal with inotify vcache
+      pinning.
+    - Do appropriate locking for CellServDB in /proc.
+    - Use +dfsg instead of .dfsg for saner version sorting.
+  * Debian's 2.6.29 packages no longer include symlinks from the
+    architecture-specific header tree to the common header tree and
+    instead overlay both header trees using kbuild.  Change the Autoconf
+    probes to always use kbuild and generate stub headers in the paths
+    that OpenAFS expects that include the linux headers.  Patch from Aaron
+    M. Ucko.  (Closes: #521745)
+  * Build PIC versions of libafsauthent and libafsrpc and install them in
+    libopenafs-dev for use when AFS code should be embedded into shared
+    libraries.  Patch from Garrett Wollman.
+  * Update CellServDB to 2008-11-07 version.  (Closes: #522451)
+  * Update debian/watch for +dfsg naming instead of .dfsg.
+  * Update standards version to 3.8.1 (no changes required).
+  * Translation updates:
+    - Japanese, thanks Hideki Yamane.  (Closes: #521518)
+
+ -- Russ Allbery <rra@debian.org>  Mon, 06 Apr 2009 15:49:34 -0700
+
+openafs (1.4.8.dfsg1-3) unstable; urgency=low
+
+  * Apply upstream CVS deltas:
+    - STABLE14-cbr-free-what-you-alloc-20090325: dequeue items in the same
+      way they were allocated.
+    - STABLE14-shutdown-vcache-avoid-null-deref-20090324: avoid oops on
+      shutdown.  (LP: #333197)
+    - STABLE14-uphys-invalidate-returns-void-20081130: fix apparent Ubik
+      synchronization errors due to incorrect use of a void return value.
+  * Update package sections for the new archive organization.
+
+ -- Russ Allbery <rra@debian.org>  Fri, 27 Mar 2009 08:08:49 -0700
+
+openafs (1.4.8.dfsg1-2) unstable; urgency=low
+
+  * Make openafs-modules-source architecture-specific (arch: any instead
+    of arch: all).  The new method for generating the kernel source tree
+    only generates correct build machinery for the architecture on which
+    it was built, making the package architecture-specific.  The generated
+    tree is so much smaller that this still only uses about 1MB of archive
+    space more than the old method and makes each openafs-modules-source
+    package much smaller.  This is a workaround until we can fix
+    libafs_tree to include enough build machinery to handle all Linux
+    architectures from one source tree.  (Closes: #516023)
+  * Explicitly remove *-stamp files in the clean target of the module
+    build until the module build is upgraded to debhelper 7.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 18 Feb 2009 13:48:17 -0800
+
+openafs (1.4.8.dfsg1-1) unstable; urgency=low
+
+  * New upstream release.  (Closes: #511535)
+    - Support 2.6.28 kernels.  (LP: #303112)
+    - Check at compile time that the kernel has keyring support rather
+      than building non-functional modules.  (Closes: #500850)
+    - Include vos clone man page.  (LP: #324449)
+  * Apply upstream CVS deltas:
+    - STABLE14-libuafs-updates-20081229: prerequisite for other deltas.
+    - STABLE14-linux-truncate-race-20090109: avoid race condition during
+      truncation.
+    - STABLE14-linux-i-size-20090112: further fix for truncation race.
+    - STABLE14-linux-truncate-cleanup-20090113: further truncation fix.
+    - STABLE14-osi-probe-check-result-cope-with-enoent-20090115: fix for
+      syscall probing.
+    - STABLE14-linux-2629-20090115: support for 2.6.29 kernels.
+      (Closes: #513680)
+    - STABLE14-rx-idledead-only-ignore-keepalives-20081222: rx bug fix to
+      not ignore other ping packets.
+    - STABLE14-rx-rdwr-writeproc-race-20081228: fix rx race condition that
+      could result in reuse of freed memory.
+    - STABLE14-rx-do-not-race-current-packet-20090105: fix rx race
+      condition.
+  * Use make libafs_tree to generate the tree for the kernel module
+    compile rather than copying the entire source tree.
+  * Compress the source in openafs-modules-source with bzip2 instead of
+    gzip to reduce the package size.
+  * Make dynroot the default for new installations.  It works much better
+    with systems that don't bring up their network until late in the boot
+    process, such as wireless laptops.  (LP: #249240, #318605)
+  * Mention libpam-afs-session instead of libpam-openafs-session in the
+    description of libpam-openafs-kaserver, and mention libpam-krb5 by
+    name.  Thanks, Philipp Kaluza.  (Closes: #501308)
+  * Suggest module-assistant auto-install in README.modules and be clearer
+    that building one's own kernel is not required.  Thanks, Anders
+    Kaseorg and Lutz Goehring for suggestions.  (LP: #295897)
+  * Allow time-daemon to satisfy the openafs-fileserver recommends in
+    addition to ntp, allowing for openntpd.  (Closes: #508258)
+  * General improvements to debconf configuration handling.
+    - Do not abort the config script if we have no default realm and
+      dnsdomainname fails.  (LP: #274886, #318132)
+    - Do not abort postinst if we can't resolve any host name for the
+      cell.  Just continue in that case, omitting any configuration for
+      the local cell.  (LP: #322054)
+    - Correctly set the default for AFS_CRYPT from the existing config.
+    - The cache size is high, not critical, since we have a default.
+    - Don't create the client ThisCell if no local cell was specified.
+    - Improve the leading comment in afs.conf.client.  Users can edit it,
+      but any changes other than the setting values will be lost.
+    - Remove the openafs-fileserver/bosconfig_moved template, which would
+      only be shown on upgrades from pre-1.2.0 versions.
+    - Standardize coding style and always quote strings.
+  * Update to debhelper compatibility level V7.
+    - Use dh where possible in debian/rules.
+    - Use dh_lintian to install Lintian overrides.
+    - Eliminate the configure target and do all the work in build.
+    - Do more in the install target and less in binary, matching the
+      default command stacks in dh.
+    - Use a debian/clean configuration file to let dh clean do more of the
+      work rather than using rm commands in debian/rules.
+  * Abort the config script rather than exiting successfully if the
+    debconf shell module is not available.  The config script should never
+    be run in the absence of debconf, so if this fails, something deeper
+    is wrong and we shouldn't blindly continue.
+  * Add ${misc:Depends} to all dependencies.
+  * Add explanations for the Lintian overrides.
+  * Use set -e instead of #!/bin/sh -e in maintainer scripts.
+  * Remove server documentation from openafs-modules-source.
+  * Translation updates:
+    - Spanish, thanks Francisco Javier Cuadrado.  (Closes: #514452)
+
+ -- Russ Allbery <rra@debian.org>  Mon, 06 Oct 2008 11:10:14 -0700
+
+openafs (1.4.7.dfsg1-6) unstable; urgency=low
+
+  * Apply upstream patch to free /proc entries in the correct order.
+    Thanks, Marc Dionne.  (Closes: #493914)
+  * Apply upstream deltas to support 2.6.27 kernels and to stop using
+    COMMON_KERN_CFLAGS for all 2.6 kernels uniformly, which fixes
+    problems on amd64 with newer kernels.  Thanks, Björn Torkelsson.
+    (LP: #267504)
+  * Translation updates:
+    - Swedish, thanks Martin Bagge.  (Closes: #493120)
+
+ -- Russ Allbery <rra@debian.org>  Mon, 22 Sep 2008 19:07:02 -0700
+
+openafs (1.4.7.dfsg1-5) unstable; urgency=low
+
+  * Drop support for hppa.  We only have a param file for a 2.4 kernel,
+    we were building with UCONTEXT which is stubbed out in glibc for hppa,
+    and builds without UCONTEXT fail.  The binaries we were building
+    before didn't work and no one reported a bug, indicating no one was
+    attempting to use OpenAFS on hppa.
+  * When building the kernel module, use the setting of the ARCH
+    environment or make variable, if present, in preference to uname -m to
+    allow cross-compiles.  Thanks, Jose Calhariz.  (Closes: #492232)
+  * Add Jason Edgecomb's copyright and license for man pages to
+    debian/copyright.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 24 Jul 2008 10:14:42 -0700
+
+openafs (1.4.7.dfsg1-4) unstable; urgency=low
+
+  * Undo the move of up.pod to afs-up.pod in debian/rules clean rather
+    than just deleting the file and causing the second build to fail.
+    Thanks, Dominic Hargreaves.  (Closes: #490752)
+  * Don't use UCONTEXT on hppa; its glibc doesn't provide those
+    functions.  It's possible that OpenAFS isn't working properly on hppa
+    these days, but as yet there have been no reports.
+  * Suggest openafs-krb5 in openafs-client and mention it in the long
+    description.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 13 Jul 2008 19:03:58 -0700
+
+openafs (1.4.7.dfsg1-3) unstable; urgency=low
+
+  * Apply upstream delta for Linux 2.6.26 support.
+  * Enable support for arm and armel, added upstream in 1.4.7.
+  * Enable support for lpia by making it synonymous with i386.  This means
+    that lpia systems will get a sysname of i386_linux26, which isn't
+    ideal but should at least work.
+  * When clearing the restart time while installing a new cell, pass
+    -localauth to avoid an authentication failure.  Thanks, Davor Ocelic.
+    (Closes: #488152)
+  * If the openafs module isn't listed in modules.dep, exit with a zero
+    status from the init script even if modprobe fails.  Otherwise, if a
+    module package and openafs-client are installed at the same time and
+    openafs-client is set up before the module package, the init script
+    can find the module, fail the modprobe (because the dependency map
+    hasn't yet been updated), and fail the whole installation.  Exiting
+    with a zero status still doesn't get OpenAFS started, but at least it
+    doesn't leave the system in a partly installed state.  Thanks to Durk
+    Strooisma for the analysis.  (Closes: #486816)
+  * Don't include debug symbols for /sbin, /usr/bin, and /usr/sbin
+    binaries or PAM modules in openafs-dbg, just the servers in
+    /usr/lib/openafs, since those are the most likely cases where
+    backtraces are important and a 10MB debug symbol package seems like
+    overkill.
+  * Stop using quilt to manage patches and pre-apply them to the source
+    package now that the package is maintained with Git.
+  * Add Vcs-Git and Vcs-Browser control fields.
+  * Reflect current responsibilities more accurately by listing myself as
+    maintainer and Sam as uploader.
+  * Update standards version to 3.8.0 (no changes required).
+  * Drop unused postinst-uses-db-input override; Lintian has been fixed.
+  * Translation updates:
+    - Galician, thanks Jacobo Tarrio.  (Closes: #481675)
+
+ -- Russ Allbery <rra@debian.org>  Sat, 28 Jun 2008 12:35:43 -0700
+
+openafs (1.4.7.dfsg1-2) unstable; urgency=high
+
+  * Bumping urgency for the conflict fix, which fixes a latent RC bug, and
+    for the news entry for openafs-dbserver.
+  * Add a missing conflict on older versions of openafs-client to
+    openafs-krb5 to ensure that the klog transition to alternatives is
+    smooth.
+  * When configuring a new cell, clear the general restart time.
+  * Add a NEWS file for openafs-dbserver warning of the serious Ubik bug
+    fixed in the previous release and suggesting restarting database
+    servers one at a time.
+  * Update to 2008-04-23 CellServDB.
+
+ -- Russ Allbery <rra@debian.org>  Fri, 09 May 2008 10:45:06 -0700
+
+openafs (1.4.7.dfsg1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Work around GPLing of RCU locks.  (Closes: #476628)
+  * Include a Kerberos v5 klog, klog.krb5, in openafs-krb5.
+  * klog is now managed via alternatives.  openafs-client provides
+    klog.afs and openafs-krb5 provides klog.krb5.  If both packages are
+    installed, klog.krb5 is the default.
+  * Don't remove and reinstall the pagsh alternative on every upgrade.
+  * Add many new upstream man pages for fs, vos, and pts sub-commands and
+    the CellAlias config file.
+  * Add read_tape to openafs-dbserver.
+  * Add bos_util and a UserList man page to openafs-fileserver.
+  * Run dh_install with --fail-missing to catch new upstream additions.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 01 May 2008 08:13:56 -0700
+
+openafs (1.4.7~pre3.dfsg1-1) unstable; urgency=low
+
+  * New upstream release candidate:
+    - Better support for 2.6.25 kernels.
+    - Fixes for flushing in the cache manager.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 10 Apr 2008 20:54:36 -0700
+
+openafs (1.4.7~pre1.dfsg1-1) unstable; urgency=low
+
+  * New upstream release candidate:
+    - Initial support for 2.6.25 kernels.
+    - Better 2.6.24 kernel support.  (Closes: #463962)
+    - Better cleanup on module unload.  (Closes: #417917)
+    - Potential deadlock fixed in the fileserver.
+    - Better fileserver host tracking.
+    - Ubik fixes preventing database truncation on unreliable links.
+  * Add upstream delta to fix oops on startup with pre-2.6.25 kernels.
+  * Install the up man page as afs-up, matching our renaming, and update
+    its text accordingly.  (Closes: #459635)
+  * Move openafs-client later in the shutdown sequence on new
+    installations so that it stops after autofs and add an X-Stop-After
+    LSB header to achieve the same more reliably with dependency-based
+    boots.  (Closes: #472545)
+  * Update doc-base control file sections for the new categorization.
+  * debian/rules and debian/module/rules improvements:
+    - Remove all modified generated files on debian/rules clean.
+    - Depend on $(QUILT_STAMPFN) instead of patch.
+    - Use touch $@ to create stamp files.
+    - Use a stamp file for the module's install target.
+  * Uncomment and fix the watch rules for pre-releases and always scan for
+    both regular releases and prereleases.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 26 Mar 2008 19:21:24 -0700
+
+openafs (1.4.6.dfsg1-3) unstable; urgency=low
+
+  * Fix FTBFS caused by a change in dh_strip behavior.  It no longer
+    creates empty files for already stripped binaries, so we should no
+    longer remove them.  Thanks, Lucas Nussbaum.  (Closes: #464274)
+  * Include debugging symbols for libpam-openafs-kaserver in openafs-dbg.
+  * Do not stop daemons in run-level S.  This isn't a real run-level and
+    hence there's no reason to create the links.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 06 Feb 2008 11:24:19 -0800
+
+openafs (1.4.6.dfsg1-2) unstable; urgency=low
+
+  * Apply additional upstream patches to the 2.6.24 support to fix
+    builds with older kernels.  Thanks to Felix Koop for the testing.
+    (Closes: #458331)
+  * Remove old /etc/openafs/server-local files from older versions when
+    purging openafs-fileserver.
+  * Minor reformatting of openafs-client's postrm.
+  * Remove databases on purge of openafs-dbserver.
+  * Remove log files when purging openafs-fileserver or openafs-dbserver
+    per Policy 10.8.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 30 Dec 2007 15:08:04 -0800
+
+openafs (1.4.6.dfsg1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fixes multiple serious problems with the file server.
+  * Apply upstream patch for Linux 2.6.24 support.  Thanks to Anders
+    Kaseorg for researching the necessary deltas.  (Closes: #456258)
+  * Apply upstream patch to allocate vnodes from the malloc pool rather
+    than off the stack, fixing file server problems on SPARC.  Thanks to
+    Barney Sowood for tracking down the patch.  (Closes: #448380)
+  * Apply upstream patch from the 1.5 series to allow multiple realms to
+    be listed in the server krb.conf and hence treated as local.
+  * Build bosserver with --enable-bos-new-config.  On startup, if
+    BosConfig.new exists, it will be renamed to BosConfig before the
+    configuration is read.  (Closes: #453398)
+  * Add a comment to /etc/openafs/afs.conf.client that the file is managed
+    by debconf.  (Closes: #447183)
+  * Add more debugging and bug reporting instructions to README.Debian.
+  * Mention in README.Debian that the server is built with supergroups
+    enabled and with the multiple local realm patch.  (Closes: #453399)
+  * Support reconfigure in postinst.
+  * Recode debian/copyright to UTF-8.
+  * Update to standards version 3.7.3 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Mon, 17 Dec 2007 20:19:13 -0800
+
+openafs (1.4.5.dfsg1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Even with a new enough Linux kernel to support keyrings, we still
+      may have found the system call table and need to clean it up when
+      unloading the module.  (Closes: #448793)
+  * Use uname -m rather than dpkg --print-architecture to determine the
+    sysname for kernel module builds.  Otherwise, builds with a different
+    kernel architecture than userspace (amd64 kernels with i386 userspace,
+    for example) don't work.  Thanks, Anders Kaseorg.  (Closes: #448452)
+  * Fix signing the generated the changes file on a kernel module build.
+    The module build file reorganization required an additional change to
+    genchanges.  Thanks, Anders Kaseorg.  (Closes: #448449)
+  * Expose prototypes for the ktc_* functions.  (Closes: #449432)
+  * Fix man pages for subcommands to use an underscore in the NAME section
+    instead of a space so that they'll be indexed properly by the current
+    groff and man-db.
+  * Update CellServDB to 2007-10-25 GCO release.
+  * Add Homepage to the package control fields.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 11 Nov 2007 15:54:59 -0800
+
+openafs (1.4.5~pre2.dfsg1-1) unstable; urgency=low
+
+  * New upstream release candidate.
+    - Fix errors when compiled with gcc 4.2.  (Closes: #443937)
+    - Add a frightening hack to work around the lack of getcontext and
+      savecontext for 32-bit SPARc.  (Closes: #415952, #446837)
+    - Add support for Linux 2.6.23.
+    - Multiple bug fixes for client tracking in the file server.
+    - Prevent one client from consuming all file server threads.
+  * Remove the workaround added for 2.6.20 and 2.6.21 kernels with
+    CONFIG_PARAVIRT enabled.  The mistaken GPL-labelling of core
+    interfaces was fixed in 2.6.22, which has now migrated to testing.
+  * Scan /var/log/openafs for core files with a PID appended when a server
+    run by bosserver exits with a signal.  bosserver was unable to
+    correctly handle core files for multithreaded servers since it
+    expected a filename of core and Linux always appends a PID to core
+    dumps by multithreaded processes.
+  * Fix make kdist in openafs-modules-source, inadvertently broken by a
+    missing genchanges script.
+  * Stop creating /var/lib/openafs/cores.  Nothing actually uses it.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 16 Oct 2007 17:01:33 -0700
+
+openafs (1.4.4.dfsg1-7) unstable; urgency=low
+
+  * Switch to quilt for managing patches to the upstream source.
+  * Stop installing the Administrator's Reference.  All of the useful
+    information in here has been converted to man pages.
+  * Use the upstream man page for pt_util, which lets us remove the
+    docbook-to-man build dependency.
+  * Update to the latest CellServDB from grand.central.org.
+  * Trim additional unuseful debug information from openafs-dbg.
+  * Restructure the source for the module package.  The build files for
+    the module build are now in debian/module in the source package and
+    there is a completely separate rules file.  This way, the module build
+    rules don't have to depend on quilt and the structure is clearer.
+  * Fix debhelper dependencies for the module build.
+  * Update module standards version to 3.7.2 (no changes required).
+
+ -- Russ Allbery <rra@debian.org>  Mon, 20 Aug 2007 17:54:00 -0700
+
+openafs (1.4.4.dfsg1-6) unstable; urgency=low
+
+  * Apply upstream patch for the OpenAFS file server to treat clients that
+    have an all-zero UUID as if they don't have UUID support, working
+    around bugs in various client versions that can cause multiple hosts
+    to use all-zero UUIDs and conflict with each other.
+  * Use dpkg --print-architecture to determine the AFS sysname for both
+    regular builds (avoiding --print-installation-architecture, which is
+    deprecated) and kernel builds (avoiding arch, which is temporarily not
+    in unstable and which wouldn't do the right thing for cross-compiles).
+    Thanks, Chris Hanson.  (Closes: #435765)
+  * Add hppa as a recognized architecture for kernel module builds,
+    although OpenAFS currently only supports 2.4 kernels on HPPA so this
+    isn't that useful.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 02 Aug 2007 19:54:00 -0700
+
+openafs (1.4.4.dfsg1-5) unstable; urgency=low
+
+  * Apply upstream patch from Jeffrey Hutzelman to fix syscall probing on
+    AMD64 with Linux 2.6.22 kernels.  (Closes: #430179)
+  * Add a union to des_ks_struct and reorder includes to get the correct
+    alignment for DES code on SPARC.  Thanks, Chaskiel Grundman.  Partly
+    addresses #415952.
+  * Fix a typo in debian/kern-sysname that caused openafs-modules-source
+    to still assume all ia64 systems used Linux 2.4.  Thanks, Jakob
+    Haufe.  (Closes: #432344)
+  * Use LSB logging functions for openafs-fileserver and support passing
+    arguments to bosserver in /etc/default/openafs-fileserver by setting
+    DAEMON_ARGS.
+  * Clean up more completely after a purge of openafs-fileserver.  Remove
+    the files created by the server in /var/lib/openafs/local, remove
+    KeyFile and CellServDB.old from /etc/openafs/server, and remove
+    BosConfig from /etc/openafs.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 17 Jul 2007 09:25:03 -0700
+
+openafs (1.4.4.dfsg1-4) unstable; urgency=low
+
+  * Apply upstream patch from Jeffrey Hutzelman to fix kernel module
+    builds on ppc64.  (Closes: #427555)
+  * Apply upstream patches for Linux 2.6.22 support.  (Closes: #428401)
+  * Apply upstream patch to fix the AFS /proc structure under Linux
+    2.6.22.1 and later.
+  * Move /etc/openafs/server-local to /var/lib/openafs/local.  Most of the
+    files here are automatically generated and hence not configuration
+    files, and the file server has to write to this directory to start (so
+    having it in /etc breaks read-only / file systems).  Thanks, Alexei
+    Sheplyakov.  (Closes: #405697)
+  * Move upserver and upclient to /usr/lib/openafs (from /usr/sbin) to
+    match upstream's layout and for consistency with the other servers run
+    via bosserver.
+  * Use --name instead of --exec in the openafs-fileserver init script and
+    drop the --pidfile option (bosserver doesn't create a PID file) so
+    that we don't start a second bosserver on upgrades.
+  * Go back to using krb5-config.  The dependency problem has now been
+    fixed on all platforms in the krb5 package and this is the preferred
+    upstream method.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 21 Jun 2007 03:02:32 -0700
+
+openafs (1.4.4.dfsg1-3) unstable; urgency=low
+
+  * Always generate a UUID on client startup even if for some reason we
+    don't think we have any network interfaces.  Otherwise, the client
+    will use an all-zeroes UUID, which will collide with every other
+    client with the same problem.
+  * When afsd is started with -rmtsys, it starts another process that afsd
+    -shutdown doesn't kill.  Update the init script to kill this process
+    on stop.  (Closes: #405982)
+  * Don't use krb5-config to get a library list.  It runs the risk of
+    encoding unnecessary library dependencies.  Instead, hard-code the
+    flags and libraries we actually need.  (Closes: #424448)
+  * When loading a module using the upstream naming convention, don't
+    append the .mp to the module name for modprobe.  (Closes: #420597)
+
+ -- Russ Allbery <rra@debian.org>  Wed, 16 May 2007 18:16:12 -0700
+
+openafs (1.4.4.dfsg1-2) unstable; urgency=low
+
+  * Debian kernels as of 2.6.20 enable CONFIG_PARAVIRT, which redefines
+    several core kernel calls as redirects through a paravirt.ops table
+    that's marked GPL-only.  This breaks all non-GPL modules that used
+    those (previously generally exported) calls even indirectly.  Apply a
+    hack to switch from spin_lock_irq to spin_lock_irqsave to avoid the
+    paravirt redirection so that the module will build.
+  * Enable ucontext for all Linux builds with glibc 2.4 or later, not just
+    with i386 and amd64, and (following an upstream patch) always use
+    ucontext on ia64.  Newer versions of glibc change internal structures
+    in ways that cause the old LWP code to have stack overflows.
+    (Closes: #419903)
+  * Apply upstream patch to crashes on contention in afs_xuser when a
+    process in a PAG exits.  Thanks, Chaskiel Grundman.
+  * When determining the AFS sysname for kernel module builds, add
+    explicit cases for 2.6 kernels for all architectures that support them
+    (everything except non-64-bit sparc_linux).  Fixes build problems with
+    ia64 and probably other architectures.  Thanks to Ippokratis Pandis
+    for the debugging help.  (Closes: #411818)
+  * Prefer alpha_linux_26 to alpha_linux_24 for the non-kernel build on
+    Alpha, now that the source supports it.
+  * Add support for the s390x architecture.  Upstream supports it and
+    there's no reason not to.
+  * Fix the watch file to remove .dfsg\d+ when comparing versions.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 19 Apr 2007 13:26:33 -0700
+
+openafs (1.4.4.dfsg1-1) unstable; urgency=low
+
+  * Repackage upstream source to remove two additional files covered under
+    the APSL.  (Closes: #416685)
+  * Build-depend on Automake since we run aclocal during the build.  Not
+    having aclocal caused local patches to osconf.m4 to not be effective,
+    leading to the wrong compiler flags for shared libraries.  Thanks to
+    Frank Lichtenheld for the report.  (Closes: #416398, #416497, #418966)
+
+ -- Russ Allbery <rra@debian.org>  Thu, 12 Apr 2007 21:19:00 -0700
+
+openafs (1.4.4-1) experimental; urgency=low
+
+  * New upstream release.  (Closes: #415699)
+    - Support newer Linux kernels.  (Closes: #409797, #410120)
+    - Add aklog fallbacks for null realms to support the referral
+      capability in MIT Kerberos 1.6 and later.  (Closes: #410314)
+  * Apply patch from Thomas Sesselmann to support setting options to pass
+    to bosserver in /etc/default/openafs-fileserver.  (Closes: #409357)
+  * Remove the rx_Init calls in the PAM module.  The internal counters
+    that had to be initialized that way have been removed.
+  * Now that we're running regen.sh as part of the build process, only
+    patch the Autoconf source files and not the generated output to make
+    the diff easier to audit.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 26 Mar 2007 18:56:55 -0700
+
+openafs (1.4.2-6) unstable; urgency=medium
+
+  * SECURITY: Apply upstream patch to disable setuid status on all cells
+    by default.  Prior versions of AFS defaulted to honoring setuid bits
+    in the local cell, but since unauthenticated file access in AFS is
+    unencrypted, an attacker could forge packets from an AFS file server
+    to synthesize a setuid binary in AFS.
+  * Apply upstream fix to use a single high-numbered group for the PAG on
+    2.6 kernels and sort the group properly.  Fixes AFS-caused group
+    ordering problems that could lead the kernel to ignore some group
+    membership for users.  (Closes: #414911)
+  * Apply upstream fix for segfaults in pts rename.  (Closes: #409184)
+  * Apply upstream fix to show reasonable free space numbers for AFS in
+    df.  Without this fix, some programs which use df to check free space
+    may think that directories in AFS are full and prevent the user from
+    attempting to write files.  (Closes: #415294)
+  * Translation updates:
+    - Dutch, thanks cobaco.  (Closes: #413701)
+    - Portuguese, thanks Miguel Figueiredo.  (Closes: #414800)
+
+ -- Russ Allbery <rra@debian.org>  Wed, 14 Mar 2007 18:37:12 -0700
+
+openafs (1.4.2-5) unstable; urgency=low
+
+  * Translation updates:
+    - Chinese, thanks Chun Tian (binghe).  (Closes: #406063)
+
+ -- Russ Allbery <rra@debian.org>  Sun, 28 Jan 2007 13:43:16 -0800
+
+openafs (1.4.2-4) unstable; urgency=low
+
+  * Update documentation to note that enabling v4 support or running
+    krb524d is no longer required for aklog to work.
+  * Translation updates:
+    - German, thanks Henrik Kroeger.  (Closes: #400800)
+
+ -- Russ Allbery <rra@debian.org>  Sun, 17 Dec 2006 17:09:41 -0800
+
+openafs (1.4.2-3) unstable; urgency=low
+
+  * No longer pass explicit cache tuning options to afsd and instead let
+    OpenAFS automatically choose tuning based on the cache size.
+  * Accept trailing whitespace in ThisCell.
+  * Fix path canonicalization on the server, enabling bos getlog with a
+    simple log name to work properly against a Debian bosserver.
+  * Change the documentation of afsd -shutdown to be less dire and more
+    accurate.  Thanks, Daniel J. Priem.  (Closes: #394990)
+  * Document (at least partially) AFS's mapping of Kerberos v5 principal
+    names to Kerberos v4 format in the aklog man page.  Thanks, Daniel
+    J. Priem.  (Closes: #394832)
+  * Document that aklog -setpag may not always work.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 20 Nov 2006 17:29:46 -0800
+
+openafs (1.4.2-2) unstable; urgency=low
+
+  * Upstream fix to prevent butc segfaulting.
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 21 Oct 2006 20:57:09 -0400
+
+openafs (1.4.2-1) unstable; urgency=medium
+
+  * New upstream release, fixes amd64 kernel issues
+  * Update CellServDB
+
+ -- Sam Hartman <hartmans@debian.org>  Fri, 20 Oct 2006 06:44:45 -0400
+
+openafs (1.4.2~fc4-3) unstable; urgency=low
+
+  * Apply patch from Chaskiel Grundman to fix kernel panics when loading
+    the kernel module into AMD64 2.6.18 kernels.  (Closes: #390653)
+  * Apply upstream patch to fix klog segfaults.  (Closes: #390940)
+  * The UTS_RELEASE string is no longer found in linux/version.h in
+    2.6.18, so fall back on looking in config/kernel.release.  Thanks to
+    Marcus Watts for the patch.
+
+ -- Russ Allbery <rra@debian.org>  Thu,  5 Oct 2006 13:02:50 -0700
+
+openafs (1.4.2~fc4-2) unstable; urgency=low
+
+  * Apply additional upstream patch for AMD64 2.6.18 kernel module build
+    issues.  (Closes: #389729)
+
+ -- Russ Allbery <rra@debian.org>  Sat, 30 Sep 2006 00:34:33 -0700
+
+openafs (1.4.2~fc4-1) unstable; urgency=low
+
+  * New upstream release candidate.
+    - Builds with 2.6.18 on AMD64.  (Closes: #389729)
+  * Build an openafs-dbg package with debugging information for the
+    OpenAFS fileserver and volserver.
+  * Add LSB comments to the openafs-client and openafs-fileserver init
+    scripts.
+  * Update to debhelper compatibility level V5.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 27 Sep 2006 11:06:48 -0700
+
+openafs (1.4.2~fc2-1) unstable; urgency=low
+
+  * New upstream release candidate.
+    - Supports new Linux kernel versions.  (Closes: #383028)
+  * Translation updates:
+    - German, thanks Henrik Kroeger.  (Closes: #384803)
+
+ -- Russ Allbery <rra@debian.org>  Sun,  3 Sep 2006 12:42:59 -0700
+
+openafs (1.4.1-4) unstable; urgency=low
+
+  * Apply upstream fix from Derek Atkins for compilation with kernel
+    versions prior to 2.6.10.  (Closes: #376576)
+
+ -- Russ Allbery <rra@debian.org>  Sun,  9 Jul 2006 12:35:44 -0700
+
+openafs (1.4.1-3) unstable; urgency=low
+
+  * Include all of AFS's local XDR implementation in the build for
+    shlibafsrpc, fixing problems with undefined symbols in the PAM module
+    on AMD64.
+  * When creating a new file server in afs-newcell, use a set of tuning
+    flags from Harald Barth rather than relying on the defaults.  This
+    doesn't help with general bos create; long term, the defaults need to
+    be fixed.  (Closes: #364100)
+  * Add a note in README.servers about fileserver tuning options.
+  * Update debconf templates to follow the best practice recommendations
+    from the Developer's Reference.
+  * Regenerate the man pages on build since the pre-generated ones were
+    done with a very old version of pod2man.
+  * Update standards version to 3.7.2 (no changes required).
+  * Use a better method of optionally running make distclean.
+  * Add build-arch and build-indep targets, just in case.
+  * Translation updates:
+    - Czech, thanks Martin Šín.
+    - Portuguese (Brazil), thanks André Luís Lopes.
+    - French, thanks Christian Perrier.
+    - Vietnamese, thanks Clytie Siddall.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 18 Jun 2006 11:22:11 -0700
+
+openafs (1.4.1-2) unstable; urgency=low
+
+  * Exit successfully in the openafs-client init script if no module is
+    installed, since otherwise openafs-client will fail to install until
+    one builds a module.  This restores previous accidental behavior due
+    to a bug in debhelper.  (Closes: #362695)
+  * libopenafs-dev must conflict with liblwp-dev since they both provide
+    liblwp.a.  Thanks, Justin Pryzby.  (Closes: #362842)
+  * openafs-client recommends lsof, since the init script uses it for
+    cleaner shutdown.
+
+ -- Russ Allbery <rra@debian.org>  Sat, 15 Apr 2006 15:47:04 -0700
+
+openafs (1.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Supports Linux 2.6.16.  (Closes: #358203)
+    - Suspend should work with newer kernels.  (Closes: #341588)
+    - Safer cache size calculation.  (Closes: #360176)
+    - Upstream now includes man pages, so remove our backport.
+  * Subsume openafs-krb5 into this source package.
+    - Acknowledge NMU.  (Closes: #304933)
+    - Update to the OpenAFS aklog and asetkey.  (Closes: #196094)
+    - Backport asetkey from upstream CVS.
+    - Include ka-forwarder from the old migration toolkit.
+    - Add man pages for asetkey and ka-forwarder.
+  * Subsume openafs-doc into this source package.
+  * Since 2.6 is the supported kernel for etch, build the userspace with
+    a sysname of *_linux26 where supported.  This only affects the sys
+    command.  (Using livesys instead is better.)  (Closes: #358118)
+  * Always pass the system type into Autoconf, following autotools-dev
+    best practices.
+  * Add an explicit copyright statement to debian/copyright.
+
+ -- Russ Allbery <rra@debian.org>  Fri, 14 Apr 2006 15:04:45 -0700
+
+openafs (1.4.0-4) unstable; urgency=low
+
+  * Hopefully fix sparc64 kernel support.  Thanks, Troy Benjegerdes.
+    (Closes: #219429)
+  * Document the need to restart ptserver and vlserver on the existing
+    database servers when adding a new one.  Thanks, Niklas Edmundsson.
+    (Closes: #349659)
+  * Include xstat_cm_test and xstat_fs_test in openafs-client, as they're
+    quite useful for debugging.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 14 Mar 2006 21:07:07 -0800
+
+openafs (1.4.0-3) unstable; urgency=low
+
+  * Apply upstream patch from Chas Williams to be more careful about what
+    dentry is used in renames, avoiding a kernel fault when renaming
+    dentries accessed through multiple paths (such as RO and RW).
+  * Apply patch to allow the module to build with the Ubuntu kernel.
+    Thanks, Björn Torkelsson.  (Closes: #342607)
+  * Stop unconditionally forcing the compiler to cc or gcc in configure,
+    allowing, among other things, building the kernel module with a
+    compiler other than the default system compiler.  (Closes: #338306)
+  * Call kernel-version correctly from prep-modules, which fixes build
+    issues with manually-built kernels.  (Closes: #344851)
+  * Backport man pages from upstream CVS.  (Closes: #79763)
+  * Include afsmonitor and livesys in openafs-client.
+  * Include volinfo in openafs-fileserver.
+  * Document FAM's lack of support for AFS's security model and recommend
+    gamin instead.  (Closes: #343246)
+  * Add a hint to README.Debian on what to do about the cache partition if
+    running ReiserFS or XFS without a spare partition.
+  * Use make install into debian/tmp rather than make dest.  make dest is
+    mostly for Transarc compatibility and make install looks more like a
+    typical package and makes it easier to evaluate differences in FHS
+    location between upstream and Debian.  As a side effect, there's no
+    need to mess with the @sys link.  (Closes: #165909)
+  * Install more files with dh_install rather than install commands in
+    debian/rules so that *.install shows a more complete picture of what
+    goes into each package.
+  * Don't ignore make distclean errors.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 27 Dec 2005 15:34:16 -0800
+
+openafs (1.4.0-2) unstable; urgency=low
+
+  * Install more of the standard OpenAFS utilities.  (Closes: #138851)
+    - openafs-dbserver: Install prdb_check and vldb_check.
+    - openafs-fileserver: Install voldump.
+    - openafs-client: Install fstrace, scout, and up (as afs-up).
+    - Modify fstrace to load its catalog from /usr/share/openafs.
+  * Do not install kpwvalid.  The default version does little useful and
+    the kpwvalid binary must be in AFS for it to take effect.
+  * Overhaul the way kernel modules are built.
+    - Recommend linux-image rather than kernel-image for newer kernels.
+    - Always recommend the kernel package; since it's only a recommends,
+      there's no need to special-case the hand-built kernel case.
+    - Be less fragile about how the kernel version is used in prep-modules
+      to support other ways kernel modules are built.  (Closes: #341836)
+    - Add Build-Depends and Uploaders to the openafs-modules-source
+      control file.
+    - Remove unused parts of prep-modules and heavily comment it.
+  * openafs-client should only recommend the AFS kernel module.  Many of
+    the client programs will work in unauthenticated mode without it, and
+    openafs-fileserver depends on it (but doesn't require the kernel
+    module).  (Closes: #342095)
+  * openafs-modules-source no longer has to depend on as many libraries.
+  * Suggest the same PAM settings for pam_krb5 that libpam-krb5 does.
+  * Update uploader address.
+
+ -- Russ Allbery <rra@debian.org>  Tue,  6 Dec 2005 23:34:18 -0800
+
+openafs (1.4.0-1) unstable; urgency=low
+
+  * New upstream version.
+    - Builds correctly with 2.6.13 kernels and software suspend.
+    - Builds correctly with 2.6.12-10.  (Closes: #337883)
+  * Install afsd in /sbin rather than /usr/sbin.  While putting /usr in
+    AFS isn't as common as it once was, no reason to make it harder than
+    it needs to be.
+  * Update CellServDB to the 2005-10-15 grand.central.org version.
+  * Install NEWS as an upstream changelog.
+  * Add a watch file.
+  * Remove the unused and uninstalled make-links script.
+
+ -- Russ Allbery <rra@stanford.edu>  Sun,  6 Nov 2005 21:37:40 -0800
+
+openafs (1.4rc4-1) unstable; urgency=low
+
+  * New upstream version.
+    - Correctly handle root.afs becoming replicated after the client
+      starts.  This should resolve the problems with AFS eventually
+      failing on the first system using a new cell.  (Closes: #88906)
+  * When kill_all_afs is enabled in /etc/openafs/afs.conf, only kill AFS
+    processes if the runlevel is 0 or 6.  You really only want this when
+    the system is shutting down.  (Closes: #325347)
+  * Remove the init script check of the cache file system and instead
+    improve the check in afsd.  The init script check used stat, which is
+    in /usr/bin and therefore not fair game for init scripts.
+  * Set PATH in the init script, just in case.
+  * libpam-openafs-kaserver must depend on openafs-client, not just
+    recommend it, since acquiring tokens requires that the client be
+    running.
+  * Expand README.Debian and include information about PAM configuration.
+  * Link libpam-openafs-kaserver's doc directory to openafs-client.
+  * Make the short descriptions shorter.
+  * Translation updates.
+    - Portuguese (Brazil), thanks André Luís Lopes.
+
+ -- Russ Allbery <rra@stanford.edu>  Wed, 21 Sep 2005 13:36:34 -0700
+
+openafs (1.4rc1-1) unstable; urgency=low
+
+  * New upstream version.
+  * Install pam_afs.krb.so on hppa.  I believe the new PAM module build
+    process fixes the issue that was being worked around before.
+  * Improve the documentation and scripts for setting up new servers or a
+    new cell.  afs-rootvol can now be run from a client configured to use
+    dynroot.  afs-newcell generates the server CellServDB directly to work
+    around oddities with bos addhost.  There are many other, more minor
+    improvements as well.  Thanks to Faheem Mitha and Sergio Gelato for
+    analysis and patches.  (Closes: #322638)
+  * Update the configuration transcript to reflect the current packages,
+    messages, and instructions.  Thanks, Faheem Mitha.
+  * Fill in the server CellServDB with information about the local cell,
+    if available in the client CellServDB, rather than always initializing
+    it to contain just the name of the cell.
+  * Detect AFS caches on non-ext2/ext3 file systems and abort AFS client
+    initialization.  (Closes: #249315)
+  * Provide a way of setting sysname in afs.conf.  (Closes: #324694)
+  * Don't create the unused /etc/openafs/AFSLog file.  (Closes: #120097)
+  * Redo how library object files are found for the PAM module build to
+    avoid assuming C locale character set behavior.  (Closes: #323582)
+  * Remove the openafs-client warning against dynroot for the first system
+    in a cell now that afs-rootvol can cope.  Provide some basic
+    documentation of the CellAlias syntax in that message until we have a
+    real man page.
+  * Suggest openafs-doc.
+  * Update standards version to 3.6.2 for the kernel module packages (no
+    changes required).
+  * Translation updates.
+    - Czech, thanks Martin Sin.
+    - Vietnamese, thanks Clytie Siddall.
+    - French, thanks Christian Perrier.
+
+ -- Russ Allbery <rra@stanford.edu>  Fri, 26 Aug 2005 01:30:21 -0700
+
+openafs (1.3.87-1) unstable; urgency=low
+
+  * New upstream version.
+    - Fixes build problems with 2.6.12.3 and later.  (Closes: #320099)
+  * Add support for ppc64, thanks Andreas Jochens.  (Closes: #322020)
+  * Improve the openafs-client init script.
+    - Update the default client options based on the cache tuning synopsis
+      by Jeffrey Hutzelman, including setting a larger chunksize for all
+      default option sets.  (Closes: #303944)
+    - Choose the client options based on the cache size by default.
+    - Move the code to build the options string to the init script from
+      afs.conf so that afs.conf is pure configuration.
+    - Add an AFS_PRE_SHUTDOWN hook called before shutting down the client.
+    - Provide a shutdown hook, disabled by default, that kills all
+      processes with files open in /afs.  Enabling this ensures a more
+      reliable clean shutdown and umounting of the cache partition, but
+      may not always be what the admin wants.
+    - Improve the readability of the output on start.
+    - Significantly improve the comments in afs.conf.
+    - Remove the code to set -nosettime as it's now the default.
+  * Move the openafs-client init script and afs.conf file we use into the
+    debian directory rather than patching the upstream version.  We've
+    diverged so much that there's no point in continuing to merge changes.
+  * Diagnose unsupported architectures earlier and with a clearer error.
+  * Suppress error messages from a missing kernel version header since
+    they occur normally when doing the regular package build and are just
+    confusing.  Instead, print an error in kern-sysname and abort if the
+    kernel version could not be determined.
+  * Rework how PAM modules are handled.
+    - Build against the pthread-aware libraries.  (Closes: #297804)
+    - Use the shared library objects instead of building separate PIC
+      objects, eliminating the need for many Makefile modifications.
+    - Include pam_afs.krb.so as well.  (Closes: #165972)
+  * Don't include the empty /usr/src/modules directory in
+    openafs-modules-source, only the tarball, to match how other kernel
+    module source packages behave.  (Closes: #244685)
+  * Update config.guess and config.sub.
+  * Translation updates.
+    - French, thanks Christian Perrier.  (Closes: #318807)
+    - Vietnamese, thanks Clytie Siddall.  (Closes: #319705)
+    - Czech, thanks Martin Sin.  (Closes: #319940)
+
+ -- Russ Allbery <rra@stanford.edu>  Sun, 14 Aug 2005 14:41:48 -0700
+
+openafs (1.3.82-2) unstable; urgency=low
+
+  * Output error messages from heredocs in the init script with cat rather
+    than echo.  Thanks, Reid Barton.  (Closes: #311729)
+  * Make bosserver less picky about permissions and remove the attempt to
+    set /etc/openafs/server-local not-world-readable since dh_fixperms was
+    overridding it anyway.  (Closes: #312921)
+  * Fix some spacing and capitalization errors in the debconf templates.
+    Thanks, Clytie Siddall.  (Closes: #316597)
+  * Initial Czech translation, thanks Martin Sin.  (Closes: #310699)
+  * New Vietnamese translation, thanks Clytie Siddall.  (Closes: #316598)
+  * Update standards version to 3.6.2 (no changes required).
+
+ -- Russ Allbery <rra@stanford.edu>  Mon, 11 Jul 2005 17:34:13 -0700
+
+openafs (1.3.82-1) unstable; urgency=medium
+
+  * New upstream version.  (Closes: #307699)
+    - Proper locking for preempt kernels.  This bug manifested as an
+      inability to shut down AFS cleanly.  (Closes: #308399, #304040)
+    - Correctly handle the inotify semaphore.  (Closes: #303495)
+  * Repackage upstream to remove MacOS-specific files covered by the APSL.
+    Remove the WINNT directory to save space since we have to repackage
+    anyway.  Provide a get-orig-source target to do the repackaging.
+  * libpam-openafs-kaserver: Fix compilation so that the PAM module isn't
+    missing symbols and therefore unusable.  (Closes: #308844)
+  * Apply patch from Chas Williams to fix stale cache data from deleted
+    files, a bug introduced in 1.3.82.
+  * In all cases, only build the module appropriate to the kernel we're
+    building against.  Building an SMP module against a non-SMP kernel
+    fails due to missing defines.  (Closes: #225907)
+  * README.modules: Add documentation for module-assistant and recommend
+    it when using Debian kernels.  Mention divergences from upstream in
+    module naming.  (Closes: #253168)  Emphasize that the kernel source
+    tree used for make-kpkg must be identically configured to the kernel
+    the module will be used with.
+  * Update copyright with more complete information from upstream
+    src/LICENSE.
+  * Simplify clean target.  Upstream make distclean is now better.
+
+ -- Russ Allbery <rra@stanford.edu>  Tue, 10 May 2005 21:09:55 -0700
+
+openafs (1.3.81-5) unstable; urgency=low
+
+  * Handle modules named either with or without the .mp extension on SMP
+    hosts.  (Closes: #305389, #307280, #307797)
+  * README.Debian: Document that the client cache partition must be ext2
+    or ext3 and that XFS and ReiserFS will not work.  upserver and
+    upclient are now provided.  Provide some information about why
+    kaserver is not provided.  (Closes: #249315)
+  * Overhaul the module build rules.
+    - Use debhelper to build the module binary package.
+    - Let debhelper handle the module postinst and prerm control scripts.
+    - Properly support modules_config and modules_clean.
+    - Break the build process into configure, build, install, and binary
+      rules, paralleling the regular build rules and making it easier to
+      maintain the make-kpkg build targets.
+    - Include the kernel version in the long description.
+    - Update standards version of module packages to 3.6.1.
+    - Include the copyright and basic documentation in the module binary
+      package.  Otherwise, policy requires an exact versioned dependency
+      on the package containing the copyright file.
+  * Update standards version to 3.6.1.
+    - Install Debian::OpenAFS::ConfigUtils in /usr/share, not /usr/lib.
+    - Always enable debugging symbols and disable optimization if noopt is
+      set in DEB_BUILD_OPTIONS.  (Alas, this doesn't entirely work; the
+      upstream makefiles don't always honor the configure options.)
+    - /etc/init.d/openafs-fileserver restart starts bosserver if it's not
+      already running.
+  * Update debhelper compatibility level to V4.
+    - Remove all *.conffiles control files.  They're no longer needed.
+    - Use misc:Depends to get debconf dependencies.
+    - Use dh_install rather than the movefiles script.
+  * openafs-dbserver doesn't need to depend on debconf.
+  * Use dh_perl to get the correct Perl dependency for openafs-dbserver.
+  * Remove unnecessary build dependencies.
+  * Depend on comerr-dev rather than e2fslibs-dev.
+  * Remove unnecessary preinst for openafs-fileserver.
+  * Clean up and reformat package build rules.
+  * Update lintian overrides.
+
+ -- Russ Allbery <rra@stanford.edu>  Sat,  7 May 2005 20:57:12 -0700
+
+openafs (1.3.81-4) unstable; urgency=low
+
+  * make-kpkg doesn't run fakeroot for us but instead expects the module
+    rules file to use $(ROOT_CMD) appropriately.  (Closes: #237861)
+  * Put the compiled modules into KPKG_DEST_DIR if set.  This appears to
+    be preferred over DEB_DEST by the make-kpkg documentation.  Thanks,
+    Jonas Smedegaard.  (Closes: #206403)
+  * Add a check to afs-newcell to ensure the local hostname doesn't
+    resolve to 127.0.0.1.  (Closes: #163751)
+  * Exclude .svn directories from the modules source tarball.
+  * Fix genchanges for module builds to not fail when trying to remove a
+    nonexistent file.
+    * New French translations from Christian Perrier, Closes: #305780
+
+ -- Russ Allbery <rra@stanford.edu>  Sun, 17 Apr 2005 00:00:27 -0700
+
+openafs (1.3.81-3) unstable; urgency=low
+
+  * Patch from kcr to fix osconf.m4 so that sparc defines afs_pthread_env
+    and thus builds.
+
+ -- Sam Hartman <hartmans@debian.org>  Wed,  6 Apr 2005 19:54:24 -0400
+
+openafs (1.3.81-2) unstable; urgency=low
+
+  * Oops, update debian/sysname because hppa is hppa not parisc-*-linux-*
+    since we now use dpkg --print-installation-architecture
+
+ -- Sam Hartman <hartmans@debian.org>  Wed,  6 Apr 2005 11:10:14 -0400
+
+openafs (1.3.81-1) unstable; urgency=low
+
+  * New Upstream version
+  * Use Linux 2.4 as the claimed userspace OS for alpha; hopefully this
+    resolves the  largefile issue and allows us to build again, Closes: #271923
+
+ -- Sam Hartman <hartmans@debian.org>  Wed,  6 Apr 2005 08:08:29 -0400
+
+openafs (1.3.80-1) UNRELEASED; urgency=low
+
+  *  New upstream version, Closes: #297781
+  * I think this works on sparc better and definitely works on 2.6.10, Closes: #283488
+  * Make thiscell a high debconf value, Closes: #302939
+  * New upstream version (1.3.79)
+        - Works with 2.6.10, Closes: #296835
+  * Use amd64 not x86_64 for sysname script, Closes: #296855
+  * Patches from kcr
+      - Loosen dependencies for client and modules
+      - Enable debugging
+      - Some callbacks later stuff and fix short bitfield
+      - Fix permissions on /etc/openafs/server-local, Closes: #271460
+
+  * Versions 1.3.79 an newer work on amd64, Closes: #262382
+
+ -- Sam Hartman <hartmans@debian.org>  Mon,  4 Apr 2005 00:32:42 -0400
+
+openafs (1.3.77-1) unstable; urgency=low
+
+  * New upstream version
+  * Target for unstable not experimental
+  * New CellServDB
+  * OpenAFS seems not to have a changelog available, so stop shipping it.
+  * Build openafs.ko not libafs.ko so the right name appears in lsmod
+
+ -- Sam Hartman <hartmans@debian.org>  Sat,  8 Jan 2005 20:02:23 -0500
+
+openafs (1.3.74-1) experimental; urgency=low
+
+  * New upstream version
+
+ -- Sam Hartman <hartmans@mit.edu>  Mon, 15 Nov 2004 16:58:02 -0500
+
+openafs (1.3.73-1) experimental; urgency=low
+
+  * New upstream version
+    -  Works with 2.6.8 and 2.6.9, Closes: #277521
+  * Remove call to dh_suidregister
+  * Update sysname to prefer 2.4 on more arches for largefile issues
+  * Patch from pnelson@ANDREW.CMU.EDU to add x86_64 support to sysname scripts
+  * debian/sysname: Use installation architecture
+
+ -- Sam Hartman <hartmans@debian.org>  Wed, 27 Oct 2004 20:42:12 -0400
+
+openafs (1.3.71-1) experimental; urgency=low
+
+  * New upstream version
+
+ -- Sam Hartman <hartmans@mit.edu>  Tue, 31 Aug 2004 09:45:59 -0400
+
+openafs (1.3.70-1) experimental; urgency=low
+
+  * New upstream version
+  * debian/kern-sysname: 2.6* not 2.6
+  * Enable supergroups and largefile-fileserver
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 15 Aug 2004 18:56:48 -0400
+
+openafs (1.3.65-1) experimental; urgency=low
+
+  * New upstream Version, Closes: #256580
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 28 Jun 2004 19:40:30 -0400
+
+openafs (1.3.64-2) experimental; urgency=low
+
+  * Allow loading of a .ko file not just .o
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 31 May 2004 13:46:05 -0400
+
+openafs (1.3.64-1) experimental; urgency=low
+
+  * New upstream version
+  * Add 2.6 to kern-sysname for i386
+  * Apply patch from
+    /afs/cs.cmu.edu/user/jhutz/junk/openafs-patches/openafs-build-on-linux26  which correctly generates 2.6 modules, Closes: #234284
+  * use make only_libafs not dest_only_libafs
+    - AS a result, build times are much faster, Closes: #144781
+  * Correct module build scripts to install module package from new location
+  * Fix afslocaldir to be /etc/openafs/server-local, Closes: #237154
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 30 May 2004 18:12:54 -0400
+
+openafs (1.2.12-1) unstable; urgency=medium
+
+  * New upstream version
+  * Medium urgency because this version fixes a significant server crash
+    bug.  Windows clients, particularly greater than version 1.3.70 tend
+    to crash openafs servers.
+  * Cause openafs-kpasswd to conflict  with kerberos4kth-clients, Closes:
+    #277844
+  * Conflict between libopenafs-dev and arla-dev, Closes: #274788
+
+ -- Sam Hartman <hartmans@debian.org>  Fri, 22 Oct 2004 16:21:29 -0400
+
+openafs (1.2.11-3) unstable; urgency=high
+
+  * Now that libopenafs-dev contains binaries, it should have shared
+    library dependencies, Closes: #267509
+  * New fr.po from Christian Perrier, Closes: #237098
+
+ -- Sam Hartman <hartmans@debian.org>  Tue, 24 Aug 2004 12:10:02 -0400
+
+openafs (1.2.11-2) unstable; urgency=low
+
+  * Install rxgen
+  * Install upserver and upclient
+  * Mark as version 1.2.11, Closes: #255883
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 12 Aug 2004 14:27:39 -0400
+
+openafs (1.2.11-1) unstable; urgency=high
+
+  * Versions prior to 1.2.10 stopped working with multiple servers in a
+    cell because of a ubik bug prompting the 1.2.11 release.
+  * Fix afs startup script not to start afsd if already running; really
+    fixed in 1.2.10-3, but not documented, Closes: #219702
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 10 Jan 2004 16:37:33 -0500
+
+openafs (1.2.10-3) unstable; urgency=low
+
+  * Fix Openafs not to include kernel headers from /usr/include,
+  Closes: #220600
+  * Fix typo in openafs templates, Closes: #215714
+  * New French translations, Closes: #216158
+  * Build-depend on e2fslibs-dev to get appropriate headers
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 20 Nov 2003 16:02:45 -0500
+
+openafs (1.2.10-2) unstable; urgency=low
+
+  * New Brazilian Portuguese (pt_BR) translations, Closes: #208035
+  * Don't conflict with ircd, Closes: #204865
+  * Fix wording of question about using dynroot, Closes: #209332
+  * New French debconf translations, sorry about the delay in including these, Closes: #203608
+  * Avoid yes/no construction in openafs-client templates, Closes: #198476
+  * Fix libpam-openafs-kaserver to include the symbols it needs, patch
+    from Daniel Joseph Barnhart Clark , Closes: #194818
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 13 Oct 2003 00:38:42 -0400
+
+openafs (1.2.10-1) unstable; urgency=low
+
+  * New upstream version
+  * net/*.h included properly by kernel module, Closes: #204642
+  * Don't build libafsrpc or libafsauthent, as we can't exactly use them
+    because they contain non-pic code, Closes: #203456
+  * I think I finally build the PAM module on hppa, Closes: #179679
+  * Decnet includes should work now because of the change of the net
+    symlink, Closes: #204486
+  * Escape $ in debian/rules, Closes: #204185
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 24 Aug 2003 18:03:21 -0400
+
+openafs (1.2.9-3) unstable; urgency=low
+
+  * Add support for kernel headers, thanks to Patrick Sodre,
+    Closes: #173137
+  * Add patch to support the Debian 2.4.21 Kernel sources, thanks to amu,
+    Closes: #198774
+  * Add chronyd to list of programs we assume set the clock, thanks RISKO
+    Gergely, Closes: #201725
+  * Fix template formatting (extra leading spaces), Closes: #198477
+  * New French translations, thanks Christian Perrier, Closes: #198719
+  * Fix PAM problem on hppa, Closes: #179679
+  * Don't translate defaults: Closes: #198384
+  * Fix movefiles error handling and errors exposed by this change.  The
+    contents of libopenafs-dev  were somewhat wrong because of this.
+  * Make /usr/src/modules root.src 775, Closes: #201733
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 26 Jul 2003 18:03:31 -0400
+
+openafs (1.2.9-2) unstable; urgency=low
+
+  * Fix   to not build PAM krb since we don't install it and it breaks alpha, Closes: #189548
+  * Don't install pagsh man page symlink since we no longer link to
+    undocumented, Closes: #189860
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 21 Apr 2003 21:05:51 -0400
+
+openafs (1.2.9-1) unstable; urgency=low
+
+  * Literal newline fixes, Closes: #175627
+  * Require new kernel modules per upstream change.
+  * New upstream version
+  * Fix section of libopenafs-dev to libdevel
+  * openafs-client stop should shut down afsd if it is running even if afs
+    not mounted, Closes: #188000
+      * Fix to build on alpha again; PAM patch was broken
+  * Report i386_linux24 not linux22 on i386, Closes: #187789
+  * Convert to po-debconf, patch from Andre Luis Lopes, CLoses: #187901
+  * Fix from Lamont to build on hppa, Closes: #179679
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 13 Apr 2003 17:21:54 -0400
+
+openafs (1.2.8-4) unstable; urgency=low
+
+  * Fix from Eduard Bloch to compile on kernels with variable numbers of
+    CPUs; he is not sure it actually works yet though, Closes: #178505
+  * Patch that might possibly fix the fails to build on recent unstable;
+    definitely fixes a bug in include path handling, but I am not sure it
+    is a correct patch since I cannot reproduce the problem, Closes: #178154
+
+ -- Sam Hartman <hartmans@debian.org>  Sun,  2 Feb 2003 14:08:14 -0500
+
+openafs (1.2.8-3) unstable; urgency=medium
+
+  * Patch from Eduard Bloch <blade@debian.org> to build the PAM module for
+    kaserver users; the main thing this patch does in create a bunch of
+    PIC object files so it is a policy-conformant shared library, Closes:
+    #174668
+  * Do not include -I/usr/include and especially -I/usr/include/sys in the
+    PAM Makefile so gcc 3.2 works; already fixed upstream, Closes: #176538
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 19 Jan 2003 17:44:53 -0500
+
+openafs (1.2.8-2) unstable; urgency=low
+
+  * Convert v5 principal names to v4 style names in rxkad 2b.  Especially
+    important for rcmd vs host
+  * Fix debian/rules clean to remove  generated files, Closes: #174625
+  * Fix AFS not to declare errno, Closes: #174059
+
+ -- Sam Hartman <hartmans@debian.org>  Fri,  3 Jan 2003 15:28:30 -0500
+
+openafs (1.2.8-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Sam Hartman <hartmans@debian.org>  Tue, 10 Dec 2002 23:43:46 -0500
+
+openafs (1.2.7-3) unstable; urgency=low
+
+  * Apparently OpenAFS and  ircd conflict on a UDP port, so you can't use
+    both at once, Closes: #150242
+  * Patch from seph to add -nosettime when ntp is installed, Closes: #155123
+  * Fix bosserver  shutdown on restart after upgrade, Closes :#155586
+  * Install translate_et, Closes: #138672
+  * Allow byacc instead of bison
+
+ -- Sam Hartman <hartmans@debian.org>  Tue,  3 Dec 2002 22:30:44 -0500
+
+openafs (1.2.7-2) unstable; urgency=low
+
+  * Fix uss to build with bison 1.50 and 1.75 so we can throw away the
+    resulting binaries, Closes: #164366
+  * Evaluate all limited range of comparison warnings; a warning in
+    rxkad_client.c remains but is harmless, other warnings pointed to
+    potential problems that were fixed, Closes: #162754
+  * Fix s390 modules to actually build, Closes: #162772
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 20 Oct 2002 15:20:19 -0400
+
+openafs (1.2.7-1) unstable; urgency=low
+
+  * Fix typo in templates, Closes: #150356
+
+  * New upstream version
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 26 Sep 2002 16:11:25 -0400
+
+openafs (1.2.6-1) unstable; urgency=low
+
+
+  * New upstream version
+  * Update CellServDB, Closes: #154893
+  * Add debconf support for fakestat
+  * Patch from Sergio Gelato to avoid use of host, Closes: #144264
+  * Install sys because it was requested
+  * Fix version string, Closes: #153136
+ -- Sam Hartman <hartmans@debian.org>  Fri,  2 Aug 2002 17:33:11 -0400
+
+openafs (1.2.5-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 10 Jun 2002 08:09:05 -0400
+
+openafs (1.2.4-1) unstable; urgency=low
+
+  * New upstream version
+  * Now builds for ia64, closes: #142287
+  * Now works again with 2.2 kernels, thanks to upstream fix, closes: #140187
+  * openafs-modules-source depends on kernel-package, Closes: #137169
+  * Fix typo in readme.modules, Closes: #148155
+
+ -- Sam Hartman <hartmans@debian.org>  Sun,  2 Jun 2002 17:54:42 -0400
+
+openafs (1.2.3final2-5) unstable; urgency=medium
+
+  * Fix subarch handling, closes: #139662
+  * Update module control files to use  net not non-us
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 18 Apr 2002 13:13:16 -0400
+
+openafs (1.2.3final2-4) unstable; urgency=low
+
+  * Move from non-us to main.
+  * Fix ultrasparc 2.4 build to actually work.
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 16 Mar 2002 15:33:33 -0500
+
+openafs (1.2.3final2-3) unstable; urgency=medium
+
+  * Oops, install backup
+
+ -- Sam Hartman <hartmans@debian.org>  Thu,  7 Mar 2002 08:12:34 -0500
+
+openafs (1.2.3final2-2) unstable; urgency=low
+
+  * Add dynroot support to debconf; currently no support for creating
+    CellAliases  automatically
+  * Don't call depmod since we call update-modules, closes: #132851
+  * Add hppa to debian/sysname, process.c patch from Lamont, closes: #134173
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 25 Feb 2002 15:45:32 -0500
+
+openafs (1.2.3final2-1) unstable; urgency=low
+
+  * Upstream released a new version that they call 1.2.3 after things were
+    tagged  in the Debian repository.
+
+ -- Sam Hartman <hartmans@debian.org>  Wed, 30 Jan 2002 16:59:04 -0500
+
+openafs (1.2.3final-1) unstable; urgency=low
+
+  * New upstream release
+  * Add support for fs setcrypt in debconf; by default traffic is encrypted.
+
+ -- Sam Hartman <hartmans@debian.org>  Wed, 30 Jan 2002 10:46:46 -0500
+
+openafs (1.2.3candidate3-1) unstable; urgency=low
+
+  *  New  upstream release candidate
+  * Use different version number format; people who installed rc1 will
+    need to upgrade manually.  Sorry, but rc1 was never uploaded to Debian.
+  * Support sparc_linux24
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 27 Jan 2002 19:57:04 -0500
+
+openafs (1.2.3.candidate1-1) unstable; urgency=low
+
+  *  New upstream release candidate
+  * Add ia64 as a potential architecture
+
+ -- Sam Hartman <hartmans@debian.org>  Tue, 22 Jan 2002 19:00:51 -0500
+
+openafs (1.2.2-3) unstable; urgency=low
+
+  * Support s390, closes: #123540
+  * Support update-alternatives for pagsh, closes: #122144
+  * Note that alpha port doesn't work for fileservers, closes: #127387
+  * Implement subarch, closes: #126192
+
+ -- Sam Hartman <hartmans@debian.org>  Mon,  7 Jan 2002 05:26:03 -0500
+
+openafs (1.2.2-2) unstable; urgency=low
+
+  * Don't declare lseek in auth/ktc.c; sent upstream
+  * Allow /etc/openafs/server to be mode 700 and /var/lib/openafs to be
+    755, closes: #120072
+  *  Don't try to shut down during afs-newcell until we've done enough
+    that works, closes: #119452
+  * Fix message  output on server failed to start, closes: #119461
+  * Fix openafs to deal if /etc/openafs/server/ThisCell has a newline,
+    closes: #118086
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 25 Nov 2001 20:03:01 -0500
+
+openafs (1.2.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * We now require openafs-modules1 and conflict with openafs-modules.
+  Our modules packages now provide openafs-modules1.  This is because
+  upstream made a forward and backward incompatible change in the modules
+  interface.
+   * Include buserver in openafs-dbserver, butc and fms in openafs-client.c
+    butc and fms may move, but they are there for now, closes: #114313
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 14 Oct 2001 15:07:10 -0400
+
+openafs (1.2.1-1) unstable; urgency=low
+
+  * New upstream version.
+  * Document that you may need to append a version for newer kernels,
+    closes: #112246
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 20 Sep 2001 03:10:54 -0400
+
+openafs (1.2.0-3) unstable; urgency=high
+
+  * High until we get this into testing.
+  * Fix dependency on ncurses, closes: #112244
+  * Fix typo in German template added in last version, closes: #112289
+
+ -- Sam Hartman <hartmans@debian.org>  Fri, 14 Sep 2001 23:40:25 -0400
+
+openafs (1.2.0-2) unstable; urgency=high
+
+  * Fix PPC makefile so that it finds install; this time actually
+    submitted upstream.
+  * Have openafs-modules-source depend on libpam0g-dev because upstream
+    seems to need it.  Bug opened upstream asking if this is really necessary.
+  * Include German template, closes: #110087
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 13 Sep 2001 16:58:53 -0400
+
+openafs (1.2.0-1) unstable; urgency=high
+
+  * Fix typo in  README.servers; thanks to mdz@debian.org, closes: #109199
+  * Upstream patch for configure-style path handling accepted, closes: #88897
+  * New upstream version.
+  * Update upstream changelog
+
+ -- Sam Hartman <hartmans@debian.org>  Tue, 11 Sep 2001 16:21:35 -0400
+
+openafs (1.1.1-3) unstable; urgency=low
+
+  * Oops, that last upstream patch for rx debug and version didn't work on
+    Linux.  Since some Debian users may run Linux, let's try again.
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 21 Jul 2001 12:48:00 -0400
+
+openafs (1.1.1-2) unstable; urgency=medium
+
+  * Swallow before vomiting, for it is the Debconf way, closes: #106030
+  * Fix setting of INSTALL macro on powerpc, closes: #106019
+  * Support AFSDB in debconf.  By default now (assuming you take the new
+    /etc/openafs/afs.conf), AFS will look up cells  it doesn't know
+    about in DNS.
+  * Include upstream patch to prevent potential DOS with two RX servers
+    looping rxdebug and version amongst each other.
+  * Install rxdebug (oops)
+  * Fix lintian overrides to get Lintian to stop complaining about
+    non-problems.
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 21 Jul 2001 08:53:10 -0400
+
+openafs (1.1.1-1) unstable; urgency=low
+
+  * New upstream release to fix readlink sometimes giving permission
+    denied when it shouldn't.
+  * Bring back the upstream changelog, now with change descriptions
+  * Patch to give better error messages when  copyonwrite fails in the
+    fileserver (contributed upstream)
+  * New CellServDB
+
+ -- Sam Hartman <hartmans@debian.org>  Fri, 20 Jul 2001 08:12:24 -0400
+
+openafs (1.1.0-1) unstable; urgency=low
+
+  * New Upstream release.
+  * Warn if not running as root for afs-newcell|rootvol, closes: #103532
+  * Work around upstream make clean target not working correctly.
+ -- Sam Hartman <hartmans@debian.org>  Mon, 16 Jul 2001 06:13:41 -0400
+
+openafs (1.0.90.20010710.snapshot-1) experimental; urgency=low
+
+  *  New upstream snapshot
+  * Fix module package to not have build cruft
+  * Use --disable-kernel-module option except for module sources
+  * Attempt to build modules correctly, although still not in right place
+  * Pretend we build for alpha. This is mostly not a fiction, although I
+    don't really know that much more than the kernel module and afsd
+    work.  The pointer cast warnings are frightening.
+
+ -- Sam Hartman <hartmans@debian.org>  Wed, 11 Jul 2001 11:41:22 -0400
+
+openafs (1.0.90.20010704.snapshot-1) experimental; urgency=low
+
+  * New upstream snapshot.  Support AFSDB records and many other
+    features.  Not at all stable yet.  This is packaged so I and others
+    can try it out.
+
+ -- Sam Hartman <hartmans@debian.org>  Thu,  5 Jul 2001 04:04:20 -0400
+
+openafs (1.0.4-3) unstable; urgency=medium
+
+  * Fix patch introduced in -2 to be consistent with what is sent upstream.
+  * openafs-modules-source depends on debhelper
+
+ -- Sam Hartman <hartmans@debian.org>  Wed,  4 Jul 2001 03:52:37 -0400
+
+openafs (1.0.4-2) unstable; urgency=low
+
+  * Fix modversions and athlon memcpy mmx bug, closes: #91925
+  * Fix openafs-client to fail rather than starting a useless afsd if we don't have any db servers
+  * If AFS client fails to start for afs-newcell, then complain, closes: #98303
+  * New CellServDB
+  * Fix module builds on non-i386, closes: #100939
+
+ -- Sam Hartman <hartmans@debian.org>  Sun, 17 Jun 2001 01:22:37 -0400
+
+openafs (1.0.4-1) unstable; urgency=low
+
+  * New upstream version, closes: #92776
+  * Allow openafs-client to depend on openafs-modules-source not just
+    openafs-modules.  This allows us to be installable on testing even
+    without binary modules which may become a necessity given the current
+    kernel image mess.
+  *  implement target for modules_clean, closes: #95049
+
+ -- Sam Hartman <hartmans@debian.org>  Tue, 24 Apr 2001 14:56:57 -0400
+
+openafs (1.0.3-2) unstable; urgency=low
+
+  * Fix  direntry type to be DT_UNKNOWN not DT_DIR on Linux (contributed upstream)
+  * Return ENOTEMPTY not ENOTDIR for rmdir of non-empty directory, closes: #82589
+  * Include build instructions in modules, closes: #92032
+  * Don't grep a file for a potentially null string, closes: #89967
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 29 Mar 2001 22:09:29 -0500
+
+openafs (1.0.3-1) unstable; urgency=low
+
+  * New upstream version
+  * Allow host to be used instead of dnsutils, closes: #87915
+  * Document kernel module build.
+  * Include upstream changelog
+
+ -- Sam Hartman <hartmans@debian.org>  Thu,  8 Mar 2001 14:35:57 -0500
+
+openafs (1.0.2-3) unstable; urgency=low
+
+  * Apply patch from  Stefan Kluth  <skluth@mppmu.mpg.de> for ppc_linux22
+  * Back out architecture change from last version; no good way to
+    actually solve that problem apparently.
+
+
+ -- Sam Hartman <hartmans@debian.org>  Sat, 17 Feb 2001 23:45:06 -0500
+
+openafs (1.0.2-2) unstable; urgency=low
+
+  * Provide openafs-ptutil in hope that apt will deal better with upgrade,
+    closes: #84303
+  * Make thiscell default to dnsdomainname so things don't break quite as
+    bad if you don't enter it, closes: #81149
+  * Include source architecture line, Closes: #84530
+  * Rebuild with new debhelper to fix dh_installinit not shutting down on
+    removal (Thanks Joey) (now requires debhelper 2.2.20)
+  * Move CellServDB to /usr/share/openafs  so we comply with policy 3.5
+
+ -- Sam Hartman <hartmans@debian.org>  Mon,  5 Feb 2001 13:23:51 -0500
+
+openafs (1.0.2-1) unstable; urgency=low
+
+  * Add support for ppc and sparc, closes: #80835
+  * Update maintainer address for modules.
+  * Support for 2.4.0 final (and not just prereleases as before), closes: #82751
+  * New upstream version.
+  * Conflict with openafs-ptutil since it is now included
+  * Fix message in RC script, closes: #82489
+  * Attempt to avoid using pinstall  in kernel module build
+
+ -- Sam Hartman <hartmans@debian.org>  Fri, 19 Jan 2001 22:38:32 -0500
+
+openafs (1.0.1-3) unstable; urgency=low
+
+  * Add support for Linux Kernel 2.4.x.
+  * Note that administration scripts are released under the GPL.
+
+ -- Sam Hartman <hartmans@debian.org>  Mon,  18 Dec 2000 19:06:00 -0500
+
+
+openafs (1.0.1-2) unstable; urgency=medium
+
+  * New maintainer address.
+  * Depend on debhelper 2.1.16 for /usr/share/doc symlinks.
+  * Only run init script once; confusion with DH_OPTIONS
+  * Fix bosserver to look in /usr/openafs/lib so it restarts correctly every Sunday.
+  * Upload to Debian (Gloses: BUG#69336)
+  * Do not generate .map file for module; depmod complains.
+
+ -- Sam Hartman <hartmans@debian.org>  Wed,  6 Dec 2000 11:21:53 -0500
+
+openafs (1.0.1-1) unstable; urgency=low
+
+  * New upstream version
+  * Fix typo in openafs-client templates.
+  * Clarify that afs-newcell sets up for afs-rootvol
+
+ -- Sam Hartman <hartmans@mit.edu>  Sun,  3 Dec 2000 02:04:50 -0500
+
+openafs (1.0.snap20001106-10) unstable; urgency=low
+
+  * Release (Closes: BUG#69336)
+  * Fix typo and afs-rootvol and test from CLI
+
+ -- Sam Hartman <hartmans@mit.edu>  Sat,  2 Dec 2000 00:44:37 -0500
+
+openafs (1.0.snap20001106-9) unstable; urgency=medium
+
+  * Fix openafs-fileserver restart to do a bos restart
+  * Document that AFS key must be single-DES.
+  * afs-rootvol: use the -fast option so we do not hang forever on bad cells or firewalls.
+  * Fix priority on openafs-client rc script to run after server starts.
+
+ -- Sam Hartman <hartmans@mit.edu>  Wed, 29 Nov 2000 20:43:59 -0500
+
+openafs (1.0.snap20001106-8) unstable; urgency=low
+
+  * Modules no longer depend on the tlient; client depends on modules.
+    This works better for AFS, even though it is not the way packages like
+    alsa-base work.
+  * Fix several typos in configuration scripts.
+  * Clarify that it starts the client just after debconf.
+
+ -- Sam Hartman <hartmans@mit.edu>  Wed, 29 Nov 2000 13:10:43 -0500
+
+openafs (1.0.snap20001106-7) unstable; urgency=low
+
+  * Add command line options to afs-newcell
+  * Fix control.module for real this time.
+  * Add kpasswd and kas to the openafs-kpasswd package.
+  * Add manpage for afs-newcell and many undocumented links.
+  * Remove PAM module from libopenafs-dev.
+  * Instal udebug, pagsh, cmdebug.
+  * Remove execute bit from some includes in /usr/include.
+
+ --  Sam Hartman <hartmans@mit.edu>  Mon, 27 Nov 2000 03:02:57 -0500
+
+openafs (1.0.snap20001106-6) unstable; urgency=medium
+
+  * Add config option to disable  client on boot
+  * Create rc.d links
+  * Make CellServDB handled by postinst not a conffile.  Sadly AFSDB
+    records will be a while in the future.
+  * New script: afs-newcell to configure a dbserver
+  * Use the native Debian install instead of afs install while building;
+    works  under fakeroot.  Important for modules package.
+  * Fix purge to delete configuration files
+
+ -- Sam Hartman <hartmans@mit.edu>  Sat, 25 Nov 2000 01:09:55 -0500
+
+openafs (1.0.snap20001106-5) unstable; urgency=low
+
+  * Make change so kdump builds on potato
+
+ --  Sam Hartman <hartmans@mit.edu>  Sun, 19 Nov 2000 19:27:01 -0500
+
+openafs (1.0.snap20001106-4) unstable; urgency=low
+
+  * Fix so dpkg-buildpackage works.  Oops.
+
+ --  Sam Hartman <hartmans@mit.edu>  Sun, 19 Nov 2000 02:18:05 -0500
+
+openafs (1.0.snap20001106-3) unstable; urgency=low
+
+  * Increase stacksize for server processes so they don't dump core.
+  * New script: afs-rootvol--creates the root.afs and root.cell.  Works
+    fairly well except that it is overly verbose and that it has my test
+    cell hardcoded.  This script will evolve into part of a new cell
+    config tool.
+
+
+  --
+  * Support removing module for smP
+  * Prune build directories out of modules sources--oops
+  * Fix bogus depends for module sources--note that it really does want
+    bison and flex at least for now.
+
+ --  Sam Hartman <hartmans@mit.edu>  Thu, 16 Nov 2000 01:39:48 -0500
+
+openafs (1.0.snap20001106-2) unstable; urgency=low
+
+  * Fix directories for servers to be FHS-reasonable
+  * Fix init.d script to actually work for stop this time--tested and works
+  * Add server packages; fairly useless right now but at least we
+      ship the binaries
+  * Check to make sure home cell exists and warn user if not
+  * Fix purge for openafs-client
+
+ --  Sam Hartman <hartmans@mit.edu>  Fri, 10 Nov 2000 23:35:30 -0500
+
+openafs (1.0.snap20001106-1) unstable; urgency=low
+
+  * New Upstream version
+  * Fix init.d script to properly remove openafs.o
+
+ --  Sam Hartman <hartmans@mit.edu>  Tue,  7 Nov 2000 13:55:47 -0500
+
+openafs (1.0.snap20001104-1) unstable; urgency=low
+
+  * New upstream snapshot
+  * Fix path to afsd in /etc/init.d/openafs-client
+  * Build openafs module packages
+
+ --  Sam Hartman <hartmans@mit.edu>  Mon,  6 Nov 2000 09:39:11 -0500
+
+openafs (1.0.snap20001103-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- unknown <hartmans@snorklewacker.mit.edu>  Fri,  3 Nov 2000 23:41:41 -0500

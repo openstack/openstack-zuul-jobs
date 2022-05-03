@@ -1,0 +1,94 @@
+- name: Install prereqs
+  package:
+    name:
+      - build-essential
+      - devscripts
+      - dpkg-dev
+      - equivs # for mk-build-deps
+  become: yes
+
+- name: Make working directory
+  file:
+    path: '{{ ansible_user_dir }}/openafs'
+    state: directory
+    mode: '0755'
+
+- name: Copy in debian directory
+  synchronize:
+    src: 'files/debian'
+    dest: '{{ ansible_user_dir }}/openafs/'
+
+- name: Build source
+  environment:
+    VERSION: 1.8.8.1
+  args:
+    executable: '/bin/bash'
+  shell: |
+      set -eux
+
+      pushd openafs
+
+      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
+      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-doc.tar.bz2
+
+      tar xf openafs-${VERSION}-src.tar.bz2
+      tar xf openafs-${VERSION}-doc.tar.bz2
+
+      # make the .orig for debian
+      mv openafs-${VERSION} openafs_${VERSION}.orig
+      tar cfJ openafs_${VERSION}.orig.tar.xz openafs_${VERSION}.orig
+
+      _installed_deps=0
+      for distro in xenial bionic focal jammy;
+      do
+        # clear source tree
+        rm -rf openafs_${VERSION}.orig
+
+        # re-extract
+        tar xf openafs_${VERSION}.orig.tar.xz
+        cp -r debian ./openafs_${VERSION}.orig
+
+        pushd openafs_${VERSION}.orig
+
+        # set distro and build source packages
+        sed -i "s/%opendev_distro%/${distro}/g" debian/changelog
+
+        # install the build deps first time
+        if [[ ${_installed_deps} == 0 ]]; then
+          mk-build-deps --install --root-cmd sudo --remove -t "apt-get -y"
+          _installed_deps=1
+        fi
+
+        # build source packages
+        debuild -S -sa --no-sign
+
+        popd
+      done
+
+      # clean up so that the only things left are the files we want
+      rm -rf openafs-${VERSION}-src.tar.bz2 \
+        openafs-${VERSION}-doc.tar.bz2 \
+        openafs_${VERSION}.orig \
+        debian
+
+      popd
+
+      # create omnibus tar file
+      tar czf openafs-debs.tar.gz ./openafs
+
+- name: Copy built packages
+  synchronize:
+    src: '{{ ansible_user_dir }}/openafs-debs.tar.gz'
+    dest: '{{ zuul.executor.log_root }}'
+    mode: pull
+
+- name: Return build artifact
+  zuul_return:
+    data:
+      zuul:
+        artifacts:
+          - name: deb-tar
+            url: openafs-debs.tar.gz
+            metadata:
+              type: deb.tar.gz
+

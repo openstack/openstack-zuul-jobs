@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+# Purge various extra configuration files and data files created by the
+# package.  Whether to purge KeyFile is a bit iffy since the user created it
+# with asetkey or with bos addkey, but it always exists for any running server
+# and we shouldn't be losing any critical data.
+#
+# We intentionally don't remove NetInfo and NetRestrict in
+# /var/lib/openafs/local since those are created separately by the user and
+# may contain information not stored elsewhere.
+if [ "$1" = 'purge' ] ; then
+    for file in CellServDB CellServDB.old KeyFile ThisCell UserList ; do
+        rm -f "/etc/openafs/server/$file"
+    done
+    for file in SALVAGE.fs fssync.sock salvage.lock sysid sysid.old ; do
+        rm -f "/var/lib/openafs/local/$file"
+    done
+    rm -f /etc/openafs/BosConfig
+    for file in BosLog FileLog SalvageLog VolserLog ; do
+        rm -f "/var/log/openafs/$file"
+        rm -f "/var/log/openafs/$file.old"
+    done
+fi
+
+#DEBHELPER#

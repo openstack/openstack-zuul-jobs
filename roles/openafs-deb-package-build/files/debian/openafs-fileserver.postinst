@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+db_version 2.0
+
+# Configure the local cell for the file server.
+db_get openafs-fileserver/thiscell
+echo $RET >/etc/openafs/server/ThisCell
+
+# If there is no local server CellServDB, construct it from the client
+# CellServDB by looking for the local cell.  If that fails, create a minimal
+# CellServDB for the server with no information.
+if [ ! -f /etc/openafs/server/CellServDB ] ; then
+    sed -n "/^>$RET/,/^>/p" /etc/openafs/CellServDB | sed '$d' \
+        >/etc/openafs/server/CellServDB
+    if [ ! -s /etc/openafs/server/CellServDB ] ; then
+        echo ">$RET" >/etc/openafs/server/CellServDB
+    fi
+fi
+
+if [ -r /etc/openafs/server/rxkad.keytab ] ; then
+    akeyconvert
+fi
+
+#DEBHELPER#
+
+exit 0
