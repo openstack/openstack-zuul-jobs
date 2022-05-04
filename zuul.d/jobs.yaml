@@ -1383,10 +1383,22 @@
     name: openafs-deb-package-build
     description: |
         Push deb builds
+    provides: openafs-deb-packages
     run: playbooks/openafs-deb-package-build/run.yaml
-    files:
+    files: &deb-files
       - playbooks/openafs-deb-package-build
       - roles/openafs-deb-package-build
+
+- job:
+    name: openafs-deb-package-build-promote
+    requires: openafs-deb-packages
+    description: |
+        Publish the openafs RPM packages
+    run: playbooks/openafs-deb-package-build/publish.yaml
+    files: *deb-files
+    secrets:
+      - secret: openstack_ci_ppa_upload_key
+        name: gpg_key
 
 - job:
     name: openstack-zuul-jobs-linters
