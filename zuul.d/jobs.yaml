@@ -288,7 +288,7 @@
 - job:
     name: openstack-tox-py310
     parent: openstack-tox
-    nodeset: fedora-latest
+    nodeset: ubuntu-jammy
     timeout: 2400
     description: |
 
