@@ -20,6 +20,13 @@
 
 - name: Build source
   environment:
+    # NOTE(ianw) : If you are (re)building a version that is already
+    # in Ubuntu, you have to use the ubuntu orig file that is already
+    # present in the primary archive (if you try to recreate it, gzip
+    # timestamps etc will be wrong).  If you are building a version
+    # that isn't in Ubuntu, then we can build directly from upstream
+    # sources.  If bumping the vesion here, look in the script below
+    # to switch between downloading or creating.
     VERSION: 1.8.8.1
   args:
     executable: '/bin/bash'
@@ -28,15 +35,14 @@
 
       pushd openafs
 
-      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
-      wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-doc.tar.bz2
+      wget https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/openafs/${VERSION}-1/openafs_${VERSION}.orig.tar.xz
 
-      tar xf openafs-${VERSION}-src.tar.bz2
-      tar xf openafs-${VERSION}-doc.tar.bz2
-
-      # make the .orig for debian
-      mv openafs-${VERSION} openafs_${VERSION}.orig
-      tar cfJ openafs_${VERSION}.orig.tar.xz openafs_${VERSION}.orig
+      # wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
+      # wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-doc.tar.bz2
+      # tar xf openafs-${VERSION}-src.tar.bz2
+      # tar xf openafs-${VERSION}-doc.tar.bz2
+      # mv openafs-${VERSION} openafs_${VERSION}.orig
+      # tar cfJ openafs_${VERSION}.orig.tar.xz openafs_${VERSION}.orig
 
       _installed_deps=0
       for distro in xenial bionic focal jammy;
