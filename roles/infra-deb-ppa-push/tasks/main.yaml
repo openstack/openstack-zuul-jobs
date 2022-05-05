@@ -43,7 +43,7 @@
       [ppa-opendev]
       fqdn = ppa.launchpad.net
       method = ftp
-      incoming = ~openstack-ci-core/ubuntu/{{ infra_deb_project }}-deb-test
+      incoming = ~openstack-ci-core/ubuntu/{{ infra_deb_project }}
       login = anonymous
 
 - name: Push files to PPA
