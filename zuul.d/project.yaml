@@ -5,7 +5,6 @@
 
     check:
       jobs:
-        - openafs-deb-package-build
         - openafs-rpm-package-build-centos-7-x86
         - openafs-rpm-package-build-centos-8-stream-x86
         - openafs-rpm-package-build-centos-8-stream-arm64
@@ -74,7 +73,6 @@
               - roles/build-wheel-cache
     gate:
       jobs:
-        - openafs-deb-package-build
         - openafs-rpm-package-build-centos-7-x86
         - openafs-rpm-package-build-centos-8-stream-x86
         - openafs-rpm-package-build-centos-8-stream-arm64
@@ -84,4 +82,3 @@
     promote:
       jobs:
         - openafs-rpm-package-build-promote
-        - openafs-deb-package-build-promote
