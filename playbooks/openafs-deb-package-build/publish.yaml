@@ -51,7 +51,7 @@
 
     - name: Push files to PPA
       shell: |
-        dput --to ppa-openafs {{ item | basename }}
+        dput ppa-openafs {{ item | basename }}
       args:
         chdir: '{{ ansible_user_dir }}/openafs'
       loop: "{{ _changes_files.files | map(attribute='path') | list }}"
