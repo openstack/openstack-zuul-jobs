@@ -202,7 +202,7 @@
     vars:
       tox_envlist: py37
       bindep_profile: test py37
-      python_version: 3.7
+      python_version: '3.7'
 
 - job:
     name: openstack-tox-py38
@@ -220,7 +220,7 @@
     vars:
       tox_envlist: py38
       bindep_profile: test py38
-      python_version: 3.8
+      python_version: '3.8'
 
 - job:
     name: openstack-tox-py38
@@ -242,7 +242,7 @@
     vars:
       tox_envlist: py38
       bindep_profile: test py38
-      python_version: 3.8
+      python_version: '3.8'
 
 - job:
     name: openstack-tox-py38-arm64
@@ -271,7 +271,7 @@
     vars:
       tox_envlist: py39
       bindep_profile: test py39
-      python_version: 3.9
+      python_version: '3.9'
 
 - job:
     name: openstack-tox-py39-arm64
@@ -567,7 +567,7 @@
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional-py37
-      python_version: 3.7
+      python_version: '3.7'
 
 - job:
     name: openstack-tox-functional-py38
@@ -583,7 +583,7 @@
     vars:
       tox_envlist: functional-py38
       bindep_profile: test py38
-      python_version: 3.8
+      python_version: '3.8'
 
 - job:
     name: openstack-tox-functional-py38
@@ -602,7 +602,7 @@
     vars:
       tox_envlist: functional-py38
       bindep_profile: test py38
-      python_version: 3.8
+      python_version: '3.8'
 
 - job:
     name: openstack-tox-functional-py39
@@ -617,7 +617,7 @@
     vars:
       tox_envlist: functional-py39
       bindep_profile: test py39
-      python_version: 3.9
+      python_version: '3.9'
 
 - job:
     name: openstack-tox-functional-py36-fips
