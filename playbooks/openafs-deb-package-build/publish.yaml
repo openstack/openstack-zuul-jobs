@@ -46,6 +46,12 @@
           [ppa-openafs]
           fqdn = ppa.launchpad.net
           method = ftp
-          incoming = ~openstack-ci-core/ubuntu/openafs
+          incoming = ~openstack-ci-core/ubuntu/openafs-deb-test
           login = anonymous
 
+    - name: Push files to PPA
+      shell: |
+        dput --to ppa-openafs {{ item | basename }}
+      args:
+        chdir: '{{ ansible_user_dir }}/openafs'
+      loop: "{{ _changes_files.files | map(attribute='path') | list }}"
