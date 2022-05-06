@@ -1,3 +1,0 @@
-debian/tmp/usr/sbin/afsd.fuse usr/sbin
-
-debian/tmp/usr/share/man/man3/AFS::ukernel.3 usr/share/man/man3

@@ -1,5 +1,0 @@
-var/cache/openafs
-var/cache/openafs-client
-etc/openafs
-etc/init.d
-usr/share/openafs

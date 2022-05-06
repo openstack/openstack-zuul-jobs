@@ -13,69 +13,41 @@
     state: directory
     mode: '0755'
 
-- name: Copy in debian directory
-  synchronize:
-    src: 'files/debian'
-    dest: '{{ ansible_user_dir }}/openafs/'
-
 - name: Build source
-  environment:
-    # NOTE(ianw) : If you are (re)building a version that is already
-    # in Ubuntu, you have to use the ubuntu orig file that is already
-    # present in the primary archive (if you try to recreate it, gzip
-    # timestamps etc will be wrong).  If you are building a version
-    # that isn't in Ubuntu, then we can build directly from upstream
-    # sources.  If bumping the vesion here, look in the script below
-    # to switch between downloading or creating.
-    VERSION: 1.8.8.1
   args:
     executable: '/bin/bash'
   shell: |
       set -eux
 
+      # make the orig
+      pushd '{{ zuul.project.src_dir }}'
+      ./make-orig.sh
+
+      # this puts a file with the version for us to use
+      VERSION=$(cat ./version)
+
+      # copy the result and the debian/* directory to build area
+      cp openafs_${VERSION}.orig.tar.xz '{{ ansible_user_dir }}/openafs'
+      cp -r debian '{{ ansible_user_dir }}/openafs'
+      popd
+
       pushd openafs
 
-      wget https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/openafs/${VERSION}-1/openafs_${VERSION}.orig.tar.xz
+      # extract source and move into place
+      tar xf openafs_${VERSION}.orig.tar.xz
+      mv debian ./openafs_${VERSION}.orig
 
-      # wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-src.tar.bz2
-      # wget https://www.openafs.org/dl/openafs/${VERSION}/openafs-${VERSION}-doc.tar.bz2
-      # tar xf openafs-${VERSION}-src.tar.bz2
-      # tar xf openafs-${VERSION}-doc.tar.bz2
-      # mv openafs-${VERSION} openafs_${VERSION}.orig
-      # tar cfJ openafs_${VERSION}.orig.tar.xz openafs_${VERSION}.orig
+      pushd openafs_${VERSION}.orig
 
-      _installed_deps=0
-      for distro in xenial bionic focal jammy;
-      do
-        # clear source tree
-        rm -rf openafs_${VERSION}.orig
+      # install build deps
+      mk-build-deps --install --root-cmd sudo --remove -t "apt-get -y"
+      # build source packages
+      debuild -S -sa --no-sign
 
-        # re-extract
-        tar xf openafs_${VERSION}.orig.tar.xz
-        cp -r debian ./openafs_${VERSION}.orig
+      popd
 
-        pushd openafs_${VERSION}.orig
-
-        # set distro and build source packages
-        sed -i "s/%opendev_distro%/${distro}/g" debian/changelog
-
-        # install the build deps first time
-        if [[ ${_installed_deps} == 0 ]]; then
-          mk-build-deps --install --root-cmd sudo --remove -t "apt-get -y"
-          _installed_deps=1
-        fi
-
-        # build source packages
-        debuild -S -sa --no-sign
-
-        popd
-      done
-
-      # clean up so that the only things left are the files we want
-      rm -rf openafs-${VERSION}-src.tar.bz2 \
-        openafs-${VERSION}-doc.tar.bz2 \
-        openafs_${VERSION}.orig \
-        debian
+      # clean up orig source from build
+      rm -rf openafs_${VERSION}.orig
 
       popd
 
