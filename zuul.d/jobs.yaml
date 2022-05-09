@@ -1397,7 +1397,7 @@
 - job:
     name: openafs-deb-package-build
     description: |
-        Push deb builds
+        Build OpenAFS packages for OpenDev PPA
     provides: openafs-deb-packages
     run: playbooks/openafs-deb-package-build/run.yaml
 
@@ -1410,6 +1410,13 @@
     secrets:
       - secret: openstack_ci_ppa_upload_key
         name: gpg_key
+
+- job:
+    name: vhd-util-deb-package-build
+    description: |
+        Build vhd-util packages for OpenDev PPA
+    provides: vhd-util-deb-packages
+    run: playbooks/vhd-util-deb-package-build/run.yaml
 
 - job:
     name: openstack-zuul-jobs-linters
