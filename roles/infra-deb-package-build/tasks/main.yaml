@@ -1,0 +1,72 @@
+- name: Install prereqs
+  package:
+    name:
+      - build-essential
+      - devscripts
+      - dpkg-dev
+      - equivs # for mk-build-deps
+  become: yes
+
+- name: Make working directory
+  file:
+    path: '{{ ansible_user_dir }}/{{ infra_deb_project }}'
+    state: directory
+    mode: '0755'
+
+- name: Build source
+  args:
+    executable: '/bin/bash'
+  shell: |
+      set -eux
+
+      # make the orig
+      pushd '{{ zuul.project.src_dir }}'
+      ./make-orig.sh
+
+      # this puts a file with the version for us to use
+      VERSION=$(cat ./version)
+
+      # copy the result and the debian/* directory to build area
+      cp {{ infra_deb_project }}_${VERSION}.orig.tar.xz '{{ ansible_user_dir }}/{{ infra_deb_project }}'
+      cp -r debian '{{ ansible_user_dir }}/{{ infra_deb_project }}'
+      popd
+
+      pushd {{ infra_deb_project }}
+
+      # extract source and move into place
+      tar xf {{ infra_deb_project }}_${VERSION}.orig.tar.xz
+      mv debian ./{{ infra_deb_project }}_${VERSION}.orig
+
+      pushd {{ infra_deb_project }}_${VERSION}.orig
+
+      # install build deps
+      mk-build-deps --install --root-cmd sudo --remove -t "apt-get -y"
+      # build source packages
+      debuild -S -sa --no-sign
+
+      popd
+
+      # clean up orig source from build
+      rm -rf {{ infra_deb_project }}_${VERSION}.orig
+
+      popd
+
+      # create omnibus tar file
+      tar czf {{ infra_deb_project }}-debs.tar.gz ./{{ infra_deb_project }}
+
+- name: Copy built packages
+  synchronize:
+    src: '{{ ansible_user_dir }}/{{ infra_deb_project }}-debs.tar.gz'
+    dest: '{{ zuul.executor.log_root }}'
+    mode: pull
+
+- name: Return build artifact
+  zuul_return:
+    data:
+      zuul:
+        artifacts:
+          - name: deb-tar
+            url: '{{ infra_deb_project }}-debs.tar.gz'
+            metadata:
+              type: deb.tar.gz
+
