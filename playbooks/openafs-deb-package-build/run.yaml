@@ -2,4 +2,4 @@
   roles:
     - role: infra-deb-package-build
       vars:
-        infra_dev_projet: 'openafs'
+        infra_deb_project: 'openafs'
