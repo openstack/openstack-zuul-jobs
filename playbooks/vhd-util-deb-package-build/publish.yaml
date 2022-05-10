@@ -1,0 +1,5 @@
+- hosts: all
+  roles:
+    - role: infra-deb-ppa-push
+      vars:
+        infra_deb_project: 'vhd-util'

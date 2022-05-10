@@ -1429,7 +1429,7 @@
     name: openafs-deb-package-build-promote
     requires: openafs-deb-packages
     description: |
-        Publish the openafs RPM packages
+        Publish the openafs deb packages to OpenDev PPA
     run: playbooks/openafs-deb-package-build/publish.yaml
     secrets:
       - secret: openstack_ci_ppa_upload_key
@@ -1441,6 +1441,16 @@
         Build vhd-util packages for OpenDev PPA
     provides: vhd-util-deb-packages
     run: playbooks/vhd-util-deb-package-build/run.yaml
+
+- job:
+    name: vhd-util-deb-package-build-promote
+    requires: vhd-util-deb-packages
+    description: |
+        Publish the vhd-util deb packages to OpenDev PPA
+    run: playbooks/vhd-util-deb-package-build/publish.yaml
+    secrets:
+      - secret: openstack_ci_ppa_upload_key
+        name: gpg_key
 
 - job:
     name: openstack-zuul-jobs-linters
