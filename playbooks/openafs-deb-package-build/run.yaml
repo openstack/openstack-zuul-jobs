@@ -1,3 +1,5 @@
 - hosts: all
   roles:
-    - openafs-deb-package-build
+    - role: infra-deb-package-build
+      vars:
+        infra_dev_projet: 'openafs'

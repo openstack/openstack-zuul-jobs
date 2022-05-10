@@ -1,0 +1,54 @@
+- name: Install PPA private key
+  include_role:
+    name: add-gpgkey
+
+- name: Download source package artifacts
+  include_role:
+    name: download-artifact
+  vars:
+    download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
+    download_artifact_type: deb.tar.gz
+    download_artifact_pipeline: gate
+    download_artifact_job: '{{ infra_deb_project }}-deb-package-build'
+    download_artifact_directory: '{{ ansible_user_dir }}'
+
+- name: Extract sources
+  unarchive:
+    src: '{{ ansible_user_dir }}/{{ infra_deb_project }}-debs.tar.gz'
+    dest: '{{ ansible_user_dir }}'
+    remote_src: yes
+
+- name: Find changes files
+  find:
+    paths: '{{ ansible_user_dir }}/{{ infra_deb_project }}'
+    patterns: '*.changes'
+  register: _changes_files
+
+- name: Install dependencies
+  package:
+    name:
+      - devscripts
+      - dput
+  become: yes
+
+- name: Sign changes file
+  shell: |
+    debsign -k "{{ gpg_key.key_id }}" -S --debs-dir "{{ zuul.executor.work_root }}" "{{ item }}"
+  loop: "{{ _changes_files.files | map(attribute='path') | list }}"
+
+- name: Setup dput config
+  copy:
+    dest: '{{ ansible_user_dir }}/.dput.cf'
+    content: |
+      [ppa-opendev]
+      fqdn = ppa.launchpad.net
+      method = ftp
+      incoming = ~openstack-ci-core/ubuntu/{{ infra_deb_project }}-deb-test
+      login = anonymous
+
+- name: Push files to PPA
+  shell: |
+    dput ppa-opendev {{ item | basename }}
+  args:
+    chdir: '{{ ansible_user_dir }}/{{ infra_deb_project }}'
+  loop: "{{ _changes_files.files | map(attribute='path') | list }}"
