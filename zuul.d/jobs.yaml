@@ -643,6 +643,14 @@
     pre-run: playbooks/fips/enable-fips.yaml
 
 - job:
+    name: openstack-tox-functional-py38-fips
+    parent: openstack-tox-functional-py38
+    nodeset: devstack-single-node-centos-8-stream
+    description: |
+      Functional testing for a FIPS enabled Centos 8 system
+    pre-run: playbooks/fips/enable-fips.yaml
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
