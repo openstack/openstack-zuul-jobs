@@ -656,33 +656,10 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-networking-ovn-ovs-release-ovsdbapp-src
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-ovn-ovs-release-ovsdbapp-src/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-ovn-ovs-release-ovsdbapp-src/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/networking-ovn
-      - openstack/ovsdbapp
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-full
     parent: legacy-dsvm-base-multinode
     run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-dvr-multinode-scenario
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-scenario/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-scenario/post.yaml
     timeout: 10800
     required-projects:
       - openstack/devstack-gate
@@ -741,17 +718,6 @@
     run: playbooks/legacy/tempest-dsvm-neutron-pg-full/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-neutron-pg-full/post.yaml
     timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-scenario-linuxbridge
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-scenario-linuxbridge/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-scenario-linuxbridge/post.yaml
-    timeout: 7800
     required-projects:
       - openstack/devstack-gate
       - openstack/neutron
