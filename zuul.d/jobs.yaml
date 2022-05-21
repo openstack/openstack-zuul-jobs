@@ -1713,6 +1713,32 @@
         wheel_python: python3
 
 - job:
+    name: build-wheel-cache-ubuntu-jammy
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Jammy wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-jammy-python3
+          label: ubuntu-jammy
+    host-vars:
+      wheel-cache-ubuntu-jammy-python3:
+        wheel_python: python3
+
+- job:
+    name: build-wheel-cache-ubuntu-jammy-arm64
+    parent: build-wheel-cache-base
+    description: |
+      Build Ubuntu Jammy wheels for OpenStack CI mirrors.
+    nodeset:
+      nodes:
+        - name: wheel-cache-ubuntu-jammy-arm64-python3
+          label: ubuntu-jammy-arm64
+    host-vars:
+      wheel-cache-ubuntu-jammy-arm64-python3:
+        wheel_python: python3
+
+- job:
     name: build-wheel-cache-ubuntu-focal
     parent: build-wheel-cache-base
     description: |
