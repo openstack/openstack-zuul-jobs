@@ -45,6 +45,10 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
+        - build-wheel-cache-ubuntu-jammy:
+            files:
+              - playbooks/wheel-cache
+              - roles/build-wheel-cache
     check-arm64:
       jobs:
         - build-wheel-cache-centos-8-stream-arm64:
@@ -68,6 +72,10 @@
               - playbooks/wheel-cache
               - roles/build-wheel-cache
         - build-wheel-cache-ubuntu-focal-arm64:
+            files:
+              - playbooks/wheel-cache
+              - roles/build-wheel-cache
+        - build-wheel-cache-ubuntu-jammy-arm64:
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
