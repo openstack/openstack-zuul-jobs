@@ -55,7 +55,7 @@ for BRANCH in master $BRANCHES; do
     rm -rf build_env
     ${VIRTUALENV_CMD} build_env
 
-    build_env/bin/pip install --upgrade pip
+    build_env/bin/pip install --upgrade pip wheel
 
     # SHORT_BRANCH is just "master","newton","kilo" etc. because this
     # keeps the output log hierarchy much simpler.
