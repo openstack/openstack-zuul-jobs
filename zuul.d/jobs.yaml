@@ -857,6 +857,7 @@
     vars:
       tox_envlist: py39
       bindep_profile: test py39
+      python_version: '3.9'
 
 - job:
     name: openstack-tox-py39-with-neutron-lib-master
