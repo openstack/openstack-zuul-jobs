@@ -1,0 +1,132 @@
+- name: Take screenshots of project-config grafana graphs
+  hosts: all
+  tasks:
+
+    - name: install docker
+      include_role:
+        name: ensure-docker
+
+    # NOTE: keep after ensure-docker
+    - name: Use buildset registry
+      include_role:
+        name: use-buildset-registry
+
+    - name: install pip
+      include_role:
+        name: ensure-pip
+
+    - name: Install dependencies
+      package:
+        name:
+          - python3-docker
+        state: present
+      become: yes
+
+    - name: Make environment vars
+      set_fact:
+        SECRETS_DIR: '{{ ansible_user_dir }}/grafana-secrets'
+        GRAFYAML_DIR: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/project-config'].src_dir }}/grafana"
+        SCREENSHOTS: '{{ ansible_user_dir }}/screenshots'
+        # NOTE(ianw) : screenshots are 1920 x this height.  This means
+        # it is about the right width to see easily.  5000 is a
+        # generic compromise; a bit long for some graphs, but it's
+        # just a solid black that compresses well in the .pngs.  If
+        # required we can key each graph to individual heights with a
+        # config file or something some other time.
+        SCREENSHOT_HEIGHT: '5000'
+
+    - name: Setup test environment
+      shell:
+        executable: /bin/bash
+        cmd: |
+          set -x
+          mkdir -p {{ SCREENSHOTS }}
+          mkdir -p {{ SECRETS_DIR }}
+          echo "password" > {{ SECRETS_DIR }}/admin_password
+          echo "admin" > {{ SECRETS_DIR }}/admin_user
+          echo "key" > {{ SECRETS_DIR }}/secret_key
+
+    - name: Run grafana
+      become: true
+      docker_container:
+        name: grafana-opendev_test
+        image: "docker.io/grafana/grafana-oss"
+        state: started
+        network_mode: host
+        volumes:
+          - '{{ SECRETS_DIR }}:/etc/grafana/secrets'
+        env:
+          GF_AUTH_ANONYMOUS_ENABLED: 'true'
+          GF_USER_ALLOW_SIGN_UP: 'false'
+          GF_SECURITY_ADMIN_PASSWORD__FILE: /etc/grafana/secrets/admin_password
+          GF_SECURITY_ADMIN_USER__FILE: /etc/grafana/secrets/admin_user
+          GF_SECURITY_SECRET_KEY__FILE: /etc/grafana/secrets/secret_key
+
+    - name: Run selenium
+      become: true
+      docker_container:
+        name: selenium-firefox
+        state: started
+        image: "docker.io/selenium/standalone-firefox"
+        # needs to talk to localhost
+        network_mode: host
+
+    - name: Install selenium bindings
+      pip:
+        name: selenium
+        virtualenv: '{{ ansible_user_dir }}/venv'
+        virtualenv_command: '{{ ensure_pip_virtualenv_command }}'
+
+    - name: Copy screenshot helper
+      copy:
+        src: 'screenshot.py'
+        dest: '{{ ansible_user_dir }}'
+
+    - name: Import dashboards
+      shell:
+        executable: /bin/bash
+        cmd: |
+          docker run --rm -t --network=host -e 'GRAFANA_URL=http://admin:password@localhost:3000' -v {{ GRAFYAML_DIR }}:/grafana:ro opendevorg/grafyaml
+
+    - name: Get list of dashboards
+      uri:
+        url: 'http://localhost:3000/api/search'
+        method: GET
+        return_content: yes
+        validate_certs: false
+        status_code: 200
+        body_format: json
+      register: _dashboards
+
+    - name: List found dashboard URLs
+      debug:
+        msg:  "{{ _dashboards.json | map(attribute='url') | list }}"
+
+    # NOTE(ianw) : Per the notes in the helper, this pauses for 5
+    # seconds for each shot to allow the app to initalize.  I tried
+    # running this in parallel but it seemed to deadlock.  I belive it
+    # has something to do with with the way selenium works with the
+    # headless browser.  So it might be possible to speed up.
+    - name: Take screenshots
+      shell:
+        executable: /bin/bash
+        cmd: |
+          set -x
+          name=$(basename {{ item }})
+          url="http://localhost:3000{{ item }}"
+          {{ ansible_user_dir }}/venv/bin/python {{ ansible_user_dir }}/screenshot.py "{{ SCREENSHOTS }}/${name}.png" {{ SCREENSHOT_HEIGHT }} "${url}"
+      loop: "{{ _dashboards.json | map(attribute='url') | list }}"
+
+    - name: Copy output
+      synchronize:
+        src: '{{ SCREENSHOTS }}'
+        dest: '{{ zuul.executor.log_root }}'
+        mode: pull
+
+    - name: Return screenshots artifact
+      zuul_return:
+        data:
+          zuul:
+            artifacts:
+              - name: Screenshots
+                url: "screenshots"

@@ -5,6 +5,10 @@
 
     check:
       jobs:
+        - opendev-buildset-registry
+        - project-config-grafana:
+            files:
+              - playbooks/grafana
         - openafs-rpm-package-build-centos-7-x86
         - openafs-rpm-package-build-centos-8-stream-x86
         - openafs-rpm-package-build-centos-8-stream-arm64
