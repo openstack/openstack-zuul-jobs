@@ -641,6 +641,8 @@
     description: |
       Functional testing for a FIPS enabled Centos 8 system
     pre-run: playbooks/fips/enable-fips.yaml
+    vars:
+      nslookup_target: 'opendev.org'
 
 - job:
     name: openstack-tox-functional-py38-fips
@@ -649,6 +651,8 @@
     description: |
       Functional testing for a FIPS enabled Centos 8 system
     pre-run: playbooks/fips/enable-fips.yaml
+    vars:
+      nslookup_target: 'opendev.org'
 
 - job:
     name: openstack-tox-validate
