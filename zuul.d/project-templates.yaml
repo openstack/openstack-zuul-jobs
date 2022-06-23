@@ -781,6 +781,21 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-charm-zed-jobs
+    description: |
+      Runs unit tests for an OpenStack Charm project under the CPython
+      version 3 releases designated for testing across OpenStack
+      releases from Zed onwards.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py310
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py310
+
+- project-template:
     name: openstack-python3-charm-yoga-jobs
     description: |
       Runs unit tests for an OpenStack Charm project under the CPython
