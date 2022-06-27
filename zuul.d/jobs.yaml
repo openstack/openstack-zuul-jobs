@@ -1287,6 +1287,19 @@
       - tox.ini
 
 - job:
+    name: project-config-grafana
+    description: |
+      Validates import and creates screenshots of project-config
+      defined graphs.
+    run: playbooks/grafana/main.yaml
+    required-projects:
+      - openstack/project-config
+    dependencies:
+      - name: opendev-buildset-registry
+      - name: grafyaml-build-image
+        soft: true
+
+- job:
     name: project-config-irc-access
     parent: tox
     description: |
