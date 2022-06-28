@@ -1296,7 +1296,6 @@
       - openstack/project-config
     dependencies:
       - name: opendev-buildset-registry
-        soft: true
       - name: grafyaml-build-image
         soft: true
 
