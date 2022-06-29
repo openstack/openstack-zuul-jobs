@@ -1292,6 +1292,7 @@
       Validates import and creates screenshots of project-config
       defined graphs.
     run: playbooks/grafana/main.yaml
+    post-run: playbooks/grafana/post.yaml
     required-projects:
       - openstack/project-config
     dependencies:
