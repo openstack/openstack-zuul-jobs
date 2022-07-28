@@ -4,7 +4,8 @@
     body_format: json
   register: service_types
 
-- block:
+- name: Set service_type_data fact
+  block:
     - name: Set service_type_data fact
       set_fact:
         service_type_data: "{{ service_types['json']['primary_service_by_project'][zuul.project.short_name] }}"
