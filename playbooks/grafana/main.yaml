@@ -100,7 +100,7 @@
 
     - name: List found dashboard URLs
       debug:
-        msg:  "{{ _dashboards.json | map(attribute='url') | list }}"
+        msg: "{{ _dashboards.json | map(attribute='url') | list }}"
 
     # NOTE(ianw) : Per the notes in the helper, this pauses for 5
     # seconds for each shot to allow the app to initalize.  I tried
