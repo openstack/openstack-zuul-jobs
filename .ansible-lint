@@ -12,5 +12,12 @@ skip_list:
   - '306'
   - '106'
   - '208'
+  - fqcn-builtins # needs a lot of work
+  - yaml[line-length] # we use good taste with long lines
+  - yaml[truthy] # "yes" is ok
 use_default_rules: true
 verbosity: 1
+
+# Local variables:
+# mode: yaml
+# End:
