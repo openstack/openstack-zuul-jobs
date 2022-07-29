@@ -3158,22 +3158,14 @@
       repositories in the integrated gate.
     check:
       jobs:
-        - grenade:
-            # NOTE(elod.illes): Queens is the first branch where
-            # grenade jobs are working as grenade requires working
-            # Devstack and Tempest on the previous branch
-            branches: ^(?!(stable/(ocata|pike))).*$
+        - grenade
         - tempest-full-py3:
-            branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
+            branches: ^(?!(driverfixes)).*$
     gate:
       jobs:
-        - grenade:
-            # NOTE(elod.illes): Queens is the first branch where
-            # grenade jobs are working as grenade requires working
-            # Devstack and Tempest on the previous branch
-            branches: ^(?!(stable/(ocata|pike))).*$
+        - grenade
         - tempest-full-py3:
-            branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
+            branches: ^(?!(driverfixes)).*$
 
 # TODO(gmann): Remove the 'integrated-gate-py35' template once all repo
 # including their stable branches are renamed it to 'integrated-gate-py3'
@@ -3186,12 +3178,12 @@
       jobs:
         - grenade-py3
         - tempest-full-py3:
-            branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
+            branches: ^(?!(driverfixes)).*$
     gate:
       jobs:
         - grenade-py3
         - tempest-full-py3:
-            branches: ^(?!(stable/(newton|ocata|pike)|driverfixes)).*$
+            branches: ^(?!(driverfixes)).*$
 
 - project-template:
     name: golang-jobs
@@ -3214,17 +3206,10 @@
       in devstack.
     check:
       jobs:
-        # Tempest-full is only working on pike and newer.
-        - tempest-full:
-            branches: ^(?!stable/(newton|ocata)).*$
-        - legacy-tempest-dsvm-neutron-src:
-            branches: ^stable/(newton|ocata)$
+        - tempest-full
     gate:
       jobs:
-        - tempest-full:
-            branches: ^(?!stable/(newton|ocata)).*$
-        - legacy-tempest-dsvm-neutron-src:
-            branches: ^stable/(newton|ocata)$
+        - tempest-full
 
 - project-template:
     name: lib-forward-testing-python3
