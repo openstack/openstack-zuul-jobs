@@ -69,4 +69,3 @@
             url: '{{ infra_deb_project }}-debs.tar.gz'
             metadata:
               type: deb.tar.gz
-

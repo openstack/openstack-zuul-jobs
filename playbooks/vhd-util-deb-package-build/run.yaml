@@ -3,4 +3,3 @@
     - role: infra-deb-package-build
       vars:
         infra_deb_project: 'vhd-util'
-
