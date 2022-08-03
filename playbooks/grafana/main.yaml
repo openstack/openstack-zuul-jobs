@@ -11,17 +11,6 @@
       include_role:
         name: use-buildset-registry
 
-    - name: install pip
-      include_role:
-        name: ensure-pip
-
-    - name: Install dependencies
-      package:
-        name:
-          - python3-docker
-        state: present
-      become: yes
-
     - name: Make environment vars
       set_fact:
         SECRETS_DIR: '{{ ansible_user_dir }}/grafana-secrets'
@@ -34,6 +23,26 @@
         # required we can key each graph to individual heights with a
         # config file or something some other time.
         SCREENSHOT_HEIGHT: '5000'
+
+    # Initial sanity check
+    - name: Explicitly validate dashboards
+      shell:
+        executable: /bin/bash
+        cmd: |
+            docker run --rm -t -v {{ GRAFYAML_DIR }}:/grafana:ro \
+              --entrypoint /usr/local/bin/grafana-dashboard \
+                opendevorg/grafyaml --debug validate /grafana
+
+    - name: install pip
+      include_role:
+        name: ensure-pip
+
+    - name: Install dependencies
+      package:
+        name:
+          - python3-docker
+        state: present
+      become: yes
 
     - name: Setup test environment
       shell:
