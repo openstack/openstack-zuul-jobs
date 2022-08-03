@@ -1269,24 +1269,6 @@
       - zuul/main.yaml
 
 - job:
-    name: project-config-grafyaml
-    parent: tox
-    description: |
-      Runs checks on grafyaml configuration with the ``grafyaml`` tox
-      env.
-    vars:
-      tox_envlist: grafyaml
-      tox_environment:
-        GRAFYAML_SRC: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/opendev/grafyaml'].src_dir }}"
-    required-projects:
-      - opendev/grafyaml
-    files:
-      - ^grafana/.*$
-      - bindep.txt
-      - other-requirements.txt
-      - tox.ini
-
-- job:
     name: project-config-grafana
     description: |
       Validates import and creates screenshots of project-config
