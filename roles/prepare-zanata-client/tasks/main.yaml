@@ -73,7 +73,7 @@
   become: true
 
 # This is a preview module in Ansible 2.3. It may not work.
-- name: import cert to java keystore
+- name: Import cert to java keystore
   java_cert:
     cert_url: "{{ zanata_api_credentials.fqdn }}"
     keystore_path: /etc/ssl/certs/java/cacerts

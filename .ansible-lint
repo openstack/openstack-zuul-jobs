@@ -1,5 +1,6 @@
 exclude_paths:
   - playbooks/legacy
+  - zuul.d
 parseable: true
 # [204] Lines < 160
 # [301] Commands should not change things if nothing needs doing
