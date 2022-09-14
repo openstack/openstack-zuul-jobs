@@ -620,23 +620,212 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-charm-jobs
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle tetsing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      Runs unit tests for an OpenStack Charm project under the CPython
+      version 3 releases designated for testing the latest release.
+      This is supposed to be used in master gate which is 2023.1 cycle.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py39
+        - openstack-tox-py310
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py39
+        - openstack-tox-py310
+
+- project-template:
+    name: openstack-python3-jobs
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle tetsing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing the latest release. This
+      is supposed to be used in master gate which is 2023.1 cycle.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py39
+        - openstack-tox-py310
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py39
+        - openstack-tox-py310
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python3-jobs-horizon
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle tetsing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      The standard :zuul:project_template:`openstack-python3-jobs`
+      but with horizon added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use horizon
+      when building the venv. This is supposed to be used in master gate
+      which is 2023.1 cycle.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/horizon
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python3-jobs-neutron
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle tetsing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      The standard :zuul:project_template:`openstack-python3-jobs`
+      but with neutron added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use neutron
+      when building the venv. This is supposed to be used in master gate
+      which is 2023.1 cycle.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/neutron
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python3-jobs-ceilometer
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle tetsing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      The standard :zuul:project_template:`openstack-python3-jobs`
+      but with ceilometer added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use ceilometer
+      when building the venv. This is supposed to be used in master gate
+      which is 2023.1 cycle.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/ceilometer
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/ceilometer
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
     name: openstack-python3-zed-jobs
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
       version 3 releases designated for testing in the Zed release.
-    check: &openstack-python3-latest-check-jobs
+    check:
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py38
         - openstack-tox-py39
         - openstack-tox-py310:
             voting: false
-    gate: &openstack-python3-latest-gate-jobs
+    gate:
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py38
         - openstack-tox-py39
-    post: &openstack-python3-latest-post-jobs
+    post:
       jobs:
         - publish-openstack-python-branch-tarball
 
@@ -647,6 +836,31 @@
       version 3 releases designated for testing in the 2023.1 Antelope
       release on top of ARM64 architecture. This currently runs only a
       limited test set and supplements the python3-antelope-jobs.
+      And it should not be run instead of the default!
+    check-arm64:
+      jobs:
+        - openstack-tox-py39-arm64:
+            voting: false
+        - openstack-tox-py310-arm64:
+            voting: false
+
+- project-template:
+    name: openstack-python3-jobs-arm64
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle tetsing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      Runs unit tests for an OpenStack Python project under the CPython
+      version 3 releases designated for testing in the 2023.1 Antelope
+      release on top of ARM64 architecture. This currently runs only a
+      limited test set and supplements the python3-jobs.
       And it should not be run instead of the default!
     check-arm64:
       jobs:
@@ -1592,26 +1806,6 @@
         - openstack-tox-py37:
             required-projects:
               - openstack/ceilometer
-
-- project-template:
-    name: openstack-python3-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing the latest release.
-      This will be updated at the start of each new release. It should
-      only be used for projects using the *independent* release cycle.
-    check: *openstack-python3-latest-check-jobs
-    gate: *openstack-python3-latest-gate-jobs
-    post: *openstack-python3-latest-post-jobs
-
-- project-template:
-    name: openstack-python3-charm-jobs
-    description: |
-      Runs unit tests for an OpenStack Charm project under the CPython
-      version 3 releases designated for testing the latest release.
-      This will be updated at the start of each new release.
-    check: *openstack-python3-latest-check-jobs
-    gate: *openstack-python3-latest-gate-jobs
 
 - project-template:
     name: openstack-python35-jobs
