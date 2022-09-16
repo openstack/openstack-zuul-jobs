@@ -303,6 +303,18 @@
       python_version: '3.10'
 
 - job:
+    name: openstack-tox-py310-arm64
+    parent: openstack-tox-py310
+    nodeset: ubuntu-jammy-arm64
+    timeout: 3600
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.10 on top of arm64 architecture.
+
+      Uses tox with the ``py310`` environment in arm64 platform.
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
