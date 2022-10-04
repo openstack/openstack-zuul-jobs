@@ -2407,15 +2407,13 @@
         - upstream-translation-update:
             branches:
               - master
-              - stable/victoria
-              - stable/wallaby
+              - stable/zed
     periodic:
       jobs:
         - propose-translation-update:
             branches:
               - master
-              - stable/victoria
-              - stable/wallaby
+              - stable/zed
 
 - project-template:
     name: openstack-specs-jobs
