@@ -48,12 +48,37 @@
     name: openstack-tox
     abstract: true
     parent: tox-fips
-    nodeset: ubuntu-focal
+    nodeset: ubuntu-jammy
     description: |
       Base job to run tox jobs with OpenStack project specific updates.
 
       Processing upper-constraints files from openstack/requirements.
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri)).*$
+    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      enable_fips: false
+
+- job:
+    name: openstack-tox
+    abstract: true
+    parent: tox-fips
+    nodeset: ubuntu-focal
+    description: |
+      Base job (Focal) to run tox jobs with OpenStack project specific updates.
+
+      Processing upper-constraints files from openstack/requirements.
+
+      This job runs on Focal from stable/victoria until stable/zed. This
+      job is prepared to make sure all stable branches from stable/victoria until
+      stable/zed will keep running on Focal.
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
     required-projects:
       - name: openstack/requirements
     vars:
@@ -363,8 +388,32 @@
       Run code coverage tests.
 
       Uses tox with the ``cover`` environment.
+    nodeset: ubuntu-jammy
+    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    required-projects:
+      - name: openstack/requirements
+    irrelevant-files: *common-irrelevant-files
+    success-url: cover/
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+    timeout: 3000
+
+- job:
+    name: openstack-tox-cover
+    parent: tox-cover
+    description: |
+      Run code coverage tests.
+
+      Uses tox with the ``cover`` environment.
+
+      This job runs on focal from stable/victoria until stable/zed.
     nodeset: ubuntu-focal
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri)).*$
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
@@ -446,7 +495,28 @@
 
       Uses tox with the ``functional`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri)).*$
+    nodeset: ubuntu-jammy
+    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional
+    parent: openstack-tox
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+
+      This job runs on focal from stable/victoria until stable/zed.
+    irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-focal
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
     vars:
       tox_envlist: functional
 
@@ -492,7 +562,29 @@
       Uses tox with the ``functional`` environment.
       Sudo access is not revoked.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri)).*$
+    nodeset: ubuntu-jammy
+    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional-with-sudo
+    parent: openstack-tox-with-sudo
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      Sudo access is not revoked.
+
+      This job runs on focal from stable/victoria until stable/zed.
+    irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-focal
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
     vars:
       tox_envlist: functional
 
@@ -708,7 +800,7 @@
 - job:
     name: openstack-tox-docs
     parent: opendev-tox-docs
-    nodeset: ubuntu-focal
+    nodeset: ubuntu-jammy
     description: |
       Run documentation build.
 
@@ -729,7 +821,7 @@
          file is build if the tox environment specified by
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri)).*$
+    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     required-projects:
       - name: openstack/requirements
     vars:
@@ -741,6 +833,52 @@
     # PDF Building is only done from stein onwards.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
+
+- job:
+    name: openstack-tox-docs
+    parent: opendev-tox-docs
+    description: |
+      Run documentation build (bionic).
+
+      Uses tox with the ``docs`` environment.
+
+      This job runs on focal from stable/victoria until stable/zed.
+
+      .. zuul:jobvar: tox_envlist
+
+         The tox environment for building HTML, default is ``docs``.
+
+      .. zuul:jobvar: tox_pdf_envlist
+
+         The tox environment for building PDF, default is ``pdf-docs``.
+         If this environment does not exist, no PDF building is done.
+
+      .. zuul:jobvar: tox_skip_pdf
+
+         Whether to skip building of PDF documents. By default a PDF
+         file is build if the tox environment specified by
+         :zuul:jobvar:`tox_pdf_envlist` exists.
+
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      tox_envlist: docs
+      bindep_profile: compile doc
+      tox_pdf_envlist: pdf-docs
+      tox_skip_pdf: false
+    nodeset: ubuntu-focal
+    # PDF Building is only done from stein onwards, therefore these
+    # pre-run and run playbooks are not part of
+    # openstack-tox-docs job for older branches up to rocky.
+    pre-run: playbooks/tox-docs/pre.yaml
+    run: playbooks/tox-docs/run.yaml
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
 
 - job:
     name: openstack-tox-docs
