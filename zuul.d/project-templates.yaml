@@ -2534,7 +2534,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/pike
               - stable/queens
               - stable/rocky
         - openstack-tox-docs:
@@ -2551,7 +2550,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/pike
               - stable/queens
               - stable/rocky
               - stable/stein
@@ -2590,7 +2588,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/pike
               - stable/queens
               - stable/rocky
             required-projects:
@@ -2611,7 +2608,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/pike
               - stable/queens
               - stable/rocky
               - stable/stein
@@ -2660,7 +2656,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/pike
               - stable/queens
               - stable/rocky
             required-projects:
@@ -2681,7 +2676,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/pike
               - stable/queens
               - stable/rocky
               - stable/stein
