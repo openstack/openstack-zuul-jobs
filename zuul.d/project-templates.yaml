@@ -2960,6 +2960,31 @@
             nodeset: ubuntu-focal
 
 - project-template:
+    name: nodejs18-jobs
+    description: |
+      Run lint and test jobs using Node 18.
+    check:
+      jobs:
+        - nodejs-run-lint:
+            vars:
+              node_version: 18
+            nodeset: ubuntu-jammy
+        - nodejs-run-test-browser:
+            vars:
+              node_version: 18
+            nodeset: ubuntu-jammy
+    gate:
+      jobs:
+        - nodejs-run-lint:
+            vars:
+              node_version: 18
+            nodeset: ubuntu-jammy
+        - nodejs-run-test-browser:
+            vars:
+              node_version: 18
+            nodeset: ubuntu-jammy
+
+- project-template:
     name: nodejs4-docs
     description: |
       Run docs jobs using Node 4.
@@ -3037,6 +3062,21 @@
         - nodejs-run-docs:
             vars:
               node_version: 16
+
+- project-template:
+    name: nodejs18-docs
+    description: |
+      Run docs jobs using Node 18.
+    check:
+      jobs:
+        - nodejs-run-docs:
+            vars:
+              node_version: 18
+    gate:
+      jobs:
+        - nodejs-run-docs:
+            vars:
+              node_version: 18
 
 - project-template:
     name: tempest-plugin-jobs
