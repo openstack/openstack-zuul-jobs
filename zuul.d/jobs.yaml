@@ -917,6 +917,7 @@
     name: build-openstack-puppet-tarball
     description: |
       Build a puppet tarball but do not upload it anywhere.
+    nodeset: ubuntu-focal
     pre-run: playbooks/puppet-tarball/pre.yaml
     run: playbooks/puppet-tarball/run.yaml
     files: ^metadata.json$
