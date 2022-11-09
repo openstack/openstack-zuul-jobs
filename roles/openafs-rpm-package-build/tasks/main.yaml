@@ -27,10 +27,23 @@
   shell: |
       set -eux
 
-      VERSION=1.8.8.1
+      BASE_VERSION=1.8.9
+      PRE_VERSION=pre1
+      VERSION=${BASE_VERSION}${PRE_VERSION}
+      # If pre-release, this should be "candidate/"; otherwise blank
+      CANDIDATE=candidate/
+      URL_PATH=${CANDIDATE}${VERSION}
 
-      URL_PATH=${VERSION}
-      SRPM=openafs-${VERSION}-1.src.rpm
+      # There is a rule somewhere for how this is generated ... this
+      # is a best guess
+      _PRE_VERSION=""
+      # pre-release 0, actual releases 1 (maybe, not sure if its a rule?)
+      _SRPM_RELEASE="-1"
+      if [[ -n "${PRE_VERSION}" ]]; then
+          _SRPM_RELEASE="-0"
+          _PRE_VERSION=".${PRE_VERSION}"
+      fi
+      SRPM=openafs-${BASE_VERSION}${_SRPM_RELEASE}${_PRE_VERSION}.src.rpm
 
       mkdir openafs
       wget https://www.openafs.org/dl/openafs/${URL_PATH}/openafs-${VERSION}-src.tar.bz2
