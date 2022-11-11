@@ -2,9 +2,6 @@
   roles:
     - role: bindep
       bindep_profile: test
-      bindep_dir: "src/{{ zuul.project.canonical_name }}"
-    - role: bindep
-      bindep_profile: test
       bindep_dir: src/opendev.org/openstack/releases
     - role: ensure-tox
       ensure_global_symlinks: true
