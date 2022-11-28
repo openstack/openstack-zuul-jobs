@@ -2720,7 +2720,7 @@
       neutron-lib from source.
     periodic:
       jobs:
-        - openstack-tox-py39-with-neutron-lib-master
+        - openstack-tox-py310-with-neutron-lib-master
 
 - project-template:
     name: periodic-jobs-with-oslo-master
@@ -2729,7 +2729,7 @@
       oslo libraries from source.
     periodic:
       jobs:
-        - openstack-tox-py39-with-oslo-master
+        - openstack-tox-py310-with-oslo-master
 
 - project-template:
     name: periodic-jobs-with-ovsdbapp-master
@@ -2738,7 +2738,7 @@
       ovdsdbapp from source.
     periodic:
       jobs:
-        - openstack-tox-py39-with-ovsdbapp-master
+        - openstack-tox-py310-with-ovsdbapp-master
 
 - project-template:
     name: python-charm-interface-jobs

@@ -1002,6 +1002,22 @@
       python_version: '3.9'
 
 - job:
+    name: openstack-tox-py310-with-oslo-master
+    parent: openstack-tox-with-oslo-master-base
+    nodeset: ubuntu-jammy
+    description: |
+      This job installs all oslo libraries from source and tests that the
+      unit tests of the tested project work.
+      It uses the tox ``py310`` environment.
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    branches: master
+    vars:
+      tox_envlist: py310
+      bindep_profile: test py310
+      python_version: '3.10'
+
+- job:
     name: openstack-tox-py39-with-neutron-lib-master
     parent: openstack-tox-py39
     timeout: 3000
@@ -1019,13 +1035,30 @@
       tox_install_siblings: true
 
 - job:
-    name: openstack-tox-py39-with-ovsdbapp-master
-    parent: openstack-tox-py39
+    name: openstack-tox-py310-with-neutron-lib-master
+    parent: openstack-tox-py310
+    timeout: 3000
+    description: |
+      This job installs neutron-lib from source and tests that the
+      unit tests of the tested project work.
+      It uses the tox ``py310`` environment.
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    branches: master
+    required-projects:
+      - openstack/neutron
+      - openstack/neutron-lib
+    vars:
+      tox_install_siblings: true
+
+- job:
+    name: openstack-tox-py310-with-ovsdbapp-master
+    parent: openstack-tox-py310
     timeout: 3000
     description: |
       This job installs ovsdbapp from source and tests that the
       unit tests of the tested project work.
-      It uses the tox ``py39`` environment.
+      It uses the tox ``py310`` environment.
       The job is normally run in a periodic pipeline, it is configured
       to run on the master branch.
     branches: master
