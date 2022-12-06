@@ -838,7 +838,7 @@
     name: openstack-tox-docs
     parent: opendev-tox-docs
     description: |
-      Run documentation build (bionic).
+      Run documentation build (focal).
 
       Uses tox with the ``docs`` environment.
 
