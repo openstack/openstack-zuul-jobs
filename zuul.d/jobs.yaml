@@ -84,6 +84,10 @@
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       enable_fips: false
+      # NOTE(gmann): This is stable branch (<=stable/zed) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox
@@ -106,6 +110,10 @@
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox
@@ -127,6 +135,10 @@
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-with-sudo
@@ -155,6 +167,10 @@
     vars:
       tox_envlist: py27
       bindep_profile: test py27
+      # NOTE(gmann): This is stable branch job and new tox 4 require
+      # some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py27
@@ -176,6 +192,10 @@
     vars:
       tox_envlist: py27
       bindep_profile: test py27
+      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py35
@@ -191,6 +211,10 @@
     vars:
       tox_envlist: py35
       bindep_profile: test py35
+      # NOTE(gmann): This is stable branch job and new tox 4 require
+      # some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py36
@@ -207,6 +231,10 @@
     vars:
       tox_envlist: py36
       bindep_profile: test py36
+      # NOTE(gmann): This is stable branch job and new tox 4 require
+      # some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py37
@@ -224,6 +252,10 @@
       tox_envlist: py37
       bindep_profile: test py37
       python_version: '3.7'
+      # NOTE(gmann): This is stable branch job and new tox 4 require
+      # some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py38
@@ -237,11 +269,40 @@
 
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(train|ussuri)).*$
+    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     vars:
       tox_envlist: py38
       bindep_profile: test py38
       python_version: '3.8'
+
+- job:
+    name: openstack-tox-py38
+    parent: openstack-tox
+    nodeset: ubuntu-focal
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.8 on ubuntu focal.
+
+      This job runs with tox<4 from stable/victortia till stable/zed.
+
+      Uses tox with the ``py38`` environment.
+    irrelevant-files: *common-irrelevant-files
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
+    vars:
+      tox_envlist: py38
+      bindep_profile: test py38
+      python_version: '3.8'
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py38
@@ -253,7 +314,7 @@
       Run unit tests for an OpenStack Python project under cPython
       version 3.8 on ubuntu bionic.
 
-      This job runs on bionic for stable/train and ussuri.
+      This job runs on bionic and with tox<4 for stable/train and ussuri.
 
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
@@ -264,6 +325,10 @@
       tox_envlist: py38
       bindep_profile: test py38
       python_version: '3.8'
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py38-arm64
@@ -289,10 +354,38 @@
 
       Uses tox with the ``py39`` environment.
     irrelevant-files: *common-irrelevant-files
+    branches: ^(?!stable/(victoria|wallaby|xena|yoga|zed)).*$
     vars:
       tox_envlist: py39
       bindep_profile: test py39
       python_version: '3.9'
+
+- job:
+    name: openstack-tox-py39
+    parent: openstack-tox
+    nodeset: ubuntu-focal
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.9.
+
+      Uses tox version <4 with the ``py39`` environment.
+    irrelevant-files: *common-irrelevant-files
+    branches:
+      - stable/victoria
+      - stable/wallaby
+      - stable/xena
+      - stable/yoga
+      - stable/zed
+    vars:
+      tox_envlist: py39
+      bindep_profile: test py39
+      python_version: '3.9'
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py39-arm64
@@ -318,10 +411,35 @@
 
       Uses tox with the ``py310`` environment.
     irrelevant-files: *common-irrelevant-files
+    branches: ^(?!stable/(yoga|zed)).*$
     vars:
       tox_envlist: py310
       bindep_profile: test py310
       python_version: '3.10'
+
+- job:
+    name: openstack-tox-py310
+    parent: openstack-tox
+    nodeset: ubuntu-jammy
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.10.
+
+      Uses tox version <4 with the ``py310`` environment.
+    irrelevant-files: *common-irrelevant-files
+    branches:
+      - stable/yoga
+      - stable/zed
+    vars:
+      tox_envlist: py310
+      bindep_profile: test py310
+      python_version: '3.10'
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
 
 - job:
     name: openstack-tox-py310-arm64
@@ -420,6 +538,10 @@
     success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      # NOTE(gmann): This is stable branch (<=stable/zed) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     timeout: 3000
 
 - job:
@@ -442,6 +564,10 @@
     success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     timeout: 3000
 
 - job:
@@ -462,6 +588,10 @@
     success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     timeout: 3000
     branches:
       - stable/queens
@@ -867,6 +997,10 @@
       bindep_profile: compile doc
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
+      # NOTE(gmann): This is stable branch (<=stable/zed) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     nodeset: ubuntu-focal
     # PDF Building is only done from stein onwards, therefore these
     # pre-run and run playbooks are not part of
@@ -913,6 +1047,10 @@
       bindep_profile: compile doc
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
+      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     nodeset: ubuntu-bionic
     # PDF Building is only done from stein onwards, therefore these
     # pre-run and run playbooks are not part of
@@ -941,6 +1079,10 @@
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
       bindep_profile: compile doc
+      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
+      # tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     nodeset: ubuntu-xenial
     branches:
       - stable/queens

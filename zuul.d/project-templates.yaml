@@ -215,10 +215,20 @@
             branches: ^(?!master).*$
         - announce-release:
             branches: ^(?!master).*$
+            # NOTE(gmann): This is stable branch template and new tox 4 require
+            # some changes in tox.ini to be compatible with it. Let's pin tox <4
+            # for stable branches testing (<=stable/zed).
+            vars:
+              ensure_tox_version: '<4'
             dependencies:
               - release-openstack-python
         - propose-update-constraints:
             branches: ^(?!master).*$
+            # NOTE(gmann): This is stable branch template and new tox 4 require
+            # some changes in tox.ini to be compatible with it. Let's pin tox <4
+            # for stable branches testing (<=stable/zed).
+            vars:
+              ensure_tox_version: '<4'
             dependencies:
               - release-openstack-python
     release:
@@ -227,10 +237,20 @@
             branches: ^(?!master).*$
         - announce-release:
             branches: ^(?!master).*$
+            # NOTE(gmann): This is stable branch template and new tox 4 require
+            # some changes in tox.ini to be compatible with it. Let's pin tox <4
+            # for stable branches testing (<=stable/zed).
+            vars:
+              ensure_tox_version: '<4'
             dependencies:
               - release-openstack-python
         - propose-update-constraints:
             branches: ^(?!master).*$
+            # NOTE(gmann): This is stable branch template and new tox 4 require
+            # some changes in tox.ini to be compatible with it. Let's pin tox <4
+            # for stable branches testing (<=stable/zed).
+            vars:
+              ensure_tox_version: '<4'
             dependencies:
               - release-openstack-python
 
@@ -2150,10 +2170,20 @@
       jobs:
         - tox-py37:
             nodeset: ubuntu-bionic
+            # NOTE(gmann): This is stable branch template and new tox 4 require
+            # some changes in tox.ini to be compatible with it. Let's pin tox <4
+            # for stable branches testing (<=stable/zed).
+            vars:
+              ensure_tox_version: '<4'
     gate:
       jobs:
         - tox-py37:
             nodeset: ubuntu-bionic
+            # NOTE(gmann): This is stable branch template and new tox 4 require
+            # some changes in tox.ini to be compatible with it. Let's pin tox <4
+            # for stable branches testing (<=stable/zed).
+            vars:
+              ensure_tox_version: '<4'
 
 - project-template:
     name: openstack-lower-constraints-jobs
