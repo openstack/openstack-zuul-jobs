@@ -448,23 +448,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-ironic-pxe_snmp-virtualpdu-src
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-ironic-pxe_snmp-virtualpdu-src/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-ironic-pxe_snmp-virtualpdu-src/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/ironic
-      - openstack/ironic-lib
-      - openstack/ironic-python-agent
-      - x/pyghmi
-      - openstack/python-ironicclient
-      - openstack/tempest
-      - openstack/virtualbmc
-      - x/virtualpdu
-
-- job:
     name: legacy-tempest-dsvm-lvm-multibackend
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-lvm-multibackend/run.yaml
