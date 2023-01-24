@@ -2564,7 +2564,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/queens
               - stable/rocky
         - openstack-tox-docs:
             branches:
@@ -2580,7 +2579,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/queens
               - stable/rocky
               - stable/stein
               - stable/train
@@ -2618,7 +2616,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/queens
               - stable/rocky
             required-projects:
               - openstack/neutron
@@ -2638,7 +2635,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/queens
               - stable/rocky
               - stable/stein
               - stable/train
@@ -2686,7 +2682,6 @@
       jobs:
         - build-openstack-sphinx-docs:
             branches:
-              - stable/queens
               - stable/rocky
             required-projects:
               - openstack/ceilometer
@@ -2706,7 +2701,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/queens
               - stable/rocky
               - stable/stein
               - stable/train
