@@ -6,7 +6,7 @@
 - job:
     name: build-openstack-sphinx-docs
     parent: build-sphinx-docs
-    branches: ^stable/(queens|rocky).*$
+    branches: stable/rocky
     nodeset: ubuntu-xenial
     description: |
       Builds documentation using Sphinx per a previous version of the
@@ -53,7 +53,7 @@
       Base job to run tox jobs with OpenStack project specific updates.
 
       Processing upper-constraints files from openstack/requirements.
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     required-projects:
       - name: openstack/requirements
     vars:
@@ -125,11 +125,10 @@
 
       Processing upper-constraints files from openstack/requirements.
 
-      This job runs on Xenial for stable/queens and rocky. This
+      This job runs on Xenial for stable/rocky. This
       job is prepared to make sure all stable branches before stable/stein will
       keep running on xenial.
     branches:
-      - stable/queens
       - stable/rocky
     required-projects:
       - name: openstack/requirements
@@ -157,7 +156,7 @@
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
       Uses tox with the ``py27`` environment.
-    branches: ^(?!stable/(queens|rocky)).*$
+    branches: ^(?!stable/rocky).*$
     irrelevant-files: &common-irrelevant-files
       - ^.*\.rst$
       - ^api-ref/.*$
@@ -182,11 +181,10 @@
 
       Uses tox with the ``py27`` environment.
 
-      This job runs on Xenial for stable/queens and rocky. This
+      This job runs on Xenial for stable/rocky. This
       job is prepared to make sure all stable branches before stable/stein will
       keep running on xenial.
     branches:
-      - stable/queens
       - stable/rocky
     irrelevant-files: *common-irrelevant-files
     vars:
@@ -269,7 +267,7 @@
 
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     vars:
       tox_envlist: py38
       bindep_profile: test py38
@@ -507,7 +505,7 @@
 
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
@@ -578,7 +576,7 @@
 
       Uses tox with the ``cover`` environment.
 
-      This job runs on Xenial for stable/queens and rocky. This
+      This job runs on Xenial for stable/rocky. This
       job is prepared to make sure all stable branches before stable/stein will
       keep running on xenial.
     nodeset: ubuntu-xenial
@@ -594,7 +592,6 @@
       ensure_tox_version: '<4'
     timeout: 3000
     branches:
-      - stable/queens
       - stable/rocky
 
 - job:
@@ -626,7 +623,7 @@
       Uses tox with the ``functional`` environment.
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     vars:
       tox_envlist: functional
 
@@ -678,7 +675,6 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-xenial
     branches:
-      - stable/queens
       - stable/rocky
     vars:
       tox_envlist: functional
@@ -693,7 +689,7 @@
       Sudo access is not revoked.
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     vars:
       tox_envlist: functional
 
@@ -748,7 +744,6 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-xenial
     branches:
-      - stable/queens
       - stable/rocky
     vars:
       tox_envlist: functional
@@ -951,7 +946,7 @@
          file is build if the tox environment specified by
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
-    branches: ^(?!stable/(queens|rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
     required-projects:
       - name: openstack/requirements
     vars:
@@ -1070,7 +1065,7 @@
 
       Uses tox with the ``docs`` environment.
 
-      This job runs on Xenial for stable/queens and rocky. This
+      This job runs on Xenial for stable/rocky. This
       job is prepared to make sure all stable branches before stable/stein will
       keep running on xenial.
     required-projects:
@@ -1085,7 +1080,6 @@
       ensure_tox_version: '<4'
     nodeset: ubuntu-xenial
     branches:
-      - stable/queens
       - stable/rocky
 
 - job:
@@ -1357,15 +1351,14 @@
     description: |
       Base job (xenial) for autoconverted legacy jobs
 
-      This job runs on Xenial and this is for stable/queens
-      and rocky. This job is prepared to make sure all stable branches
+      This job runs on Xenial and this is for stable/rocky.
+      This job is prepared to make sure all stable branches
       before stable/stein will keep running on xenial.
     pre-run: playbooks/legacy/pre.yaml
     nodeset: legacy-ubuntu-xenial
     vars:
       bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
     branches:
-      - stable/queens
       - stable/rocky
 
 - job:
@@ -1378,7 +1371,7 @@
     pre-run: playbooks/legacy/pre.yaml
     vars:
       bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
-    branches: ^(?!stable/(queens|rocky)).*$
+    branches: ^(?!stable/rocky).*$
     nodeset: legacy-ubuntu-bionic
 
 - job:
@@ -1390,12 +1383,11 @@
       This job runs devstack-gate with as few changes as possible and
       may be used by jobs which have been automatically converted as
       part of the migration to Zuul v3. This job runs on Xenial for
-      stable/queens and rocky. This job is prepared to
+      stable/rocky. This job is prepared to
       make sure all stable branches before stable/stein will keep
       running on xenial.
     nodeset: devstack-single-node
     branches:
-      - stable/queens
       - stable/rocky
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
@@ -1448,7 +1440,7 @@
       may be used by jobs which have been automatically converted as
       part of the migration to Zuul v3. This job runs on Bionic from
       stable/stein on.
-    branches: ^(?!stable/(queens|rocky)).*$
+    branches: ^(?!stable/rocky).*$
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
@@ -1499,8 +1491,8 @@
       Base job (xenial) for multinode devstack jobs.
 
       Will setup firewall rules on all the nodes allowing them to talk to
-      each other. This job runs on Xenial for stable/queens
-      and rocky. This job is prepared to make sure all stable branches
+      each other. This job runs on Xenial for stable/rocky.
+      This job is prepared to make sure all stable branches
       before stable/stein will keep running on xenial.
 
     roles:
@@ -1508,7 +1500,6 @@
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
     nodeset: legacy-ubuntu-xenial-2-node
     branches:
-      - stable/queens
       - stable/rocky
 
 - job:
@@ -1523,7 +1514,7 @@
     roles:
       - zuul: zuul/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
-    branches: ^(?!stable/(queens|rocky)).*$
+    branches: ^(?!stable/rocky).*$
     nodeset: legacy-ubuntu-bionic-2-node
 
 - job:
@@ -1533,13 +1524,12 @@
     description: |
       Base job (xenial) for autoconverted legacy jobs that publish artifacts
 
-      This job runs on Xenial for stable/queens
-      and rocky. This job is prepared to make sure all stable branches
+      This job runs on Xenial for stable/rocky.
+      This job is prepared to make sure all stable branches
       before stable/stein will keep running on xenial.
     nodeset: devstack-single-node
     pre-run: playbooks/legacy/pre.yaml
     branches:
-      - stable/queens
       - stable/rocky
 
 - job:
@@ -1550,7 +1540,7 @@
       Base job (bionic) for autoconverted legacy jobs that publish artifacts.
 
       This job runs on Bionic from stable/stein on.
-    branches: ^(?!stable/(queens|rocky)).*$
+    branches: ^(?!stable/rocky).*$
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
 
