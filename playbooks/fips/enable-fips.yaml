@@ -1,3 +1,4 @@
 - hosts: all
   roles:
     - enable-fips
+  when: enable_fips | default(false)
