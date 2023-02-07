@@ -157,6 +157,7 @@
 
       Uses tox with the ``py27`` environment.
     branches: ^(?!stable/rocky).*$
+    pre-run: playbooks/tox/py27.yaml
     irrelevant-files: &common-irrelevant-files
       - ^.*\.rst$
       - ^api-ref/.*$

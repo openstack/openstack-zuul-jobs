@@ -1,0 +1,17 @@
+# NOTE(ianw) 2023-02-08:
+#
+# In change [1] we dropped python-dev packages and thus stopped
+# installing python2 packages.  Jobs should be relying on bindep for
+# this, but many on stable branches aren't.  Since the python2/3
+# transition as a weird time, we'll just install python2 packages
+# here.
+#
+# [1] https://review.opendev.org/c/openstack/project-config/+/872476
+
+- hosts: all
+  tasks:
+    - name: Install Python 2.7
+      package:
+        - python
+        - python-dev
+      state: present
