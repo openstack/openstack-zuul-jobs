@@ -1409,8 +1409,6 @@
       - openstack/manila
       - openstack/manila-ui
       - openstack/neutron
-      - openstack/neutron-fwaas
-      - openstack/neutron-vpnaas
       - openstack/nova
       - openstack/octavia
       - openstack/os-apply-config
@@ -1462,8 +1460,6 @@
       - openstack/manila
       - openstack/manila-ui
       - openstack/neutron
-      - openstack/neutron-fwaas
-      - openstack/neutron-vpnaas
       - openstack/nova
       - openstack/octavia
       - openstack/os-apply-config
