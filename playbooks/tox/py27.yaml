@@ -9,9 +9,11 @@
 # [1] https://review.opendev.org/c/openstack/project-config/+/872476
 
 - hosts: all
+  become: true
   tasks:
     - name: Install Python 2.7
       package:
-        - python
-        - python-dev
-      state: present
+        name:
+          - python
+          - python-dev
+        state: present
