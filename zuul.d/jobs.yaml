@@ -863,6 +863,7 @@
     pre-run: playbooks/fips/enable-fips.yaml
     vars:
       nslookup_target: 'opendev.org'
+      enable_fips: True
 
 - job:
     name: openstack-tox-functional-py38-fips
@@ -873,6 +874,7 @@
     pre-run: playbooks/fips/enable-fips.yaml
     vars:
       nslookup_target: 'opendev.org'
+      enable_fips: True
 
 - job:
     name: openstack-tox-validate
@@ -2102,3 +2104,14 @@
         wheel_python: python2
       wheel-cache-ubuntu-xenial-python3:
         wheel_python: python3
+
+- job:
+    name: openstack-multinode-fips
+    abstract: true
+    parent: openstack-fips
+    description: |
+      Base job for OpenStack jobs to enable mutinode jobs while
+      being able to enable FIPS by specifying enable_fips as True.
+    pre-run:
+      - playbooks/fips/enable-fips.yaml
+      - playbooks/multinode/enable-multinode.yaml
