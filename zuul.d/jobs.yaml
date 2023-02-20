@@ -1086,13 +1086,16 @@
       - stable/rocky
 
 - job:
-    name: openstack-tox-with-oslo-master-base
-    parent: openstack-tox-py27
-    timeout: 3000
+    name: openstack-tox-py39-with-oslo-master
+    parent: openstack-tox-py39
+    nodeset: ubuntu-focal
     description: |
       This job installs all oslo libraries from source and tests that the
       unit tests of the tested project work.
-    required-projects:
+      It uses the tox ``py39`` environment.
+      The job is normally run in a periodic pipeline, it is configured
+      to run on the master branch.
+    required-projects: &oslo-master-required-projects
       - openstack/automaton
       - openstack/debtcollector
       - openstack/futurist
@@ -1121,28 +1124,14 @@
       - openstack/taskflow
       - openstack/tooz
       - openstack/pbr
+    branches: master
+    timeout: 3000
     vars:
       tox_install_siblings: true
-
-- job:
-    name: openstack-tox-py39-with-oslo-master
-    parent: openstack-tox-with-oslo-master-base
-    nodeset: ubuntu-focal
-    description: |
-      This job installs all oslo libraries from source and tests that the
-      unit tests of the tested project work.
-      It uses the tox ``py39`` environment.
-      The job is normally run in a periodic pipeline, it is configured
-      to run on the master branch.
-    branches: master
-    vars:
-      tox_envlist: py39
-      bindep_profile: test py39
-      python_version: '3.9'
-
+ 
 - job:
     name: openstack-tox-py310-with-oslo-master
-    parent: openstack-tox-with-oslo-master-base
+    parent: openstack-tox-py310
     nodeset: ubuntu-jammy
     description: |
       This job installs all oslo libraries from source and tests that the
@@ -1150,11 +1139,11 @@
       It uses the tox ``py310`` environment.
       The job is normally run in a periodic pipeline, it is configured
       to run on the master branch.
+    required-projects: *oslo-master-required-projects
     branches: master
+    timeout: 3000
     vars:
-      tox_envlist: py310
-      bindep_profile: test py310
-      python_version: '3.10'
+      tox_install_siblings: true
 
 - job:
     name: openstack-tox-py39-with-neutron-lib-master
