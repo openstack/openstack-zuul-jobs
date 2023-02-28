@@ -662,6 +662,7 @@
       - stable/stein
       - stable/train
       - stable/ussuri
+    pre-run: playbooks/tox/py27.yaml
     vars:
       tox_envlist: functional
 
