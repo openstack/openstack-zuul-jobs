@@ -19,7 +19,6 @@
 
       This job is obsolete and is not supported on branches after rocky, use
       :zuul:job:`openstack-tox-docs` instead.
-    success-url: html/
     required-projects:
       - name: openstack/requirements
       # Add neutron and horizon for the neutron-horizon-hack.
@@ -510,7 +509,6 @@
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
-    success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
     timeout: 3000
@@ -534,7 +532,6 @@
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
-    success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       # NOTE(gmann): This is stable branch (<=stable/zed) job and new
@@ -560,7 +557,6 @@
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
-    success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
@@ -584,7 +580,6 @@
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
-    success-url: cover/
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
