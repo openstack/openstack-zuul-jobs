@@ -28,10 +28,10 @@
       set -eux
 
       BASE_VERSION=1.8.9
-      PRE_VERSION=pre1
+      PRE_VERSION=''
       VERSION=${BASE_VERSION}${PRE_VERSION}
       # If pre-release, this should be "candidate/"; otherwise blank
-      CANDIDATE=candidate/
+      CANDIDATE=''
       URL_PATH=${CANDIDATE}${VERSION}
 
       # There is a rule somewhere for how this is generated ... this
