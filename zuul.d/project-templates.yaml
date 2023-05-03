@@ -684,10 +684,7 @@
     check:
       jobs:
         - openstack-tox-pep8
-        # py38 job is required to run only for 2023.1 release
-        - openstack-tox-py38:
-            branches:
-              - stable/2023.1
+        - openstack-tox-py38
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             branches:
@@ -696,10 +693,7 @@
     gate:
       jobs:
         - openstack-tox-pep8
-        # py38 job is required to run only for 2023.1 release
-        - openstack-tox-py38:
-            branches:
-              - stable/2023.1
+        - openstack-tox-py38
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             branches:
@@ -731,12 +725,9 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38:
             required-projects:
               - openstack/horizon
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             required-projects:
@@ -751,12 +742,9 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38:
             required-projects:
               - openstack/horizon
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             required-projects:
@@ -792,12 +780,9 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38:
             required-projects:
               - openstack/neutron
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             required-projects:
@@ -812,12 +797,9 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38:
             required-projects:
               - openstack/neutron
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             required-projects:
@@ -853,12 +835,9 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38:
             required-projects:
               - openstack/ceilometer
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             required-projects:
@@ -873,12 +852,9 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38:
             required-projects:
               - openstack/ceilometer
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             required-projects:
@@ -947,11 +923,8 @@
       And it should not be run instead of the default!
     check-arm64:
       jobs:
-        # py38 job is required to run only for 2023.1 release
         - openstack-tox-py38-arm64:
             voting: false
-            branches:
-              - stable/2023.1
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39-arm64:
             voting: false
