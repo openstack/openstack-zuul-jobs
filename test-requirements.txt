@@ -9,5 +9,5 @@ ansible>=5,<6
 # pin until https://github.com/ansible/ansible-lint/issues/2320 is fixed
 ansible-lint>=6,<6.5
 # avoid for https://github.com/ansible/ansible-compat/issues/258
-ansible-compat!=4.0.1
+ansible-compat!=4.0.1,!=4.0.2
 bashate>=0.2
