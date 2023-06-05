@@ -37,11 +37,18 @@
       tar xf {{ infra_deb_project }}_${VERSION}.orig.tar.xz
       mv debian ./{{ infra_deb_project }}_${VERSION}.orig
 
-      pushd {{ infra_deb_project }}_${VERSION}.orig
 
+      # run mk-build-deps in a separate copy, as it can leave behind
+      # files that wreck generating upload .debs
+      cp -r {{ infra_deb_project }}_${VERSION}.orig {{ infra_deb_project }}_${VERSION}.orig.deps
+      pushd {{ infra_deb_project }}_${VERSION}.orig.deps
       # install build deps
       mk-build-deps --install --root-cmd sudo --remove -t "apt-get -y"
-      # build source packages
+      popd
+      rm -rf ${VERSION}.orig.deps
+
+      # build fresh source packages
+      pushd {{ infra_deb_project }}_${VERSION}.orig
       debuild -S -sa --no-sign
 
       popd
