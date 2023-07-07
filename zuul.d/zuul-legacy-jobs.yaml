@@ -105,17 +105,6 @@
       - openstack/neutron
 
 - job:
-    name: legacy-grenade-dsvm-neutron-multinode-zero-downtime
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-multinode-zero-downtime/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/devstack-gate
-      - openstack/neutron
-
-- job:
     name: legacy-group-based-policy-dsvm-aim
     parent: legacy-dsvm-base
     run: playbooks/legacy/group-based-policy-dsvm-aim/run.yaml
@@ -671,18 +660,6 @@
     required-projects:
       - openstack/devstack-gate
       - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-nova-libvirt-kvm-apr
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-nova-libvirt-kvm-apr/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-nova-libvirt-kvm-apr/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - x/devstack-plugin-additional-pkg-repos
-      - openstack/nova
       - openstack/tempest
 
 - job:
