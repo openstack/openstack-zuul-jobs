@@ -918,6 +918,9 @@
       Uses tox with the ``snap`` environment.
       Sudo access is not revoked.
     irrelevant-files: *common-irrelevant-files
+    # NOTE(jamespage) most snaps pull in and compile quite a bit of Python
+    # with native extensions - the default of 30 mins is not sufficient.
+    timeout: 3600
     vars:
       tox_envlist: snap
 
