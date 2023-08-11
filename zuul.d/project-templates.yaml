@@ -660,6 +660,11 @@
         - openstack-tox-pep8
         - openstack-tox-py38
         - openstack-tox-py310
+        # py3.11 testing is added from 2023.2 release onwards
+        - openstack-tox-py311:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
@@ -690,6 +695,11 @@
             branches:
               - master
         - openstack-tox-py310
+        # py3.11 testing is added as non voting from 2023.2 release onwards
+        - openstack-tox-py311:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
@@ -737,6 +747,13 @@
         - openstack-tox-py310:
             required-projects:
               - openstack/horizon
+        # py3.11 testing is added as non voting from 2023.2 release onwards
+        - openstack-tox-py311:
+            required-projects:
+              - openstack/horizon
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -792,6 +809,13 @@
         - openstack-tox-py310:
             required-projects:
               - openstack/neutron
+        # py3.11 testing is added as non voting from 2023.2 release onwards
+        - openstack-tox-py311:
+            required-projects:
+              - openstack/neutron
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -847,6 +871,13 @@
         - openstack-tox-py310:
             required-projects:
               - openstack/ceilometer
+        # py3.11 testing is added as non voting from 2023.2 release onwards
+        - openstack-tox-py311:
+            required-projects:
+              - openstack/ceilometer
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -932,6 +963,11 @@
               - master
         - openstack-tox-py310-arm64:
             voting: false
+        # py3.11 testing is added from 2023.2 release onwards
+        - openstack-tox-py311-arm64:
+            voting: false
+            branches:
+              - master
 
 - project-template:
     name: openstack-python3-zed-jobs-arm64
