@@ -693,11 +693,13 @@
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310
         # py3.11 testing is added as non voting from 2023.2 release onwards
         - openstack-tox-py311:
             branches:
+              - stable/2023.2
               - master
             voting: false
     gate:
@@ -707,6 +709,7 @@
         # py39 job is required to run from 2023.2 release onwards
         - openstack-tox-py39:
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310
     post:
@@ -743,6 +746,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310:
             required-projects:
@@ -752,6 +756,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2023.2
               - master
             voting: false
     gate:
@@ -767,6 +772,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310:
             required-projects:
@@ -805,6 +811,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310:
             required-projects:
@@ -814,6 +821,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2023.2
               - master
             voting: false
     gate:
@@ -829,6 +837,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310:
             required-projects:
@@ -867,6 +876,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310:
             required-projects:
@@ -876,6 +886,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2023.2
               - master
             voting: false
     gate:
@@ -891,6 +902,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310:
             required-projects:
@@ -960,6 +972,7 @@
         - openstack-tox-py39-arm64:
             voting: false
             branches:
+              - stable/2023.2
               - master
         - openstack-tox-py310-arm64:
             voting: false
@@ -967,6 +980,7 @@
         - openstack-tox-py311-arm64:
             voting: false
             branches:
+              - stable/2023.2
               - master
 
 - project-template:
