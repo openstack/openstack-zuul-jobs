@@ -1621,6 +1621,7 @@
     description: |
       Runs checks on nodepool configuration with the ``nodepool`` tox
       env.
+    nodeset: debian-bookworm
     vars:
       tox_envlist: nodepool
     required-projects:
