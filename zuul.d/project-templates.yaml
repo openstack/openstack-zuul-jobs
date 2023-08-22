@@ -2639,20 +2639,6 @@
             files: *deploy-guide-triggers
 
 - project-template:
-    name: install-guide-jobs
-    description: |
-      Build and publish install-guide document.
-    check:
-      jobs:
-        - build-openstack-install-guide
-    gate:
-      jobs:
-        - build-openstack-install-guide
-    post:
-      jobs:
-        - publish-install-guide
-
-- project-template:
     name: periodic-stable-jobs
     description: |
       Runs periodic jobs on stable branches.
