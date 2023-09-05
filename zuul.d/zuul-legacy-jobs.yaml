@@ -28,7 +28,9 @@
 - job:
     name: legacy-grenade-dsvm-cinder-mn-sub-volbak
     parent: legacy-dsvm-base-multinode
-    branches: ^(?!(driverfixes)).*$
+    branches:
+      regex: ^driverfixes.*$
+      negate: true
     run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/run.yaml
     post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/post.yaml
     timeout: 10800

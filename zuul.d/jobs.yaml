@@ -52,7 +52,9 @@
       Base job to run tox jobs with OpenStack project specific updates.
 
       Processing upper-constraints files from openstack/requirements.
-    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      negate: true
     required-projects:
       - name: openstack/requirements
     vars:
@@ -155,7 +157,9 @@
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
       Uses tox with the ``py27`` environment.
-    branches: ^(?!stable/rocky).*$
+    branches:
+      regex: ^stable/rocky$
+      negate: true
     pre-run: playbooks/tox/py27.yaml
     irrelevant-files: &common-irrelevant-files
       - ^.*\.rst$
@@ -199,7 +203,9 @@
     name: openstack-tox-py35
     parent: openstack-tox
     nodeset: ubuntu-xenial
-    branches: ^(?!driverfixes/).*$
+    branches:
+      regex: ^driverfixes/.*$
+      negate: true
     timeout: 2400
     description: |
       Run unit tests for an OpenStack project under cPython version 3.5.
@@ -267,7 +273,9 @@
 
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      negate: true
     vars:
       tox_envlist: py38
       bindep_profile: test py38
@@ -352,7 +360,9 @@
 
       Uses tox with the ``py39`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      negate: true
     vars:
       tox_envlist: py39
       bindep_profile: test py39
@@ -409,7 +419,9 @@
 
       Uses tox with the ``py310`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(yoga|zed)).*$
+    branches:
+      regex: ^stable/(yoga|zed)$
+      negate: true
     vars:
       tox_envlist: py310
       bindep_profile: test py310
@@ -534,7 +546,9 @@
 
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
-    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      negate: true
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
@@ -648,7 +662,9 @@
       Uses tox with the ``functional`` environment.
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
-    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      negate: true
     vars:
       tox_envlist: functional
 
@@ -715,7 +731,9 @@
       Sudo access is not revoked.
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
-    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      negate: true
     vars:
       tox_envlist: functional
 
@@ -824,7 +842,9 @@
 
       Uses tox with the ``functional-py38`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches: ^(?!stable/(train|ussuri)).*$
+    branches:
+      regex: ^stable/(train|ussuri)$
+      negate: true
     vars:
       tox_envlist: functional-py38
       bindep_profile: test py38
@@ -977,7 +997,9 @@
          file is build if the tox environment specified by
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
-    branches: ^(?!stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)).*$
+    branches:
+      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      negate: true
     required-projects:
       - name: openstack/requirements
     vars:
@@ -1227,7 +1249,9 @@
     name: openstack-tox-lower-constraints
     parent: openstack-tox
     nodeset: ubuntu-focal
-    branches: ^(?!driverfixes/).*$
+    branches:
+      regex: ^driverfixes/.*$
+      negate: true
     timeout: 2400
     description: |
       Run unit tests using the lower constraints.
@@ -1296,7 +1320,9 @@
 
 - job:
     name: build-openstack-releasenotes
-    branches: ^(?!driverfixes/).*$
+    branches:
+      regex: ^driverfixes/.*$
+      negate: true
     parent: build-reno-releasenotes
     description: |
       Build releasenotes, with optional translation support, using reno.
@@ -1372,7 +1398,9 @@
     pre-run: playbooks/legacy/pre.yaml
     vars:
       bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
-    branches: ^(?!stable/rocky).*$
+    branches:
+      regex: ^stable/rocky$
+      negate: true
     nodeset: legacy-ubuntu-bionic
 
 - job:
@@ -1439,7 +1467,9 @@
       may be used by jobs which have been automatically converted as
       part of the migration to Zuul v3. This job runs on Bionic from
       stable/stein on.
-    branches: ^(?!stable/rocky).*$
+    branches:
+       regex: ^stable/rocky$
+       negate: true
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
@@ -1511,7 +1541,9 @@
     roles:
       - zuul: zuul/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
-    branches: ^(?!stable/rocky).*$
+    branches:
+      regex: ^stable/rocky$
+      negate: true
     nodeset: legacy-ubuntu-bionic-2-node
 
 - job:
@@ -1537,7 +1569,9 @@
       Base job (bionic) for autoconverted legacy jobs that publish artifacts.
 
       This job runs on Bionic from stable/stein on.
-    branches: ^(?!stable/rocky).*$
+    branches:
+      regex: ^stable/rocky$
+      negate: true
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
 
