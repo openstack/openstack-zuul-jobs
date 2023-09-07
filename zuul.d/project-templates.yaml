@@ -31,41 +31,6 @@
         - noop
 
 - project-template:
-    name: build-openstack-sphinx-docs
-    description: |
-      Runs legacy OpenStack doc build without publication jobs.
-
-      This template is deprecated, it is only running on branches
-      until rocky. Use
-      :zuul:project_template:`build-openstack-docs-pti` for newer
-      branches.
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-
-- project-template:
-    name: publish-openstack-sphinx-docs
-    description: |
-      Runs legacy OpenStack doc build and publication jobs.
-
-      This template is deprecated, it is only running on branches
-      until rocky. Use
-      :zuul:project_template:`publish-openstack-docs-pti` for newer
-      branches.
-    check:
-      jobs:
-        - build-openstack-sphinx-docs
-    gate:
-      jobs:
-        - build-openstack-sphinx-docs
-    post:
-      jobs:
-        - publish-openstack-sphinx-docs
-
-- project-template:
     name: build-openstack-docs-pti
     description: |
       Runs normal `OpenStack PTI documentation build and publication jobs
@@ -2660,9 +2625,6 @@
       Runs periodic jobs on stable branches.
     periodic-stable:
       jobs:
-        - build-openstack-sphinx-docs:
-            branches:
-              - stable/rocky
         - openstack-tox-docs:
             branches:
               - stable/stein
@@ -2678,7 +2640,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/rocky
               - stable/stein
               - stable/train
         - openstack-tox-py36:
@@ -2717,11 +2678,6 @@
       tox_install_siblings to use it when building the venv.
     periodic-stable:
       jobs:
-        - build-openstack-sphinx-docs:
-            branches:
-              - stable/rocky
-            required-projects:
-              - openstack/neutron
         - openstack-tox-docs:
             branches:
               - stable/stein
@@ -2739,7 +2695,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/rocky
               - stable/stein
               - stable/train
             required-projects:
@@ -2790,11 +2745,6 @@
       tox_install_siblings to use it when building the venv.
     periodic-stable:
       jobs:
-        - build-openstack-sphinx-docs:
-            branches:
-              - stable/rocky
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-docs:
             branches:
               - stable/stein
@@ -2812,7 +2762,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/rocky
               - stable/stein
               - stable/train
             required-projects:
