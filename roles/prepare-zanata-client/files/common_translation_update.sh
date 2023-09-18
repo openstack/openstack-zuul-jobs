@@ -446,9 +446,8 @@ function extract_messages_doc {
         local fn=$(basename $f .pot)
         # If a pot file corresponds to a directory, we use the pot file as-is.
         if [ -d doc/source/$fn ]; then
-            # Remove UUIDs, those are not necessary and change too often
-            msgcat --use-first --sort-by-file $f | \
-                awk '$0 !~ /^\# [a-z0-9]+$/' > doc/source/locale/doc-$fn.pot
+            msgcat --use-first --sort-by-file $f \
+                > doc/source/locale/doc-$fn.pot
             rm $f
         else
             has_other=1
@@ -459,9 +458,8 @@ function extract_messages_doc {
     # "git add ${DIRECTORY}/source/locale" will only add a
     # single pot file for all top-level files.
     if [ "$has_other" = "1" ]; then
-        # Remove UUIDs, those are not necessary and change too often
-        msgcat --use-first --sort-by-file doc/build/gettext/*.pot | \
-            awk '$0 !~ /^\# [a-z0-9]+$/' > doc/source/locale/doc.pot
+        msgcat --use-first --sort-by-file doc/build/gettext/*.pot \
+            > doc/source/locale/doc.pot
     fi
 
     rm -rf doc/build/gettext/
