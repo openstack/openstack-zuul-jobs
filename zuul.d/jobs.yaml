@@ -4,35 +4,6 @@
 #    https://opendev.org/zuul/zuul-jobs
 
 - job:
-    name: build-openstack-sphinx-docs
-    parent: build-sphinx-docs
-    branches: stable/rocky
-    nodeset: ubuntu-xenial
-    description: |
-      Builds documentation using Sphinx per a previous version of the
-      OpenStack PTI and then
-      collects the results into the log directory so that they can be
-      examined in their published form after a successful build.
-      It runs the prepare-docs-for-afs role so that AFS stamp files
-      can be examined if desired, and also validates htaccess files
-      using the whereto tool.
-
-      This job is obsolete and is not supported on branches after rocky, use
-      :zuul:job:`openstack-tox-docs` instead.
-    required-projects:
-      - name: openstack/requirements
-      # Add neutron and horizon for the neutron-horizon-hack.
-      # TODO(AJaeger) ZOMG DELETE THIS once we neutron-horizon-hack.
-      - name: openstack/horizon
-      - name: openstack/neutron
-    pre-run: playbooks/sphinx-docs/neutron-horizon-hack.yaml
-    roles:
-      - zuul: zuul/zuul-jobs
-    vars:
-      constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      sphinx_python: python2
-
-- job:
     name: tox-py35-on-zuul
     parent: tox-py35
     nodeset: ubuntu-xenial
@@ -53,7 +24,7 @@
 
       Processing upper-constraints files from openstack/requirements.
     branches:
-      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -117,30 +88,6 @@
       ensure_tox_version: '<4'
 
 - job:
-    name: openstack-tox
-    abstract: true
-    parent: tox
-    nodeset: ubuntu-xenial
-    description: |
-      Base job (xenial) to run tox jobs with OpenStack project specific updates.
-
-      Processing upper-constraints files from openstack/requirements.
-
-      This job runs on Xenial for stable/rocky. This
-      job is prepared to make sure all stable branches before stable/stein will
-      keep running on xenial.
-    branches:
-      - stable/rocky
-    required-projects:
-      - name: openstack/requirements
-    vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
-
-- job:
     name: openstack-tox-with-sudo
     parent: openstack-tox
     description: |
@@ -157,9 +104,6 @@
       Run unit tests for an OpenStack Python project under cPython version 2.7.
 
       Uses tox with the ``py27`` environment.
-    branches:
-      regex: ^stable/rocky$
-      negate: true
     pre-run: playbooks/tox/py27.yaml
     irrelevant-files: &common-irrelevant-files
       - ^.*\.rst$
@@ -172,30 +116,6 @@
       bindep_profile: test py27
       # NOTE(gmann): This is stable branch job and new tox 4 require
       # some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
-
-- job:
-    name: openstack-tox-py27
-    parent: openstack-tox
-    nodeset: ubuntu-xenial
-    timeout: 2400
-    description: |
-      Run unit tests for an OpenStack Python project under cPython version 2.7.
-
-      Uses tox with the ``py27`` environment.
-
-      This job runs on Xenial for stable/rocky. This
-      job is prepared to make sure all stable branches before stable/stein will
-      keep running on xenial.
-    branches:
-      - stable/rocky
-    irrelevant-files: *common-irrelevant-files
-    vars:
-      tox_envlist: py27
-      bindep_profile: test py27
-      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
       # pin tox <4 for stable branches testing (<=stable/zed).
       ensure_tox_version: '<4'
 
@@ -274,7 +194,7 @@
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: py38
@@ -547,7 +467,7 @@
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -609,31 +529,6 @@
     timeout: 3000
 
 - job:
-    name: openstack-tox-cover
-    parent: tox-cover
-    description: |
-      Run code coverage tests (Xenial).
-
-      Uses tox with the ``cover`` environment.
-
-      This job runs on Xenial for stable/rocky. This
-      job is prepared to make sure all stable branches before stable/stein will
-      keep running on xenial.
-    nodeset: ubuntu-xenial
-    required-projects:
-      - name: openstack/requirements
-    irrelevant-files: *common-irrelevant-files
-    vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
-    timeout: 3000
-    branches:
-      - stable/rocky
-
-- job:
     name: openstack-tox-bashate
     parent: openstack-tox
     description: |
@@ -663,7 +558,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -707,21 +602,6 @@
       tox_envlist: functional
 
 - job:
-    name: openstack-tox-functional
-    parent: openstack-tox
-    description: |
-      Run tox-based (xenial) functional tests for an OpenStack Python project.
-
-      Uses tox with the ``functional`` environment.
-      This job runs on xenial for stable/rocky.
-    irrelevant-files: *common-irrelevant-files
-    nodeset: ubuntu-xenial
-    branches:
-      - stable/rocky
-    vars:
-      tox_envlist: functional
-
-- job:
     name: openstack-tox-functional-with-sudo
     parent: openstack-tox-with-sudo
     description: |
@@ -732,7 +612,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -773,22 +653,6 @@
       - stable/stein
       - stable/train
       - stable/ussuri
-    vars:
-      tox_envlist: functional
-
-- job:
-    name: openstack-tox-functional-with-sudo
-    parent: openstack-tox-with-sudo
-    description: |
-      Run tox-based (xenial) functional tests for an OpenStack Python project.
-
-      Uses tox with the ``functional`` environment.
-      Sudo access is not revoked.
-      This job runs on xenial till stable/rocky.
-    irrelevant-files: *common-irrelevant-files
-    nodeset: ubuntu-xenial
-    branches:
-      - stable/rocky
     vars:
       tox_envlist: functional
 
@@ -998,7 +862,7 @@
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
     branches:
-      regex: ^stable/(rocky|stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -1109,31 +973,6 @@
       - stable/stein
       - stable/train
       - stable/ussuri
-
-- job:
-    name: openstack-tox-docs
-    parent: opendev-tox-docs
-    description: |
-      Run documentation build (xenial).
-
-      Uses tox with the ``docs`` environment.
-
-      This job runs on Xenial for stable/rocky. This
-      job is prepared to make sure all stable branches before stable/stein will
-      keep running on xenial.
-    required-projects:
-      - name: openstack/requirements
-    vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      tox_envlist: docs
-      bindep_profile: compile doc
-      # NOTE(gmann): This is stable branch (<=stable/rocky) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
-    nodeset: ubuntu-xenial
-    branches:
-      - stable/rocky
 
 - job:
     name: openstack-tox-py39-with-oslo-master
@@ -1376,86 +1215,13 @@
     name: legacy-base
     abstract: true
     description: |
-      Base job (xenial) for autoconverted legacy jobs
-
-      This job runs on Xenial and this is for stable/rocky.
-      This job is prepared to make sure all stable branches
-      before stable/stein will keep running on xenial.
-    pre-run: playbooks/legacy/pre.yaml
-    nodeset: legacy-ubuntu-xenial
-    vars:
-      bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
-    branches:
-      - stable/rocky
-
-- job:
-    name: legacy-base
-    abstract: true
-    description: |
       Base job (bionic) for autoconverted legacy jobs
 
       This job runs on Bionic from stable/stein on.
     pre-run: playbooks/legacy/pre.yaml
     vars:
       bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
-    branches:
-      regex: ^stable/rocky$
-      negate: true
     nodeset: legacy-ubuntu-bionic
-
-- job:
-    name: legacy-dsvm-base
-    abstract: true
-    description: |
-      Base job (xenial) for autoconverted legacy devstack-gate jobs
-
-      This job runs devstack-gate with as few changes as possible and
-      may be used by jobs which have been automatically converted as
-      part of the migration to Zuul v3. This job runs on Xenial for
-      stable/rocky. This job is prepared to
-      make sure all stable branches before stable/stein will keep
-      running on xenial.
-    nodeset: devstack-single-node
-    branches:
-      - stable/rocky
-    pre-run: playbooks/legacy/pre.yaml
-    required-projects:
-      - openstack/devstack
-      - openstack/devstack-gate
-      - openstack/tripleo-ci
-      - openstack/ceilometer
-      - openstack/ceilometermiddleware
-      - openstack/cinder
-      - openstack/glance
-      - openstack/glance_store
-      - openstack/heat
-      - openstack/heat-cfntools
-      - openstack/heat-templates
-      - openstack/horizon
-      - openstack/keystone
-      - openstack/keystoneauth
-      - openstack/keystonemiddleware
-      - openstack/manila
-      - openstack/manila-ui
-      - openstack/neutron
-      - openstack/nova
-      - openstack/octavia
-      - openstack/os-apply-config
-      - openstack/os-brick
-      - openstack/os-client-config
-      - openstack/os-collect-config
-      - openstack/os-net-config
-      - openstack/os-refresh-config
-      - openstack/osc-lib
-      # NOTE(mriedem): The openstack/placement repo is new in Stein and will
-      # be ignored on stable branches before Stein.
-      - openstack/placement
-      - openstack/requirements
-      - openstack/swift
-      - openstack/tempest
-      - openstack/tripleo-heat-templates
-      - openstack/tripleo-image-elements
-      - openstack/zaqar
 
 - job:
     name: legacy-dsvm-base
@@ -1467,9 +1233,6 @@
       may be used by jobs which have been automatically converted as
       part of the migration to Zuul v3. This job runs on Bionic from
       stable/stein on.
-    branches:
-       regex: ^stable/rocky$
-       negate: true
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
@@ -1509,25 +1272,6 @@
       - openstack/tripleo-heat-templates
       - openstack/tripleo-image-elements
       - openstack/zaqar
-
-- job:
-    name: legacy-dsvm-base-multinode
-    abstract: true
-    parent: legacy-dsvm-base
-    description: |
-      Base job (xenial) for multinode devstack jobs.
-
-      Will setup firewall rules on all the nodes allowing them to talk to
-      each other. This job runs on Xenial for stable/rocky.
-      This job is prepared to make sure all stable branches
-      before stable/stein will keep running on xenial.
-
-    roles:
-      - zuul: zuul/zuul-jobs
-    pre-run: playbooks/legacy/multinode-networking/pre.yaml
-    nodeset: legacy-ubuntu-xenial-2-node
-    branches:
-      - stable/rocky
 
 - job:
     name: legacy-dsvm-base-multinode
@@ -1541,25 +1285,7 @@
     roles:
       - zuul: zuul/zuul-jobs
     pre-run: playbooks/legacy/multinode-networking/pre.yaml
-    branches:
-      regex: ^stable/rocky$
-      negate: true
     nodeset: legacy-ubuntu-bionic-2-node
-
-- job:
-    name: legacy-publish-openstack-artifacts
-    abstract: true
-    parent: publish-openstack-artifacts
-    description: |
-      Base job (xenial) for autoconverted legacy jobs that publish artifacts
-
-      This job runs on Xenial for stable/rocky.
-      This job is prepared to make sure all stable branches
-      before stable/stein will keep running on xenial.
-    nodeset: devstack-single-node
-    pre-run: playbooks/legacy/pre.yaml
-    branches:
-      - stable/rocky
 
 - job:
     name: legacy-publish-openstack-artifacts
@@ -1569,9 +1295,6 @@
       Base job (bionic) for autoconverted legacy jobs that publish artifacts.
 
       This job runs on Bionic from stable/stein on.
-    branches:
-      regex: ^stable/rocky$
-      negate: true
     nodeset: legacy-ubuntu-bionic
     pre-run: playbooks/legacy/pre.yaml
 
