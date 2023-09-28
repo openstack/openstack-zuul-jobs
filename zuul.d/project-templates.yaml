@@ -2636,6 +2636,7 @@
               - stable/yoga
               - stable/zed
               - stable/2023.1
+              - stable/2023.2
         # py27 periodic jobs will run until Train, from Ussuri it will
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
@@ -2662,12 +2663,14 @@
               - stable/yoga
               - stable/zed
               - stable/2023.1
+              - stable/2023.2
         - openstack-tox-py39:
             branches:
               - stable/zed
         - openstack-tox-py310:
             branches:
               - stable/2023.1
+              - stable/2023.2
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -2689,6 +2692,7 @@
               - stable/yoga
               - stable/zed
               - stable/2023.1
+              - stable/2023.2
             required-projects:
               - openstack/neutron
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -2723,6 +2727,7 @@
               - stable/yoga
               - stable/zed
               - stable/2023.1
+              - stable/2023.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -2733,6 +2738,7 @@
         - openstack-tox-py310:
             branches:
               - stable/2023.1
+              - stable/2023.2
             required-projects:
               - openstack/neutron
 
@@ -2756,6 +2762,7 @@
               - stable/yoga
               - stable/zed
               - stable/2023.1
+              - stable/2023.2
             required-projects:
               - openstack/ceilometer
         # py27 periodic jobs will run until Train, from Ussuri it will
@@ -2790,6 +2797,7 @@
               - stable/yoga
               - stable/zed
               - stable/2023.1
+              - stable/2023.2
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py39:
@@ -2800,6 +2808,7 @@
         - openstack-tox-py310:
             branches:
               - stable/2023.1
+              - stable/2023.2
             required-projects:
               - openstack/ceilometer
 
