@@ -2512,6 +2512,7 @@
         - upstream-translation-update:
             branches:
               - master
+              - stable/2023.2
               - stable/2023.1
               - stable/zed
     periodic:
@@ -2519,6 +2520,7 @@
         - propose-translation-update:
             branches:
               - master
+              - stable/2023.2
               - stable/2023.1
               - stable/zed
 
