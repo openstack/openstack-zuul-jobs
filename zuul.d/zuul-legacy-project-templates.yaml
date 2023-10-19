@@ -15,21 +15,9 @@
     check:
       jobs:
         - tempest-full
-        - neutron-grenade:
-            # NOTE(gmann): Do not run the grenade job for
-            # the oldest stable branch.
-            # Now this is only needed up till stable/train as
-            # stable/ussuri onwards we use integrated-gate-py3.
-            branches: ^stable/(queens|rocky|stein|train).*$
     gate:
       jobs:
         - tempest-full
-        - neutron-grenade:
-            # NOTE(gmann): Do not run the grenade job for
-            # the oldest stable branch.
-            # Now this is only needed up till stable/train as
-            # stable/ussuri onwards we use integrated-gate-py3.
-            branches: ^stable/(queens|rocky|stein|train).*$
 
 - project-template:
     name: puppet-module-unit-jobs
