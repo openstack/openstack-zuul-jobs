@@ -632,20 +632,43 @@
     # 2. Make sure the previous cycle applicable jobs continue to run for
     #    the new stable branch. Use the 'branches' variant to run the
     #    applicable python version jobs.
+    #
+    # NOTE(coreycb): This template is used in openstack charms since
+    # stable/2023.1. While the stable/2023.1 and stable/2023.2 charm branches
+    # should support py311 unit tests, they do not. They need to continue
+    # supporting py310.
     description: |
       Runs unit tests for an OpenStack Charm project under the CPython
       version 3 releases designated for testing the latest release.
-      This is supposed to be used in master gate.
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py38
-        - openstack-tox-py311
+        - openstack-tox-py38:
+            branches:
+              - stable/2023.1
+              - stable/2023.2
+              - master
+        - openstack-tox-py310:
+            branches:
+              - stable/2023.1
+              - stable/2023.2
+        - openstack-tox-py311:
+            branches:
+              - master
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py38
-        - openstack-tox-py311
+        - openstack-tox-py38:
+            branches:
+              - stable/2023.1
+              - stable/2023.2
+        - openstack-tox-py310:
+            branches:
+              - stable/2023.1
+              - stable/2023.2
+        - openstack-tox-py311:
+            branches:
+              - master
 
 - project-template:
     name: openstack-python3-jobs
