@@ -41,7 +41,6 @@ ERROR_ABORT=1
 DOC_TARGETS=('contributor-guide'
              'horizon'
              'openstack-ansible'
-             'openstack-helm'
              'operations-guide',
              'swift')
 
