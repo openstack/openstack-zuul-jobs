@@ -107,12 +107,18 @@
 # [1] https://github.com/ansible/ansible/pull/27174
 - name: Copy old /opt
   become: yes
+  register: moving_opt
   shell: |
     mount {{ opt_partition }} /mnt
-    find /opt/ -mindepth 1 -maxdepth 1 -exec mv {} /mnt/ \;
+    find /opt/ -mindepth 1 -maxdepth 1 -print -exec mv {} /mnt/ \;
     umount /mnt
+    df -h
   tags:
     - skip_ansible_lint
+
+- name: Output data from old /opt
+  debug:
+    var: moving_opt
 
 # This overmounts any existing /opt
 - name: Add opt to fstab and mount
