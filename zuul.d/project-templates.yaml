@@ -3218,6 +3218,31 @@
             nodeset: ubuntu-jammy
 
 - project-template:
+    name: nodejs20-jobs
+    description: |
+      Run lint and test jobs using Node 20.
+    check:
+      jobs:
+        - nodejs-run-lint:
+            vars:
+              node_version: 20
+            nodeset: ubuntu-jammy
+        - nodejs-run-test-browser:
+            vars:
+              node_version: 20
+            nodeset: ubuntu-jammy
+    gate:
+      jobs:
+        - nodejs-run-lint:
+            vars:
+              node_version: 20
+            nodeset: ubuntu-jammy
+        - nodejs-run-test-browser:
+            vars:
+              node_version: 20
+            nodeset: ubuntu-jammy
+
+- project-template:
     name: nodejs4-docs
     description: |
       Run docs jobs using Node 4.
@@ -3310,6 +3335,21 @@
         - nodejs-run-docs:
             vars:
               node_version: 18
+
+- project-template:
+    name: nodejs20-docs
+    description: |
+      Run docs jobs using Node 20
+    check:
+      jobs:
+        - nodejs-run-docs:
+            vars:
+              node_version: 20
+    gate:
+      jobs:
+        - nodejs-run-docs:
+            vars:
+              node_version: 20
 
 - project-template:
     name: tempest-plugin-jobs
