@@ -2761,7 +2761,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/stein
               - stable/train
               - stable/ussuri
               - stable/victoria
@@ -2775,7 +2774,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/stein
               - stable/train
         - openstack-tox-py36:
             branches:
@@ -2817,7 +2815,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/stein
               - stable/train
               - stable/ussuri
               - stable/victoria
@@ -2833,7 +2830,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/stein
               - stable/train
             required-projects:
               - openstack/neutron
@@ -2887,7 +2883,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/stein
               - stable/train
               - stable/ussuri
               - stable/victoria
@@ -2903,7 +2898,6 @@
         # be replaced with python3 periodic jobs
         - openstack-tox-py27:
             branches:
-              - stable/stein
               - stable/train
             required-projects:
               - openstack/ceilometer
