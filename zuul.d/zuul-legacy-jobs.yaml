@@ -250,18 +250,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-networking-bagpipe-dsvm-fullstack
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/networking-bagpipe-dsvm-fullstack/run.yaml
-    post-run: playbooks/legacy/networking-bagpipe-dsvm-fullstack/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/networking-bagpipe
-      - openstack/networking-bgpvpn
-      - openstack/networking-sfc
-
-- job:
     name: legacy-neutron-dsvm-api-pecan
     parent: legacy-dsvm-base
     run: playbooks/legacy/neutron-dsvm-api-pecan/run.yaml
@@ -541,30 +529,6 @@
       - openstack/devstack-gate
       - openstack/tempest
     nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-networking-bagpipe
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-bagpipe/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-bagpipe/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/networking-bagpipe
-      - openstack/networking-bgpvpn
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-networking-bgpvpn-bagpipe
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-networking-bgpvpn-bagpipe/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-networking-bgpvpn-bagpipe/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/networking-bagpipe
-      - openstack/networking-bgpvpn
-      - openstack/tempest
 
 - job:
     name: legacy-tempest-dsvm-neutron-dvr-multinode-full
