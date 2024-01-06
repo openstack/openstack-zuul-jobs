@@ -24,7 +24,7 @@
 
       Processing upper-constraints files from openstack/requirements.
     branches:
-      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -71,11 +71,10 @@
 
       Processing upper-constraints files from openstack/requirements.
 
-      This job runs on bionic for stable/stein, train, and ussuri. This
+      This job runs on bionic for stable/train, and ussuri. This
       job is prepared to make sure all stable branches from stable/stein till
       stable/ussuri will keep running on bionic.
     branches:
-      - stable/stein
       - stable/train
       - stable/ussuri
     required-projects:
@@ -194,7 +193,7 @@
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: py38
@@ -467,7 +466,7 @@
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -511,10 +510,9 @@
 
       Uses tox with the ``cover`` environment.
 
-      This job runs on bionic for stable/stein, train, and ussuri.
+      This job runs on bionic for stable/train, and ussuri.
     nodeset: ubuntu-bionic
     branches:
-      - stable/stein
       - stable/train
       - stable/ussuri
     required-projects:
@@ -558,7 +556,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -590,11 +588,10 @@
       Run tox-based (bionic) functional tests for an OpenStack Python project.
 
       Uses tox with the ``functional`` environment.
-      This job runs on bionic for stable/stein, train, and ussuri.
+      This job runs on bionic for stable/train, and ussuri.
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-bionic
     branches:
-      - stable/stein
       - stable/train
       - stable/ussuri
     pre-run: playbooks/tox/py27.yaml
@@ -612,7 +609,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -646,11 +643,10 @@
 
       Uses tox with the ``functional`` environment.
       Sudo access is not revoked.
-      This job runs on bionic for stable/stein, train, and ussuri.
+      This job runs on bionic for stable/train, and ussuri.
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-bionic
     branches:
-      - stable/stein
       - stable/train
       - stable/ussuri
     vars:
@@ -862,7 +858,7 @@
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
     branches:
-      regex: ^stable/(stein|train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -934,7 +930,7 @@
 
       Uses tox with the ``docs`` environment.
 
-      This job runs on bionic for stable/stein, train, and ussuri.
+      This job runs on bionic for stable/train, and ussuri.
 
       .. zuul:jobvar: tox_envlist
 
@@ -970,7 +966,6 @@
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
     branches:
-      - stable/stein
       - stable/train
       - stable/ussuri
 
