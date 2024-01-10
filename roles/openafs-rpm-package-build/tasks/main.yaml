@@ -27,7 +27,7 @@
   shell: |
       set -eux
 
-      BASE_VERSION=1.8.9
+      BASE_VERSION=1.8.10
       PRE_VERSION=''
       VERSION=${BASE_VERSION}${PRE_VERSION}
       # If pre-release, this should be "candidate/"; otherwise blank
