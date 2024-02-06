@@ -46,19 +46,19 @@
       job is prepared to make sure all stable branches from stable/victoria until
       stable/zed will keep running on Focal.
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      - ^.*/victoria
+      - ^.*/wallaby
+      - ^.*/xena
+      - ^.*/yoga
+      - ^.*/zed
     required-projects:
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       enable_fips: false
-      # NOTE(gmann): This is stable branch (<=stable/zed) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
+      # NOTE(gmann): This is stable|unmaintained branch (<=(stable|unmaintained)/zed)
+      # job and new tox 4 require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
 
 - job:
@@ -215,18 +215,18 @@
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      - ^.*/victoria
+      - ^.*/wallaby
+      - ^.*/xena
+      - ^.*/yoga
+      - ^.*/zed
     vars:
       tox_envlist: py38
       bindep_profile: test py38
       python_version: '3.8'
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # NOTE(gmann): This is stable branch (<=(stable|unmaintained)/zed) job and new
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
+      # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
 
 - job:
@@ -300,18 +300,18 @@
       Uses tox version <4 with the ``py39`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      - ^.*/victoria
+      - ^.*/wallaby
+      - ^.*/xena
+      - ^.*/yoga
+      - ^.*/zed
     vars:
       tox_envlist: py39
       bindep_profile: test py39
       python_version: '3.9'
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # NOTE(gmann): This is stable branch (<=(stable|unmaintained)/zed) job and new
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
+      # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
 
 - job:
@@ -359,15 +359,15 @@
       Uses tox version <4 with the ``py310`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      - stable/yoga
-      - stable/zed
+      - ^.*/yoga
+      - ^.*/zed
     vars:
       tox_envlist: py310
       bindep_profile: test py310
       python_version: '3.10'
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
+      # NOTE(gmann): This is stable branch (<=/(stable|unmaintained)/zed) job and new
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
+      # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
 
 - job:
@@ -486,19 +486,19 @@
       This job runs on focal from stable/victoria until stable/zed.
     nodeset: ubuntu-focal
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      - ^.*/victoria
+      - ^.*/wallaby
+      - ^.*/xena
+      - ^.*/yoga
+      - ^.*/zed
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      # NOTE(gmann): This is stable branch (<=stable/zed) job and new
+      # NOTE(gmann): This is stable branch (<=(stable|unmaintained)/zed) job and new
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
+      # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
     timeout: 3000
 
@@ -905,9 +905,9 @@
       bindep_profile: compile doc
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
-      # NOTE(gmann): This is stable branch (<=stable/zed) job and new
+      # NOTE(gmann): This is stable branch (<=(stable|unmaintained)/zed) job and new
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
+      # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
     nodeset: ubuntu-focal
     # PDF Building is only done from stein onwards, therefore these
@@ -916,11 +916,11 @@
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      - ^.*/victoria
+      - ^.*/wallaby
+      - ^.*/xena
+      - ^.*/yoga
+      - ^.*/zed
 
 - job:
     name: openstack-tox-docs
