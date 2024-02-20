@@ -24,7 +24,7 @@
 
       Processing upper-constraints files from openstack/requirements.
     branches:
-      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -59,31 +59,6 @@
       # NOTE(gmann): This is stable|unmaintained branch (<=(stable|unmaintained)/zed)
       # job and new tox 4 require some changes in tox.ini to be compatible with it. Let's
       # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
-      ensure_tox_version: '<4'
-
-- job:
-    name: openstack-tox
-    abstract: true
-    parent: tox
-    nodeset: ubuntu-bionic
-    description: |
-      Base job (bionic) to run tox jobs with OpenStack project specific updates.
-
-      Processing upper-constraints files from openstack/requirements.
-
-      This job runs on bionic for stable/train, and ussuri. This
-      job is prepared to make sure all stable branches from stable/stein till
-      stable/ussuri will keep running on bionic.
-    branches:
-      - stable/train
-      - stable/ussuri
-    required-projects:
-      - name: openstack/requirements
-    vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
       ensure_tox_version: '<4'
 
 - job:
@@ -193,7 +168,7 @@
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: py38
@@ -227,32 +202,6 @@
       # NOTE(gmann): This is stable branch (<=(stable|unmaintained)/zed) job and new
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
       # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
-      ensure_tox_version: '<4'
-
-- job:
-    name: openstack-tox-py38
-    parent: openstack-tox
-    nodeset: ubuntu-bionic
-    timeout: 2400
-    description: |
-
-      Run unit tests for an OpenStack Python project under cPython
-      version 3.8 on ubuntu bionic.
-
-      This job runs on bionic and with tox<4 for stable/train and ussuri.
-
-      Uses tox with the ``py38`` environment.
-    irrelevant-files: *common-irrelevant-files
-    branches:
-      - stable/train
-      - stable/ussuri
-    vars:
-      tox_envlist: py38
-      bindep_profile: test py38
-      python_version: '3.8'
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
       ensure_tox_version: '<4'
 
 - job:
@@ -466,7 +415,7 @@
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -503,30 +452,6 @@
     timeout: 3000
 
 - job:
-    name: openstack-tox-cover
-    parent: tox-cover
-    description: |
-      Run code coverage tests (Bionic).
-
-      Uses tox with the ``cover`` environment.
-
-      This job runs on bionic for stable/train, and ussuri.
-    nodeset: ubuntu-bionic
-    branches:
-      - stable/train
-      - stable/ussuri
-    required-projects:
-      - name: openstack/requirements
-    irrelevant-files: *common-irrelevant-files
-    vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
-    timeout: 3000
-
-- job:
     name: openstack-tox-bashate
     parent: openstack-tox
     description: |
@@ -556,7 +481,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -578,23 +503,6 @@
       - stable/xena
       - stable/yoga
       - stable/zed
-    vars:
-      tox_envlist: functional
-
-- job:
-    name: openstack-tox-functional
-    parent: openstack-tox
-    description: |
-      Run tox-based (bionic) functional tests for an OpenStack Python project.
-
-      Uses tox with the ``functional`` environment.
-      This job runs on bionic for stable/train, and ussuri.
-    irrelevant-files: *common-irrelevant-files
-    nodeset: ubuntu-bionic
-    branches:
-      - stable/train
-      - stable/ussuri
-    pre-run: playbooks/tox/py27.yaml
     vars:
       tox_envlist: functional
 
@@ -609,7 +517,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -632,23 +540,6 @@
       - stable/xena
       - stable/yoga
       - stable/zed
-    vars:
-      tox_envlist: functional
-
-- job:
-    name: openstack-tox-functional-with-sudo
-    parent: openstack-tox-with-sudo
-    description: |
-      Run tox-based (bionic) functional tests for an OpenStack Python project.
-
-      Uses tox with the ``functional`` environment.
-      Sudo access is not revoked.
-      This job runs on bionic for stable/train, and ussuri.
-    irrelevant-files: *common-irrelevant-files
-    nodeset: ubuntu-bionic
-    branches:
-      - stable/train
-      - stable/ussuri
     vars:
       tox_envlist: functional
 
@@ -702,28 +593,6 @@
 
       Uses tox with the ``functional-py38`` environment.
     irrelevant-files: *common-irrelevant-files
-    branches:
-      regex: ^stable/(train|ussuri)$
-      negate: true
-    vars:
-      tox_envlist: functional-py38
-      bindep_profile: test py38
-      python_version: '3.8'
-
-- job:
-    name: openstack-tox-functional-py38
-    parent: openstack-tox
-    nodeset: ubuntu-bionic
-    description: |
-      Run tox-based (bionic) functional tests for an OpenStack Python project
-      under cPython version 3.8.
-
-      Uses tox with the ``functional-py38`` environment.
-      This job runs on bionic for stable/train and ussuri.
-    irrelevant-files: *common-irrelevant-files
-    branches:
-      - stable/train
-      - stable/ussuri
     vars:
       tox_envlist: functional-py38
       bindep_profile: test py38
@@ -858,7 +727,7 @@
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
     branches:
-      regex: ^stable/(train|ussuri|victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -921,53 +790,6 @@
       - ^.*/xena
       - ^.*/yoga
       - ^.*/zed
-
-- job:
-    name: openstack-tox-docs
-    parent: opendev-tox-docs
-    description: |
-      Run documentation build (bionic).
-
-      Uses tox with the ``docs`` environment.
-
-      This job runs on bionic for stable/train, and ussuri.
-
-      .. zuul:jobvar: tox_envlist
-
-         The tox environment for building HTML, default is ``docs``.
-
-      .. zuul:jobvar: tox_pdf_envlist
-
-         The tox environment for building PDF, default is ``pdf-docs``.
-         If this environment does not exist, no PDF building is done.
-
-      .. zuul:jobvar: tox_skip_pdf
-
-         Whether to skip building of PDF documents. By default a PDF
-         file is build if the tox environment specified by
-         :zuul:jobvar:`tox_pdf_envlist` exists.
-
-    required-projects:
-      - name: openstack/requirements
-    vars:
-      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      tox_envlist: docs
-      bindep_profile: compile doc
-      tox_pdf_envlist: pdf-docs
-      tox_skip_pdf: false
-      # NOTE(gmann): This is stable branch (<=stable/ussuri) job and new
-      # tox 4 require some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
-    nodeset: ubuntu-bionic
-    # PDF Building is only done from stein onwards, therefore these
-    # pre-run and run playbooks are not part of
-    # openstack-tox-docs job for older branches up to rocky.
-    pre-run: playbooks/tox-docs/pre.yaml
-    run: playbooks/tox-docs/run.yaml
-    branches:
-      - stable/train
-      - stable/ussuri
 
 - job:
     name: openstack-tox-py39-with-oslo-master
