@@ -57,12 +57,6 @@
         label: centos-7
 
 - nodeset:
-    name: legacy-opensuse-15
-    nodes:
-      - name: primary
-        label: opensuse-15
-
-- nodeset:
     name: legacy-ubuntu-xenial
     nodes:
       - name: primary
