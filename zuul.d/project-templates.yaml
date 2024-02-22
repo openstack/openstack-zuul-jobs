@@ -2761,8 +2761,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/train
-              - stable/ussuri
               - stable/victoria
               - stable/wallaby
               - stable/xena
@@ -2770,23 +2768,12 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
-        # py27 periodic jobs will run until Train, from Ussuri it will
-        # be replaced with python3 periodic jobs
-        - openstack-tox-py27:
-            branches:
-              - stable/train
         - openstack-tox-py36:
             branches:
-              - stable/train
-              - stable/ussuri
               - stable/victoria
               - stable/wallaby
               - stable/xena
               - stable/yoga
-        - openstack-tox-py37:
-            branches:
-              - stable/train
-              - stable/ussuri
         - openstack-tox-py38:
             branches:
               - stable/victoria
@@ -2815,8 +2802,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/train
-              - stable/ussuri
               - stable/victoria
               - stable/wallaby
               - stable/xena
@@ -2826,27 +2811,12 @@
               - stable/2023.2
             required-projects:
               - openstack/neutron
-        # py27 periodic jobs will run until Train, from Ussuri it will
-        # be replaced with python3 periodic jobs
-        - openstack-tox-py27:
-            branches:
-              - stable/train
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py36:
             branches:
-              - stable/train
-              - stable/ussuri
               - stable/victoria
               - stable/wallaby
               - stable/xena
               - stable/yoga
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py37:
-            branches:
-              - stable/train
-              - stable/ussuri
             required-projects:
               - openstack/neutron
         - openstack-tox-py38:
@@ -2883,8 +2853,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/train
-              - stable/ussuri
               - stable/victoria
               - stable/wallaby
               - stable/xena
@@ -2894,27 +2862,12 @@
               - stable/2023.2
             required-projects:
               - openstack/ceilometer
-        # py27 periodic jobs will run until Train, from Ussuri it will
-        # be replaced with python3 periodic jobs
-        - openstack-tox-py27:
-            branches:
-              - stable/train
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py36:
             branches:
-              - stable/train
-              - stable/ussuri
               - stable/victoria
               - stable/wallaby
               - stable/xena
               - stable/yoga
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py37:
-            branches:
-              - stable/train
-              - stable/ussuri
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py38:
