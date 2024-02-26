@@ -629,6 +629,21 @@
       python_version: '3.10'
 
 - job:
+    name: openstack-tox-functional-py311
+    parent: openstack-tox
+    nodeset: debian-bookworm
+    description: |
+      Run tox-based functional tests for an OpenStack Python project
+      under cPython version 3.11.
+
+      Uses tox with the ``functional-py311`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: functional-py311
+      bindep_profile: test py311
+      python_version: '3.11'
+
+- job:
     name: openstack-tox-functional-py36-fips
     parent: openstack-tox-functional-py36
     nodeset: devstack-single-node-centos-8-stream
