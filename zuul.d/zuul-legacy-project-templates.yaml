@@ -6,15 +6,3 @@
     gate:
       jobs:
         - legacy-puppet-lint
-
-- project-template:
-    name: integrated-gate
-    description: |
-      Jobs that are run across several projects to test the base
-      OpenStack functionality.
-    check:
-      jobs:
-        - tempest-full
-    gate:
-      jobs:
-        - tempest-full
