@@ -29,10 +29,6 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
-        - build-wheel-cache-debian-buster:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
         - build-wheel-cache-debian-bullseye:
             files:
               - playbooks/wheel-cache
@@ -60,10 +56,6 @@
               - playbooks/wheel-cache
               - roles/build-wheel-cache
         - build-wheel-cache-centos-9-stream-arm64:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
-        - build-wheel-cache-debian-buster-arm64:
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
