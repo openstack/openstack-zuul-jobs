@@ -3338,18 +3338,6 @@
         - openstack-tox-snap-with-sudo
 
 - project-template:
-    name: ansible-role-functional-jobs-centos7
-    description: |
-      Run functional tests on ansible-role repositories using
-      CentOS 7 nodes.
-    check:
-      jobs:
-        - ansible-role-functional-centos-7
-    gate:
-      jobs:
-        - ansible-role-functional-centos-7
-
-- project-template:
     name: ansible-role-functional-jobs-xenial
     description: |
       Run functional tests on ansible-role repositories using

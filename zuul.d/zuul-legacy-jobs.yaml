@@ -304,20 +304,6 @@
     nodeset: ubuntu-xenial
 
 - job:
-    name: legacy-puppet-midonet-puppet-unit-4.5-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/puppet-midonet-puppet-unit-4.5-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
-    name: legacy-puppet-midonet-puppet-unit-latest-centos-7
-    parent: legacy-base
-    run: playbooks/legacy/puppet-midonet-puppet-unit-latest-centos-7/run.yaml
-    timeout: 3600
-    nodeset: legacy-centos-7
-
-- job:
     name: legacy-puppet-openstack-infra-spec-helper-unit
     parent: legacy-base
     run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit/run.yaml
@@ -536,18 +522,6 @@
     run: playbooks/legacy/tempest-dsvm-neutron-full/run.yaml
     post-run: playbooks/legacy/tempest-dsvm-neutron-full/post.yaml
     timeout: 10800
-    required-projects:
-      - openstack/devstack-gate
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-full-centos-7
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full-centos-7/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full-centos-7/post.yaml
-    timeout: 10800
-    nodeset: legacy-centos-7
     required-projects:
       - openstack/devstack-gate
       - openstack/neutron

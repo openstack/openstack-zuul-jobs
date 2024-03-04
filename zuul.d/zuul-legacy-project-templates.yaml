@@ -18,13 +18,3 @@
     gate:
       jobs:
         - tempest-full
-
-- project-template:
-    name: puppet-module-unit-jobs
-    check:
-      jobs:
-        - legacy-puppet-unit-4.8-centos-7
-        - legacy-puppet-unit-latest-centos-7
-    gate:
-      jobs:
-        - legacy-puppet-unit-4.8-centos-7
