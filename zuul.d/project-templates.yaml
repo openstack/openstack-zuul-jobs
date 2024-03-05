@@ -647,6 +647,7 @@
             branches:
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
               - master
         - openstack-tox-py310:
             branches:
@@ -654,6 +655,7 @@
               - stable/2023.2
         - openstack-tox-py311:
             branches:
+              - stable/2024.1
               - master
     gate:
       jobs:
@@ -662,12 +664,14 @@
             branches:
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
         - openstack-tox-py310:
             branches:
               - stable/2023.1
               - stable/2023.2
         - openstack-tox-py311:
             branches:
+              - stable/2024.1
               - master
 
 - project-template:
@@ -709,6 +713,7 @@
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         - openstack-tox-py311:
             branches:
+              - stable/2024.1
               - master
     gate:
       jobs:
@@ -729,6 +734,7 @@
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         - openstack-tox-py311:
             branches:
+              - stable/2024.1
               - master
     periodic:
       jobs:
@@ -793,6 +799,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2024.1
               - master
     gate:
       jobs:
@@ -823,6 +830,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2024.1
               - master
     periodic:
       jobs:
@@ -891,6 +899,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2024.1
               - master
     gate:
       jobs:
@@ -921,6 +930,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2024.1
               - master
     periodic:
       jobs:
@@ -989,6 +999,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2024.1
               - master
     gate:
       jobs:
@@ -1019,6 +1030,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2024.1
               - master
     periodic:
       jobs:
@@ -1105,6 +1117,7 @@
             voting: false
             branches:
               - stable/2023.2
+              - stable/2024.1
               - master
 
 - project-template:
@@ -2644,6 +2657,7 @@
         - upstream-translation-update:
             branches:
               - master
+              - stable/2024.1
               - stable/2023.2
               - stable/2023.1
               - stable/zed
@@ -2652,6 +2666,7 @@
         - propose-translation-update:
             branches:
               - master
+              - stable/2024.1
               - stable/2023.2
               - stable/2023.1
               - stable/zed
@@ -2768,6 +2783,7 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
         - openstack-tox-py36:
             branches:
               - stable/victoria
@@ -2783,6 +2799,7 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
         - openstack-tox-py39:
             branches:
               - stable/zed
@@ -2790,6 +2807,9 @@
             branches:
               - stable/2023.1
               - stable/2023.2
+        - openstack-tox-py311:
+            branches:
+              - stable/2024.1
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -2809,6 +2829,7 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
             required-projects:
               - openstack/neutron
         - openstack-tox-py36:
@@ -2828,6 +2849,7 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -2839,6 +2861,11 @@
             branches:
               - stable/2023.1
               - stable/2023.2
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py311:
+            branches:
+              - stable/2024.1
             required-projects:
               - openstack/neutron
 
@@ -2860,6 +2887,7 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py36:
@@ -2879,6 +2907,7 @@
               - stable/zed
               - stable/2023.1
               - stable/2023.2
+              - stable/2024.1
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py39:
@@ -2890,6 +2919,11 @@
             branches:
               - stable/2023.1
               - stable/2023.2
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py311:
+            branches:
+              - stable/2024.1
             required-projects:
               - openstack/ceilometer
 
