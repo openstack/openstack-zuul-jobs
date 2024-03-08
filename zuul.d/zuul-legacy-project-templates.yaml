@@ -1,8 +1,0 @@
-- project-template:
-    name: infra-puppet-check-jobs
-    check:
-      jobs:
-        - legacy-puppet-lint
-    gate:
-      jobs:
-        - legacy-puppet-lint
