@@ -1293,11 +1293,6 @@
       - roles/openafs-rpm-package-build
 
 - job:
-    name: openafs-rpm-package-build-centos-7-x86
-    parent: openafs-rpm-package-build
-    nodeset: centos-7
-
-- job:
     name: openafs-rpm-package-build-centos-8-stream-x86
     parent: openafs-rpm-package-build
     nodeset: centos-8-stream
@@ -1416,11 +1411,6 @@
       tox_envlist: functional
 
 - job:
-    name: ansible-role-functional-centos-7
-    parent: ansible-role-functional-base
-    nodeset: centos-7
-
-- job:
     name: ansible-role-functional-ubuntu-xenial
     parent: ansible-role-functional-base
 
@@ -1507,23 +1497,6 @@
       - zuul: opendev/system-config
     vars:
       bindep_dir: "{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}"
-
-- job:
-    name: build-wheel-cache-centos-7
-    parent: build-wheel-cache-base
-    description: |
-      Build CentOS 7 wheels for OpenStack CI mirrors.
-    nodeset:
-      nodes:
-        - name: wheel-cache-centos-7-python2
-          label: centos-7
-        - name: wheel-cache-centos-7-python3
-          label: centos-7
-    host-vars:
-      wheel-cache-centos-7-python2:
-        wheel_python: python2
-      wheel-cache-centos-7-python3:
-        wheel_python: python3
 
 - job:
     name: build-wheel-cache-centos-9-stream
