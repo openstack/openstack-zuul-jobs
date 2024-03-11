@@ -5,35 +5,9 @@
         state: directory
         path: '{{ zuul.executor.work_root }}/{{ item }}'
       loop:
-        - 'artifacts/openafs/centos7'
         - 'artifacts/openafs/centos8'
         - 'artifacts/openafs/centos8-stream'
         - 'artifacts/openafs/centos9-stream'
-
-    #
-    # CentOS 7
-    #
-
-    # Download everything to the artifacts/ directory for publish
-    - name: Download centos 7 x86 artifact
-      include_role:
-        name: download-artifact
-      vars:
-        download_artifact_api: "https://zuul.opendev.org/api/tenant/{{ zuul.tenant }}"
-        download_artifact_type: rpm.tar.gz
-        download_artifact_pipeline: gate
-        download_artifact_job: openafs-rpm-package-build-centos-7-x86
-        download_artifact_directory: '{{ zuul.executor.work_root }}'
-
-    - name: Extract centos 7 x86
-      unarchive:
-        src: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
-        dest: '{{ zuul.executor.work_root }}/artifacts/openafs/centos7'
-
-    - name: Remove artifact
-      file:
-        state: absent
-        path: '{{ zuul.executor.work_root }}/openafs-rpms.tar.gz'
 
     #
     # CentOS 8
