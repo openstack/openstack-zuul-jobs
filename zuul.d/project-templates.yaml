@@ -659,6 +659,11 @@
             branches:
               - stable/2024.1
               - master
+        # py3.12 testing is added as non voting from 2024.2 release onwards.
+        - openstack-tox-py312:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
@@ -724,6 +729,11 @@
             branches:
               - stable/2024.1
               - master
+        # py3.12 testing is added as non voting from 2024.2 release onwards.
+        - openstack-tox-py312:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
@@ -817,6 +827,11 @@
             branches:
               - stable/2024.1
               - master
+        # py3.12 testing is added as non voting from 2024.2 release onwards.
+        - openstack-tox-py312:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -922,6 +937,11 @@
             branches:
               - stable/2024.1
               - master
+        # py3.12 testing is added as non voting from 2024.2 release onwards.
+        - openstack-tox-py312:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -1027,6 +1047,11 @@
             branches:
               - stable/2024.1
               - master
+        # py3.12 testing is added as non voting from 2024.2 release onwards.
+        - openstack-tox-py312:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
