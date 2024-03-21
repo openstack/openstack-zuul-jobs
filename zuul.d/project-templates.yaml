@@ -763,7 +763,9 @@
       jobs:
         # NOTE(gmann): We can remove the periodic py3.10 job once
         # the master testing runtime does not include it to test.
-        - openstack-tox-py310
+        - openstack-tox-py310:
+            branches:
+              - master
     post:
       jobs:
         - publish-openstack-python-branch-tarball
@@ -872,6 +874,8 @@
         # NOTE(gmann): We can remove the periodic py3.10 job once
         # the master testing runtime does not include it to test.
         - openstack-tox-py310:
+            branches:
+              - master
             required-projects:
               - openstack/horizon
     post:
@@ -982,6 +986,8 @@
         # NOTE(gmann): We can remove the periodic py3.10 job once
         # the master testing runtime does not include it to test.
         - openstack-tox-py310:
+            branches:
+              - master
             required-projects:
               - openstack/neutron
     post:
@@ -1092,6 +1098,8 @@
         # NOTE(gmann): We can remove the periodic py3.10 job once
         # the master testing runtime does not include it to test.
         - openstack-tox-py310:
+            branches:
+              - master
             required-projects:
               - openstack/ceilometer
     post:
