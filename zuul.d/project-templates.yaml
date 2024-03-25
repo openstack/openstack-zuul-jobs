@@ -1174,8 +1174,11 @@
             branches:
               - stable/2023.2
               - master
+        # NOTE(gmann): py310 job is required to run for 2023.2 release.
         - openstack-tox-py310-arm64:
             voting: false
+            branches:
+              - stable/2023.2
         # py3.11 testing is added from 2023.2 release onwards
         - openstack-tox-py311-arm64:
             voting: false
