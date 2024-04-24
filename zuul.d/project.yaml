@@ -28,10 +28,6 @@
             files:
               - playbooks/wheel-cache
               - roles/build-wheel-cache
-        - build-wheel-cache-ubuntu-xenial:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
         - build-wheel-cache-ubuntu-bionic:
             files:
               - playbooks/wheel-cache
