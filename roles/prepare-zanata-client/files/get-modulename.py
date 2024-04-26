@@ -45,7 +45,7 @@ def split_multiline(value):
 
 
 def read_config(path):
-    parser = configparser.SafeConfigParser()
+    parser = configparser.ConfigParser()
     parser.read(path)
 
     config = {}
