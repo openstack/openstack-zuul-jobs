@@ -297,19 +297,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-puppet-lint
-    parent: legacy-base
-    run: playbooks/legacy/puppet-lint/run.yaml
-    timeout: 1800
-    nodeset: ubuntu-xenial
-
-- job:
-    name: legacy-puppet-openstack-infra-spec-helper-unit
-    parent: legacy-base
-    run: playbooks/legacy/puppet-openstack-infra-spec-helper-unit/run.yaml
-    timeout: 3600
-
-- job:
     name: legacy-sandbox-tag
     parent: legacy-base
     run: playbooks/legacy/sandbox-tag/run.yaml
