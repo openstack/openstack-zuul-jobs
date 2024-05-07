@@ -4,17 +4,6 @@
 #    https://opendev.org/zuul/zuul-jobs
 
 - job:
-    name: tox-py35-on-zuul
-    parent: tox-py35
-    nodeset: ubuntu-xenial
-    description: |
-      Run zuul's py35 unittests on patches to zuul-jobs.
-    vars:
-      zuul_work_dir: src/opendev.org/zuul/zuul
-    required-projects:
-      - zuul/zuul
-
-- job:
     name: openstack-tox
     abstract: true
     parent: tox-fips
@@ -1481,13 +1470,8 @@
       - ^roles/prepare-zanata-client/.*
       - ^tests/.*
 
-# NOTE(ianw): This test restricted to the two node types these roles
+# NOTE(ianw): This test restricted to the node type these roles
 # run on in the gate.
-- job:
-    name: openstack-infra-extra-integration-xenial
-    parent: openstack-infra-extra-integration
-    nodeset: ubuntu-xenial
-
 - job:
     name: openstack-infra-extra-integration-bionic
     parent: openstack-infra-extra-integration

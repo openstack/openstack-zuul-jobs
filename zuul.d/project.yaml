@@ -13,7 +13,6 @@
         - openafs-rpm-package-build-centos-8-stream-arm64
         - openafs-rpm-package-build-centos-9-stream-x86
         - openafs-rpm-package-build-centos-9-stream-arm64
-        - openstack-infra-extra-integration-xenial
         - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters
         - build-wheel-cache-centos-8-stream:
