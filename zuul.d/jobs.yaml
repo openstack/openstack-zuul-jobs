@@ -277,7 +277,7 @@
       Uses tox with the ``py310`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      regex: ^stable/(yoga|zed)$
+      regex: ^.*/(yoga|zed)$
       negate: true
     vars:
       tox_envlist: py310
@@ -422,7 +422,7 @@
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -488,7 +488,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -505,11 +505,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-focal
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
     vars:
       tox_envlist: functional
 
@@ -524,7 +520,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
       negate: true
     vars:
       tox_envlist: functional
@@ -542,11 +538,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-focal
     branches:
-      - stable/victoria
-      - stable/wallaby
-      - stable/xena
-      - stable/yoga
-      - stable/zed
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
     vars:
       tox_envlist: functional
 
