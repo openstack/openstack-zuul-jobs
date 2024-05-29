@@ -5,7 +5,6 @@
     post-run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-nova/post.yaml
     timeout: 4200
     required-projects:
-      - openstack/devstack-gate
       - openstack/barbican
       - openstack/barbican-tempest-plugin
       - openstack/castellan
@@ -22,7 +21,6 @@
     timeout: 10800
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/cinder
 
 - job:
@@ -36,7 +34,6 @@
     timeout: 10800
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/cinder
 
 - job:
@@ -47,7 +44,6 @@
     timeout: 10800
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/cinder
 
 - job:
@@ -58,7 +54,6 @@
     timeout: 10800
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/neutron
 
 - job:
@@ -69,7 +64,6 @@
     timeout: 7500
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/neutron-fwaas
 
@@ -81,7 +75,6 @@
     timeout: 10800
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/keystoneauth
       - openstack/neutron
       - openstack/neutron-lib
@@ -101,7 +94,6 @@
     timeout: 7500
     required-projects:
       - openstack/grenade
-      - openstack/devstack-gate
       - openstack/neutron
 
 - job:
@@ -111,7 +103,6 @@
     post-run: playbooks/legacy/group-based-policy-dsvm-aim/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - x/group-based-policy
       - x/group-based-policy-automation
       - x/group-based-policy-ui
@@ -124,7 +115,6 @@
     post-run: playbooks/legacy/group-based-policy-dsvm-functional/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - x/group-based-policy
       - x/group-based-policy-automation
       - x/group-based-policy-ui
@@ -137,7 +127,6 @@
     post-run: playbooks/legacy/group-based-policy-dsvm-nfp/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - x/group-based-policy
       - x/group-based-policy-automation
       - x/group-based-policy-ui
@@ -171,7 +160,6 @@
     post-run: playbooks/legacy/keystoneclient-dsvm-functional/post.yaml
     timeout: 4200
     required-projects:
-      - openstack/devstack-gate
       - openstack/keystone
       - openstack/python-keystoneclient
 
@@ -182,7 +170,6 @@
     post-run: playbooks/legacy/kingbird-dsvm-multiregion/post.yaml
     timeout: 5400
     required-projects:
-      - openstack/devstack-gate
       - x/kingbird
 
 
@@ -245,7 +232,6 @@
     post-run: playbooks/legacy/neutron-dsvm-api-pecan/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
 
 - job:
@@ -255,7 +241,6 @@
     post-run: playbooks/legacy/neutronclient-test-dsvm-functional/post.yaml
     timeout: 4200
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/python-neutronclient
 
@@ -266,7 +251,6 @@
     post-run: playbooks/legacy/neutronclient-test-dsvm-functional-adv-svcs/post.yaml
     timeout: 4200
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/python-neutronclient
 
@@ -291,7 +275,6 @@
     timeout: 7800
     branches: master
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/neutron-dynamic-routing
       - openstack/tempest
@@ -309,7 +292,6 @@
     post-run: playbooks/legacy/scalpels-dsvm-neutron/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - x/scalpels
 
@@ -320,7 +302,6 @@
     post-run: playbooks/legacy/tempest-almanach-dsvm/post.yaml
     timeout: 4200
     required-projects:
-      - openstack/devstack-gate
       - x/almanach
       - openstack/tempest
 
@@ -331,7 +312,6 @@
     post-run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-glance_store/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/devstack-plugin-ceph
       - openstack/glance
       - openstack/glance_store
@@ -344,7 +324,6 @@
     post-run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-os-brick/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/devstack-plugin-ceph
       - openstack/os-brick
       - openstack/tempest
@@ -357,7 +336,6 @@
     timeout: 10800
     required-projects:
       - openstack/devstack
-      - openstack/devstack-gate
       - openstack/devstack-plugin-nfs
       - openstack/tempest
 
@@ -369,7 +347,6 @@
     timeout: 10800
     required-projects:
       - openstack/devstack
-      - openstack/devstack-gate
       - x/drbd-devstack
       - openstack/tempest
 
@@ -380,7 +357,6 @@
     post-run: playbooks/legacy/tempest-dsvm-full-hdfs/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - x/devstack-plugin-hdfs
       - openstack/tempest
 
@@ -391,7 +367,6 @@
     post-run: playbooks/legacy/tempest-dsvm-full-lio-src-os-brick/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/os-brick
       - openstack/tempest
 
@@ -402,7 +377,6 @@
     post-run: playbooks/legacy/tempest-dsvm-lvm-multibackend/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/tempest
 
 - job:
@@ -412,7 +386,6 @@
     post-run: playbooks/legacy/tempest-dsvm-lxd-linuxbridge/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - x/nova-lxd
       - openstack/tempest
 
@@ -423,7 +396,6 @@
     post-run: playbooks/legacy/tempest-dsvm-lxd-ovs/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - x/nova-lxd
       - openstack/tempest
 
@@ -434,7 +406,6 @@
     post-run: playbooks/legacy/tempest-dsvm-monasca-transform-python-functional/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - openstack/monasca-agent
       - openstack/monasca-api
       - openstack/monasca-common
@@ -455,7 +426,6 @@
     post-run: playbooks/legacy/tempest-dsvm-monasca-transform-python35-functional/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - openstack/monasca-agent
       - openstack/monasca-api
       - openstack/monasca-common
@@ -476,7 +446,6 @@
     post-run: playbooks/legacy/tempest-dsvm-multibackend-matrix/post.yaml
     timeout: 3600
     required-projects:
-      - openstack/devstack-gate
       - openstack/devstack-plugin-ceph
       - openstack/devstack-plugin-nfs
       - openstack/tempest
@@ -488,7 +457,6 @@
     post-run: playbooks/legacy/tempest-dsvm-multinode-full/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/tempest
     nodeset: legacy-ubuntu-xenial-2-node
 
@@ -499,7 +467,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
 
@@ -510,7 +477,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-full/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
 
@@ -521,7 +487,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-pecan/post.yaml
     timeout: 7800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
 
@@ -532,7 +497,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-pg-full/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
 
@@ -543,7 +507,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-src/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
       - openstack/neutron-lib
@@ -571,7 +534,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-src-oslo.versionedobjects/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/oslo.versionedobjects
       - openstack/tempest
@@ -583,7 +545,6 @@
     post-run: playbooks/legacy/tempest-dsvm-neutron-with-ryu-master/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/neutron
       - openstack/tempest
 
@@ -594,7 +555,6 @@
     post-run: playbooks/legacy/tempest-dsvm-nova-v20-api/post.yaml
     timeout: 10800
     required-projects:
-      - openstack/devstack-gate
       - openstack/nova
       - openstack/tempest
 
@@ -605,5 +565,4 @@
     post-run: playbooks/legacy/trio2o-dsvm-functional/post.yaml
     timeout: 5400
     required-projects:
-      - openstack/devstack-gate
       - x/trio2o

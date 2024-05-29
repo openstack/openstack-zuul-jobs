@@ -1141,7 +1141,6 @@
     pre-run: playbooks/legacy/pre.yaml
     required-projects:
       - openstack/devstack
-      - openstack/devstack-gate
       - openstack/tripleo-ci
       - openstack/ceilometer
       - openstack/ceilometermiddleware
