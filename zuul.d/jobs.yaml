@@ -340,7 +340,7 @@
 - job:
     name: openstack-tox-py312
     parent: openstack-tox
-    nodeset: debian-bookworm
+    nodeset: ubuntu-noble
     timeout: 2400
     description: |
 
@@ -653,7 +653,7 @@
 - job:
     name: openstack-tox-functional-py312
     parent: openstack-tox
-    nodeset: debian-bookworm
+    nodeset: ubuntu-noble
     description: |
       Run tox-based functional tests for an OpenStack Python project
       under cPython version 3.12.
