@@ -9,8 +9,6 @@
         - project-config-grafana:
             files:
               - playbooks/grafana
-        - openafs-rpm-package-build-centos-8-stream-x86
-        - openafs-rpm-package-build-centos-8-stream-arm64
         - openafs-rpm-package-build-centos-9-stream-x86
         - openafs-rpm-package-build-centos-9-stream-arm64
         - openstack-infra-extra-integration-bionic
@@ -67,8 +65,6 @@
               - roles/build-wheel-cache
     gate:
       jobs:
-        - openafs-rpm-package-build-centos-8-stream-x86
-        - openafs-rpm-package-build-centos-8-stream-arm64
         - openafs-rpm-package-build-centos-9-stream-x86
         - openafs-rpm-package-build-centos-9-stream-arm64
         - openstack-zuul-jobs-linters
