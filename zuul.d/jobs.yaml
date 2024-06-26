@@ -368,6 +368,18 @@
       python_version: '3.12'
 
 - job:
+    name: openstack-tox-py312-arm64
+    parent: openstack-tox-py312
+    nodeset: ubuntu-noble-arm64
+    timeout: 3600
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.12 on top of arm64 architecture.
+
+      Uses tox with the ``py312`` environment in arm64 platform.
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
