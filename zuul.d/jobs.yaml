@@ -380,6 +380,36 @@
       Uses tox with the ``py312`` environment in arm64 platform.
 
 - job:
+    name: openstack-tox-py313
+    parent: openstack-tox
+    nodeset: ubuntu-noble
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.13.
+
+      Uses tox with the ``py313`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: py313
+      bindep_profile: test py313
+      python_use_pyenv: True
+      python_version: '3.13'
+
+- job:
+    name: openstack-tox-py313-arm64
+    parent: openstack-tox-py313
+    nodeset: ubuntu-noble-arm64
+    timeout: 3600
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.13 on top of arm64 architecture.
+
+      Uses tox with the ``py313`` environment in arm64 platform.
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
