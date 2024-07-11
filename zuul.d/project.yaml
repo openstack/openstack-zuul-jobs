@@ -13,10 +13,6 @@
         - openafs-rpm-package-build-centos-9-stream-arm64
         - openstack-infra-extra-integration-bionic
         - openstack-zuul-jobs-linters
-        - build-wheel-cache-centos-8-stream:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
         - build-wheel-cache-centos-9-stream:
             files:
               - playbooks/wheel-cache
@@ -39,10 +35,6 @@
               - roles/build-wheel-cache
     check-arm64:
       jobs:
-        - build-wheel-cache-centos-8-stream-arm64:
-            files:
-              - playbooks/wheel-cache
-              - roles/build-wheel-cache
         - build-wheel-cache-centos-9-stream-arm64:
             files:
               - playbooks/wheel-cache
