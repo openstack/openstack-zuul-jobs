@@ -659,28 +659,6 @@
       python_version: '3.12'
 
 - job:
-    name: openstack-tox-functional-py36-fips
-    parent: openstack-tox-functional-py36
-    nodeset: devstack-single-node-centos-8-stream
-    description: |
-      Functional testing for a FIPS enabled Centos 8 system
-    pre-run: playbooks/fips/enable-fips.yaml
-    vars:
-      nslookup_target: 'opendev.org'
-      enable_fips: True
-
-- job:
-    name: openstack-tox-functional-py38-fips
-    parent: openstack-tox-functional-py38
-    nodeset: devstack-single-node-centos-8-stream
-    description: |
-      Functional testing for a FIPS enabled Centos 8 system
-    pre-run: playbooks/fips/enable-fips.yaml
-    vars:
-      nslookup_target: 'opendev.org'
-      enable_fips: True
-
-- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
@@ -1305,16 +1283,6 @@
     files: &afs-files
       - playbooks/openafs-rpm-package-build
       - roles/openafs-rpm-package-build
-
-- job:
-    name: openafs-rpm-package-build-centos-8-stream-x86
-    parent: openafs-rpm-package-build
-    nodeset: centos-8-stream
-
-- job:
-    name: openafs-rpm-package-build-centos-8-stream-arm64
-    parent: openafs-rpm-package-build
-    nodeset: centos-8-stream-arm64
 
 - job:
     name: openafs-rpm-package-build-centos-9-stream-x86
