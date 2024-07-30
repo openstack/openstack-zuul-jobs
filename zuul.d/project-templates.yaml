@@ -622,66 +622,44 @@
 
 - project-template:
     name: openstack-python3-charm-jobs
-    # NOTE(gmann): We are using this generic template for python version
-    # testing. When a new development cycle starts, we need to do two things:
-    # 1. Update this template for the python version jobs as per the
-    #    new development cycle tetsing runtime defined by TC
-    #    https://governance.openstack.org/tc/reference/runtimes/
-    #    Use the 'branches' variant to run the applicable python version
-    #    jobs.
-    # 2. Make sure the previous cycle applicable jobs continue to run for
-    #    the new stable branch. Use the 'branches' variant to run the
-    #    applicable python version jobs.
+    # NOTE(coreycb,jamespage): This template is used in OpenStack Charms since
+    # stable/2023.1.  Charm unit tests should be aligned to the Python version
+    # found in the Ubuntu releases they support.
     #
-    # NOTE(coreycb): This template is used in openstack charms since
-    # stable/2023.1. While the stable/2023.1 and stable/2023.2 charm branches
-    # should support py311 unit tests, they do not. They need to continue
-    # supporting py310.
+    #   Ubuntu 20.04 LTS - Python 3.8
+    #   Ubuntu 22.04 LTS - Python 3.10
+    #   Ubuntu 24.04 LTS - Python 3.12
+    #
+    # As this template is only used from stable/2023.1 onwards, the minimum
+    # Python version this template needs to support is Python 3.10 as early
+    # releases of the charms are configured directly in each repository.
+    #
+    # This template should *not* be updated in-line with the agreed testing
+    # runtimes for the rest of the OpenStack projects.
     description: |
       Runs unit tests for an OpenStack Charm project under the CPython
       version 3 releases designated for testing the latest release.
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py38:
-            branches:
-              - stable/2023.1
-              - stable/2023.2
-              - stable/2024.1
-        - openstack-tox-py39:
-            branches:
-              - master
         - openstack-tox-py310:
             branches:
               - stable/2023.1
               - stable/2023.2
-        - openstack-tox-py311:
-            branches:
               - stable/2024.1
-              - master
-        # py3.12 testing is added as non voting from 2024.2 release onwards.
         - openstack-tox-py312:
             branches:
               - master
-            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py38:
-            branches:
-              - stable/2023.1
-              - stable/2023.2
-              - stable/2024.1
-        - openstack-tox-py39:
-            branches:
-              - master
         - openstack-tox-py310:
             branches:
               - stable/2023.1
               - stable/2023.2
-        - openstack-tox-py311:
-            branches:
               - stable/2024.1
+        - openstack-tox-py312:
+            branches:
               - master
 
 - project-template:
