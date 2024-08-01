@@ -3,7 +3,6 @@
     path: "{{ zuul_work_dir }}/tools/tox_install.sh"
     get_checksum: false
     get_mime: false
-    get_md5: false
   register: tox_install
 
 - name: Require Constraints File
