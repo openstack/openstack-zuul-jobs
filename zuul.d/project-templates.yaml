@@ -690,6 +690,7 @@
         - openstack-tox-py39:
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -706,10 +707,12 @@
         - openstack-tox-py311:
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
         # py3.12 testing is added as non voting from 2024.2 release onwards.
         - openstack-tox-py312:
             branches:
+              - stable/2024.2
               - master
             voting: false
     gate:
@@ -725,6 +728,7 @@
         - openstack-tox-py39:
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -736,6 +740,7 @@
         - openstack-tox-py311:
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
     periodic:
       jobs:
@@ -784,6 +789,7 @@
               - openstack/horizon
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -806,10 +812,12 @@
               - openstack/horizon
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
         # py3.12 testing is added as non voting from 2024.2 release onwards.
         - openstack-tox-py312:
             branches:
+              - stable/2024.2
               - master
             voting: false
     gate:
@@ -831,6 +839,7 @@
               - openstack/horizon
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -846,6 +855,7 @@
               - openstack/horizon
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
     periodic:
       jobs:
@@ -896,6 +906,7 @@
               - openstack/neutron
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -918,10 +929,12 @@
               - openstack/neutron
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
         # py3.12 testing is added as non voting from 2024.2 release onwards.
         - openstack-tox-py312:
             branches:
+              - stable/2024.2
               - master
             voting: false
     gate:
@@ -943,6 +956,7 @@
               - openstack/neutron
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -958,6 +972,7 @@
               - openstack/neutron
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
     periodic:
       jobs:
@@ -1008,6 +1023,7 @@
               - openstack/ceilometer
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -1030,10 +1046,12 @@
               - openstack/ceilometer
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
         # py3.12 testing is added as non voting from 2024.2 release onwards.
         - openstack-tox-py312:
             branches:
+              - stable/2024.2
               - master
             voting: false
     gate:
@@ -1055,6 +1073,7 @@
               - openstack/ceilometer
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -1070,6 +1089,7 @@
               - openstack/ceilometer
             branches:
               - stable/2024.1
+              - stable/2024.2
               - master
     periodic:
       jobs:
@@ -1151,6 +1171,7 @@
             voting: false
             branches:
               - stable/2023.2
+              - stable/2024.2
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release.
         - openstack-tox-py310-arm64:
@@ -1163,6 +1184,7 @@
             branches:
               - stable/2023.2
               - stable/2024.1
+              - stable/2024.2
               - master
 
 - project-template:
@@ -2702,6 +2724,7 @@
         - upstream-translation-update:
             branches:
               - master
+              - stable/2024.2
               - stable/2024.1
               - stable/2023.2
               - stable/2023.1
@@ -2711,6 +2734,7 @@
         - propose-translation-update:
             branches:
               - master
+              - stable/2024.2
               - stable/2024.1
               - stable/2023.2
               - stable/2023.1
@@ -2829,6 +2853,7 @@
               - stable/2023.1
               - stable/2023.2
               - stable/2024.1
+              - stable/2024.2
         - openstack-tox-py36:
             branches:
               - stable/victoria
@@ -2848,6 +2873,7 @@
         - openstack-tox-py39:
             branches:
               - stable/zed
+              - stable/2024.2
         - openstack-tox-py310:
             branches:
               - stable/2023.1
@@ -2855,6 +2881,7 @@
         - openstack-tox-py311:
             branches:
               - stable/2024.1
+              - stable/2024.2
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -2875,6 +2902,7 @@
               - stable/2023.1
               - stable/2023.2
               - stable/2024.1
+              - stable/2024.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py36:
@@ -2900,6 +2928,7 @@
         - openstack-tox-py39:
             branches:
               - stable/zed
+              - stable/2024.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py310:
@@ -2911,6 +2940,7 @@
         - openstack-tox-py311:
             branches:
               - stable/2024.1
+              - stable/2024.2
             required-projects:
               - openstack/neutron
 
@@ -2933,6 +2963,7 @@
               - stable/2023.1
               - stable/2023.2
               - stable/2024.1
+              - stable/2024.2
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py36:
@@ -2958,6 +2989,7 @@
         - openstack-tox-py39:
             branches:
               - stable/zed
+              - stable/2024.2
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py310:
@@ -2969,6 +3001,7 @@
         - openstack-tox-py311:
             branches:
               - stable/2024.1
+              - stable/2024.2
             required-projects:
               - openstack/ceilometer
 
