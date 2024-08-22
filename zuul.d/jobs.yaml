@@ -1078,6 +1078,7 @@
       regex: ^driverfixes/.*$
       negate: true
     parent: build-reno-releasenotes
+    nodeset: ubuntu-jammy
     description: |
       Build releasenotes, with optional translation support, using reno.
     # Building translated releasenotes can take long for large repositories
