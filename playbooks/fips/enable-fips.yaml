@@ -1,7 +1,7 @@
-- name: playbook to enable fips
+- name: Playbook to enable fips
   hosts: all
   tasks:
-    - name: enable fips
+    - name: Enable fips
       include_role:
         name: enable-fips
       when: enable_fips | default(false)

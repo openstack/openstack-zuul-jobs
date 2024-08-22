@@ -75,7 +75,7 @@
       tar cvzf openafs-rpms.tar.gz RPMS
 
 - name: Copy built rpms
-  synchronize:
+  ansible.posix.synchronize:
     src: '{{ ansible_user_dir }}/rpmbuild/'
     dest: '{{ zuul.executor.log_root }}'
     mode: pull

@@ -1,4 +1,5 @@
-- hosts: all
+- name: Fetch JavaScript Tarball
+  hosts: all
   roles:
     - version-from-git
     - fetch-javascript-tarball

@@ -1,4 +1,5 @@
-- hosts: all
+- name: Setup Wheel Cache Build Environment
+  hosts: all
   roles:
     - bindep
 

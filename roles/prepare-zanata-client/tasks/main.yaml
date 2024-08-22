@@ -63,7 +63,7 @@
 - name: Ensure zanata-cli perms
   file:
     path: "/opt/zanata/zanata-cli-{{ zanata_client_version }}/bin/zanata-cli"
-    mode: 0755
+    mode: '0755'
 
 - name: Link zanata-cli
   file:
@@ -74,7 +74,7 @@
 
 # This is a preview module in Ansible 2.3. It may not work.
 - name: Import cert to java keystore
-  java_cert:
+  community.general.java_cert:
     cert_url: "{{ zanata_api_credentials.fqdn }}"
     keystore_path: /etc/ssl/certs/java/cacerts
     keystore_pass: changeit
@@ -85,7 +85,7 @@
 - name: Set permissions for cacert
   file:
     path: /etc/ssl/certs/java/cacerts
-    mode: 0644
+    mode: '0644'
   become: true
 
 - name: Ensure zanata config dir
@@ -102,7 +102,7 @@
   copy:
     dest: '{{ ansible_user_dir }}/scripts/'
     src: '{{ item }}'
-    mode: 0755
+    mode: '0755'
   with_items:
     - common_translation_update.sh
     - create-zanata-xml.py

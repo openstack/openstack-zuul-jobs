@@ -1,5 +1,5 @@
-- hosts: all
-  name: Set up SSH login
+- name: Set up SSH login
+  hosts: all
   tasks:
 
     - name: Allow ssh login into localhost

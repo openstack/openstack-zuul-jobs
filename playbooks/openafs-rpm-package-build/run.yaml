@@ -1,3 +1,4 @@
-- hosts: all
+- name: Build AFS RPM Package
+  hosts: all
   roles:
     - openafs-rpm-package-build

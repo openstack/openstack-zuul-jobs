@@ -3,10 +3,12 @@
 # If you add new tests, also update the files section in job
 # base-integration in zuul.d/jobs.yaml.
 
-- hosts: all
+- name: Ensure Output Dirs
+  hosts: all
   roles:
     - ensure-output-dirs
 
-- hosts: all
+- name: Fetch Output
+  hosts: all
   roles:
     - fetch-output

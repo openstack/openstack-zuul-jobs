@@ -1,4 +1,5 @@
-- hosts: all
+- name: Prepare PDF Build Environment
+  hosts: all
   roles:
     - role: prepare-build-pdf-docs
       when: not tox_skip_pdf

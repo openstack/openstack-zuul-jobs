@@ -8,7 +8,8 @@
 #
 # [1] https://review.opendev.org/c/openstack/project-config/+/872476
 
-- hosts: all
+- name: Install Python2 Dependencies
+  hosts: all
   become: true
   tasks:
     - name: Install Python 2.7

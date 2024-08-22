@@ -1,4 +1,5 @@
-- hosts: all
+- name: Build Infra Deb Package
+  hosts: all
   roles:
     - role: infra-deb-package-build
       vars:

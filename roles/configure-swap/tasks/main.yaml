@@ -30,7 +30,8 @@
 
 # If we have ephemeral storage and we don't appear to have setup swap,
 # we will create a swap and move /opt to a large data partition there.
-- include_tasks: ephemeral.yaml
+- name: Setup swap on ephemeral storage
+  include_tasks: ephemeral.yaml
   when:
     - ephemeral_device is defined
     - ansible_memory_mb['swap']['total'] | int + 10 <= configure_swap_size
@@ -38,7 +39,8 @@
 # If no ephemeral device and no swap, then we will setup some swap
 # space on the root device to ensure all hosts a consistent memory
 # environment.
-- include_tasks: root.yaml
+- name: Setup swap file on root device
+  include_tasks: root.yaml
   when:
     - ephemeral_device is undefined
     - ansible_memory_mb['swap']['total'] | int + 10 <= configure_swap_size
@@ -55,10 +57,11 @@
 # cloud I/O based swap during our runs if we can help it
 - name: Set swappiness
   become: yes
-  sysctl:
+  ansible.posix.sysctl:
     name: vm.swappiness
     value: 30
     state: present
 
 - name: Debug the ephemeral_device variable
-  debug: var=ephemeral_device
+  debug:
+    var: ephemeral_device

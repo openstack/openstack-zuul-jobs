@@ -1,4 +1,5 @@
-- hosts: all
+- name: Fetch Puppet Module Output
+  hosts: all
   roles:
     - fetch-puppet-module-output
 

@@ -1,4 +1,5 @@
-- hosts: all
+- name: Check Xstatic Library Version
+  hosts: all
   tasks:
     - name: Copy version check script
       copy:

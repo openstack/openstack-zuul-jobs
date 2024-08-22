@@ -1,4 +1,5 @@
-- hosts: all
+- name: Push Deb to Infra PPA
+  hosts: all
   roles:
     - role: infra-deb-ppa-push
       vars:

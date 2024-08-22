@@ -1,4 +1,5 @@
-- hosts: all
+- name: Run Golang Tests
+  hosts: all
 
   tasks:
     - name: Run golang tests

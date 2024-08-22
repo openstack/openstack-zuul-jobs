@@ -1,4 +1,5 @@
-- hosts: all
+- name: Send Release Announcement
+  hosts: all
   tasks:
     - name: Send release announcement
       command: >

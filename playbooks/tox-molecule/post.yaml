@@ -1,4 +1,5 @@
-- hosts: all
+- name: Return Molecule Report As Zuul Artifact
+  hosts: all
   tasks:
     - name: Return artifact to Zuul
       zuul_return:

@@ -2,7 +2,7 @@
   hosts: all
   tasks:
 
-    - name: install docker
+    - name: Install docker
       include_role:
         name: ensure-docker
 
@@ -13,16 +13,16 @@
 
     - name: Make environment vars
       set_fact:
-        SECRETS_DIR: '{{ ansible_user_dir }}/grafana-secrets'
-        GRAFYAML_DIR: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/project-config'].src_dir }}/grafana"
-        SCREENSHOTS: '{{ ansible_user_dir }}/screenshots'
+        SECRETS_DIR: '{{ ansible_user_dir }}/grafana-secrets'  # noqa: var-naming[pattern]
+        GRAFYAML_DIR: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/project-config'].src_dir }}/grafana"  # noqa: var-naming[pattern]
+        SCREENSHOTS: '{{ ansible_user_dir }}/screenshots'  # noqa: var-naming[pattern]
         # NOTE(ianw) : screenshots are 1920 x this height.  This means
         # it is about the right width to see easily.  5000 is a
         # generic compromise; a bit long for some graphs, but it's
         # just a solid black that compresses well in the .pngs.  If
         # required we can key each graph to individual heights with a
         # config file or something some other time.
-        SCREENSHOT_HEIGHT: '5000'
+        SCREENSHOT_HEIGHT: '5000'  # noqa: var-naming[pattern]
 
     # Initial sanity check
     - name: Explicitly validate dashboards
@@ -33,7 +33,7 @@
               --entrypoint /usr/local/bin/grafana-dashboard \
                 docker.io/opendevorg/grafyaml --debug validate /grafana
 
-    - name: install pip
+    - name: Install pip
       include_role:
         name: ensure-pip
 
@@ -57,7 +57,7 @@
 
     - name: Run grafana
       become: true
-      docker_container:
+      community.docker.docker_container:
         name: grafana-opendev_test
         image: "docker.io/grafana/grafana-oss"
         state: started
@@ -73,7 +73,7 @@
 
     - name: Run selenium
       become: true
-      docker_container:
+      community.docker.docker_container:
         name: selenium-firefox
         state: started
         image: "docker.io/selenium/standalone-firefox"
@@ -127,7 +127,7 @@
       loop: "{{ _dashboards.json | map(attribute='url') | list }}"
 
     - name: Copy output
-      synchronize:
+      ansible.posix.synchronize:
         src: '{{ SCREENSHOTS }}'
         dest: '{{ zuul.executor.log_root }}'
         mode: pull

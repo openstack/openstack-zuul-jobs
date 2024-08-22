@@ -1,4 +1,5 @@
-- hosts: all
+- name: Build PDF Docs
+  hosts: all
   roles:
     - revoke-sudo
     - tox

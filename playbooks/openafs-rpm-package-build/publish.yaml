@@ -1,4 +1,5 @@
-- hosts: localhost
+- name: Process AFS RPM Packages
+  hosts: localhost
   tasks:
     - name: Ensure artifacts directories exist
       file:

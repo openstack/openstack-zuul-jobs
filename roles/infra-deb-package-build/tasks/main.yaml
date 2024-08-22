@@ -62,7 +62,7 @@
       tar czf {{ infra_deb_project }}-debs.tar.gz ./{{ infra_deb_project }}
 
 - name: Copy built packages
-  synchronize:
+  ansible.posix.synchronize:
     src: '{{ ansible_user_dir }}/{{ infra_deb_project }}-debs.tar.gz'
     dest: '{{ zuul.executor.log_root }}'
     mode: pull

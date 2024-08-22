@@ -17,7 +17,8 @@
         root_filesystem: "{{ root_fs.stdout }}"
 
     - name: Debug the root_filesystem variable
-      debug: var=root_filesystem
+      debug:
+        var: root_filesystem
 
 # Note, we don't use a sparse device to avoid wedging when disk space
 # and memory are both unavailable.
@@ -34,7 +35,7 @@
     path: /root/swapfile
     owner: root
     group: root
-    mode: 0600
+    mode: '0600'
 
 - name: Make swapfile
   become: yes
@@ -42,7 +43,7 @@
 
 - name: Write swap to fstab
   become: yes
-  mount:
+  ansible.posix.mount:
     path: none
     src: /root/swapfile
     fstype: swap
@@ -56,4 +57,5 @@
   command: swapon -a
 
 - name: Debug the swap_required variable
-  debug: var=swap_required
+  debug:
+    var: swap_required

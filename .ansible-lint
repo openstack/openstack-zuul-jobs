@@ -18,6 +18,8 @@ skip_list:
   - yaml[truthy] # "yes" is ok
 use_default_rules: true
 verbosity: 1
+mock_modules:
+  - zuul_return
 
 # Local variables:
 # mode: yaml

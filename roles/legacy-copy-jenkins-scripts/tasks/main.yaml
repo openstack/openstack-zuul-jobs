@@ -8,7 +8,7 @@
   copy:
     dest: '/usr/local/jenkins/slave_scripts/'
     src: '{{ item }}'
-    mode: 0755
+    mode: '0755'
   with_items:
     - install-distro-packages.sh
     - jenkinsci-upload.sh

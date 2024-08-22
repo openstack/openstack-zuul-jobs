@@ -1451,7 +1451,6 @@
       - openstack/project-config
       - opendev/system-config
       - zuul/zuul-jobs
-    nodeset: ubuntu-jammy
     vars:
       tox_envlist: linters
       tox_environment:
