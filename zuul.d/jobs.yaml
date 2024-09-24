@@ -1235,20 +1235,6 @@
       - openstack/zaqar
 
 - job:
-    name: legacy-dsvm-base-multinode
-    abstract: true
-    parent: legacy-dsvm-base
-    description: |
-      Base job (bionic) for multinode devstack jobs.
-
-      Will setup firewall rules on all the nodes allowing them to talk to
-      each other. This job runs on Bionic from stable/stein on.
-    roles:
-      - zuul: zuul/zuul-jobs
-    pre-run: playbooks/legacy/multinode-networking/pre.yaml
-    nodeset: legacy-ubuntu-bionic-2-node
-
-- job:
     name: legacy-publish-openstack-artifacts
     abstract: true
     parent: publish-openstack-artifacts

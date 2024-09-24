@@ -1,102 +1,4 @@
 - job:
-    name: legacy-barbican-simple-crypto-dsvm-tempest-nova
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-nova/run.yaml
-    post-run: playbooks/legacy/barbican-simple-crypto-dsvm-tempest-nova/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack/barbican
-      - openstack/barbican-tempest-plugin
-      - openstack/castellan
-      - x/cursive
-      - openstack/nova
-      - openstack/python-barbicanclient
-      - openstack/tempest
-
-- job:
-    name: legacy-grenade-dsvm-cinder-mn-sub-bak
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-bak/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/cinder
-
-- job:
-    name: legacy-grenade-dsvm-cinder-mn-sub-volbak
-    parent: legacy-dsvm-base-multinode
-    branches:
-      regex: ^driverfixes.*$
-      negate: true
-    run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volbak/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/cinder
-
-- job:
-    name: legacy-grenade-dsvm-cinder-mn-sub-volschbak
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volschbak/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-cinder-mn-sub-volschbak/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/cinder
-
-- job:
-    name: legacy-grenade-dsvm-neutron-forward
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-neutron-forward/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-forward/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/neutron
-
-- job:
-    name: legacy-grenade-dsvm-neutron-fwaas-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-neutron-fwaas-multinode/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-fwaas-multinode/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack/grenade
-      - openstack/neutron
-      - openstack/neutron-fwaas
-
-- job:
-    name: legacy-grenade-dsvm-neutron-libs
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/grenade-dsvm-neutron-libs/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-libs/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/grenade
-      - openstack/keystoneauth
-      - openstack/neutron
-      - openstack/neutron-lib
-      - openstack/os-client-config
-      - openstack/python-cinderclient
-      - openstack/python-glanceclient
-      - openstack/python-ironicclient
-      - openstack/python-keystoneclient
-      - openstack/python-neutronclient
-      - openstack/python-novaclient
-
-- job:
-    name: legacy-grenade-dsvm-neutron-linuxbridge-multinode
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/grenade-dsvm-neutron-linuxbridge-multinode/run.yaml
-    post-run: playbooks/legacy/grenade-dsvm-neutron-linuxbridge-multinode/post.yaml
-    timeout: 7500
-    required-projects:
-      - openstack/grenade
-      - openstack/neutron
-
-- job:
     name: legacy-group-based-policy-dsvm-aim
     parent: legacy-dsvm-base
     run: playbooks/legacy/group-based-policy-dsvm-aim/run.yaml
@@ -154,16 +56,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-keystoneclient-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/keystoneclient-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/keystoneclient-dsvm-functional/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack/keystone
-      - openstack/python-keystoneclient
-
-- job:
     name: legacy-kingbird-dsvm-multiregion
     parent: legacy-dsvm-base
     run: playbooks/legacy/kingbird-dsvm-multiregion/run.yaml
@@ -171,20 +63,6 @@
     timeout: 5400
     required-projects:
       - x/kingbird
-
-
-- job:
-    name: legacy-monasca-api-localrepo-upload
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/monasca-api-localrepo-upload/run.yaml
-    post-run: playbooks/legacy/monasca-api-localrepo-upload/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-monasca-api-maven-build
-    parent: legacy-base
-    run: playbooks/legacy/monasca-api-maven-build/run.yaml
-    timeout: 1800
 
 - job:
     name: legacy-monasca-common-localrepo-upload
@@ -197,19 +75,6 @@
     name: legacy-monasca-common-maven-build
     parent: legacy-base
     run: playbooks/legacy/monasca-common-maven-build/run.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-monasca-persister-localrepo-upload
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/monasca-persister-localrepo-upload/run.yaml
-    post-run: playbooks/legacy/monasca-persister-localrepo-upload/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-monasca-persister-maven-build
-    parent: legacy-base
-    run: playbooks/legacy/monasca-persister-maven-build/run.yaml
     timeout: 1800
 
 - job:
@@ -226,35 +91,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-neutron-dsvm-api-pecan
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutron-dsvm-api-pecan/run.yaml
-    post-run: playbooks/legacy/neutron-dsvm-api-pecan/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/neutron
-
-- job:
-    name: legacy-neutronclient-test-dsvm-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutronclient-test-dsvm-functional/run.yaml
-    post-run: playbooks/legacy/neutronclient-test-dsvm-functional/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack/neutron
-      - openstack/python-neutronclient
-
-- job:
-    name: legacy-neutronclient-test-dsvm-functional-adv-svcs
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/neutronclient-test-dsvm-functional-adv-svcs/run.yaml
-    post-run: playbooks/legacy/neutronclient-test-dsvm-functional-adv-svcs/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack/neutron
-      - openstack/python-neutronclient
-
-- job:
     name: legacy-omni-tests
     parent: legacy-base
     run: playbooks/legacy/omni-tests/run.yaml
@@ -266,18 +102,6 @@
       - openstack/nova
       - openstack/glance_store
       - openstack/requirements
-
-- job:
-    name: legacy-periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4/run.yaml
-    post-run: playbooks/legacy/periodic-neutron-dynamic-routing-dsvm-tempest-with-ryu-master-scenario-ipv4/post.yaml
-    timeout: 7800
-    branches: master
-    required-projects:
-      - openstack/neutron
-      - openstack/neutron-dynamic-routing
-      - openstack/tempest
 
 - job:
     name: legacy-sandbox-tag
@@ -306,51 +130,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-full-ceph-plugin-src-glance_store
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-glance_store/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-glance_store/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-plugin-ceph
-      - openstack/glance
-      - openstack/glance_store
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-full-ceph-plugin-src-os-brick
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-os-brick/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-ceph-plugin-src-os-brick/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack-plugin-ceph
-      - openstack/os-brick
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-full-devstack-plugin-nfs
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-devstack-plugin-nfs/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-devstack-plugin-nfs/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack
-      - openstack/devstack-plugin-nfs
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-full-drbd-devstack
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-drbd-devstack/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-drbd-devstack/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/devstack
-      - x/drbd-devstack
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-full-hdfs
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-full-hdfs/run.yaml
@@ -358,25 +137,6 @@
     timeout: 10800
     required-projects:
       - x/devstack-plugin-hdfs
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-full-lio-src-os-brick
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-lio-src-os-brick/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-lio-src-os-brick/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/os-brick
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-lvm-multibackend
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-lvm-multibackend/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-lvm-multibackend/post.yaml
-    timeout: 10800
-    required-projects:
       - openstack/tempest
 
 - job:
@@ -400,26 +160,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-monasca-transform-python-functional
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-monasca-transform-python-functional/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-monasca-transform-python-functional/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/monasca-agent
-      - openstack/monasca-api
-      - openstack/monasca-common
-      - openstack/monasca-grafana-datasource
-      - openstack/monasca-notification
-      - openstack/monasca-persister
-      - openstack/monasca-statsd
-      - openstack/monasca-thresh
-      - openstack/monasca-transform
-      - openstack/monasca-ui
-      - openstack/python-monascaclient
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-monasca-transform-python35-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-monasca-transform-python35-functional/run.yaml
@@ -438,80 +178,3 @@
       - openstack/monasca-ui
       - openstack/python-monascaclient
       - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-multibackend-matrix
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-multibackend-matrix/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-multibackend-matrix/post.yaml
-    timeout: 3600
-    required-projects:
-      - openstack/devstack-plugin-ceph
-      - openstack/devstack-plugin-nfs
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-multinode-full
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-multinode-full/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-multinode-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/tempest
-    nodeset: legacy-ubuntu-xenial-2-node
-
-- job:
-    name: legacy-tempest-dsvm-neutron-dvr-multinode-full
-    parent: legacy-dsvm-base-multinode
-    run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-dvr-multinode-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-full
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-full/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-pecan
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-pecan/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-pecan/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-pg-full
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-pg-full/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-pg-full/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/neutron
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-neutron-src
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-src/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-src/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/neutron
-      - openstack/tempest
-      - openstack/neutron-lib
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^api-ref/.*$
-      - ^doc/.*$
-      - ^releasenotes/.*$
