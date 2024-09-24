@@ -48,19 +48,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-monasca-thresh-localrepo-upload
-    parent: legacy-publish-openstack-artifacts
-    run: playbooks/legacy/monasca-thresh-localrepo-upload/run.yaml
-    post-run: playbooks/legacy/monasca-thresh-localrepo-upload/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-monasca-thresh-maven-build
-    parent: legacy-base
-    run: playbooks/legacy/monasca-thresh-maven-build/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-tempest-dsvm-monasca-transform-python35-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-monasca-transform-python35-functional/run.yaml
