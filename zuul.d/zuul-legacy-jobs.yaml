@@ -528,17 +528,6 @@
 # central job again.
 
 - job:
-    name: legacy-tempest-dsvm-neutron-src-oslo.versionedobjects
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-neutron-src-oslo.versionedobjects/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-neutron-src-oslo.versionedobjects/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/neutron
-      - openstack/oslo.versionedobjects
-      - openstack/tempest
-
-- job:
     name: legacy-trio2o-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/trio2o-dsvm-functional/run.yaml
