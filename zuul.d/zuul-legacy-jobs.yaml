@@ -35,36 +35,6 @@
       - x/python-group-based-policy-client
 
 - job:
-    name: legacy-groups-release-branch
-    parent: legacy-base
-    run: playbooks/legacy/groups-release-branch/run.yaml
-    post-run: playbooks/legacy/groups-release-branch/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-groups-release-master
-    parent: legacy-base
-    run: playbooks/legacy/groups-release-master/run.yaml
-    post-run: playbooks/legacy/groups-release-master/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-groups-unittests
-    parent: legacy-base
-    run: playbooks/legacy/groups-unittests/run.yaml
-    post-run: playbooks/legacy/groups-unittests/post.yaml
-    timeout: 1800
-
-- job:
-    name: legacy-kingbird-dsvm-multiregion
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/kingbird-dsvm-multiregion/run.yaml
-    post-run: playbooks/legacy/kingbird-dsvm-multiregion/post.yaml
-    timeout: 5400
-    required-projects:
-      - x/kingbird
-
-- job:
     name: legacy-monasca-common-localrepo-upload
     parent: legacy-publish-openstack-artifacts
     run: playbooks/legacy/monasca-common-localrepo-upload/run.yaml
@@ -91,53 +61,10 @@
     timeout: 1800
 
 - job:
-    name: legacy-omni-tests
-    parent: legacy-base
-    run: playbooks/legacy/omni-tests/run.yaml
-    post-run: playbooks/legacy/omni-tests/post.yaml
-    timeout: 4200
-    required-projects:
-      - openstack/cinder
-      - openstack/neutron
-      - openstack/nova
-      - openstack/glance_store
-      - openstack/requirements
-
-- job:
     name: legacy-sandbox-tag
     parent: legacy-base
     run: playbooks/legacy/sandbox-tag/run.yaml
     timeout: 1800
-
-- job:
-    name: legacy-scalpels-dsvm-neutron
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/scalpels-dsvm-neutron/run.yaml
-    post-run: playbooks/legacy/scalpels-dsvm-neutron/post.yaml
-    timeout: 7800
-    required-projects:
-      - openstack/neutron
-      - x/scalpels
-
-- job:
-    name: legacy-tempest-almanach-dsvm
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-almanach-dsvm/run.yaml
-    post-run: playbooks/legacy/tempest-almanach-dsvm/post.yaml
-    timeout: 4200
-    required-projects:
-      - x/almanach
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-full-hdfs
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-full-hdfs/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-full-hdfs/post.yaml
-    timeout: 10800
-    required-projects:
-      - x/devstack-plugin-hdfs
-      - openstack/tempest
 
 - job:
     name: legacy-tempest-dsvm-lxd-linuxbridge
