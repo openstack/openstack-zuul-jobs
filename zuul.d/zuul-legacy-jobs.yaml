@@ -549,16 +549,6 @@
       - openstack/tempest
 
 - job:
-    name: legacy-tempest-dsvm-nova-v20-api
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-nova-v20-api/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-nova-v20-api/post.yaml
-    timeout: 10800
-    required-projects:
-      - openstack/nova
-      - openstack/tempest
-
-- job:
     name: legacy-trio2o-dsvm-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/trio2o-dsvm-functional/run.yaml
