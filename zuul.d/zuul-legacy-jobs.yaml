@@ -67,26 +67,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-tempest-dsvm-lxd-linuxbridge
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-lxd-linuxbridge/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-lxd-linuxbridge/post.yaml
-    timeout: 7800
-    required-projects:
-      - x/nova-lxd
-      - openstack/tempest
-
-- job:
-    name: legacy-tempest-dsvm-lxd-ovs
-    parent: legacy-dsvm-base
-    run: playbooks/legacy/tempest-dsvm-lxd-ovs/run.yaml
-    post-run: playbooks/legacy/tempest-dsvm-lxd-ovs/post.yaml
-    timeout: 7800
-    required-projects:
-      - x/nova-lxd
-      - openstack/tempest
-
-- job:
     name: legacy-tempest-dsvm-monasca-transform-python35-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-monasca-transform-python35-functional/run.yaml
