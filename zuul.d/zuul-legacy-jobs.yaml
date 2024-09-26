@@ -61,12 +61,6 @@
     timeout: 1800
 
 - job:
-    name: legacy-sandbox-tag
-    parent: legacy-base
-    run: playbooks/legacy/sandbox-tag/run.yaml
-    timeout: 1800
-
-- job:
     name: legacy-tempest-dsvm-monasca-transform-python35-functional
     parent: legacy-dsvm-base
     run: playbooks/legacy/tempest-dsvm-monasca-transform-python35-functional/run.yaml
