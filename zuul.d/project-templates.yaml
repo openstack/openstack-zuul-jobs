@@ -2782,10 +2782,16 @@
       jobs:
         - upstream-translation-update:
             branches: master
+            required-projects:
+              - name: openstack/requirements
+                override-checkout: stable/2024.2
     periodic:
       jobs:
         - propose-translation-update:
             branches: master
+            required-projects:
+              - name: openstack/requirements
+                override-checkout: stable/2024.2
 
 - project-template:
     name: translation-jobs-master-stable
