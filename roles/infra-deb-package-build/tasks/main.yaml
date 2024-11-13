@@ -5,6 +5,7 @@
       - devscripts
       - dpkg-dev
       - equivs # for mk-build-deps
+      - fakeroot
   become: yes
 
 - name: Make working directory
