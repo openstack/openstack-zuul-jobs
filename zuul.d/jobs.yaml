@@ -823,7 +823,7 @@
 - job:
     name: openstack-tox-docs
     parent: opendev-tox-docs
-    nodeset: ubuntu-jammy
+    nodeset: ubuntu-noble
     description: |
       Run documentation build.
 
@@ -845,19 +845,60 @@
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
       negate: true
     required-projects:
       - name: openstack/requirements
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
-      bindep_profile: compile doc
+      bindep_profile: compile test doc
       tox_envlist: docs
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
     # PDF Building is only done from stein onwards.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
+
+
+- job:
+    name: openstack-tox-docs
+    parent: opendev-tox-docs
+    nodeset: ubuntu-jammy
+    description: |
+      Run documentation build.
+
+      Uses tox with the ``docs`` environment.
+
+      .. zuul:jobvar: tox_envlist
+
+         The tox environment for building HTML, default is ``docs``.
+
+      .. zuul:jobvar: tox_pdf_envlist
+
+         The tox environment for building PDF, default is ``pdf-docs``.
+         If this environment does not exist, no PDF building is done.
+
+      .. zuul:jobvar: tox_skip_pdf
+
+         Whether to skip building of PDF documents. By default a PDF
+         file is build if the tox environment specified by
+         :zuul:jobvar:`tox_pdf_envlist` exists.
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      bindep_profile: compile test doc
+      tox_envlist: docs
+      tox_pdf_envlist: pdf-docs
+      tox_skip_pdf: false
+    # PDF Building is only done from stein onwards.
+    pre-run: playbooks/tox-docs/pre.yaml
+    run: playbooks/tox-docs/run.yaml
+    branches:
+      - ^.*/2023.1
+      - ^.*/2023.2
+      - ^.*/2024.1
+      - ^.*/2024.2
 
 - job:
     name: openstack-tox-docs
@@ -889,7 +930,7 @@
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       tox_envlist: docs
-      bindep_profile: compile doc
+      bindep_profile: compile test doc
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
       # NOTE(gmann): This is stable branch (<=(stable|unmaintained)/zed) job and new
