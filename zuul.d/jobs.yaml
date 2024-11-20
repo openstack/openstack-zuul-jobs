@@ -1356,6 +1356,7 @@
       There are no official builds for AFS on Centos, hence we build
       our own and publish them to tarballs.openstack.org for our
       centos hosts that need access to the mirror to consume.
+    pre-run: playbooks/openafs-rpm-package-build/pre.yaml
     run: playbooks/openafs-rpm-package-build/run.yaml
     files: &afs-files
       - playbooks/openafs-rpm-package-build

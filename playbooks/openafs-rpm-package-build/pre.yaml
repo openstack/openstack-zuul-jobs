@@ -1,0 +1,47 @@
+# Update system packages and reboot to ensure we're running a kernel that
+# matches what available headers in package mirrors.
+- name: Update and reboot nodes before installing openafs
+  hosts: all
+  tasks:
+    - name: DNF Update
+      dnf:
+        name: "*"
+        state: latest  # noqa: package-latest
+      become: yes
+
+    - name: Hacky script to force default kernel to new version
+      shell: |
+        set -x
+        # Get the newest kernel version in /boot
+        NEWEST=$(ls /boot | grep vmlinuz | sort -V -r | head -1)
+        OLDEST=$(ls /boot | grep vmlinuz | sort -V | head -1)
+        grubby --set-default=/boot/$NEWEST
+        if [[ "$OLDEST" != "$NEWEST" ]] ; then
+          grubby --remove-kernel=/boot/$OLDEST
+        fi
+      args:
+        executable: /usr/bin/bash
+      become: yes
+
+    - name: Tell grub about the new kernel setup
+      command: grub2-mkconfig --update-bls-cmdline -o /boot/grub2/grub.cfg
+      become: yes
+
+    - name: Record running kernel version
+      command: uname -a
+
+    - name: Reboot
+      reboot:
+        reboot_timeout: 900
+      become: yes
+
+    - name: Restart zuul console log daemon
+      include_role:
+        name: start-zuul-console
+
+    - name: Record running kernel version
+      command: uname -a
+
+    - name: Pause for a bit to ensure system is up post reboot
+      pause:
+        seconds: 60

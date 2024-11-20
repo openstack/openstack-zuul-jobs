@@ -1,5 +1,5 @@
 - name: Install prereqs
-  package:
+  dnf:
     name:
       - rpm-build
       - kernel-devel
@@ -7,14 +7,14 @@
   become: yes
 
 - name: Install centos 8/9 common packages
-  package:
+  dnf:
     name:
       - elfutils-devel
   become: yes
   when: ansible_distribution_major_version is version('8', '>=')
 
 - name: Install centos9 packages
-  package:
+  dnf:
     name:
       - perl-File-Copy
   become: yes
