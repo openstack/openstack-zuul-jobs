@@ -74,6 +74,7 @@
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^deliverables/.*$
+      - ^\.pre-commit-config\.yaml$
     vars:
       tox_envlist: py27
       bindep_profile: test py27
