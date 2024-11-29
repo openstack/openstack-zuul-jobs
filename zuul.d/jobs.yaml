@@ -7,14 +7,34 @@
     name: openstack-tox
     abstract: true
     parent: tox-fips
+    nodeset: ubuntu-noble
+    description: |
+      Base job to run tox jobs with OpenStack project specific updates.
+
+      Processing upper-constraints files from openstack/requirements.
+    branches:
+      regex: ^*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      negate: true
+    required-projects:
+      - name: openstack/requirements
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      enable_fips: false
+
+- job:
+    name: openstack-tox
+    abstract: true
+    parent: tox-fips
     nodeset: ubuntu-jammy
     description: |
       Base job to run tox jobs with OpenStack project specific updates.
 
       Processing upper-constraints files from openstack/requirements.
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
-      negate: true
+      - ^.*/2023.1
+      - ^.*/2023.2
+      - ^.*/2024.1
+      - ^.*/2024.2
     required-projects:
       - name: openstack/requirements
     vars:
@@ -462,10 +482,30 @@
       Run code coverage tests.
 
       Uses tox with the ``cover`` environment.
+    nodeset: ubuntu-noble
+    branches:
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      negate: true
+    required-projects:
+      - name: openstack/requirements
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+    timeout: 3000
+
+- job:
+    name: openstack-tox-cover
+    parent: tox-cover
+    description: |
+      Run code coverage tests.
+
+      Uses tox with the ``cover`` environment.
     nodeset: ubuntu-jammy
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
-      negate: true
+      - ^.*/2023.1
+      - ^.*/2023.2
+      - ^.*/2024.1
+      - ^.*/2024.2
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
@@ -528,10 +568,24 @@
 
       Uses tox with the ``functional`` environment.
     irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-noble
+    branches:
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      negate: true
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional
+    parent: openstack-tox
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+    irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
-      negate: true
+      regex: ^.*/(2023.1|2023.2|2024.1|2024.2)$
     vars:
       tox_envlist: functional
 
@@ -560,10 +614,25 @@
       Uses tox with the ``functional`` environment.
       Sudo access is not revoked.
     irrelevant-files: *common-irrelevant-files
+    nodeset: ubuntu-noble
+    branches:
+      regex: ^.*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      negate: true
+    vars:
+      tox_envlist: functional
+
+- job:
+    name: openstack-tox-functional-with-sudo
+    parent: openstack-tox-with-sudo
+    description: |
+      Run tox-based functional tests for an OpenStack Python project.
+
+      Uses tox with the ``functional`` environment.
+      Sudo access is not revoked.
+    irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
-      negate: true
+      regex: ^.*/(2023.1|2023.2|2024.1|2024.2)$
     vars:
       tox_envlist: functional
 
