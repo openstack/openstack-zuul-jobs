@@ -691,6 +691,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -718,6 +719,7 @@
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
         - openstack-tox-py312:
             branches:
+              - stable/2025.1
               - master
     gate:
       jobs:
@@ -733,6 +735,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -750,6 +753,7 @@
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
         - openstack-tox-py312:
             branches:
+              - stable/2025.1
               - master
     periodic:
       jobs:
@@ -802,6 +806,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -839,6 +844,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2025.1
               - master
     gate:
       jobs:
@@ -860,6 +866,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -883,6 +890,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2025.1
               - master
     periodic:
       jobs:
@@ -939,6 +947,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -976,6 +985,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2025.1
               - master
     gate:
       jobs:
@@ -997,6 +1007,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -1020,6 +1031,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2025.1
               - master
     periodic:
       jobs:
@@ -1076,6 +1088,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -1113,6 +1126,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2025.1
               - master
     gate:
       jobs:
@@ -1134,6 +1148,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
@@ -1157,6 +1172,7 @@
             required-projects:
               - openstack/ceilometer
             branches:
+              - stable/2025.1
               - master
     periodic:
       jobs:
@@ -1244,6 +1260,7 @@
             branches:
               - stable/2023.2
               - stable/2024.2
+              - stable/2025.1
               - master
         # NOTE(gmann): py310 job is required to run for 2023.2 release.
         - openstack-tox-py310-arm64:
@@ -1261,6 +1278,7 @@
         - openstack-tox-py312-arm64:
             voting: false
             branches:
+              - stable/2025.1
               - master
 
 - project-template:
