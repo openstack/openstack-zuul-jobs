@@ -2921,38 +2921,18 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-              - stable/zed
-              - stable/2023.1
               - stable/2023.2
               - stable/2024.1
               - stable/2024.2
-        - openstack-tox-py36:
-            branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
         - openstack-tox-py38:
             branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-              - stable/zed
-              - stable/2023.1
               - stable/2023.2
               - stable/2024.1
         - openstack-tox-py39:
             branches:
-              - stable/zed
               - stable/2024.2
         - openstack-tox-py310:
             branches:
-              - stable/2023.1
               - stable/2023.2
         - openstack-tox-py311:
             branches:
@@ -2970,46 +2950,24 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-              - stable/zed
-              - stable/2023.1
               - stable/2023.2
               - stable/2024.1
               - stable/2024.2
             required-projects:
               - openstack/neutron
-        - openstack-tox-py36:
-            branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-              - stable/zed
-              - stable/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
             branches:
-              - stable/zed
               - stable/2024.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py310:
             branches:
-              - stable/2023.1
               - stable/2023.2
             required-projects:
               - openstack/neutron
@@ -3031,46 +2989,24 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-              - stable/zed
-              - stable/2023.1
               - stable/2023.2
               - stable/2024.1
               - stable/2024.2
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py36:
-            branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py38:
             branches:
-              - stable/victoria
-              - stable/wallaby
-              - stable/xena
-              - stable/yoga
-              - stable/zed
-              - stable/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py39:
             branches:
-              - stable/zed
               - stable/2024.2
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py310:
             branches:
-              - stable/2023.1
               - stable/2023.2
             required-projects:
               - openstack/ceilometer
