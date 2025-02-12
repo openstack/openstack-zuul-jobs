@@ -682,7 +682,7 @@
         - openstack-tox-pep8
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
         # NOTE(gmann): py39 job is required to run for 2023.2 release and
@@ -724,7 +724,7 @@
         - openstack-tox-pep8
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
         # NOTE(gmann): py39 job is required to run for 2023.2 release and
@@ -789,7 +789,7 @@
               - openstack/horizon
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
@@ -847,7 +847,7 @@
               - openstack/horizon
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
@@ -926,7 +926,7 @@
               - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
@@ -984,7 +984,7 @@
               - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
@@ -1063,7 +1063,7 @@
               - openstack/ceilometer
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
@@ -1121,7 +1121,7 @@
               - openstack/ceilometer
         - openstack-tox-py38:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             required-projects:
@@ -1233,7 +1233,7 @@
       jobs:
         - openstack-tox-py38-arm64:
             branches:
-              - stable/2023.1
+              - unmaintained/2023.1
               - stable/2023.2
               - stable/2024.1
             voting: false
