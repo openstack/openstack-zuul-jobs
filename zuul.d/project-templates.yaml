@@ -682,28 +682,19 @@
         - openstack-tox-pep8
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # also minimum python version to test from 2024.2 onwards
         - openstack-tox-py39:
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             branches:
-              - stable/2023.2
               - master
-        # py3.11 testing is added as non voting in 2023.2 release.
-        - openstack-tox-py311:
-            branches:
-              - stable/2023.2
-            voting: false
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
         # will be enough coverage to run on every change).
@@ -731,22 +722,18 @@
         - openstack-tox-pep8
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             branches:
-              - stable/2023.2
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -795,36 +782,25 @@
               - openstack/horizon
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/horizon
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2023.2
               - master
-        # py3.11 testing is added as non voting in 2023.2 release.
-        - openstack-tox-py311:
-            required-projects:
-              - openstack/horizon
-            branches:
-              - stable/2023.2
-            voting: false
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
         # will be enough coverage to run on every change).
@@ -862,28 +838,24 @@
               - openstack/horizon
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/horizon
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2023.2
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -938,36 +910,25 @@
               - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/neutron
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2023.2
               - master
-        # py3.11 testing is added as non voting in 2023.2 release.
-        - openstack-tox-py311:
-            required-projects:
-              - openstack/neutron
-            branches:
-              - stable/2023.2
-            voting: false
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
         # will be enough coverage to run on every change).
@@ -1005,28 +966,24 @@
               - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/neutron
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2023.2
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -1081,36 +1038,25 @@
               - openstack/ceilometer
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/ceilometer
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             required-projects:
               - openstack/ceilometer
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             required-projects:
               - openstack/ceilometer
             branches:
-              - stable/2023.2
               - master
-        # py3.11 testing is added as non voting in 2023.2 release.
-        - openstack-tox-py311:
-            required-projects:
-              - openstack/ceilometer
-            branches:
-              - stable/2023.2
-            voting: false
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
         # will be enough coverage to run on every change).
@@ -1148,28 +1094,24 @@
               - openstack/ceilometer
         - openstack-tox-py38:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             required-projects:
               - openstack/ceilometer
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             required-projects:
               - openstack/ceilometer
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release and
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # after that we run it as periodic only(assuming py3.8 and py3.11
         # will be enough coverage to run on every change).
         - openstack-tox-py310:
             required-projects:
               - openstack/ceilometer
             branches:
-              - stable/2023.2
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -1257,29 +1199,24 @@
       jobs:
         - openstack-tox-py38-arm64:
             branches:
-              - unmaintained/2023.1
-              - stable/2023.2
               - stable/2024.1
             voting: false
-        # NOTE(gmann): py39 job is required to run for 2023.2 release and
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.1 onwards.
         - openstack-tox-py39-arm64:
             voting: false
             branches:
-              - stable/2023.2
               - stable/2024.2
               - stable/2025.1
-        # NOTE(gmann): py310 job is required to run for 2023.2 release.
+        # NOTE(gmann): py310 job was required to run for 2023.2 release.
         - openstack-tox-py310-arm64:
             voting: false
             branches:
-              - stable/2023.2
               - master
         # py3.11 testing is added from 2023.2 release onwards
         - openstack-tox-py311-arm64:
             voting: false
             branches:
-              - stable/2023.2
               - stable/2024.1
               - stable/2024.2
         # py3.12 testing is added from 2025.1 release onwards
