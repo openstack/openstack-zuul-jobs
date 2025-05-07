@@ -2771,7 +2771,6 @@
               - stable/2025.1
               - stable/2024.2
               - stable/2024.1
-              - stable/2023.2
     periodic:
       jobs:
         - propose-translation-update:
@@ -2780,7 +2779,6 @@
               - stable/2025.1
               - stable/2024.2
               - stable/2024.1
-              - stable/2023.2
 
 - project-template:
     name: openstack-specs-jobs
