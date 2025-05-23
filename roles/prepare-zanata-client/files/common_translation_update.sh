@@ -322,7 +322,7 @@ function send_patch {
     # Don't send a review if nothing has changed.
     if [ $(git diff --cached | wc -l) -gt 0 ]; then
         # Commit and review
-        git commit -F- <<EOF
+        git commit -F- -s <<EOF
 $COMMIT_MSG
 EOF
         CUR_PATCH_ID=$(git show | git patch-id | awk '{print $1}')
