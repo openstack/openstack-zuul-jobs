@@ -64,6 +64,11 @@
       rpm -i ${SRPM}
 
       pushd ~/rpmbuild/SPECS
+
+      # temporary fix for dkms.conf required yes/no values
+      if ! grep 'NO_WEAK_MODULES=yes' openafs.spec ; then
+          sed -i 's/NO_WEAK_MODULES.*/NO_WEAK_MODULES=yes/' openafs.spec
+      fi
       rpmbuild -ba ./openafs.spec
       popd
 
