@@ -11,64 +11,41 @@
         nodes:
           - secondary
 
+# We no longer have xenial nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: ubuntu-xenial-2-node
-    nodes:
-      - name: primary
-        label: ubuntu-xenial-invalid
-      - name: secondary
-        label: ubuntu-xenial-invalid
-    groups:
-      - name: subnodes
-        nodes:
-          - secondary
+    nodes: []
 
+# We no longer have xenial nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: ubuntu-xenial-3-node
-    nodes:
-      - name: primary
-        label: ubuntu-xenial-invalid
-      - name: secondary-1
-        label: ubuntu-xenial-invalid
-      - name: secondary-2
-        label: ubuntu-xenial-invalid
-    groups:
-      - name: subnodes
-        nodes:
-          - secondary-1
-          - secondary-2
+    nodes: []
 
-# Note: The ubuntu-xenial label is no longer supplied, so these will
-# error if used.
+# We no longer have xenial nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: ubuntu-xenial
-    nodes:
-      - name: primary
-        label: ubuntu-xenial-invalid
+    nodes: []
 
+# We no longer have xenial nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: legacy-ubuntu-xenial
-    nodes:
-      - name: primary
-        label: ubuntu-xenial-invalid
+    nodes: []
 
+# We no longer have xenial nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: legacy-ubuntu-bionic
-    nodes:
-      - name: primary
-        label: ubuntu-bionic
+    nodes: []
 
+# We no longer have xenial nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: legacy-ubuntu-xenial-2-node
-    nodes:
-      - name: primary
-        label: ubuntu-xenial-invalid
-      - name: secondary
-        label: ubuntu-xenial-invalid
-    groups:
-      - name: subnodes
-        nodes:
-          - secondary
+    nodes: []
 
 - nodeset:
     name: legacy-ubuntu-bionic-2-node

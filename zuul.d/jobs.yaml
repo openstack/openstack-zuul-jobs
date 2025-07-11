@@ -1786,23 +1786,6 @@
         wheel_python: python3
 
 - job:
-    name: build-wheel-cache-ubuntu-bionic-arm64
-    parent: build-wheel-cache-base
-    description: |
-      Build Ubuntu Bionic wheels for OpenStack CI mirrors.
-    nodeset:
-      nodes:
-        - name: wheel-cache-ubuntu-bionic-arm64-python2
-          label: ubuntu-bionic-arm64
-        - name: wheel-cache-ubuntu-bionic-arm64-python3
-          label: ubuntu-bionic-arm64
-    host-vars:
-      wheel-cache-ubuntu-bionic-arm64-python2:
-        wheel_python: python2
-      wheel-cache-ubuntu-bionic-arm64-python3:
-        wheel_python: python3
-
-- job:
     name: openstack-multinode-fips
     abstract: true
     parent: openstack-fips
