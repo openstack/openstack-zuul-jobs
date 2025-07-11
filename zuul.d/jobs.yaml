@@ -217,18 +217,6 @@
       ensure_tox_version: '<4'
 
 - job:
-    name: openstack-tox-py38-arm64
-    parent: openstack-tox-py38
-    nodeset: ubuntu-focal-arm64
-    timeout: 3600
-    description: |
-
-      Run unit tests for an OpenStack Python project under cPython
-      version 3.8 on top of arm64 architecture.
-
-      Uses tox with the ``py38`` environment in arm64 platform.
-
-- job:
     name: openstack-tox-py39
     parent: openstack-tox
     nodeset: ubuntu-focal
@@ -274,18 +262,6 @@
       # tox 4 require some changes in tox.ini to be compatible with it. Let's
       # pin tox <4 for stable branches testing (<=(stable|unmaintained)/zed).
       ensure_tox_version: '<4'
-
-- job:
-    name: openstack-tox-py39-arm64
-    parent: openstack-tox-py39
-    nodeset: ubuntu-focal-arm64
-    timeout: 3600
-    description: |
-
-      Run unit tests for an OpenStack Python project under cPython
-      version 3.9 on top of arm64 architecture.
-
-      Uses tox with the ``py39`` environment in arm64 platform.
 
 - job:
     name: openstack-tox-py310
