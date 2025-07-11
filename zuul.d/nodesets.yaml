@@ -15,9 +15,9 @@
     name: ubuntu-xenial-2-node
     nodes:
       - name: primary
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
       - name: secondary
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
     groups:
       - name: subnodes
         nodes:
@@ -27,22 +27,30 @@
     name: ubuntu-xenial-3-node
     nodes:
       - name: primary
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
       - name: secondary-1
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
       - name: secondary-2
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
     groups:
       - name: subnodes
         nodes:
           - secondary-1
           - secondary-2
 
+# Note: The ubuntu-xenial label is no longer supplied, so these will
+# error if used.
+- nodeset:
+    name: ubuntu-xenial
+    nodes:
+      - name: primary
+        label: ubuntu-xenial-invalid
+
 - nodeset:
     name: legacy-ubuntu-xenial
     nodes:
       - name: primary
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
 
 - nodeset:
     name: legacy-ubuntu-bionic
@@ -54,9 +62,9 @@
     name: legacy-ubuntu-xenial-2-node
     nodes:
       - name: primary
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
       - name: secondary
-        label: ubuntu-xenial
+        label: ubuntu-xenial-invalid
     groups:
       - name: subnodes
         nodes:
