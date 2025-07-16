@@ -1412,24 +1412,6 @@
       - tox.ini
 
 - job:
-    name: project-config-nodepool
-    parent: tox
-    description: |
-      Runs checks on nodepool configuration with the ``nodepool`` tox
-      env.
-    nodeset: debian-bookworm
-    vars:
-      tox_envlist: nodepool
-    required-projects:
-      - zuul/nodepool
-    files:
-      - ^nodepool/nodepool.yaml
-      - ^nodepool/nl.*yaml$
-      - bindep.txt
-      - other-requirements.txt
-      - tox.ini
-
-- job:
     name: build-openstack-specs-site
     parent: opendev-tox-docs
     description: |
