@@ -31,7 +31,7 @@
         cmd: |
             docker run --rm -t -v {{ GRAFYAML_DIR }}:/grafana:ro \
               --entrypoint /usr/local/bin/grafana-dashboard \
-                docker.io/opendevorg/grafyaml --debug validate /grafana
+                quay.io/opendevorg/grafyaml --debug validate /grafana
 
     - name: Install pip
       include_role:
@@ -95,7 +95,7 @@
       shell:
         executable: /bin/bash
         cmd: |
-          docker run --rm -t --network=host -e 'GRAFANA_URL=http://admin:password@localhost:3000' -v {{ GRAFYAML_DIR }}:/grafana:ro docker.io/opendevorg/grafyaml
+          docker run --rm -t --network=host -e 'GRAFANA_URL=http://admin:password@localhost:3000' -v {{ GRAFYAML_DIR }}:/grafana:ro quay.io/opendevorg/grafyaml
 
     - name: Get list of dashboards
       uri:
