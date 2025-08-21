@@ -2887,6 +2887,7 @@
             branches:
               - stable/2024.1
               - stable/2024.2
+              - stable/2025.1
         - openstack-tox-py38:
             branches:
               - stable/2024.1
@@ -2915,6 +2916,7 @@
             branches:
               - stable/2024.1
               - stable/2024.2
+              - stable/2025.1
             required-projects:
               - openstack/neutron
         - openstack-tox-py38:
@@ -2953,6 +2955,7 @@
             branches:
               - stable/2024.1
               - stable/2024.2
+              - stable/2025.1
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py38:
