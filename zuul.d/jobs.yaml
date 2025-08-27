@@ -1616,6 +1616,13 @@
       - ^roles/prepare-zanata-client/.*
       - ^tests/.*
 
+# NOTE(ianw): This test restricted to the node type these roles
+# run on in the gate.
+- job:
+    name: openstack-infra-extra-integration-noble
+    parent: openstack-infra-extra-integration
+    nodeset: ubuntu-noble
+
 - job:
     name: build-wheel-cache-base
     abstract: true
