@@ -1421,20 +1421,6 @@
       sphinx_build_dir: specs
 
 - job:
-    name: project-config-dib
-    parent: tox
-    description: |
-      Runs diskimage-builder on all elements in project-config.  Uses
-      the ``dib`` tox env.
-    vars:
-      tox_envlist: dib
-    files:
-      - ^nodepool/elements/.*$
-      - bindep.txt
-      - other-requirements.txt
-      - tox.ini
-
-- job:
     name: project-config-infra-docs-index
     parent: opendev-tox-docs
     description: |
