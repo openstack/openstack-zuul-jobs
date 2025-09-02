@@ -2900,6 +2900,7 @@
               - stable/2024.1
               - stable/2024.2
               - stable/2025.1
+              - stable/2025.2
         - openstack-tox-py38:
             branches:
               - stable/2024.1
@@ -2907,6 +2908,9 @@
             branches:
               - stable/2024.2
               - stable/2025.1
+        - openstack-tox-py310:
+            branches:
+              - stable/2025.2
         - openstack-tox-py311:
             branches:
               - stable/2024.1
@@ -2914,6 +2918,7 @@
         - openstack-tox-py312:
             branches:
               - stable/2025.1
+              - stable/2025.2
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -2929,6 +2934,7 @@
               - stable/2024.1
               - stable/2024.2
               - stable/2025.1
+              - stable/2025.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py38:
@@ -2942,6 +2948,11 @@
               - stable/2025.1
             required-projects:
               - openstack/neutron
+        - openstack-tox-py310:
+            branches:
+              - stable/2025.2
+            required-projects:
+              - openstack/neutron
         - openstack-tox-py311:
             branches:
               - stable/2024.1
@@ -2951,6 +2962,7 @@
         - openstack-tox-py312:
             branches:
               - stable/2025.1
+              - stable/2025.2
             required-projects:
               - openstack/neutron
 
@@ -2968,6 +2980,7 @@
               - stable/2024.1
               - stable/2024.2
               - stable/2025.1
+              - stable/2025.2
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py38:
@@ -2981,6 +2994,11 @@
               - stable/2025.1
             required-projects:
               - openstack/ceilometer
+        - openstack-tox-py310:
+            branches:
+              - stable/2025.2
+            required-projects:
+              - openstack/ceilometer
         - openstack-tox-py311:
             branches:
               - stable/2024.1
@@ -2990,6 +3008,7 @@
         - openstack-tox-py312:
             branches:
               - stable/2025.1
+              - stable/2025.2
             required-projects:
               - openstack/ceilometer
 
