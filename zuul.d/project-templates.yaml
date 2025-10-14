@@ -708,17 +708,21 @@
               - stable/2024.2
             voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             branches:
               - stable/2025.1
               - stable/2025.2
-              - master
         # py3.13 testing is added as non voting in 2025.2 release.
         - openstack-tox-py313:
             branches:
               - stable/2025.2
-              - master
             voting: false
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            branches:
+              - master
     gate:
       jobs:
         - openstack-tox-pep8
@@ -745,16 +749,24 @@
               - stable/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             branches:
               - stable/2025.1
               - stable/2025.2
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            branches:
               - master
     periodic:
       jobs:
-        # NOTE(gmann): We can remove the periodic py3.11 job once
+        # NOTE(gmann): We can remove the periodic py3.11 and py3.12 job once
         # the master testing runtime does not include it to test.
         - openstack-tox-py311:
+            branches:
+              - master
+        - openstack-tox-py312:
             branches:
               - master
     post:
@@ -821,21 +833,27 @@
               - stable/2024.2
             voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             required-projects:
               - openstack/horizon
             branches:
               - stable/2025.1
               - stable/2025.2
-              - master
         # py3.13 testing is added as non voting in 2025.2 release.
         - openstack-tox-py313:
             required-projects:
               - openstack/horizon
             branches:
               - stable/2025.2
-              - master
             voting: false
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/horizon
+            branches:
+              - master
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -872,18 +890,30 @@
               - stable/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             required-projects:
               - openstack/horizon
             branches:
               - stable/2025.1
               - stable/2025.2
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/horizon
+            branches:
               - master
     periodic:
       jobs:
-        # NOTE(gmann): We can remove the periodic py3.11 job once
+        # NOTE(gmann): We can remove the periodic py3.11 and py3.12 job once
         # the master testing runtime does not include it to test.
         - openstack-tox-py311:
+            branches:
+              - master
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py312:
             branches:
               - master
             required-projects:
@@ -952,21 +982,27 @@
               - stable/2024.2
             voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             required-projects:
               - openstack/neutron
             branches:
               - stable/2025.1
               - stable/2025.2
-              - master
         # py3.13 testing is added as non voting in 2025.2 release.
         - openstack-tox-py313:
             required-projects:
               - openstack/neutron
             branches:
               - stable/2025.2
-              - master
             voting: false
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/neutron
+            branches:
+              - master
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -1003,18 +1039,30 @@
               - stable/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             required-projects:
               - openstack/neutron
             branches:
               - stable/2025.1
               - stable/2025.2
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/neutron
+            branches:
               - master
     periodic:
       jobs:
-        # NOTE(gmann): We can remove the periodic python 3.11 job once
-        # the master testing runtime does not include it to test.
+        # NOTE(gmann): We can remove the periodic python 3.11 and 3.12 jobs
+        # once the master testing runtime does not include it to test.
         - openstack-tox-py311:
+            branches:
+              - master
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py312:
             branches:
               - master
             required-projects:
@@ -1083,21 +1131,27 @@
               - stable/2024.2
             voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             required-projects:
               - openstack/ceilometer
             branches:
               - stable/2025.1
               - stable/2025.2
-              - master
         # py3.13 testing is added as non voting in 2025.2 release.
         - openstack-tox-py313:
             required-projects:
               - openstack/ceilometer
             branches:
               - stable/2025.2
-              - master
             voting: false
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/ceilometer
+            branches:
+              - master
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -1134,18 +1188,30 @@
               - stable/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
         - openstack-tox-py312:
             required-projects:
               - openstack/ceilometer
             branches:
               - stable/2025.1
               - stable/2025.2
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/ceilometer
+            branches:
               - master
     periodic:
       jobs:
-        # NOTE(gmann): We can remove the periodic py3.11 job once
+        # NOTE(gmann): We can remove the periodic py3.11 and py3.12 jobs once
         # the master testing runtime does not include it to test.
         - openstack-tox-py311:
+            branches:
+              - master
+            required-projects:
+              - openstack/ceilometer
+        - openstack-tox-py312:
             branches:
               - master
             required-projects:
