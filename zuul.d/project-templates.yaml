@@ -1443,12 +1443,10 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py39
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py39
     post:
       jobs:
@@ -1481,18 +1479,12 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
         - openstack-tox-py39:
             required-projects:
               - openstack/horizon
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py39:
@@ -1514,18 +1506,12 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py39:
             required-projects:
               - openstack/neutron
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -1547,18 +1533,12 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py39:
             required-projects:
               - openstack/ceilometer
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py39:
@@ -1608,14 +1588,12 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py38
         - openstack-tox-py39:
             voting: false
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py38
     post:
       jobs:
@@ -1648,9 +1626,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
         - openstack-tox-py38:
             required-projects:
               - openstack/horizon
@@ -1661,9 +1636,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py38:
@@ -1685,9 +1657,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py38:
             required-projects:
               - openstack/neutron
@@ -1698,9 +1667,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py38:
@@ -1722,9 +1688,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py38:
             required-projects:
               - openstack/ceilometer
@@ -1735,9 +1698,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py38:
@@ -1755,14 +1715,12 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py38
         - openstack-tox-py39:
             voting: false
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py38
     post:
       jobs:
@@ -1795,9 +1753,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
         - openstack-tox-py38:
             required-projects:
               - openstack/horizon
@@ -1808,9 +1763,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py38:
@@ -1832,9 +1784,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py38:
             required-projects:
               - openstack/neutron
@@ -1845,9 +1794,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py38:
@@ -1869,9 +1815,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py38:
             required-projects:
               - openstack/ceilometer
@@ -1882,9 +1825,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py38:
@@ -1902,12 +1842,10 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py38
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
         - openstack-tox-py38
     post:
       jobs:
@@ -1938,18 +1876,12 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
         - openstack-tox-py38:
             required-projects:
               - openstack/horizon
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py36:
             required-projects:
               - openstack/horizon
         - openstack-tox-py38:
@@ -1971,18 +1903,12 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py38:
             required-projects:
               - openstack/neutron
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py36:
             required-projects:
               - openstack/neutron
         - openstack-tox-py38:
@@ -2004,18 +1930,12 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py38:
             required-projects:
               - openstack/ceilometer
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py36:
             required-projects:
               - openstack/ceilometer
         - openstack-tox-py38:
@@ -2033,16 +1953,12 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
-        - openstack-tox-py37
         - openstack-tox-py38:
             voting: false
             branches: master
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
-        - openstack-tox-py37
     post:
       jobs:
         - publish-openstack-python-branch-tarball
@@ -2059,12 +1975,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/horizon
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/horizon
         - openstack-tox-py38:
             required-projects:
               - openstack/horizon
@@ -2073,12 +1983,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py37:
             required-projects:
               - openstack/horizon
     post:
@@ -2097,12 +2001,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/neutron
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/neutron
         - openstack-tox-py38:
             required-projects:
               - openstack/neutron
@@ -2111,12 +2009,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py37:
             required-projects:
               - openstack/neutron
     post:
@@ -2135,12 +2027,6 @@
         - openstack-tox-pep8:
             required-projects:
               - openstack/ceilometer
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/ceilometer
         - openstack-tox-py38:
             required-projects:
               - openstack/ceilometer
@@ -2149,12 +2035,6 @@
     gate:
       jobs:
         - openstack-tox-pep8:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py37:
             required-projects:
               - openstack/ceilometer
     post:
@@ -2167,13 +2047,9 @@
       Runs unit tests for an OpenStack Python project under the CPython
       version 3 releases designated for testing in the Train release.
     check:
-      jobs:
-        - openstack-tox-py36
-        - openstack-tox-py37
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36
-        - openstack-tox-py37
+      jobs: []
 
 - project-template:
     name: openstack-python3-train-jobs-horizon
@@ -2183,21 +2059,9 @@
       the project code and allows tox_install_siblings to use horizon
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/horizon
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/horizon
+      jobs: []
 
 - project-template:
     name: openstack-python3-train-jobs-neutron
@@ -2207,21 +2071,9 @@
       the project code and allows tox_install_siblings to use neutron
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/neutron
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/neutron
+      jobs: []
 
 - project-template:
     name: openstack-python3-train-jobs-ceilometer
@@ -2231,21 +2083,9 @@
       the project code and allows tox_install_siblings to use ceilometer
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/ceilometer
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/ceilometer
+      jobs: []
 
 - project-template:
     name: openstack-python35-jobs
@@ -2331,11 +2171,9 @@
       Runs unit tests for an OpenStack Python project under cPython
       version 3.6.
     check:
-      jobs:
-        - openstack-tox-py36
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36
+      jobs: []
 
 - project-template:
     name: openstack-python36-jobs-horizon
@@ -2344,15 +2182,9 @@
       required-projects. The dashboard projects currently need this
       due to how the tox_install.sh zuul-cloner's horizon for them.
     check:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/horizon
+      jobs: []
 
 - project-template:
     name: openstack-python36-jobs-neutron
@@ -2362,15 +2194,9 @@
       the project code and allows tox_install_siblings to use neutron
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/neutron
+      jobs: []
 
 - project-template:
     name: openstack-python36-jobs-ceilometer
@@ -2380,15 +2206,9 @@
       the project code and allows tox_install_siblings to use ceilometer
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py36:
-            required-projects:
-              - openstack/ceilometer
+      jobs: []
 
 - project-template:
     name: openstack-python36-jobs-nonvoting
@@ -2398,9 +2218,7 @@
 
       The job is non-voting.
     check:
-      jobs:
-        - openstack-tox-py36:
-            voting: false
+      jobs: []
 
 - project-template:
     name: openstack-python37-jobs
@@ -2408,11 +2226,9 @@
       Runs unit tests for an OpenStack Python project under cPython
       version 3.7.
     check:
-      jobs:
-        - openstack-tox-py37
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py37
+      jobs: []
 
 - project-template:
     name: openstack-python37-jobs-horizon
@@ -2421,15 +2237,9 @@
       required-projects. The dashboard projects currently need this
       due to how the tox_install.sh zuul-cloner's horizon for them.
     check:
-      jobs:
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/horizon
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/horizon
+      jobs: []
 
 - project-template:
     name: openstack-python37-jobs-neutron
@@ -2439,15 +2249,9 @@
       the project code and allows tox_install_siblings to use neutron
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/neutron
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/neutron
+      jobs: []
 
 - project-template:
     name: openstack-python37-jobs-ceilometer
@@ -2457,15 +2261,9 @@
       the project code and allows tox_install_siblings to use ceilometer
       when building the venv.
     check:
-      jobs:
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/ceilometer
+      jobs: []
     gate:
-      jobs:
-        - openstack-tox-py37:
-            required-projects:
-              - openstack/ceilometer
+      jobs: []
 
 - project-template:
     name: openstack-python37-jobs-nonvoting
@@ -2475,9 +2273,7 @@
 
       The job is non-voting.
     check:
-      jobs:
-        - openstack-tox-py37:
-            voting: false
+      jobs: []
 
 - project-template:
     name: openstack-python38-jobs
@@ -2539,13 +2335,9 @@
     check:
       jobs:
         - tox-pep8
-        - tox-py27:
-            nodeset: ubuntu-bionic
     gate:
       jobs:
         - tox-pep8
-        - tox-py27:
-            nodeset: ubuntu-bionic
     post:
       jobs:
         - publish-openstack-python-branch-tarball
@@ -2572,13 +2364,9 @@
       version 3.6.
       This uses a variant that do not use constraints.
     check:
-      jobs:
-        - tox-py36:
-            nodeset: ubuntu-bionic
+      jobs: []
     gate:
-      jobs:
-        - tox-py36:
-            nodeset: ubuntu-bionic
+      jobs: []
 
 - project-template:
     name: openstack-python37-jobs-no-constraints
@@ -2587,23 +2375,9 @@
       version 3.7.
       This uses a variant that do not use constraints.
     check:
-      jobs:
-        - tox-py37:
-            nodeset: ubuntu-bionic
-            # NOTE(gmann): This is stable branch template and new tox 4 require
-            # some changes in tox.ini to be compatible with it. Let's pin tox <4
-            # for stable branches testing (<=stable/zed).
-            vars:
-              ensure_tox_version: '<4'
+      jobs: []
     gate:
-      jobs:
-        - tox-py37:
-            nodeset: ubuntu-bionic
-            # NOTE(gmann): This is stable branch template and new tox 4 require
-            # some changes in tox.ini to be compatible with it. Let's pin tox <4
-            # for stable branches testing (<=stable/zed).
-            vars:
-              ensure_tox_version: '<4'
+      jobs: []
 
 - project-template:
     name: openstack-lower-constraints-jobs
@@ -3168,11 +2942,9 @@
     check:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
     gate:
       jobs:
         - openstack-tox-pep8
-        - openstack-tox-py36
 
 - project-template:
     name: nodejs4-jobs
@@ -3204,50 +2976,18 @@
     description: |
       Run lint and test jobs using Node 6.
     check:
-      jobs:
-        - nodejs-run-lint:
-            vars:
-              node_version: 6
-            nodeset: ubuntu-bionic
-        - nodejs-run-test-browser:
-            vars:
-              node_version: 6
-            nodeset: ubuntu-bionic
+      jobs: []
     gate:
-      jobs:
-        - nodejs-run-lint:
-            vars:
-              node_version: 6
-            nodeset: ubuntu-bionic
-        - nodejs-run-test-browser:
-            vars:
-              node_version: 6
-            nodeset: ubuntu-bionic
+      jobs: []
 
 - project-template:
     name: nodejs8-jobs
     description: |
       Run lint and test jobs using Node 8.
     check:
-      jobs:
-        - nodejs-run-lint:
-            vars:
-              node_version: 8
-            nodeset: ubuntu-bionic
-        - nodejs-run-test-browser:
-            vars:
-              node_version: 8
-            nodeset: ubuntu-bionic
+      jobs: []
     gate:
-      jobs:
-        - nodejs-run-lint:
-            vars:
-              node_version: 8
-            nodeset: ubuntu-bionic
-        - nodejs-run-test-browser:
-            vars:
-              node_version: 8
-            nodeset: ubuntu-bionic
+      jobs: []
 
 - project-template:
     name: nodejs10-jobs
@@ -3396,17 +3136,9 @@
     description: |
       Run docs jobs using Node 8.
     check:
-      jobs:
-        - nodejs-npm-run-docs:
-            vars:
-              node_version: 8
-            nodeset: ubuntu-bionic
+      jobs: []
     gate:
-      jobs:
-        - nodejs-npm-run-docs:
-            vars:
-              node_version: 8
-            nodeset: ubuntu-bionic
+      jobs: []
 
 - project-template:
     name: nodejs10-docs
