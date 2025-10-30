@@ -1,15 +1,12 @@
 # Shared nodesets specific to the OpenStack Project
+# We no longer have bionic nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: ubuntu-bionic-2-node
-    nodes:
-      - name: primary
-        label: ubuntu-bionic
-      - name: secondary
-        label: ubuntu-bionic
+    nodes: []
     groups:
       - name: subnodes
-        nodes:
-          - secondary
+        nodes: []
 
 # We no longer have xenial nodes; this nodeset is invalid and will be
 # removed.
@@ -35,7 +32,7 @@
     name: legacy-ubuntu-xenial
     nodes: []
 
-# We no longer have xenial nodes; this nodeset is invalid and will be
+# We no longer have bionic nodes; this nodeset is invalid and will be
 # removed.
 - nodeset:
     name: legacy-ubuntu-bionic
@@ -47,29 +44,20 @@
     name: legacy-ubuntu-xenial-2-node
     nodes: []
 
+# We no longer have bionic nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: legacy-ubuntu-bionic-2-node
-    nodes:
-      - name: primary
-        label: ubuntu-bionic
-      - name: secondary
-        label: ubuntu-bionic
+    nodes: []
     groups:
       - name: subnodes
-        nodes:
-          - secondary
+        nodes: []
 
+# We no longer have bionic nodes; this nodeset is invalid and will be
+# removed.
 - nodeset:
     name: legacy-ubuntu-bionic-3-node
-    nodes:
-      - name: primary
-        label: ubuntu-bionic
-      - name: secondary-1
-        label: ubuntu-bionic
-      - name: secondary-2
-        label: ubuntu-bionic
+    nodes: []
     groups:
       - name: subnodes
-        nodes:
-          - secondary-1
-          - secondary-2
+        nodes: []
