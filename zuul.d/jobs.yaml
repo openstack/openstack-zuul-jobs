@@ -81,7 +81,7 @@
 - job:
     name: openstack-tox-py27
     parent: openstack-tox
-    nodeset: ubuntu-bionic
+    nodeset: ubuntu-jammy
     timeout: 2400
     description: |
       Run unit tests for an OpenStack Python project under cPython version 2.7.
@@ -98,10 +98,12 @@
     vars:
       tox_envlist: py27
       bindep_profile: test py27
-      # NOTE(gmann): This is stable branch job and new tox 4 require
-      # some changes in tox.ini to be compatible with it. Let's
-      # pin tox <4 for stable branches testing (<=stable/zed).
-      ensure_tox_version: '<4'
+      # Tox >=4 only supports python3 venvs. Need to pin to <4 for py27 venvs.
+      # We pin virtualenv because old tox does not and latest virtualenv that
+      # runs on python3.10 does not support python2.7 virtualenvs.
+      # This is an abuse of the ensure_tox_version argument but python2.7 is
+      # slowly on its way out so we make do.
+      ensure_tox_version: '<4 virtualenv<20.22.0'
 
 - job:
     name: openstack-tox-py35

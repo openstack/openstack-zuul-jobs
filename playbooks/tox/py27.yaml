@@ -15,8 +15,8 @@
     - name: Install Python 2.7
       package:
         name:
-          - python
-          - python-dev
+          - python2.7
+          - python2.7-dev
         state: present
       when: ansible_facts['distribution'] != "CentOS"
     - name: Install Python 2.7 for CentOS 7
