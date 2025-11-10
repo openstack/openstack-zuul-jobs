@@ -58,9 +58,6 @@
     elif [[ $branch_name =~ feature/ ]]; then
         echo "Docs should not be published for feature branches"
         exit 1
-    elif [[ $branch_name =~ driverfixes/ ]]; then
-        echo "Docs should not be published for feature branches"
-        exit 1
     else
         # What is this even?
         echo "Could not determine publishing location for branch_name $branch_name"

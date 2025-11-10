@@ -3284,17 +3284,11 @@
     check:
       jobs:
         - grenade
-        - tempest-full-py3:
-            branches:
-              regex: ^driverfixes.*$
-              negate: true
+        - tempest-full-py3
     gate:
       jobs:
         - grenade
-        - tempest-full-py3:
-            branches:
-              regex: ^driverfixes.*$
-              negate: true
+        - tempest-full-py3
 
 # TODO(gmann): Remove the 'integrated-gate-py35' template once all repo
 # including their stable branches are renamed it to 'integrated-gate-py3'
@@ -3306,17 +3300,11 @@
     check:
       jobs:
         - grenade-py3
-        - tempest-full-py3:
-            branches:
-              regex: ^driverfixes.*$
-              negate: true
+        - tempest-full-py3
     gate:
       jobs:
         - grenade-py3
-        - tempest-full-py3:
-            branches:
-              regex: ^driverfixes.*$
-              negate: true
+        - tempest-full-py3
 
 - project-template:
     name: golang-jobs

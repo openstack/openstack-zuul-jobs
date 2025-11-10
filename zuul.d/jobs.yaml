@@ -109,9 +109,6 @@
     name: openstack-tox-py35
     parent: openstack-tox
     nodeset: ubuntu-xenial
-    branches:
-      regex: ^driverfixes/.*$
-      negate: true
     timeout: 2400
     description: |
       Run unit tests for an OpenStack project under cPython version 3.5.
@@ -1165,9 +1162,6 @@
     name: openstack-tox-lower-constraints
     parent: openstack-tox
     nodeset: ubuntu-focal
-    branches:
-      regex: ^driverfixes/.*$
-      negate: true
     timeout: 2400
     description: |
       Run unit tests using the lower constraints.
@@ -1236,9 +1230,6 @@
 
 - job:
     name: build-openstack-releasenotes
-    branches:
-      regex: ^driverfixes/.*$
-      negate: true
     parent: build-reno-releasenotes
     nodeset: ubuntu-jammy
     description: |
