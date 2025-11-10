@@ -1230,16 +1230,15 @@
 
 - job:
     name: build-openstack-releasenotes
-    parent: build-reno-releasenotes
-    nodeset: ubuntu-jammy
+    parent: openstack-tox-docs
     description: |
-      Build releasenotes, with optional translation support, using reno.
+      Build releasenotes document.
     # Building translated releasenotes can take long for large repositories
     timeout: 3600
-    required-projects:
-      - name: openstack/requirements
     vars:
-      constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      sphinx_build_dir: releasenotes/build
+      tox_envlist: releasenotes
+      tox_skip_pdf: true
 
 - job:
     name: build-openstack-api-ref
