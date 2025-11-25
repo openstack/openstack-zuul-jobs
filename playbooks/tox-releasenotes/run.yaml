@@ -1,0 +1,11 @@
+- name: Build release notes
+  hosts: all
+  roles:
+    - revoke-sudo
+    - tox
+    - role: extract-tox-envdir
+      vars:
+        tox_env: releasenotes
+    - role: build-releasenotes
+      vars:
+        zuul_work_virtualenv: "{{ tox_envdir }}"
