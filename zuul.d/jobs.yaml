@@ -430,6 +430,36 @@
       Uses tox with the ``py313`` environment in arm64 platform.
 
 - job:
+    name: openstack-tox-py314
+    parent: openstack-tox
+    nodeset: debian-trixie-8GB
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.14.
+
+      Uses tox with the ``py314`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: py314
+      bindep_profile: test py314
+      python_use_pyenv: True
+      python_version: '3.14'
+
+- job:
+    name: openstack-tox-py314-arm64
+    parent: openstack-tox-py314
+    nodeset: ubuntu-noble-arm64
+    timeout: 3600
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.14 on top of arm64 architecture.
+
+      Uses tox with the ``py314`` environment in arm64 platform.
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
@@ -783,6 +813,22 @@
       tox_envlist: functional-py313
       bindep_profile: test py313
       python_version: '3.13'
+
+- job:
+    name: openstack-tox-functional-py314
+    parent: openstack-tox
+    nodeset: debian-trixie-8GB
+    description: |
+      Run tox-based functional tests for an OpenStack Python project
+      under cPython version 3.14.
+
+      Uses tox with the ``functional-py314`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: functional-py314
+      bindep_profile: test py314
+      python_use_pyenv: True
+      python_version: '3.14'
 
 - job:
     name: openstack-tox-validate
