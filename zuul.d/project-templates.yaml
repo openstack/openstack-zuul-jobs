@@ -615,7 +615,7 @@
         - openstack-tox-pep8
         - openstack-tox-py38:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
         # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # also minimum python version to test from 2024.2 onwards
         - openstack-tox-py39:
@@ -633,7 +633,7 @@
         # will be enough coverage to run on every change).
         - openstack-tox-py311:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
               - stable/2024.2
         # py3.12 testing is added as non voting in 2024.2 release.
         - openstack-tox-py312:
@@ -661,7 +661,7 @@
         - openstack-tox-pep8
         - openstack-tox-py38:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
         # NOTE(gmann): py39 job was required to run for 2023.2 release and
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
@@ -679,7 +679,7 @@
         # will be enough coverage to run on every change).
         - openstack-tox-py311:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -730,7 +730,7 @@
               - openstack/horizon
         - openstack-tox-py38:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
             required-projects:
               - openstack/horizon
         # NOTE(gmann): py39 job was required to run for 2023.2 release and
@@ -756,7 +756,7 @@
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
               - stable/2024.2
         # py3.12 testing is added as non voting in 2024.2 release.
         - openstack-tox-py312:
@@ -794,7 +794,7 @@
               - openstack/horizon
         - openstack-tox-py38:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
             required-projects:
               - openstack/horizon
         # NOTE(gmann): py39 job was required to run for 2023.2 release and
@@ -820,7 +820,7 @@
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -879,7 +879,7 @@
               - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
             required-projects:
               - openstack/neutron
         # NOTE(gmann): py39 job was required to run for 2023.2 release and
@@ -905,7 +905,7 @@
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
               - stable/2024.2
         # py3.12 testing is added as non voting in 2024.2 release.
         - openstack-tox-py312:
@@ -943,7 +943,7 @@
               - openstack/neutron
         - openstack-tox-py38:
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
             required-projects:
               - openstack/neutron
         # NOTE(gmann): py39 job was required to run for 2023.2 release and
@@ -969,7 +969,7 @@
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2024.1
+              - unmaintained/2024.1
               - stable/2024.2
        # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -2232,13 +2232,9 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/2024.1
               - stable/2024.2
               - stable/2025.1
               - stable/2025.2
-        - openstack-tox-py38:
-            branches:
-              - stable/2024.1
         - openstack-tox-py39:
             branches:
               - stable/2024.2
@@ -2248,7 +2244,6 @@
               - stable/2025.2
         - openstack-tox-py311:
             branches:
-              - stable/2024.1
               - stable/2024.2
         - openstack-tox-py312:
             branches:
@@ -2266,15 +2261,9 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/2024.1
               - stable/2024.2
               - stable/2025.1
               - stable/2025.2
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            branches:
-              - stable/2024.1
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -2290,7 +2279,6 @@
               - openstack/neutron
         - openstack-tox-py311:
             branches:
-              - stable/2024.1
               - stable/2024.2
             required-projects:
               - openstack/neutron
