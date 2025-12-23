@@ -748,6 +748,21 @@
       python_version: '3.12'
 
 - job:
+    name: openstack-tox-functional-py313
+    parent: openstack-tox
+    nodeset: debian-trixie-8GB
+    description: |
+      Run tox-based functional tests for an OpenStack Python project
+      under cPython version 3.13.
+
+      Uses tox with the ``functional-py313`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: functional-py313
+      bindep_profile: test py313
+      python_version: '3.13'
+
+- job:
     name: openstack-tox-validate
     parent: openstack-tox
     description: |
