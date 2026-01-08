@@ -1037,7 +1037,7 @@
 - job:
     name: openstack-tox-py39-with-neutron-lib-master
     parent: openstack-tox-py39
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs neutron-lib from source and tests that the
       unit tests of the tested project work.
@@ -1054,7 +1054,7 @@
 - job:
     name: openstack-tox-py310-with-neutron-lib-master
     parent: openstack-tox-py310
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs neutron-lib from source and tests that the
       unit tests of the tested project work.
@@ -1071,7 +1071,7 @@
 - job:
     name: openstack-tox-py311-with-neutron-lib-master
     parent: openstack-tox-py311
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs neutron-lib from source and tests that the
       unit tests of the tested project work.
@@ -1088,7 +1088,7 @@
 - job:
     name: openstack-tox-py312-with-neutron-lib-master
     parent: openstack-tox-py312
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs neutron-lib from source and tests that the
       unit tests of the tested project work.
@@ -1105,7 +1105,7 @@
 - job:
     name: openstack-tox-py310-with-ovsdbapp-master
     parent: openstack-tox-py310
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs ovsdbapp from source and tests that the
       unit tests of the tested project work.
@@ -1121,7 +1121,7 @@
 - job:
     name: openstack-tox-py311-with-ovsdbapp-master
     parent: openstack-tox-py311
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs ovsdbapp from source and tests that the
       unit tests of the tested project work.
@@ -1137,7 +1137,7 @@
 - job:
     name: openstack-tox-py312-with-ovsdbapp-master
     parent: openstack-tox-py312
-    timeout: 3000
+    timeout: 3600
     description: |
       This job installs ovsdbapp from source and tests that the
       unit tests of the tested project work.
