@@ -1005,6 +1005,155 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-jobs-nova
+    # NOTE(gmann): We are using this generic template for python version
+    # testing. When a new development cycle starts, we need to do two things:
+    # 1. Update this template for the python version jobs as per the
+    #    new development cycle testing runtime defined by TC
+    #    https://governance.openstack.org/tc/reference/runtimes/
+    #    Use the 'branches' variant to run the applicable python version
+    #    jobs.
+    # 2. Make sure the previous cycle applicable jobs continue to run for
+    #    the new stable branch. Use the 'branches' variant to run the
+    #    applicable python version jobs.
+    description: |
+      The standard :zuul:project_template:`openstack-python3-jobs`
+      but with nova added as a required-projects. This checks out
+      the project code and allows tox_install_siblings to use nova
+      when building the venv.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/nova
+        - openstack-tox-py38:
+            branches:
+              - unmaintained/2024.1
+            required-projects:
+              - openstack/nova
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
+        # minimum python version to test from 2024.2 onwards.
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2024.2
+              - stable/2025.1
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
+        # minimum python version to test from 2025.2 onwards
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2025.2
+              - master
+        # py3.11 testing is added as mandatory from 2024.1 release onwards.
+        # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
+        # will be enough coverage to run on every change).
+        - openstack-tox-py311:
+            required-projects:
+              - openstack/nova
+            branches:
+              - unmaintained/2024.1
+              - stable/2024.2
+        # py3.12 testing is added as non voting in 2024.2 release.
+        - openstack-tox-py312:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2024.2
+            voting: false
+        # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
+        - openstack-tox-py312:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2025.1
+              - stable/2025.2
+        # py3.13 testing is added as non voting in 2025.2 release.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2025.2
+            voting: false
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/nova
+            branches:
+              - master
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/nova
+        - openstack-tox-py38:
+            branches:
+              - unmaintained/2024.1
+            required-projects:
+              - openstack/nova
+        # NOTE(gmann): py39 job was required to run for 2023.2 release and
+        # minimum python version to test from 2024.2 onwards.
+        - openstack-tox-py39:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2024.2
+              - stable/2025.1
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
+        # minimum python version to test from 2025.2 onwards
+        - openstack-tox-py310:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2025.2
+              - master
+        # py3.11 testing is added as mandatory from 2024.1 release onwards.
+        # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
+        # will be enough coverage to run on every change).
+        - openstack-tox-py311:
+            required-projects:
+              - openstack/nova
+            branches:
+              - unmaintained/2024.1
+              - stable/2024.2
+       # py3.12 testing is added as mandatory from 2025.1 release onwards.
+        # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
+        # will be enough coverage to run on every change)
+        - openstack-tox-py312:
+            required-projects:
+              - openstack/nova
+            branches:
+              - stable/2025.1
+              - stable/2025.2
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313:
+            required-projects:
+              - openstack/nova
+            branches:
+              - master
+    periodic:
+      jobs:
+        # NOTE(gmann): We can remove the periodic py3.11 and py3.12 jobs once
+        # the master testing runtime does not include it to test.
+        - openstack-tox-py311:
+            branches:
+              - master
+            required-projects:
+              - openstack/nova
+        - openstack-tox-py312:
+            branches:
+              - master
+            required-projects:
+              - openstack/nova
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
     name: openstack-python3-zed-jobs
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
