@@ -1739,7 +1739,6 @@
 - job:
     name: openstack-multinode-fips
     abstract: true
-    parent: openstack-fips
     description: |
       Base job for OpenStack jobs to enable mutinode jobs while
       being able to enable FIPS by specifying enable_fips as True.
