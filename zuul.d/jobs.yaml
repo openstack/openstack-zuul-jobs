@@ -377,8 +377,30 @@
 - job:
     name: openstack-tox-py313
     parent: openstack-tox
+    nodeset: debian-trixie-8GB
+    timeout: 2400
+    branches:
+      regex: ^.*/2025.2$
+      negate: true
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.13.
+
+      Uses tox with the ``py313`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: py313
+      bindep_profile: test py313
+      python_version: '3.13'
+
+- job:
+    name: openstack-tox-py313
+    parent: openstack-tox
     nodeset: ubuntu-noble
     timeout: 2400
+    branches:
+      regex: ^.*/2025.2$
     description: |
 
       Run unit tests for an OpenStack Python project under cPython
