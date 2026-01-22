@@ -372,10 +372,6 @@ case "$PROJECT" in
         setup_i18n "$ZANATA_VERSION"
         propose_i18n
         ;;
-    tripleo-ui)
-        setup_reactjs_project "$PROJECT" "$ZANATA_VERSION"
-        propose_reactjs
-        ;;
     *)
         # Common setup for python and django repositories
         handle_python_django_project $PROJECT

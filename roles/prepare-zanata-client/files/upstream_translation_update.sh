@@ -75,11 +75,6 @@ case "$PROJECT" in
         setup_i18n "$ZANATA_VERSION"
         ALL_MODULES="doc"
         ;;
-    tripleo-ui)
-        setup_reactjs_project "$PROJECT" "$ZANATA_VERSION"
-        # The pot file is generated in the ./i18n directory
-        ALL_MODULES="i18n"
-        ;;
     *)
         # Common setup for python and django repositories
         setup_project "$PROJECT" "$ZANATA_VERSION"
