@@ -627,6 +627,7 @@
         - openstack-tox-py310:
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -655,6 +656,7 @@
         # py3.13 testing is added as mandatory from 2026.1 release onwards.
         - openstack-tox-py313:
             branches:
+              - stable/2026.1
               - master
     gate:
       jobs:
@@ -673,6 +675,7 @@
         - openstack-tox-py310:
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -691,6 +694,7 @@
         # py3.13 testing is added as mandatory from 2026.1 release onwards.
         - openstack-tox-py313:
             branches:
+              - stable/2026.1
               - master
     periodic:
       jobs:
@@ -748,6 +752,7 @@
               - openstack/horizon
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -786,6 +791,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2026.1
               - master
     gate:
       jobs:
@@ -812,6 +818,7 @@
               - openstack/horizon
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -836,6 +843,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2026.1
               - master
     periodic:
       jobs:
@@ -897,6 +905,7 @@
               - openstack/neutron
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -935,6 +944,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2026.1
               - master
     gate:
       jobs:
@@ -961,6 +971,7 @@
               - openstack/neutron
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -985,6 +996,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2026.1
               - master
     periodic:
       jobs:
@@ -1046,6 +1058,7 @@
               - openstack/nova
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -1084,6 +1097,7 @@
             required-projects:
               - openstack/nova
             branches:
+              - stable/2026.1
               - master
     gate:
       jobs:
@@ -1110,6 +1124,7 @@
               - openstack/nova
             branches:
               - stable/2025.2
+              - stable/2026.1
               - master
         # py3.11 testing is added as mandatory from 2024.1 release onwards.
         # From 2025.1, we run it as periodic only(assuming py3.9 and py3.12
@@ -1134,6 +1149,7 @@
             required-projects:
               - openstack/nova
             branches:
+              - stable/2026.1
               - master
     periodic:
       jobs:
