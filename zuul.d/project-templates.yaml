@@ -1225,6 +1225,10 @@
     # 2. Until these arm64 jobs are non voting, we do not need to carry
     #    forward these non voting jobs to stable branches. Until they are
     #    fixed, update these template for the master testing runtime.
+    #
+    # This should roughly mimic the openstack-python3-jobs template above,
+    # except we only currently run these jobs on master branch changes
+    # since we are resource-constrained with ARM64 hardware.
     description: |
       Runs unit tests for an OpenStack Python project under the CPython
       version 3 releases on top of ARM64 architecture. This currently runs
@@ -1232,18 +1236,20 @@
       And it should not be run instead of the default!
     check-arm64:
       jobs:
-        # NOTE(gmann): py310 job was required to run for 2023.2 release.
+        # NOTE(gmann): py310 job was required to run for 2023.2 release and
+        # minimum python version to test from 2025.2 onwards.
         - openstack-tox-py310-arm64:
             voting: false
             branches:
               - master
-        # py3.12 testing is added from 2025.1 release onwards
-        - openstack-tox-py312-arm64:
-            voting: false
+        # py3.13 testing is added as non voting in 2025.2 release.
+        # py3.13 testing is added as mandatory from 2026.1 release onwards.
+        - openstack-tox-py313-arm64:
             branches:
               - master
-        # py3.13 testing is added as non voting in 2025.2 release.
-        - openstack-tox-py313-arm64:
+            voting: false
+        # py3.14 testing is added as non voting in 2026.1 release.
+        - openstack-tox-py314-arm64:
             branches:
               - master
             voting: false
