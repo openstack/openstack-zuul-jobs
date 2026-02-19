@@ -656,6 +656,11 @@
         - openstack-tox-py313:
             branches:
               - master
+        # py3.14 testing is added as non voting in 2026.1 release.
+        - openstack-tox-py314:
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8
@@ -787,6 +792,13 @@
               - openstack/horizon
             branches:
               - master
+        # py3.14 testing is added as non voting in 2026.1 release.
+        - openstack-tox-py314:
+            required-projects:
+              - openstack/horizon
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -936,6 +948,13 @@
               - openstack/neutron
             branches:
               - master
+        # py3.14 testing is added as non voting in 2026.1 release.
+        - openstack-tox-py314:
+            required-projects:
+              - openstack/neutron
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
@@ -1085,6 +1104,13 @@
               - openstack/nova
             branches:
               - master
+        # py3.14 testing is added as non voting in 2026.1 release.
+        - openstack-tox-py314:
+            required-projects:
+              - openstack/nova
+            branches:
+              - master
+            voting: false
     gate:
       jobs:
         - openstack-tox-pep8:
