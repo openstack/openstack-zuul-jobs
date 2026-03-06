@@ -20,6 +20,8 @@
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       enable_fips: false
+      # TODO(frickler): drop this again when latest tox is unbroken
+      ensure_tox_version: '<4.48'
 
 - job:
     name: openstack-tox
@@ -1633,6 +1635,8 @@
       tox_envlist: linters
       tox_environment:
         ANSIBLE_ROLES_PATH: ~/src/opendev.org/opendev/base-jobs/roles:~/src/opendev.org/zuul/zuul-jobs/roles:~/src/opendev.org/openstack/openstack-zuul-jobs/roles:~/src/opendev.org/openstack/project-config/roles:~/src/opendev.org/opendev/system-config/roles
+      # TODO(frickler): drop this again when latest tox is unbroken
+      ensure_tox_version: '<4.48'
 
 - job:
     name: ansible-role-functional-base

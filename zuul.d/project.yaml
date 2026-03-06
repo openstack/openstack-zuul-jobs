@@ -6,6 +6,10 @@
     check:
       jobs:
         - opendev-buildset-registry
+        # TODO(frickler): drop this again when latest tox is unbroken
+        - opendev-tox-docs:
+            vars:
+              ensure_tox_version: '<4.48'
         - project-config-grafana:
             files:
               - playbooks/grafana
@@ -53,6 +57,10 @@
               - roles/build-wheel-cache
     gate:
       jobs:
+        # TODO(frickler): drop this again when latest tox is unbroken
+        - opendev-tox-docs:
+            vars:
+              ensure_tox_version: '<4.48'
         - openafs-rpm-package-build-centos-9-stream-x86
         - openafs-rpm-package-build-centos-9-stream-arm64
         - openstack-zuul-jobs-linters
