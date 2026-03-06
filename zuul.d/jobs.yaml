@@ -419,7 +419,7 @@
 - job:
     name: openstack-tox-py313-arm64
     parent: openstack-tox-py313
-    nodeset: ubuntu-noble-arm64
+    nodeset: debian-trixie-arm64-8GB
     timeout: 3600
     description: |
 
