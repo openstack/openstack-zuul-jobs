@@ -915,6 +915,8 @@
       tox_envlist: docs
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
+      # TODO(frickler): drop this again when latest tox is unbroken
+      ensure_tox_version: '<4.48'
     # PDF Building is only done from stein onwards.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
@@ -951,6 +953,8 @@
       tox_envlist: docs
       tox_pdf_envlist: pdf-docs
       tox_skip_pdf: false
+      # TODO(frickler): drop this again when latest tox is unbroken
+      ensure_tox_version: '<4.48'
     # PDF Building is only done from stein onwards.
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
