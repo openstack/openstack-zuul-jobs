@@ -661,6 +661,7 @@
         # py3.14 testing is added as non voting in 2026.1 release.
         - openstack-tox-py314:
             branches:
+              - stable/2026.1
               - master
             voting: false
     gate:
@@ -803,6 +804,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - stable/2026.1
               - master
             voting: false
     gate:
@@ -963,6 +965,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - stable/2026.1
               - master
             voting: false
     gate:
@@ -1123,6 +1126,7 @@
             required-projects:
               - openstack/nova
             branches:
+              - stable/2026.1
               - master
             voting: false
     gate:
