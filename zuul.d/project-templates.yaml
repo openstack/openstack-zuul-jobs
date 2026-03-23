@@ -2312,17 +2312,17 @@
         - upstream-translation-update:
             branches:
               - master
+              - stable/2026.1
               - stable/2025.2
               - stable/2025.1
-              - stable/2024.2
     periodic:
       jobs:
         - propose-translation-update:
             branches:
               - master
+              - stable/2026.1
               - stable/2025.2
               - stable/2025.1
-              - stable/2024.2
 
 - project-template:
     name: openstack-specs-jobs
