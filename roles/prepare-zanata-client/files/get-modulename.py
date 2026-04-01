@@ -15,6 +15,7 @@
 import argparse
 import configparser
 import sys
+import tomllib
 
 
 DJANGO_PROJECT_SUFFIXES = (
@@ -82,12 +83,20 @@ def get_valid_modules(config, project, target):
 
     modules = get_option(config, 'files', 'packages', multiline=True)
     # If setup.cfg does not contain [files] packages entry,
-    # let's assume the project name as a module name.
+    # try to read from pyproject.toml.
     if not modules:
-        print('[files] packages entry not found in setup.cfg. '
+        try:
+            with open('pyproject.toml', 'rb') as f:
+                pyproject = tomllib.load(f)
+            modules = pyproject.get('tool', {}).get(
+                'setuptools', {}).get('packages', [])
+        except FileNotFoundError:
+            pass
+    if not modules:
+        print('No packages entry found in setup.cfg or pyproject.toml. '
               'Use project name "%s" as a module name.' % project,
               file=sys.stderr)
-        modules = [project]
+        modules = [project.replace('-', '_')]
     return modules
 
 
