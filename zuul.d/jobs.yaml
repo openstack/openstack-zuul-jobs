@@ -1392,76 +1392,6 @@
       tox_skip_pdf: true
 
 - job:
-    name: legacy-base
-    abstract: true
-    description: |
-      Base job (bionic) for autoconverted legacy jobs
-
-      This job runs on Bionic from stable/stein on.
-    pre-run: playbooks/legacy/pre.yaml
-    vars:
-      bindep_fallback: /usr/local/bindep-fallback/bindep-fallback.txt
-    nodeset: legacy-ubuntu-bionic
-
-- job:
-    name: legacy-dsvm-base
-    abstract: true
-    description: |
-      Base job (bionic) for autoconverted legacy devstack-gate jobs
-
-      This job runs devstack-gate with as few changes as possible and
-      may be used by jobs which have been automatically converted as
-      part of the migration to Zuul v3. This job runs on Bionic from
-      stable/stein on.
-    nodeset: legacy-ubuntu-bionic
-    pre-run: playbooks/legacy/pre.yaml
-    required-projects:
-      - openstack/devstack
-      - openstack/tripleo-ci
-      - openstack/ceilometer
-      - openstack/ceilometermiddleware
-      - openstack/cinder
-      - openstack/glance
-      - openstack/glance_store
-      - openstack/heat
-      - openstack/heat-cfntools
-      - openstack/heat-templates
-      - openstack/horizon
-      - openstack/keystone
-      - openstack/keystoneauth
-      - openstack/keystonemiddleware
-      - openstack/manila
-      - openstack/manila-ui
-      - openstack/neutron
-      - openstack/nova
-      - openstack/octavia
-      - openstack/os-apply-config
-      - openstack/os-brick
-      - openstack/os-client-config
-      - openstack/os-collect-config
-      - openstack/os-refresh-config
-      - openstack/osc-lib
-      # NOTE(mriedem): The openstack/placement repo is new in Stein and will
-      # be ignored on stable branches before Stein.
-      - openstack/placement
-      - openstack/requirements
-      - openstack/swift
-      - openstack/tempest
-      - openstack/zaqar
-
-- job:
-    name: legacy-publish-openstack-artifacts
-    abstract: true
-    parent: publish-openstack-artifacts
-    description: |
-      Base job (bionic) for autoconverted legacy jobs that publish artifacts.
-
-      This job runs on Bionic from stable/stein on.
-    nodeset: legacy-ubuntu-bionic
-    pre-run: playbooks/legacy/pre.yaml
-
-
-- job:
     name: project-config-gerrit
     parent: tox
     description: |
@@ -1840,23 +1770,6 @@
           label: ubuntu-focal-arm64
     host-vars:
       wheel-cache-ubuntu-focal-arm64-python3:
-        wheel_python: python3
-
-- job:
-    name: build-wheel-cache-ubuntu-bionic
-    parent: build-wheel-cache-base
-    description: |
-      Build Ubuntu Bionic wheels for OpenStack CI mirrors.
-    nodeset:
-      nodes:
-        - name: wheel-cache-ubuntu-bionic-python2
-          label: ubuntu-bionic
-        - name: wheel-cache-ubuntu-bionic-python3
-          label: ubuntu-bionic
-    host-vars:
-      wheel-cache-ubuntu-bionic-python2:
-        wheel_python: python2
-      wheel-cache-ubuntu-bionic-python3:
         wheel_python: python3
 
 - job:
