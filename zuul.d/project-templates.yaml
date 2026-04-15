@@ -626,6 +626,7 @@
         # minimum python version to test from 2025.2 onwards
         - openstack-tox-py310:
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -679,6 +680,7 @@
         # minimum python version to test from 2025.2 onwards
         - openstack-tox-py310:
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -756,6 +758,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -829,6 +832,7 @@
             required-projects:
               - openstack/horizon
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -916,6 +920,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -989,6 +994,7 @@
             required-projects:
               - openstack/neutron
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -1076,6 +1082,7 @@
             required-projects:
               - openstack/nova
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
@@ -1149,6 +1156,7 @@
             required-projects:
               - openstack/nova
             branches:
+              - unmaintained/2023.1
               - stable/2025.2
               - stable/2026.1
               - master
