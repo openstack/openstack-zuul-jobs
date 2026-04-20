@@ -1242,12 +1242,12 @@
       And it should not be run instead of the default!
     check-arm64:
       jobs:
-        # NOTE(gmann): py310 job was required to run for 2023.2 release and
-        # minimum python version to test from 2025.2 onwards.
-        - openstack-tox-py310-arm64:
-            voting: false
+        # py3.11 testing is added as non voting in 2026.2 release.
+        # py3.11 testing is added as mandatory from 2026.2 release onwards.
+        - openstack-tox-py311-arm64:
             branches:
               - master
+            voting: false
         # py3.13 testing is added as non voting in 2025.2 release.
         # py3.13 testing is added as mandatory from 2026.1 release onwards.
         - openstack-tox-py313-arm64:
