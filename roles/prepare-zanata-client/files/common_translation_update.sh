@@ -389,10 +389,16 @@ function extract_messages_python {
 # Django projects need horizon installed for extraction, install it in
 # our venv. The function setup_venv needs to be called first.
 function install_horizon {
+    # See if there is a build-constraints.txt file, and use it if there is.
+    if [ -f ${HORIZON_DIR}/build-constraints.txt ]; then
+        build_constraint = "--build-contraint=${HORIZON_DIR}/build-constraints.txt"
+    else
+        build_constraint = ""
+    fi
     # Zuul has checked out horizon on the same branch as the project
     # already for us.
     (cd ${HORIZON_DIR} &&
-     pip install -c $UPPER_CONSTRAINTS_FILE -r requirements.txt -r test-requirements.txt &&
+     pip install $build_constraint -c $UPPER_CONSTRAINTS_FILE -r requirements.txt -r test-requirements.txt &&
      pip install .)
 }
 
