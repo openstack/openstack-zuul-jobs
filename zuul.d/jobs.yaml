@@ -1346,6 +1346,8 @@
       Build releasenotes document.
     # Building translated releasenotes can take long for large repositories
     timeout: 3600
+    # Release notes always build on master.
+    override-checkout: master
     vars:
       sphinx_build_dir: releasenotes/build
       tox_envlist: releasenotes
