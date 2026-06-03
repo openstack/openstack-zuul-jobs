@@ -1,0 +1,31 @@
+---
+
+- name: Install necessary packages
+  package:
+    name:
+      - gettext
+      - python3-requests
+    state: present
+  become: yes
+
+- name: Ensure weblate config dir
+  file:
+    path: ~/.config
+    state: directory
+
+- name: Write out weblate config
+  template:
+    src: weblate.ini
+    dest: ~/.config/weblate
+
+- name: Copy translation scripts to the script dir on the node
+  copy:
+    dest: '{{ ansible_user_dir }}/scripts/'
+    src: '{{ item }}'
+    mode: "0755"
+  with_items:
+    - download_translations_weblate.py
+    - propose_translation_update_weblate.sh
+    - common_translation_update_weblate.sh
+    - get-modulename.py
+    - weblate_utils.py
