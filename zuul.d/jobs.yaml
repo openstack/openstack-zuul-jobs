@@ -457,6 +457,24 @@
       Uses tox with the ``py314`` environment in arm64 platform.
 
 - job:
+    name: openstack-tox-py315
+    parent: openstack-tox
+    nodeset: debian-trixie-8GB
+    timeout: 2400
+    description: |
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.15.
+
+      Uses tox with the ``py315`` environment.
+    irrelevant-files: *common-irrelevant-files
+    vars:
+      tox_envlist: py315
+      bindep_profile: test py315
+      python_use_pyenv: True
+      python_version: '3.15'
+
+- job:
     name: openstack-tox-pypy
     parent: openstack-tox
     description: |
