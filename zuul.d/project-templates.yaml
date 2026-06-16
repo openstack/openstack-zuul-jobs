@@ -1856,32 +1856,6 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
-    name: openstack-python35-jobs-no-constraints
-    description: |
-      Runs unit tests for an OpenStack Python project under cPython
-      version 3.5.
-      This uses a variant that do not use constraints.
-    check:
-      jobs:
-        - tox-py35:
-            nodeset: ubuntu-xenial
-    gate:
-      jobs:
-        - tox-py35:
-            nodeset: ubuntu-xenial
-
-- project-template:
-    name: openstack-python36-jobs-no-constraints
-    description: |
-      Runs unit tests for an OpenStack Python project under cPython
-      version 3.6.
-      This uses a variant that do not use constraints.
-    check:
-      jobs: []
-    gate:
-      jobs: []
-
-- project-template:
     name: openstack-python37-jobs-no-constraints
     description: |
       Runs unit tests for an OpenStack Python project under cPython
@@ -2010,23 +1984,9 @@
 - project-template:
     name: nodejs4-publish-to-npm
     description: |
-      Runs publish jobs and tarball generation for Javascript.
-      Uses NodeJS version 4.
-    post:
-      jobs:
-        - publish-openstack-javascript-tarball:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-    release:
-      jobs:
-        - release-openstack-javascript:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-        - announce-release:
-            dependencies:
-              - release-openstack-javascript
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
 
 - project-template:
     name: nodejs6-publish-to-npm
@@ -2407,44 +2367,22 @@
 - project-template:
     name: nodejs4-jobs
     description: |
-      Run lint and test jobs using Node 4.
+      This template is deprecated and should no longer be used.
     check:
-      jobs:
-        - nodejs-run-lint:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-        - nodejs-run-test-browser:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-    gate:
-      jobs:
-        - nodejs-run-lint:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-        - nodejs-run-test-browser:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
+      jobs: []
 
 - project-template:
     name: nodejs6-jobs
     description: |
-      Run lint and test jobs using Node 6.
+      This template is deprecated and should no longer be used.
     check:
-      jobs: []
-    gate:
       jobs: []
 
 - project-template:
     name: nodejs8-jobs
     description: |
-      Run lint and test jobs using Node 8.
+      This template is deprecated and should no longer be used.
     check:
-      jobs: []
-    gate:
       jobs: []
 
 - project-template:
@@ -2573,26 +2511,9 @@
             nodeset: ubuntu-jammy
 
 - project-template:
-    name: nodejs4-docs
-    description: |
-      Run docs jobs using Node 4.
-    check:
-      jobs:
-        - nodejs-npm-run-docs:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-    gate:
-      jobs:
-        - nodejs-npm-run-docs:
-            vars:
-              node_version: 4
-            nodeset: ubuntu-xenial
-
-- project-template:
     name: nodejs8-docs
     description: |
-      Run docs jobs using Node 8.
+      This template is deprecated and should no longer be used.
     check:
       jobs: []
     gate:
@@ -2713,28 +2634,6 @@
         - openstack-tox-snap-with-sudo
 
 - project-template:
-    name: ansible-role-functional-jobs-xenial
-    description: |
-      Run functional tests on ansible-role repositories using
-      Ubuntu Xenial nodes.
-    check:
-      jobs:
-        - ansible-role-functional-ubuntu-xenial
-    gate:
-      jobs:
-        - ansible-role-functional-ubuntu-xenial
-
-- project-template:
-    name: ansible-role-functional-jobs-xenial-nv
-    description: |
-      Run functional tests on ansible-role repositories using
-      Ubuntu Xenial nodes. The tests are non-voting.
-    check:
-      jobs:
-        - ansible-role-functional-ubuntu-xenial:
-            voting: false
-
-- project-template:
     name: integrated-gate-py3
     description: |
       Run the python3 Tempest integration tests in check and gate for
@@ -2746,22 +2645,6 @@
     gate:
       jobs:
         - grenade
-        - tempest-full-py3
-
-# TODO(gmann): Remove the 'integrated-gate-py35' template once all repo
-# including their stable branches are renamed it to 'integrated-gate-py3'
-- project-template:
-    name: integrated-gate-py35
-    description: |
-      Run the python3 Tempest integration tests in check and gate for
-      repositories in the integrated gate.
-    check:
-      jobs:
-        - grenade-py3
-        - tempest-full-py3
-    gate:
-      jobs:
-        - grenade-py3
         - tempest-full-py3
 
 - project-template:

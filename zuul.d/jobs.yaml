@@ -108,16 +108,21 @@
 - job:
     name: openstack-tox-py35
     parent: openstack-tox
-    nodeset: ubuntu-xenial
+    nodeset: ubuntu-focal
+    ansible-version: 9
     timeout: 2400
     description: |
-      Run unit tests for an OpenStack project under cPython version 3.5.
+
+      Run unit tests for an OpenStack Python project under cPython
+      version 3.5.
 
       Uses tox with the ``py35`` environment.
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: py35
       bindep_profile: test py35
+      python_use_pyenv: True
+      python_version: 3.5
       # NOTE(gmann): This is stable branch job and new tox 4 require
       # some changes in tox.ini to be compatible with it. Let's
       # pin tox <4 for stable branches testing (<=stable/zed).
@@ -126,7 +131,7 @@
 - job:
     name: openstack-tox-py36
     parent: openstack-tox
-    nodeset: ubuntu-bionic
+    nodeset: ubuntu-focal
     ansible-version: 9
     timeout: 2400
     description: |
@@ -139,8 +144,6 @@
     vars:
       tox_envlist: py36
       bindep_profile: test py36
-      # NOTE(elod.illes): ubuntu-bionic nodeset is removed from zuul's
-      # nodepool. Instead of using a bionic nodeset we set to use pyenv.
       python_use_pyenv: True
       python_version: 3.6
       # NOTE(gmann): This is stable branch job and new tox 4 require
@@ -661,7 +664,7 @@
 - job:
     name: openstack-tox-functional-py35
     parent: openstack-tox
-    nodeset: ubuntu-xenial
+    nodeset: ubuntu-focal
     description: |
       Run tox-based functional tests for an OpenStack Python project
       under cPython version 3.5..
@@ -670,6 +673,8 @@
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_envlist: functional-py35
+      python_use_pyenv: True
+      python_version: '3.5'
 
 - job:
     name: openstack-tox-functional-py36
@@ -1615,10 +1620,6 @@
     run: playbooks/tox-with-sudo/run.yaml
     vars:
       tox_envlist: functional
-
-- job:
-    name: ansible-role-functional-ubuntu-xenial
-    parent: ansible-role-functional-base
 
 - job:
     name: golang-base
