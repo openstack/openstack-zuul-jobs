@@ -1346,7 +1346,6 @@
     parent: openstack-tox-docs
     description: |
       Build releasenotes document.
-    run: playbooks/tox-releasenotes/run.yaml
     # Building translated releasenotes can take long for large repositories
     timeout: 3600
     # Release notes always build on master.
