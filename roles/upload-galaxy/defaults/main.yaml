@@ -1,0 +1,11 @@
+---
+ansible_galaxy_collection_path: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+ansible_galaxy_build_collection_path: /tmp/collection_build/
+ansible_galaxy_virtualenv_path: "~/.virtualenvs/ansible-galaxy"
+ansible_galaxy_default_server: https://galaxy.ansible.com
+# ansible_core_version:
+# ansible_galaxy_info:
+#   token:
+#   url:
+
+ansible_collection_version_tag: "{{ zuul.tag | default('no_version', true) }}"
