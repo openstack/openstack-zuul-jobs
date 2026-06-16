@@ -1,0 +1,3 @@
+- name: Extract env_dir for the given testenv
+  script: extract-tox-envdir {{ zuul_work_dir }} {{ tox_env }}
+  register: tox_envdir
