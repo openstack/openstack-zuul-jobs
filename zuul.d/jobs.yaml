@@ -887,6 +887,8 @@
 
       Uses tox with the ``docs`` environment.
 
+      This job runs on noble from stable/2025.1 and later.
+
       .. zuul:jobvar: tox_envlist
 
          The tox environment for building HTML, default is ``docs``.
@@ -903,7 +905,7 @@
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      regex: ^*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -928,6 +930,8 @@
       Run documentation build.
 
       Uses tox with the ``docs`` environment.
+
+      This job runs on jammy from stable/2023.1 until stable/2024.2.
 
       .. zuul:jobvar: tox_envlist
 
