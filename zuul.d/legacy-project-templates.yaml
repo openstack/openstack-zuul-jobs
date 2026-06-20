@@ -159,15 +159,6 @@
       jobs: []
 
 - project-template:
-    name: openstack-python3-train-jobs-neutron
-    description: |
-      This template is deprecated and should no longer be used.
-    check:
-      jobs: []
-    gate:
-      jobs: []
-
-- project-template:
     name: nodejs4-publish-to-npm
     description: |
       This template is deprecated and should no longer be used.
