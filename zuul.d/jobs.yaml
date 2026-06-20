@@ -109,7 +109,6 @@
     name: openstack-tox-py35
     parent: openstack-tox
     nodeset: ubuntu-focal
-    ansible-version: 9
     timeout: 2400
     description: |
 
@@ -132,7 +131,6 @@
     name: openstack-tox-py36
     parent: openstack-tox
     nodeset: ubuntu-focal
-    ansible-version: 9
     timeout: 2400
     description: |
 
