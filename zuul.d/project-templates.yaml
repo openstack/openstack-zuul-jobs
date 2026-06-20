@@ -347,95 +347,6 @@
               sphinx_python: python3
 
 - project-template:
-    name: openstack-python-jobs
-    description: |
-      Runs OpenStack PTI jobs for python.
-
-      This template is deprecated and should only be used for older
-      stable branches (train and older). For newer releases, use the
-      release specific template instead, for example
-      :zuul:project_template:`openstack-python3-ussuri-jobs`.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py27
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py27
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python-jobs-horizon
-    description: |
-      The standard :zuul:project_template:`openstack-python-jobs`
-      but with horizon added as a
-      required-projects. This checks out the project code and allows
-      tox_install_siblings to use horizon when building the venv.
-
-      This template is deprecated and should only be used for older
-      stable branches (train and older). For newer releases, use the
-      release specific template instead, for example
-      :zuul:project_template:`openstack-python3-ussuri-jobs-horizon`.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py27:
-            required-projects:
-              - openstack/horizon
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py27:
-            required-projects:
-              - openstack/horizon
-    post:
-      jobs:
-        # This job does not use tox and thus does not need
-        # any required-projects.
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python-jobs-neutron
-    description: |
-      The standard :zuul:project_template:`openstack-python-jobs`
-      but with neutron added as a
-      required-projects. This checks out the project code and allows
-      tox_install_siblings to use neutron when building the venv.
-
-      This template is deprecated and should only be used for older
-      stable branches (train and older). For newer releases, use the
-      release specific template instead, for example
-      :zuul:project_template:`openstack-python3-ussuri-jobs-neutron`.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py27:
-            required-projects:
-              - openstack/neutron
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py27:
-            required-projects:
-              - openstack/neutron
-    post:
-      jobs:
-        # This job does not use tox and thus does not need
-        # any required-projects.
-        - publish-openstack-python-branch-tarball
-
-- project-template:
     name: openstack-cover-jobs
     description: |
         Runs openstack-tox-cover in only the check pipeline.
@@ -620,7 +531,6 @@
         # also minimum python version to test from 2024.2 onwards
         - openstack-tox-py39:
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -636,13 +546,7 @@
         - openstack-tox-py311:
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
-        # py3.12 testing is added as non voting in 2024.2 release.
-        - openstack-tox-py312:
-            branches:
-              - stable/2024.2
-            voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
         # will be enough coverage to run on every change)
@@ -676,7 +580,6 @@
         # minimum python version to test from 2024.2 onwards.
         - openstack-tox-py39:
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -692,7 +595,6 @@
         - openstack-tox-py311:
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -750,7 +652,6 @@
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -770,15 +671,7 @@
               - openstack/horizon
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
-        # py3.12 testing is added as non voting in 2024.2 release.
-        - openstack-tox-py312:
-            required-projects:
-              - openstack/horizon
-            branches:
-              - stable/2024.2
-            voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
         # will be enough coverage to run on every change)
@@ -826,7 +719,6 @@
             required-projects:
               - openstack/horizon
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -846,7 +738,6 @@
               - openstack/horizon
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -910,7 +801,6 @@
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -930,15 +820,7 @@
               - openstack/neutron
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
-        # py3.12 testing is added as non voting in 2024.2 release.
-        - openstack-tox-py312:
-            required-projects:
-              - openstack/neutron
-            branches:
-              - stable/2024.2
-            voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
         # will be enough coverage to run on every change)
@@ -986,7 +868,6 @@
             required-projects:
               - openstack/neutron
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -1006,7 +887,6 @@
               - openstack/neutron
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -1070,7 +950,6 @@
             required-projects:
               - openstack/nova
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -1090,15 +969,7 @@
               - openstack/nova
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
-        # py3.12 testing is added as non voting in 2024.2 release.
-        - openstack-tox-py312:
-            required-projects:
-              - openstack/nova
-            branches:
-              - stable/2024.2
-            voting: false
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
         # will be enough coverage to run on every change)
@@ -1146,7 +1017,6 @@
             required-projects:
               - openstack/nova
             branches:
-              - stable/2024.2
               - stable/2025.1
         # NOTE(gmann): py310 job was required to run for 2023.2 release and
         # minimum python version to test from 2025.2 onwards
@@ -1166,7 +1036,6 @@
               - openstack/nova
             branches:
               - unmaintained/2024.1
-              - stable/2024.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -1470,376 +1339,6 @@
       jobs:
         - openstack-tox-pep8
         - openstack-tox-py38
-
-- project-template:
-    name: openstack-python3-xena-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Xena release.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38
-        - openstack-tox-py39:
-            voting: false
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-xena-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Xena release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-xena-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs: []
-
-- project-template:
-    name: openstack-python3-xena-jobs-horizon
-    description: |
-      The standard :zuul:project_template:`openstack-python3-xena-jobs`
-      but with horizon added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use horizon
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py39:
-            required-projects:
-              - openstack/horizon
-            voting: false
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-xena-jobs-neutron
-    description: |
-      The standard :zuul:project_template:`openstack-python3-xena-jobs`
-      but with neutron added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use neutron
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py39:
-            required-projects:
-              - openstack/neutron
-            voting: false
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-wallaby-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Wallaby release.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38
-        - openstack-tox-py39:
-            voting: false
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-wallaby-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Wallaby release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-wallaby-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs: []
-
-- project-template:
-    name: openstack-python3-wallaby-jobs-horizon
-    description: |
-      The standard :zuul:project_template:`openstack-python3-wallaby-jobs`
-      but with horizon added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use horizon
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py39:
-            required-projects:
-              - openstack/horizon
-            voting: false
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-wallaby-jobs-neutron
-    description: |
-      The standard :zuul:project_template:`openstack-python3-wallaby-jobs`
-      but with neutron added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use neutron
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py39:
-            required-projects:
-              - openstack/neutron
-            voting: false
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-victoria-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Victoria release.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-victoria-jobs-arm64
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Victoria release
-      on top of ARM64 architecture. This currently runs only a limited
-      test set and supplements the python3-victoria-jobs. And it should
-      not be run instead of the default!
-    check-arm64:
-      jobs: []
-
-- project-template:
-    name: openstack-python3-victoria-jobs-horizon
-    description: |
-      The standard :zuul:project_template:`openstack-python3-victoria-jobs`
-      but with horizon added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use horizon
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-victoria-jobs-neutron
-    description: |
-      The standard :zuul:project_template:`openstack-python3-victoria-jobs`
-      but with neutron added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use neutron
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-ussuri-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Ussuri release.
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py38:
-            voting: false
-            branches: master
-    gate:
-      jobs:
-        - openstack-tox-pep8
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-ussuri-jobs-horizon
-    description: |
-      The standard :zuul:project_template:`openstack-python3-ussuri-jobs`
-      but with horizon added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use horizon
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/horizon
-            voting: false
-            branches: master
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/horizon
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-ussuri-jobs-neutron
-    description: |
-      The standard :zuul:project_template:`openstack-python3-ussuri-jobs`
-      but with neutron added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use neutron
-      when building the venv.
-    check:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py38:
-            required-projects:
-              - openstack/neutron
-            voting: false
-            branches: master
-    gate:
-      jobs:
-        - openstack-tox-pep8:
-            required-projects:
-              - openstack/neutron
-    post:
-      jobs:
-        - publish-openstack-python-branch-tarball
-
-- project-template:
-    name: openstack-python3-train-jobs
-    description: |
-      Runs unit tests for an OpenStack Python project under the CPython
-      version 3 releases designated for testing in the Train release.
-    check:
-      jobs: []
-    gate:
-      jobs: []
-
-- project-template:
-    name: openstack-python3-train-jobs-horizon
-    description: |
-      The standard :zuul:project_template:`openstack-python3-train-jobs`
-      but with horizon added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use horizon
-      when building the venv.
-    check:
-      jobs: []
-    gate:
-      jobs: []
-
-- project-template:
-    name: openstack-python3-train-jobs-neutron
-    description: |
-      The standard :zuul:project_template:`openstack-python3-train-jobs`
-      but with neutron added as a required-projects. This checks out
-      the project code and allows tox_install_siblings to use neutron
-      when building the venv.
-    check:
-      jobs: []
-    gate:
-      jobs: []
 
 - project-template:
     name: openstack-python35-jobs
@@ -2181,13 +1680,6 @@
         - trigger-readthedocs-webhook
 
 - project-template:
-    name: nodejs4-publish-to-npm
-    description: |
-      This template is deprecated and should no longer be used.
-    check:
-      jobs: []
-
-- project-template:
     name: nodejs6-publish-to-npm
     description: |
       Runs publish jobs and tarball generation for Javascript.
@@ -2391,21 +1883,16 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/2024.2
               - stable/2025.1
               - stable/2025.2
               - stable/2026.1
         - openstack-tox-py39:
             branches:
-              - stable/2024.2
               - stable/2025.1
         - openstack-tox-py310:
             branches:
               - stable/2025.2
               - stable/2026.1
-        - openstack-tox-py311:
-            branches:
-              - stable/2024.2
         - openstack-tox-py312:
             branches:
               - stable/2025.1
@@ -2425,7 +1912,6 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/2024.2
               - stable/2025.1
               - stable/2025.2
               - stable/2026.1
@@ -2433,7 +1919,6 @@
               - openstack/neutron
         - openstack-tox-py39:
             branches:
-              - stable/2024.2
               - stable/2025.1
             required-projects:
               - openstack/neutron
@@ -2441,11 +1926,6 @@
             branches:
               - stable/2025.2
               - stable/2026.1
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py311:
-            branches:
-              - stable/2024.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py312:
@@ -2508,23 +1988,6 @@
         - openstack-tox-pep8
 
 - project-template:
-    name: python-charm-jobs
-    description: |
-      Run Python tests for charm projects.
-      This run py2.7 job and supposed to be used
-      on stable branch until stable/train. Ussuri
-      onwards, py3 template should be used
-      (DEPRECATED FOR REMOVAL).
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py27
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py27
-
-- project-template:
     name: python-charm-layer-jobs
     description: |
       Run Python tests for charm layer projects.
@@ -2536,53 +1999,6 @@
       jobs:
         - openstack-tox-pep8
         - openstack-tox-build
-
-- project-template:
-    name: python35-charm-jobs
-    description: |
-      Run tox-pep8 and tox-py35 check and gate jobs
-      (DEPRECATED FOR REMOVAL).
-    check:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py35
-    gate:
-      jobs:
-        - openstack-tox-pep8
-        - openstack-tox-py35
-
-- project-template:
-    name: python36-charm-jobs
-    description: |
-      Run tox-pep8 and tox-py36 check and gate jobs
-      (DEPRECATED FOR REMOVAL).
-    check:
-      jobs:
-        - openstack-tox-pep8
-    gate:
-      jobs:
-        - openstack-tox-pep8
-
-- project-template:
-    name: nodejs4-jobs
-    description: |
-      This template is deprecated and should no longer be used.
-    check:
-      jobs: []
-
-- project-template:
-    name: nodejs6-jobs
-    description: |
-      This template is deprecated and should no longer be used.
-    check:
-      jobs: []
-
-- project-template:
-    name: nodejs8-jobs
-    description: |
-      This template is deprecated and should no longer be used.
-    check:
-      jobs: []
 
 - project-template:
     name: nodejs10-jobs
@@ -2708,15 +2124,6 @@
             vars:
               node_version: 20
             nodeset: ubuntu-jammy
-
-- project-template:
-    name: nodejs8-docs
-    description: |
-      This template is deprecated and should no longer be used.
-    check:
-      jobs: []
-    gate:
-      jobs: []
 
 - project-template:
     name: nodejs10-docs
