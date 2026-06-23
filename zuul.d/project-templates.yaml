@@ -718,6 +718,46 @@
         - publish-openstack-python-branch-tarball
 
 - project-template:
+    name: openstack-python3-next-jobs
+    # NOTE(stephenfin): This template is an extension of openstack-python3-jobs
+    # and should be used alongside it. It promotes the latest non-voting Python
+    # version job to voting and adds the next Python version as non-voting.
+    # When a new development cycle starts, you need to:
+    # 1. Make the current non-voting job voting (in both check and gate).
+    # 2. Add the new upcoming Python version as non-voting in check.
+    # The stable branch job configs are maintained solely in
+    # openstack-python3-jobs and do not need to be duplicated here.
+    description: |
+      Extension of :zuul:project_template:`openstack-python3-jobs` for
+      projects that wish to test with the latest Python version and get
+      visibility into the next pre-release version. Use alongside that
+      template. Promotes the latest CPython release to voting and adds
+      the next upcoming release as non-voting, ahead of when services
+      are required to support it.
+    check:
+      jobs:
+        # py3.14 testing is added as mandatory (voting) from 2026.2
+        # release onwards for clients/libraries. This overrides the
+        # non-voting variant in openstack-python3-jobs.
+        - openstack-tox-py314:
+            branches:
+              - master
+            voting: true
+        # py3.15 testing is added as non voting in 2026.2 release.
+        - openstack-tox-py315:
+            branches:
+              - master
+            voting: false
+    gate:
+      jobs:
+        # py3.14 testing is added as mandatory (voting) from 2026.2
+        # release onwards for clients/libraries.
+        - openstack-tox-py314:
+            branches:
+              - master
+            voting: true
+
+- project-template:
     name: openstack-python3-jobs-horizon
     # NOTE(gmann): We are using this generic template for python version
     # testing. When a new development cycle starts, we need to do two things:
