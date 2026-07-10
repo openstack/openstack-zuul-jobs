@@ -1,0 +1,248 @@
+# Deprecated legacy project-templates specific to the OpenStack Project
+
+- project-template:
+    name: openstack-python-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    post:
+      jobs:
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python-jobs-horizon
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/horizon
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/horizon
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/horizon
+    post:
+      jobs:
+        # This job does not use tox and thus does not need
+        # any required-projects.
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python-jobs-neutron
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/neutron
+    gate:
+      jobs:
+        - openstack-tox-pep8:
+            required-projects:
+              - openstack/neutron
+        - openstack-tox-py27:
+            required-projects:
+              - openstack/neutron
+    post:
+      jobs:
+        # This job does not use tox and thus does not need
+        # any required-projects.
+        - publish-openstack-python-branch-tarball
+
+- project-template:
+    name: openstack-python3-xena-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-xena-jobs-arm64
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-xena-jobs-neutron
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-wallaby-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-wallaby-jobs-neutron
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-victoria-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-victoria-jobs-neutron
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-ussuri-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-ussuri-jobs-neutron
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-train-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: openstack-python3-train-jobs-neutron
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: nodejs4-publish-to-npm
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+
+- project-template:
+    name: nodejs4-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+
+- project-template:
+    name: nodejs6-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+
+- project-template:
+    name: nodejs8-jobs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+
+- project-template:
+    name: nodejs8-docs
+    description: |
+      This template is deprecated and should no longer be used.
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
+    name: python-charm-jobs
+    description: |
+      Run Python tests for charm projects.
+      This run py2.7 job and supposed to be used
+      on stable branch until stable/train. Ussuri
+      onwards, py3 template should be used
+      (DEPRECATED FOR REMOVAL).
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py27
+
+- project-template:
+    name: python35-charm-jobs
+    description: |
+      Run tox-pep8 and tox-py35 check and gate jobs
+      (DEPRECATED FOR REMOVAL).
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py35
+    gate:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-py35
+
+- project-template:
+    name: python36-charm-jobs
+    description: |
+      Run tox-pep8 and tox-py36 check and gate jobs
+      (DEPRECATED FOR REMOVAL).
+    check:
+      jobs:
+        - openstack-tox-pep8
+    gate:
+      jobs:
+        - openstack-tox-pep8

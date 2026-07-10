@@ -13,7 +13,7 @@
 
       Processing upper-constraints files from openstack/requirements.
     branches:
-      regex: ^*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      regex: ^*/(yoga|zed|2023.1|2024.1)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -32,9 +32,7 @@
       Processing upper-constraints files from openstack/requirements.
     branches:
       - ^.*/2023.1
-      - ^.*/2023.2
       - ^.*/2024.1
-      - ^.*/2024.2
     required-projects:
       - name: openstack/requirements
     vars:
@@ -55,9 +53,6 @@
       job is prepared to make sure all stable branches from stable/victoria until
       stable/zed will keep running on Focal.
     branches:
-      - ^.*/victoria
-      - ^.*/wallaby
-      - ^.*/xena
       - ^.*/yoga
       - ^.*/zed
     required-projects:
@@ -186,7 +181,7 @@
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(yoga|zed)$
       negate: true
     vars:
       tox_envlist: py38
@@ -203,14 +198,11 @@
       Run unit tests for an OpenStack Python project under cPython
       version 3.8 on ubuntu focal.
 
-      This job runs with tox<4 from stable/victortia till stable/zed.
+      This job runs with tox<4 from stable/victoria till stable/zed.
 
       Uses tox with the ``py38`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      - ^.*/victoria
-      - ^.*/wallaby
-      - ^.*/xena
       - ^.*/yoga
       - ^.*/zed
     vars:
@@ -235,7 +227,7 @@
       Uses tox with the ``py39`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      regex: ^stable/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^stable/(yoga|zed)$
       negate: true
     vars:
       tox_envlist: py39
@@ -255,9 +247,6 @@
       Uses tox version <4 with the ``py39`` environment.
     irrelevant-files: *common-irrelevant-files
     branches:
-      - ^.*/victoria
-      - ^.*/wallaby
-      - ^.*/xena
       - ^.*/yoga
       - ^.*/zed
     vars:
@@ -538,7 +527,7 @@
       Uses tox with the ``cover`` environment.
     nodeset: ubuntu-noble
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      regex: ^.*/(yoga|zed|2023.1|2024.1)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -557,9 +546,7 @@
     nodeset: ubuntu-jammy
     branches:
       - ^.*/2023.1
-      - ^.*/2023.2
       - ^.*/2024.1
-      - ^.*/2024.2
     required-projects:
       - name: openstack/requirements
     irrelevant-files: *common-irrelevant-files
@@ -578,9 +565,6 @@
       This job runs on focal from stable/victoria until stable/zed.
     nodeset: ubuntu-focal
     branches:
-      - ^.*/victoria
-      - ^.*/wallaby
-      - ^.*/xena
       - ^.*/yoga
       - ^.*/zed
     required-projects:
@@ -624,7 +608,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-noble
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      regex: ^.*/(yoga|zed|2023.1|2024.1)$
       negate: true
     vars:
       tox_envlist: functional
@@ -639,7 +623,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^.*/(2023.1|2023.2|2024.1|2024.2)$
+      regex: ^.*/(2023.1|2024.1)$
     vars:
       tox_envlist: functional
 
@@ -655,7 +639,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-focal
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^.*/(yoga|zed)$
     vars:
       tox_envlist: functional
 
@@ -670,7 +654,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-noble
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      regex: ^.*/(yoga|zed|2023.1|2024.1)$
       negate: true
     vars:
       tox_envlist: functional
@@ -686,7 +670,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-jammy
     branches:
-      regex: ^.*/(2023.1|2023.2|2024.1|2024.2)$
+      regex: ^.*/(2023.1|2024.1)$
     vars:
       tox_envlist: functional
 
@@ -703,7 +687,7 @@
     irrelevant-files: *common-irrelevant-files
     nodeset: ubuntu-focal
     branches:
-      regex: ^.*/(victoria|wallaby|xena|yoga|zed)$
+      regex: ^.*/(yoga|zed)$
     vars:
       tox_envlist: functional
 
@@ -941,7 +925,7 @@
          :zuul:jobvar:`tox_pdf_envlist` exists.
 
     branches:
-      regex: ^*/(victoria|wallaby|xena|yoga|zed|2023.1|2023.2|2024.1|2024.2)$
+      regex: ^.*/(yoga|zed|2023.1|2024.1)$
       negate: true
     required-projects:
       - name: openstack/requirements
@@ -998,9 +982,7 @@
     run: playbooks/tox-docs/run.yaml
     branches:
       - ^.*/2023.1
-      - ^.*/2023.2
       - ^.*/2024.1
-      - ^.*/2024.2
 
 - job:
     name: openstack-tox-docs
@@ -1046,9 +1028,6 @@
     pre-run: playbooks/tox-docs/pre.yaml
     run: playbooks/tox-docs/run.yaml
     branches:
-      - ^.*/victoria
-      - ^.*/wallaby
-      - ^.*/xena
       - ^.*/yoga
       - ^.*/zed
 
