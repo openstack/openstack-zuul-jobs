@@ -84,6 +84,7 @@
       Uses tox with the ``py27`` environment.
     pre-run: playbooks/tox/py27.yaml
     irrelevant-files: &common-irrelevant-files
+      - ^\.gitreview$
       - ^.*\.rst$
       - ^api-ref/.*$
       - ^doc/.*$
