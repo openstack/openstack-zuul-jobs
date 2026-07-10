@@ -485,6 +485,9 @@
       version 3 releases designated for testing the latest release.
     check:
       jobs:
+        - charmbuild:
+            branches:
+              - master
         - openstack-tox-pep8
         - openstack-tox-py310:
             branches:
@@ -496,6 +499,9 @@
               - master
     gate:
       jobs:
+        - charmbuild:
+            branches:
+              - master
         - openstack-tox-pep8
         - openstack-tox-py310:
             branches:
