@@ -97,6 +97,12 @@
         cmd: |
           docker run --rm -t --network=host -e 'GRAFANA_URL=http://admin:password@localhost:3000' -v {{ GRAFYAML_DIR }}:/grafana:ro quay.io/opendevorg/grafyaml
 
+    - name: Import dashboards again to check update path
+      shell:
+        executable: /bin/bash
+        cmd: |
+          docker run --rm -t --network=host -e 'GRAFANA_URL=http://admin:password@localhost:3000' -v {{ GRAFYAML_DIR }}:/grafana:ro quay.io/opendevorg/grafyaml
+
     - name: Get list of dashboards
       uri:
         url: 'http://localhost:3000/api/search'
