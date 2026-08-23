@@ -552,6 +552,7 @@
         - openstack-tox-py311:
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -569,11 +570,13 @@
         - openstack-tox-py313:
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
         # py3.14 testing is added as non voting in 2026.1 release.
         - openstack-tox-py314:
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
             voting: false
     gate:
@@ -601,6 +604,7 @@
         - openstack-tox-py311:
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -613,6 +617,7 @@
         - openstack-tox-py313:
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
     periodic:
       jobs:
@@ -649,11 +654,13 @@
         # non-voting variant in openstack-python3-jobs.
         - openstack-tox-py314:
             branches:
+              - stable/2026.2
               - master
             voting: true
         # py3.15 testing is added as non voting in 2026.2 release.
         - openstack-tox-py315:
             branches:
+              - stable/2026.2
               - master
             voting: false
     gate:
@@ -663,6 +670,7 @@
         - openstack-tox-py314:
             branches:
               - master
+              - stable/2026.2
             voting: true
 
 - project-template:
@@ -717,6 +725,7 @@
               - openstack/horizon
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -740,6 +749,7 @@
               - openstack/horizon
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
         # py3.14 testing is added as non voting in 2026.1 release.
         - openstack-tox-py314:
@@ -747,6 +757,7 @@
               - openstack/horizon
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
             voting: false
     gate:
@@ -784,6 +795,7 @@
               - openstack/horizon
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -800,6 +812,7 @@
               - openstack/horizon
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
     periodic:
       jobs:
@@ -866,6 +879,7 @@
               - openstack/neutron
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -889,6 +903,7 @@
               - openstack/neutron
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
         # py3.14 testing is added as non voting in 2026.1 release.
         - openstack-tox-py314:
@@ -896,6 +911,7 @@
               - openstack/neutron
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
             voting: false
     gate:
@@ -933,6 +949,7 @@
               - openstack/neutron
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -949,6 +966,7 @@
               - openstack/neutron
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
     periodic:
       jobs:
@@ -1015,6 +1033,7 @@
               - openstack/nova
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -1038,6 +1057,7 @@
               - openstack/nova
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
         # py3.14 testing is added as non voting in 2026.1 release.
         - openstack-tox-py314:
@@ -1045,6 +1065,7 @@
               - openstack/nova
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
             voting: false
     gate:
@@ -1082,6 +1103,7 @@
               - openstack/nova
             branches:
               - unmaintained/2024.1
+              - stable/2026.2
               - master
         # py3.12 testing is added as mandatory from 2025.1 release onwards.
         # From 2026.1, we run it as periodic only(assuming py3.10 and py3.13
@@ -1098,6 +1120,7 @@
               - openstack/nova
             branches:
               - stable/2026.1
+              - stable/2026.2
               - master
     periodic:
       jobs:
@@ -1812,6 +1835,7 @@
         - upstream-translation-update:
             branches:
               - master
+              - stable/2026.2
               - stable/2026.1
               - stable/2025.2
               - stable/2025.1
@@ -1820,6 +1844,7 @@
         - propose-translation-update:
             branches:
               - master
+              - stable/2026.2
               - stable/2026.1
               - stable/2025.2
               - stable/2025.1
@@ -1932,6 +1957,7 @@
               - stable/2025.1
               - stable/2025.2
               - stable/2026.1
+              - stable/2026.2
         - openstack-tox-py39:
             branches:
               - stable/2025.1
@@ -1939,6 +1965,9 @@
             branches:
               - stable/2025.2
               - stable/2026.1
+        - openstack-tox-py311:
+            branches:
+              - stable/2026.2
         - openstack-tox-py312:
             branches:
               - stable/2025.1
@@ -1946,6 +1975,7 @@
         - openstack-tox-py313:
             branches:
               - stable/2026.1
+              - stable/2026.2
 
 - project-template:
     name: periodic-stable-jobs-neutron
@@ -1961,6 +1991,7 @@
               - stable/2025.1
               - stable/2025.2
               - stable/2026.1
+              - stable/2026.2
             required-projects:
               - openstack/neutron
         - openstack-tox-py39:
@@ -1974,6 +2005,11 @@
               - stable/2026.1
             required-projects:
               - openstack/neutron
+        - openstack-tox-py311:
+            branches:
+              - stable/2026.2
+            required-projects:
+              - openstack/neutron
         - openstack-tox-py312:
             branches:
               - stable/2025.1
@@ -1983,6 +2019,7 @@
         - openstack-tox-py313:
             branches:
               - stable/2026.1
+              - stable/2026.2
             required-projects:
               - openstack/neutron
 
