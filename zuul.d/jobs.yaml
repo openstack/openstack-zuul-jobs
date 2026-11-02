@@ -509,6 +509,7 @@
     post-run: playbooks/tox-molecule/post.yaml
     vars:
       bindep_profile: test molecule
+      ensure_tox_version: '!=4.67.5'
 
 - job:
     name: openstack-tox-pep8
@@ -538,6 +539,7 @@
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      ensure_tox_version: '!=4.67.5'
     timeout: 3000
 
 - job:
@@ -556,6 +558,7 @@
     irrelevant-files: *common-irrelevant-files
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
+      ensure_tox_version: '!=4.67.5'
     timeout: 3000
 
 - job:
@@ -1398,6 +1401,8 @@
 - job:
     name: announce-release
     description: Send a release announcement after publishing a project
+    vars:
+      ensure_tox_version: '!=4.67.5'
     pre-run: playbooks/release/pre.yaml
     run: playbooks/release/announce.yaml
     required-projects:
@@ -1469,6 +1474,7 @@
       tox env.
     vars:
       tox_envlist: gerrit
+      ensure_tox_version: '!=4.67.5'
     files:
       - ^gerrit/acls/.*$
       - bindep.txt
@@ -1503,6 +1509,7 @@
       env.
     vars:
       tox_envlist: irc
+      ensure_tox_version: '!=4.67.5'
     files:
       - bindep.txt
       - accessbot/channels.yaml
@@ -1522,6 +1529,7 @@
       Generates the index page of http://specs.openstack.org/.
     vars:
       tox_envlist: specs
+      ensure_tox_version: '!=4.67.5'
       sphinx_build_dir: specs
 
 - job:
@@ -1531,6 +1539,7 @@
       Generates the index page for https://docs.openstack.org/infra/.
     vars:
       tox_envlist: infra-docs
+      ensure_tox_version: '!=4.67.5'
       sphinx_build_dir: docs-site
 
 - job:
@@ -1637,6 +1646,7 @@
       - zuul/zuul-jobs
     vars:
       tox_envlist: linters
+      ensure_tox_version: '!=4.67.5'
       tox_environment:
         ANSIBLE_ROLES_PATH: ~/src/opendev.org/opendev/base-jobs/roles:~/src/opendev.org/zuul/zuul-jobs/roles:~/src/opendev.org/openstack/openstack-zuul-jobs/roles:~/src/opendev.org/openstack/project-config/roles:~/src/opendev.org/opendev/system-config/roles
 
@@ -1652,6 +1662,7 @@
     run: playbooks/tox-with-sudo/run.yaml
     vars:
       tox_envlist: functional
+      ensure_tox_version: '!=4.67.5'
 
 - job:
     name: golang-base
