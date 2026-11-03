@@ -2005,13 +2005,9 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/2025.1
               - stable/2025.2
               - stable/2026.1
               - stable/2026.2
-        - openstack-tox-py39:
-            branches:
-              - stable/2025.1
         - openstack-tox-py310:
             branches:
               - stable/2025.2
@@ -2021,7 +2017,6 @@
               - stable/2026.2
         - openstack-tox-py312:
             branches:
-              - stable/2025.1
               - stable/2025.2
         - openstack-tox-py313:
             branches:
@@ -2039,15 +2034,9 @@
       jobs:
         - openstack-tox-docs:
             branches:
-              - stable/2025.1
               - stable/2025.2
               - stable/2026.1
               - stable/2026.2
-            required-projects:
-              - openstack/neutron
-        - openstack-tox-py39:
-            branches:
-              - stable/2025.1
             required-projects:
               - openstack/neutron
         - openstack-tox-py310:
@@ -2063,7 +2052,6 @@
               - openstack/neutron
         - openstack-tox-py312:
             branches:
-              - stable/2025.1
               - stable/2025.2
             required-projects:
               - openstack/neutron
