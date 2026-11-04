@@ -20,7 +20,6 @@
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       enable_fips: false
-      ensure_tox_version: '!=4.67.5'
 
 - job:
     name: openstack-tox
@@ -39,7 +38,6 @@
     vars:
       tox_constraints_file: '{{ ansible_user_dir }}/src/opendev.org/openstack/requirements/upper-constraints.txt'
       enable_fips: false
-      ensure_tox_version: '!=4.67.5'
 
 - job:
     name: openstack-tox
